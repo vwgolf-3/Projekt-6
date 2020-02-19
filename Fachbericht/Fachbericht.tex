@@ -1,0 +1,150 @@
+\documentclass[final]{fhnwreport}       	%[mode] = draft or final
+                                        	%{class} = fhnwreport, article, 
+                                        	%          report, book, beamer, standalone
+\input{header}			               	%loads all packages, definitions and settings											
+\title{Fachbericht}  		        		%Project Title
+\author{Team Schenk \& Aebi}      				    %Document Type => Technical Report, ...
+\date{\today}          				   	%Place and Date
+
+\begin{document}
+
+%%---TITLEPAGE---------------------------------------------------------------------------------
+\thispagestyle{empty}
+%	\ohead{\includegraphics[scale=0.5]{Bilder/Logo_FHNW.jpg}}
+	\begin{figure}
+		 \vspace*{-\topskip}\vspace*{-\headsep}
+		\includegraphics[scale=1]{graphics/fhnw_ht_logo_de.pdf}
+	\end{figure}
+	\begin{center}
+		\vspace*{2cm}
+		{\huge{\textbf{\thetitle}}}\\
+		\vspace*{0.5cm}
+		
+		{\scshape\Large Projekt 5 Cocktailmaschine - \theauthor \\} \Large{\today}
+		\vfill
+		\begin{normalsize}
+			{\begin{tabbing}
+					\textbf{Betreuender Dozent:} \hspace{5cm}\= Prof. Dr. Schleuniger, Pascal\\[0.8cm]		
+					\textbf{Team:} \>Schenk, Kim \\ \>Aebi, Robin\\[0.8cm]
+					\textbf{Studiengang:} \>Elektro- und Informationstechnik
+					\\[0.8cm]	\textbf{Semester:} \>Herbstsemester 2019
+			\end{tabbing}}
+		\end{normalsize}
+		\vfill
+	\end{center}
+\clearpage
+			
+%%---ABSTRACT----------------------------------------------------------------------------
+\selectlanguage{english}				%ngerman or english
+\thispagestyle{empty}
+\include{sections/abstract}
+
+
+%%---TABLE OF CONTENTS-------------------------------------------------------------------
+\pagenumbering{Roman}		
+\selectlanguage{ngerman}				%ngerman or english
+\tableofcontents
+\clearpage
+
+%%---TEXT--------------------------------------------------------------------------------
+\pagenumbering{arabic}
+\input{sections/1_0_Einleitung}
+
+\pagebreak
+\input{sections/2_0_Recherche}
+	\input{sections/2_1_0_Aufbau_der_Cocktailmaschine}
+		\input{sections/2_1_1_Spirits}
+		\input{sections/2_1_2_Der_Cocktailmixer}
+		\input{sections/2_1_3_CocktailAvenue}
+		\input{sections/2_1_4_myRocktail}
+		
+\clearpage
+\input{sections/2_1_5_Entscheidungsfindung_Aufbau}
+
+\pagebreak
+\input{sections/3_0_Grobkonzept}
+
+\input{sections/3_1_0_Blockschaltbild}
+
+%\input{sections/3_2_0_Bauteilauswahl}
+
+\input{sections/3_2_1_Motor}
+
+\input{sections/3_2_3_Resolver}
+
+\input{sections/3_2_2_TMC4671_EVAL_BOARD}
+
+\input{sections/3_2_4_Foerderband}
+
+\input{sections/3_2_5_Pumpen}
+
+\input{sections/3_2_6_Durchflussmessung}
+
+\input{sections/3_2_7_Display}
+
+\input{sections/3_2_8_Mikrocontroller}
+
+\pagebreak
+\input{sections/4_0_Detailkonzept}
+
+\input{sections/4_1_0_Speisungen}
+
+\input{sections/4_2_0_SinCos_Interface}
+
+\input{sections/4_3_0_Pumpenansteuerung}
+
+\input{sections/4_4_0_Display}
+
+\input{sections/4_5_0_UserInterface}
+
+\pagebreak
+\input{sections/5_0_Hardware}
+
+\input{sections/5_1_0_Speisungen}
+
+\input{sections/5_2_0_Motorenansteuerung}
+
+\input{sections/5_3_0_Pumpenansteuerung}
+
+\input{sections/5_4_0_Display}
+
+\input{sections/5_5_0_Mikrocontroller}
+
+\input{sections/5_6_0_Gesamtsystem}
+
+\input{sections/6_0_Software}
+	\input{sections/6_1_0_Mikrocontroller}
+\pagebreak
+
+\input{sections/7_0_Fazit}
+
+\input{sections/8_0_Schlusswort}
+\pagebreak
+
+\input{sections/9_0_Ehrlichkeitserklaerung}
+\pagebreak
+
+
+\clearpage
+%%---BIBLIOGRAPHY------------------------------------------------------------------------
+{\sloppypar
+\printbibliography[heading=bibintoc]
+\label{sec:lit}
+%\selectlanguage{ngerman}				%ngerman or english
+%\printbibliography
+}
+
+%%---APPENDIX----------------------------------------------------------------------------
+\include{sections/appendix}
+
+%%---NOTES for DEBUG---------------------------------------------------------------------
+\ifdraft{%Do this only if mode=draft
+%%requires \usepackage{todonotes})
+\newpage
+\listoftodos[\section{Todo-Notes}]
+\clearpage
+}
+{%Do this only if mode=final
+}
+
+\end{document}

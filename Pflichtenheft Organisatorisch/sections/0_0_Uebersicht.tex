@@ -1,0 +1,92 @@
+\clearpage
+\section{Einleitung}\label{sec:Einleitung}
+Das Organisatorische Pflichtenheft beinhaltet viele verschiedene Teilschritte, welche die Rahmenbedingungen definieren. In diesem werden die Projektziele, Lieferobjekte sowie die die Meilensteine festgelegt. Ausserdem beinhaltet es einen detaillierten Projektstrukturplan, welcher Arbeitspakete und den Zeitplan enthält.
+
+\subsection{Ausgangslage}\label{subsec:Ausgangslage}
+
+Automatisierte Flüssigkeitssysteme sind heutzutage nicht mehr wegzudenken. Sei es in Kaffeemaschinen, automatischen Düngermischbecken oder in der Herstellung von Medikamenten.
+
+In diesem Projekt soll eine Cocktailmaschine realisiert werden, welche im Heimanwendungsbereich zum Einsatz kommen kann. 
+ 
+\newpage
+\subsection{Projektziele}\label{subsec:Projektziele}
+
+\subsubsection{Pflichtziele}\label{sec:Pflichtziele}
+
+\begin{figure}[H]
+	\begin{flushleft}
+	\small
+		\begin{tabular}{|p{3cm}|p{2.5cm}|p{10.6cm}|}%{|c|l|l|}
+			\hline
+			\multicolumn{1}{|l|}{\textbf{Nummer}} & \textbf{Pflichtziele}  & \textbf{Anforderungen}                                                                                                                                            \\ \hline
+			\multicolumn{1}{|c|}{\text{1}} & Recherche & Die Recherche muss die Beschreibung drei verschiedener Cocktailmaschen enthalten. Damit eine Entscheidung für den Aufbau gefällt werden kann, müssen diese verglichen werden. \\ \hline
+			\multicolumn{1}{|c|}{2}                                 & Konzept              & Das Konzept muss sich komplett auf die Recherche abstützen und im Grunde die Fragen beinhalten, welche sich mit den Projektzielen auseinandersetzen. Diese sind:\newline
+\textbullet Wie sieht der mechanische Aufbau der Maschine aus?\newline
+\textbullet Welche Pumpen werden für die Flüssigkeitsbeförderung verwendet?\newline
+\textbullet Wie wird die Menge der durchfliessenden Flüssigkeit gemessen? \newline
+\textbullet Welcher Umfang umfasst die Benutzeroberfläche?\newline
+\textbullet Welcher Microkontroller ist weshalb für die Anwendung geeignet?\newline
+\textbullet Wie ist es möglich, die Maschine zu reinigen?\newline
+\textbullet Wie kann erreicht werden, dass die Gläser nicht überlaufen?
+\\ \hline
+			\multicolumn{1}{|c|}{3} & Fördertechnik & Die Ansteuerung der Fördertechnik muss so geschehen, dass der Inhalt beim Fahren mit dem Schlitten nicht überlauft. Ein Brushless DC-Motor oder Steppermotor ist erwünscht. Die Dimensionen des Förderbands soll folgende Kriterien erfüllen:
+			\begin{tabbing}
+\textbullet \textbf{Länge:} \hspace{3cm}
+\=$90\pm10cm$ (Unter Annahme 10cm pro \\ \>Flasche)\\
+\textbullet \textbf{Geschwindigkeit:} \> min. 6cm/sek\\
+\textbullet \textbf{Belastbarkeit:} \> 9.81N	 (1kg auf Schlitten)\\
+\textbullet \textbf{Oberfläche:} \> Rutschfest\\
+\textbullet \textbf{Führungen:} \> 2 Führungsstangen mit Gewinde-\\ \> stange um den Schlitten zu bewegen\\
+\textbullet \textbf{Schlitten:} \> 3D-Druck
+\end{tabbing}\\
+\hline
+\multicolumn{1}{|c|}{4} & Pumpen & Für die Flüssigkeitsbeförderung sollen Pumpen verwendet werden. Die Dauer deren Ansteuerung regelt die Menge der durchfliessenden Flüssigkeit auf eine Genauigkeit von 10ml bei einem Inhalt von 3dl. Die Regelung darf demnach eine Toleranz von 3.3\% aufweisen.\newline Weiter sollen die Getränke von einer Menge von 3dl in unter einer Minute fertiggestellt werden. Daraus folgt eine Mindestdurchflussrate von 0.6l pro Minute\\ \hline
+			\multicolumn{1}{|c|}{5} & Microkontroller & Der Microkontroller muss alle Komponenten ansteuern können, damit auf Multiplexer oder Schieberegister verzichtet werden kann. Dazu gehören die Pumpen sowie die Flüssigkeitsmessung.
+Zudem soll er alle benötigten Schnittstellen (SPI, UART) unterstützen, damit eine Kommunikation mit allen Komponenten stattfinden kann. Dies umfasst den Treiber des DC-Motors (SPI) und das Display (SPI) und zu einem späteren Zeitpunkt den Bluetooth- oder WiFi-Chip (UART).
+						 \\ \hline	
+			\multicolumn{1}{|c|}{6} & Display & Das Display soll über SPI angesteuert werden. Der Benutzer soll mittels Touch-Eingabe das Gerät bedienen können und sämtliche Eingaben ermöglichen. Dies umfasst das Auslösen der Getränkezubereitung, den Reinigungsmodus und speichern von Getränke. \\ \hline	
+			\multicolumn{1}{|c|}{7} & Software & Die Software für den Mikrocontroller soll in C geschrieben sein. \\ \hline	
+		\end{tabular}
+	\end{flushleft}
+	\label{table:Pflichtziele}
+	
+\end{figure}
+
+\subsubsection{Wunschziele}\label{sec:Wunschziele}
+
+\begin{figure}[H]
+	\begin{flushleft}
+		\small
+		\begin{tabular}{|p{3cm}|p{3.25cm}|p{9.85cm}|}%{|c|l|l|}
+			\hline
+			\multicolumn{1}{|l|}{\textbf{Nummer}} & \textbf{Wunschziele}  & \textbf{Anforderungen}                                                                                                                                            \\ \hline
+		
+			\multicolumn{1}{|c|}{1} & Reinigung & Das System soll einen Selbstreinigungsmodus haben, der jedoch nur unter Aufsicht des Benutzers geschehen kann. Die Aufsicht verhindert unkontrolliertes Reinigen. \\ \hline
+			\multicolumn{1}{|c|}{2} & Durchflussmessung & Die Menge der durchfliessenden Flüssigkeit muss auf 1ml genau sein bei einem Inhalt von 3dl. Dies entspricht einer Toleranz von 0.33\%. Weiter soll ein Getränk mit einer Menge von 3dl in unter einer halben Minute fertiggestellt sein. Dies entspricht unter Berücksichtigung der Bewegung zwischen den Getränken einer Mindestdurchflussrate von 1.2l pro Minute. \\ \hline
+			\multicolumn{1}{|c|}{4} & Messstation & Das System soll den Füllstand im Glas erkennen, um ein Überlaufen zu verhindern.\\ 
+			\hline
+			\multicolumn{1}{|c|}{5} & Software & Die Software soll nach dem MVC-Prinzip funktionieren. \\ 
+			\hline
+		\end{tabular}
+	\end{flushleft}
+
+	\label{table:Wunschziele}
+\end{figure}
+\subsection{Lieferobjekte}\label{subsec:Lieferobjekte}
+\begin{figure}[H]
+	\begin{flushleft}
+		\small
+		\begin{tabular}{|p{4.25cm}|p{3.75cm}|p{2.5cm}|p{3.75cm}|}%{|c|l|l|}
+			\hline
+
+			\textbf{Objekt} & \textbf{Form} & \textbf{Empfänger} & \textbf{Termin} \\ \hline
+			Projektvereinbarung & Als PDF und per E-Mail & Dozent & 01.10.2019 \\ \hline
+			Fachbericht & Elektronische Abgabe & Dozent & 19.01.2020 \\ \hline
+			Factsheet & Elektronische Abgabe & Dozent & 19.01.2020 \\ \hline
+			Produkt & Hardware & Dozent & gemäss \newline Projekthandbuch \\ \hline
+			Projektdaten & USB-Stick & Dozent & gemäss \newline Projekthandbuch \\ \hline
+		
+		\end{tabular}
+	\end{flushleft}
+	\label{table:Lieferobjekte}
+\end{figure}

@@ -1,0 +1,17 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'Fachbericht.blg'
+[46] biber-MSWIN32:313> INFO - === 
+[93] Biber.pm:371> INFO - Reading 'Fachbericht.bcf'
+[276] Biber.pm:857> INFO - Found 45 citekeys in bib section 0
+[308] Biber.pm:3976> INFO - Processing section 0
+[328] Biber.pm:4136> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
+[341] bibtex.pm:1500> INFO - LaTeX decoding ...
+[457] bibtex.pm:1316> INFO - Found BibTeX data source 'literature/bibliography.bib'
+[662] Utils.pm:193> WARN - I didn't find a database entry for 'unbekannt_foc-motorenansteuerung_2019' (section 0)
+[712] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[712] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[712] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[712] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[761] bbl.pm:617> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
+[777] bbl.pm:720> INFO - Output to Fachbericht.bbl
+[785] Biber.pm:110> INFO - WARNINGS: 1

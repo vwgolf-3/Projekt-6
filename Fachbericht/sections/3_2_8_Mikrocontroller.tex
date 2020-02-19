@@ -1,0 +1,89 @@
+\subsection{Mikrocontroller}\label{subsubsec:Mikrocontroller}
+
+Der Mikrocontroller ist dafür da, die verwendeten Bauteile gemäss Systemanforderungen anzusteuern und auszulesen. Er ist folglich dafür da, die Eingaben auf dem Display zu verarbeiten, die Getränke zu speichern und die zu bewegenden Peripherien zu steuern.
+
+\subsubsection{Anforderungen}\label{par:Anforderungen_Mikrocontroller}
+
+\begin{tabularx}{\textwidth}{lllX}
+Flüssigkeitsbeförderung & : & Pumpen & - 12x Digital Outputs\\
+ & & Durchflussmessung & - 12x Digital Inputs\\
+Motorentreiber & : & Kommunikation & - SPI \\
+ &  &  & - 1x Digital Output \\
+ &  & Status & - 1x Digital Input \\
+ &  & EN\_IN & - 1x Digital Output \\
+Resolver & : & PWM 8kHz & - 1x Digital Output PWM \\
+Display & : & Kommunikation & - UART \\
+Computer USB & : & Kommunikation & - UART \\
+\end{tabularx}
+
+%\begin{tabbing}
+%\parbox[t]{.25\textwidth}{Flüssigkeitsbeförderung} \= \parbox[t]{.25\textwidth}{Pumpen} \= \parbox[t]{.5\textwidth}{- 12x Digital Outputs Pumpen}\\
+%\> \linefill \\
+%\parbox[t]{.25\textwidth}{\mbox{}} \> \parbox[t]{.25\textwidth}{Durchflussmessung} \> \parbox[t]{.5\textwidth}{- 12x Analog/Digital Inputs Durchflussmessung}\\
+%\linefill \\
+%\parbox[t]{.25\textwidth}{Motorentreiber} \> \parbox[t]{.25\textwidth}{Kommunikation mit BLDC-Motorentreiber}
+%\> \parbox[t]{.5\textwidth}{- SPI (MISO, MOSI, CLK)\newline - SPI CS\newline - UART (TXD\_SYNC1, RXD\_SYNC2)}\\
+%\> \linefill \\
+%\parbox[t]{.25\textwidth}{\mbox{}} \> \parbox[t]{.25\textwidth}{Sonstige Anschlüsse} \> \parbox[t]{.5\textwidth}{- Dir (Digital)\newline - Step (Digital)\newline - Status (Digital)\newline - EN\_IN (Digital)\newline - GPIO\_0 (Digital)\newline - GPIO\_1 (Digital)\newline - GPIO\_2 (Digital)\newline - GPIO\_7 (Digital)\newline - AGPI\_A (Analog, nicht umbedingt benötigt)\newline - AGPI\_B (Analog, nicht umbedingt benötigt)\newline - PWM\_IN (PWM)}\\
+%\linefill \\
+%\parbox[t]{.25\textwidth}{Display} \> \parbox[t]{.25\textwidth}{Kommunikation mit TFT Touch Display}\> \parbox[t]{.5\textwidth}{ - TF\_CS (Digital)\newline - TFT\_DC (Digital)\newline - TFT\_Backlight (Digital)\newline - SPI (MISO, MOSI, CLK)\newline
+% - SPI CS}\\
+% \> \linefill \\
+%\parbox[t]{.25\textwidth}{\mbox{}} \> \parbox[t]{.25\textwidth}{Bedienung Touch Panel} \> \parbox[t]{.5\textwidth}{- Touch Panel (4x Analog)}\\
+%\linefill \\
+%\parbox[t]{.25\textwidth}{Bluetooth/WiFi-IC} \> \parbox[t]{.25\textwidth}{Kommunikation mit IC} \> \parbox[t]{.5\textwidth}{ - UART (TX, RX)}\\
+%\end{tabbing}
+\newpage
+\subsubsection{Total benötigte Anschlüsse}\label{par:Anforderungen_Mikrocontroller_Zus}
+
+Ins Gesamt sind folglich folgende Anschlüsse nötig:
+\begin{itemize}
+	\item 14 Digital Outputs
+	\item 13 Digital Inputs
+	\item 1 PWM Pin
+	\item 1 SPI
+	\item 3 UART
+\end{itemize}
+
+\subsubsection{In Frage kommende Mikrocontroller}\label{par:In_Frage_kommender_Mikrocontroller}
+
+Aufgrund einer ziemlich grossen Community und damit auch weit verbreiteter Anwendungsgebieten sowie Forumtauglichkeit wurden Mikrocontroller des Herstellers Atmel untersucht. Folgende Mikrocontroller erfüllen die Mindestanforderungen an das System:
+
+\begin{itemize}
+\item Atmega 640
+\item Atmega 1280
+\item Atmega 2560
+\end{itemize}
+
+In der folgenden Tabelle \ref{Table:Gegenueberstellung_Mikrocontroller} sind die Eigenschaften der Mikrocontroller gegenübergestellt.
+
+\begin{table}[ht]
+\centering
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|c|c|c|}\hline
+\textbf{Mikrocontroller} & ATMEGA640-16AU & ATMEGA1280-16AU & ATMEGA2560-16AU \\ 
+\hline 
+\textbf{Preis} & CHF 7.93 (Digikey) & CHF 10.84 (Digikey) & 12.09 (Digikey)\\ 
+\hline 
+\textbf{Kerngrösse} & 8-bit & 8-bit & 8-bit \\ 
+\hline 
+\textbf{Geschwindigkeit} & 16MHz & 16MHz & 16MHz \\ 
+\hline 
+\textbf{Konnektivität} & \shortstack{EBI/EMI, I2C,\\ SPI, UART} & \shortstack{EBI/EMI, I2C,\\ SPI, UART} & \shortstack{EBI/EMI, I2C,\\ SPI, UART} \\ 
+\hline 
+\textbf{I/O} & 86 & 86 & 86 \\ 
+\hline 
+\textbf{FLASH-Grösse} &  64KB & 128KB & 256KB \\ 
+\hline 
+\textbf{Spannung} & 2,7 bis 5,5V & 2,7 bis 5,5V & 4,5 bis 5,5V \\ 
+\hline 
+\textbf{Analogwandler} & 16x10b & 16x10b & 16x10b \\ 
+\hline 
+\textbf{Gehäuse} & 100-TQFP & 100-TQFP & 100-TQFP \\ 
+\hline 
+\end{tabular*}\\
+\caption{Gegenüberstellung der in Frage kommenden Mikrocontroller}\label{Table:Gegenueberstellung_Mikrocontroller}
+\end{table}
+
+\subsubsection{Verwendeter Mikrocontroller}\label{par:Verwendeter_Mikrocontroller}
+
+In der Tabelle \ref{Table:Gegenueberstellung_Mikrocontroller} ist ersichtlich, dass sich die Mikrocontroller nur in der Speichergrösse sowie Versorgungsspannung unterscheiden. Unter der Annahme, dass die Programmierung des Displays einen grossen Teil des Speichers einnimmt, wird ein Chip mit grossem FLASH-Speicher bevorzugt. Weiter besteht mit diesem Chip die Möglichkeit, mit einem Entwicklungsboard wie dem Arduino Mega, einen Prototyp des gesamten Systems zu simulieren. Deshalb wird für dieses Projekt der \textbf{\textcolor{blue}{ATMEGA2560-16AU}} verwendet.

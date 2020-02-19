@@ -1,0 +1,97 @@
+\documentclass[final]{fhnwreport}       %[mode] = draft or final
+                                        %{class} = fhnwreport, article, 
+                                        %          report, book, beamer, standalone
+\input{header}			                %loads all packages, definitions and settings											
+\title{Pflichtenheft}  		        %Project Title
+\author{Schenk Kim, Aebi Robin}      				    %Document Type => Technical Report, ...
+\date{\today}          				   %Place and Date
+
+\begin{document}
+
+%%---TITLEPAGE---------------------------------------------------------------------------------
+\thispagestyle{empty}
+%	\ohead{\includegraphics[scale=0.5]{Bilder/Logo_FHNW.jpg}}
+	\begin{figure}
+		 \vspace*{-\topskip}\vspace*{-\headsep}
+		\includegraphics[scale=1]{graphics/fhnw_ht_logo_de.pdf}
+	\end{figure}
+	\begin{center}
+		\vspace*{2cm}
+		{\huge{\textbf{\thetitle}}}\\
+		\vspace*{0.5cm}
+		
+		{\scshape\Large Projekt 5e \\} \Large{\today}
+		\vfill
+		\begin{normalsize}
+			{\begin{tabbing}
+%					\textbf{Auftraggeber:} \hspace{5cm}\= Prof. Hans Gysin\\
+					
+					\\[0.8cm]
+					\textbf{Dozent:} \hspace{5cm}
+					\=Prof. Dr. Schleuniger, Pascal\\
+					
+					
+					\\[0.4cm]
+%					\textbf{Projektleiter:} \>Fabian von Büren\\
+%					\\[0.4cm]
+					
+					\textbf{Team:} \>Aebi, Robin \\ \>Schenk, Kim \\
+					\\[0.8cm]
+					\textbf{Studiengang:} \>Elektro- und Informationstechnik
+					\\[0.8cm]	\textbf{Semester:} \>Herbstsemester 2019
+			\end{tabbing}}
+		\end{normalsize}
+		\vfill
+	\end{center}
+\clearpage
+
+%%---TABLE OF CONTENTS-------------------------------------------------------------------
+\pagenumbering{Roman}		
+\selectlanguage{ngerman}				%ngerman or english
+\tableofcontents
+\clearpage
+
+%%---TEXT--------------------------------------------------------------------------------
+\pagenumbering{arabic}
+\input{sections/0_0_Uebersicht}
+\pagebreak
+
+%\input{sections/1_0_Organisationsstruktur}
+%\pagebreak
+
+\input{sections/2_0_Projektplanung}
+\pagebreak
+
+%\input{sections/3_0_Projektbudget}
+%\pagebreak
+
+%\input{sections/4_0_Kommunikationskonzept}
+%\pagebreak
+
+%\input{sections/5_0_Risikomanagement}
+%\pagebreak
+
+\input{sections/6_0_Projektvereinbarung}
+
+
+\clearpage
+%%---BIBLIOGRAPHY------------------------------------------------------------------------
+{\sloppypar
+\printbibliography
+\label{sec:lit}
+%\selectlanguage{ngerman}				%ngerman or english
+%\printbibliography
+}
+
+
+%%---NOTES for DEBUG---------------------------------------------------------------------
+\ifdraft{%Do this only if mode=draft
+%%requires \usepackage{todonotes})
+\newpage
+\listoftodos[\section{Todo-Notes}]
+\clearpage
+}
+{%Do this only if mode=final
+}
+
+\end{document}

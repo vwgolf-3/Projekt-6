@@ -1,0 +1,107 @@
+\documentclass[final]{fhnwreport}       %[mode] = draft or final
+                                        %{class} = fhnwreport, article, 
+                                        %          report, book, beamer, standalone
+\input{header}			                %loads all packages, definitions and settings											
+\title{Fachliches Pflichtenheft}  		        %Project Title
+\author{Team 1}      				    %Document Type => Technical Report, ...
+\date{\today}          				   %Place and Date
+
+\begin{document}
+
+%%---TITLEPAGE---------------------------------------------------------------------------------
+\thispagestyle{empty}
+%	\ohead{\includegraphics[scale=0.5]{Bilder/Logo_FHNW.jpg}}
+	\begin{figure}
+		 \vspace*{-\topskip}\vspace*{-\headsep}
+		\includegraphics[scale=1]{graphics/fhnw_ht_logo_de.pdf}
+	\end{figure}
+	\begin{center}
+		\vspace*{2cm}
+		{\huge{\textbf{\thetitle}}}\\
+		\vspace*{0.5cm}
+		
+		{\scshape\Large Projekt 4 - \theauthor \\} \Large{\today}
+		\vfill
+		\begin{normalsize}
+			{\begin{tabbing}
+					\textbf{Auftraggeber:} \hspace{5cm}\= Prof. Hans Gysin\\
+					
+					\\[0.8cm]
+					\textbf{Fachcoach:} 
+					\>Prof. Dr. Pascal Schleuniger\\
+					\>Matthias Meier\\
+					\>Albert Zihlmann\\
+					\>Dr. Anita Gertiser\\
+					\>Pascal Buchschacher\\
+					\>Marie-Thérèse Rudolf von Rohr\\
+					
+					\\[0.4cm]
+					\textbf{Projektleiter:} \>Fabian von Büren\\
+					\\[0.4cm]
+					
+					\textbf{Team:} \>Christoph Kuhn \\ \>Dennis Aeschbacher \\ \>Raffael Anklin \\ \>Raphael Nikles \\ \>Robin Aebi
+					\\[0.8cm]
+					\textbf{Studiengang:} \>Elektro- und Informationstechnik
+					\\[0.8cm]	\textbf{Semester:} \>Frühlingssemester 2019
+			\end{tabbing}}
+		\end{normalsize}
+		\vfill
+	\end{center}
+\clearpage
+
+
+%%---TABLE OF CONTENTS-------------------------------------------------------------------
+\pagenumbering{Roman}		
+\selectlanguage{ngerman}				%ngerman or english
+\tableofcontents
+\clearpage
+
+%%---TEXT--------------------------------------------------------------------------------
+\pagenumbering{arabic}
+\input{sections/1_0_Uebersicht}
+	\input{sections/1_1_Ausgangslage}
+	\input{sections/1_2_Projektziele}
+	\input{sections/1_3_Lieferobjekte}
+\pagebreak
+
+\input{sections/2_0_Loesungskonzept}
+\pagebreak
+
+\input{sections/3_0_Hardware}
+\pagebreak
+
+\input{sections/4_0_Software}
+\pagebreak
+
+\input{sections/6_0_Bedienung}
+\pagebreak
+
+\input{sections/7_0_Testkonzept}
+\pagebreak
+
+\input{sections/8_0_Projektvereinbarung}
+
+
+\clearpage
+%%---BIBLIOGRAPHY------------------------------------------------------------------------
+{\sloppypar
+\printbibliography
+\label{sec:lit}
+%\selectlanguage{ngerman}				%ngerman or english
+%\printbibliography
+}
+
+%%---APPENDIX----------------------------------------------------------------------------
+\include{sections/appendix}
+
+%%---NOTES for DEBUG---------------------------------------------------------------------
+\ifdraft{%Do this only if mode=draft
+%%requires \usepackage{todonotes})
+\newpage
+\listoftodos[\section{Todo-Notes}]
+\clearpage
+}
+{%Do this only if mode=final
+}
+
+\end{document}

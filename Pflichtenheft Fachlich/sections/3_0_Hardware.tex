@@ -1,0 +1,55 @@
+\clearpage
+\section{Hardware / Machine Controlling System}\label{sec:Hardware}
+Das \textit{Machine Controlling System} dient der Steuerung des 3D-Druckers sowie der Regelung einzelner Komponenten. Es setzt sich aus mehreren funktional verschiedenen Einheiten zusammen, welche in diesem Kapitel beschrieben werden.
+
+
+\subsection{Motor Control Unit (MCU)}\label{subsec:MCU}
+Die \textit{Motor Control Unit} ist für die Ansteuerung der Schrittmotoren zuständig. Es sollen vier Schrittmotoren angesteuert werden. Dabei handelt es sich um den Extrudermotor, welcher das Filament fördert und die drei Achsenmotoren für die x-, y- und z-Bewegungen. Die Ansteuerung soll mittels Motorentreiber realisiert werden. Der Mikrocontroller soll mit der Firmware \textit{Marlin} gemäss Kapitel \ref{subsec:PCU} arbeiten. Dabei stehen jedem Schrittmotor drei Digitalpins vom Mikrocontroller zur Verfügung. Dabei handelt es sich um einen Enable Pin (\textit{EN}), welcher den Treiber aktiviert, einem Signal (\textit{DIR}) für die Drehrichtung des Schrittmotors und einem Schrittgeber (\textit{STEP}), welcher jeweils mittels positiver Flanke den jeweiligen Schrittmotor um einen Schritt weiter dreht. 
+
+Die Schrittmotoren können mit maximal 2.5A betrieben werden. Bei diesem Strom wird das maximale Drehmoment der Motoren erreicht. Im Betrieb soll das volle Drehmoment jedoch nicht erreicht werden, da die Motoren möglichst unbehindert arbeiten sollten. Die Treiber sollen daher auf einen maximalen Strom von $\sim$ 2A ausgelegt werden.
+
+Die Schrittauflösung der Motoren beträgt $1.8^\circ$ pro Schritt. Dies ergibt eine Auflösung von 200 Schritten pro Umdrehung. Bei dem vormontierten Ritzel des \textit{Ender 3} 3D-Druckers ($\sim$ 13.9mm Durchmesser) ergibt dies einen Weg von 0.218mm pro Schritt in x- und y-Richtung. Da eine höhere Auflösung angestrebt wird, sollen die Motorentreiber microstepping\footnote{\textbf{Microstepping} treibt einen Schrittmotor mit weniger als einem Vollschritt pro Bewegung an. Unter normalen Betriebsbedingungen arbeitet ein Schrittmotor, indem er jeweils einen Vollschritt weiterdreht pro positive Flanke am STEP-Eingang. Microstepping ermöglicht es einem Motor, weitaus feinere Schritte zu machen. Dies geschieht, indem die Steuerung nicht den vollen Stromimpuls an den Schrittmotor sendet.} unterstützen von mindestens 16 Teilschritten pro Schritt ($\frac{1}{16}$). Somit kann eine Auflösung von mindestens 3200 Schritten pro Umdrehung erreicht werden. Dies ergibt wiederum einen Weg von $0.0136$mm pro Schritt. Dies ist jedoch nur eine Überschlagsrechnung. Eine genaue Kalibration kann, nach einem Testdruck, in der Software vorgenommen werden. 
+
+Aus den erwähnten Gründen wurde ein Treiber von \textit{TMC} ausgewählt. Es handelt sich dabei um den \textit{TMC2130} \textit{SilentStepStick} Treiber. 
+
+\subsection{Debugging Interface Unit (DIU)}\label{subsec:DIU}
+Die \textit{Debugging Interface Unit} ist dazu da, das Debuggen während dem Entwicklungsprozess der Firmware zu vereinfachen. Via UART/USB-Bridge können Messwerte, Statewerte der aktuell verwendeten Zustandsmaschinen, etc. auf dem Computer ausgegeben werden. Aus Kostengründen würden die verwendeten Bauteile in einer Serienproduktion nicht bestückt werden und stellen daher eine Bestückungsvariante dar.
+
+\subsection{Printer Controlling Unit (PCU)}\label{subsec:PCU}
+Die \textit{Printer Controlling Unit} beinhaltet die nötige Schaltungsteile um den 3D-Drucker zu steuern bzw. zu regeln. Namentlich den zentralen Mikrocontroller und diverse Bussysteme welche nötig sind um die verwendete Peripherie anzusteuern. Als Grundlage für die Firmware des Mikrocontrollers wird die Firmware \textit{Marlin} verwendet \cite{marlin_webseite} welche unter \textit{GNU General Public License Version 3} frei verfügbar ist \cite{marlin_gnu_lizenz}. Aus Kompatibilitätsgründen zu den erforderlichen Pins der Firmware \textit{Marlin} wird als Mikrocontroller ein \textit{ATmega2560} \cite{ATmega2560_spezifiaktion} der Firma \textit{Microchip Technology} verwendet.
+
+\subsection{Storage Disk Unit (SDU)}\label{subsec:SDU}
+Die \textit{Storage Disk Unit} besteht aus einem SD-Karten-Slot sowie aus dessen Ansteuerung. Diese dient dazu G-Code Dateien (zu druckende 3D-Modelle), welche via WLAN empfangen werden, zwischenzuspeichern oder kann direkt als Quelle für G-Code Dateien dienen. Die SD-Karte ist via SPI (\textit{Serial Peripheral Interface}) an den Mikrocontroller angeschlossen. 
+
+\subsection{Heater-Fan-Controll Unit (HFU)}\label{subsec:HFU}
+Die \textit{Heater-Fan-Controll Unit} dient dazu die Ventilatoren sowie die Heizelemente in Heizbett und Extruder anzusteuern und zu regeln. Dazu wird ein Regelungssystem bestehend aus Ventilator bzw. Heizung und Temperatursensor aufgebaut, welches von der \textit{Printer Controlling Unit} gesteuert wird. Alle Aktoren können per Pulsweitenmodulation (PWM) oder per Ein/Aus Steuerung geregelt werden. Beim Heizbett muss darauf geachtet werden das die spezifizierte Maximaltemperatur von $110^\circ$C \cite{ender3_spezifiaktion} nicht überschritten wird.
+
+\subsection{Interface Controlling Unit (ICU)}\label{subsec:ICU}
+Die \textit{Interface Controlling Unit} dient dazu via WLAN eine Verbindung zum Internet herzustellen und somit G-Code Dateien (zu druckende 3D-Modelle) zu empfangen und diese an die \textit{Printer Controlling Unit} weiterzuleiten. Ausserdem können Befehle empfangen werden welche z.B. die Schrittmotoren steuern. Um den Verbindungsaufbau zu vereinfachen wird auf ein vorgefertigtes \textit{ESP8266} Modul zurückgegriffen \cite{ESP8266_spezifiaktion}.
+
+
+\subsection{Human-Machine-Interface (HMI)}\label{subsec:HMI}
+Das \textit{Human-Machine-Interface} bietet dem Benutzer neben dem \textit{Human-Machine-System} eine sekundäre Option, um mit dem 3D-Drucker zu interagieren. Es setzt sich aus einem Drehgeber und einem Display (voraussichtlich \textit{LCD12864} der Firma \textit{Waveshare}) zusammen. Auf letzterem werden verschiedene Optionen und Statusanzeigen dargestellt, auf welche durch Verwendung des Drehgebers zugegriffen werden kann.
+
+
+\subsection{Power Management Unit (PMU)}\label{subsec:PMU}
+Als Speisung für die gesamte Hardware ist das mitgelieferte Netzteil des \textit{Ender 3} 3D-Druckers ($24 VDC$ / $15A$) vorgesehen. 
+%Da dieses möglicherweise nicht genügend Strom zur Verfügung stellt, ist angedacht es bei Bedarf während des Entwicklungsprozesses mit einem ATX-Netzteil\footnote{\textbf{ATX} steht für \textit{Advanced Technology Extended}. Diese Netzteile werden normalerweise in Desktop Computer verbaut und liefern $12VDC$, $5VDC$ und $3.3VDC$ und sind mit Leitungen von $100W$ bis zu $2000W$ verfügbar.} zu ersetzen.
+
+Um die genaue Leistungsaufnahme des Gerätes besser bestimmen zu können soll hier eine kurze Überschlagsrechnung gemacht werden. Die Bauteile, die die grösste Auswirkung auf die Leistungsaufnahme haben sind: 4 x Steppermotor, Heizbett und die Extruder Heizung. Die anderen Komponenten können im Vergleich vernachlässigt werden. Ein einziger Motor hat einen maximalen Strom von 2.5A, eine Betriebsspannung von 3.1V und somit eine maximale Leistung von 7.7W \cite{steppermotor}. Das Heizbett wird mit 24V gespiesen und hat eine Leistung von 220W \cite{Heizbett_Ender3}.
+%Das Heizbett wird mit $24V$ gespiesen, hat einen gemessenen Widerstand von ??$\Omega$ und damit eine Leistung von ??$W$. 
+Die Extruder Heizung hat nach Hersteller eine Leistung von 40W \cite{Extruder_Heizung}. Somit ergibt sich, mit eine maximale Leistung von $\sim290$W für diese wichtigen Bauteile.
+
+Das von \textit{Creality3D} bereitgestellte Netzteil mit $\sim360$W ist somit für unsere Zwecke gut dimensioniert und muss nicht geändert werden \cite{ender3_spezifiaktion}. 
+
+%Die Motoren arbeiten jedoch effektiv nie bei diesen Strömen. Höhere Ströme sind nur möglich, wenn die Motoren viel Kraft benötigen. Dies ist jedoch in der vorliegenden Anwendung nicht der Fall, da das System so leichtgängig wie möglich sein sollte. Der verwendete Treiber gemäss Kapitel \ref{subsec:MCU} ist deshalb auch nicht für den Maximalstrom von $2.5A$ dimensioniert. Dazu kommt auch noch, dass die Motoren erst anfangen zu arbeiten, wenn die Heizelemente die Temperatur erreicht haben und somit nur noch die Temperatur halten müssen. Dies benötigt weniger Leistung als das Aufheizen selbst. Somit ist das Netzteil für unsere Zwecke wiederum überdimensioniert.
+
+
+
+
+
+
+
+
+
+
