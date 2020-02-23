@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  23 FEB 2020 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  23 FEB 2020 19:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2112,81 +2112,6 @@ File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 
 LaTeX Warning: Label `subsec:Beleuchtung' multiply defined.
 
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
-
-LaTeX Warning: Label `sec:Einleitung' multiply defined.
-
 (./sections/appendix.aux))
 \openout1 = `Fachbericht.aux'.
 
@@ -2404,11 +2329,11 @@ _ht_logo_de.pdf>]
 
 ] (./Fachbericht.toc [1
 
-] [2])
+])
 \tf@toc=\write7
 \openout7 = `Fachbericht.toc'.
 
- [3]
+ [2]
 (./sections/1_0_Einleitung.tex)pdfTeX warning (ext4): destination with the same
  identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
@@ -2438,71 +2363,22 @@ l.1 \clearpage
 (./sections/5_4_1_ESP-XXX.tex) (./sections/5_4_2_USB-C.tex)
 (./sections/5_4_3_RFID.tex) (./sections/5_5_Beleuchtung.tex)
 (./sections/5_6_Mikrocontroller.tex) (./sections/6_0_Inbetriebnahme.tex)
-(./sections/6_1_Speisungen.tex [3
-
-]) (./sections/6_1_1_12V_Speisung.tex [4
-
-])
-(./sections/6_1_2_5V_Speisung.tex [5
-
-]) (./sections/6_1_3_3.3V_Speisung.tex
-[6
-
-]) (./sections/6_2_Motor.tex [7
-
-]) (./sections/6_2_0_BLDC_&_H-Brücke.tex
-[8
-
-]) (./sections/6_2_1_ABN-Encoder.tex [9
-
-]) (./sections/6_2_2_Treiber.tex
-[10
-
-]) (./sections/6_3_Flüssigkeitsbeförderung.tex [11
+(./sections/6_1_Speisungen.tex) (./sections/6_1_1_12V_Speisung.tex)
+(./sections/6_1_2_5V_Speisung.tex) (./sections/6_1_3_3.3V_Speisung.tex)
+(./sections/6_2_Motor.tex) (./sections/6_2_0_BLDC_&_H-Brücke.tex)
+(./sections/6_2_1_ABN-Encoder.tex) (./sections/6_2_2_Treiber.tex)
+(./sections/6_3_Flüssigkeitsbeförderung.tex) (./sections/6_3_0_Pumpen.tex)
+(./sections/6_3_1_Durchflussmessgeräte.tex)
+(./sections/6_4_Benutzerschnittstellen.tex) (./sections/6_4_0_Touch-Display.tex
+) (./sections/6_4_1_ESP-XXX.tex) (./sections/6_4_2_USB-C.tex)
+(./sections/6_4_3_RFID.tex) (./sections/6_5_Beleuchtung.tex)
+(./sections/7_0_Software.tex) (./sections/7_1_Strukturplan.tex [3
 
 ])
-(./sections/6_3_0_Pumpen.tex [12
-
-]) (./sections/6_3_1_Durchflussmessgeräte.tex
-[13
-
-]) (./sections/6_4_Benutzerschnittstellen.tex [14
-
-])
-(./sections/6_4_0_Touch-Display.tex [15
-
-]) (./sections/6_4_1_ESP-XXX.tex
-[16
-
-]) (./sections/6_4_2_USB-C.tex [17
-
-]) (./sections/6_4_3_RFID.tex [18
-
-])
-(./sections/6_5_Beleuchtung.tex [19
-
-]) (./sections/7_0_Software.tex [20
-
-])
-(./sections/7_1_Strukturplan.tex [21
-
-])
-(./sections/7_2_Programmflussdiagramm.tex [22
-
-]) (./sections/8_0_Evaluation.tex
-[23
-
-]) (./sections/9_0_Fazit.tex [24
-
-]) (./sections/9_1_Zielerreichung.tex
-[25
-
-]) (./sections/9_2_Kosten.tex [26
-
-]) (./sections/10_0_Schlusswort.tex
-[27
-
-]) (./sections/11_0_Ehrlichkeitserklaerung.tex) [28
+(./sections/7_2_Programmflussdiagramm.tex) (./sections/8_0_Evaluation.tex)
+(./sections/9_0_Fazit.tex) (./sections/9_1_Zielerreichung.tex)
+(./sections/9_2_Kosten.tex) (./sections/10_0_Schlusswort.tex)
+(./sections/11_0_Ehrlichkeitserklaerung.tex) [4
 
 ]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 171.
@@ -2528,7 +2404,7 @@ Underfull \hbox (badness 1383) in paragraph at lines 171--171
 / wiki / Techniker _ Schule _ Butzbach /
  []
 
-[29
+[5
 
 ]
 Underfull \hbox (badness 1178) in paragraph at lines 171--171
@@ -2537,17 +2413,18 @@ n-US. Adres-se: []$\T1/lmtt/m/n/10.95 https : / / nextion . tech / datasheets /
 
  []
 
-[30] [31]
+[6] [7]
 \openout2 = `sections/appendix.aux'.
 
  (./sections/appendix.tex)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
- (./Fachbericht.aux (./sections/abstract.aux) (./sections/appendix.aux))
+ (./Fachbericht.aux (./sections/abstract.aux)
+(./sections/appendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
 Package rerunfilecheck Info: File `Fachbericht.out' has not changed.
-(rerunfilecheck)             Checksum: 69046592FDE916D69FEA2B6A9B60AD04;3434.
+(rerunfilecheck)             Checksum: B6BA59A940F2FFABC7710EFE2A0AF186;3921.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -2559,12 +2436,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
  49882 strings out of 492639
- 1033727 string characters out of 6133088
- 1547754 words of memory out of 5000000
- 52731 multiletter control sequences out of 15000+600000
+ 1034629 string characters out of 6133088
+ 1548866 words of memory out of 5000000
+ 52756 multiletter control sequences out of 15000+600000
  598351 words of font info for 64 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 64i,9n,71p,1509b,3399s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,9n,71p,1509b,3419s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2018/te
 xmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2018/texmf-dist/fonts/type1/p
 ublic/lm/lmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx12.pf
@@ -2573,10 +2450,10 @@ b><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/201
 type1/public/lm/lmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr
 i10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmro10.pfb><c:/texliv
 e/2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Fachbericht.pdf (36 pages, 382752 bytes).
+Output written on Fachbericht.pdf (11 pages, 378617 bytes).
 PDF statistics:
- 666 PDF objects out of 1000 (max. 8388607)
- 601 compressed objects within 7 object streams
- 139 named destinations out of 1000 (max. 500000)
+ 556 PDF objects out of 1000 (max. 8388607)
+ 517 compressed objects within 6 object streams
+ 114 named destinations out of 1000 (max. 500000)
  482 words of extra memory for PDF output out of 10000 (max. 10000000)
 
