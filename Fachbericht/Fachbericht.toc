@@ -3,146 +3,60 @@
 \babel@toc {english}{}
 \babel@toc {ngerman}{}
 \contentsline {section}{\numberline {1}Einleitung}{1}{section.1}
-\contentsline {section}{\numberline {2}Recherche}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Aufbau bestehender Cocktailmaschine}{2}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Spirits}{2}{subsubsection.2.1.1}
-\contentsline {paragraph}{Aufbau}{2}{section*.3}
-\contentsline {paragraph}{Bedienung}{2}{section*.4}
-\contentsline {paragraph}{Technische Daten}{3}{section*.5}
-\contentsline {paragraph}{Reinigung}{3}{section*.6}
-\contentsline {paragraph}{Sonstiges}{3}{section*.7}
-\contentsline {subsubsection}{\numberline {2.1.2}Der Cocktailmixer}{4}{subsubsection.2.1.2}
-\contentsline {paragraph}{Aufbau}{4}{section*.9}
-\contentsline {paragraph}{Bedienung}{4}{section*.10}
-\contentsline {paragraph}{Technische Daten}{4}{section*.11}
-\contentsline {paragraph}{Reinigung}{4}{section*.12}
-\contentsline {paragraph}{Sonstiges}{4}{section*.13}
-\contentsline {subsubsection}{\numberline {2.1.3}CocktailAvenue}{5}{subsubsection.2.1.3}
-\contentsline {paragraph}{Aufbau}{5}{section*.15}
-\contentsline {paragraph}{Bedienung}{5}{section*.16}
-\contentsline {paragraph}{Technische Daten}{5}{section*.17}
-\contentsline {paragraph}{Reinigung}{6}{section*.18}
-\contentsline {paragraph}{Sonstiges}{6}{section*.19}
-\contentsline {subsubsection}{\numberline {2.1.4}myRocktail}{6}{subsubsection.2.1.4}
-\contentsline {paragraph}{Aufbau}{6}{section*.21}
-\contentsline {paragraph}{Bedienung}{7}{section*.22}
-\contentsline {paragraph}{Technische Daten}{7}{section*.23}
-\contentsline {paragraph}{Reinigung}{7}{section*.24}
-\contentsline {subsection}{\numberline {2.2}Entscheidungfindung des Aufbaus}{8}{subsection.2.2}
-\contentsline {section}{\numberline {3}Grobkonzept}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}Blockschaltbild}{10}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Motor}{12}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Aufbau}{12}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Funktionsprinzip}{13}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}Resolver}{14}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Aufbau}{15}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Funktionsweise}{15}{subsubsection.3.3.2}
-\contentsline {subsection}{\numberline {3.4}TMC4671-EVAL Board}{16}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Aufbau}{16}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}FOC}{17}{subsubsection.3.4.2}
-\contentsline {subsubsection}{\numberline {3.4.3}Park \& Clarke}{18}{subsubsection.3.4.3}
-\contentsline {subsubsection}{\numberline {3.4.4}PID-Regler}{19}{subsubsection.3.4.4}
-\contentsline {subsection}{\numberline {3.5}F\IeC {\"o}rderband}{21}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Anforderungen}{21}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Verwendeter Aufbau}{21}{subsubsection.3.5.2}
-\contentsline {subsection}{\numberline {3.6}Pumpen}{22}{subsection.3.6}
-\contentsline {subsubsection}{\numberline {3.6.1}Anforderungen}{22}{subsubsection.3.6.1}
-\contentsline {subsubsection}{\numberline {3.6.2}M\IeC {\"o}gliche Pumpen}{22}{subsubsection.3.6.2}
-\contentsline {subsubsection}{\numberline {3.6.3}Verwendete Pumpe}{23}{subsubsection.3.6.3}
-\contentsline {subsection}{\numberline {3.7}Durchflussmessung}{24}{subsection.3.7}
-\contentsline {subsubsection}{\numberline {3.7.1}Anforderungen}{24}{subsubsection.3.7.1}
-\contentsline {subsubsection}{\numberline {3.7.2}Verwendeter Durchflusssensor}{24}{subsubsection.3.7.2}
-\contentsline {subsection}{\numberline {3.8}Display}{25}{subsection.3.8}
-\contentsline {subsubsection}{\numberline {3.8.1}Anforderungen}{25}{subsubsection.3.8.1}
-\contentsline {subsubsection}{\numberline {3.8.2}In Frage kommende Displays}{25}{subsubsection.3.8.2}
-\contentsline {subsubsection}{\numberline {3.8.3}Verwendetes Display}{26}{subsubsection.3.8.3}
-\contentsline {subsection}{\numberline {3.9}Mikrocontroller}{26}{subsection.3.9}
-\contentsline {subsubsection}{\numberline {3.9.1}Anforderungen}{26}{subsubsection.3.9.1}
-\contentsline {subsubsection}{\numberline {3.9.2}Total ben\IeC {\"o}tigte Anschl\IeC {\"u}sse}{27}{subsubsection.3.9.2}
-\contentsline {subsubsection}{\numberline {3.9.3}In Frage kommende Mikrocontroller}{27}{subsubsection.3.9.3}
-\contentsline {subsubsection}{\numberline {3.9.4}Verwendeter Mikrocontroller}{27}{subsubsection.3.9.4}
-\contentsline {section}{\numberline {4}Detailkonzept}{28}{section.4}
-\contentsline {subsection}{\numberline {4.1}Speisungen}{28}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}48V Speisung}{28}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}12V Speisung}{29}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}5V Speisung}{31}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}3,3V Speisung}{32}{subsubsection.4.1.4}
-\contentsline {subsection}{\numberline {4.2}Resolver Interface}{32}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Problem}{32}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Schaltungsaufbau}{32}{subsubsection.4.2.2}
-\contentsline {paragraph}{Opamp1:}{32}{section*.56}
-\contentsline {paragraph}{Opamp2:}{33}{section*.57}
-\contentsline {paragraph}{Opamp3}{34}{section*.58}
-\contentsline {subsubsection}{\numberline {4.2.3}Simulation}{35}{subsubsection.4.2.3}
-\contentsline {subsection}{\numberline {4.3}Pumpenansteuerung}{39}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Durchflussmessger\IeC {\"a}te}{39}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Display}{40}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}User Interface}{41}{subsection.4.6}
-\contentsline {subsubsection}{\numberline {4.6.1}Startanzeige}{42}{subsubsection.4.6.1}
-\contentsline {subsubsection}{\numberline {4.6.2}Zutatenanzeige}{42}{subsubsection.4.6.2}
-\contentsline {subsubsection}{\numberline {4.6.3}Listenanzeige}{43}{subsubsection.4.6.3}
-\contentsline {subsubsection}{\numberline {4.6.4}Zubereitungsabfrage}{43}{subsubsection.4.6.4}
-\contentsline {subsubsection}{\numberline {4.6.5}Zubereitungsbildschirm}{44}{subsubsection.4.6.5}
-\contentsline {subsubsection}{\numberline {4.6.6}Bereitanzeige}{44}{subsubsection.4.6.6}
-\contentsline {subsubsection}{\numberline {4.6.7}Menuanzeige}{45}{subsubsection.4.6.7}
-\contentsline {subsubsection}{\numberline {4.6.8}Bearbeitungsanzeige}{45}{subsubsection.4.6.8}
-\contentsline {subsubsection}{\numberline {4.6.9}Cocktaileinstellungsanzeige}{46}{subsubsection.4.6.9}
-\contentsline {subsubsection}{\numberline {4.6.10}Reinigungsanzeige1}{46}{subsubsection.4.6.10}
-\contentsline {subsubsection}{\numberline {4.6.11}Reinigungsanzeige2}{47}{subsubsection.4.6.11}
-\contentsline {subsubsection}{\numberline {4.6.12}Reinigungsanzeige3}{47}{subsubsection.4.6.12}
-\contentsline {subsubsection}{\numberline {4.6.13}Infoanzeige}{48}{subsubsection.4.6.13}
-\contentsline {subsubsection}{\numberline {4.6.14}Abbruchanzeige}{48}{subsubsection.4.6.14}
-\contentsline {subsubsection}{\numberline {4.6.15}Fehleranzeige}{49}{subsubsection.4.6.15}
-\contentsline {section}{\numberline {5}Hardware}{50}{section.5}
-\contentsline {subsection}{\numberline {5.1}Speisungen}{50}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}12V Speisung}{50}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}5V Speisung}{51}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}Motorenansteuerung}{52}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Resolver}{52}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}TMC4671}{56}{subsubsection.5.2.2}
-\contentsline {subsection}{\numberline {5.3}Pumpenansteuerung}{57}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Durchflussmessger\IeC {\"a}te}{58}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Display}{58}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}Test}{58}{subsubsection.5.5.1}
-\contentsline {subsubsection}{\numberline {5.5.2}Erwartung}{58}{subsubsection.5.5.2}
-\contentsline {subsubsection}{\numberline {5.5.3}Ergebnis}{59}{subsubsection.5.5.3}
-\contentsline {subsection}{\numberline {5.6}Mikrocontroller}{60}{subsection.5.6}
-\contentsline {subsubsection}{\numberline {5.6.1}Systemtest}{60}{subsubsection.5.6.1}
-\contentsline {subsubsection}{\numberline {5.6.2}Erwartung}{60}{subsubsection.5.6.2}
-\contentsline {subsubsection}{\numberline {5.6.3}Ergebnis}{60}{subsubsection.5.6.3}
-\contentsline {subsubsection}{\numberline {5.6.4}Programmablauf}{63}{subsubsection.5.6.4}
-\contentsline {subsubsection}{\numberline {5.6.5}Erwartung}{63}{subsubsection.5.6.5}
-\contentsline {subsubsection}{\numberline {5.6.6}Ergebnis}{64}{subsubsection.5.6.6}
-\contentsline {section}{\numberline {6}Software Mikrocontroller}{65}{section.6}
-\contentsline {subsection}{\numberline {6.1}Programmflussdiagramm main.c}{65}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Dokumentation}{67}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Einlesen der Headerfiles}{67}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}Pr\IeC {\"a}prozessor-Anweisungen}{67}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Deklarationen}{68}{subsubsection.6.2.3}
-\contentsline {subsubsection}{\numberline {6.2.4}Initialisierungen}{68}{subsubsection.6.2.4}
-\contentsline {subsubsection}{\numberline {6.2.5}Mainroutine}{69}{subsubsection.6.2.5}
-\contentsline {subsection}{\numberline {6.3}libraries}{69}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Ring Buffer}{70}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}SPI}{70}{subsubsection.6.3.2}
-\contentsline {subsubsection}{\numberline {6.3.3}UART}{71}{subsubsection.6.3.3}
-\contentsline {subsubsection}{\numberline {6.3.4}TMC4671}{71}{subsubsection.6.3.4}
-\contentsline {subsubsection}{\numberline {6.3.5}Nextion Display}{72}{subsubsection.6.3.5}
-\contentsline {subsection}{\numberline {6.4}Lizenzen Bibliotheken}{72}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}SPI}{72}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}Uart}{72}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}Ring-Buffer}{73}{subsubsection.6.4.3}
-\contentsline {subsubsection}{\numberline {6.4.4}TMC4671}{73}{subsubsection.6.4.4}
-\contentsline {section}{\numberline {7}Fazit}{74}{section.7}
-\contentsline {subsection}{\numberline {7.1}Was wurde erreicht und was nicht?}{74}{subsection.7.1}
-\contentsline {subsubsection}{\numberline {7.1.1}Speisungen}{74}{subsubsection.7.1.1}
-\contentsline {subsubsection}{\numberline {7.1.2}Mikrokontroller}{74}{subsubsection.7.1.2}
-\contentsline {subsubsection}{\numberline {7.1.3}Motor}{74}{subsubsection.7.1.3}
-\contentsline {subsubsection}{\numberline {7.1.4}Pumpen}{74}{subsubsection.7.1.4}
-\contentsline {subsubsection}{\numberline {7.1.5}Durchflussmessger\IeC {\"a}te}{74}{subsubsection.7.1.5}
-\contentsline {subsubsection}{\numberline {7.1.6}Display}{75}{subsubsection.7.1.6}
-\contentsline {subsection}{\numberline {7.2}Vergleich der gesetzten Ziele mit den erreichten Zielen}{75}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Pflichzielerf\IeC {\"u}llung}{76}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.2}Wunschzielerf\IeC {\"u}llung}{77}{subsubsection.7.2.2}
-\contentsline {section}{\numberline {8}Schlusswort}{78}{section.8}
-\contentsline {section}{\numberline {9}Ehrlichkeitserkl\IeC {\"a}rung}{79}{section.9}
-\contentsline {section}{Literatur}{80}{section*.116}
+\contentsline {section}{\numberline {2}Ausgangslage}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Blockschaltbild}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Komponentenauswahl}{2}{subsection.2.2}
+\contentsline {section}{\numberline {3}Neue Hardware}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}USB-C}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Wirelessmodul}{2}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}RFID}{2}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Beleuchtug}{2}{subsection.3.4}
+\contentsline {section}{\numberline {4}Printaufbau}{2}{section.4}
+\contentsline {section}{\numberline {5}Teilsysteme}{2}{section.5}
+\contentsline {subsection}{\numberline {5.1}Speisungen}{2}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{2}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{2}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{2}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{2}{subsubsection.5.1.4}
+\contentsline {section}{\numberline {6}Motor}{2}{section.6}
+\contentsline {subsection}{\numberline {6.1}BLDC und H-Br\IeC {\"u}cke}{2}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}ABN-Encoder}{2}{subsection.6.2}
+\contentsline {section}{\numberline {7}Einleitung}{3}{section.7}
+\contentsline {section}{\numberline {8}Einleitung}{4}{section.8}
+\contentsline {section}{\numberline {9}Einleitung}{5}{section.9}
+\contentsline {section}{\numberline {10}Einleitung}{6}{section.10}
+\contentsline {section}{\numberline {11}Einleitung}{7}{section.11}
+\contentsline {section}{\numberline {12}Einleitung}{8}{section.12}
+\contentsline {section}{\numberline {13}Einleitung}{9}{section.13}
+\contentsline {section}{\numberline {14}Einleitung}{10}{section.14}
+\contentsline {section}{\numberline {15}Einleitung}{11}{section.15}
+\contentsline {section}{\numberline {16}Einleitung}{12}{section.16}
+\contentsline {section}{\numberline {17}Einleitung}{13}{section.17}
+\contentsline {section}{\numberline {18}Einleitung}{14}{section.18}
+\contentsline {section}{\numberline {19}Einleitung}{15}{section.19}
+\contentsline {section}{\numberline {20}Einleitung}{16}{section.20}
+\contentsline {section}{\numberline {21}Einleitung}{17}{section.21}
+\contentsline {section}{\numberline {22}Einleitung}{18}{section.22}
+\contentsline {section}{\numberline {23}Einleitung}{19}{section.23}
+\contentsline {section}{\numberline {24}Einleitung}{20}{section.24}
+\contentsline {section}{\numberline {25}Einleitung}{21}{section.25}
+\contentsline {section}{\numberline {26}Einleitung}{22}{section.26}
+\contentsline {section}{\numberline {27}Einleitung}{23}{section.27}
+\contentsline {section}{\numberline {28}Einleitung}{24}{section.28}
+\contentsline {section}{\numberline {29}Einleitung}{25}{section.29}
+\contentsline {section}{\numberline {30}Einleitung}{26}{section.30}
+\contentsline {section}{\numberline {31}Einleitung}{27}{section.31}
+\contentsline {section}{\numberline {32}Einleitung}{28}{section.32}
+\contentsline {section}{\numberline {33}Einleitung}{29}{section.33}
+\contentsline {section}{\numberline {34}Einleitung}{30}{section.34}
+\contentsline {section}{\numberline {35}Einleitung}{31}{section.35}
+\contentsline {section}{\numberline {36}Einleitung}{32}{section.36}
+\contentsline {section}{\numberline {37}Einleitung}{33}{section.37}
+\contentsline {section}{\numberline {38}Einleitung}{34}{section.38}
+\contentsline {section}{\numberline {39}Einleitung}{35}{section.39}
+\contentsline {section}{\numberline {40}Einleitung}{36}{section.40}
+\contentsline {section}{\numberline {41}Einleitung}{37}{section.41}
+\contentsline {section}{\numberline {42}Einleitung}{38}{section.42}
+\contentsline {section}{\numberline {43}Einleitung}{39}{section.43}
+\contentsline {section}{\numberline {44}Ehrlichkeitserkl\IeC {\"a}rung}{39}{section.44}
+\contentsline {section}{Literatur}{40}{section*.3}

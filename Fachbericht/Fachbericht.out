@@ -1,122 +1,58 @@
 \BOOKMARK [1][-]{section.1}{1 Einleitung}{}% 1
-\BOOKMARK [1][-]{section.2}{2 Recherche}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{2.1 Aufbau bestehender Cocktailmaschine}{section.2}% 3
-\BOOKMARK [3][-]{subsubsection.2.1.1}{2.1.1 Spirits}{subsection.2.1}% 4
-\BOOKMARK [3][-]{subsubsection.2.1.2}{2.1.2 Der Cocktailmixer}{subsection.2.1}% 5
-\BOOKMARK [3][-]{subsubsection.2.1.3}{2.1.3 CocktailAvenue}{subsection.2.1}% 6
-\BOOKMARK [3][-]{subsubsection.2.1.4}{2.1.4 myRocktail}{subsection.2.1}% 7
-\BOOKMARK [2][-]{subsection.2.2}{2.2 Entscheidungfindung des Aufbaus}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{3 Grobkonzept}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{3.1 Blockschaltbild}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{3.2 Motor}{section.3}% 11
-\BOOKMARK [3][-]{subsubsection.3.2.1}{3.2.1 Aufbau}{subsection.3.2}% 12
-\BOOKMARK [3][-]{subsubsection.3.2.2}{3.2.2 Funktionsprinzip}{subsection.3.2}% 13
-\BOOKMARK [2][-]{subsection.3.3}{3.3 Resolver}{section.3}% 14
-\BOOKMARK [3][-]{subsubsection.3.3.1}{3.3.1 Aufbau}{subsection.3.3}% 15
-\BOOKMARK [3][-]{subsubsection.3.3.2}{3.3.2 Funktionsweise}{subsection.3.3}% 16
-\BOOKMARK [2][-]{subsection.3.4}{3.4 TMC4671-EVAL Board}{section.3}% 17
-\BOOKMARK [3][-]{subsubsection.3.4.1}{3.4.1 Aufbau}{subsection.3.4}% 18
-\BOOKMARK [3][-]{subsubsection.3.4.2}{3.4.2 FOC}{subsection.3.4}% 19
-\BOOKMARK [3][-]{subsubsection.3.4.3}{3.4.3 Park \046 Clarke}{subsection.3.4}% 20
-\BOOKMARK [3][-]{subsubsection.3.4.4}{3.4.4 PID-Regler}{subsection.3.4}% 21
-\BOOKMARK [2][-]{subsection.3.5}{3.5 F\366rderband}{section.3}% 22
-\BOOKMARK [3][-]{subsubsection.3.5.1}{3.5.1 Anforderungen}{subsection.3.5}% 23
-\BOOKMARK [3][-]{subsubsection.3.5.2}{3.5.2 Verwendeter Aufbau}{subsection.3.5}% 24
-\BOOKMARK [2][-]{subsection.3.6}{3.6 Pumpen}{section.3}% 25
-\BOOKMARK [3][-]{subsubsection.3.6.1}{3.6.1 Anforderungen}{subsection.3.6}% 26
-\BOOKMARK [3][-]{subsubsection.3.6.2}{3.6.2 M\366gliche Pumpen}{subsection.3.6}% 27
-\BOOKMARK [3][-]{subsubsection.3.6.3}{3.6.3 Verwendete Pumpe}{subsection.3.6}% 28
-\BOOKMARK [2][-]{subsection.3.7}{3.7 Durchflussmessung}{section.3}% 29
-\BOOKMARK [3][-]{subsubsection.3.7.1}{3.7.1 Anforderungen}{subsection.3.7}% 30
-\BOOKMARK [3][-]{subsubsection.3.7.2}{3.7.2 Verwendeter Durchflusssensor}{subsection.3.7}% 31
-\BOOKMARK [2][-]{subsection.3.8}{3.8 Display}{section.3}% 32
-\BOOKMARK [3][-]{subsubsection.3.8.1}{3.8.1 Anforderungen}{subsection.3.8}% 33
-\BOOKMARK [3][-]{subsubsection.3.8.2}{3.8.2 In Frage kommende Displays}{subsection.3.8}% 34
-\BOOKMARK [3][-]{subsubsection.3.8.3}{3.8.3 Verwendetes Display}{subsection.3.8}% 35
-\BOOKMARK [2][-]{subsection.3.9}{3.9 Mikrocontroller}{section.3}% 36
-\BOOKMARK [3][-]{subsubsection.3.9.1}{3.9.1 Anforderungen}{subsection.3.9}% 37
-\BOOKMARK [3][-]{subsubsection.3.9.2}{3.9.2 Total ben\366tigte Anschl\374sse}{subsection.3.9}% 38
-\BOOKMARK [3][-]{subsubsection.3.9.3}{3.9.3 In Frage kommende Mikrocontroller}{subsection.3.9}% 39
-\BOOKMARK [3][-]{subsubsection.3.9.4}{3.9.4 Verwendeter Mikrocontroller}{subsection.3.9}% 40
-\BOOKMARK [1][-]{section.4}{4 Detailkonzept}{}% 41
-\BOOKMARK [2][-]{subsection.4.1}{4.1 Speisungen}{section.4}% 42
-\BOOKMARK [3][-]{subsubsection.4.1.1}{4.1.1 48V Speisung}{subsection.4.1}% 43
-\BOOKMARK [3][-]{subsubsection.4.1.2}{4.1.2 12V Speisung}{subsection.4.1}% 44
-\BOOKMARK [3][-]{subsubsection.4.1.3}{4.1.3 5V Speisung}{subsection.4.1}% 45
-\BOOKMARK [3][-]{subsubsection.4.1.4}{4.1.4 3,3V Speisung}{subsection.4.1}% 46
-\BOOKMARK [2][-]{subsection.4.2}{4.2 Resolver Interface}{section.4}% 47
-\BOOKMARK [3][-]{subsubsection.4.2.1}{4.2.1 Problem}{subsection.4.2}% 48
-\BOOKMARK [3][-]{subsubsection.4.2.2}{4.2.2 Schaltungsaufbau}{subsection.4.2}% 49
-\BOOKMARK [3][-]{subsubsection.4.2.3}{4.2.3 Simulation}{subsection.4.2}% 50
-\BOOKMARK [2][-]{subsection.4.3}{4.3 Pumpenansteuerung}{section.4}% 51
-\BOOKMARK [2][-]{subsection.4.4}{4.4 Durchflussmessger\344te}{section.4}% 52
-\BOOKMARK [2][-]{subsection.4.5}{4.5 Display}{section.4}% 53
-\BOOKMARK [2][-]{subsection.4.6}{4.6 User Interface}{section.4}% 54
-\BOOKMARK [3][-]{subsubsection.4.6.1}{4.6.1 Startanzeige}{subsection.4.6}% 55
-\BOOKMARK [3][-]{subsubsection.4.6.2}{4.6.2 Zutatenanzeige}{subsection.4.6}% 56
-\BOOKMARK [3][-]{subsubsection.4.6.3}{4.6.3 Listenanzeige}{subsection.4.6}% 57
-\BOOKMARK [3][-]{subsubsection.4.6.4}{4.6.4 Zubereitungsabfrage}{subsection.4.6}% 58
-\BOOKMARK [3][-]{subsubsection.4.6.5}{4.6.5 Zubereitungsbildschirm}{subsection.4.6}% 59
-\BOOKMARK [3][-]{subsubsection.4.6.6}{4.6.6 Bereitanzeige}{subsection.4.6}% 60
-\BOOKMARK [3][-]{subsubsection.4.6.7}{4.6.7 Menuanzeige}{subsection.4.6}% 61
-\BOOKMARK [3][-]{subsubsection.4.6.8}{4.6.8 Bearbeitungsanzeige}{subsection.4.6}% 62
-\BOOKMARK [3][-]{subsubsection.4.6.9}{4.6.9 Cocktaileinstellungsanzeige}{subsection.4.6}% 63
-\BOOKMARK [3][-]{subsubsection.4.6.10}{4.6.10 Reinigungsanzeige1}{subsection.4.6}% 64
-\BOOKMARK [3][-]{subsubsection.4.6.11}{4.6.11 Reinigungsanzeige2}{subsection.4.6}% 65
-\BOOKMARK [3][-]{subsubsection.4.6.12}{4.6.12 Reinigungsanzeige3}{subsection.4.6}% 66
-\BOOKMARK [3][-]{subsubsection.4.6.13}{4.6.13 Infoanzeige}{subsection.4.6}% 67
-\BOOKMARK [3][-]{subsubsection.4.6.14}{4.6.14 Abbruchanzeige}{subsection.4.6}% 68
-\BOOKMARK [3][-]{subsubsection.4.6.15}{4.6.15 Fehleranzeige}{subsection.4.6}% 69
-\BOOKMARK [1][-]{section.5}{5 Hardware}{}% 70
-\BOOKMARK [2][-]{subsection.5.1}{5.1 Speisungen}{section.5}% 71
-\BOOKMARK [3][-]{subsubsection.5.1.1}{5.1.1 12V Speisung}{subsection.5.1}% 72
-\BOOKMARK [3][-]{subsubsection.5.1.2}{5.1.2 5V Speisung}{subsection.5.1}% 73
-\BOOKMARK [2][-]{subsection.5.2}{5.2 Motorenansteuerung}{section.5}% 74
-\BOOKMARK [3][-]{subsubsection.5.2.1}{5.2.1 Resolver}{subsection.5.2}% 75
-\BOOKMARK [3][-]{subsubsection.5.2.2}{5.2.2 TMC4671}{subsection.5.2}% 76
-\BOOKMARK [2][-]{subsection.5.3}{5.3 Pumpenansteuerung}{section.5}% 77
-\BOOKMARK [2][-]{subsection.5.4}{5.4 Durchflussmessger\344te}{section.5}% 78
-\BOOKMARK [2][-]{subsection.5.5}{5.5 Display}{section.5}% 79
-\BOOKMARK [3][-]{subsubsection.5.5.1}{5.5.1 Test}{subsection.5.5}% 80
-\BOOKMARK [3][-]{subsubsection.5.5.2}{5.5.2 Erwartung}{subsection.5.5}% 81
-\BOOKMARK [3][-]{subsubsection.5.5.3}{5.5.3 Ergebnis}{subsection.5.5}% 82
-\BOOKMARK [2][-]{subsection.5.6}{5.6 Mikrocontroller}{section.5}% 83
-\BOOKMARK [3][-]{subsubsection.5.6.1}{5.6.1 Systemtest}{subsection.5.6}% 84
-\BOOKMARK [3][-]{subsubsection.5.6.2}{5.6.2 Erwartung}{subsection.5.6}% 85
-\BOOKMARK [3][-]{subsubsection.5.6.3}{5.6.3 Ergebnis}{subsection.5.6}% 86
-\BOOKMARK [3][-]{subsubsection.5.6.4}{5.6.4 Programmablauf}{subsection.5.6}% 87
-\BOOKMARK [3][-]{subsubsection.5.6.5}{5.6.5 Erwartung}{subsection.5.6}% 88
-\BOOKMARK [3][-]{subsubsection.5.6.6}{5.6.6 Ergebnis}{subsection.5.6}% 89
-\BOOKMARK [1][-]{section.6}{6 Software Mikrocontroller}{}% 90
-\BOOKMARK [2][-]{subsection.6.1}{6.1 Programmflussdiagramm main.c}{section.6}% 91
-\BOOKMARK [2][-]{subsection.6.2}{6.2 Dokumentation}{section.6}% 92
-\BOOKMARK [3][-]{subsubsection.6.2.1}{6.2.1 Einlesen der Headerfiles}{subsection.6.2}% 93
-\BOOKMARK [3][-]{subsubsection.6.2.2}{6.2.2 Pr\344prozessor-Anweisungen}{subsection.6.2}% 94
-\BOOKMARK [3][-]{subsubsection.6.2.3}{6.2.3 Deklarationen}{subsection.6.2}% 95
-\BOOKMARK [3][-]{subsubsection.6.2.4}{6.2.4 Initialisierungen}{subsection.6.2}% 96
-\BOOKMARK [3][-]{subsubsection.6.2.5}{6.2.5 Mainroutine}{subsection.6.2}% 97
-\BOOKMARK [2][-]{subsection.6.3}{6.3 libraries}{section.6}% 98
-\BOOKMARK [3][-]{subsubsection.6.3.1}{6.3.1 Ring Buffer}{subsection.6.3}% 99
-\BOOKMARK [3][-]{subsubsection.6.3.2}{6.3.2 SPI}{subsection.6.3}% 100
-\BOOKMARK [3][-]{subsubsection.6.3.3}{6.3.3 UART}{subsection.6.3}% 101
-\BOOKMARK [3][-]{subsubsection.6.3.4}{6.3.4 TMC4671}{subsection.6.3}% 102
-\BOOKMARK [3][-]{subsubsection.6.3.5}{6.3.5 Nextion Display}{subsection.6.3}% 103
-\BOOKMARK [2][-]{subsection.6.4}{6.4 Lizenzen Bibliotheken}{section.6}% 104
-\BOOKMARK [3][-]{subsubsection.6.4.1}{6.4.1 SPI}{subsection.6.4}% 105
-\BOOKMARK [3][-]{subsubsection.6.4.2}{6.4.2 Uart}{subsection.6.4}% 106
-\BOOKMARK [3][-]{subsubsection.6.4.3}{6.4.3 Ring-Buffer}{subsection.6.4}% 107
-\BOOKMARK [3][-]{subsubsection.6.4.4}{6.4.4 TMC4671}{subsection.6.4}% 108
-\BOOKMARK [1][-]{section.7}{7 Fazit}{}% 109
-\BOOKMARK [2][-]{subsection.7.1}{7.1 Was wurde erreicht und was nicht?}{section.7}% 110
-\BOOKMARK [3][-]{subsubsection.7.1.1}{7.1.1 Speisungen}{subsection.7.1}% 111
-\BOOKMARK [3][-]{subsubsection.7.1.2}{7.1.2 Mikrokontroller}{subsection.7.1}% 112
-\BOOKMARK [3][-]{subsubsection.7.1.3}{7.1.3 Motor}{subsection.7.1}% 113
-\BOOKMARK [3][-]{subsubsection.7.1.4}{7.1.4 Pumpen}{subsection.7.1}% 114
-\BOOKMARK [3][-]{subsubsection.7.1.5}{7.1.5 Durchflussmessger\344te}{subsection.7.1}% 115
-\BOOKMARK [3][-]{subsubsection.7.1.6}{7.1.6 Display}{subsection.7.1}% 116
-\BOOKMARK [2][-]{subsection.7.2}{7.2 Vergleich der gesetzten Ziele mit den erreichten Zielen}{section.7}% 117
-\BOOKMARK [3][-]{subsubsection.7.2.1}{7.2.1 Pflichzielerf\374llung}{subsection.7.2}% 118
-\BOOKMARK [3][-]{subsubsection.7.2.2}{7.2.2 Wunschzielerf\374llung}{subsection.7.2}% 119
-\BOOKMARK [1][-]{section.8}{8 Schlusswort}{}% 120
-\BOOKMARK [1][-]{section.9}{9 Ehrlichkeitserkl\344rung}{}% 121
-\BOOKMARK [1][-]{section*.116}{Literatur}{}% 122
+\BOOKMARK [1][-]{section.2}{2 Ausgangslage}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{2.1 Blockschaltbild}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Komponentenauswahl}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{3 Neue Hardware}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{3.1 USB-C}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Wirelessmodul}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{3.3 RFID}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{3.4 Beleuchtug}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{4 Printaufbau}{}% 10
+\BOOKMARK [1][-]{section.5}{5 Teilsysteme}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Speisungen}{section.5}% 12
+\BOOKMARK [3][-]{subsubsection.5.1.1}{5.1.1 48V Speisung}{subsection.5.1}% 13
+\BOOKMARK [3][-]{subsubsection.5.1.2}{5.1.2 12V Speisung}{subsection.5.1}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.3}{5.1.3 5V Speisung}{subsection.5.1}% 15
+\BOOKMARK [3][-]{subsubsection.5.1.4}{5.1.4 3.3V Speisung}{subsection.5.1}% 16
+\BOOKMARK [1][-]{section.6}{6 Motor}{}% 17
+\BOOKMARK [2][-]{subsection.6.1}{6.1 BLDC und H-Br\374cke}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.2}{6.2 ABN-Encoder}{section.6}% 19
+\BOOKMARK [1][-]{section.7}{7 Einleitung}{}% 20
+\BOOKMARK [1][-]{section.8}{8 Einleitung}{}% 21
+\BOOKMARK [1][-]{section.9}{9 Einleitung}{}% 22
+\BOOKMARK [1][-]{section.10}{10 Einleitung}{}% 23
+\BOOKMARK [1][-]{section.11}{11 Einleitung}{}% 24
+\BOOKMARK [1][-]{section.12}{12 Einleitung}{}% 25
+\BOOKMARK [1][-]{section.13}{13 Einleitung}{}% 26
+\BOOKMARK [1][-]{section.14}{14 Einleitung}{}% 27
+\BOOKMARK [1][-]{section.15}{15 Einleitung}{}% 28
+\BOOKMARK [1][-]{section.16}{16 Einleitung}{}% 29
+\BOOKMARK [1][-]{section.17}{17 Einleitung}{}% 30
+\BOOKMARK [1][-]{section.18}{18 Einleitung}{}% 31
+\BOOKMARK [1][-]{section.19}{19 Einleitung}{}% 32
+\BOOKMARK [1][-]{section.20}{20 Einleitung}{}% 33
+\BOOKMARK [1][-]{section.21}{21 Einleitung}{}% 34
+\BOOKMARK [1][-]{section.22}{22 Einleitung}{}% 35
+\BOOKMARK [1][-]{section.23}{23 Einleitung}{}% 36
+\BOOKMARK [1][-]{section.24}{24 Einleitung}{}% 37
+\BOOKMARK [1][-]{section.25}{25 Einleitung}{}% 38
+\BOOKMARK [1][-]{section.26}{26 Einleitung}{}% 39
+\BOOKMARK [1][-]{section.27}{27 Einleitung}{}% 40
+\BOOKMARK [1][-]{section.28}{28 Einleitung}{}% 41
+\BOOKMARK [1][-]{section.29}{29 Einleitung}{}% 42
+\BOOKMARK [1][-]{section.30}{30 Einleitung}{}% 43
+\BOOKMARK [1][-]{section.31}{31 Einleitung}{}% 44
+\BOOKMARK [1][-]{section.32}{32 Einleitung}{}% 45
+\BOOKMARK [1][-]{section.33}{33 Einleitung}{}% 46
+\BOOKMARK [1][-]{section.34}{34 Einleitung}{}% 47
+\BOOKMARK [1][-]{section.35}{35 Einleitung}{}% 48
+\BOOKMARK [1][-]{section.36}{36 Einleitung}{}% 49
+\BOOKMARK [1][-]{section.37}{37 Einleitung}{}% 50
+\BOOKMARK [1][-]{section.38}{38 Einleitung}{}% 51
+\BOOKMARK [1][-]{section.39}{39 Einleitung}{}% 52
+\BOOKMARK [1][-]{section.40}{40 Einleitung}{}% 53
+\BOOKMARK [1][-]{section.41}{41 Einleitung}{}% 54
+\BOOKMARK [1][-]{section.42}{42 Einleitung}{}% 55
+\BOOKMARK [1][-]{section.43}{43 Einleitung}{}% 56
+\BOOKMARK [1][-]{section.44}{44 Ehrlichkeitserkl\344rung}{}% 57
+\BOOKMARK [1][-]{section*.3}{Literatur}{}% 58
