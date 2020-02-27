@@ -59,4 +59,3 @@
 \contentsline {subsection}{\numberline {9.2}Kosten}{4}{subsection.9.2}
 \contentsline {section}{\numberline {10}Schlusswort}{4}{section.10}
 \contentsline {section}{\numberline {11}Ehrlichkeitserkl\IeC {\"a}rung}{4}{section.11}
-\contentsline {section}{Literatur}{5}{section*.3}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  25 FEB 2020 11:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  27 FEB 2020 17:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2256,19 +2256,11 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Fachbericht.bbl' found.
- (./Fachbericht.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                unbekannt_foc-motorenansteuerung_2019
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+ (./Fachbericht.bbl)
 Package biblatex Info: Reference section=0 on input line 9.
 Package biblatex Info: Reference segment=0 on input line 9.
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 9.
- (c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
+(c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 9.
@@ -2312,7 +2304,7 @@ LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 9.
 (c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<graphics/fhnw_ht_logo_de.pdf, id=240, 183.81773pt x 28.4543pt>
+<graphics/fhnw_ht_logo_de.pdf, id=236, 183.81773pt x 28.4543pt>
 File: graphics/fhnw_ht_logo_de.pdf Graphic file (type pdf)
 <use graphics/fhnw_ht_logo_de.pdf>
 Package pdftex.def Info: graphics/fhnw_ht_logo_de.pdf  used on input line 16.
@@ -2381,57 +2373,21 @@ l.1 \clearpage
 (./sections/11_0_Ehrlichkeitserklaerung.tex) [4
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 171.
 
+LaTeX Warning: Empty bibliography on input line 171.
 
-(c:/texlive/2018/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 171.
-
-
-(c:/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 4048) in paragraph at lines 171--171
-[]\T1/lmr/m/n/10.95 W. crea-ti-ve com-mons, \T1/lmr/m/it/10.95 Tech-ni-ker Schu
--le Butz-bach/Verfahrenstechnik/Fördertechnik
- []
-
-
-Underfull \hbox (badness 1383) in paragraph at lines 171--171
-\T1/lmr/m/n/10.95 se: []$\T1/lmtt/m/n/10.95 https : / / projektwiki . zum . de 
-/ wiki / Techniker _ Schule _ Butzbach /
- []
-
-[5
-
-]
-Underfull \hbox (badness 1178) in paragraph at lines 171--171
-[]\T1/lmr/m/n/10.95 Patrick, \T1/lmr/m/it/10.95 NX8048T070\T1/lmr/m/n/10.95 , e
-n-US. Adres-se: []$\T1/lmtt/m/n/10.95 https : / / nextion . tech / datasheets /
-
- []
-
-[6] [7]
 \openout2 = `sections/appendix.aux'.
 
- (./sections/appendix.tex)
+(./sections/appendix.tex)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
  (./Fachbericht.aux (./sections/abstract.aux)
 (./sections/appendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
+Package rerunfilecheck Info: File `Fachbericht.out' has not changed.
+(rerunfilecheck)             Checksum: FD2F1887B6BCF1B46AE704E10BBC71A1;3876.
 
-
-Package rerunfilecheck Warning: File `Fachbericht.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Fachbericht.out':
-(rerunfilecheck)             Before: B6BA59A940F2FFABC7710EFE2A0AF186;3921
-(rerunfilecheck)             After:  FB3116FE623C54A0571F7CE4EC0605E4;3922.
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -2441,25 +2397,23 @@ Package logreq Info: Writing requests to 'Fachbericht.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
- 49882 strings out of 492639
- 1034629 string characters out of 6133088
- 1548866 words of memory out of 5000000
- 52756 multiletter control sequences out of 15000+600000
- 598351 words of font info for 64 fonts, out of 8000000 for 9000
+ 49474 strings out of 492639
+ 1022288 string characters out of 6133088
+ 1540586 words of memory out of 5000000
+ 52405 multiletter control sequences out of 15000+600000
+ 593352 words of font info for 61 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  64i,9n,71p,1509b,3419s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2018/te
-xmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2018/texmf-dist/fonts/type1/p
-ublic/lm/lmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmbx12.pf
-b><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/201
-8/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2018/texmf-dist/fonts/
-type1/public/lm/lmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr
-i10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmro10.pfb><c:/texliv
-e/2018/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Fachbericht.pdf (11 pages, 378624 bytes).
+{c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2018/tex
+mf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type
+1/public/lm/lmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc1
+0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2
+018/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2018/texmf-dist/font
+s/type1/public/lm/lmro10.pfb>
+Output written on Fachbericht.pdf (8 pages, 299349 bytes).
 PDF statistics:
- 556 PDF objects out of 1000 (max. 8388607)
- 517 compressed objects within 6 object streams
- 114 named destinations out of 1000 (max. 500000)
- 482 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 474 words of extra memory for PDF output out of 10000 (max. 10000000)
 
