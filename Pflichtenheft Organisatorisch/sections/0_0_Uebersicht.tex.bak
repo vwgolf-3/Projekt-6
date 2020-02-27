@@ -111,8 +111,6 @@ Die Software soll nach dem MVC-Prinzip funktionieren.\\
 Die Software für das ESP soll in C geschrieben sein.
 \end{enumerate}
 
-\newpage
-
 \subsection{Projektmanagement, Kommunikation, Abgabetermine, Bewertung}
 
 Das Projekt soll von einem schlanken, ergebnisorientierten Projektmanagement begleitet werden. 
@@ -121,54 +119,51 @@ Es finden mindestens folgende Meetings statt: Kickoffmeeting, Besprechung Pflich
 Bei Bedarf können mehr Meetings durchgeführt werden.
 Bezüglich Verteidigung und Bewertung gelten die Vorgaben und Richtlinien der FHNW, Hochschule für Technik.
 
-\newpage
-
 \subsection{Lieferobjekte}\label{subsec:Lieferobjekte}
 \begin{itemize}
 
-\item \textbf{Projektvereinbarung}\\
+\item \underline{\textbf{
+Projektvereinbarung
+}}
 
-Per Mail,
+Per Mail an Projektcoach bis 05.03.2020. \\
 
-An Projektcoach,
+\item \underline{\textbf{
+Projektunterlagen (Fachbericht, Hardware, Programmcode, Schemas etc.)
 
-Bis 05.03.2020. \\
+}}
 
-\item \textbf{Projektunterlagen (Fachbericht, Hardware, Programmcode, Schemas etc.)}\\
+Per Mail, Physisch, auf USB an Projektcoach bis spätestens 15.08.2020.\\
 
-Per Mail, Physisch, auf USB,
+\item \underline{\textbf{
 
-An Projektcoach,
+Präsentation und Verteidigung 
 
-Bis 15.08.2020.\\
+}}
 
-\item \textbf{Präsentation und Verteidigung}\\
+In Anwesenheit von Projektcoach und Experten zwischen 31.08.20 und 12.09.2020.\\
 
-Meeting,
+\item \underline{\textbf{
 
-In Anwesenheit von Projektcoach und Experten,
+Fact Sheet
 
-Zischen 31.08.20 und 12.09.2020.\\
+}}
 
-\item \textbf{Fact Sheet}\\
+Im LaTeX-Format inkl. Bilder und PDF (gesamter Ordner als zip-Datei). Upload über die Projektdatenbank bis spätestens 19.09.2020.\\
 
-Im LaTeX-Format inkl. Bilder und PDF (gesamter Ordner als zip-Datei),
+\item \underline{\textbf{
 
-Upload über die Projektdatenbank,
+Poster
 
-Bis spätestens 19.09.2020.\\
+}}
 
-\item \textbf{Poster}\\
+Auf Papier bis 14.08.2020. Im pptx-Format und im pdf-Format (beides in einer zip-Datei). Upload über die Projektdatenbank bis 14.08.2020.\\
 
-Auf Papier für Projektausstellung,
+\item \underline{\textbf{
 
-Im pptx-Format und im pdf-Format (beides in einer zip-Datei),
+Räumung des Arbeitsplatzes
 
-Upload über die Projektdatenbank,
-
-Bis 14.08.2020.\\
-
-\item \textbf{Räumung des Arbeitsplatzes}\\
+}}
 
 Bis spätestens 12.09.2020
 
