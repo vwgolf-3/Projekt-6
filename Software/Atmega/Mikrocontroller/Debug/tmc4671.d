@@ -36,7 +36,6 @@ tmc4671.d tmc4671.o: ../libraries/TMC4671/tmc4671.c \
  ../libraries/TMC4671/../Nextion_Display/Nextion_Display.h \
  ../libraries/TMC4671/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/TMC4671/../Nextion_Display/../../libraries/UART/../RingBuffer/ring_buffer.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\setbaud.h \
  ../libraries/TMC4671/../Nextion_Display/../../libraries/RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h
@@ -116,8 +115,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/TMC4671/../Nextion_Display/../../libraries/UART/UART.h:
 
 ../libraries/TMC4671/../Nextion_Display/../../libraries/UART/../RingBuffer/ring_buffer.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\setbaud.h:
 
 ../libraries/TMC4671/../Nextion_Display/../../libraries/RingBuffer/ring_buffer.h:
 

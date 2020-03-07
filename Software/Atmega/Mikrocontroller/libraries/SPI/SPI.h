@@ -21,6 +21,7 @@ extern ring_buffer_t rb_SPI_w;
 
 void SPI_init(void);
 void SPI_Transmit_IT_TMC(unsigned char *data, unsigned char nbytes);
+uint8_t spi_transmit(uint8_t data);
 void SPI_w_completed();
 
 #endif /* SPI_H_ */

@@ -24,6 +24,8 @@ libraries\Nextion_Display\Nextion_Display.c
 
 libraries\Nextion_Display\util\Display_Utilities.c
 
+libraries\RC522\mfrc522.c
+
 libraries\RingBuffer\ring_buffer.c
 
 libraries\SPI\SPI.c

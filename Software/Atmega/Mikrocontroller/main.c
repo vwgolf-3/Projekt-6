@@ -9,9 +9,9 @@
 #include <avr/io.h>
 // #include <util/delay.h>
 #include <avr/interrupt.h>
-#include <util/setbaud.h>
 #include <string.h>
 #include <stdlib.h>
+#include "libraries/SPI/SPI_Defines.h"
 
 // Einbinden der eigenen Bibliotheken
 #include "libraries/RingBuffer/ring_buffer.h"
@@ -19,6 +19,7 @@
 #include "libraries/SPI/SPI.h"
 #include "libraries/TMC4671/TMC4671.h"
 #include "libraries/Nextion_Display/Nextion_Display.h"
+#include "libraries/RC522/mfrc522.h"
 #include "Main_Func/Main_Func.h"
 
 #include "libraries/Nextion_Display/nextion/Display_Nextion.h"
@@ -45,6 +46,12 @@ unsigned char INPUT_UART_2[256];
 char UART_recieved_finished_2 = 0;
 char cntr_End_UART_2 = 0;
 
+//Variabeln UART_3
+unsigned char cntr_UART_3 = 0;
+unsigned char INPUT_UART_3[256];
+char UART_recieved_finished_3 = 0;
+char cntr_End_UART_3 = 0;
+
 //Variabeln SPI_0
 unsigned char cntr_SPI_0 = 0;
 unsigned char INPUT_SPI_0[256];
@@ -60,6 +67,9 @@ ring_buffer_t rb_rx_Display;
 
 ring_buffer_t rb_tx_ESP;
 ring_buffer_t rb_rx_ESP;
+
+ring_buffer_t rb_tx_RFID;
+ring_buffer_t rb_rx_RFID;
 
 ring_buffer_t rb_SPI_r;
 ring_buffer_t rb_SPI_w;
@@ -92,23 +102,86 @@ int main(void)
 	SPI_init();
 	UART_init();
 	TMC4671_init();
+	mfrc522_init();
 	
-    CreateNexObject(button, buttonPageID, buttonID, "b1");
-    CreateNexObject(slider, sliderPageID, sliderID, "MySlider");
-
-    nexInit();
-
-    NexSlider_getValue(&slider, &value);
-    NexSlider_setValue(&slider, value + 20);
-
-    NexTouch_attachPop(&button, buttonCallback, 0);
-    NexTouch_attachPop(&slider, sliderCallback, 0);
+	unsigned char * ch0;
 	
-// Mainroutine
+	//check version of the reader
+	uint8_t str[MAX_LEN];
+	
+	char byte;
+	byte = mfrc522_read(VersionReg);
+	
+	if(byte == 0x92)
+	{
+		ch0 = (unsigned char *)"MIFARE RC522v2 \r\n";
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		
+		ch0 = (unsigned char *)"Detected \r\n";
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		
+	}
+	else if(byte == 0x91 || byte==0x90)
+	{
+		ch0 = (unsigned char *)"MIFARE RC522v1 \r\n";
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		ch0 = (unsigned char *)"Detected \r\n";
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+	}
+	else
+	{
+		ch0 = (unsigned char *)"No reader found \r\n";
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+	}
+	
+	
+	// Mainroutine
 	while (1)
 	{
-		        nexLoop(nex_listen_list);
-		        _delay_ms(50);						
+		_delay_ms(50);
+	
+		byte = mfrc522_read(ComIEnReg);
+		
+// 		ch0 = (unsigned char *)byte;
+// 		Uart_Transmit_IT_PC(ch0,1);
+// 		ch0 = (unsigned char *)"\r\n";
+// 		Uart_Transmit_IT_PC(ch0,(unsigned char)strlen((const char *)ch0));
+		
+		mfrc522_write(ComIEnReg,byte|0x20);
+			
+		byte = mfrc522_read(DivIEnReg);
+			
+// 		ch0 = (unsigned char *)byte;
+// 		Uart_Transmit_IT_PC(ch0,1);
+// 		ch0 = (unsigned char *)"\r\n";
+// 		Uart_Transmit_IT_PC(ch0,(unsigned char)strlen((const char *)ch0));
+			
+		mfrc522_write(DivIEnReg,byte|0x80);
+		
+		_delay_ms(50);
+		
+		byte = mfrc522_request(PICC_REQALL,str);
+		
+// 		ch0 = (unsigned char *) byte;
+// 	 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+// 		ch0 = (unsigned char *)"\r\n";
+// 	 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		 
+		if(byte == CARD_FOUND)
+		{
+			byte = mfrc522_get_card_serial(str);
+			
+// 			Uart_Transmit_IT_PC((unsigned char *)str,(unsigned char)strlen((const char *)str));
+// 			ch0 = (unsigned char *)"\r\n";
+// 			Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+			
+		}
+		else
+		{
+// 			ch0 = (unsigned char *)" Error \r\n";
+// 			Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		}
+				
 		if (check_Communication_Input_UART_0())				// Check UART_0 (USB), ob vollständige Übertragung stattgefunden hat (Ende = "\r")
 		{
 			proceed_Communication_Input_UART_0();				// Vollständige Übertragung des USB verarbeiten
@@ -124,17 +197,13 @@ int main(void)
 			proceed_Communication_Input_UART_2();				// Vollständige Übertragung des ESP's verarbeiten
 		}
 
+		if (check_Communication_Input_UART_3())				// Check UART_3 (RFID), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+		{
+			proceed_Communication_Input_UART_3();				// Vollständige Übertragung des ESP's verarbeiten
+		}
+
+
 		//Testloop Blink LED
-//  	heartbeat_LED();
+//   		heartbeat_LED();
 	}
-}
-
-void buttonCallback(void *ptr)
-{
-	TOGGLE_LED();
-}
-
-void sliderCallback(void *ptr)
-{
-	TOGGLE_LED();
 }

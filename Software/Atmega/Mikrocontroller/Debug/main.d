@@ -11,11 +11,11 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\setbaud.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- .././libraries/RingBuffer/ring_buffer.h .././libraries/UART/UART.h \
+ .././libraries/SPI/SPI_Defines.h .././libraries/RingBuffer/ring_buffer.h \
+ .././libraries/UART/UART.h \
  .././libraries/UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
@@ -42,7 +42,10 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  .././libraries/Nextion_Display/Nextion_Display.h \
- .././Main_Func/Main_Func.h .././Main_Func/../libraries/SPI/SPI_Defines.h \
+ .././libraries/RC522/mfrc522.h .././libraries/RC522/mfrc522_cmd.h \
+ .././libraries/RC522/mfrc522_reg.h .././libraries/RC522/../SPI/SPI.h \
+ .././libraries/RC522/../SPI/SPI_Defines.h .././Main_Func/Main_Func.h \
+ .././Main_Func/../libraries/SPI/SPI_Defines.h \
  .././Main_Func/../libraries/RingBuffer/ring_buffer.h \
  .././Main_Func/../libraries/UART/UART.h \
  .././Main_Func/../libraries/SPI/SPI.h \
@@ -62,8 +65,7 @@ main.d main.o: .././main.c \
  .././libraries/Nextion_Display/nextion/Display_NexProgressBar.h \
  .././libraries/Nextion_Display/nextion/Display_NexSlider.h \
  .././libraries/Nextion_Display/nextion/Display_NexText.h \
- .././libraries/Nextion_Display/util/Display_Utilities.h \
- .././libraries/SPI/SPI_Defines.h
+ .././libraries/Nextion_Display/util/Display_Utilities.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -89,13 +91,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\setbaud.h:
-
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+
+.././libraries/SPI/SPI_Defines.h:
 
 .././libraries/RingBuffer/ring_buffer.h:
 
@@ -157,6 +159,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././libraries/Nextion_Display/Nextion_Display.h:
 
+.././libraries/RC522/mfrc522.h:
+
+.././libraries/RC522/mfrc522_cmd.h:
+
+.././libraries/RC522/mfrc522_reg.h:
+
+.././libraries/RC522/../SPI/SPI.h:
+
+.././libraries/RC522/../SPI/SPI_Defines.h:
+
 .././Main_Func/Main_Func.h:
 
 .././Main_Func/../libraries/SPI/SPI_Defines.h:
@@ -200,5 +212,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././libraries/Nextion_Display/nextion/Display_NexText.h:
 
 .././libraries/Nextion_Display/util/Display_Utilities.h:
-
-.././libraries/SPI/SPI_Defines.h:

@@ -20,6 +20,7 @@
 #define TIMER_DDR DDRH							// Namensgebung Timer Register
 
 // PIN-Defines
+#define SPI_CS_RC522 (1<<5)						// Bit-Zuweisung PB5 (Arduino: 49, Pinnr: 23)
 #define SPI_MISO (1<<3)							// Bit-Zuweisung PB3 (Arduino: 50, Pinnr: 22)
 #define SPI_MOSI (1<<2)							// Bit-Zuweisung PB2 (Arduino: 51, Pinnr: 21)
 #define SPI_CLK (1<<1)							// Bit-Zuweisung PB1 (Arduino: 52, Pinnr: 20)
@@ -34,7 +35,7 @@
 #define TIMER_OUTPUT_MASK (TIMER_RESOLVER)
 
 // Output Maske PORTB
-#define SPI_OUTPUT_MASK (SPI_MOSI|SPI_CLK|SPI_CS_TMC4671|EN_TMC4671|HEARTBEAT_LED)
+#define SPI_OUTPUT_MASK (SPI_MOSI|SPI_CLK|SPI_CS_TMC4671|EN_TMC4671|HEARTBEAT_LED|SPI_CS_RC522)
 
 //Settings UART_OUTPUTS
 #define NEXTION_DISPLAY_1 1
@@ -51,10 +52,11 @@
 #define ENABLE_TMC4671() SPI_PORT &= ~SPI_CS_TMC4671
 #define DISABLE_TMC4671() SPI_PORT |= SPI_CS_TMC4671
 
+#define ENABLE_RC522() SPI_PORT &= ~SPI_CS_RC522
+#define DISABLE_RC522() SPI_PORT |= SPI_CS_RC522
+
 // Enable / Disable CS
 #define ENABLE_CS(PORT, CS) PORT &= ~CS
 #define DISABLE_CS(PORT,CS) PORT |= CS
-
-
 
 #endif /* SPI_DEFINES_H_ */

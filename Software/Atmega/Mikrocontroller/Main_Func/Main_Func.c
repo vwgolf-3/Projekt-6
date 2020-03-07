@@ -49,7 +49,7 @@ char check_Communication_Input_UART_0(void)
 {
 	char ret = 0;
 	// Check Buffer auf Einkommende Daten
-	if(RB_length(&rb_rx_PC)>0)
+	while(RB_length(&rb_rx_PC)>0)
 	{
 		unsigned char ch = RB_readByte(&rb_rx_PC);
 		if (ch == 13)
@@ -83,7 +83,7 @@ void proceed_Communication_Input_UART_0(void)
 char check_Communication_Input_UART_1(void)
 {
 	char ret = 0;
-	if(RB_length(&rb_rx_Display)>0)					// UART_1
+	while(RB_length(&rb_rx_Display)>0)					// UART_1
 	{
 		unsigned char ch = RB_readByte(&rb_rx_Display);
 		// Verbesserung oder Verschlimmbesserung: Falls cntr_UART_1 >=2 dann schauen ob die letzten drei Übertragungen [cntr_UART_1], [cntr_UART_1-1], [cntr_UART_1-2] 0xFF sind
@@ -133,10 +133,10 @@ char check_Communication_Input_UART_1(void)
 
 void proceed_Communication_INPUT_UART_1(void)
 {
-	Uart_Transmit_IT_PC((unsigned char *)"Empfangen1:",strlen((const char*)"Empfangen1:"));
-	Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_1,strlen((const char*)INPUT_UART_1));
-	Uart_Transmit_IT_PC((unsigned char *)"\r\n",strlen((const char*)"\r\n"));
+	unsigned char *ch0 = (unsigned char *)"Proceed UART 1: \r\n\r\n";//************************	Start
+	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 	UART_recieved_finished_1 = 0;
+	
 	if(INPUT_UART_1[0]==0xFF&&INPUT_UART_1[1]==0xB1)
 	{
 		unsigned char *ch0 = (unsigned char *)"Beginn Tests: \r\n\r\n";//************************	Start
@@ -169,10 +169,10 @@ void proceed_Communication_INPUT_UART_1(void)
 		nextion_setText(ch1,ch2,NEXTION_DISPLAY_1);//************************************************	Aktion:				setText
 
 		ch0 = (unsigned char *)"\r\n\r\n";
-// 		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Test Text 2
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Test Text 2
 
 		ch0 = (unsigned char *)"Setze Text Display 3: \r\n";//***************************************	Status Beginn:		Test Text 3
-// 		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 		
 		ch1 = (unsigned char *)"t0";//****************************************************************	Button:				t0
 		ch2 = (unsigned char *)"Lemon Soda3";//*******************************************************	Text:				Lemon Soda3
@@ -183,7 +183,7 @@ void proceed_Communication_INPUT_UART_1(void)
 		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Test Text 3
 		
 		ch0 = (unsigned char *)"Setze Bild 1: \r\n";//************************************************	Status Beginn:		Test Setze Bild 1
-// 		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 		
 		ch1 = (unsigned char *)"250";//***************************************************************	x-Koordinate:		250
 		ch2 = (unsigned char *)"80";//****************************************************************	y-Koordinate:		80
@@ -291,9 +291,10 @@ void proceed_Communication_INPUT_UART_1(void)
 char check_Communication_Input_UART_2(void)
 {
 	char ret = 0;
-	if(RB_length(&rb_rx_ESP)>0)					// UART_2
+	while(RB_length(&rb_rx_ESP)>0)					// UART_2
 	{
 		unsigned char ch = RB_readByte(&rb_rx_ESP);
+		// Verbesserung oder Verschlimmbesserung: Falls cntr_UART_1 >=2 dann schauen ob die letzten drei Übertragungen [cntr_UART_1], [cntr_UART_1-1], [cntr_UART_1-2] 0xFF sind
 		if (ch == 0xFF)
 		{
 			if (cntr_End_UART_2==0)
@@ -319,22 +320,20 @@ char check_Communication_Input_UART_2(void)
 		}
 		if (cntr_End_UART_2 == 3)
 		{
-		Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_2,strlen((const char*)INPUT_UART_2));
-		Uart_Transmit_IT_PC((unsigned char *)"\r\n",strlen((const char*)"\r\n"));
 			INPUT_UART_2[cntr_UART_2] = 0;
 			INPUT_UART_2[cntr_UART_2-1]=0;
 			INPUT_UART_2[cntr_UART_2-2]=0;
 			cntr_UART_2 = 0;
 			cntr_End_UART_2 = 0;
 			ret = 1;
-
-
+			toggle_LED();
 		}
 		else
 		{
 			INPUT_UART_2[cntr_UART_2]=ch;
 			cntr_UART_2++;
 			ret = 0;
+			toggle_LED();
 		}
 	}
 	return ret;
@@ -342,8 +341,8 @@ char check_Communication_Input_UART_2(void)
 
 void proceed_Communication_Input_UART_2(void)
 {
-		unsigned char *ch0 = (unsigned char *)"Proceed UART 2: \r\n\r\n";//************************	Start
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+	unsigned char *ch0 = (unsigned char *)"Proceed UART 2: \r\n\r\n";//************************	Start
+	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 	UART_recieved_finished_2 = 0;
 
 //**************************** PAGE 0xFF, BUTTON 0xB1**************************(Gin Tonic Startseite)	Aktionsherkunft		Menu-Button
@@ -436,7 +435,7 @@ void proceed_Communication_Input_UART_2(void)
 
 //**************************** PAGE 0x07, BUTTON 0x01***********************(Whiskey Cola Zubereitung)	Aktionsherkunft		0.5L
 	
-	if(INPUT_UART_1[0]==0x07&&INPUT_UART_1[1]==0x01)
+	if(INPUT_UART_2[0]==0x07&&INPUT_UART_2[1]==0x01)
 	{
 		unsigned char *ch0 = (unsigned char *)"Beginn Programmablauf: \r\n\r\n\r\n";//****************	Start
 		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
@@ -497,4 +496,81 @@ void proceed_Communication_Input_UART_2(void)
 		ch0 = (unsigned char *)"\r\n";
 		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Test 8kHz-Signal ausschalten
 	}
+}
+
+char check_Communication_Input_UART_3(void)
+{
+	char ret = 0;
+	if(RB_length(&rb_rx_RFID)>0)					// UART_1
+	{
+		unsigned char ch = RB_readByte(&rb_rx_RFID);
+		// Verbesserung oder Verschlimmbesserung: Falls cntr_UART_1 >=2 dann schauen ob die letzten drei Übertragungen [cntr_UART_1], [cntr_UART_1-1], [cntr_UART_1-2] 0xFF sind
+
+// 		if (ch == 13)
+// 		{
+// 			INPUT_UART_3[cntr_UART_3] = 0;
+// 			cntr_UART_3 = 0;
+// 			cntr_End_UART_3 = 0;
+// 			ret = 1;
+// 			toggle_LED();
+// 		}
+// 		else
+// 		{
+// 			INPUT_UART_3[cntr_UART_3]=ch;
+// 			cntr_UART_3++;
+// 			ret = 0;
+// 			toggle_LED();
+// 		}
+
+		if (ch == 0xFF)
+		{
+			if (cntr_End_UART_3==0)
+			{
+				cntr_End_UART_3++;
+			}
+			if (cntr_End_UART_3==1 && (INPUT_UART_3[cntr_UART_3-1] == 0xFF))
+			{
+				cntr_End_UART_3++;
+			}
+			if (cntr_End_UART_3==1 && (INPUT_UART_3[cntr_UART_3-3] != 0xFF))
+			{
+				cntr_End_UART_3=0;
+			}
+			if (cntr_End_UART_3==2 && (INPUT_UART_3[cntr_UART_3-1] == 0xFF) && (INPUT_UART_3[cntr_UART_3-2] == 0xFF))
+			{
+				cntr_End_UART_3++;
+			}
+			if (cntr_End_UART_3==2 && ((INPUT_UART_3[cntr_UART_3-1] != 0xFF) || (INPUT_UART_3[cntr_UART_3-2] != 0xFF)))
+			{
+				cntr_End_UART_3 = 0;
+			}
+		}
+		if (cntr_End_UART_3 == 3)
+		{
+			INPUT_UART_3[cntr_UART_3] = 0;
+			INPUT_UART_3[cntr_UART_3-1]=0;
+			INPUT_UART_3[cntr_UART_3-2]=0;
+			cntr_UART_3 = 0;
+			cntr_End_UART_3 = 0;
+			ret = 1;
+			toggle_LED();
+		}
+		else
+		{
+			INPUT_UART_3[cntr_UART_3]=ch;
+			cntr_UART_3++;
+			ret = 0;
+			toggle_LED();
+		}
+	}
+	return ret;
+}
+
+void proceed_Communication_Input_UART_3(void)
+{
+	Uart_Transmit_IT_PC((unsigned char *)"Empfangen3:",strlen((const char*)"Empfangen3:"));
+	Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_3,strlen((const char*)INPUT_UART_3));
+	Uart_Transmit_IT_PC((unsigned char *)"\r\n",strlen((const char*)"\r\n"));
+	UART_recieved_finished_3 = 0;
+	toggle_LED();
 }
