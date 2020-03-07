@@ -138,7 +138,6 @@ int main(void)
 	// Mainroutine
 	while (1)
 	{
-		_delay_ms(50);
 	
 		byte = mfrc522_read(ComIEnReg);
 		
@@ -158,7 +157,7 @@ int main(void)
 			
 		mfrc522_write(DivIEnReg,byte|0x80);
 		
-		_delay_ms(50);
+		_delay_ms(200);
 		
 		byte = mfrc522_request(PICC_REQALL,str);
 		

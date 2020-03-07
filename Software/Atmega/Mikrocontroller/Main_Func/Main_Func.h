@@ -15,6 +15,7 @@
 #include "../libraries/SPI/SPI.h"
 #include "../libraries/TMC4671/TMC4671.h"
 #include "../libraries/Nextion_Display/Nextion_Display.h"
+#include "../libraries/Cocktail_functions/Cocktail_functions.h"
 #include <util/delay.h>
 #include <stdlib.h>
 

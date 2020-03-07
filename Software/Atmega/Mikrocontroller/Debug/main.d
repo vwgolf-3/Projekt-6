@@ -51,6 +51,13 @@ main.d main.o: .././main.c \
  .././Main_Func/../libraries/SPI/SPI.h \
  .././Main_Func/../libraries/TMC4671/TMC4671.h \
  .././Main_Func/../libraries/Nextion_Display/Nextion_Display.h \
+ .././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h \
+ .././Main_Func/../libraries/Cocktail_functions/../SPI/SPI_Defines.h \
+ .././Main_Func/../libraries/Cocktail_functions/../UART/UART.h \
+ .././Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
+ .././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
+ .././Main_Func/../libraries/Cocktail_functions/../../Main_Func/Main_Func.h \
  .././libraries/Nextion_Display/nextion/Display_Nextion.h \
  .././libraries/Nextion_Display/nextion/Display_NexObject.h \
  .././libraries/Nextion_Display/nextion/Display_NexConfig.h \
@@ -182,6 +189,20 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././Main_Func/../libraries/TMC4671/TMC4671.h:
 
 .././Main_Func/../libraries/Nextion_Display/Nextion_Display.h:
+
+.././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../SPI/SPI_Defines.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../UART/UART.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../../Main_Func/Main_Func.h:
 
 .././libraries/Nextion_Display/nextion/Display_Nextion.h:
 

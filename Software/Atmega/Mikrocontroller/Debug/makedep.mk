@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+libraries\Cocktail_functions\Cocktail_functions.c
+
 libraries\Nextion_Display\nextion\Display_NexButton.c
 
 libraries\Nextion_Display\nextion\Display_NexHardware.c

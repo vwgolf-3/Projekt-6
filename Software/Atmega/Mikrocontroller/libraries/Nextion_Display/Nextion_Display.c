@@ -12,9 +12,9 @@ void nextion_change_page(unsigned char * page)
 	unsigned char * ch1 = (unsigned char *) "page ";
 	unsigned char * ch2 = page;
 
-	Uart_Transmit_IT_ESP(ch1,strlen((const char*)ch1));
-	Uart_Transmit_IT_ESP(ch2,strlen((const char*)ch2));
-	endConversation(2);
+	Uart_Transmit_IT_Display(ch1,strlen((const char*)ch1));
+	Uart_Transmit_IT_Display(ch2,strlen((const char*)ch2));
+	endConversation(1);
 
 	Uart_Transmit_IT_PC(ch1,strlen((const char*)ch1));
 	Uart_Transmit_IT_PC(ch2,strlen((const char*)ch2));

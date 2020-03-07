@@ -44,7 +44,14 @@ Main_Func.d Main_Func.o: ../Main_Func/Main_Func.c \
  ../Main_Func/../libraries/TMC4671/../Nextion_Display/../../libraries/RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- ../Main_Func/../libraries/Nextion_Display/Nextion_Display.h
+ ../Main_Func/../libraries/Nextion_Display/Nextion_Display.h \
+ ../Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h \
+ ../Main_Func/../libraries/Cocktail_functions/../SPI/SPI_Defines.h \
+ ../Main_Func/../libraries/Cocktail_functions/../UART/UART.h \
+ ../Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h \
+ ../Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
+ ../Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
+ ../Main_Func/../libraries/Cocktail_functions/../../Main_Func/Main_Func.h
 
 ../Main_Func/Main_Func.h:
 
@@ -139,3 +146,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
 ../Main_Func/../libraries/Nextion_Display/Nextion_Display.h:
+
+../Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h:
+
+../Main_Func/../libraries/Cocktail_functions/../SPI/SPI_Defines.h:
+
+../Main_Func/../libraries/Cocktail_functions/../UART/UART.h:
+
+../Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h:
+
+../Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
+
+../Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h:
+
+../Main_Func/../libraries/Cocktail_functions/../../Main_Func/Main_Func.h:
