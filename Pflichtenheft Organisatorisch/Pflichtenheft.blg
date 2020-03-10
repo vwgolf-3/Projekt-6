@@ -1,9 +1,9 @@
-[0] Config.pm:302> INFO - This is Biber 2.11
-[0] Config.pm:305> INFO - Logfile is 'Pflichtenheft.blg'
-[33] biber-MSWIN32:313> INFO - === 
-[66] Biber.pm:371> INFO - Reading 'Pflichtenheft.bcf'
-[157] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
-[164] Utils.pm:193> WARN - The file 'Pflichtenheft.bcf' does not contain any citations!
-[181] bbl.pm:617> INFO - Writing 'Pflichtenheft.bbl' with encoding 'UTF-8'
-[182] bbl.pm:720> INFO - Output to Pflichtenheft.bbl
-[183] Biber.pm:110> INFO - WARNINGS: 1
+[1] Config.pm:302> INFO - This is Biber 2.11
+[1] Config.pm:305> INFO - Logfile is 'Pflichtenheft.blg'
+[102] biber-MSWIN32:313> INFO - === 
+[174] Biber.pm:371> INFO - Reading 'Pflichtenheft.bcf'
+[412] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
+[425] Utils.pm:193> WARN - The file 'Pflichtenheft.bcf' does not contain any citations!
+[438] bbl.pm:617> INFO - Writing 'Pflichtenheft.bbl' with encoding 'UTF-8'
+[438] bbl.pm:720> INFO - Output to Pflichtenheft.bbl
+[446] Biber.pm:110> INFO - WARNINGS: 1
