@@ -1,12 +1,12 @@
 \clearpage
 \section{Einleitung}\label{sec:Einleitung}
-Das Organisatorische Pflichtenheft beinhaltet viele verschiedene Teilschritte, welche die Rahmenbedingungen definieren. In diesem werden die Projektziele, Lieferobjekte sowie die die Meilensteine festgelegt. Ausserdem beinhaltet es einen detaillierten Projektstrukturplan, welcher Arbeitspakete und den Zeitplan enthält.
+Das Organisatorische Pflichtenheft beinhaltet verschiedene Teilschritte, welche die Rahmenbedingungen definieren. In diesem werden die Projektziele, Lieferobjekte sowie die die Meilensteine festgelegt. Ausserdem beinhaltet es einen detaillierten Projektstrukturplan, welcher Arbeitspakete und den Zeitplan enthält.
 
 \subsection{Ausgangslage}\label{subsec:Ausgangslage}
 
-Bei einer gelungenen Gartenparty dürfen erfrischende Getränke nicht fehlen. Das Problem ist jedoch, dass kaum einer weiss, wie Cocktails gemischt werden und keiner Lust hat den ganzen Abend Barmann/Frau zu spielen. Hier soll nun die Cocktailmaschine für zu Hause Abhilfe schaffen und somit eine gelungene Gartenparty garantieren.
+Bei einer gelungenen Gartenparty dürfen erfrischende Getränke nicht fehlen. Das Problem ist jedoch, dass kaum einer weiss, wie Cocktails gemischt werden und keiner Lust hat den ganzen Abend Barmann/Barfrau zu spielen. Hier soll nun die Cocktailmaschine für zu Hause Abhilfe schaffen und somit eine gelungene Gartenparty garantieren.
 
-Es soll eine automatische Cocktail-Maschine entwickelt werden. Die Benutzer können wahlweise über eine Handy-App oder ein Display ihr Cocktailglas individuell konfigurieren. Die Cocktail-Maschine erkennt das Cocktailglas und stellt anhand der gespeicherten Serverdaten das gewünschte Getränk zusammen. 
+Es soll eine automatische Cocktail-Maschine entwickelt werden. Die Benutzer können wahlweise über ein Handy, einen Computer oder ein Display ihren Cocktail individuell konfigurieren. Die Cocktail-Maschine erkennt das Cocktailglas und stellt anhand der gespeicherten Serverdaten oder der auf dem Touchscreen gewählten Einstellungen das gewünschte Getränk zusammen. 
  
 \newpage
 \subsection{Projektziele}\label{subsec:Projektziele}
@@ -36,15 +36,15 @@ Bestehend:
 Dazugekommen:
 
 \begin{itemize}
-\item USB
-\item Wirelessmodul
-\item RFID
-\item Beleuchtung\\
+\item USB-Schnittstellen zur Programmierung des uP und des Wirelessmoduls 
+\item Wirelessmodul für die Implementierung eines Web-Servers
+\item RFID-Erkennung zur Bestimmung der unterschiedlichen Gläser
+\item Beleuchtung der Getränkebefüllung gemäss Wunschziel\\
 \end{itemize}
 
 \item \underline{\textbf{Design der Leiterplatte}}\mbox{}\\
 
-Beinhaltet alle Teile des Detailkonzeptes. Für das WIFI-, RFID- und Motorentreiber-Modul wird ein Development-Board verwendet. Zusätzlich zum WIFI- und RFID-Modul wird eine eigen gelayoutete Variante miteinbezogen, welche bei genügend Kapazität implementiert wird anstelle des Moduls.\\
+Die Leiterplatte soll alle Teile des Detailkonzeptes umfassen. Für das WIFI-, RFID- und Motorentreiber-Modul wird ein Development-Board verwendet. Zusätzlich zum WIFI- und RFID-Modul wird eine eigen gelayoutete Variante miteinbezogen, welche bei genügend Kapazität implementiert wird anstelle des Moduls.\\
 
 \item \underline{\textbf{Mechanischer Aufbau der Maschine inkl. Achsensystem}}\mbox{}\\
 
@@ -69,17 +69,20 @@ Die Regelung des Achsensystems wird mit dem TMC4671 gewährleistet. Die Regler w
 Die Bediensoftware auf dem Mikrocontroller ermöglicht dem Benutzer folgende Eingaben:\\
 \begin{itemize}
 
-\item Getränkeliste
-\item Wo steht welches Getränk
-\item Infos zum Getränk
-\item Auswahl Zubereitung 0.3l oder 0.5l
-\item Eingabe eigener Getränke
-\item Speichern von Getränkefavoriten
-\item Nachfüllen des Lieblingsgetränks mittels RFID
+\item Getränkeliste mit 5 alkoholischen und 5 nicht alkoholischen Getränken, welche zur Auswahl stehen.
+\item Infos zu den Getränken
+\item Auswahl der Zubereitungsgrösse von 0.3l oder 0.5l
+\item Nachfüllen des per Web-Servers eingestellten Getränkes mittels RFID
 \item Reinigungsmodus\\
 \end{itemize}
 
-Über einen Web-Server kann der User die selben Anwendungen in abgespeckter Version auswählen.\\
+Über einen Web-Server kann der User folgende Einstellungen vornehmen: \\
+
+\begin{itemize}
+\item Auswahl des nächsten Getränkes gemäss der Getränkeliste
+\item Auswahl der Zubereitungsgrösse von 0.3l oder 0.5l\\ 
+\end{itemize} 
+
 
 \item \underline{\textbf{Funktionstest und Analyse bezüglich der Skalierbarkeit}}\mbox{}\\
 			
@@ -105,9 +108,25 @@ Für das ESP wird vorerst Arduino verwendet.
 Die Maschine bietet einen gewissen Showeffekt. Dazu wird ein LED-Streifen montiert, welcher die Maschine beleuchtet. Für die Beleuchtung werden RGB-LED's verwendet, was eine entsprechende Ansteuerung Hard- und Softwareseitig erfordert.\\
 
 \item \underline{\textbf{Software}}\mbox{}\\
+\begin{itemize}
+\item Die Software für das ESP soll in C geschrieben sein.
+\item Es soll vom Benutzer konfigurierbar sein, welches Getränk wo steht.
+\item Der Benutzer soll selbst Cocktails individuell erstellen können.
+\item Individuelle Anpassungen der Mischverhältnisse der gespeicherten Getränke \\ 
+\end{itemize}
 
-Die Software für das ESP soll in C geschrieben sein.
+\item \underline{\textbf{Web-Server}}\mbox{}\\
+\begin{itemize}
+\item Individuelle Anpassungen der Mischverhältnisse der gespeicherten Getränke \\
+\end{itemize}
+
+\item \underline{\textbf{Getränkezubereitung}}\mbox{}\\
+\begin{itemize}
+\item Das gewünschte Getränk soll in unter 40s zubereitet werden. 
+\end{itemize}
+
 \end{enumerate}
+
 
 \newpage
 
