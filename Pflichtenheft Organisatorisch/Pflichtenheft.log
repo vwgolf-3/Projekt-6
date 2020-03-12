@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  12 MAR 2020 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  12 MAR 2020 14:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2071,7 +2071,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--80
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
@@ -2355,7 +2355,7 @@ b><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/201
 8/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2018/texmf-dist/fonts/
 type1/public/lm/lmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr
 o10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on Pflichtenheft.pdf (12 pages, 793393 bytes).
+Output written on Pflichtenheft.pdf (12 pages, 793430 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  155 compressed objects within 2 object streams
