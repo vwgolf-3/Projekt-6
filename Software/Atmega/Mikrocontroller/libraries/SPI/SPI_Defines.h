@@ -20,11 +20,11 @@
 #define TIMER_DDR DDRH							// Namensgebung Timer Register
 
 // PIN-Defines
-#define SPI_CS_RC522 (1<<5)						// Bit-Zuweisung PB5 (Arduino: 49, Pinnr: 23)
+#define SPI_CS_RC522 (1<<0)						// Bit-Zuweisung PB5 (Arduino: 49, Pinnr: 23)
 #define SPI_MISO (1<<3)							// Bit-Zuweisung PB3 (Arduino: 50, Pinnr: 22)
 #define SPI_MOSI (1<<2)							// Bit-Zuweisung PB2 (Arduino: 51, Pinnr: 21)
 #define SPI_CLK (1<<1)							// Bit-Zuweisung PB1 (Arduino: 52, Pinnr: 20)
-#define SPI_CS_TMC4671 (1<<0)					// Bit-Zuweisung PB0 (Arduino: 53, Pinnr: 19)
+#define SPI_CS_TMC4671 (1<<5)					// Bit-Zuweisung PB0 (Arduino: 53, Pinnr: 19)
 #define EN_TMC4671 (1<<4)						// Bit-Zuweisung PB4 (Arduino: 12, Pinnr: 23)
 #define HEARTBEAT_LED (1<<7)					// Bit-Zuweisung PB7 (Arduino: 13, Pinnr: 26)
 #define TIMER_RESOLVER (1<<4)					// Bit-Zuweisung PH7 (Arduino: 7, Pinnr: 16)

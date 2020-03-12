@@ -138,16 +138,15 @@ int main(void)
 	// Mainroutine
 	while (1)
 	{
-	
 		byte = mfrc522_read(ComIEnReg);
 		
 // 		ch0 = (unsigned char *)byte;
 // 		Uart_Transmit_IT_PC(ch0,1);
 // 		ch0 = (unsigned char *)"\r\n";
 // 		Uart_Transmit_IT_PC(ch0,(unsigned char)strlen((const char *)ch0));
-		
+
 		mfrc522_write(ComIEnReg,byte|0x20);
-			
+
 		byte = mfrc522_read(DivIEnReg);
 			
 // 		ch0 = (unsigned char *)byte;
@@ -156,24 +155,45 @@ int main(void)
 // 		Uart_Transmit_IT_PC(ch0,(unsigned char)strlen((const char *)ch0));
 			
 		mfrc522_write(DivIEnReg,byte|0x80);
-		
-		_delay_ms(200);
-		
+				
 		byte = mfrc522_request(PICC_REQALL,str);
 		
 // 		ch0 = (unsigned char *) byte;
 // 	 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 // 		ch0 = (unsigned char *)"\r\n";
 // 	 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
-		 
+
 		if(byte == CARD_FOUND)
 		{
 			byte = mfrc522_get_card_serial(str);
+			Uart_Transmit_IT_PC((unsigned char *)str,(unsigned char)strlen((const char *)str));
+			ch0 = (unsigned char *)" :Vorher\r\n";
+			Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 			
-// 			Uart_Transmit_IT_PC((unsigned char *)str,(unsigned char)strlen((const char *)str));
-// 			ch0 = (unsigned char *)"\r\n";
-// 			Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 			
+			if(str[0]!=1)
+			{
+				if (str[2]!=2)
+				{
+					unsigned char * ch0 = (unsigned char *) atoi((const char *)"12");
+					unsigned char len = (unsigned char )strlen((const char *) ch0);
+					unsigned char * chBack = 0;
+					uint32_t * data_len_Back = 0;
+					mfrc522_to_card(Transceive_CMD, ch0, len, chBack, data_len_Back);			
+				}
+				else if (str[2]!=3)
+				{
+					unsigned char * ch0 = (unsigned char *) atoi((const char *)"13");
+					unsigned char len = (unsigned char )strlen((const char *) ch0);
+					unsigned char * chBack = 0;
+					uint32_t * data_len_Back = 0;
+					mfrc522_to_card(Transceive_CMD, ch0, len, chBack, data_len_Back);
+				}
+			}
+		byte = mfrc522_get_card_serial(str);
+		Uart_Transmit_IT_PC((unsigned char *)str,(unsigned char)strlen((const char *)str));
+		ch0 = (unsigned char *)" : Nachher \r\n";
+		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 		}
 		else
 		{
@@ -203,6 +223,6 @@ int main(void)
 
 
 		//Testloop Blink LED
-//   		heartbeat_LED();
+  		heartbeat_LED();
 	}
 }
