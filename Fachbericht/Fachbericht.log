@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  27 FEB 2020 17:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  26 MAR 2020 10:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2340,37 +2340,60 @@ l.54 \input
 (./sections/3_2_Wirelessmodul.tex) (./sections/3_3_RFID.tex)
 (./sections/3_4_Beleuchtung.tex) (./sections/4_0_Printaufbau.tex)
 (./sections/5_0_Teilsysteme.tex) (./sections/5_1_Speisungen.tex)
-(./sections/5_1_0_48V_Speisung.tex) (./sections/5_1_1_12V_Speisung.tex)
-(./sections/5_1_2_5V_Speisung.tex) (./sections/5_1_3_3.3V_Speisung.tex)
-(./sections/5_2_Motor.tex) (./sections/5_2_0_BLDC_&_H-Bruecke.tex)
-(./sections/5_2_1_ABN-Encoder.tex) (./sections/5_2_2_Treiber.tex)
-(./sections/5_3_Flüssigkeitsbeförderung.tex) (./sections/5_3_0_Pumpen.tex)
-(./sections/5_3_1_Durchflussmessgeräte.tex)
-(./sections/5_4_Benutzerschnittstellen.texpdfTeX warning (ext4): destination wi
-th the same identifier (name{page.2}) has been already used, duplicate ignored
+(./sections/5_1_0_48V_Speisung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+<graphics/Netzteil_48V.png, id=336, 672.71326pt x 405.9165pt>
+File: graphics/Netzteil_48V.png Graphic file (type png)
+<use graphics/Netzteil_48V.png>
+Package pdftex.def Info: graphics/Netzteil_48V.png  used on input line 14.
+(pdftex.def)             Requested size: 364.19664pt x 219.76147pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \clearpage
-               [2]) (./sections/5_4_0_Touch_Display.tex)
-(./sections/5_4_1_ESP-XXX.tex) (./sections/5_4_2_USB-C.tex)
-(./sections/5_4_3_RFID.tex) (./sections/5_5_Beleuchtung.tex)
-(./sections/5_6_Mikrocontroller.tex) (./sections/6_0_Inbetriebnahme.tex)
-(./sections/6_1_Speisungen.tex) (./sections/6_1_1_12V_Speisung.tex)
-(./sections/6_1_2_5V_Speisung.tex) (./sections/6_1_3_3.3V_Speisung.tex)
-(./sections/6_2_Motor.tex) (./sections/6_2_0_BLDC_&_H-Brücke.tex)
-(./sections/6_2_1_ABN-Encoder.tex) (./sections/6_2_2_Treiber.tex)
-(./sections/6_3_Flüssigkeitsbeförderung.tex) (./sections/6_3_0_Pumpen.tex)
-(./sections/6_3_1_Durchflussmessgeräte.tex)
+l.22 E
+      s musste jedoch unbedingt eine LeistungsabschÃ¤tzung gemacht werden. A...
+[2]) (./sections/5_1_1_12V_Speisung.tex) (./sections/5_1_2_5V_Speisung.tex)
+(./sections/5_1_3_3.3V_Speisung.tex) (./sections/5_2_Motor.tex)
+(./sections/5_2_0_BLDC_&_H-Bruecke.tex) (./sections/5_2_1_ABN-Encoder.tex)
+(./sections/5_2_2_Treiber.tex) (./sections/5_3_Flüssigkeitsbeförderung.tex)
+(./sections/5_3_0_Pumpen.tex) (./sections/5_3_1_Durchflussmessgeräte.tex)
+(./sections/5_4_Benutzerschnittstellen.tex [3 <./graphics/Netzteil_48V.PNG>])
+(./sections/5_4_0_Touch_Display.tex) (./sections/5_4_1_ESP-XXX.tex)
+(./sections/5_4_2_USB-C.tex) (./sections/5_4_3_RFID.tex)
+(./sections/5_5_Beleuchtung.tex) (./sections/5_6_Mikrocontroller.tex)
+(./sections/6_0_Inbetriebnahme.tex) (./sections/6_1_Speisungen.tex)
+(./sections/6_1_1_12V_Speisung.tex) (./sections/6_1_2_5V_Speisung.tex)
+(./sections/6_1_3_3.3V_Speisung.tex) (./sections/6_2_Motor.tex)
+(./sections/6_2_0_BLDC_&_H-Brücke.tex) (./sections/6_2_1_ABN-Encoder.tex)
+(./sections/6_2_2_Treiber.tex) (./sections/6_3_Flüssigkeitsbeförderung.tex)
+(./sections/6_3_0_Pumpen.tex) (./sections/6_3_1_Durchflussmessgeräte.tex)
 (./sections/6_4_Benutzerschnittstellen.tex) (./sections/6_4_0_Touch-Display.tex
 ) (./sections/6_4_1_ESP-XXX.tex) (./sections/6_4_2_USB-C.tex)
 (./sections/6_4_3_RFID.tex) (./sections/6_5_Beleuchtung.tex)
-(./sections/7_0_Software.tex) (./sections/7_1_Strukturplan.tex [3
+(./sections/7_0_Software.tex) (./sections/7_1_Strukturplan.tex [4
 
 ])
 (./sections/7_2_Programmflussdiagramm.tex) (./sections/8_0_Evaluation.tex)
 (./sections/9_0_Fazit.tex) (./sections/9_1_Zielerreichung.tex)
 (./sections/9_2_Kosten.tex) (./sections/10_0_Schlusswort.tex)
-(./sections/11_0_Ehrlichkeitserklaerung.tex) [4
+(./sections/11_0_Ehrlichkeitserklaerung.tex) [5
 
 ]
 
@@ -2397,23 +2420,23 @@ Package logreq Info: Writing requests to 'Fachbericht.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
- 49474 strings out of 492639
- 1022288 string characters out of 6133088
- 1540586 words of memory out of 5000000
- 52405 multiletter control sequences out of 15000+600000
+ 49487 strings out of 492639
+ 1022515 string characters out of 6133088
+ 1541649 words of memory out of 5000000
+ 52411 multiletter control sequences out of 15000+600000
  593352 words of font info for 61 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 64i,9n,71p,1509b,3419s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,9n,80p,1509b,3419s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2018/tex
 mf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type
 1/public/lm/lmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc1
 0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2
 018/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2018/texmf-dist/font
 s/type1/public/lm/lmro10.pfb>
-Output written on Fachbericht.pdf (8 pages, 299349 bytes).
+Output written on Fachbericht.pdf (9 pages, 1550559 bytes).
 PDF statistics:
- 388 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 66 named destinations out of 1000 (max. 500000)
- 474 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 400 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 479 words of extra memory for PDF output out of 10000 (max. 10000000)
 
