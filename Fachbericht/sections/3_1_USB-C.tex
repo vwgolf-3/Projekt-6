@@ -1,7 +1,7 @@
 \subsection{USB-B}
 \label{subsec:USB-B}
 
-Auf der Leiterplatte gibt es zwei Komponenten, die programmiert werden müssen. Der Mikrocontroller und das WiFi-Modul. Beide werden über die UART-Schnittstelle 0 programmiert. Um diese zu programmieren braucht es eine entsprechende Schnittstelle, welche mit einer USB-B-Schnittstelle realisiert wird.
+Auf der Leiterplatte des PartyMixer's gibt es zwei Komponenten, welche programmiert werden müssen. Der Mikrocontroller und das WiFi-Modul. Beide werden über die UART-Schnittstelle 0 programmiert. Um diese zu programmieren braucht es eine entsprechende Schnittstelle, welche mit einer USB-B-Schnittstelle realisiert wird.
 
 Die USB-B-Schnittstelle benötigt jedoch nur zwei Kommunikationsleitungen (D+ und D-). Deswegen benötigt es einen USB-UART-Converter. Hier wurde auf das Flash-Interface von Arduino zurückgegriffen \cite{arduino_cc_arduino_2017}, um die Schaltung für den Mikrocontroller zu planen und auf das Flash-Interface des ESP32 \cite{espressif_systems_esp32_2016}, um die Schaltung für den ESP32 zu planen. Darin ist ersichtlich, dass für den Mikrocontroller und ESP folgende Leitungen nötig sind:
 
