@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'Fachbericht.blg'
+[31] biber-MSWIN32:315> INFO - === 
+[50] Biber.pm:375> INFO - Reading 'Fachbericht.bcf'
+[177] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
+[187] Utils.pm:300> WARN - The file 'Fachbericht.bcf' does not contain any citations!
+[199] bbl.pm:648> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
+[199] bbl.pm:751> INFO - Output to Fachbericht.bbl
+[200] Biber.pm:110> INFO - WARNINGS: 1

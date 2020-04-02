@@ -1,0 +1,190 @@
+\documentclass[final]{fhnwreport}       	%[mode] = draft or final
+                                        	%{class} = fhnwreport, article, 
+                                        	%          report, book, beamer, standalone
+\input{header}			               	%loads all packages, definitions and settings											
+\title{Fachbericht}  		        		%Project Title
+\author{Team Schenk \& Aebi}      				    %Document Type => Technical Report, ...
+\date{\today}          				   	%Place and Date
+
+\begin{document}
+
+%%---TITLEPAGE---------------------------------------------------------------------------------
+\thispagestyle{empty}
+%	\ohead{\includegraphics[scale=0.5]{Bilder/Logo_FHNW.jpg}}
+	\begin{figure}
+		 \vspace*{-\topskip}\vspace*{-\headsep}
+		\includegraphics[scale=1]{graphics/fhnw_ht_logo_de.pdf}
+	\end{figure}
+	\begin{center}
+		\vspace*{2cm}
+		{\huge{\textbf{\thetitle}}}\\
+		\vspace*{0.5cm}
+		
+		{\scshape\Large Projekt 6 Cocktailmaschine - \theauthor \\} \Large{\today}
+		\vfill
+		\begin{normalsize}
+			{\begin{tabbing}
+					\textbf{Betreuender Dozent:} \hspace{5cm}\= Prof. Dr. Schleuniger, Pascal\\[0.8cm]		
+					\textbf{Team:} \>Schenk, Kim \\ \>Aebi, Robin\\[0.8cm]
+					\textbf{Studiengang:} \>Elektro- und Informationstechnik
+					\\[0.8cm]	\textbf{Semester:} \>Frühlingssemester 2020
+			\end{tabbing}}
+		\end{normalsize}
+		\vfill
+	\end{center}
+\clearpage
+			
+%%---ABSTRACT----------------------------------------------------------------------------
+\selectlanguage{english}				%ngerman or english
+\thispagestyle{empty}
+\include{sections/abstract}
+
+
+%%---TABLE OF CONTENTS-------------------------------------------------------------------
+\pagenumbering{Roman}		
+\selectlanguage{ngerman}				%ngerman or english
+\tableofcontents
+\clearpage
+
+%%---TEXT--------------------------------------------------------------------------------
+\pagenumbering{arabic}
+\input{sections/1_0_Einleitung}
+
+\pagebreak
+\input{sections/2_0_Ausgangslage}
+
+\input{sections/2_1_0_Blockschaldbild}
+
+\input{sections/2_1_1_Komponentenauswahl}
+
+\input{sections/3_0_Neue_Hardware}
+
+\input{sections/3_1_USB-C}
+
+\input{sections/3_2_Wirelessmodul}
+		
+\input{sections/3_3_RFID}
+
+\input{sections/3_4_Beleuchtung}
+
+\input{sections/4_0_Printaufbau}
+
+\input{sections/5_0_Teilsysteme}
+
+\input{sections/5_1_Speisungen}
+
+\input{sections/5_1_0_48V_Speisung}
+
+\input{sections/5_1_1_12V_Speisung}
+
+\input{sections/5_1_2_5V_Speisung}
+
+\input{sections/5_1_3_3.3V_Speisung}
+
+\input{sections/5_2_Motor}
+
+\input{sections/5_2_0_BLDC_&_H-Bruecke}
+
+\input{sections/5_2_1_ABN-Encoder}
+
+\input{sections/5_2_2_Treiber}
+
+\input{sections/5_3_Fluessigkeitsbefoerderung}
+
+\input{sections/5_3_0_Pumpen}
+
+\input{sections/5_3_1_Durchflussmessgeraete}
+
+\input{sections/5_4_Benutzerschnittstellen}
+
+\input{sections/5_4_0_Touch_Display}
+
+\input{sections/5_4_1_ESP-XXX}
+
+\input{sections/5_4_2_USB-C}
+
+\input{sections/5_4_3_RFID}
+
+\input{sections/5_5_Beleuchtung}
+
+\input{sections/5_6_Mikrocontroller}
+
+\input{sections/6_0_Inbetriebnahme}
+
+\input{sections/6_1_Speisungen}
+
+\input{sections/6_1_1_12V_Speisung}
+
+\input{sections/6_1_2_5V_Speisung}
+
+\input{sections/6_1_3_3.3V_Speisung}
+
+\input{sections/6_2_Motor}
+
+\input{sections/6_2_0_BLDC_&_H-Bruecke}
+
+\input{sections/6_2_1_ABN-Encoder}
+
+\input{sections/6_2_2_Treiber}
+
+\input{sections/6_3_Fluessigkeitsbefoerderung}
+
+\input{sections/6_3_0_Pumpen}
+
+\input{sections/6_3_1_Durchflussmessgeraete}
+
+\input{sections/6_4_Benutzerschnittstellen}
+
+\input{sections/6_4_0_Touch-Display}
+
+\input{sections/6_4_1_ESP-XXX}
+
+\input{sections/6_4_2_USB-C}
+
+\input{sections/6_4_3_RFID}
+
+\input{sections/6_5_Beleuchtung}
+
+\input{sections/7_0_Software}
+
+\input{sections/7_1_Strukturplan}
+
+\input{sections/7_2_Programmflussdiagramm}
+
+\input{sections/8_0_Evaluation}
+
+\input{sections/9_0_Fazit}
+
+\input{sections/9_1_Zielerreichung}
+
+\input{sections/9_2_Kosten}
+
+\input{sections/10_0_Schlusswort}
+
+\input{sections/11_0_Ehrlichkeitserklaerung}
+\pagebreak
+
+
+\clearpage
+%%---BIBLIOGRAPHY------------------------------------------------------------------------
+{\sloppypar
+\printbibliography[heading=bibintoc]
+\label{sec:lit}
+%\selectlanguage{ngerman}				%ngerman or english
+%\printbibliography
+}
+
+%%---APPENDIX----------------------------------------------------------------------------
+\include{sections/appendix}
+
+%%---NOTES for DEBUG---------------------------------------------------------------------
+\ifdraft{%Do this only if mode=draft
+%%requires \usepackage{todonotes})
+\newpage
+\listoftodos[\section{Todo-Notes}]
+\clearpage
+}
+{%Do this only if mode=final
+}
+
+\end{document}
