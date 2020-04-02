@@ -8,7 +8,7 @@
 
 // Replace with your network credentials
 const char* ssid     = "Master-Laptop";
-const char* password = "QQvvpad4jswd";
+const char* password = "11111111";
 
 // Set web server port number to 80
 WiFiServer server(80);
