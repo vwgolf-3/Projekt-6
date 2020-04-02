@@ -1749,4 +1749,897 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (c:/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2016/02/03 v
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+\TX@col@width=\dimen312
+\TX@old@table=\dimen313
+\TX@old@col=\dimen314
+\TX@target=\dimen315
+\TX@delta=\dimen316
+\TX@cols=\count327
+\TX@ftn=\toks46
+)
+(c:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2018/04/20 v1.8s multicolumn formatting (FMi)
+\c@tracingmulticols=\count328
+\mult@box=\box70
+\multicol@leftmargin=\dimen317
+\c@unbalance=\count329
+\c@collectmore=\count330
+\doublecol@number=\count331
+\multicoltolerance=\count332
+\multicolpretolerance=\count333
+\full@width=\dimen318
+\page@free=\dimen319
+\premulticols=\dimen320
+\postmulticols=\dimen321
+\multicolsep=\skip67
+\multicolbaselineskip=\skip68
+\partial@page=\box71
+\last@line=\box72
+\maxbalancingoverflow=\dimen322
+\mult@rightbox=\box73
+\mult@grightbox=\box74
+\mult@gfirstbox=\box75
+\mult@firstbox=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\c@columnbadness=\count334
+\c@finalcolumnbadness=\count335
+\last@try=\dimen323
+\multicolovershoot=\dimen324
+\multicolundershoot=\dimen325
+\mult@nat@firstbox=\box94
+\colbreak@box=\box95
+\mc@col@check@num=\count336
+)
+(c:/texlive/2018/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
+
+(c:/texlive/2018/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
+)
+\AM@pagewidth=\dimen326
+\AM@pageheight=\dimen327
+
+(c:/texlive/2018/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box96
+\AM@global@opts=\toks47
+\AM@toc@title=\toks48
+\c@AM@survey=\count337
+\AM@templatesizebox=\box97
+)
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2018/03/04 v3.11 programmable bibliographies (PK/MW)
+
+(c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count338
+
+(c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
+(c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write4
+\integerpart=\count339
+\decimalpart=\count340
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\c@tabx@nest=\count341
+\c@listtotal=\count342
+\c@listcount=\count343
+\c@liststart=\count344
+\c@liststop=\count345
+\c@citecount=\count346
+\c@citetotal=\count347
+\c@multicitecount=\count348
+\c@multicitetotal=\count349
+\c@instcount=\count350
+\c@maxnames=\count351
+\c@minnames=\count352
+\c@maxitems=\count353
+\c@minitems=\count354
+\c@citecounter=\count355
+\c@savedcitecounter=\count356
+\c@uniquelist=\count357
+\c@uniquename=\count358
+\c@refsection=\count359
+\c@refsegment=\count360
+\c@maxextratitle=\count361
+\c@maxextratitleyear=\count362
+\c@maxextradate=\count363
+\c@maxextraalpha=\count364
+\c@abbrvpenalty=\count365
+\c@highnamepenalty=\count366
+\c@lownamepenalty=\count367
+\c@maxparens=\count368
+\c@parenlevel=\count369
+\blx@tempcnta=\count370
+\blx@tempcntb=\count371
+\blx@tempcntc=\count372
+\blx@maxsection=\count373
+\blx@maxsegment@0=\count374
+\blx@notetype=\count375
+\blx@parenlevel@text=\count376
+\blx@parenlevel@foot=\count377
+\blx@sectionciteorder@0=\count378
+\labelnumberwidth=\skip69
+\labelalphawidth=\skip70
+\biblabelsep=\skip71
+\bibitemsep=\skip72
+\bibnamesep=\skip73
+\bibinitsep=\skip74
+\bibparsep=\skip75
+\bibhang=\skip76
+\blx@bcfin=\read4
+\blx@bcfout=\write5
+\c@mincomprange=\count379
+\c@maxcomprange=\count380
+\c@mincompwidth=\count381
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2018/03/04 v3.11 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count382
+\c@savedafterword=\count383
+\c@annotator=\count384
+\c@savedannotator=\count385
+\c@author=\count386
+\c@savedauthor=\count387
+\c@bookauthor=\count388
+\c@savedbookauthor=\count389
+\c@commentator=\count390
+\c@savedcommentator=\count391
+\c@editor=\count392
+\c@savededitor=\count393
+\c@editora=\count394
+\c@savededitora=\count395
+\c@editorb=\count396
+\c@savededitorb=\count397
+\c@editorc=\count398
+\c@savededitorc=\count399
+\c@foreword=\count400
+\c@savedforeword=\count401
+\c@holder=\count402
+\c@savedholder=\count403
+\c@introduction=\count404
+\c@savedintroduction=\count405
+\c@namea=\count406
+\c@savednamea=\count407
+\c@nameb=\count408
+\c@savednameb=\count409
+\c@namec=\count410
+\c@savednamec=\count411
+\c@translator=\count412
+\c@savedtranslator=\count413
+\c@shortauthor=\count414
+\c@savedshortauthor=\count415
+\c@shorteditor=\count416
+\c@savedshorteditor=\count417
+\c@labelname=\count418
+\c@savedlabelname=\count419
+\c@institution=\count420
+\c@savedinstitution=\count421
+\c@lista=\count422
+\c@savedlista=\count423
+\c@listb=\count424
+\c@savedlistb=\count425
+\c@listc=\count426
+\c@savedlistc=\count427
+\c@listd=\count428
+\c@savedlistd=\count429
+\c@liste=\count430
+\c@savedliste=\count431
+\c@listf=\count432
+\c@savedlistf=\count433
+\c@location=\count434
+\c@savedlocation=\count435
+\c@organization=\count436
+\c@savedorganization=\count437
+\c@origlocation=\count438
+\c@savedoriglocation=\count439
+\c@origpublisher=\count440
+\c@savedorigpublisher=\count441
+\c@publisher=\count442
+\c@savedpublisher=\count443
+\c@language=\count444
+\c@savedlanguage=\count445
+\c@origlanguage=\count446
+\c@savedoriglanguage=\count447
+\c@pageref=\count448
+\c@savedpageref=\count449
+\shorthandwidth=\skip77
+\shortjournalwidth=\skip78
+\shortserieswidth=\skip79
+\shorttitlewidth=\skip80
+\shortauthorwidth=\skip81
+\shorteditorwidth=\skip82
+\locallabelnumberwidth=\skip83
+\locallabelalphawidth=\skip84
+\localshorthandwidth=\skip85
+\localshortjournalwidth=\skip86
+\localshortserieswidth=\skip87
+\localshorttitlewidth=\skip88
+\localshortauthorwidth=\skip89
+\localshorteditorwidth=\skip90
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
+\c@textcitecount=\count450
+\c@textcitetotal=\count451
+\c@textcitemaxnames=\count452
+\c@biburlnumpenalty=\count453
+\c@biburlucpenalty=\count454
+\c@biburllcpenalty=\count455
+\c@smartand=\count456
+)
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex-ieee/ieee.bbx
+File: ieee.bbx 2018/08/20 v1.3 biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
+File: numeric-comp.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count457
+\c@bbx:relatedtotal=\count458
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex-ieee/ieee.cbx
+File: ieee.cbx 2018/08/20 v1.3 biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.cbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+File: numeric-comp.cbx 2018/03/04 v3.11 biblatex citation style (PK/MW)
+\c@cbx@tempcnta=\count459
+\c@cbx@tempcntb=\count460
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\cites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+))
+(c:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+\c@subfigure=\count461
+\c@subtable=\count462
+)
+(c:/texlive/2018/texmf-dist/tex/latex/sectsty/sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+))
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
+
+
+Package biblatex Warning: File 'ngerman-ieee.lbx' not found!
+(biblatex)                Ignoring mapping 'ngerman' -> 'ngerman-ieee'.
+
+Package biblatex Info: Trying to load language 'ngerman'...
+Package biblatex Info: ... file 'ngerman.lbx' found.
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/ngerman.lbx
+File: ngerman.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
+
+
+Package biblatex Warning: File 'german-ieee.lbx' not found!
+(biblatex)                Ignoring mapping 'german' -> 'german-ieee'.
+
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
+))
+
+Package biblatex Warning: File 'english-ieee.lbx' not found!
+(biblatex)                Ignoring mapping 'english' -> 'english-ieee'.
+
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
+)
+(./Fachbericht.aux (./sections/abstract.aux)
+
+LaTeX Warning: Label `fig:Produktbild_USB_UART_ESP' multiply defined.
+
+
+LaTeX Warning: Label `subsec:Beleuchtung' multiply defined.
+
+(./sections/appendix.aux))
+\openout1 = `Fachbericht.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 9.
+ (c:/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 9.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 9.
+ (c:/texlive/2018/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
+)
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13191pt, 455.24408pt, 71.13188pt)
+* v-part:(T,H,B)=(91.04881pt, 685.71141pt, 68.28662pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24408pt
+* \textheight=685.71141pt
+* \oddsidemargin=-1.13808pt
+* \evensidemargin=-1.13808pt
+* \topmargin=-30.20975pt
+* \headheight=12.0pt
+* \headsep=36.98857pt
+* \topskip=10.0pt
+* \footskip=54.06023pt
+* \marginparwidth=56.9055pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count463
+\scratchdimen=\dimen328
+\scratchbox=\box98
+\nofMPsegments=\count464
+\nofMParguments=\count465
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count466
+\MPscratchDim=\dimen329
+\MPnumerator=\count467
+\makeMPintoPDFobject=\count468
+\everyMPtoPDFconversion=\toks50
+) (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(c:/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\AtBeginShipoutBox=\box99
+Package hyperref Info: Link coloring OFF on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count469
+)
+LaTeX Info: Redefining \ref on input line 9.
+LaTeX Info: Redefining \pageref on input line 9.
+LaTeX Info: Redefining \nameref on input line 9.
+
+(./Fachbericht.out) (./Fachbericht.out)
+\@outlinefile=\write6
+\openout6 = `Fachbericht.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(c:/texlive/2018/texmf-dist/tex/latex/translator/translator-basic-dictionary-En
+glish.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(c:/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
+)
+ABD: EveryShipout initializing macros
+(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(c:/texlive/2018/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout5 = `Fachbericht.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Fachbericht.bbl' not found.
+
+No file Fachbericht.bbl.
+Package biblatex Info: Reference section=0 on input line 9.
+Package biblatex Info: Reference segment=0 on input line 9.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 9.
+(c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 9.
+LaTeX Font Info:    Try loading font information for U+msa on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmss.fd
+File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 9.
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<graphics/fhnw_ht_logo_de.pdf, id=236, 183.81773pt x 28.4543pt>
+File: graphics/fhnw_ht_logo_de.pdf Graphic file (type pdf)
+<use graphics/fhnw_ht_logo_de.pdf>
+Package pdftex.def Info: graphics/fhnw_ht_logo_de.pdf  used on input line 16.
+(pdftex.def)             Requested size: 183.81728pt x 28.45421pt.
+ [1
+
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./graphics/fhnw
+_ht_logo_de.pdf>]
+\openout2 = `sections/abstract.aux'.
+
+
+(./sections/abstract.tex) [2
+
+
+] (./Fachbericht.toc [1
+
+])
+\tf@toc=\write7
+\openout7 = `Fachbericht.toc'.
+
+ [2]
+(./sections/1_0_Einleitung.tex)pdfTeX warning (ext4): destination with the same
+ identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.54 \input
+           {sections/2_0_Ausgangslage} [1
+
+
+] (./sections/2_0_Ausgangslage.tex)
+(./sections/2_1_0_Blockschaldbild.tex) (./sections/2_1_1_Komponentenauswahl.tex
+) (./sections/3_0_Neue_Hardware.texpdfTeX warning (ext4): destination with the 
+same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \newpage
+             [2]) (./sections/3_1_USB-C.tex
+
+LaTeX Warning: Citation 'arduino_cc_arduino_2017' on page 3 undefined on input 
+line 6.
+
+
+LaTeX Warning: Citation 'espressif_systems_esp32_2016' on page 3 undefined on i
+nput line 6.
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 9.
+(c:/texlive/2018/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<graphics/Produktbild_USB_UART_uC.jpg, id=339, 240.9pt x 240.9pt>
+File: graphics/Produktbild_USB_UART_uC.jpg Graphic file (type jpg)
+<use graphics/Produktbild_USB_UART_uC.jpg>
+Package pdftex.def Info: graphics/Produktbild_USB_UART_uC.jpg  used on input li
+ne 30.
+(pdftex.def)             Requested size: 227.62204pt x 227.62964pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphics/Produktbild_USB_UART_ESP.png, id=340, 215.00325pt x 178.86826pt>
+File: graphics/Produktbild_USB_UART_ESP.png Graphic file (type png)
+<use graphics/Produktbild_USB_UART_ESP.png>
+Package pdftex.def Info: graphics/Produktbild_USB_UART_ESP.png  used on input l
+ine 37.
+(pdftex.def)             Requested size: 227.62204pt x 189.36745pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./sections/3_2_Wirelessmodul.tex [3]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:Produktbild_ESP32_32U_Wroom' on page 4 undefined 
+on input line 31.
+
+<graphics/Produktbild_ESP32.jpg, id=351, 513.92pt x 284.56313pt>
+File: graphics/Produktbild_ESP32.jpg Graphic file (type jpg)
+<use graphics/Produktbild_ESP32.jpg>
+Package pdftex.def Info: graphics/Produktbild_ESP32.jpg  used on input line 35.
+
+(pdftex.def)             Requested size: 273.14922pt x 151.24759pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphics/Produktbild_ESP32_2.jpg, id=352, 1505.625pt x 1505.625pt>
+File: graphics/Produktbild_ESP32_2.jpg Graphic file (type jpg)
+<use graphics/Produktbild_ESP32_2.jpg>
+Package pdftex.def Info: graphics/Produktbild_ESP32_2.jpg  used on input line 4
+2.
+(pdftex.def)             Requested size: 273.14922pt x 273.13739pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./sections/3_3_RFID.tex [4 <./graphics/Produktbild_USB_UART_uC.jpg> <./graph
+ics/Produktbild_USB_UART_ESP.png>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 5.
+<graphics/Produktbild_RFID_MFRC522.png, id=364, 602.25pt x 602.25pt>
+File: graphics/Produktbild_RFID_MFRC522.png Graphic file (type png)
+<use graphics/Produktbild_RFID_MFRC522.png>
+Package pdftex.def Info: graphics/Produktbild_RFID_MFRC522.png  used on input l
+ine 11.
+(pdftex.def)             Requested size: 273.14922pt x 273.16035pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./sections/3_4_Beleuchtung.tex [5 <./graphics/Produktbild_ESP32.jpg>]
+[6 <./graphics/Produktbild_ESP32_2.jpg> <./graphics/Produktbild_RFID_MFRC522.pn
+g (PNG copy)>]
+<graphics/Schema_LED1.png, id=380, 1168.365pt x 784.9325pt>
+File: graphics/Schema_LED1.png Graphic file (type png)
+<use graphics/Schema_LED1.png>
+Package pdftex.def Info: graphics/Schema_LED1.png  used on input line 9.
+(pdftex.def)             Requested size: 455.24408pt x 305.84697pt.
+) (./sections/4_0_Printaufbau.tex [7 <./graphics/Schema_LED1.png (PNG copy)>]) 
+(./sections/5_0_Teilsysteme.tex) (./sections/5_1_Speisungen.tex)
+(./sections/5_1_0_48V_Speisung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+<graphics/Netzteil_48V.png, id=387, 672.71326pt x 405.9165pt>
+File: graphics/Netzteil_48V.png Graphic file (type png)
+<use graphics/Netzteil_48V.png>
+Package pdftex.def Info: graphics/Netzteil_48V.png  used on input line 11.
+(pdftex.def)             Requested size: 364.19664pt x 219.76147pt.
+) [8 <./graphics/Netzteil_48V.PNG>] (./sections/5_1_1_12V_Speisung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+<graphics/Schema_Speisung_12V.png, id=396, 1345.27594pt x 290.58563pt>
+File: graphics/Schema_Speisung_12V.png Graphic file (type png)
+<use graphics/Schema_Speisung_12V.png>
+Package pdftex.def Info: graphics/Schema_Speisung_12V.png  used on input line 1
+2.
+(pdftex.def)             Requested size: 455.24408pt x 98.33223pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+[9 <./graphics/Schema_Speisung_12V.PNG>]) (./sections/5_1_2_5V_Speisung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+[10]
+<graphics/Schema_Speisung_5V.png, id=426, 1146.53343pt x 283.0575pt>
+File: graphics/Schema_Speisung_5V.png Graphic file (type png)
+<use graphics/Schema_Speisung_5V.png>
+Package pdftex.def Info: graphics/Schema_Speisung_5V.png  used on input line 12
+.
+(pdftex.def)             Requested size: 455.24408pt x 112.39171pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Overfull \hbox (8.18518pt too wide) in paragraph at lines 23--24
+[]\T1/lmr/m/n/10.95 Beim Über-span-nungs-schutz muss-te dar-auf ge-ach-tet wer-
+den, dass der Mi-kro-kon-trol-ler AtMega2560-|
+ []
+
+) (./sections/5_1_3_3.3V_Speisung.tex [11 <./graphics/Schema_Speisung_5V.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+<graphics/Schema_Speisung_3,3V.png, id=439, 738.50906pt x 221.32687pt>
+File: graphics/Schema_Speisung_3,3V.png Graphic file (type png)
+<use graphics/Schema_Speisung_3,3V.png>
+Package pdftex.def Info: graphics/Schema_Speisung_3,3V.png  used on input line 
+12.
+(pdftex.def)             Requested size: 455.24408pt x 136.43434pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+) (./sections/5_2_Motor.tex) (./sections/5_2_0_BLDC_&_H-Bruecke.tex)
+(./sections/5_2_1_ABN-Encoder.tex) (./sections/5_2_2_Treiber.tex)
+(./sections/5_3_Fluessigkeitsbefoerderung.tex) (./sections/5_3_0_Pumpen.tex)
+(./sections/5_3_1_Durchflussmessgeraete.tex)
+(./sections/5_4_Benutzerschnittstellen.tex [12 <./graphics/Schema_Speisung_3,3V
+.PNG>]) (./sections/5_4_0_Touch_Display.tex) (./sections/5_4_1_ESP-XXX.tex)
+(./sections/5_4_2_USB-C.tex) (./sections/5_4_3_RFID.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+<graphics/Schema_RFID.png, id=451, 499.00714pt x 329.51678pt>
+File: graphics/Schema_RFID.png Graphic file (type png)
+<use graphics/Schema_RFID.png>
+Package pdftex.def Info: graphics/Schema_RFID.png  used on input line 22.
+(pdftex.def)             Requested size: 455.24408pt x 300.61996pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+LaTeX Warning: Citation 'nxp_bv_2010_antenna_2010' on page 13 undefined on inpu
+t line 29.
+
+) (./sections/5_5_Beleuchtung.tex [13
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+<graphics/Schema_LED.png, id=463, 642.68678pt x 272.30304pt>
+File: graphics/Schema_LED.png Graphic file (type png)
+<use graphics/Schema_LED.png>
+Package pdftex.def Info: graphics/Schema_LED.png  used on input line 13.
+(pdftex.def)             Requested size: 455.24408pt x 192.89192pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+) [14 <./graphics/Schema_RFID.png>] (./sections/5_6_Mikrocontroller.tex)
+(./sections/6_0_Inbetriebnahme.tex) (./sections/6_1_Speisungen.tex)
+(./sections/6_1_1_12V_Speisung.tex) (./sections/6_1_2_5V_Speisung.tex)
+(./sections/6_1_3_3.3V_Speisung.tex) (./sections/6_2_Motor.tex)
+(./sections/6_2_0_BLDC_&_H-Bruecke.tex) (./sections/6_2_1_ABN-Encoder.tex)
+(./sections/6_2_2_Treiber.tex) (./sections/6_3_Fluessigkeitsbefoerderung.tex)
+(./sections/6_3_0_Pumpen.tex) (./sections/6_3_1_Durchflussmessgeraete.tex)
+(./sections/6_4_Benutzerschnittstellen.tex) (./sections/6_4_0_Touch-Display.tex
+) (./sections/6_4_1_ESP-XXX.tex [15 <./graphics/Schema_LED.png>])
+(./sections/6_4_2_USB-C.tex) (./sections/6_4_3_RFID.tex)
+(./sections/6_5_Beleuchtung.tex) (./sections/7_0_Software.tex)
+(./sections/7_1_Strukturplan.tex [16])
+(./sections/7_2_Programmflussdiagramm.tex) (./sections/8_0_Evaluation.tex)
+(./sections/9_0_Fazit.tex) (./sections/9_1_Zielerreichung.tex)
+(./sections/9_2_Kosten.tex) (./sections/10_0_Schlusswort.tex)
+(./sections/11_0_Ehrlichkeitserklaerung.tex) [17
+
+]
+
+LaTeX Warning: Empty bibliography on input line 171.
+
+\openout2 = `sections/appendix.aux'.
+
+(./sections/appendix.tex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
+ (./Fachbericht.aux (./sections/abstract.aux)
+(./sections/appendix.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
+Package rerunfilecheck Info: File `Fachbericht.out' has not changed.
+(rerunfilecheck)             Checksum: D450863853CB43D618CA0CC91E179B50;3876.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Fachbericht
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'Fachbericht.run.xml'.
+\openout1 = `Fachbericht.run.xml'.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
+ ) 
+Here is how much of TeX's memory you used:
+ 49846 strings out of 492639
+ 1029894 string characters out of 6133088
+ 1545628 words of memory out of 5000000
+ 52702 multiletter control sequences out of 15000+600000
+ 616778 words of font info for 79 fonts, out of 8000000 for 9000
+ 1143 hyphenation exceptions out of 8191
+ 64i,11n,80p,1509b,3419s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+{c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2018/t
+exmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2018/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathit.enc}{c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{
+c:/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2018/texmf
+-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
+public/lm/lmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmcsc10.
+pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/20
+18/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2018/texmf-dist/fonts
+/type1/public/lm/lmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lm
+r12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/
+2018/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2018/texmf-dist/font
+s/type1/public/lm/lmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lm
+ro10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on Fachbericht.pdf (21 pages, 2556969 bytes).
+PDF statistics:
+ 563 PDF objects out of 1000 (max. 8388607)
+ 492 compressed objects within 5 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 534 words of extra memory for PDF output out of 10000 (max. 10000000)
+
