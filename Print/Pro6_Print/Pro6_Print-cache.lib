@@ -1,0 +1,2488 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Device_C
+#
+DEF Device_C C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "Device_C" 25 -100 50 H V L CNN
+F2 "" 38 -150 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ C_*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Device_CP
+#
+DEF Device_CP C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "Device_CP" 25 -100 50 H V L CNN
+F2 "" 38 -150 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ CP_*
+$ENDFPLIST
+DRAW
+S -90 20 90 40 0 1 0 N
+S 90 -20 -90 -40 0 1 0 F
+P 2 0 1 0 -70 90 -30 90 N
+P 2 0 1 0 -50 110 -50 70 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Device_D_Schottky
+#
+DEF Device_D_Schottky D 0 40 N N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "Device_D_Schottky" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ TO-???*
+ *_Diode_*
+ *SingleDiode*
+ D_*
+$ENDFPLIST
+DRAW
+P 2 0 1 0 50 0 -50 0 N
+P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
+P 6 0 1 8 -75 25 -75 50 -50 50 -50 -50 -25 -50 -25 -25 N
+X K 1 -150 0 100 R 50 50 1 1 P
+X A 2 150 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Device_D_Zener
+#
+DEF Device_D_Zener D 0 40 N N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "Device_D_Zener" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ TO-???*
+ *_Diode_*
+ *SingleDiode*
+ D_*
+$ENDFPLIST
+DRAW
+P 2 0 1 0 50 0 -50 0 N
+P 3 0 1 8 -50 -50 -50 50 -30 50 N
+P 4 0 1 8 50 -50 50 50 -50 0 50 -50 N
+X K 1 -150 0 100 R 50 50 1 1 P
+X A 2 150 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Device_L
+#
+DEF Device_L L 0 40 N N 1 F N
+F0 "L" -50 0 50 V V C CNN
+F1 "Device_L" 75 0 50 V V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Choke_*
+ *Coil*
+ Inductor_*
+ L_*
+$ENDFPLIST
+DRAW
+A 0 -75 25 -899 899 0 1 0 N 0 -100 0 -50
+A 0 -25 25 -899 899 0 1 0 N 0 -50 0 0
+A 0 25 25 -899 899 0 1 0 N 0 0 0 50
+A 0 75 25 -899 899 0 1 0 N 0 50 0 100
+X 1 1 0 150 50 D 50 50 1 1 P
+X 2 2 0 -150 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Device_R
+#
+DEF Device_R R 0 0 N Y 1 F N
+F0 "R" 80 0 50 V V C CNN
+F1 "Device_R" 0 0 50 V V C CNN
+F2 "" -70 0 50 V I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ R_*
+$ENDFPLIST
+DRAW
+S -40 -100 40 100 0 1 10 N
+X ~ 1 0 150 50 D 50 50 1 1 P
+X ~ 2 0 -150 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# MP24943DN-LF_MP24943DN-LF
+#
+DEF MP24943DN-LF_MP24943DN-LF IC 0 30 Y Y 1 F N
+F0 "IC" 1050 300 50 H V L CNN
+F1 "MP24943DN-LF_MP24943DN-LF" 1050 200 50 H V L CNN
+F2 "SOIC127P600X170-9N" 1050 100 50 H I L CNN
+F3 "https://www.monolithicpower.com/pub/media/document/MP24943_r1.0.pdf" 1050 0 50 H I L CNN
+F4 "Switching Voltage Regulators 3A 55V 100kHz Buck Converter" 1050 -100 50 H I L CNN "Description"
+F5 "1.7" 1050 -200 50 H I L CNN "Height"
+F6 "Monolithic Power Systems (MPS)" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "MP24943DN-LF" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "946-MP24943DNLF" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.com/Search/Refine.aspx?Keyword=946-MP24943DNLF" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+DRAW
+P 5 0 1 6 200 100 1000 100 1000 -800 200 -800 200 100 N
+X VIN 1 0 0 200 R 50 50 0 0 U
+X GND_1 2 0 -100 200 R 50 50 0 0 U
+X EN 3 0 -200 200 R 50 50 0 0 U
+X FB 4 0 -300 200 R 50 50 0 0 U
+X SS 5 1200 -300 200 L 50 50 0 0 U
+X VO 6 1200 -200 200 L 50 50 0 0 U
+X BST 7 1200 -100 200 L 50 50 0 0 U
+X SW 8 1200 0 200 L 50 50 0 0 U
+X GND_2 9 600 -1000 200 U 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# MSS1583-104KEB_MSS1583-104KEB
+#
+DEF MSS1583-104KEB_MSS1583-104KEB L 0 30 Y Y 1 F N
+F0 "L" 650 250 50 H V L CNN
+F1 "MSS1583-104KEB_MSS1583-104KEB" 650 150 50 H V L CNN
+F2 "INDPM150150X860N" 650 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/MSS1583-104KEB.pdf" 650 -50 50 H I L CNN
+F4 "Fixed Inductors MSS1583 SMT Power 0.103Ohms 100uH" 650 -150 50 H I L CNN "Description"
+F5 "8.6" 650 -250 50 H I L CNN "Height"
+F6 "994-MSS1583-104KEB" 650 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=994-MSS1583-104KEB" 650 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "COILCRAFT" 650 -550 50 H I L CNN "Manufacturer_Name"
+F9 "MSS1583-104KEB" 650 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+A 250 -2 50 1777 -23 0 1 6 N 300 0 200 0
+A 350 -2 50 1777 -23 0 1 6 N 400 0 300 0
+A 450 -2 50 1777 -23 0 1 6 N 500 0 400 0
+A 550 -2 50 1777 -23 0 1 6 N 600 0 500 0
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 800 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Mechanical_MountingHole_Pad
+#
+DEF Mechanical_MountingHole_Pad H 0 40 N N 1 F N
+F0 "H" 0 250 50 H V C CNN
+F1 "Mechanical_MountingHole_Pad" 0 175 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ MountingHole*Pad*
+$ENDFPLIST
+DRAW
+C 0 50 50 0 1 50 N
+X 1 1 0 -100 100 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_100kOhm,150V,125mW,1%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_100kOhm,150V,125mW,1%-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_100kOhm,150V,125mW,1%-SamacSys_Parts" -200 100 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW0805100KFKEAC.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 1/8Watt 100Kohms 1% Commercial Use" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW0805100KFKEAC" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW0805100KFKEAC" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW0805100KFKEAC" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_100nF,100V,5%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_100nF,100V,5%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_100nF,100V,5%-SamacSys_Parts" -100 150 50 H V L CNN
+F2 "CAPC2012X140N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/08051C104JAT2A.pdf" 350 -50 50 H I L CNN
+F4 "AVX 100nF Multilayer Ceramic Capacitor MLCC 100V dc +/-5% X7R Dielectric 0805 SMD, Max. Temp. +125C" 350 -150 50 H I L CNN "Description"
+F5 "1.4" 350 -250 50 H I L CNN "Height"
+F6 "581-08051C104JAT2A" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=581-08051C104JAT2A" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "AVX" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "08051C104JAT2A" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_100nF,50V,5%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_100nF,50V,5%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_100nF,50V,5%-SamacSys_Parts" -100 150 50 H V L CNN
+F2 "CAPC2012X88N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C0805C104J5RACTU.pdf" 350 -50 50 H I L CNN
+F4 "Kemet 100nF +/-5% 50 V dc X7R Dielectric SMD Ceramic Multilayer Capacitor 0805" 350 -150 50 H I L CNN "Description"
+F5 "0.88" 350 -250 50 H I L CNN "Height"
+F6 "80-C0805C104J5R" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C0805C104J5R" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Kemet" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "C0805C104J5RACTU" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_100pF,50V,5%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_100pF,50V,5%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_100pF,50V,5%-SamacSys_Parts" -100 150 50 H V L CNN
+F2 "CAPC2013X70N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CC0805JRNPO9BN101.pdf" 350 -50 50 H I L CNN
+F4 "CAPACITOR, 0805 100pF +/-5% 50V" 350 -150 50 H I L CNN "Description"
+F5 "603-CC805JRNPO9BN101" 350 -350 50 H I L CNN "Mouser Part Number"
+F6 "https://www.mouser.com/Search/Refine.aspx?Keyword=603-CC805JRNPO9BN101" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F7 "YAGEO (PHYCOMP)" 350 -550 50 H I L CNN "Manufacturer_Name"
+F8 "CC0805JRNPO9BN101" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_100uF,6.3V,20%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_100uF,6.3V,20%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_100uF,6.3V,20%-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPC2012X145N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/GRM21BR60J107ME15K.pdf" 350 -50 50 H I L CNN
+F4 "Capacitor GRM21_0.20 L=2.0mm W=1.25mm T=1.25mm" 350 -150 50 H I L CNN "Description"
+F5 "1.45" 350 -250 50 H I L CNN "Height"
+F6 "81-GRM21BR60J107ME5K" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=81-GRM21BR60J107ME5K" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Murata Electronics" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "GRM21BR60J107ME15K" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_10Ohm,150V,5%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_10Ohm,150V,5%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_10Ohm,150V,5%,125mW-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/RC0805JR-1010RL.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 10 ohm 5% 150V General Purpose" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "603-RC0805JR-1010RL" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=603-RC0805JR-1010RL" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "YAGEO (PHYCOMP)" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "RC0805JR-1010RL" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_10kOhm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_10kOhm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_10kOhm,150V,1%,125mW-SamacSys_Parts" -200 100 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW080510K0FKEAC.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 1/8Watt 10Kohms 1% Commercial Use" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW080510K0FKEAC" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW080510K0FKEAC" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW080510K0FKEAC" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_10nF,50V,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_10nF,50V,10%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 250 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_10nF,50V,10%-SamacSys_Parts" -100 150 50 H V L CNN
+F2 "CAPC2012X90N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/885012207092.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Chip Capacitor WCAP-CSGP Series 0805 10000pF X7R0805103K050DFCT10000" 350 -150 50 H I L CNN "Description"
+F5 "0.9" 350 -250 50 H I L CNN "Height"
+F6 "710-885012207092" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=710-885012207092" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Wurth Elektronik" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "885012207092" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_10pF,16V,5%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_10pF,16V,5%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_10pF,16V,5%-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPC2012X70N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/885012007010.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Chip Capacitor WCAP-CSGP Series 0805 10pF NP00805100J016DFCT10000" 350 -150 50 H I L CNN "Description"
+F5 "0.7" 350 -250 50 H I L CNN "Height"
+F6 "710-885012007010" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=710-885012007010" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Wurth Elektronik" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "885012007010" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_120pF,50V,5%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_120pF,50V,5%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_120pF,50V,5%-SamacSys_Parts" -150 150 50 H V L CNN
+F2 "CAPC2012X70N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/GRM2162C1H121JA01D.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 120pF 50volts CH 5%" 350 -150 50 H I L CNN "Description"
+F5 "0.7" 350 -250 50 H I L CNN "Height"
+F6 "81-GRM212C1H121JA01D" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=81-GRM212C1H121JA01D" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Murata Electronics" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "GRM2162C1H121JA01D" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_1kOhm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_1kOhm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_1kOhm,150V,1%,125mW-SamacSys_Parts" -200 100 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW08051K00FKEAC.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 1/8Watt 1Kohms 1% Commercial Use" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW08051K00FKEAC" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW08051K00FKEAC" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW08051K00FKEAC" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_1nF,50V,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_1nF,50V,10%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_1nF,50V,10%-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPC2012X90N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/885012207086.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Chip Capacitor WCAP-CSGP Series 0805 1000pF X7R0805102K050DFCT10000" 350 -150 50 H I L CNN "Description"
+F5 "0.9" 350 -250 50 H I L CNN "Height"
+F6 "710-885012207086" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=710-885012207086" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Wurth Elektronik" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "885012207086" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_1uF,25V,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_1uF,25V,10%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_1uF,25V,10%-SamacSys_Parts" -100 150 50 H V L CNN
+F2 "CAPC2013X140N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C0805C105K3RACTU.pdf" 350 -50 50 H I L CNN
+F4 "CAPACITOR, 0805 1uF +/-10% 25V" 350 -150 50 H I L CNN "Description"
+F5 "80-C0805C105K3R" 350 -350 50 H I L CNN "Mouser Part Number"
+F6 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C0805C105K3R" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F7 "Kemet" 350 -550 50 H I L CNN "Manufacturer_Name"
+F8 "C0805C105K3RACTU" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_2.2Ohm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_2.2Ohm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_2.2Ohm,150V,1%,125mW-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X50N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW08052R20FKEA.pdf" 550 -50 50 H I L CNN
+F4 "VISHAY - CRCW08052R20FKEA - RES, 2R2, 1%, 0.125W, 0805" 550 -150 50 H I L CNN "Description"
+F5 "0.5" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW08052R20FKEA" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW08052R20FKEA" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW08052R20FKEA" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_2.2uF,50V,20%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_2.2uF,50V,20%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_2.2uF,50V,20%-SamacSys_Parts" -150 150 50 H V L CNN
+F2 "CAPC2012X95N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/UMK212BB7225MG-T.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0805 50V 2.2uF 20% X7R" 350 -150 50 H I L CNN "Description"
+F5 "0.95" 350 -250 50 H I L CNN "Height"
+F6 "963-UMK212BB7225MG-T" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=963-UMK212BB7225MG-T" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "TAIYO YUDEN" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "UMK212BB7225MG-T" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_2.2uH,XYV,20%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_2.2uH,XYV,20%-SamacSys_Parts L 0 30 Y Y 1 F N
+F0 "L" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_2.2uH,XYV,20%-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "INDC2012X105N" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/MLZ2012A2R2WT000.pdf" 650 0 50 H I L CNN
+F4 "Fixed Inductors" 650 -100 50 H I L CNN "Description"
+F5 "1.05" 650 -200 50 H I L CNN "Height"
+F6 "810-MLZ2012A2R2WT000" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=810-MLZ2012A2R2WT000" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "TDK" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "MLZ2012A2R2WT000" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_22.1kOhm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_22.1kOhm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_22.1kOhm,150V,1%,125mW-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X70N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ERJ-6ENF2212V.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 0805 22.1Kohms 1% AEC-Q200" 550 -150 50 H I L CNN "Description"
+F5 "0.7" 550 -250 50 H I L CNN "Height"
+F6 "667-ERJ-6ENF2212V" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=667-ERJ-6ENF2212V" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Panasonic" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "ERJ-6ENF2212V" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_22nF,100V,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_22nF,100V,10%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_22nF,100V,10%-SamacSys_Parts" -150 150 50 H V L CNN
+F2 "CAPC2012X145N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C2012X7R2A223K125AA.pdf" 350 -50 50 H I L CNN
+F4 "TDK C2012 C 22nF Ceramic Multilayer Capacitor, 100 V dc, +125C, X7R Dielectric, +/-10% SMD" 350 -150 50 H I L CNN "Description"
+F5 "1.45" 350 -250 50 H I L CNN "Height"
+F6 "810-C2012X7R2A223K" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=810-C2012X7R2A223K" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "TDK" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "C2012X7R2A223K125AA" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_22ohm,150V,125mW,1%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_22ohm,150V,125mW,1%-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_22ohm,150V,125mW,1%-SamacSys_Parts" -200 100 50 H V L CNN
+F2 "RESC2012X70N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ERJ-6ENF22R0V.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 0805 22.0ohms 1% AEC-Q200" 550 -150 50 H I L CNN "Description"
+F5 "0.7" 550 -250 50 H I L CNN "Height"
+F6 "667-ERJ-6ENF22R0V" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=667-ERJ-6ENF22R0V" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Panasonic" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "ERJ-6ENF22R0V" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_4.7kOhm,150V,125mW,1%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_4.7kOhm,150V,125mW,1%-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_4.7kOhm,150V,125mW,1%-SamacSys_Parts" -200 100 50 H V L CNN
+F2 "RESC2012X70N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ERJ-6ENF4701V.pdf" 550 -50 50 H I L CNN
+F4 "RESISTOR, 0805 4.7 kOHM +/- 1 % 0.125 W" 550 -150 50 H I L CNN "Description"
+F5 "0.7" 550 -250 50 H I L CNN "Height"
+F6 "667-ERJ-6ENF4701V" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=667-ERJ-6ENF4701V" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Panasonic" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "ERJ-6ENF4701V" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_47.5kOhm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_47.5kOhm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_47.5kOhm,150V,1%,125mW-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X50N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW080547K5FKEA.pdf" 550 -50 50 H I L CNN
+F4 "Vishay CRCW Series Thick Film Surface Mount Resistor 805 Case 47.5k +/-1% 0.125W +/-100ppm/C" 550 -150 50 H I L CNN "Description"
+F5 "0.5" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW0805-47.5K-E3" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW0805-47.5K-E3" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW080547K5FKEA" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_47pF,50V,5%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_47pF,50V,5%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_47pF,50V,5%-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPC2013X88N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C0805C470J5GACTU.pdf" 350 -50 50 H I L CNN
+F4 "Kemet 0805 47pF Ceramic Multilayer Capacitor, 50V dc, 125C, C0G Dielectric, +/-5% SMD" 350 -150 50 H I L CNN "Description"
+F5 "80-C0805C470J5G" 350 -350 50 H I L CNN "Mouser Part Number"
+F6 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C0805C470J5G" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F7 "Kemet" 350 -550 50 H I L CNN "Manufacturer_Name"
+F8 "C0805C470J5GACTU" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_560Ohm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_560Ohm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_560Ohm,150V,1%,125mW-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X50N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW0805560RFKEA.pdf" 550 -50 50 H I L CNN
+F4 "CRCW0805 Resistor T/R 0.125W,1%,560R Vishay CRCW Series Thick Film Surface Mount Resistor 805 Case 560?? ??1% 0.125W ??100ppm/??C" 550 -150 50 H I L CNN "Description"
+F5 "0.5" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW0805-560-E3" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW0805-560-E3" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW0805560RFKEA" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_68nF,50V,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_68nF,50V,10%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_68nF,50V,10%-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPC2012X90N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/885012207097.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Chip Capacitor WCAP-CSGP Series 0805 68000pF X7R0805683K050DFCT10000" 350 -150 50 H I L CNN "Description"
+F5 "0.9" 350 -250 50 H I L CNN "Height"
+F6 "710-885012207097" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=710-885012207097" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Wurth Elektronik" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "885012207097" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_0805_820Ohm,150V,1%,125mW-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_0805_820Ohm,150V,1%,125mW-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_0805_820Ohm,150V,1%,125mW-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CR0805-FX-8200ELF.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 820ohm 1%" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "652-CR0805FX-8200ELF" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=652-CR0805FX-8200ELF" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Bourns" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CR0805-FX-8200ELF" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_100nF,50V,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_100nF,50V,10%-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "Pro6_Print-rescue_100nF,50V,10%-SamacSys_Parts" -100 150 50 H V L CNN
+F2 "CAPC1608X95N" 350 50 50 H I L CNN
+F3 "http://www.farnell.com/datasheets/2205446.pdf" 350 -50 50 H I L CNN
+F4 "Capacitor Ceramic X7R 0603 50V 100nF KEMET 100nF Multilayer Ceramic Capacitor (MLCC) 50 V +/-10% X7R dielectric C SMD max op. temp. +125C" 350 -150 50 H I L CNN "Description"
+F5 "0.95" 350 -250 50 H I L CNN "Height"
+F6 "Kemet" 350 -350 50 H I L CNN "Manufacturer_Name"
+F7 "C0603C104K5RACTU" 350 -450 50 H I L CNN "Manufacturer_Part_Number"
+F8 "80-C0603C104K5R" 350 -550 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C0603C104K5R" 350 -650 50 H I L CNN "Mouser Price/Stock"
+F10 "8015347" 350 -750 50 H I L CNN "RS Part Number"
+F11 "http://uk.rs-online.com/web/p/products/8015347" 350 -850 50 H I L CNN "RS Price/Stock"
+F12 "70096969" 350 -950 50 H I L CNN "Allied_Number"
+F13 "https://www.alliedelec.com/kemet-c0603c104k5ractu/70096969/" 350 -1050 50 H I L CNN "Allied Price/Stock"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_104031-0811-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_104031-0811-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 1150 300 50 H V L CNN
+F1 "Pro6_Print-rescue_104031-0811-SamacSys_Parts" 1150 200 50 H V L CNN
+F2 "1040310811" 1150 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/104031-0811.pdf" 1150 0 50 H I L CNN
+F4 "microSD 1.10mm SMT push-pull memory card microSD 1.10mm SMT push-pull memory card" 1150 -100 50 H I L CNN "Description"
+F5 "538-104031-0811" 1150 -300 50 H I L CNN "Mouser Part Number"
+F6 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-104031-0811" 1150 -400 50 H I L CNN "Mouser Price/Stock"
+F7 "Molex" 1150 -500 50 H I L CNN "Manufacturer_Name"
+F8 "104031-0811" 1150 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 1100 100 1100 -400 200 -400 200 100 N
+X DAT2 1 0 0 200 R 50 50 0 0 U
+X CD/DAT3 2 0 -100 200 R 50 50 0 0 U
+X CMD 3 0 -200 200 R 50 50 0 0 U
+X VDD 4 0 -300 200 R 50 50 0 0 U
+X CLK 5 1300 0 200 L 50 50 0 0 U
+X VSS 6 1300 -100 200 L 50 50 0 0 U
+X DAT0 7 1300 -200 200 L 50 50 0 0 U
+X DAT1 8 1300 -300 200 L 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_10kOhm,75V,100mW,10%-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_10kOhm,75V,100mW,10%-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "Pro6_Print-rescue_10kOhm,75V,100mW,10%-SamacSys_Parts" -50 100 50 H V L CNN
+F2 "RESC1608X50N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW060310K0FKEA.pdf" 550 -50 50 H I L CNN
+F4 "CRCW0603 Resistor T/R 0.10W,1%,10K Vishay CRCW Series Thick Film Surface Mount Resistor 0603 Case 10k +/-1% 0.1W +/-100ppm/C" 550 -150 50 H I L CNN "Description"
+F5 "0.5" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW0603-10K-E3" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW0603-10K-E3" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW060310K0FKEA" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_1792889-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_1792889-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_1792889-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "SHDR4W100P0X500_1X4_2000X1050X1360P" 650 100 50 H I L CNN
+F3 "https://www.phoenixcontact.com/online/portal/us?uri=pxc-oc-itemdetail:pid=1792889" 650 0 50 H I L CNN
+F4 "Spring PCB terminal block 4 way 12A" 650 -100 50 H I L CNN "Description"
+F5 "13.6" 650 -200 50 H I L CNN "Height"
+F6 "651-1792889" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=651-1792889" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Phoenix Contact" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "1792889" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -400 200 -400 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 O
+X 2 2 0 -100 200 R 50 50 0 0 P
+X 3 3 0 -200 200 R 50 50 0 0 P
+X 4 4 0 -300 200 R 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_1944628-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_1944628-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_1944628-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "SHDR5W103P0X500_1X5_2700X857X1215P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/1944628.pdf" 650 0 50 H I L CNN
+F4 "Phoenix Contact MSTBVA Series, 5mm Pitch 5 Way Base Strip, Solder Termination" 650 -100 50 H I L CNN "Description"
+F5 "12.15" 650 -200 50 H I L CNN "Height"
+F6 "651-1944628" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=651-1944628" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Phoenix Contact" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "1944628" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -500 200 -500 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 U
+X 2 2 0 -100 200 R 50 50 0 0 U
+X 3 3 0 -200 200 R 50 50 0 0 U
+X 4 4 0 -300 200 R 50 50 0 0 U
+X 5 5 0 -400 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_22-03-2061-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_22-03-2061-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_22-03-2061-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "HDRV6W82P0X254_1X6_1499X236X1117P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/22-03-2061.pdf" 650 0 50 H I L CNN
+F4 "MOLEX - 22-03-2061 - CONNECTOR, HEADER, THT, 2.54MM, 6WAY" 650 -100 50 H I L CNN "Description"
+F5 "11.17" 650 -200 50 H I L CNN "Height"
+F6 "538-22-03-2061" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-22-03-2061" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "22-03-2061" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -600 200 -600 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 U
+X 2 2 0 -100 200 R 50 50 0 0 U
+X 3 3 0 -200 200 R 50 50 0 0 U
+X 4 4 0 -300 200 R 50 50 0 0 U
+X 5 5 0 -400 200 R 50 50 0 0 U
+X 6 6 0 -500 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_22-28-4027-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_22-28-4027-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_22-28-4027-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "HDRV2W66P0X254_1X2_508X249X1067P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/22-28-4027.pdf" 650 0 50 H I L CNN
+F4 "Headers & Wire Housings VERT B/A HDR 2P" 650 -100 50 H I L CNN "Description"
+F5 "10.67" 650 -200 50 H I L CNN "Height"
+F6 "538-22-28-4027" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-22-28-4027" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "22-28-4027" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_22-28-4033-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_22-28-4033-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_22-28-4033-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "HDRV3W66P0X254_1X3_762X249X838P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/22-28-4033.pdf" 650 0 50 H I L CNN
+F4 "MOLEX - 22-28-4033 - CONNECTOR, HEADER, 3POS, 1ROW, 2.54MM" 650 -100 50 H I L CNN "Description"
+F5 "8.38" 650 -200 50 H I L CNN "Height"
+F6 "538-22-28-4033" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-22-28-4033" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "22-28-4033" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -300 200 -300 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+X 3 3 0 -200 200 R 50 50 0 0 B
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_22-28-4050-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_22-28-4050-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_22-28-4050-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "HDRV5W66P0X254_1X5_1270X249X838P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/22-28-4050.pdf" 650 0 50 H I L CNN
+F4 "MOLEX - 22-28-4050 - CONNECTOR, HEADER, 5POS, 1ROW, 2.54MM" 650 -100 50 H I L CNN "Description"
+F5 "8.38" 650 -200 50 H I L CNN "Height"
+F6 "538-22-28-4050" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-22-28-4050" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "22-28-4050" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -500 200 -500 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+X 3 3 0 -200 200 R 50 50 0 0 P
+X 4 4 0 -300 200 R 50 50 0 0 P
+X 5 5 0 -400 200 R 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_30306-6002HB-30306-6002HB
+#
+DEF Pro6_Print-rescue_30306-6002HB-30306-6002HB J 0 40 Y Y 1 L N
+F0 "J" -300 200 50 H V L BNN
+F1 "Pro6_Print-rescue_30306-6002HB-30306-6002HB" -300 -300 50 H V L BNN
+F2 "3M_30306-6002HB" 0 0 50 H I L BNN
+F3 "3M" 0 0 50 H I L BNN
+F4 "9.3mm" 0 0 50 H I L BNN
+F5 "Manufacturer recommendations" 0 0 50 H I L BNN
+DRAW
+P 2 0 0 6 -300 -200 300 -200 N
+P 2 0 0 6 -300 200 -300 -200 N
+P 2 0 0 6 300 -200 300 200 N
+P 2 0 0 6 300 200 -300 200 N
+X 1 1 -500 100 200 R 40 40 0 0 P
+X 2 2 500 100 200 L 40 40 0 0 P
+X 3 3 -500 0 200 R 40 40 0 0 P
+X 4 4 500 0 200 L 40 40 0 0 P
+X 5 5 -500 -100 200 R 40 40 0 0 P
+X 6 6 500 -100 200 L 40 40 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_39890-0303-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_39890-0303-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_39890-0303-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "398900303" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/39890-0303.pdf" 650 0 50 H I L CNN
+F4 "Fixed Terminal Blocks" 650 -100 50 H I L CNN "Description"
+F5 "10.13" 650 -200 50 H I L CNN "Height"
+F6 "538-39890-0303" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-39890-0303" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "39890-0303" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -300 200 -300 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 U
+X 2 2 0 -100 200 R 50 50 0 0 U
+X 3 3 0 -200 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_5-1814832-1-dk_Coaxial-Connectors-RF
+#
+DEF Pro6_Print-rescue_5-1814832-1-dk_Coaxial-Connectors-RF J 0 40 Y Y 1 F N
+F0 "J" -100 50 60 H V C CNN
+F1 "Pro6_Print-rescue_5-1814832-1-dk_Coaxial-Connectors-RF" 50 -100 60 H V L CNN
+F2 "digikey-footprints:RF_SMA_Vertical_5-1814832-1" 200 200 60 H I L CNN
+F3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1814832&DocType=Customer+Drawing&DocLang=English" 200 300 60 H I L CNN
+F4 "A97594-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "5-1814832-1" 200 500 60 H I L CNN "MPN"
+F6 "Connectors, Interconnects" 200 600 60 H I L CNN "Category"
+F7 "Coaxial Connectors (RF)" 200 700 60 H I L CNN "Family"
+F8 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1814832&DocType=Customer+Drawing&DocLang=English" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/te-connectivity-amp-connectors/5-1814832-1/A97594-ND/1755982" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "CONN SMA JACK STR 50 OHM PCB" 200 1000 60 H I L CNN "Description"
+F11 "TE Connectivity AMP Connectors" 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+A 2 -1 52 1789 -266 0 1 0 N -50 0 50 -25
+A 3 1 53 271 -1789 0 1 0 N 50 25 -50 0
+C 0 0 25 0 1 0 N
+X ~ 1 0 -200 145 U 50 50 1 1 P
+X ~ 2 200 0 175 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_74HC4050D-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_74HC4050D-SamacSys_Parts IC 0 30 Y Y 1 F N
+F0 "IC" 950 300 50 H V L CNN
+F1 "Pro6_Print-rescue_74HC4050D-SamacSys_Parts" 950 200 50 H V L CNN
+F2 "SOIC127P600X175-16N" 950 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/74HC4050D.pdf" 950 0 50 H I L CNN
+F4 "74HC4050D, 6-Bit Buffer, Converter, HC, Non-Inverting 2 to 6V 16-Pin SOIC" 950 -100 50 H I L CNN "Description"
+F5 "1.75" 950 -200 50 H I L CNN "Height"
+F6 "771-74HC4050D" 950 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=771-74HC4050D" 950 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Nexperia" 950 -500 50 H I L CNN "Manufacturer_Name"
+F9 "74HC4050D" 950 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 900 100 900 -800 200 -800 200 100 N
+X VCC 1 0 0 200 R 50 50 0 0 W
+X 4Y 10 1100 -600 200 L 50 50 0 0 P
+X 5A 11 1100 -500 200 L 50 50 0 0 P
+X 5Y 12 1100 -400 200 L 50 50 0 0 P
+X NC 13 1100 -300 200 L 50 50 0 0 N
+X 6A 14 1100 -200 200 L 50 50 0 0 P
+X 6Y 15 1100 -100 200 L 50 50 0 0 P
+X NC_1 16 1100 0 200 L 50 50 0 0 U
+X 1Y 2 0 -100 200 R 50 50 0 0 P
+X 1A 3 0 -200 200 R 50 50 0 0 P
+X 2Y 4 0 -300 200 R 50 50 0 0 P
+X 2A 5 0 -400 200 R 50 50 0 0 P
+X 3Y 6 0 -500 200 R 50 50 0 0 P
+X 3A 7 0 -600 200 R 50 50 0 0 P
+X GND 8 0 -700 200 R 50 50 0 0 W
+X 4A 9 1100 -700 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_885012007053-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_885012007053-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_885012007053-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPC2012X70N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/885012007053.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Chip Capacitor WCAP-CSGP Series 0805 22pF NP00805220J050DFCT10000" 350 -150 50 H I L CNN "Description"
+F5 "0.7" 350 -250 50 H I L CNN "Height"
+F6 "710-885012007053" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=710-885012007053" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Wurth Elektronik" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "885012007053" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_A6S-4102-PH-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_A6S-4102-PH-SamacSys_Parts S 0 30 Y Y 1 F N
+F0 "S" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_A6S-4102-PH-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "SOP254P980X380-8N" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/A6S-4102-PH.pdf" 650 0 50 H I L CNN
+F4 "DIP Switches / SIP Switches Dipswitch Tape & Reel" 650 -100 50 H I L CNN "Description"
+F5 "3.8" 650 -200 50 H I L CNN "Height"
+F6 "653-A6S-4102-PH" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=653-A6S-4102-PH" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Omron Electronics" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "A6S-4102-PH" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -400 200 -400 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 B
+X 2 2 0 -100 200 R 50 50 0 0 B
+X 3 3 0 -200 200 R 50 50 0 0 B
+X 4 4 0 -300 200 R 50 50 0 0 B
+X 5 5 800 -300 200 L 50 50 0 0 B
+X 6 6 800 -200 200 L 50 50 0 0 B
+X 7 7 800 -100 200 L 50 50 0 0 B
+X 8 8 800 0 200 L 50 50 0 0 B
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_AP2012YD-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_AP2012YD-SamacSys_Parts LED 0 30 Y Y 1 F N
+F0 "LED" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_AP2012YD-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "AP2012YD" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/AP2012YD.pdf" 650 0 50 H I L CNN
+F4 "Standard LEDs - SMD YELLOW DIFFUSED" 650 -100 50 H I L CNN "Description"
+F5 "1.1" 650 -200 50 H I L CNN "Height"
+F6 "604-AP2012YD" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=604-AP2012YD" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Kingbright" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "AP2012YD" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X A 1 0 -100 200 R 50 50 0 0 U
+X K 2 0 0 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_AP2012YD_0-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_AP2012YD_0-SamacSys_Parts LED 0 30 Y Y 1 F N
+F0 "LED" 500 350 50 H V L BNN
+F1 "Pro6_Print-rescue_AP2012YD_0-SamacSys_Parts" 500 250 50 H V L BNN
+F2 "AP2012YD" 500 150 50 H I L BNN
+F3 "https://componentsearchengine.com/Datasheets/1/AP2012YD.pdf" 500 50 50 H I L BNN
+F4 "Standard LEDs - SMD YELLOW DIFFUSED" 500 -50 50 H I L BNN "Description"
+F5 "1.1" 500 -150 50 H I L BNN "Height"
+F6 "604-AP2012YD" 500 -250 50 H I L BNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=604-AP2012YD" 500 -350 50 H I L BNN "Mouser Price/Stock"
+F8 "Kingbright" 500 -450 50 H I L BNN "Manufacturer_Name"
+F9 "AP2012YD" 500 -550 50 H I L BNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 100 0 200 0 N
+P 2 0 1 6 200 100 200 -100 N
+P 2 0 1 6 250 100 150 200 N
+P 2 0 1 6 350 100 250 200 N
+P 2 0 1 6 400 0 500 0 N
+P 4 0 1 6 200 0 400 100 400 -100 200 0 N
+P 4 0 1 10 210 170 180 140 150 200 210 170 F
+P 4 0 1 10 310 170 280 140 250 200 310 170 F
+X A 1 600 0 100 L 50 50 0 0 U
+X K 2 0 0 100 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_ATMEGA2560-16AU-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_ATMEGA2560-16AU-SamacSys_Parts IC 0 30 Y Y 1 F N
+F0 "IC" 2850 1400 50 H V L CNN
+F1 "Pro6_Print-rescue_ATMEGA2560-16AU-SamacSys_Parts" 2850 1300 50 H V L CNN
+F2 "QFP50P1600X1600X120-100N" 2850 1200 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ATMEGA2560-16AU.pdf" 2850 1100 50 H I L CNN
+F4 "ATMEGA2560-16AU, 8 bit AVR Microcontroller 16MHz 4, 256kb Flash, 8kb RAM, I2C SPI 100-Pin TQFP" 2850 1000 50 H I L CNN "Description"
+F5 "1.2" 2850 900 50 H I L CNN "Height"
+F6 "556-ATMEGA2560-16AU" 2850 800 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=556-ATMEGA2560-16AU" 2850 700 50 H I L CNN "Mouser Price/Stock"
+F8 "Microchip" 2850 600 50 H I L CNN "Manufacturer_Name"
+F9 "ATMEGA2560-16AU" 2850 500 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 1200 2800 1200 2800 -3700 200 -3700 200 1200 N
+X [OC0B]_PG5 1 0 0 200 R 50 50 0 0 B
+X VCC 10 0 -900 200 R 50 50 0 0 P
+X AVCC 100 300 1400 200 D 50 50 0 0 P
+X GND 11 0 -1000 200 R 50 50 0 0 P
+X [RXD2]_PH0 12 0 -1100 200 R 50 50 0 0 B
+X [TXD2]_PH1 13 0 -1200 200 R 50 50 0 0 B
+X [XCK2]_PH2 14 0 -1300 200 R 50 50 0 0 B
+X [OC4A]_PH3 15 0 -1400 200 R 50 50 0 0 B
+X [OC4B]_PH4 16 0 -1500 200 R 50 50 0 0 B
+X [OC4C]_PH5 17 0 -1600 200 R 50 50 0 0 B
+X [OC2B]_PH6 18 0 -1700 200 R 50 50 0 0 B
+X [~SS~/PCINT0]_PB0 19 0 -1800 200 R 50 50 0 0 B
+X [RXD0/PCINT8]_PE0 2 0 -100 200 R 50 50 0 0 B
+X [SCK/PCINT1]_PB1 20 0 -1900 200 R 50 50 0 0 B
+X [MOSI/PCINT2]_PB2 21 0 -2000 200 R 50 50 0 0 B
+X [MISO/PCINT3]_PB3 22 0 -2100 200 R 50 50 0 0 B
+X [OC2A/PCINT4]_PB4 23 0 -2200 200 R 50 50 0 0 B
+X [OC1A/PCINT5]_PB5 24 0 -2300 200 R 50 50 0 0 B
+X [OC1B/PCINT6]_PB6 25 0 -2400 200 R 50 50 0 0 B
+X [OC0A/OC1C/PCINT7]_PB7 26 300 -3900 200 U 50 50 0 0 B
+X [T4]_PH7 27 400 -3900 200 U 50 50 0 0 B
+X [TOSC2]_PG3 28 500 -3900 200 U 50 50 0 0 B
+X [TOSC1]_PG4 29 600 -3900 200 U 50 50 0 0 B
+X [TXD0]_PE1 3 0 -200 200 R 50 50 0 0 B
+X ~RESET 30 700 -3900 200 U 50 50 0 0 B
+X VCC_1 31 800 -3900 200 U 50 50 0 0 P
+X GND_1 32 900 -3900 200 U 50 50 0 0 P
+X XTAL2 33 1000 -3900 200 U 50 50 0 0 B
+X XTAL1 34 1100 -3900 200 U 50 50 0 0 B
+X [ICP4]_PL0 35 1200 -3900 200 U 50 50 0 0 B
+X [ICP5]_PL1 36 1300 -3900 200 U 50 50 0 0 B
+X [T5]_PL2 37 1400 -3900 200 U 50 50 0 0 B
+X [OC5A]_PL3 38 1500 -3900 200 U 50 50 0 0 B
+X [OC5B]_PL4 39 1600 -3900 200 U 50 50 0 0 B
+X [XCK0/AIN0]_PE2 4 0 -300 200 R 50 50 0 0 B
+X [OC5C]_PL5 40 1700 -3900 200 U 50 50 0 0 B
+X PL6 41 1800 -3900 200 U 50 50 0 0 B
+X PL7 42 1900 -3900 200 U 50 50 0 0 B
+X [SCL/INT0]_PD0 43 2000 -3900 200 U 50 50 0 0 B
+X [SDA/INT1]_PD1 44 2100 -3900 200 U 50 50 0 0 B
+X [RXD1/INT2]_PD2 45 2200 -3900 200 U 50 50 0 0 B
+X [TXD1/INT3]_PD3 46 2300 -3900 200 U 50 50 0 0 B
+X [ICP1]_PD4 47 2400 -3900 200 U 50 50 0 0 B
+X [XCK1]_PD5 48 2500 -3900 200 U 50 50 0 0 B
+X [T1]_PD6 49 2600 -3900 200 U 50 50 0 0 B
+X [OC3A/AIN1]_PE3 5 0 -400 200 R 50 50 0 0 B
+X [T0]_PD7 50 2700 -3900 200 U 50 50 0 0 B
+X PG0_[~WR] 51 3000 -2400 200 L 50 50 0 0 B
+X PG1_[~RD] 52 3000 -2300 200 L 50 50 0 0 B
+X PC0_[A8] 53 3000 -2200 200 L 50 50 0 0 B
+X PC1_[A9] 54 3000 -2100 200 L 50 50 0 0 B
+X PC2_[A10] 55 3000 -2000 200 L 50 50 0 0 B
+X PC3_[A11] 56 3000 -1900 200 L 50 50 0 0 B
+X PC4_[A12] 57 3000 -1800 200 L 50 50 0 0 B
+X PC5_[A13] 58 3000 -1700 200 L 50 50 0 0 B
+X PC6_[A14] 59 3000 -1600 200 L 50 50 0 0 B
+X [OC3B/INT4]_PE4 6 0 -500 200 R 50 50 0 0 B
+X PC7_[A15] 60 3000 -1500 200 L 50 50 0 0 B
+X VCC_2 61 3000 -1400 200 L 50 50 0 0 P
+X GND_2 62 3000 -1300 200 L 50 50 0 0 P
+X PJ0_[RXD3/PCINT9] 63 3000 -1200 200 L 50 50 0 0 B
+X PJ1_[TXD3/PCINT10] 64 3000 -1100 200 L 50 50 0 0 B
+X PJ2_[XCK3/PCINT11] 65 3000 -1000 200 L 50 50 0 0 B
+X PJ3_[PCINT12] 66 3000 -900 200 L 50 50 0 0 B
+X PJ4_[PCINT13] 67 3000 -800 200 L 50 50 0 0 B
+X PJ5_[PCINT14] 68 3000 -700 200 L 50 50 0 0 B
+X PJ6_[PCINT15] 69 3000 -600 200 L 50 50 0 0 B
+X [OC3C/INT5]_PE5 7 0 -600 200 R 50 50 0 0 B
+X PG2_[ALE] 70 3000 -500 200 L 50 50 0 0 B
+X PA7_[AD7] 71 3000 -400 200 L 50 50 0 0 B
+X PA6_[AD6] 72 3000 -300 200 L 50 50 0 0 B
+X PA5_[AD5] 73 3000 -200 200 L 50 50 0 0 B
+X PA4_[AD4] 74 3000 -100 200 L 50 50 0 0 B
+X PA3_[AD3] 75 3000 0 200 L 50 50 0 0 B
+X PA2_[AD2] 76 2700 1400 200 D 50 50 0 0 B
+X PA1_[AD1] 77 2600 1400 200 D 50 50 0 0 B
+X PA0_[AD0] 78 2500 1400 200 D 50 50 0 0 B
+X PJ7 79 2400 1400 200 D 50 50 0 0 B
+X [T3/INT6]_PE6 8 0 -700 200 R 50 50 0 0 B
+X VCC_3 80 2300 1400 200 D 50 50 0 0 P
+X GND_3 81 2200 1400 200 D 50 50 0 0 P
+X PK7_[ADC15/PCINT23] 82 2100 1400 200 D 50 50 0 0 B
+X PK6_[ADC14/PCINT22] 83 2000 1400 200 D 50 50 0 0 B
+X PK5_[ADC13/PCINT21] 84 1900 1400 200 D 50 50 0 0 B
+X PK4_[ADC12/PCINT20] 85 1800 1400 200 D 50 50 0 0 B
+X PK3_[ADC11/PCINT19] 86 1700 1400 200 D 50 50 0 0 B
+X PK2_[ADC10/PCINT18] 87 1600 1400 200 D 50 50 0 0 B
+X PK1_[ADC9/PCINT17] 88 1500 1400 200 D 50 50 0 0 B
+X PK0_[ADC8/PCINT16] 89 1400 1400 200 D 50 50 0 0 B
+X [CLKO/ICP3/INT7]_PE7 9 0 -800 200 R 50 50 0 0 B
+X PF7_[ADC7/TDI] 90 1300 1400 200 D 50 50 0 0 B
+X PF6_[ADC6/TDO] 91 1200 1400 200 D 50 50 0 0 B
+X PF5_[ADC5/TMS] 92 1100 1400 200 D 50 50 0 0 B
+X PF4_[ADC4/TCK] 93 1000 1400 200 D 50 50 0 0 B
+X PF3_[ADC3] 94 900 1400 200 D 50 50 0 0 B
+X PF2_[ADC2] 95 800 1400 200 D 50 50 0 0 B
+X PF1_[ADC1] 96 700 1400 200 D 50 50 0 0 B
+X PF0_[ADC0] 97 600 1400 200 D 50 50 0 0 B
+X AREF 98 500 1400 200 D 50 50 0 0 B
+X GND_4 99 400 1400 200 D 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_ATS16B-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_ATS16B-SamacSys_Parts Y 0 30 Y Y 1 F N
+F0 "Y" 1050 300 50 H V L CNN
+F1 "Pro6_Print-rescue_ATS16B-SamacSys_Parts" 1050 200 50 H V L CNN
+F2 "ATS16B" 1050 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ATS16B.pdf" 1050 0 50 H I L CNN
+F4 "Crystals 16MHz 18pF 30ppm -20C 70C" 1050 -100 50 H I L CNN "Description"
+F5 "4.3" 1050 -200 50 H I L CNN "Height"
+F6 "774-ATS16B" 1050 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=774-ATS16B" 1050 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "CTS" 1050 -500 50 H I L CNN "Manufacturer_Name"
+F9 "ATS16B" 1050 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 1000 100 1000 -200 200 -200 200 100 N
+X CRYSTAL_1 1 0 0 200 R 50 50 0 0 U
+X CRYSTAL_2 2 0 -100 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_B2B-XH-A_LF__SN_-dk_Rectangular-Connectors-Headers-Male-Pins
+#
+DEF Pro6_Print-rescue_B2B-XH-A_LF__SN_-dk_Rectangular-Connectors-Headers-Male-Pins J 0 40 Y Y 1 F N
+F0 "J" -100 -50 50 H V R CNN
+F1 "Pro6_Print-rescue_B2B-XH-A_LF__SN_-dk_Rectangular-Connectors-Headers-Male-Pins" 50 -150 50 H V C CNN
+F2 "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical" 200 200 60 H I L CNN
+F3 "" 200 300 60 H I L CNN
+F4 "455-2247-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "B2B-XH-A(LF)(SN)" 200 500 60 H I L CNN "MPN"
+F6 "Connectors, Interconnects" 200 600 60 H I L CNN "Category"
+F7 "Rectangular Connectors - Headers, Male Pins" 200 700 60 H I L CNN "Family"
+F8 "http://www.jst-mfg.com/product/pdf/eng/eXH.pdf" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/jst-sales-america-inc/B2B-XH-A(LF)(SN)/455-2247-ND/1651045" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "CONN HEADER VERT 2POS 2.5MM" 200 1000 60 H I L CNN "Description"
+F11 "JST Sales America Inc." 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -50 0 150 -100 1 1 0 f
+S -10 -45 10 -65 1 1 0 F
+S 90 -45 110 -65 1 1 0 F
+X ~ 1 0 100 100 D 50 50 1 1 P
+X ~ 2 100 100 100 D 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_B3B-XH-A_LF__SN_-dk_Rectangular-Connectors-Headers-Male-Pins
+#
+DEF Pro6_Print-rescue_B3B-XH-A_LF__SN_-dk_Rectangular-Connectors-Headers-Male-Pins J 0 40 Y N 1 F N
+F0 "J" -100 -50 50 H V R CNN
+F1 "Pro6_Print-rescue_B3B-XH-A_LF__SN_-dk_Rectangular-Connectors-Headers-Male-Pins" 100 -150 50 H V C CNN
+F2 "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical" 200 200 50 H I L CNN
+F3 "" 200 300 50 H I L CNN
+F4 "455-2248-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "B3B-XH-A(LF)(SN)" 200 500 60 H I L CNN "MPN"
+F6 "Connectors, Interconnects" 200 600 60 H I L CNN "Category"
+F7 "Rectangular Connectors - Headers, Male Pins" 200 700 60 H I L CNN "Family"
+F8 "http://www.jst-mfg.com/product/pdf/eng/eXH.pdf" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/jst-sales-america-inc/B3B-XH-A(LF)(SN)/455-2248-ND/1651046" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "CONN HEADER VERT 3POS 2.5MM" 200 1000 60 H I L CNN "Description"
+F11 "JST Sales America Inc." 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -50 0 250 -100 1 1 0 f
+S -10 -45 10 -65 1 1 0 F
+S 90 -45 110 -65 1 1 0 F
+S 190 -45 210 -65 1 1 0 F
+X ~ 1 0 100 100 D 50 50 1 1 P
+X ~ 2 100 100 100 D 50 50 1 1 P
+X ~ 3 200 100 100 D 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_B8B-XH-A_LF__SN_-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_B8B-XH-A_LF__SN_-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_B8B-XH-A_LF__SN_-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "HDRV8W64P0X250_1X8_2240X575X700P" 650 100 50 H I L CNN
+F3 "http://docs-emea.rs-online.com/webdocs/1357/0900766b81357f2f.pdf" 650 0 50 H I L CNN
+F4 "XH-2.5mm Header top entry 8 way JST XH Series, Series Number B8B, 2.5mm Pitch 8 Way 1 Row Straight PCB Header, Solder Termination, 3A" 650 -100 50 H I L CNN "Description"
+F5 "7" 650 -200 50 H I L CNN "Height"
+F6 "JST (JAPAN SOLDERLESS TERMINALS)" 650 -300 50 H I L CNN "Manufacturer_Name"
+F7 "B8B-XH-A(LF)(SN)" 650 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "8201576P" 650 -700 50 H I L CNN "RS Part Number"
+F9 "http://uk.rs-online.com/web/p/products/8201576P" 650 -800 50 H I L CNN "RS Price/Stock"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -800 200 -800 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 U
+X 2 2 0 -100 200 R 50 50 0 0 U
+X 3 3 0 -200 200 R 50 50 0 0 U
+X 4 4 0 -300 200 R 50 50 0 0 U
+X 5 5 0 -400 200 R 50 50 0 0 U
+X 6 6 0 -500 200 R 50 50 0 0 U
+X 7 7 0 -600 200 R 50 50 0 0 U
+X 8 8 0 -700 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_BSC030N08NS5ATMA1-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_BSC030N08NS5ATMA1-SamacSys_Parts Q 0 30 Y Y 1 F N
+F0 "Q" 850 300 50 H V L CNN
+F1 "Pro6_Print-rescue_BSC030N08NS5ATMA1-SamacSys_Parts" 850 200 50 H V L CNN
+F2 "PG-TDSON-8-5" 850 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/BSC030N08NS5ATMA1.pdf" 850 0 50 H I L CNN
+F4 "BSC030N08NS5ATMA1 N-Channel MOSFET, 100 A, 80 V BSC030N08NS5, 8-Pin TDSON Infineon" 850 -100 50 H I L CNN "Description"
+F5 "726-BSC030N08NS5ATMA" 850 -300 50 H I L CNN "Mouser Part Number"
+F6 "https://www.mouser.com/Search/Refine.aspx?Keyword=726-BSC030N08NS5ATMA" 850 -400 50 H I L CNN "Mouser Price/Stock"
+F7 "Infineon" 850 -500 50 H I L CNN "Manufacturer_Name"
+F8 "BSC030N08NS5ATMA1" 850 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 800 100 800 -400 200 -400 200 100 N
+X S_1 1 0 0 200 R 50 50 0 0 P
+X S_2 2 0 -100 200 R 50 50 0 0 P
+X S_3 3 0 -200 200 R 50 50 0 0 P
+X G 4 0 -300 200 R 50 50 0 0 P
+X D_1 5 1000 0 200 L 50 50 0 0 P
+X D_2 6 1000 -100 200 L 50 50 0 0 P
+X D_3 7 1000 -200 200 L 50 50 0 0 P
+X D_4 8 1000 -300 200 L 50 50 0 0 P
+X D_4 9 1000 -300 200 L 50 50 1 1 P N
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_CP2102N-A02-GQFN28R-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_CP2102N-A02-GQFN28R-SamacSys_Parts IC 0 30 Y Y 1 F N
+F0 "IC" 1750 700 50 H V L CNN
+F1 "Pro6_Print-rescue_CP2102N-A02-GQFN28R-SamacSys_Parts" 1750 600 50 H V L CNN
+F2 "QFN50P500X500X80-29N-D" 1750 500 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CP2102N-A02-GQFN28R.pdf" 1750 400 50 H I L CNN
+F4 "USB Interface IC USB to UART bridge - QFN28" 1750 300 50 H I L CNN "Description"
+F5 "0.8" 1750 200 50 H I L CNN "Height"
+F6 "634-CP2102NA02QFN28R" 1750 100 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=634-CP2102NA02QFN28R" 1750 0 50 H I L CNN "Mouser Price/Stock"
+F8 "Silicon Labs" 1750 -100 50 H I L CNN "Manufacturer_Name"
+F9 "CP2102N-A02-GQFN28R" 1750 -200 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 500 1700 500 1700 -1200 200 -1200 200 500 N
+X DCD 1 0 0 200 R 50 50 0 0 U
+X NC 10 800 -1400 200 U 50 50 0 0 N
+X SUSPENDB 11 900 -1400 200 U 50 50 0 0 U
+X SUSPEND 12 1000 -1400 200 U 50 50 0 0 U
+X CHREN 13 1100 -1400 200 U 50 50 0 0 U
+X CHR1 14 1200 -1400 200 U 50 50 0 0 U
+X CHR0 15 1900 -600 200 L 50 50 0 0 U
+X GPIO.3_/_WAKEUP 16 1900 -500 200 L 50 50 0 0 U
+X GPIO.2_/_RS485 17 1900 -400 200 L 50 50 0 0 U
+X GPIO.1_/_RXT 18 1900 -300 200 L 50 50 0 0 U
+X GPIO.0_/_TXT 19 1900 -200 200 L 50 50 0 0 U
+X RI_/_CLK 2 0 -100 200 R 50 50 0 0 U
+X GPIO.6 20 1900 -100 200 L 50 50 0 0 U
+X GPIO.5 21 1900 0 200 L 50 50 0 0 U
+X GPIO.4 22 1300 700 200 D 50 50 0 0 U
+X CTS 23 1200 700 200 D 50 50 0 0 U
+X RTS 24 1100 700 200 D 50 50 0 0 U
+X RXD 25 1000 700 200 D 50 50 0 0 U
+X TXD 26 900 700 200 D 50 50 0 0 U
+X DSR 27 800 700 200 D 50 50 0 0 U
+X DTR 28 700 700 200 D 50 50 0 0 U
+X GND_2 29 600 700 200 D 50 50 0 0 U
+X GND_1 3 0 -200 200 R 50 50 0 0 U
+X D+ 4 0 -300 200 R 50 50 0 0 U
+X D- 5 0 -400 200 R 50 50 0 0 U
+X VDD 6 0 -500 200 R 50 50 0 0 U
+X VREGIN 7 0 -600 200 R 50 50 0 0 U
+X VBUS 8 600 -1400 200 U 50 50 0 0 U
+X RSTB 9 700 -1400 200 U 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_CRCW0805330RFKEAC-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_CRCW0805330RFKEAC-SamacSys_Parts R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "Pro6_Print-rescue_CRCW0805330RFKEAC-SamacSys_Parts" 550 150 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW0805330RFKEAC.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 1/8Watt 330ohms 1% Commercial Use" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW0805330RFKEAC" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW0805330RFKEAC" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW0805330RFKEAC" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_EEU-FS2A221-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_EEU-FS2A221-SamacSys_Parts C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "Pro6_Print-rescue_EEU-FS2A221-SamacSys_Parts" 350 150 50 H V L CNN
+F2 "CAPPRD500W65D1250H2700" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/EEU-FS2A221.pdf" 350 -50 50 H I L CNN
+F4 "Aluminum Electrolytic Capacitors - Radial Leaded 100VDC 220uF 1800mA Polar" 350 -150 50 H I L CNN "Description"
+F5 "27" 350 -250 50 H I L CNN "Height"
+F6 "667-EEU-FS2A221" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=667-EEU-FS2A221" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Panasonic" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "EEU-FS2A221" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 100 0 200 0 N
+P 2 0 1 6 160 70 160 30 N
+P 2 0 1 6 180 50 140 50 N
+P 2 0 1 6 300 0 400 0 N
+P 5 0 1 6 200 100 200 -100 230 -100 230 100 200 100 N
+P 5 0 1 10 300 100 300 -100 270 -100 270 100 300 100 F
+X ~ 1 0 0 100 R 50 50 0 0 P
+X ~ 2 500 0 100 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_ESD9B5.0ST5G-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_ESD9B5.0ST5G-SamacSys_Parts D 0 30 Y Y 1 F N
+F0 "D" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_ESD9B5.0ST5G-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "SODFL1006X40N" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ESD9B5.0ST5G.pdf" 650 0 50 H I L CNN
+F4 "ON SEMICONDUCTOR - ESD9B5.0ST5G - DIODE, TVS, 5V, SOD-923" 650 -100 50 H I L CNN "Description"
+F5 "0.4" 650 -200 50 H I L CNN "Height"
+F6 "863-ESD9B5.0ST5G" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=863-ESD9B5.0ST5G" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "ON Semiconductor" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "ESD9B5.0ST5G" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X K 1 0 0 200 R 50 50 0 0 U
+X A 2 0 -100 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_ESP32-DEVKITC-32U-ESP32-DEVKITC-32U
+#
+DEF Pro6_Print-rescue_ESP32-DEVKITC-32U-ESP32-DEVKITC-32U U 0 40 Y Y 1 L N
+F0 "U" -601 1026 50 H V L BNN
+F1 "Pro6_Print-rescue_ESP32-DEVKITC-32U-ESP32-DEVKITC-32U" -601 -1101 50 H V L BNN
+F2 "MODULE_ESP32-DEVKITC-32U" 0 0 50 H I L BNN
+F3 "N/A" 0 0 50 H I L BNN
+F4 "ESPRESSIF" 0 0 50 H I L BNN
+F5 "Manufacturer Recommendations" 0 0 50 H I L BNN
+DRAW
+P 2 0 0 10 -600 -1000 -600 1000 N
+P 2 0 0 10 -600 1000 600 1000 N
+P 2 0 0 10 600 -1000 -600 -1000 N
+P 2 0 0 10 600 1000 600 -1000 N
+X 3V3 1 -800 900 200 R 40 40 0 0 W
+X IO26 10 -800 0 200 R 40 40 0 0 B
+X IO27 11 -800 -100 200 R 40 40 0 0 B
+X IO14 12 -800 -200 200 R 40 40 0 0 B
+X IO12 13 -800 -300 200 R 40 40 0 0 B
+X GND1 14 -800 -400 200 R 40 40 0 0 W
+X IO13 15 -800 -500 200 R 40 40 0 0 B
+X SD2 16 -800 -600 200 R 40 40 0 0 B
+X SD3 17 -800 -700 200 R 40 40 0 0 B
+X CMD 18 -800 -800 200 R 40 40 0 0 B
+X EXT_5V 19 -800 -900 200 R 40 40 0 0 W
+X EN 2 -800 800 200 R 40 40 0 0 I
+X CLK 20 800 -900 200 L 40 40 0 0 I C
+X SD0 21 800 -800 200 L 40 40 0 0 B
+X SD1 22 800 -700 200 L 40 40 0 0 B
+X IO15 23 800 -600 200 L 40 40 0 0 B
+X IO2 24 800 -500 200 L 40 40 0 0 B
+X IO0 25 800 -400 200 L 40 40 0 0 B
+X IO4 26 800 -300 200 L 40 40 0 0 B
+X IO16 27 800 -200 200 L 40 40 0 0 B
+X IO17 28 800 -100 200 L 40 40 0 0 B
+X IO5 29 800 0 200 L 40 40 0 0 B
+X SENSOR_VP 3 -800 700 200 R 40 40 0 0 I
+X IO18 30 800 100 200 L 40 40 0 0 B
+X IO19 31 800 200 200 L 40 40 0 0 B
+X GND2 32 800 300 200 L 40 40 0 0 W
+X IO21 33 800 400 200 L 40 40 0 0 B
+X RXD0 34 800 500 200 L 40 40 0 0 I
+X TXD0 35 800 600 200 L 40 40 0 0 O
+X IO22 36 800 700 200 L 40 40 0 0 B
+X IO23 37 800 800 200 L 40 40 0 0 B
+X GND3 38 800 900 200 L 40 40 0 0 W
+X SENSOR_VN 4 -800 600 200 R 40 40 0 0 I
+X IO34 5 -800 500 200 R 40 40 0 0 B
+X IO35 6 -800 400 200 R 40 40 0 0 B
+X IO32 7 -800 300 200 R 40 40 0 0 B
+X IO33 8 -800 200 200 R 40 40 0 0 B
+X IO25 9 -800 100 200 R 40 40 0 0 B
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_ESP32-WROOM-32-dk_RF-Transceiver-Modules
+#
+DEF Pro6_Print-rescue_ESP32-WROOM-32-dk_RF-Transceiver-Modules MOD 0 40 Y Y 1 F N
+F0 "MOD" -400 50 60 H V L CNN
+F1 "Pro6_Print-rescue_ESP32-WROOM-32-dk_RF-Transceiver-Modules" 200 -1000 60 V V C CNN
+F2 "digikey-footprints:ESP32-WROOM-32D" 200 200 60 H I L CNN
+F3 "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf" 200 300 60 H I L CNN
+F4 "1904-1010-1-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "ESP32-WROOM-32" 200 500 60 H I L CNN "MPN"
+F6 "RF/IF and RFID" 200 600 60 H I L CNN "Category"
+F7 "RF Transceiver Modules" 200 700 60 H I L CNN "Family"
+F8 "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/espressif-systems/ESP32-WROOM-32/1904-1010-1-ND/8544305" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "SMD MODULE, ESP32-D0WDQ6, 32MBIT" 200 1000 60 H I L CNN "Description"
+F11 "Espressif Systems" 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -400 0 800 -2000 0 1 0 f
+X GND 1 0 -2100 100 U 50 50 1 1 W
+X IO25 10 -500 -1700 100 R 50 50 1 1 B
+X IO26 11 -500 -1800 100 R 50 50 1 1 B
+X IO27 12 -500 -1900 100 R 50 50 1 1 B
+X IO14 13 -500 -800 100 R 50 50 1 1 B
+X IO12 14 -500 -600 100 R 50 50 1 1 B
+X GND 15 100 -2100 100 U 50 50 1 1 W
+X IO13 16 -500 -700 100 R 50 50 1 1 B
+X SHD/SD2 17 900 -300 100 L 50 50 1 1 B
+X SWP/SD3 18 900 -400 100 L 50 50 1 1 B
+X SCS/CMD 19 900 -500 100 L 50 50 1 1 B
+X 3V3 2 200 100 100 D 50 50 1 1 W
+X SCK/CLK 20 900 -600 100 L 50 50 1 1 B
+X SDO/SD0 21 900 -700 100 L 50 50 1 1 B
+X SDI/SD1 22 900 -800 100 L 50 50 1 1 B
+X IO15 23 -500 -900 100 R 50 50 1 1 B
+X IO2 24 -500 -300 100 R 50 50 1 1 B
+X IO0 25 -500 -200 100 R 50 50 1 1 B
+X IO4 26 -500 -400 100 R 50 50 1 1 B
+X IO16 27 -500 -1000 100 R 50 50 1 1 B
+X IO17 28 -500 -1100 100 R 50 50 1 1 B
+X IO5 29 -500 -500 100 R 50 50 1 1 B
+X EN 3 -500 -100 100 R 50 50 1 1 I
+X IO18 30 -500 -1200 100 R 50 50 1 1 B
+X IO19 31 -500 -1300 100 R 50 50 1 1 B
+X NC 32 800 -1700 100 L 50 50 1 1 N N
+X IO21 33 -500 -1400 100 R 50 50 1 1 B
+X RXD0 34 900 -1000 100 L 50 50 1 1 B
+X TXD0 35 900 -900 100 L 50 50 1 1 B
+X IO22 36 -500 -1500 100 R 50 50 1 1 B
+X IO23 37 -500 -1600 100 R 50 50 1 1 B
+X GND 38 200 -2100 100 U 50 50 1 1 W
+X GND 39 300 -2100 100 U 50 50 1 1 W
+X SENSOR_VP 4 900 -100 100 L 50 50 1 1 I
+X SENSOR_VN 5 900 -200 100 L 50 50 1 1 I
+X IO34 6 900 -1300 100 L 50 50 1 1 B
+X IO35 7 900 -1200 100 L 50 50 1 1 B
+X IO32 8 900 -1500 100 L 50 50 1 1 B
+X IO33 9 900 -1400 100 L 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_FSM4JH-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_FSM4JH-SamacSys_Parts S 0 30 Y Y 1 F N
+F0 "S" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_FSM4JH-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "FSM4JH" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/FSM4JH.pdf" 650 0 50 H I L CNN
+F4 "6x6mm tactile switch,5mm H 1.6N Black Button Tactile Switch, SPST-NO 50 mA@ 24 V dc 1.4mm" 650 -100 50 H I L CNN "Description"
+F5 "506-FSM4JH" 650 -300 50 H I L CNN "Mouser Part Number"
+F6 "https://www.mouser.com/Search/Refine.aspx?Keyword=506-FSM4JH" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F7 "TE Connectivity" 650 -500 50 H I L CNN "Manufacturer_Name"
+F8 "FSM4JH" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+X 3 3 800 0 200 L 50 50 0 0 P
+X 4 4 800 -100 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_IRLR8726PBF-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_IRLR8726PBF-SamacSys_Parts Q 0 30 Y Y 1 F N
+F0 "Q" 450 150 50 H V L CNN
+F1 "Pro6_Print-rescue_IRLR8726PBF-SamacSys_Parts" 450 50 50 H V L CNN
+F2 "SamacSys_Parts:D-PAK_TO-252AA__1" 450 -50 50 H I L CNN
+F3 "" 450 -150 50 H I L CNN
+F4 "INFINEON - IRLR8726PBF - MOSFET, N-CH 30V 86A DPAK" 450 -250 50 H I L CNN "Description"
+F5 "Infineon" 450 -450 50 H I L CNN "Manufacturer_Name"
+F6 "IRLR8726PBF" 450 -550 50 H I L CNN "Manufacturer_Part_Number"
+F7 "942-IRLR8726PBF" 450 -650 50 H I L CNN "Mouser Part Number"
+F8 "https://www.mouser.com/Search/Refine.aspx?Keyword=942-IRLR8726PBF" 450 -750 50 H I L CNN "Mouser Price/Stock"
+F9 "6887244" 450 -850 50 H I L CNN "RS Part Number"
+F10 "http://uk.rs-online.com/web/p/products/6887244" 450 -950 50 H I L CNN "RS Price/Stock"
+F11 "70019880" 450 -1050 50 H I L CNN "Allied_Number"
+F12 "https://www.alliedelec.com/infineon-irlr8726pbf/70019880/" 450 -1150 50 H I L CNN "Allied Price/Stock"
+DRAW
+C 250 100 158 0 1 10 N
+P 2 0 1 6 230 -20 230 20 N
+P 2 0 1 6 230 0 300 0 N
+P 2 0 1 6 230 80 230 120 N
+P 2 0 1 6 230 220 230 180 N
+P 2 0 1 6 300 100 230 100 N
+P 2 0 1 6 300 100 300 -100 N
+P 2 0 1 6 300 200 230 200 N
+P 2 0 1 6 300 200 300 300 N
+P 3 0 1 6 100 0 200 0 200 200 N
+P 4 0 1 10 230 100 270 120 270 80 230 100 F
+X ~ 1 0 0 100 R 50 50 0 0 U
+X ~ 3 300 -200 100 U 50 50 0 0 U
+X ~ 4 300 400 100 D 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_LFXTAL014948Bulk-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_LFXTAL014948Bulk-SamacSys_Parts Y 0 30 Y Y 1 F N
+F0 "Y" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_LFXTAL014948Bulk-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "LFXTAL014948Bulk" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/LFXTAL014948Bulk.pdf" 650 0 50 H I L CNN
+F4 "Crystals 27.12MHz Series -10C 60C" 650 -100 50 H I L CNN "Description"
+F5 "4.1" 650 -200 50 H I L CNN "Height"
+F6 "449-LFXTAL014948BULK" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=449-LFXTAL014948BULK" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "IQD" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "LFXTAL014948Bulk" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 U
+X 2 2 0 -100 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_MFRC522-MFRC522
+#
+DEF Pro6_Print-rescue_MFRC522-MFRC522 U 0 40 Y Y 1 L N
+F0 "U" -800 1530 50 H V L BNN
+F1 "Pro6_Print-rescue_MFRC522-MFRC522" -800 -1620 50 H V L BNN
+F2 "QFN50P500X500X100-33N" 0 0 50 H I L BNN
+F3 "3.9" 0 0 50 H I L BNN
+F4 "NXP" 0 0 50 H I L BNN
+F5 "IPC-7351B" 0 0 50 H I L BNN
+F6 "1.0 mm" 0 0 50 H I L BNN
+DRAW
+P 2 0 0 10 -800 -1500 800 -1500 N
+P 2 0 0 10 -800 1500 -800 -1500 N
+P 2 0 0 10 800 -1500 800 1500 N
+P 2 0 0 10 800 1500 -800 1500 N
+X I2C 1 -1000 600 200 R 40 40 0 0 I
+X TVSS 10 1000 -1100 200 L 40 40 0 0 W
+X TX1 11 1000 400 200 L 40 40 0 0 O
+X TVDD 12 1000 1100 200 L 40 40 0 0 W
+X TX2 13 1000 300 200 L 40 40 0 0 O
+X TVSS 14 1000 -1100 200 L 40 40 0 0 W
+X AVDD 15 1000 1000 200 L 40 40 0 0 W
+X VMID 16 1000 900 200 L 40 40 0 0 W
+X RX 17 -1000 400 200 R 40 40 0 0 I
+X AVSS 18 1000 -1000 200 L 40 40 0 0 W
+X AUX1 19 1000 700 200 L 40 40 0 0 O
+X PVDD 2 1000 1400 200 L 40 40 0 0 W
+X AUX2 20 1000 600 200 L 40 40 0 0 O
+X OSCIN 21 -1000 -100 200 R 40 40 0 0 I
+X OSCOUT 22 -1000 -200 200 R 40 40 0 0 O
+X IRQ 23 1000 100 200 L 40 40 0 0 O
+X SDA/RX/!SS 24 1000 -800 200 L 40 40 0 0 B
+X D1/ADR_5 25 -1000 -500 200 R 40 40 0 0 B
+X D2/ADR_4 26 -1000 -600 200 R 40 40 0 0 B
+X D3/ADR_3 27 -1000 -700 200 R 40 40 0 0 B
+X D4/ADR_2 28 -1000 -800 200 R 40 40 0 0 B
+X D5/ADR_1/SCK/DTRQ 29 1000 -500 200 L 40 40 0 0 B
+X DVDD 3 1000 1300 200 L 40 40 0 0 W
+X D6/ADR_0/MOSI/MX 30 1000 -600 200 L 40 40 0 0 B
+X D7/SCL/MISO/TX 31 1000 -700 200 L 40 40 0 0 B
+X EA 32 -1000 300 200 R 40 40 0 0 I
+X EXP 33 1000 -1400 200 L 40 40 0 0 W
+X DVSS 4 1000 -1200 200 L 40 40 0 0 W
+X PVSS 5 1000 -1300 200 L 40 40 0 0 W
+X ~RSTPD~ 6 -1000 700 200 R 40 40 0 0 I
+X MFIN 7 1000 -100 200 L 40 40 0 0 I
+X MFOUT 8 1000 -200 200 L 40 40 0 0 O
+X SVDD 9 1000 1200 200 L 40 40 0 0 W
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_RFN2L4STE25-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_RFN2L4STE25-SamacSys_Parts D 0 30 Y Y 1 F N
+F0 "D" 450 200 50 H V L CNN
+F1 "Pro6_Print-rescue_RFN2L4STE25-SamacSys_Parts" 450 100 50 H V L CNN
+F2 "DIOM5026X220N" 450 0 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/RFN2L4STE25.pdf" 450 -100 50 H I L CNN
+F4 "Diodes - General Purpose, Power, Switching Fast Recovery Diodes" 450 -200 50 H I L CNN "Description"
+F5 "2.2" 450 -300 50 H I L CNN "Height"
+F6 "755-RFN2L4STE25" 450 -400 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=755-RFN2L4STE25" 450 -500 50 H I L CNN "Mouser Price/Stock"
+F8 "ROHM Semiconductor" 450 -600 50 H I L CNN "Manufacturer_Name"
+F9 "RFN2L4STE25" 450 -700 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 100 200 -100 N
+P 4 0 1 6 200 0 400 100 400 -100 200 0 N
+X ~ 1 0 0 200 R 50 50 0 0 U
+X ~ 2 600 0 200 L 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_SN74LVC3G17DCUR-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_SN74LVC3G17DCUR-SamacSys_Parts IC 0 30 Y Y 1 F N
+F0 "IC" 850 750 50 H V L CNN
+F1 "Pro6_Print-rescue_SN74LVC3G17DCUR-SamacSys_Parts" 850 650 50 H V L CNN
+F2 "SOP50P310X90-8N" 850 550 50 H I L CNN
+F3 "http://www.ti.com/lit/ds/symlink/sn74lvc3g17.pdf" 850 450 50 H I L CNN
+F4 "Buffers & Line Drivers TRIPLESchmttTrgrBffr" 850 350 50 H I L CNN "Description"
+F5 "0.9" 850 250 50 H I L CNN "Height"
+F6 "595-SN74LVC3G17DCUR" 850 150 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=595-SN74LVC3G17DCUR" 850 50 50 H I L CNN "Mouser Price/Stock"
+F8 "Texas Instruments" 850 -50 50 H I L CNN "Manufacturer_Name"
+F9 "SN74LVC3G17DCUR" 850 -150 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 -300 450 -300 N
+P 2 0 1 6 450 -600 200 -600 N
+P 2 0 1 6 450 0 200 0 N
+P 2 0 1 6 600 -600 800 -600 N
+P 2 0 1 6 600 0 800 0 N
+P 2 0 1 6 800 -300 600 -300 N
+P 3 0 1 6 510 -570 510 -630 470 -630 N
+P 3 0 1 6 510 -270 510 -330 470 -330 N
+P 3 0 1 6 510 30 510 -30 470 -30 N
+P 4 0 1 6 450 -500 450 -700 600 -600 450 -500 N
+P 4 0 1 6 450 -200 450 -400 600 -300 450 -200 N
+P 4 0 1 6 450 100 450 -100 600 0 450 100 N
+P 4 0 1 6 530 -570 490 -570 490 -630 470 -630 N
+P 4 0 1 6 530 -270 490 -270 490 -330 470 -330 N
+P 4 0 1 6 530 30 490 30 490 -30 470 -30 N
+P 5 0 1 6 200 400 800 400 800 -1000 200 -1000 200 400 N
+X 1A 1 0 0 200 R 50 50 0 0 I
+X 3Y 2 1000 -600 200 L 50 50 0 0 O
+X 2A 3 0 -300 200 R 50 50 0 0 I
+X GND 4 500 -1200 200 U 50 50 0 0 W
+X 2Y 5 1000 -300 200 L 50 50 0 0 O
+X 3A 6 0 -600 200 R 50 50 0 0 I
+X 1Y 7 1000 0 200 L 50 50 0 0 O
+X VCC 8 500 600 200 D 50 50 0 0 W
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_SRV05-4.TCT-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_SRV05-4.TCT-SamacSys_Parts D 0 30 Y Y 1 F N
+F0 "D" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_SRV05-4.TCT-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "SOT95P280X145-6N" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/SRV05-4.TCT.pdf" 650 0 50 H I L CNN
+F4 "Semtech SRV05-4.TCT, Uni-Directional TVS Diode Array, 300W, 6-Pin SOT-23" 650 -100 50 H I L CNN "Description"
+F5 "1.45" 650 -200 50 H I L CNN "Height"
+F6 "947-SRV05-4.TCT" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=947-SRV05-4.TCT" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "SEMTECH" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "SRV05-4.TCT" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -300 200 -300 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 I
+X 2 2 0 -100 200 R 50 50 0 0 I
+X 3 3 0 -200 200 R 50 50 0 0 I
+X 4 4 800 -200 200 L 50 50 0 0 I
+X 5 5 800 -100 200 L 50 50 0 0 I
+X 6 6 800 0 200 L 50 50 0 0 I
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_SS8050-G-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_SS8050-G-SamacSys_Parts Q 0 30 Y Y 1 F N
+F0 "Q" 650 300 50 H V L CNN
+F1 "Pro6_Print-rescue_SS8050-G-SamacSys_Parts" 650 200 50 H V L CNN
+F2 "SOT95P240X115-3N" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/SS8050-G.pdf" 650 0 50 H I L CNN
+F4 "Bipolar Transistors - BJT NPN TRANSISTOR 1.5A 40V" 650 -100 50 H I L CNN "Description"
+F5 "1.15" 650 -200 50 H I L CNN "Height"
+F6 "750-SS8050-G" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=750-SS8050-G" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Comchip Technology" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "SS8050-G" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X B 1 0 0 200 R 50 50 0 0 U
+X E 2 0 -100 200 R 50 50 0 0 U
+X C 3 800 0 200 L 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_TMC4671-BOB-trinamic
+#
+DEF Pro6_Print-rescue_TMC4671-BOB-trinamic U 0 40 Y Y 1 F N
+F0 "U" 0 -50 40 H V C CNN
+F1 "Pro6_Print-rescue_TMC4671-BOB-trinamic" 0 50 40 H V C CNN
+F2 "trinamic-footprints:32pin1,5x1,6-BOB" 850 150 40 H I L CNN
+F3 "https://www.trinamic.com/fileadmin/assets/Products/Eval_Documents/TMC4671-BOB_datasheet_Rev1.0.pdf" 850 250 40 H I L CNN
+F4 "1460-1317-ND" 850 350 60 H I L CNN "Digi-Key_PN"
+F5 "TMC4671-BOB" 850 500 60 H I L CNN "MPN"
+F6 "Development Boards, Kits, Programmers" 850 600 60 H I L CNN "Category"
+F7 "Evaluation and Demonstration Boards and Kits" 850 700 60 H I L CNN "Family"
+F8 "https://www.trinamic.com/fileadmin/assets/Products/Eval_Documents/TMC4671-BOB_datasheet_Rev1.0.pdf" 850 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/trinamic-motion-control-gmbh/TMC4671-BOB/1460-1317-ND/9491138" 850 900 60 H I L CNN "DK_Detail_Page"
+F10 "BREAKOUTBOARD FOR TMC4671" 850 1000 60 H I L CNN "Description"
+F11 "Trinamic Motion Control GmbH" 850 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 850 1200 60 H I L CNN "Status"
+DRAW
+S -450 650 450 -700 0 1 0 f
+X 5V 1 -50 750 100 D 25 25 1 1 P
+X RXD 10 -550 -25 100 R 25 25 1 1 P
+X TXD 11 -550 -100 100 R 25 25 1 1 P
+X GND 12 -50 -800 100 U 25 25 1 1 P
+X ADC_I0 13 -550 -250 100 R 25 25 1 1 P
+X ADC_I1 14 -550 -325 100 R 25 25 1 1 P
+X GND 15 0 -800 100 U 25 25 1 1 P
+X GND 16 50 -800 100 U 25 25 1 1 P
+X VM 17 50 750 100 D 25 25 1 1 P
+X GND 18 100 -800 100 U 25 25 1 1 P
+X PWM_Y2_L 19 550 -550 100 L 25 25 1 1 P
+X VCCIO 2 0 750 100 D 25 25 1 1 P
+X PWM_Y2_H 20 550 -475 100 L 25 25 1 1 P
+X PWM_WY1_L 21 550 -400 100 L 25 25 1 1 P
+X PWM_WY1_H 22 550 -325 100 L 25 25 1 1 P
+X PWM_VX2_L 23 550 -250 100 L 25 25 1 1 P
+X PWM_VX2_H 24 550 -175 100 L 25 25 1 1 P
+X PWM_UX1_L 25 550 -100 100 L 25 25 1 1 P
+X PWM_UX1_H 26 550 -25 100 L 25 25 1 1 P
+X HALL_UX 27 550 125 100 L 25 25 1 1 P
+X HALL_V 28 550 200 100 L 25 25 1 1 P
+X HALL_WY 29 550 275 100 L 25 25 1 1 P
+X GND 3 -100 -800 100 U 25 25 1 1 P
+X ENC1_A 30 550 425 100 L 25 25 1 1 P
+X ENC1_B 31 550 500 100 L 25 25 1 1 P
+X ENC1_N 32 550 575 100 L 25 25 1 1 P
+X STP 4 -550 575 100 R 25 25 1 1 P
+X DIR 5 -550 500 100 R 25 25 1 1 P
+X CSN 6 -550 350 100 R 25 25 1 1 P
+X SCK 7 -550 275 100 R 25 25 1 1 P
+X MOSI 8 -550 200 100 R 25 25 1 1 P
+X MISO 9 -550 125 100 R 25 25 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_TMC6200-TA-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_TMC6200-TA-SamacSys_Parts U 0 20 Y Y 1 F N
+F0 "U" -350 1050 50 H V C CNN
+F1 "Pro6_Print-rescue_TMC6200-TA-SamacSys_Parts" -600 950 50 H V L CNN
+F2 "Package_QFP:TQFP-48-1EP_7x7mm_P0.5mm_EP5x5mm_ThermalVias" 0 -1100 50 H I C CNN
+F3 "" -1150 1050 50 H I C CNN
+$FPLIST
+ TQFP*1EP*7x7mm*P0.5mm*
+$ENDFPLIST
+DRAW
+S -500 900 500 -900 0 1 10 f
+X CU 1 250 1000 100 D 50 50 1 1 P
+X CURV 10 -600 -350 100 R 50 50 1 1 O
+X CURW 11 -600 -450 100 R 50 50 1 1 O
+X VOFS/TEST 12 -600 -550 100 R 50 50 1 1 I
+X CSN_IDRV0 13 -600 650 100 R 50 50 1 1 I
+X SCK_IDRV1 14 -600 550 100 R 50 50 1 1 I
+X SDI_AMPLx10 15 -600 450 100 R 50 50 1 1 I
+X SDO_SINGLE 16 -600 350 100 R 50 50 1 1 O
+X UH 17 600 -50 100 L 50 50 1 1 I
+X UL 18 600 250 100 L 50 50 1 1 I
+X VCC_IO 19 -250 -1000 100 U 50 50 1 1 W
+X N/C 2 500 900 100 L 50 50 1 1 N N
+X VH 20 600 -150 100 L 50 50 1 1 I
+X VL 21 600 150 100 L 50 50 1 1 I
+X WH 22 600 -250 100 L 50 50 1 1 I
+X WL 23 600 50 100 L 50 50 1 1 I
+X CLK 24 -600 750 100 R 50 50 1 1 I
+X SPE 25 -600 -50 100 R 50 50 1 1 I
+X FAULT 26 -600 -150 100 R 50 50 1 1 O
+X DRV_EN 27 -600 850 100 R 50 50 1 1 I
+X N/C 28 500 850 100 L 50 50 1 1 N N
+X VSA 29 -150 -1000 100 U 50 50 1 1 W
+X LSW 3 600 -550 100 L 50 50 1 1 O
+X CPO 30 50 1000 100 D 50 50 1 1 P
+X N/C 31 500 800 100 L 50 50 1 1 N N
+X CPI 32 150 1000 100 D 50 50 1 1 P
+X VS 33 -50 -1000 100 U 50 50 1 1 W
+X VCP 34 -50 1000 100 D 50 50 1 1 P
+X N/C 35 500 750 100 L 50 50 1 1 N N
+X CW 36 450 1000 100 D 50 50 1 1 P
+X HSW 37 600 -850 100 L 50 50 1 1 P
+X W 38 -600 50 100 R 50 50 1 1 P
+X WSENSE 39 600 350 100 L 50 50 1 1 I
+X LSV 4 600 -450 100 L 50 50 1 1 O
+X N/C 40 500 700 100 L 50 50 1 1 N N
+X VSENSE 41 600 450 100 L 50 50 1 1 I
+X V 42 -600 150 100 R 50 50 1 1 P
+X HSV 43 600 -750 100 L 50 50 1 1 P
+X CV 44 350 1000 100 D 50 50 1 1 P
+X N/C 45 500 650 100 L 50 50 1 1 N N
+X USENSE 46 600 550 100 L 50 50 1 1 I
+X U 47 -600 250 100 R 50 50 1 1 P
+X HSU 48 600 -650 100 L 50 50 1 1 P
+X GNDD 49 150 -1000 100 U 50 50 1 1 P
+X LSU 5 600 -350 100 L 50 50 1 1 O
+X 12VOUT 6 -450 -1000 100 U 50 50 1 1 w
+X 5VOUT 7 -350 -1000 100 U 50 50 1 1 w
+X GNDA 8 50 -1000 100 U 50 50 1 1 W
+X CURU 9 -600 -250 100 R 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+# Pro6_Print-rescue_ZX62-B-5PA_33_-SamacSys_Parts
+#
+DEF Pro6_Print-rescue_ZX62-B-5PA_33_-SamacSys_Parts J 0 30 Y Y 1 F N
+F0 "J" 850 500 50 H V L CNN
+F1 "Pro6_Print-rescue_ZX62-B-5PA_33_-SamacSys_Parts" 850 400 50 H V L CNN
+F2 "ZX62B5PA33" 850 300 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ZX62-B-5PA(33).pdf" 850 200 50 H I L CNN
+F4 "USB Connectors MICRO B RECEPT RA SMT BTTM MNT" 850 100 50 H I L CNN "Description"
+F5 "2.8" 850 0 50 H I L CNN "Height"
+F6 "798-ZX62-B-5PA33" 850 -100 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=798-ZX62-B-5PA33" 850 -200 50 H I L CNN "Mouser Price/Stock"
+F8 "Hirose" 850 -300 50 H I L CNN "Manufacturer_Name"
+F9 "ZX62-B-5PA(33)" 850 -400 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 300 800 300 800 -300 200 -300 200 300 N
+X VCC 1 300 500 200 D 50 50 0 0 U
+X D- 2 400 500 200 D 50 50 0 0 U
+X D+ 3 500 500 200 D 50 50 0 0 U
+X ID 4 600 500 200 D 50 50 0 0 U
+X GND 5 700 500 200 D 50 50 0 0 U
+X Shield 6 0 0 200 R 50 50 0 0 U
+X Shield 7 300 -500 200 U 50 50 0 0 U
+X Shield 8 400 -500 200 U 50 50 0 0 U
+X Shield 9 500 -500 200 U 50 50 0 0 U
+X Shield 10 600 -500 200 U 50 50 1 1 U
+X Shield 11 700 -500 200 U 50 50 1 1 U
+ENDDRAW
+ENDDEF
+#
+# Regulator_Linear_LF33_TO220
+#
+DEF Regulator_Linear_LF33_TO220 U 0 10 Y Y 1 F N
+F0 "U" -150 125 50 H V C CNN
+F1 "Regulator_Linear_LF33_TO220" 0 125 50 H V L CNN
+F2 "Package_TO_SOT_THT:TO-220-3_Vertical" 0 225 50 H I C CIN
+F3 "" 0 -50 50 H I C CNN
+ALIAS LM7806_TO220 LM7808_TO220 LM7809_TO220 LM7810_TO220 LM7812_TO220 LM7815_TO220 LM7818_TO220 LM7824_TO220 LM78M05_TO220 SPX2920U-3.3_TO220 SPX2920U-5.0_TO220 LF15_TO220 LF18_TO220 LF25_TO220 LF33_TO220 LF50_TO220 LF60_TO220 LF80_TO220 LF85_TO220 LF120_TO220 LF47_TO220 LF90_TO220 LM341T-05_TO220 LM341T-12_TO220 LM341T-15_TO220 LM2937xT
+$FPLIST
+ TO?220*
+$ENDFPLIST
+DRAW
+S -200 75 200 -200 0 1 10 f
+X VI 1 -300 0 100 R 50 50 1 1 W
+X GND 2 0 -300 100 U 50 50 1 1 W
+X VO 3 300 0 100 L 50 50 1 1 w
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_0805_100kOhm,150V,125mW,1%
+#
+DEF SamacSys_Parts_0805_100kOhm,150V,125mW,1% R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "SamacSys_Parts_0805_100kOhm,150V,125mW,1%" -200 100 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW0805100KFKEAC.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 1/8Watt 100Kohms 1% Commercial Use" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW0805100KFKEAC" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW0805100KFKEAC" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW0805100KFKEAC" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_0805_100nF,100V,5%
+#
+DEF SamacSys_Parts_0805_100nF,100V,5% C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "SamacSys_Parts_0805_100nF,100V,5%" -100 150 50 H V L CNN
+F2 "CAPC2012X140N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/08051C104JAT2A.pdf" 350 -50 50 H I L CNN
+F4 "AVX 100nF Multilayer Ceramic Capacitor MLCC 100V dc +/-5% X7R Dielectric 0805 SMD, Max. Temp. +125C" 350 -150 50 H I L CNN "Description"
+F5 "1.4" 350 -250 50 H I L CNN "Height"
+F6 "581-08051C104JAT2A" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=581-08051C104JAT2A" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "AVX" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "08051C104JAT2A" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_0805_100nF,50V,5%
+#
+DEF SamacSys_Parts_0805_100nF,50V,5% C 0 30 Y Y 1 F N
+F0 "C" 200 250 50 H V L CNN
+F1 "SamacSys_Parts_0805_100nF,50V,5%" -100 150 50 H V L CNN
+F2 "CAPC2012X88N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C0805C104J5RACTU.pdf" 350 -50 50 H I L CNN
+F4 "Kemet 100nF +/-5% 50 V dc X7R Dielectric SMD Ceramic Multilayer Capacitor 0805" 350 -150 50 H I L CNN "Description"
+F5 "0.88" 350 -250 50 H I L CNN "Height"
+F6 "80-C0805C104J5R" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C0805C104J5R" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Kemet" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "C0805C104J5RACTU" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_0805_100uF,6.3V,20%
+#
+DEF SamacSys_Parts_0805_100uF,6.3V,20% C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "SamacSys_Parts_0805_100uF,6.3V,20%" 350 150 50 H V L CNN
+F2 "CAPC2012X145N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/GRM21BR60J107ME15K.pdf" 350 -50 50 H I L CNN
+F4 "Capacitor GRM21_0.20 L=2.0mm W=1.25mm T=1.25mm" 350 -150 50 H I L CNN "Description"
+F5 "1.45" 350 -250 50 H I L CNN "Height"
+F6 "81-GRM21BR60J107ME5K" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=81-GRM21BR60J107ME5K" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Murata Electronics" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "GRM21BR60J107ME15K" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_0805_10Ohm,150V,5%,125mW
+#
+DEF SamacSys_Parts_0805_10Ohm,150V,5%,125mW R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "SamacSys_Parts_0805_10Ohm,150V,5%,125mW" 550 150 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/RC0805JR-1010RL.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 10 ohm 5% 150V General Purpose" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "603-RC0805JR-1010RL" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=603-RC0805JR-1010RL" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "YAGEO (PHYCOMP)" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "RC0805JR-1010RL" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_0805_1kOhm,150V,1%,125mW
+#
+DEF SamacSys_Parts_0805_1kOhm,150V,1%,125mW R 0 30 Y Y 1 F N
+F0 "R" 300 200 50 H V L CNN
+F1 "SamacSys_Parts_0805_1kOhm,150V,1%,125mW" -200 100 50 H V L CNN
+F2 "RESC2012X60N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/CRCW08051K00FKEAC.pdf" 550 -50 50 H I L CNN
+F4 "Thick Film Resistors - SMD 1/8Watt 1Kohms 1% Commercial Use" 550 -150 50 H I L CNN "Description"
+F5 "0.6" 550 -250 50 H I L CNN "Height"
+F6 "71-CRCW08051K00FKEAC" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=71-CRCW08051K00FKEAC" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Vishay" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "CRCW08051K00FKEAC" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_1206_1uF,100V,5%
+#
+DEF SamacSys_Parts_1206_1uF,100V,5% C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "SamacSys_Parts_1206_1uF,100V,5%" 350 150 50 H V L CNN
+F2 "CAPC3316X185N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C1206X105J1RACTU.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100V 1uF X7R 1206 5%" 350 -150 50 H I L CNN "Description"
+F5 "1.85" 350 -250 50 H I L CNN "Height"
+F6 "80-C1206X105J1R" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C1206X105J1R" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Kemet" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "C1206X105J1RACTU" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_1206_4.7uF,100V,10%
+#
+DEF SamacSys_Parts_1206_4.7uF,100V,10% C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "SamacSys_Parts_1206_4.7uF,100V,10%" 350 150 50 H V L CNN
+F2 "CAPC3225X270N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/HMK325C7475KM-PE.pdf" 350 -50 50 H I L CNN
+F4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 1210 100V 4.7uF 10% X7S" 350 -150 50 H I L CNN "Description"
+F5 "2.7" 350 -250 50 H I L CNN "Height"
+F6 "963-HMK325C7475KM-PE" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=963-HMK325C7475KM-PE" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "TAIYO YUDEN" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "HMK325C7475KM-PE" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_1206_470nF,100V,10%
+#
+DEF SamacSys_Parts_1206_470nF,100V,10% C 0 30 Y Y 1 F N
+F0 "C" 350 250 50 H V L CNN
+F1 "SamacSys_Parts_1206_470nF,100V,10%" 350 150 50 H V L CNN
+F2 "CAPC3216X175N" 350 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/C1206C474K1RACAUTO.pdf" 350 -50 50 H I L CNN
+F4 "KEMET - C1206C474K1RACAUTO - CAPACITOR, MLCC, X7R, 0.47UF, 100V, 1206" 350 -150 50 H I L CNN "Description"
+F5 "1.75" 350 -250 50 H I L CNN "Height"
+F6 "80-C1206C474K1RAUTO" 350 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=80-C1206C474K1RAUTO" 350 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Kemet" 350 -550 50 H I L CNN "Manufacturer_Name"
+F9 "C1206C474K1RACAUTO" 350 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 2 0 1 6 200 0 220 0 N
+P 2 0 1 6 220 100 220 -100 N
+P 2 0 1 6 280 0 300 0 N
+P 2 0 1 6 280 100 280 -100 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 500 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_1206_Shunt,10mOhm,1W,1%
+#
+DEF SamacSys_Parts_1206_Shunt,10mOhm,1W,1% R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "SamacSys_Parts_1206_Shunt,10mOhm,1W,1%" 550 150 50 H V L CNN
+F2 "RESC3216X75N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/ERJ-8CWFR010V.pdf" 550 -50 50 H I L CNN
+F4 "Panasonic ERJ8CW Series Thick Film Fixed Resistor 1206 Case 10m +/-1% 1W +/-50ppm/C" 550 -150 50 H I L CNN "Description"
+F5 "0.75" 550 -250 50 H I L CNN "Height"
+F6 "667-ERJ-8CWFR010V" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=667-ERJ-8CWFR010V" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Panasonic" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "ERJ-8CWFR010V" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_22-28-4027
+#
+DEF SamacSys_Parts_22-28-4027 J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "SamacSys_Parts_22-28-4027" 650 200 50 H V L CNN
+F2 "HDRV2W66P0X254_1X2_508X249X1067P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/22-28-4027.pdf" 650 0 50 H I L CNN
+F4 "Headers & Wire Housings VERT B/A HDR 2P" 650 -100 50 H I L CNN "Description"
+F5 "10.67" 650 -200 50 H I L CNN "Height"
+F6 "538-22-28-4027" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-22-28-4027" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "22-28-4027" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_22-28-4050
+#
+DEF SamacSys_Parts_22-28-4050 J 0 30 Y Y 1 F N
+F0 "J" 650 300 50 H V L CNN
+F1 "SamacSys_Parts_22-28-4050" 650 200 50 H V L CNN
+F2 "HDRV5W66P0X254_1X5_1270X249X838P" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/22-28-4050.pdf" 650 0 50 H I L CNN
+F4 "MOLEX - 22-28-4050 - CONNECTOR, HEADER, 5POS, 1ROW, 2.54MM" 650 -100 50 H I L CNN "Description"
+F5 "8.38" 650 -200 50 H I L CNN "Height"
+F6 "538-22-28-4050" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=538-22-28-4050" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Molex" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "22-28-4050" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -500 200 -500 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 P
+X 2 2 0 -100 200 R 50 50 0 0 P
+X 3 3 0 -200 200 R 50 50 0 0 P
+X 4 4 0 -300 200 R 50 50 0 0 P
+X 5 5 0 -400 200 R 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_BLM31PG500SN1L
+#
+DEF SamacSys_Parts_BLM31PG500SN1L FL 0 30 Y Y 1 F N
+F0 "FL" 650 300 50 H V L CNN
+F1 "SamacSys_Parts_BLM31PG500SN1L" 650 200 50 H V L CNN
+F2 "BEADC3216X130N" 650 100 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/1/BLM31PG500SN1L.pdf" 650 0 50 H I L CNN
+F4 "BLM31_N1L Series EMI Suppression Filter 50(Typ.) at 100MHz 3.5A @85" 650 -100 50 H I L CNN "Description"
+F5 "1.3" 650 -200 50 H I L CNN "Height"
+F6 "81-BLM31P500S" 650 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.com/Search/Refine.aspx?Keyword=81-BLM31P500S" 650 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Murata Electronics" 650 -500 50 H I L CNN "Manufacturer_Name"
+F9 "BLM31PG500SN1L" 650 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+P 5 0 1 6 200 100 600 100 600 -200 200 -200 200 100 N
+X 1 1 0 0 200 R 50 50 0 0 U
+X 2 2 0 -100 200 R 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# SamacSys_Parts_IRLR8726PBF
+#
+DEF SamacSys_Parts_IRLR8726PBF Q 0 30 Y Y 1 F N
+F0 "Q" 450 150 50 H V L CNN
+F1 "SamacSys_Parts_IRLR8726PBF" 450 50 50 H V L CNN
+F2 "SamacSys_Parts:D-PAK_TO-252AA__1" 450 -50 50 H I L CNN
+F3 "" 450 -150 50 H I L CNN
+F4 "INFINEON - IRLR8726PBF - MOSFET, N-CH 30V 86A DPAK" 450 -250 50 H I L CNN "Description"
+F5 "Infineon" 450 -450 50 H I L CNN "Manufacturer_Name"
+F6 "IRLR8726PBF" 450 -550 50 H I L CNN "Manufacturer_Part_Number"
+F7 "942-IRLR8726PBF" 450 -650 50 H I L CNN "Mouser Part Number"
+F8 "https://www.mouser.com/Search/Refine.aspx?Keyword=942-IRLR8726PBF" 450 -750 50 H I L CNN "Mouser Price/Stock"
+F9 "6887244" 450 -850 50 H I L CNN "RS Part Number"
+F10 "http://uk.rs-online.com/web/p/products/6887244" 450 -950 50 H I L CNN "RS Price/Stock"
+F11 "70019880" 450 -1050 50 H I L CNN "Allied_Number"
+F12 "https://www.alliedelec.com/infineon-irlr8726pbf/70019880/" 450 -1150 50 H I L CNN "Allied Price/Stock"
+DRAW
+C 250 100 158 0 1 10 N
+P 2 0 1 6 230 -20 230 20 N
+P 2 0 1 6 230 0 300 0 N
+P 2 0 1 6 230 80 230 120 N
+P 2 0 1 6 230 220 230 180 N
+P 2 0 1 6 300 100 230 100 N
+P 2 0 1 6 300 100 300 -100 N
+P 2 0 1 6 300 200 230 200 N
+P 2 0 1 6 300 200 300 300 N
+P 3 0 1 6 100 0 200 0 200 200 N
+P 4 0 1 10 230 100 270 120 270 80 230 100 F
+X ~ 1 0 0 100 R 50 50 0 0 U
+X ~ 3 300 -200 100 U 50 50 0 0 U
+X ~ 4 300 400 100 D 50 50 0 0 U
+ENDDRAW
+ENDDEF
+#
+# dk_Rectangular-Connectors-Headers-Male-Pins_B4B-XH-A_LF__SN_
+#
+DEF dk_Rectangular-Connectors-Headers-Male-Pins_B4B-XH-A_LF__SN_ J 0 40 Y Y 1 F N
+F0 "J" -100 -50 50 H V R CNN
+F1 "dk_Rectangular-Connectors-Headers-Male-Pins_B4B-XH-A_LF__SN_" 150 -150 50 H V C CNN
+F2 "digikey-footprints:PinHeader_1x4_P2.5mm_Drill1.1mm" 200 200 60 H I L CNN
+F3 "http://www.jst-mfg.com/product/pdf/eng/eXH.pdf" 200 300 60 H I L CNN
+F4 "455-2249-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "B4B-XH-A(LF)(SN)" 200 500 60 H I L CNN "MPN"
+F6 "Connectors, Interconnects" 200 600 60 H I L CNN "Category"
+F7 "Rectangular Connectors - Headers, Male Pins" 200 700 60 H I L CNN "Family"
+F8 "http://www.jst-mfg.com/product/pdf/eng/eXH.pdf" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/jst-sales-america-inc/B4B-XH-A(LF)(SN)/455-2249-ND/1651047" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "CONN HEADER VERT 4POS 2.5MM" 200 1000 60 H I L CNN "Description"
+F11 "JST Sales America Inc." 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -50 0 350 -100 1 1 0 f
+S -10 -45 10 -65 1 1 0 F
+S 90 -45 110 -65 1 1 0 F
+S 190 -45 210 -65 1 1 0 F
+S 290 -45 310 -65 1 1 0 F
+X ~ 1 0 100 100 D 50 50 1 1 P
+X ~ 2 100 100 100 D 50 50 1 1 P
+X ~ 3 200 100 100 D 50 50 1 1 P
+X ~ 4 300 100 100 D 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# dk_Transistors-FETs-MOSFETs-Single_IRF9540NPBF
+#
+DEF dk_Transistors-FETs-MOSFETs-Single_IRF9540NPBF Q 0 0 Y Y 1 F N
+F0 "Q" -106 143 60 H V R CNN
+F1 "dk_Transistors-FETs-MOSFETs-Single_IRF9540NPBF" 136 0 60 V V C CNN
+F2 "digikey-footprints:TO-220-3" 200 200 60 H I L CNN
+F3 "https://www.infineon.com/dgdl/irf9540npbf.pdf?fileId=5546d462533600a401535611cfa21dc8" 200 300 60 H I L CNN
+F4 "IRF9540NPBF-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "IRF9540NPBF" 200 500 60 H I L CNN "MPN"
+F6 "Discrete Semiconductor Products" 200 600 60 H I L CNN "Category"
+F7 "Transistors - FETs, MOSFETs - Single" 200 700 60 H I L CNN "Family"
+F8 "https://www.infineon.com/dgdl/irf9540npbf.pdf?fileId=5546d462533600a401535611cfa21dc8" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/infineon-technologies/IRF9540NPBF/IRF9540NPBF-ND/812088" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "MOSFET P-CH 100V 23A TO-220AB" 200 1000 60 H I L CNN "Description"
+F11 "Infineon Technologies" 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+C -50 0 130 0 1 0 f
+C 0 -75 5 0 1 0 N
+C 0 -55 7 0 1 0 F
+C 0 75 5 0 1 0 N
+P 2 0 1 0 0 -55 -100 -55 N
+P 2 0 1 0 25 -15 15 -5 N
+P 2 0 1 0 55 -15 65 -25 N
+P 3 0 1 0 -200 -100 -120 -100 -120 55 N
+P 3 0 1 0 0 -100 0 0 -100 0 N
+P 3 0 1 0 0 100 0 55 -100 55 N
+P 5 0 1 0 -5 -75 40 -75 40 55 40 75 -5 75 N
+P 2 1 1 0 -100 -55 -100 -75 N
+P 2 1 1 0 -100 -55 -100 -35 N
+P 2 1 1 0 -100 0 -100 -20 N
+P 2 1 1 0 -100 0 -100 20 N
+P 2 1 1 0 -100 75 -100 35 N
+P 2 1 1 0 55 -15 25 -15 N
+P 4 1 1 0 -15 0 -45 20 -45 -20 -15 0 F
+P 4 1 1 0 40 -15 60 15 20 15 40 -15 F
+X G 1 -300 -100 100 R 50 50 1 1 B
+X D 2 0 200 100 D 50 50 1 1 B
+X S 3 0 -200 100 U 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+# power_+12V
+#
+DEF power_+12V #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "power_+12V" 0 140 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 0 -30 50 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 30 50 N
+X +12V 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_+3.3V
+#
+DEF power_+3.3V #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "power_+3.3V" 0 140 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+ALIAS +3.3V
+DRAW
+P 2 0 1 0 -30 50 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 30 50 N
+X +3V3 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_+48V
+#
+DEF power_+48V #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "power_+48V" 0 140 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 0 -30 50 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 30 50 N
+X +48V 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_+5V
+#
+DEF power_+5V #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "power_+5V" 0 140 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 0 -30 50 0 100 N
+P 2 0 1 0 0 0 0 100 N
+P 2 0 1 0 0 100 30 50 N
+X +5V 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_Earth
+#
+DEF power_Earth #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "power_Earth" 0 -150 50 H I C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 0 -25 -75 25 -75 N
+P 2 0 1 0 -5 -100 5 -100 N
+P 2 0 1 0 0 -50 0 0 N
+P 2 0 1 0 50 -50 -50 -50 N
+X Earth 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_GND
+#
+DEF power_GND #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "power_GND" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_PWR_FLAG
+#
+DEF power_PWR_FLAG #FLG 0 0 N N 1 F P
+F0 "#FLG" 0 75 50 H I C CNN
+F1 "power_PWR_FLAG" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 50 -40 75 0 100 40 75 0 50 N
+X pwr 1 0 0 0 U 50 50 0 0 w
+ENDDRAW
+ENDDEF
+#
+#End Library

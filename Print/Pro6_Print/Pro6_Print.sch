@@ -1,0 +1,288 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 10
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 6650 1650 1475 175 
+U 5E4D7CBB
+F0 "Endschaltern" 50
+F1 "Endschalter.sch" 50
+F2 "REF[0..2]" O L 6650 1725 50 
+$EndSheet
+Text Label 4425 1125 0    50   ~ 0
+DIGITAL[0..5]
+Text Label 4425 1250 0    50   ~ 0
+SPI[0..7]
+Text Label 4425 1375 0    50   ~ 0
+REF[0..2]
+Text Label 6650 1250 2    50   ~ 0
+SPI[0..7]
+Text Label 6650 1125 2    50   ~ 0
+DIGITAL[0..5]
+Text Label 6650 1725 2    50   ~ 0
+REF[0..2]
+$Sheet
+S 6650 2100 1475 650 
+U 5E5D5A26
+F0 "ESP" 50
+F1 "ESP.sch" 50
+F2 "RX[0..3]" O L 6650 2300 50 
+F3 "TX[0..3]" O L 6650 2425 50 
+F4 "SPI[0..7]" O L 6650 2175 50 
+F5 "SPILV[0..7]" I L 6650 2525 50 
+$EndSheet
+$Sheet
+S 6650 3000 1475 400 
+U 5E562C99
+F0 "RFID" 50
+F1 "RFID.sch" 50
+F2 "RX[0..3]" O L 6650 3075 50 
+F3 "TX[0..3]" O L 6650 3200 50 
+F4 "SPI[0..7]" I L 6650 3325 50 
+$EndSheet
+Text Label 6650 3075 2    50   ~ 0
+RX[0..3]
+Text Label 6650 3200 2    50   ~ 0
+TX[0..3]
+Text Label 6650 2300 2    50   ~ 0
+RX[0..3]
+Text Label 6650 2425 2    50   ~ 0
+TX[0..3]
+Text Label 4425 1500 0    50   ~ 0
+RX[0..3]
+Text Label 4425 1625 0    50   ~ 0
+TX[0..3]
+Text Label 6650 3325 2    50   ~ 0
+SPI[0..7]
+Text Label 6650 2175 2    50   ~ 0
+SPI[0..7]
+$Sheet
+S 2950 3025 1475 400 
+U 5E678FEC
+F0 "Sheet5E678FEB" 50
+F1 "Speisung.sch" 50
+$EndSheet
+$Sheet
+S 6650 3625 1475 175 
+U 5E68FB5D
+F0 "Pumpe, Durchfluss" 50
+F1 "Pumpe_Durchfluss.sch" 50
+F2 "Pumpe[0..11]" O L 6650 3700 50 
+$EndSheet
+Text Label 6650 3700 2    50   ~ 0
+Pumpe[0..11]
+Text Label 4425 1750 0    50   ~ 0
+Pumpe[0..11]
+$Sheet
+S 2950 1050 1475 1125
+U 5E4D4518
+F0 "Atmega2560" 50
+F1 "Atmega2560.sch" 50
+F2 "DIGITAL[0..5]" I R 4425 1125 50 
+F3 "SPI[0..7]" I R 4425 1250 50 
+F4 "REF[0..2]" O R 4425 1375 50 
+F5 "RX[0..3]" O R 4425 1500 50 
+F6 "TX[0..3]" O R 4425 1625 50 
+F7 "Pumpe[0..11]" I R 4425 1750 50 
+F8 "Durchfluss[0..11]" O R 4425 1875 50 
+F9 "SPILV[0..7]" I R 4425 2000 50 
+F10 "LED[0..3]" O R 4425 2125 50 
+$EndSheet
+$Sheet
+S 6650 1050 1475 350 
+U 5E4D7F26
+F0 "Gate_Driver_und_Shunt" 50
+F1 "Gate_Driver_und_Shunt.sch" 50
+F2 "SPI[0..7]" O L 6650 1250 50 
+F3 "DIGITAL[0..5]" O L 6650 1125 50 
+$EndSheet
+Text Notes 8200 1350 0    197  ~ 39
+Motor etc
+Text Notes 8200 1850 0    197  ~ 39
+Endschalter
+Text Notes 8200 2575 0    197  ~ 39
+ESP32
+Text Notes 8175 3325 0    197  ~ 39
+RFID
+Text Notes 8200 3850 0    197  ~ 39
+Pumpen
+Text Notes 750  3375 0    197  ~ 39
+Speisungen
+Text Notes 625  1600 0    197  ~ 39
+Mikrocontroller
+$Sheet
+S 6650 4050 1475 175 
+U 5EC08646
+F0 "Sensor Durchfluss" 50
+F1 "Sensor_Durchfluss.sch" 50
+F2 "Durchfluss[0..11]" O L 6650 4125 50 
+$EndSheet
+Text Notes 8200 4275 0    197  ~ 39
+Durchflusssensoren
+Text Label 6650 4125 2    50   ~ 0
+Durchfluss[0..11]
+Text Label 4425 1875 0    50   ~ 0
+Durchfluss[0..11]
+Wire Bus Line
+	4425 1125 6650 1125
+Wire Bus Line
+	4425 1250 5600 1250
+Wire Bus Line
+	5100 4125 6650 4125
+Wire Bus Line
+	4425 1875 5100 1875
+Wire Bus Line
+	5200 3700 6650 3700
+Wire Bus Line
+	4425 1750 5200 1750
+Wire Bus Line
+	5300 1625 5300 2425
+Wire Bus Line
+	4425 1625 5300 1625
+Wire Bus Line
+	4425 1500 5400 1500
+Wire Bus Line
+	5100 1875 5100 4125
+Wire Bus Line
+	5200 1750 5200 3700
+Wire Bus Line
+	4425 1375 5500 1375
+Wire Bus Line
+	5500 1375 5500 1725
+Wire Bus Line
+	5500 1725 6650 1725
+Wire Bus Line
+	5600 1250 5600 2175
+Connection ~ 5600 1250
+Wire Bus Line
+	5600 1250 6650 1250
+Wire Bus Line
+	5600 2175 6650 2175
+Wire Bus Line
+	5600 3325 6650 3325
+Wire Bus Line
+	5400 2300 6650 2300
+Wire Bus Line
+	5300 2425 6650 2425
+Wire Bus Line
+	5400 3075 6650 3075
+Wire Bus Line
+	5300 3200 6650 3200
+Connection ~ 5300 2425
+Connection ~ 5400 2300
+Wire Bus Line
+	5400 2300 5400 1500
+Connection ~ 5600 2175
+Wire Bus Line
+	5600 2175 5600 3325
+Wire Bus Line
+	5400 2300 5400 3075
+Wire Bus Line
+	5300 2425 5300 3200
+Wire Bus Line
+	4425 2000 5000 2000
+Wire Bus Line
+	5000 2000 5000 2525
+Wire Bus Line
+	5000 2525 6650 2525
+Text Label 4425 2000 0    50   ~ 0
+SPILV[0..7]
+Text Label 6650 2525 2    50   ~ 0
+SPILV[0..7]
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 5EEB4FC5
+P 900 6325
+F 0 "H1" H 1000 6374 50  0000 L CNN
+F 1 "MountingHole_Pad" H 1000 6283 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.3mm_M5_DIN965_Pad" H 900 6325 50  0001 C CNN
+F 3 "~" H 900 6325 50  0001 C CNN
+	1    900  6325
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5EEB674E
+P 900 6525
+F 0 "#PWR01" H 900 6275 50  0001 C CNN
+F 1 "GND" H 905 6352 50  0000 C CNN
+F 2 "" H 900 6525 50  0001 C CNN
+F 3 "" H 900 6525 50  0001 C CNN
+	1    900  6525
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  6525 900  6425
+Connection ~ 900  6425
+Wire Wire Line
+	900  6425 1800 6425
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 5EEBA11D
+P 1800 6325
+F 0 "H2" H 1900 6374 50  0000 L CNN
+F 1 "MountingHole_Pad" H 1900 6283 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.3mm_M5_DIN965_Pad" H 1800 6325 50  0001 C CNN
+F 3 "~" H 1800 6325 50  0001 C CNN
+	1    1800 6325
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H3
+U 1 1 5EEBA72E
+P 2675 6325
+F 0 "H3" H 2775 6374 50  0000 L CNN
+F 1 "MountingHole_Pad" H 2775 6283 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.3mm_M5_DIN965_Pad" H 2675 6325 50  0001 C CNN
+F 3 "~" H 2675 6325 50  0001 C CNN
+	1    2675 6325
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H4
+U 1 1 5EEBAEC6
+P 3525 6325
+F 0 "H4" H 3625 6374 50  0000 L CNN
+F 1 "MountingHole_Pad" H 3625 6283 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.3mm_M5_DIN965_Pad" H 3525 6325 50  0001 C CNN
+F 3 "~" H 3525 6325 50  0001 C CNN
+	1    3525 6325
+	1    0    0    -1  
+$EndComp
+Connection ~ 2675 6425
+Wire Wire Line
+	2675 6425 3525 6425
+Connection ~ 1800 6425
+Wire Wire Line
+	1800 6425 2675 6425
+$Sheet
+S 6650 4450 1500 200 
+U 5E8A8F40
+F0 "LED" 50
+F1 "LED.sch" 50
+F2 "LED[0..3]" O L 6650 4550 50 
+$EndSheet
+Wire Bus Line
+	6650 4550 4900 4550
+Wire Bus Line
+	4900 4550 4900 2125
+Wire Bus Line
+	4900 2125 4425 2125
+Text Label 4435 2125 0    50   ~ 0
+LED[0..3]
+Text Label 6640 4550 2    50   ~ 0
+LED[0..3]
+Text Notes 8200 5025 0    197  ~ 39
+LED\n\n
+$EndSCHEMATC

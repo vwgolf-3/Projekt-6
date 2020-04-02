@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Pro6_Print-rescue)(type Legacy)(uri ${KIPRJMOD}/Pro6_Print-rescue.lib)(options "")(descr ""))
+)
