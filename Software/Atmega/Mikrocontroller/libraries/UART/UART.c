@@ -61,25 +61,25 @@ void UART_init()
 	ptr_tx_completed_3=tx_completed;
 }
 
-void Uart_Transmit_IT_PC(unsigned char *data, unsigned char nbytes )
+void Uart_Transmit_IT_PC(uint8_t *data, uint8_t nbytes )
 {
 	RB_write(&rb_tx_PC, data, nbytes);
 	Uart_EnableTransmitIT_0();
 }
 
-void Uart_Transmit_IT_Display(unsigned char *data, unsigned char nbytes )
+void Uart_Transmit_IT_Display(uint8_t *data, uint8_t nbytes )
 {
 	RB_write(&rb_tx_Display, data, nbytes);
 	Uart_EnableTransmitIT_1();
 }
 
-void Uart_Transmit_IT_ESP(unsigned char *data, unsigned char nbytes )
+void Uart_Transmit_IT_ESP(uint8_t *data, uint8_t nbytes )
 {
 	RB_write(&rb_tx_ESP, data, nbytes);
 	Uart_EnableTransmitIT_2();
 }
 
-void Uart_Transmit_IT_RFID(unsigned char *data, unsigned char nbytes )
+void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes )
 {
 	RB_write(&rb_tx_RFID, data, nbytes);
 	Uart_EnableTransmitIT_3();

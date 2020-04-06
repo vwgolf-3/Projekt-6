@@ -38,6 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../libraries/Cocktail_functions/Cocktail_functions.c \
+../libraries/Getraenk/Getraenk.c \
 ../libraries/Nextion_Display/nextion/Display_NexButton.c \
 ../libraries/Nextion_Display/nextion/Display_NexHardware.c \
 ../libraries/Nextion_Display/nextion/Display_NexNumber.c \
@@ -66,6 +67,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 Cocktail_functions.o \
+Getraenk.o \
 Display_NexButton.o \
 Display_NexHardware.o \
 Display_NexNumber.o \
@@ -87,6 +89,7 @@ Main_Func.o
 
 OBJS_AS_ARGS +=  \
 Cocktail_functions.o \
+Getraenk.o \
 Display_NexButton.o \
 Display_NexHardware.o \
 Display_NexNumber.o \
@@ -108,6 +111,7 @@ Main_Func.o
 
 C_DEPS +=  \
 Cocktail_functions.d \
+Getraenk.d \
 Display_NexButton.d \
 Display_NexHardware.d \
 Display_NexNumber.d \
@@ -129,6 +133,7 @@ Main_Func.d
 
 C_DEPS_AS_ARGS +=  \
 Cocktail_functions.d \
+Getraenk.d \
 Display_NexButton.d \
 Display_NexHardware.d \
 Display_NexNumber.d \
@@ -163,6 +168,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 ./Cocktail_functions.o: ../libraries/Cocktail_functions/Cocktail_functions.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./Getraenk.o: ../libraries/Getraenk/Getraenk.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

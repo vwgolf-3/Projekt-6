@@ -63,13 +63,13 @@ extern ring_buffer_t rb_rx_RFID;
 
 void UART_init();
 
-void Uart_Transmit_IT_PC(unsigned char *data, unsigned char nbytes);
+void Uart_Transmit_IT_PC(uint8_t *data, uint8_t nbytes);
 
-void Uart_Transmit_IT_Display(unsigned char *data, unsigned char nbytes);
+void Uart_Transmit_IT_Display(uint8_t *data, uint8_t nbytes);
 
-void Uart_Transmit_IT_ESP(unsigned char *data, unsigned char nbytes);
+void Uart_Transmit_IT_ESP(uint8_t *data, uint8_t nbytes);
 
-void Uart_Transmit_IT_RFID(unsigned char *data, unsigned char nbytes);
+void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes);
 
 void tx_completed();
 

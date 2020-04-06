@@ -8,20 +8,20 @@
 #include "Cocktail_functions.h"
 #define DEBUG_1 0
 
-void check_command(char page, char button)
+void cocktail_check_command(char page, char button)
 {
 	if(page==0xFF&&button==0xB1)
 	{
-		do_command1();
+		cocktail_do_command1();
 	}
 	
-	if(INPUT_UART_1[0]==0x07&&INPUT_UART_1[1]==0x01)
+	if(page==0x07&&button==0x01)
 	{
-		do_command2();
+		cocktail_do_command2();
 	}
 }
 
-void do_command1(void)
+void cocktail_do_command1(void)
 {
 	unsigned char *ch0 = (unsigned char *)"Beginn Command1: \r\n\r\n";//************************	Start
 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
@@ -128,7 +128,7 @@ void do_command1(void)
 	PWM_ON;//*************************************************************************************	Aktion:				WPM Einschalten
 }
 
-void do_command2(void)
+void cocktail_do_command2(void)
 {
 	unsigned char *ch0 = (unsigned char *)"Beginn Command2: \r\n\r\n";//************************	Start
 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
@@ -201,4 +201,17 @@ void do_command2(void)
 	}
 	
 	PWM_OFF;//************************************************************************************	Aktion:				WPM Einschalten
+}
+
+void cocktail_test_command(unsigned char INPUT[256])
+{
+	
+	getraenk_t * tmp;
+	for (int8_t i=0; i<21;i++)
+	{
+		tmp = create_new_getraenk((uint8_t *)INPUT,i);
+		head = insert_at_head(&head, tmp);
+	}
+	showlist();
+	length_list();
 }

@@ -152,6 +152,10 @@
       <SubType>compile</SubType>
       <Link>Cocktail_functions.c</Link>
     </Compile>
+    <Compile Include="libraries\Getraenk\Getraenk.c">
+      <SubType>compile</SubType>
+      <Link>Getraenk.c</Link>
+    </Compile>
     <Compile Include="libraries\Nextion_Display\nextion\Display_NexButton.c">
       <SubType>compile</SubType>
       <Link>Display_NexButton.c</Link>

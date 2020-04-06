@@ -32,6 +32,9 @@ void proceed_Communication_Input_UART_2(void);
 char check_Communication_Input_UART_3(void);
 void proceed_Communication_Input_UART_3(void);
 
+void testFunc(void);
+
+
 //Variabeln UART_0
 extern unsigned char cntr_UART_0;
 extern unsigned char INPUT_UART_0[256];

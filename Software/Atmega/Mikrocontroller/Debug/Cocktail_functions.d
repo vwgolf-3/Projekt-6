@@ -53,7 +53,14 @@ Cocktail_functions.d Cocktail_functions.o: \
  ../libraries/Cocktail_functions/../../Main_Func/../libraries/SPI/SPI.h \
  ../libraries/Cocktail_functions/../../Main_Func/../libraries/TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../../Main_Func/../libraries/Nextion_Display/Nextion_Display.h \
- ../libraries/Cocktail_functions/../../Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h
+ ../libraries/Cocktail_functions/../../Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h \
+ ../libraries/Cocktail_functions/../Getraenk/Getraenk.h \
+ ../libraries/Cocktail_functions/../Getraenk/../SPI/SPI_Defines.h \
+ ../libraries/Cocktail_functions/../Getraenk/../UART/UART.h \
+ ../libraries/Cocktail_functions/../Getraenk/../SPI/SPI.h \
+ ../libraries/Cocktail_functions/../Getraenk/../TMC4671/TMC4671.h \
+ ../libraries/Cocktail_functions/../Getraenk/../Nextion_Display/Nextion_Display.h \
+ ../libraries/Cocktail_functions/../Getraenk/../../Main_Func/Main_Func.h
 
 ../libraries/Cocktail_functions/Cocktail_functions.h:
 
@@ -162,3 +169,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Cocktail_functions/../../Main_Func/../libraries/Nextion_Display/Nextion_Display.h:
 
 ../libraries/Cocktail_functions/../../Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h:
+
+../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
+
+../libraries/Cocktail_functions/../Getraenk/../SPI/SPI_Defines.h:
+
+../libraries/Cocktail_functions/../Getraenk/../UART/UART.h:
+
+../libraries/Cocktail_functions/../Getraenk/../SPI/SPI.h:
+
+../libraries/Cocktail_functions/../Getraenk/../TMC4671/TMC4671.h:
+
+../libraries/Cocktail_functions/../Getraenk/../Nextion_Display/Nextion_Display.h:
+
+../libraries/Cocktail_functions/../Getraenk/../../Main_Func/Main_Func.h:

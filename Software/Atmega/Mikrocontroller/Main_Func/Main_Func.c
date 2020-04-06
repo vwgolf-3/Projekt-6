@@ -79,6 +79,8 @@ void proceed_Communication_Input_UART_0(void)
 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 	
 	toggle_LED();
+	
+	cocktail_test_command(INPUT_UART_0);
 }
 
 char check_Communication_Input_UART_1(void)
@@ -142,7 +144,7 @@ void proceed_Communication_INPUT_UART_1(void)
 	ch0 = (unsigned char *)"\r\n";//************************	Start
 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 
-	check_command(INPUT_UART_1[0],INPUT_UART_1[1]);
+	cocktail_check_command(INPUT_UART_1[0],INPUT_UART_1[1]);
 }
 
 char check_Communication_Input_UART_2(void)
@@ -204,7 +206,7 @@ void proceed_Communication_Input_UART_2(void)
 	ch0 = (unsigned char *)"\r\n";//************************	Start
 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 	
-	check_command(INPUT_UART_2[0],INPUT_UART_2[1]);
+	cocktail_check_command(INPUT_UART_2[0],INPUT_UART_2[1]);
 }
 
 char check_Communication_Input_UART_3(void)
@@ -268,5 +270,5 @@ void proceed_Communication_Input_UART_3(void)
 	ch0 = (unsigned char *)"\r\n";//************************	Start
 	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 	
-	check_command(INPUT_UART_3[0],INPUT_UART_3[1]);
+	cocktail_check_command(INPUT_UART_3[0],INPUT_UART_3[1]);
 }

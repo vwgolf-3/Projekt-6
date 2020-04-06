@@ -24,6 +24,7 @@
 
 #include "libraries/Nextion_Display/nextion/Display_Nextion.h"
 #include "libraries/Nextion_Display/util/Display_Utilities.h"
+#include "libraries/Getraenk/Getraenk.h"
 
 // Übergreifende SPI-Defines
 #include "libraries/SPI/SPI_Defines.h"
@@ -90,11 +91,12 @@ struct NexObject *nex_listen_list[] = {
 #define buttonPageID 0xFF
 #define sliderPageID 0
 #define buttonID 0xB1
-#define sliderID 2
+#define sliderID 2
+
 
 // MainLoop
 int main(void)
-{	
+{
 	
 //Initialisierungen
 	IO_init();
@@ -103,6 +105,8 @@ int main(void)
 	UART_init();
 	TMC4671_init();
 	mfrc522_init();
+	cocktails_init();		
+	// Implemetierung MFRC522
 	
 	unsigned char * ch0;
 	
@@ -138,6 +142,9 @@ int main(void)
 	// Mainroutine
 	while (1)
 	{
+		
+		// Check MFRC522
+		
 		byte = mfrc522_read(ComIEnReg);
 		
 // 		ch0 = (unsigned char *)byte;
@@ -200,7 +207,7 @@ int main(void)
 // 			ch0 = (unsigned char *)" Error \r\n";
 // 			Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
 		}
-				
+						// Check Communication		
 		if (check_Communication_Input_UART_0())				// Check UART_0 (USB), ob vollständige Übertragung stattgefunden hat (Ende = "\r")
 		{
 			proceed_Communication_Input_UART_0();				// Vollständige Übertragung des USB verarbeiten
@@ -226,3 +233,4 @@ int main(void)
   		heartbeat_LED();
 	}
 }
+
