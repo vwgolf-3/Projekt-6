@@ -7,6 +7,7 @@
 
 // Einfügen der Standardbibliotheken
 #include <avr/io.h>
+#include <stdio.h> 
 // #include <util/delay.h>
 #include <avr/interrupt.h>
 #include <string.h>
@@ -22,8 +23,6 @@
 #include "libraries/RC522/mfrc522.h"
 #include "Main_Func/Main_Func.h"
 
-#include "libraries/Nextion_Display/nextion/Display_Nextion.h"
-#include "libraries/Nextion_Display/util/Display_Utilities.h"
 #include "libraries/Getraenk/Getraenk.h"
 
 // Übergreifende SPI-Defines
@@ -79,20 +78,6 @@ void sliderCallback(void *ptr);
 
 void buttonCallback(void *ptr);
 
-struct NexObject button, slider;
-
-unsigned long value;
-
-struct NexObject *nex_listen_list[] = {
- 	&button,
- 	&slider
-};
-
-#define buttonPageID 0xFF
-#define sliderPageID 0
-#define buttonID 0xB1
-#define sliderID 2
-
 
 // MainLoop
 int main(void)
@@ -106,6 +91,9 @@ int main(void)
 	TMC4671_init();
 	mfrc522_init();
 	cocktails_init();		
+	
+
+
 	// Implemetierung MFRC522
 	
 	unsigned char * ch0;

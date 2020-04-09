@@ -17,20 +17,20 @@
 #include "../../Main_Func/Main_Func.h"
 
 struct getraenk{
-	uint8_t * name;
+	char * name;
 	int8_t value;
 	struct getraenk* next;
 };
 typedef struct getraenk getraenk_t;
-getraenk_t sevenSeven, blueKamikaze, blueLagoon, buckCocktails, gimlet, ginSin, highball, whiskyCola, kamikaze, martiniLemonDrop, monkeyGland, screwdriver, silverBullet, ward8, whiteLady, sevenUp, cocaCola, orangensaft, spezi, royRogers, shirleyTemple;
-getraenk_t *head;
 
+getraenk_t *head;
+char eigeneGetraenke[20][20];
 void cocktails_init(void);
 void printlist(void);
 
-getraenk_t * find_getraenk(getraenk_t *head, int8_t value);
+getraenk_t * find_getraenk(getraenk_t *head, char * name);
 getraenk_t *insert_at_head(getraenk_t **head, getraenk_t *getraenk_to_insert);
-getraenk_t* create_new_getraenk(uint8_t * name, int8_t value);
+getraenk_t *create_new_getraenk(char * name, int8_t value);
 void insert_after_getraenk(getraenk_t *getraenk_to_insert_after, getraenk_t *newnode);
 void showlist (void);
 int8_t length_list(void);

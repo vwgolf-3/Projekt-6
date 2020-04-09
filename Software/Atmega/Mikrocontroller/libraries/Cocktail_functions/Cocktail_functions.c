@@ -205,13 +205,9 @@ void cocktail_do_command2(void)
 
 void cocktail_test_command(unsigned char INPUT[256])
 {
-	
+	uint8_t len = length_list();
 	getraenk_t * tmp;
-	for (int8_t i=0; i<21;i++)
-	{
-		tmp = create_new_getraenk((uint8_t *)INPUT,i);
-		head = insert_at_head(&head, tmp);
-	}
+	tmp=create_new_getraenk((char *)INPUT,len);
+	head = insert_at_head(&head,tmp);
 	showlist();
-	length_list();
 }

@@ -6,27 +6,7 @@ libraries\Cocktail_functions\Cocktail_functions.c
 
 libraries\Getraenk\Getraenk.c
 
-libraries\Nextion_Display\nextion\Display_NexButton.c
-
-libraries\Nextion_Display\nextion\Display_NexHardware.c
-
-libraries\Nextion_Display\nextion\Display_NexNumber.c
-
-libraries\Nextion_Display\nextion\Display_NexPage.c
-
-libraries\Nextion_Display\nextion\Display_NexProgressBar.c
-
-libraries\Nextion_Display\nextion\Display_NexSlider.c
-
-libraries\Nextion_Display\nextion\Display_NexText.c
-
-libraries\Nextion_Display\nextion\Display_NexTouch.c
-
-libraries\Nextion_Display\nextion\Display_Serial.c
-
 libraries\Nextion_Display\Nextion_Display.c
-
-libraries\Nextion_Display\util\Display_Utilities.c
 
 libraries\RC522\mfrc522.c
 

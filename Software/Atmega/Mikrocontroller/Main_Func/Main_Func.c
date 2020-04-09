@@ -72,14 +72,13 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
-	unsigned char *ch0 = (unsigned char *)"Proceed UART 0: ";//************************	Start
-	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
-	Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_0,strlen((const char*)INPUT_UART_0));
-	ch0 = (unsigned char *)"\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+	char *ch0 = "Proceed UART 0:";//************************	Start
+	Uart_Transmit_IT_PC((unsigned char *)ch0,strlen((const char*)ch0));
 	
+	ch0 = "\r\n";//************************	Start
+	Uart_Transmit_IT_PC((unsigned char *)ch0,strlen((const char*)ch0));
+
 	toggle_LED();
-	
 	cocktail_test_command(INPUT_UART_0);
 }
 

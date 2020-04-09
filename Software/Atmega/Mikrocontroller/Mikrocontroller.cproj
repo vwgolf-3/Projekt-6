@@ -156,49 +156,9 @@
       <SubType>compile</SubType>
       <Link>Getraenk.c</Link>
     </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexButton.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexButton.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexHardware.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexHardware.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexNumber.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexNumber.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexPage.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexPage.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexProgressBar.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexProgressBar.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexSlider.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexSlider.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexText.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexText.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_NexTouch.c">
-      <SubType>compile</SubType>
-      <Link>Display_NexTouch.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\nextion\Display_Serial.c">
-      <SubType>compile</SubType>
-      <Link>Display_Serial.c</Link>
-    </Compile>
     <Compile Include="libraries\Nextion_Display\Nextion_Display.c">
       <SubType>compile</SubType>
       <Link>Nextion_Display.c</Link>
-    </Compile>
-    <Compile Include="libraries\Nextion_Display\util\Display_Utilities.c">
-      <SubType>compile</SubType>
-      <Link>Display_Utilities.c</Link>
     </Compile>
     <Compile Include="libraries\RC522\mfrc522.c">
       <SubType>compile</SubType>
