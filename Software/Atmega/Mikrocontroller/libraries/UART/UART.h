@@ -63,7 +63,7 @@ extern ring_buffer_t rb_rx_RFID;
 
 void UART_init();
 
-void Uart_Transmit_IT_PC(uint8_t *data, uint8_t nbytes);
+void Uart_Transmit_IT_PC(uint8_t *data);
 
 void Uart_Transmit_IT_Display(uint8_t *data, uint8_t nbytes);
 

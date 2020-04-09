@@ -24,14 +24,14 @@ void cocktail_check_command(char page, char button)
 void cocktail_do_command1(void)
 {
 	unsigned char *ch0 = (unsigned char *)"Beginn Command1: \r\n\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+	Uart_Transmit_IT_PC(ch0);
 	
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Initialisiere TMC: \r\n";//******************************************	Status Beginn:		Init_SPI
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Init_SPI
+		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Init_SPI
 		_delay_ms(50);
 	}
 	
@@ -40,9 +40,9 @@ void cocktail_do_command1(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Setze Text Display 1: \r\n";//***************************************	Status Beginn:		Test Text 1
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Test Text 1
+		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Test Text 1
 		_delay_ms(50);
 	}
 	
@@ -54,9 +54,9 @@ void cocktail_do_command1(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Setze Text Display 2: \r\n";//***************************************	Status Beginn:		Test Text 2
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Test Text 2
+		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Test Text 2
 		_delay_ms(50);
 	}
 	ch1 = (unsigned char *)"b0";//***************************************************************	Button:				b0
@@ -66,9 +66,9 @@ void cocktail_do_command1(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Setze Text Display 3: \r\n";//***************************************	Status Beginn:		Test Text 3
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Test Text 3
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test Text 3
 		_delay_ms(50);
 	}
 	
@@ -79,9 +79,9 @@ void cocktail_do_command1(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Setze Bild 1: \r\n";//************************************************	Status Beginn:		Test Setze Bild 1
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Test Setze Bild 1
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test Setze Bild 1
 		_delay_ms(50);
 	}
 	
@@ -93,9 +93,9 @@ void cocktail_do_command1(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Setze Bild 2: \r\n";//************************************************	Status Beginn:		Test Setze Bild 2
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Test Setze Bild 2
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test Setze Bild 2
 		_delay_ms(50);
 	}
 	
@@ -107,9 +107,9 @@ void cocktail_do_command1(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Toggle LED: \r\n";//**************************************************	Status Beginn:		Toggle LED
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Toggle LED
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Toggle LED
 		_delay_ms(50);
 	}
 		
@@ -119,9 +119,9 @@ void cocktail_do_command1(void)
 	if(DEBUG_1)
 	{
 		ch0 = (unsigned char *)"8kHz-Signal: \r\n";// *************************************	Status Beginn:		Test 8kHz-Signal einschalten
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Toggle LED
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Toggle LED
 		_delay_ms(50);
 	}
 
@@ -131,14 +131,14 @@ void cocktail_do_command1(void)
 void cocktail_do_command2(void)
 {
 	unsigned char *ch0 = (unsigned char *)"Beginn Command2: \r\n\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+	Uart_Transmit_IT_PC(ch0);
 
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Unterhaltungstext schreiben: \r\n";//********************************	Status Beginn:		Test Text 1
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Test Text 1			
+		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Test Text 1			
 	}
 
 	unsigned char * ch1 = (unsigned char *)"t1";//***********************************************	Button:				b1
@@ -150,9 +150,9 @@ void cocktail_do_command2(void)
 	if (DEBUG_1)
 	{			
 		ch0 = (unsigned char *)"TMC im Openloop laufen lassen: \r\n";//******************************	Status Beginn:		TMC Openloop
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		TMC Openloop
+		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		TMC Openloop
 	}
 	
 	initTMC4671_Openloop();//********************************************************************	Aktion:				TMC Openloop
@@ -160,9 +160,9 @@ void cocktail_do_command2(void)
 	if (DEBUG_1)
 	{	
 		ch0 = (unsigned char *)"Auf Seite 9 wechseln: \r\n";//***************************************	Status Beginn:		Seite wechseln
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//*****************************************	Status Ende:		Seite wechseln
+		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Seite wechseln
 	}
 	
 	ch1 = (unsigned char *)"9";//****************************************************************	Seite:				9
@@ -206,8 +206,12 @@ void cocktail_do_command2(void)
 void cocktail_test_command(unsigned char INPUT[256])
 {
 	uint8_t len = length_list();
+	char n = 6;
+	eeprom_write_byte(0,n);
 	getraenk_t * tmp;
 	tmp=create_new_getraenk((char *)INPUT,len);
 	head = insert_at_head(&head,tmp);
+	char x = (char) eeprom_read_byte(0);
+	Uart_Transmit_IT_PC((uint8_t *)x,strlen((const char *)x));
 	showlist();
 }

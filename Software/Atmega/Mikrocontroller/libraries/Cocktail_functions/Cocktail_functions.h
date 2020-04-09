@@ -17,6 +17,7 @@
 #include "../../Main_Func/Main_Func.h"
 #include "../Getraenk/Getraenk.h"
 #include <string.h>
+#include <avr/eeprom.h>
 
 void cocktail_check_command(char page, char button);
 void cocktail_do_command1(void);

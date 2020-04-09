@@ -8,7 +8,7 @@
 
 #ifndef GETRAENK_H_
 #define GETRAENK_H_
-
+#include <avr/eeprom.h>
 #include "../SPI/SPI_Defines.h"
 #include "../UART/UART.h"
 #include "../SPI/SPI.h"

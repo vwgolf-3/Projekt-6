@@ -61,8 +61,9 @@ void UART_init()
 	ptr_tx_completed_3=tx_completed;
 }
 
-void Uart_Transmit_IT_PC(uint8_t *data, uint8_t nbytes )
+void Uart_Transmit_IT_PC(uint8_t *data)
 {
+	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_PC, data, nbytes);
 	Uart_EnableTransmitIT_0();
 }
