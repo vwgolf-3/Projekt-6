@@ -95,9 +95,7 @@ int main(void)
 
 
 	// Implemetierung MFRC522
-	
-	unsigned char * ch0;
-	
+		
 	//check version of the reader
 	uint8_t str[MAX_LEN];
 	
@@ -106,24 +104,18 @@ int main(void)
 	
 	if(byte == 0x92)
 	{
-		ch0 = (unsigned char *)"MIFARE RC522v2 \r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
-		
-		ch0 = (unsigned char *)"Detected \r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC((uint8_t*)"MIFARE RC522v2 \r\n");
+		Uart_Transmit_IT_PC((uint8_t*)"Detected \r\n");
 		
 	}
 	else if(byte == 0x91 || byte==0x90)
 	{
-		ch0 = (unsigned char *)"MIFARE RC522v1 \r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
-		ch0 = (unsigned char *)"Detected \r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC((uint8_t*)"MIFARE RC522v1 \r\n");
+		Uart_Transmit_IT_PC((uint8_t*)"Detected \r\n");
 	}
 	else
 	{
-		ch0 = (unsigned char *)"No reader found \r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC((uint8_t*)"No reader found \r\n");
 	}
 	
 	
@@ -161,9 +153,8 @@ int main(void)
 		if(byte == CARD_FOUND)
 		{
 			byte = mfrc522_get_card_serial(str);
-			Uart_Transmit_IT_PC((unsigned char *)str,(unsigned char)strlen((const char *)str));
-			ch0 = (unsigned char *)" :Vorher\r\n";
-			Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+			Uart_Transmit_IT_PC((unsigned char *)str);
+			Uart_Transmit_IT_PC((uint8_t*)" :Vorher\r\n");
 			
 			
 			if(str[0]!=1)
@@ -186,9 +177,8 @@ int main(void)
 				}
 			}
 		byte = mfrc522_get_card_serial(str);
-		Uart_Transmit_IT_PC((unsigned char *)str,(unsigned char)strlen((const char *)str));
-		ch0 = (unsigned char *)" : Nachher \r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC((unsigned char *)str);
+		Uart_Transmit_IT_PC((uint8_t*)" : Nachher \r\n");
 		}
 		else
 		{

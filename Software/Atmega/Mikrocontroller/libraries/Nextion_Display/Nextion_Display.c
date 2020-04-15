@@ -16,9 +16,9 @@ void nextion_change_page(unsigned char * page)
 	Uart_Transmit_IT_Display(ch2,strlen((const char*)ch2));
 	endConversation(1);
 
-	Uart_Transmit_IT_PC(ch1,strlen((const char*)ch1));
-	Uart_Transmit_IT_PC(ch2,strlen((const char*)ch2));
-	Uart_Transmit_IT_PC((unsigned char *)"\r\n",strlen((const char*)"\r\n"));
+	Uart_Transmit_IT_PC(ch1);
+	Uart_Transmit_IT_PC(ch2);
+	Uart_Transmit_IT_PC((unsigned char *)"\r\n");
 }
 
 void nextion_setText(unsigned char * object, unsigned char * text, char UART_PORT)
@@ -31,11 +31,11 @@ void nextion_setText(unsigned char * object, unsigned char * text, char UART_POR
 
 	if(UART_PORT==0)
 	{
-		Uart_Transmit_IT_PC((unsigned char *)ch1,(unsigned char)strlen((const char *)ch1));
-		Uart_Transmit_IT_PC((unsigned char *)ch2,(unsigned char)strlen((const char *)ch2));
-		Uart_Transmit_IT_PC((unsigned char *)ch3,(unsigned char)strlen((const char *)ch3));
-		Uart_Transmit_IT_PC((unsigned char *)ch4,(unsigned char)strlen((const char *)ch4));
-		Uart_Transmit_IT_PC((unsigned char *)ch5,(unsigned char)strlen((const char *)ch5));
+		Uart_Transmit_IT_PC((unsigned char *)ch1);
+		Uart_Transmit_IT_PC((unsigned char *)ch2);
+		Uart_Transmit_IT_PC((unsigned char *)ch3);
+		Uart_Transmit_IT_PC((unsigned char *)ch4);
+		Uart_Transmit_IT_PC((unsigned char *)ch5);
 		endConversation(UART_PORT);
 	}
 	if(UART_PORT==1)
@@ -80,9 +80,9 @@ void nextion_setValue(unsigned char * object, unsigned char * value, char UART_P
 	unsigned char * ch3 = value;
 	if(UART_PORT==0)
 	{
-		Uart_Transmit_IT_PC(ch1,(unsigned char)strlen((const char *)ch1));
-		Uart_Transmit_IT_PC(ch2,(unsigned char)strlen((const char *)ch2));
-		Uart_Transmit_IT_PC(ch3,(unsigned char)strlen((const char *)ch3));
+		Uart_Transmit_IT_PC(ch1);
+		Uart_Transmit_IT_PC(ch2);
+		Uart_Transmit_IT_PC(ch3);
 
 		endConversation(UART_PORT);
 	}
@@ -128,12 +128,12 @@ void nextion_setPicture(unsigned char * x, unsigned char * y, unsigned char * pi
 
 	if(UART_PORT==0)
 	{
-		Uart_Transmit_IT_PC(ch1,(unsigned char)strlen((const char *)ch1));
-		Uart_Transmit_IT_PC(ch2,(unsigned char)strlen((const char *)ch2));
-		Uart_Transmit_IT_PC(ch3,(unsigned char)strlen((const char *)ch3));
-		Uart_Transmit_IT_PC(ch4,(unsigned char)strlen((const char *)ch4));
-		Uart_Transmit_IT_PC(ch5,(unsigned char)strlen((const char *)ch5));
-		Uart_Transmit_IT_PC(ch6,(unsigned char)strlen((const char *)ch6));
+		Uart_Transmit_IT_PC(ch1);
+		Uart_Transmit_IT_PC(ch2);
+		Uart_Transmit_IT_PC(ch3);
+		Uart_Transmit_IT_PC(ch4);
+		Uart_Transmit_IT_PC(ch5);
+		Uart_Transmit_IT_PC(ch6);
 
 		endConversation(UART_PORT);
 	}
@@ -184,7 +184,7 @@ void endConversation(char UART_PORT)
 	unsigned char ch2 [3]= {255,255,255};
 	if (UART_PORT == 0)
 	{
-		Uart_Transmit_IT_PC((unsigned char *)ch2,3);
+		Uart_Transmit_IT_PC((unsigned char *)ch2);
 	}
 	
 	if (UART_PORT == 1)

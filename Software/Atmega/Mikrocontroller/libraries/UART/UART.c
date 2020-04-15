@@ -93,6 +93,7 @@ ISR(USART0_UDRE_vect)
 	if (RB_length(&rb_tx_PC) > 0)
 	{
 		UDR0 = RB_readByte(&rb_tx_PC);
+		_delay_ms(1);
 	}
 	else
 	{

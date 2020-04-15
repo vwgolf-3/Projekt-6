@@ -173,9 +173,9 @@ void cocktail_do_command2(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Auf Seite 4 wechseln: \r\n";//***************************************	Status Beginn:		Seite wechseln
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));// *****************************************	Status Ende:		Seite wechseln
+		Uart_Transmit_IT_PC(ch0);// *****************************************	Status Ende:		Seite wechseln
 	}
 	
 	ch1 = (unsigned char *)"4";// ****************************************************************	Seite:				4 (Cocktailliste)
@@ -184,9 +184,9 @@ void cocktail_do_command2(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"Toggle LED: \r\n";//**************************************************	Status Beginn:		Toggle LED
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Toggle LED
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Toggle LED
 	}
 	
 	toggle_LED();//*******************************************************************************	Aktion:				Toggle LED
@@ -195,9 +195,9 @@ void cocktail_do_command2(void)
 	if (DEBUG_1)
 	{
 		ch0 = (unsigned char *)"8kHz-Signal: \r\n";// ************************************************	Status Beginn:		Test 8kHz-Signal ausschalten
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));
+		Uart_Transmit_IT_PC(ch0);
 		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0,strlen((const char*)ch0));//******************************************	Status Ende:		Test 8kHz-Signal ausschalten
+		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test 8kHz-Signal ausschalten
 	}
 	
 	PWM_OFF;//************************************************************************************	Aktion:				WPM Einschalten
@@ -205,13 +205,15 @@ void cocktail_do_command2(void)
 
 void cocktail_test_command(unsigned char INPUT[256])
 {
-	uint8_t len = length_list();
-	char n = 6;
-	eeprom_write_byte(0,n);
+	int8_t array[12] = {1,2,3,4,5,6,7,8,9,0,1,2};
 	getraenk_t * tmp;
-	tmp=create_new_getraenk((char *)INPUT,len);
-	head = insert_at_head(&head,tmp);
-	char x = (char) eeprom_read_byte(0);
-	Uart_Transmit_IT_PC((uint8_t *)x,strlen((const char *)x));
+	Uart_Transmit_IT_PC((uint8_t *)INPUT);
+	Uart_Transmit_IT_PC((uint8_t *)"\r\n");
+	
+	add_drink_to_eeprom(address,(char *)INPUT,(uint8_t *)array,1,1);
+	
+	tmp = read_drink_from_eemprom(address);
+	head = insert_at_head(&head, tmp);	
+	
 	showlist();
 }
