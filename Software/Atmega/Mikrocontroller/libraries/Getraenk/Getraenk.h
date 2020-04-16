@@ -16,12 +16,14 @@
 #include "../TMC4671/TMC4671.h"
 #include "../Nextion_Display/Nextion_Display.h"
 #include "../../Main_Func/Main_Func.h"
+#include <string.h>
+#include <stdio.h>
 
 struct getraenk{
 	char * name;
 	uint8_t value;
 	uint8_t alkohol;
-	char * mengen;
+	uint8_t * mengen;
 	struct getraenk* next;
 };
 typedef struct getraenk getraenk_t;
@@ -33,12 +35,15 @@ uint8_t * zutat;	// Zutaten-Pointer
 void cocktails_init(void);
 void printlist(void);
 
+// Cocktail-Liste
 getraenk_t * find_getraenk(getraenk_t *head, char * name);
 getraenk_t *insert_at_head(getraenk_t **head, getraenk_t *getraenk_to_insert);
-getraenk_t *create_new_getraenk(char * name, uint8_t value, uint8_t * mengen, uint8_t alkohol);
+getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol);
 void insert_after_getraenk(getraenk_t *getraenk_to_insert_after, getraenk_t *newnode);
 void showlist (void);
 int8_t length_list(void);
+
+// EEPROM
 void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol);
 getraenk_t* read_drink_from_eemprom(uint8_t * add);
 int8_t count_eeprom_drinks(uint8_t * add);

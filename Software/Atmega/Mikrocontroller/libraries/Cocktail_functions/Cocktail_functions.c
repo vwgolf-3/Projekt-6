@@ -155,7 +155,7 @@ void cocktail_do_command2(void)
 		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		TMC Openloop
 	}
 	
-	initTMC4671_Openloop();//********************************************************************	Aktion:				TMC Openloop
+// 	initTMC4671_Openloop();//********************************************************************	Aktion:				TMC Openloop
 	
 	if (DEBUG_1)
 	{	
@@ -205,15 +205,73 @@ void cocktail_do_command2(void)
 
 void cocktail_test_command(unsigned char INPUT[256])
 {
-	int8_t array[12] = {1,2,3,4,5,6,7,8,9,0,1,2};
-	getraenk_t * tmp;
+// 	int8_t array[12] = {1,2,3,4,5,6,7,8,9,0,1,2};
+// 	getraenk_t * tmp;
 	Uart_Transmit_IT_PC((uint8_t *)INPUT);
 	Uart_Transmit_IT_PC((uint8_t *)"\r\n");
 	
-	add_drink_to_eeprom(address,(char *)INPUT,(uint8_t *)array,1,1);
-	
-	tmp = read_drink_from_eemprom(address);
-	head = insert_at_head(&head, tmp);	
+// 	delete_EEPROM((uint8_t *)0);
+// 	
+// 	add_drink_to_eeprom(address,(char *)INPUT,(uint8_t *)array,1,1);
+// 	
+// 	tmp = read_drink_from_eemprom(address);
+// 	head = insert_at_head(&head, tmp);	
 	
 	showlist();
+	
+	fuelle_getraenk(head->mengen, 50000);
+	
 }
+
+
+void fuelle_getraenk(uint8_t * mengen, uint16_t fuellmenge)
+{
+	PWM_ON();
+	static uint16_t counter = 0;
+	static uint8_t oldval=0;
+	uint8_t weiter = 0;
+	for(int i = 0; i<12 ; i++)
+	{
+		_delay_ms(1000);
+		SPI_PORT |= TEST_LED;
+		weiter = 0;
+		while (weiter == 0)
+		{
+			static uint8_t oldval=0;
+			static uint32_t count=0;
+			uint8_t newval = (SPI_PIN & TIMER_RESOLVER);
+	
+			if( !oldval && newval){
+				if(count++ > 775)
+				{
+					SPI_PORT &= ~TEST_LED;		// Ausschalten Pumpe
+					count = 0;
+					weiter = 1;
+					_delay_ms(1);
+				}
+		
+			}
+			oldval = newval;		
+		}
+	}
+	PWM_OFF();
+}
+
+void evalSensor(void){
+	
+}
+
+void butt(void)
+{
+	static uint8_t oldval=0;
+	uint8_t newval = (PINC & 0b10);		// Einlesen Button-Status
+	
+	if( !oldval && newval){				// Falls button gedrückt wurde (Active High)
+		
+		PORTC|=0x01;					// Einschalten Pumpe
+		
+	}
+	oldval = newval;
+	
+}
+

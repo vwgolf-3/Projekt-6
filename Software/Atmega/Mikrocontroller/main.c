@@ -74,10 +74,6 @@ ring_buffer_t rb_rx_RFID;
 ring_buffer_t rb_SPI_r;
 ring_buffer_t rb_SPI_w;
 
-void sliderCallback(void *ptr);
-
-void buttonCallback(void *ptr);
-
 
 // MainLoop
 int main(void)

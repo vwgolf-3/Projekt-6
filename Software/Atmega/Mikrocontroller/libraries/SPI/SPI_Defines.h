@@ -19,6 +19,8 @@
 #define SPI_DDR DDRB							// Namensgebung DataDirection Register
 #define TIMER_DDR DDRH							// Namensgebung Timer Register
 
+#define SPI_PIN PINB
+
 // PIN-Defines
 #define SPI_CS_RC522 (1<<0)						// Bit-Zuweisung PB5 (Arduino: 49, Pinnr: 23)
 #define SPI_MISO (1<<3)							// Bit-Zuweisung PB3 (Arduino: 50, Pinnr: 22)
@@ -28,6 +30,7 @@
 #define EN_TMC4671 (1<<4)						// Bit-Zuweisung PB4 (Arduino: 12, Pinnr: 23)
 #define HEARTBEAT_LED (1<<7)					// Bit-Zuweisung PB7 (Arduino: 13, Pinnr: 26)
 #define TIMER_RESOLVER (1<<4)					// Bit-Zuweisung PH7 (Arduino: 7, Pinnr: 16)
+#define TEST_LED (1<<6)							// Bit-Zuweisung PH7 (Arduino: 7, Pinnr: 16)
 
 #define TOGGLE_LED() SPI_PORT = SPI_PORT ^ HEARTBEAT_LED
 
@@ -54,6 +57,9 @@
 
 #define ENABLE_RC522() SPI_PORT &= ~SPI_CS_RC522
 #define DISABLE_RC522() SPI_PORT |= SPI_CS_RC522
+
+#define ENABLE_TEST_LED() SPI_PORT &= ~TEST_LED
+#define DISABLE_TEST_LED() SPI_PORT |= TEST_LED
 
 // Enable / Disable CS
 #define ENABLE_CS(PORT, CS) PORT &= ~CS
