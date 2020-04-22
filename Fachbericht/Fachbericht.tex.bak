@@ -61,7 +61,7 @@
 
 \input{sections/3_1_Wirelessmodul}
 
-\input{sections/3_2_USB-C}
+\input{sections/3_2_USB-B}
 	
 \input{sections/3_3_RFID}
 
@@ -101,7 +101,7 @@
 
 \input{sections/5_4_1_ESP-XXX}
 
-\input{sections/5_4_2_USB-C}
+\input{sections/5_4_2_USB-B}
 
 \input{sections/5_4_3_RFID}
 
@@ -139,7 +139,7 @@
 
 \input{sections/6_4_1_ESP-XXX}
 
-\input{sections/6_4_2_USB-C}
+\input{sections/6_4_2_USB-B}
 
 \input{sections/6_4_3_RFID}
 
