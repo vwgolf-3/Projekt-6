@@ -7,8 +7,8 @@
 #include <WiFi.h>
 
 // Replace with your network credentials
-const char* ssid     = "Master-Laptop";
-const char* password = "11111111";
+const char* ssid     = "Spot";
+const char* password = "HeyIdiot";
 
 // Set web server port number to 80
 WiFiServer server(80);
@@ -37,7 +37,11 @@ void setup() {
 void loop(){
   
   WiFiClient client = server.available();   // Listen for incoming clients
-
+  
+  delay(1000);
+  Serial2.print("ESP32");
+  Serial2.println("");
+      
   if (client) {                             // If a new client connects,
    Serial.println("New Client.");          // print a message out in the serial port
    String currentLine = "";                // make a String to hold incoming data from the client

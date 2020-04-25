@@ -87,7 +87,9 @@
 
 \input{sections/5_2_1_ABN-Encoder}
 
-\input{sections/5_2_2_Treiber}
+\input{sections/5_2_2_FOC_Treiber}
+
+\input{sections/5_2_3_Gate_Treiber}
 
 \input{sections/5_3_Fluessigkeitsbefoerderung}
 
