@@ -27,13 +27,15 @@ Price                  	& \$ (3\$ - \$6)                   & \$\$ (\$6 - \$12)
 \label{tab:ESP}
 \end{table}
 
-Wichtig ist, dass ein ESP ausgewählt wird, welches einen Anschluss für eine abgesetzte Antenne hat, da die Leiterplatte im Gehäuse verbaut wird. Dazu eignet sich der Espressif ESP32-32U. Dieser ist in Abbildung \ref{fig:Produktbild_ESP32_32U_Wroom} als Wroom dargestellt und in Abbildung \ref{fig:Produktbild_ESP32_32U_DevKit} als Development Kit.
+Wichtig ist, dass ein ESP ausgewählt wird, welches einen Anschluss für eine abgesetzte Antenne hat, da die Leiterplatte, worauf das Modul verbaut wird, im Gehäuse platziert wird. Dazu eignet sich der Espressif ESP32-32U. Dieses ist in Abbildung \ref{fig:Produktbild_ESP32_32U_Wroom} als Wroom dargestellt und in Abbildung \ref{fig:Produktbild_ESP32_32U_DevKit} als Development Kit.
+
+Das ESP32 unterstützt das Protokoll nach ISO 802.11 b/g/n und kann somit auf 2.4GHz sowie 5GHz arbeiten. Mit dem n-Protokoll und einer Antenne kann so bis zu 150MBit übertragen werden bei einer Bandbreite von 20MHz.
 
 \begin{figure}[!h]
 \center
 \includegraphics[width = 0.4\textwidth]{graphics/Produktbild_ESP32}
 \caption{ESP32-32U Wroom.}
-\label{fig:Produktbild_USB_UART_ESP}
+\label{fig:Produktbild_ESP32_32U_Wroom}
 \end{figure}
 
 \begin{figure}[!h]

@@ -2,9 +2,9 @@
 \subsection{USB-B}
 \label{subsec:USB-B}
 
-Auf der Leiterplatte des PartyMixer's gibt es zwei Komponenten, welche programmiert werden müssen. Der Mikrocontroller und das WiFi-Modul. Beide werden über die UART-Schnittstelle 0 programmiert. Um diese zu programmieren braucht es eine entsprechende Schnittstelle, welche mit einer USB-B-Schnittstelle realisiert wird.
+Auf der Leiterplatte des PartyMixer's gibt es zwei Komponenten, welche programmiert werden müssen. Der Mikrocontroller und das WiFi-Modul. Um diese zu programmieren braucht es eine entsprechende Schnittstelle, welche mit einer USB-B-Schnittstelle realisiert wird.
 
-Die USB-B-Schnittstelle benötigt jedoch nur zwei Kommunikationsleitungen (D+ und D-). Deswegen benötigt es einen USB-UART-Converter. Hier wurde auf das Flash-Interface von Arduino zurückgegriffen \cite{arduino_cc_arduino_2017}, um die Schaltung für den Mikrocontroller zu planen und auf das Flash-Interface des ESP32 \cite{espressif_systems_esp32_2016}, um die Schaltung für den ESP32 zu planen. Darin ist ersichtlich, dass für den Mikrocontroller und ESP folgende Leitungen nötig sind. Dies wird in Tabelle \ref{tab:USB_uC} dargestellt. Die USB-B-seitige Schnittstelle wird an den Computer angeschlossen und muss nicht häher betrachtet werden.
+Die USB-B-Schnittstelle benötigt nur zwei Kommunikationsleitungen (D+ und D-), die zu programmierenden Geräte benötigen mehr Anschlüsse um in einen Programmiermodus zu kommen oder mit den Geräten zu Kommunizieren. Deswegen benötigt es einen USB-UART-Converter. Hier wurde auf das Flash-Interface von Arduino zurückgegriffen \cite{arduino_cc_arduino_2017}, um die Schaltung für den Mikrocontroller zu planen und auf das Flash-Interface des ESP32 \cite{espressif_systems_esp32_2016}, um die Schaltung für den ESP32 zu planen. Darin ist ersichtlich, dass für den Mikrocontroller und ESP folgende Leitungen nötig sind. Dies wird in Tabelle \ref{tab:USB_uC} dargestellt. Die USB-B-seitige Schnittstelle wird an den Computer angeschlossen und muss nicht häher betrachtet werden.
 
 \begin{table}[h!]
 \center
@@ -33,8 +33,7 @@ IO\_15 & <== & über Widerstand & === & CTS \\
 \caption{Verbindung zwischen USB und ESP.}
 \end{table}
 
-
-Auch hier wurde vom Arduino Uno-Board abgekpufert und der selbe Chip verwendet, um die USB-Signale in UART-Signale zu konvertieren. Das vorkommende Bauteil ist der CP2102N. Da dieser Chip ein TQFP-28-Gehause hat, könnte es auch schwierigkeiten geben beim Löten. Deswegen wird auch ein Breakout-Board (BOB) mitgeplant, damit es eine Ausweichmöglickeit gibt falls die Bauteile zu klein sind. Dabei ist zu achten, dass das BOB genügend Ausgangspins hat, speziell beim ESP32.
+Auch hier wurde vom Arduino Uno-Board abgekpufert und der selbe Chip verwendet, um die USB-Signale in UART-Signale zu konvertieren. Das vorkommende Bauteil ist der CP2102N. Da dieser Chip ein TQFP-28-Gehause hat, könnte es auch schwierigkeiten geben beim Löten. Deswegen wird auch ein Breakout-Board (BOB) mitgeplant, damit es eine Ausweichmöglickeit gibt falls die Bauteile zu klein sind.
 
 \begin{figure}[!h]
 \center

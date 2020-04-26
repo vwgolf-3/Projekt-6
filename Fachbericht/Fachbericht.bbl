@@ -1,0 +1,131 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{arduino_cc_arduino_2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=74c22efcda0d85f819cc19b005e7b98a}{%
+           family={cc},
+           familyi={c\bibinitperiod},
+           given={Arduino},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {Enlisch}%
+      }
+      \strng{namehash}{74c22efcda0d85f819cc19b005e7b98a}
+      \strng{fullhash}{74c22efcda0d85f819cc19b005e7b98a}
+      \strng{bibnamehash}{74c22efcda0d85f819cc19b005e7b98a}
+      \strng{authorbibnamehash}{74c22efcda0d85f819cc19b005e7b98a}
+      \strng{authornamehash}{74c22efcda0d85f819cc19b005e7b98a}
+      \strng{authorfullhash}{74c22efcda0d85f819cc19b005e7b98a}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{month}{4}
+      \field{shorttitle}{Arduino {Uno} {Reference} {Design}}
+      \field{title}{Arduino {Uno} {Schematic}}
+      \field{year}{2017}
+      \verb{file}
+      \verb arduino-uno-schematic.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\4D5TPNUX\\arduino-uno-schematic.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf
+      \endverb
+    \endentry
+    \entry{espressif_systems_esp32_2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b1d5d0040be4721ebd66cd10ec68502c}{%
+           family={Systems},
+           familyi={S\bibinitperiod},
+           given={Espressif},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Espressif}%
+      }
+      \strng{namehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{fullhash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{bibnamehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authorbibnamehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authornamehash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{authorfullhash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Schematic ESP 32}
+      \field{month}{10}
+      \field{title}{{ESP32} {Schematic}}
+      \field{year}{2016}
+      \verb{file}
+      \verb ESP32-Core-Board-V2_sch.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\JY67XZDQ\\ESP32-Core-Board-V2_sch.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
+      \endverb
+      \verb{url}
+      \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
+      \endverb
+    \endentry
+    \entry{nxp_bv_2010_antenna_2010}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f67bdc469906b69c0d42f285714d8fd4}{%
+           family={2010},
+           familyi={2\bibinitperiod},
+           given={NXP\bibnamedelima B.V.},
+           giveni={N\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {NXP-Semiconductors}%
+      }
+      \strng{namehash}{f67bdc469906b69c0d42f285714d8fd4}
+      \strng{fullhash}{f67bdc469906b69c0d42f285714d8fd4}
+      \strng{bibnamehash}{f67bdc469906b69c0d42f285714d8fd4}
+      \strng{authorbibnamehash}{f67bdc469906b69c0d42f285714d8fd4}
+      \strng{authornamehash}{f67bdc469906b69c0d42f285714d8fd4}
+      \strng{authorfullhash}{f67bdc469906b69c0d42f285714d8fd4}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Das Dokument zeigt, wie Antennen für den RFID-Chip dimensioniert werden müssen.}
+      \field{month}{10}
+      \field{title}{Antenna design guide for {MFRC52x}, {PN51x} and {PN53x}}
+      \field{year}{2010}
+      \verb{file}
+      \verb AN1445.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\26ZDXSLW\\AN1445.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+      \verb{url}
+      \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{trinamic_tmc6200_datasheet_2013}
+\endrefsection
+\endinput
+
