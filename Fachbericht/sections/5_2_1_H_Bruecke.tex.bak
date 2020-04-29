@@ -1,9 +1,9 @@
 \subsubsection{H-Brücke}
 \label{subsubsec:H-Brücke}
 
-Das Bindeglied zwischen Kraft (Motor) und Steuersignalen wird von der H-Brücke gebildet. Durch Laden-/Entladen der MOSFET-Gates wird eine Spannung an einer Spule angelegt oder weggenommen. Wie sich das Ein- und Ausschalten der einzelnen Phasenbrücken auf den Motor auswirkt, wird zu einem späteren Zeitpunkt erklärt\todo{Referenzierung auf mögliches Kapitel FOC-Steuerung mit BLDC-Motor / Reglerauslegung}. Für die Dimensionierung und Aufbau wurde das Schema vom TMC6200 als Referenzschema verwendet.\todo{Referenzierung auf TMC6200 Schemata} Die Dimensionierung der Shunts wird in Kapitel \ref{subsubsec:Gate-Treiber} abgehandelt.
+Das Bindeglied zwischen Kraft (Motor) und Steuersignalen wird von der H-Brücke gebildet. Durch Laden-/Entladen der MOSFET-Gates wird eine Spannung an einer Spule angelegt oder weggenommen. Wie sich das Ein- und Ausschalten der einzelnen Phasenbrücken auf den Motor auswirkt, wird zu einem späteren Zeitpunkt erklärt\todo{Referenzierung auf mögliches Kapitel FOC-Steuerung mit BLDC-Motor / Reglerauslegung}. Für die Dimensionierung und Aufbau wurde das Referenzschema des TMC6200 verwendet, aufgezeigt im Anhang Kapitel \ref{Appendix:TMC6200} Abbildung \ref{fig:Schaltung_TMC6200}. Die Dimensionierung der Shunts wird in Kapitel \ref{subsubsec:Gate-Treiber} abgehandelt.
 
-\paragraph{Schaltungsaufbau}
+\paragraph{Schaltungsaufbau}\mbox{}
 
 Der Schltungsaufbau ergibt sich durch den dreiphasigen Aufbau des BLDCs. Es werden so drei Stränge gebildet, woran jeweils eine Spule verbunden wird. Der Energiefluss führt dabei über einen Strommesswiderstand. Die Eingänge der H-Brücke werden zusätlich mit Stütz- und Filterkondensatoren bestückt, um eine saubere Netzspannung zu gewährleisten.
 
@@ -16,16 +16,13 @@ Der Schltungsaufbau ergibt sich durch den dreiphasigen Aufbau des BLDCs. Es werd
 
 \newpage
 
-\paragraph{Funktionsbeschrieb}
+\paragraph{Funktionsbeschrieb}\mbox{}
 
-C85
+Wie erwähnt werden die Eingänge gefiltert. Dies geschieht mit den Kondensatoren C85-C88, um die Eingangsspannung konstant zu halten und hochfrequente nicht ins Netz gespiesen werden.
+Es handelt sich dabei um Low-ESR Stützkondensatoren, jeweils ein Kondensator pro Phase.
+Sie befinden sich nahe am Spannungseingang und der H-Brücke.
 
-C86-C88
-
-Low-ESR Stützkondensatoren für Leistungsfluss. Jeweils pro Phase einer.
-
-C82-C84
-
-
+Die Kondensatoren C82-C84 sind Filterkondensatoren, welche direkt zwischen Ein- und Ausgang eines H-Brücken-Strangs platziert wurden.
+Sie dienen auch zu Filterzwecken.
 
 Q16 - Q21
