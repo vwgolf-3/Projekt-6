@@ -176,6 +176,10 @@
       <SubType>compile</SubType>
       <Link>tmc4671.c</Link>
     </Compile>
+    <Compile Include="libraries\TMC6200\TMC6200.c">
+      <SubType>compile</SubType>
+      <Link>TMC6200.c</Link>
+    </Compile>
     <Compile Include="libraries\UART\UART.c">
       <SubType>compile</SubType>
       <Link>UART.c</Link>

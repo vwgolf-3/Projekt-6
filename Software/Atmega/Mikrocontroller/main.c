@@ -19,6 +19,7 @@
 #include "libraries/UART/UART.h"
 #include "libraries/SPI/SPI.h"
 #include "libraries/TMC4671/TMC4671.h"
+#include "libraries/TMC6200/TMC6200.h"
 #include "libraries/Nextion_Display/Nextion_Display.h"
 #include "libraries/RC522/mfrc522.h"
 #include "Main_Func/Main_Func.h"

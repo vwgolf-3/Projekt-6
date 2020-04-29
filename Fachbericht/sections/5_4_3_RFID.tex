@@ -26,8 +26,6 @@ Bild \ref{fig:Schema_RFID} zeigt den Schaltungsaufbau des RFID-Moduls. Darin ers
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}\\
 
-Der IC steuert den Ablauf, damit die Datenübertragung stattfinden kann. Er verbindet die Antenne mit dem System und wandelt die Informationen brauchbar von einer Seite auf die andere. Das Anpassnetzwerk sollte die gleiche Impedanz haben wie die Antenne. Wie die Bauteile dimensionert werden, kann in einer Anleitung nachgelsen werden. Sie dazu Anleitung: \cite{nxp_bv_2010_antenna_2010}.
+Der IC steuert den Ablauf, damit die Datenübertragung stattfinden kann. Er verbindet die Antenne mit dem Cocktailmixer und liest bzw. schreibt die Informationen auf das bzw. aus dem Trägersignal. Das Anpassnetzwerk sollte die gleiche Impedanz haben wie die Antenne. Wie die Bauteile dimensionert werden, kann in einer Anleitung nachgelsen werden. Sie dazu Anleitung: \cite{nxp_bv_2010_antenna_2010}.
 
-Die Anschlüsse sind so gestaltet, dass falls eine einens gelayoutete Antenne verwendet wird, die Kommunikation zwischen UART und SPI gewählt werden kann. UART lässt sich einfacher in die Software einbinden, so die bisherige Erfahrung.
-
-Für unser System wurde ein Breakout-Board verwendet. In erster Linie damit keine Zeit gebraucht wird, sich mit einem Antennendesign auseinandersetzen zu müssen. Aber auch, weil der IC in ein TQFP28-Gehäuse gepackt ist, und schwierigkeiten bereiten könnte beim Löten.
+Die Anschlüsse sind so gestaltet, dass falls eine einens gelayoutete Antenne verwendet wird, die Kommunikation zwischen UART und SPI gewählt werden kann. UART lässt sich einfacher in die Software einbinden, so die bisherige Erfahrung. Aus zeitgründen wurde jedoch für unser System ein Breakout-Board verwendet, welches nur einen SPI-Anschluss hat. In erster Linie damit keine Zeit gebraucht wird, sich mit einem Antennendesign auseinandersetzen zu müssen. Aber auch, weil der IC in ein TQFP28-Gehäuse gepackt ist, und schwierigkeiten bereiten könnte beim Löten.
