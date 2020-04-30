@@ -217,12 +217,13 @@ void cocktail_test_command(unsigned char INPUT[256])
 // 	tmp = read_drink_from_eemprom(address);
 // 	head = insert_at_head(&head, tmp);	
 
-	PUMPE_PORT = PUMPE_PORT ^ 0b11111111;
-	PUMPE_PORT2 = PUMPE_PORT2 ^ 0b11111111;
-	PUMPE_PORT3 = PUMPE_PORT3 ^ 0b11111111;
+// 	PUMPE_PORT = PUMPE_PORT ^ 0b11111100;
+// 	PUMPE_PORT2 = PUMPE_PORT2 ^ 0b00000100;
+// 	PUMPE_PORT3 = PUMPE_PORT3 ^ 0b01111100;
 	
-	showlist();
-	
+// 	showlist();
+	PUMPE6_PORT|=PUMPE6_BIT;
+	test = 1;
 // 	fuelle_getraenk(head->mengen, 50000);
 	
 }
@@ -230,50 +231,5 @@ void cocktail_test_command(unsigned char INPUT[256])
 
 void fuelle_getraenk(uint8_t * mengen, uint16_t fuellmenge)
 {
-// 	static uint16_t counter = 0;
-// 	static uint8_t oldval=0;
-// 	uint8_t weiter = 0;
-// 	for(int i = 0; i<12 ; i++)
-// 	{
-// 		_delay_ms(1000);
-// 		SPI_PORT |= TEST_LED;
-// 		weiter = 0;
-// 		while (weiter == 0)
-// 		{
-// 			static uint8_t oldval=0;
-// 			static uint32_t count=0;
-// 			uint8_t newval = (SPI_PIN & TIMER_RESOLVER);
-// 	
-// 			if( !oldval && newval){
-// 				if(count++ > 775)
-// 				{
-// 					SPI_PORT &= ~TEST_LED;		// Ausschalten Pumpe
-// 					count = 0;
-// 					weiter = 1;
-// 					_delay_ms(1);
-// 				}
-// 		
-// 			}
-// 			oldval = newval;		
-// 		}
-// 	}
-}
-
-void evalSensor(void){
 	
 }
-
-void butt(void)
-{
-	static uint8_t oldval=0;
-	uint8_t newval = (PINC & 0b10);		// Einlesen Button-Status
-	
-	if( !oldval && newval){				// Falls button gedrückt wurde (Active High)
-		
-		PORTC|=0x01;					// Einschalten Pumpe
-		
-	}
-	oldval = newval;
-	
-}
-

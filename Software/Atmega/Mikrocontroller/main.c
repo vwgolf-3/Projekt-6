@@ -8,10 +8,11 @@
 // Einfügen der Standardbibliotheken
 #include <avr/io.h>
 #include <stdio.h> 
-// #include <util/delay.h>
+#include <util/delay.h>
 #include <avr/interrupt.h>
 #include <string.h>
 #include <stdlib.h>
+
 #include "libraries/SPI/SPI_Defines.h"
 
 // Einbinden der eigenen Bibliotheken
@@ -19,7 +20,6 @@
 #include "libraries/UART/UART.h"
 #include "libraries/SPI/SPI.h"
 #include "libraries/TMC4671/TMC4671.h"
-#include "libraries/TMC6200/TMC6200.h"
 #include "libraries/Nextion_Display/Nextion_Display.h"
 #include "libraries/RC522/mfrc522.h"
 #include "Main_Func/Main_Func.h"
@@ -76,6 +76,28 @@ ring_buffer_t rb_SPI_r;
 ring_buffer_t rb_SPI_w;
 
 
+
+void sensorEval(void){
+	
+	static uint8_t oldval=0;
+	static uint32_t count=0;
+	
+	uint8_t newval = (FLUSS1_PIN & FLUSS1_BIT);
+	
+	if( !oldval && newval){
+		heartbeat_LED();
+
+		if(count++ > 20){
+			PUMPE_PORT &= ~(PUMPE1_BIT);
+			count = 0;
+		}
+		
+	}
+	oldval = newval;
+}
+
+
+
 // MainLoop
 int main(void)
 {
@@ -89,7 +111,7 @@ int main(void)
 	mfrc522_init();
 	cocktails_init();		
 	
-
+	test = 0;
 
 	// Implemetierung MFRC522
 		
@@ -119,8 +141,26 @@ int main(void)
 	// Mainroutine
 	while (1)
 	{
+		while (test)
+		{
+			static uint8_t oldval=0;
+			static uint32_t count=0;
+			
+			uint8_t newval = (FLUSS6_PIN & FLUSS6_BIT);
+	
+			if( !oldval && newval){
 		
-		// Check MFRC522
+			if(count++ > 50){
+				PUMPE6_PORT &= ~PUMPE6_BIT;
+				count = 0;
+				test = 0;
+			}
+		
+		}
+		oldval = newval;
+	}
+	
+	// Check MFRC522
 		
 		byte = mfrc522_read(ComIEnReg);
 		
@@ -205,7 +245,6 @@ int main(void)
 
 
 		//Testloop Blink LED
-  		heartbeat_LED();
+//   		heartbeat_LED();
 	}
 }
-

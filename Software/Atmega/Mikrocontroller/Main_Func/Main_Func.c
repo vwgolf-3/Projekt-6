@@ -12,12 +12,12 @@
 void IO_init(void)
 {
 	SPI_DDR = SPI_OUTPUT_MASK;
-	TIMER_DDR = TIMER_OUTPUT_MASK;
-	PUMPE_DDR = PUMPE_OUTPUT_MASK_A;
+	SPI2_DDR = SPI2_OUTPUT_MASK;
+	PUMPE_DDR = PUMPE_OUTPUT_MASK;
 	PUMPE_DDR2 = PUMPE_OUTPUT_MASK_G;
 	PUMPE_DDR3 = PUMPE_OUTPUT_MASK_J;
 	RFID_DDR = RFID_MASK;
-	
+	FLUSS_DDR = 0b00000000;
 }
 
 void TIMER_init(void)
@@ -47,6 +47,7 @@ void heartbeat_LED(void)
 void toggle_LED(void)
 {
    		SPI_PORT = SPI_PORT ^ (HEARTBEAT_LED);				// Toggelt nur HEARTBEAT_LED
+		LED_PORT = LED_PORT ^ (LEDR_BIT|LEDG_BIT|LEDB_BIT|LEDW_BIT);
 }
 
 char check_Communication_Input_UART_0(void)

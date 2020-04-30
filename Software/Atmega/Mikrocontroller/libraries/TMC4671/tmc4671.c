@@ -45,7 +45,7 @@ void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long 
 	tbuf[3] = 0xFF & (value>>8);
 	tbuf[4] = 0xFF & value;
 	
-	while (!(SPI_PORT&&SPI_CS_TMC4671));
+	while (!(SPI_PORT&&SPI_CS_TMC4671_BIT));
 	_delay_us(30);
 	SPI_Transmit_IT_TMC(tbuf, 5);
 }

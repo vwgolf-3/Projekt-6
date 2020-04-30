@@ -172,13 +172,13 @@
       <SubType>compile</SubType>
       <Link>SPI.c</Link>
     </Compile>
+    <Compile Include="libraries\SPI\SPI_Defines.h">
+      <SubType>compile</SubType>
+      <Link>SPI_Defines.h</Link>
+    </Compile>
     <Compile Include="libraries\TMC4671\tmc4671.c">
       <SubType>compile</SubType>
       <Link>tmc4671.c</Link>
-    </Compile>
-    <Compile Include="libraries\TMC6200\TMC6200.c">
-      <SubType>compile</SubType>
-      <Link>TMC6200.c</Link>
     </Compile>
     <Compile Include="libraries\UART\UART.c">
       <SubType>compile</SubType>
@@ -190,6 +190,9 @@
     <Compile Include="Main_Func\Main_Func.c">
       <SubType>compile</SubType>
       <Link>Main_Func.c</Link>
+    </Compile>
+    <Compile Include="SPI_Def_Res.h">
+      <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

@@ -59,7 +59,7 @@ Getraenk.d Getraenk.o: ../libraries/Getraenk/Getraenk.c \
  ../libraries/Getraenk/../../Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h \
  ../libraries/Getraenk/../../Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Getraenk/../../Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
- c:\users\master\documents\github\projekt-6\software\atmega\mikrocontroller\main_func\main_func.h \
+ c:\users\kimsc\documents\github\projekt-6\software\atmega\mikrocontroller\main_func\main_func.h \
  ../libraries/Getraenk/../../Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h
 
 ../libraries/Getraenk/Getraenk.h:
@@ -182,6 +182,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Getraenk/../../Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h:
 
-c:\users\master\documents\github\projekt-6\software\atmega\mikrocontroller\main_func\main_func.h:
+c:\users\kimsc\documents\github\projekt-6\software\atmega\mikrocontroller\main_func\main_func.h:
 
 ../libraries/Getraenk/../../Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h:

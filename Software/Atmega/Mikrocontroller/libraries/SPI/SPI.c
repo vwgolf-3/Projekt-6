@@ -29,8 +29,8 @@ void SPI_init(void)
 
 	ptr_SPI_w_completed=SPI_w_completed;
 
-	DISABLE_CS(SPI_PORT,SPI_CS_TMC4671);
-	DISABLE_CS(SPI_PORT,SPI_CS_RC522);
+	DISABLE_CS(SPI_PORT,SPI_CS_TMC4671_BIT);
+	DISABLE_CS(SPI_PORT,SPI_CS_RC522_BIT);
 }
 
 void SPI_Transmit_IT_TMC( unsigned char *data, unsigned char nbytes)
@@ -43,11 +43,11 @@ void SPI_Transmit_IT_TMC( unsigned char *data, unsigned char nbytes)
 #define ACTUAL_PORT SPI_PORT
 #endif
 #ifndef ACTUAL_PIN
-#define ACTUAL_PIN SPI_CS_TMC4671
+#define ACTUAL_PIN SPI_CS_TMC4671_BIT
 #endif
 #ifdef ACTUAL_PIN
 #undef ACTUAL_PIN
-#define ACTUAL_PIN SPI_CS_TMC4671
+#define ACTUAL_PIN SPI_CS_TMC4671_BIT
 #endif
 	ENABLE_CS(ACTUAL_PORT,ACTUAL_PIN);
 	RB_write(&rb_SPI_w, data, nbytes);
