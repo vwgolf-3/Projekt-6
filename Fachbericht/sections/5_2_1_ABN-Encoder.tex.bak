@@ -1,9 +1,0 @@
-\subsubsection{ABN-Encoder}
-\label{subsubsec:ABN-Encoder}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Schema_ABN_Encoder}
-	\caption{Schema ABN-Encoder.}
-	\label{fig:Schema_ABN_Encoder}
-\end{figure} 

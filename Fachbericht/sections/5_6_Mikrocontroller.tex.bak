@@ -1,9 +1,0 @@
-\subsection{Mikrocontroller}
-\label{subsec:Mikrocontroller}
-
-\begin{figure}[!h]
-\center
-\includegraphics[width = 0.5 \textwidth]{graphics/Schema_uC}
-\caption{Schema Mikrocontroller}
-\label{fig:Schema_uC}
-\end{figure}
