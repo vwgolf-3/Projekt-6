@@ -1,0 +1,6 @@
+\newpage
+\section{Teilsysteme}
+\label{sec:Teilsysteme}
+
+Da der Partymixer aus vielen kleineren und grösseren Teilsystemen besteht, werden diese in diesem Kapitel einzeln aufgelistet und im Detail angeschaut.
+Es wird dabei bei jedem Teilsystem auf drei Punkte eingegangen, die Problemstellung (Was ist der Zweck der Teilschaltung und wesshalb wird sie benötigt?), das Schema und der Funktionsbeschrieb der Schaltung. Das komplette Schema kann in  \textcolor{red}{\textbf{Anhang Schema}} begutachtet werden.
