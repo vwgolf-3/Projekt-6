@@ -13,10 +13,6 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
-
-#include <avr/io.h>
-#include <string.h>
-#include <stdlib.h>
 #include <util/delay.h>
 
 #include "../../TMC-API/tmc/helpers/API_Header.h"
@@ -24,7 +20,6 @@
 #include "TMC4671_Constants.h"
 #include "TMC4671_Fields.h"
 #include "../SPI/SPI.h"
-#include "../Nextion_Display/Nextion_Display.h"
 
 // SPI-Wrapper
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4);

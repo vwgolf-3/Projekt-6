@@ -8,28 +8,28 @@
 
 #ifndef GETRAENK_H_
 #define GETRAENK_H_
-#define ANZAHL_ZUTATEN 12
+
 #include <avr/eeprom.h>
-#include "../SPI/SPI_Defines.h"
+#include <stdlib.h>
+#include <util/delay.h>
 #include "../UART/UART.h"
-#include "../SPI/SPI.h"
-#include "../TMC4671/TMC4671.h"
-#include "../Nextion_Display/Nextion_Display.h"
-#include "../../Main_Func/Main_Func.h"
-#include <string.h>
-#include <stdio.h>
 
 struct getraenk{
 	char * name;
 	uint8_t value;
 	uint8_t alkohol;
 	uint8_t * mengen;
+	uint8_t picture;
 	struct getraenk* next;
+	struct getraenk* prev;
 };
 typedef struct getraenk getraenk_t;
 
+getraenk_t *aktuellesGetraenk;
+
 uint8_t * address;	// EEprom address-Pointer
 getraenk_t *head;	// Getränk-Pointer
+getraenk_t *tail;
 uint8_t * zutat;	// Zutaten-Pointer
 
 void cocktails_init(void);
@@ -38,7 +38,7 @@ void printlist(void);
 // Cocktail-Liste
 getraenk_t * find_getraenk(getraenk_t *head, char * name);
 getraenk_t *insert_at_head(getraenk_t **head, getraenk_t *getraenk_to_insert);
-getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol);
+getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t picture);
 void insert_after_getraenk(getraenk_t *getraenk_to_insert_after, getraenk_t *newnode);
 void showlist (void);
 int8_t length_list(void);

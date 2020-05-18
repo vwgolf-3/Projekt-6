@@ -11,9 +11,8 @@
 
 void cocktails_init(void)
 {
-	
 	address  = (uint8_t *)0;
-
+	
 	char standardGetraenke[21][50] = {
 		"7 & 7",
 		"Blue Kamikaze",
@@ -62,7 +61,10 @@ void cocktails_init(void)
 		{45,0,45,0,0,0,10,0,0,0,0,0}
 	};
 	
-	
+	uint8_t pictures[21] =
+	{
+3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23
+	};	
 
 	uint8_t standardAlkohol[21] = {
 		1,
@@ -106,10 +108,10 @@ void cocktails_init(void)
 	head = NULL;
 	getraenk_t * tmp;
 	for ( int i = 0 ; i<21;i++){
-		tmp = create_new_getraenk(standardGetraenke[i],standardZutaten[i],i,standardAlkohol[i]);
+		tmp = create_new_getraenk(standardGetraenke[i],standardZutaten[i],i,standardAlkohol[i], pictures[i]);
 		head = insert_at_head(&head, tmp);
 	}
-	add_EEPROM_drinks_to_list((uint8_t *) 0);
+// 	add_EEPROM_drinks_to_list((uint8_t *) 0);
 }
 
 void showlist(void)
@@ -184,41 +186,52 @@ int8_t length_list(void)
 }
 
 
-getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol)
+getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t picture)
 {
-	getraenk_t *result = calloc(1,sizeof(getraenk_t));
+	getraenk_t *newGetraenk = calloc(1,sizeof(getraenk_t));
 	size_t n1 = strlen((const char *)name)+1;
 	size_t n2 = 13;
 	
-	result->name = calloc(n1,sizeof(char));
-	result->mengen = calloc(n2,sizeof(uint8_t));
+	newGetraenk->name = calloc(n1,sizeof(char));
+	newGetraenk->mengen = calloc(n2,sizeof(uint8_t));
 	
-	result->alkohol = alkohol;
-	result->value = value;
+	newGetraenk->alkohol = alkohol;
+	newGetraenk->value = value;
 	
-	result->next = NULL;
+	newGetraenk->picture = picture;
 	
 	int i = 0;
     for (i=0; i<(n1-1); i++)
     {
-	    *(char *)(result->name + i) = *(char *)(name + i);
+	    *(char *)(newGetraenk->name + i) = *(char *)(name + i);
     }
-	*(char *)(result->name + (i+1)) = *(char *)(name + (i+1));
+	*(char *)(newGetraenk->name + (i+1)) = *(char *)(name + (i+1));
 	
 	
     for (i=0; i<(n2-1); i++)
     {
-	    *(char *)(result->mengen + i) = *(char *)(mengen + i);
+	    *(char *)(newGetraenk->mengen + i) = *(char *)(mengen + i);
     }
-	*(char *)(result->mengen + (i+1)) = '\0';
+	*(char *)(newGetraenk->mengen + (i+1)) = '\0';
 
-	return result;
+	return newGetraenk;
 }
 
 getraenk_t *insert_at_head(getraenk_t **head, getraenk_t *getraenk_to_insert)
 {
-	getraenk_to_insert->next = *head;
+	getraenk_to_insert->next = (*head);
+	getraenk_to_insert->prev = NULL;
+	
+	if((*head) == NULL)
+	{
+		tail = getraenk_to_insert;
+	} else
+	{
+		(*head)->prev = getraenk_to_insert;
+		getraenk_to_insert->prev = tail;
+	}
 	*head = getraenk_to_insert;
+	tail->next = *head;
 	return getraenk_to_insert;
 }
 
@@ -334,7 +347,7 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 	
 	_delay_ms(5);
 	
-	drink = create_new_getraenk(name, mengen, value, alkohol);
+	drink = create_new_getraenk(name, mengen, value, alkohol, 24);
 	
 	i++;
 	address = add+i+1;
@@ -359,4 +372,9 @@ void delete_EEPROM (uint8_t * add)
 	{
 		eeprom_write_byte(add+i,'\0');
 	}
+}
+
+void init_Getraenke_func()
+{
+	aktuellesGetraenk = head;
 }

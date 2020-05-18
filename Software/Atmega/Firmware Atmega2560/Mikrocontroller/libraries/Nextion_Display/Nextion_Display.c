@@ -196,5 +196,4 @@ void endConversation(char UART_PORT)
 	{
 		Uart_Transmit_IT_ESP((unsigned char *)ch2,3);
 	}
-	_delay_ms(5);
 }

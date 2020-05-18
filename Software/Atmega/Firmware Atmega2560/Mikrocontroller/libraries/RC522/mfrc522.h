@@ -23,11 +23,12 @@
 #ifndef MFRC522_H
 #define MFRC522_H
 
-#include <stdint.h>
+#include <stdlib.h>
+
 #include "mfrc522_cmd.h"
 #include "mfrc522_reg.h"
 #include "../SPI/SPI.h"
-#include "../SPI/SPI_Defines.h"
+#include "../UART/UART.h"
 
 #define CARD_FOUND		1
 #define CARD_NOT_FOUND	2

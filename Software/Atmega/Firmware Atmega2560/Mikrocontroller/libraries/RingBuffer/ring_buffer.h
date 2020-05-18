@@ -18,7 +18,6 @@ typedef struct
 	unsigned char data[RING_BUFFER_SIZE];
 }ring_buffer_t;
 
-
 void			RB_init(ring_buffer_t *rb);
 unsigned char	RB_free(ring_buffer_t *rb);
 unsigned char	RB_length(ring_buffer_t *rb);
@@ -27,5 +26,19 @@ unsigned char	RB_writeByte(ring_buffer_t *rb, unsigned char data);
 unsigned char	RB_read(ring_buffer_t *rb, unsigned char *data, unsigned char datal);
 unsigned char	RB_write(ring_buffer_t *rb, unsigned char *data, unsigned char datal);
 
+ring_buffer_t rb_tx_PC;
+ring_buffer_t rb_rx_PC;
+
+ring_buffer_t rb_tx_Display;
+ring_buffer_t rb_rx_Display;
+
+ring_buffer_t rb_tx_ESP;
+ring_buffer_t rb_rx_ESP;
+
+ring_buffer_t rb_tx_RFID;
+ring_buffer_t rb_rx_RFID;
+
+ring_buffer_t rb_SPI_r;
+ring_buffer_t rb_SPI_w;
 
 #endif /* RING_BUFFER_H_ */

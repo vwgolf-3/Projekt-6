@@ -10,10 +10,6 @@
 #define NEXTION_DISPLAY_H_
 
 #include "../../libraries/UART/UART.h"
-#include "../../libraries/RingBuffer/ring_buffer.h"
-#include <string.h>
-#include <stdio.h>
-#include <util/delay.h>
 
 void endConversation(char UART_PORT);
 void nextion_setText(unsigned char * object, unsigned char * text, char UART_PORT);

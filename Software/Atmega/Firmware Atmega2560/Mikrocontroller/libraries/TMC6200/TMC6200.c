@@ -6,6 +6,7 @@
  */
 
 #include "TMC6200.h"
+#include <util/delay.h>
 
 // => SPI wrapper
 extern uint8_t tmc6200_readwriteByte(uint8_t motor, uint8_t data, uint8_t lastTransfer);
@@ -14,32 +15,58 @@ extern uint8_t tmc6200_readwriteByte(uint8_t motor, uint8_t data, uint8_t lastTr
 // spi access
 int tmc6200_readInt(uint8_t motor, uint8_t address)
 {
-	// clear write bit
-	address = TMC_ADDRESS(address);
-
+	unsigned char rbuf[4];
+	int value;
+	
+	enable_Slave(TMC6200);
 	// write address
-	tmc6200_readwriteByte(motor, address, false);
-
+//  	SPI_Transmit_IT((unsigned char *)tbuf, 1, TMC6200);
+	spi_transmit(address & 0x7F);
 	// read data
-	int value = tmc6200_readwriteByte(motor, 0, false);
+	for(int k = 0 ; k<4 ; k++)
+	{
+		while(!(SPSR & (1<<SPIF)));
+		rbuf[k] = SPDR;
+	}
+	disable_Slave(TMC6200);
+	value =rbuf[0];
 	value <<= 8;
-	value |= tmc6200_readwriteByte(motor, 0, false);
+	value |= rbuf[1];
 	value <<= 8;
-	value |= tmc6200_readwriteByte(motor, 0, false);
+	value |= rbuf[2];
 	value <<= 8;
-	value |= tmc6200_readwriteByte(motor, 0, true);
-
+	value |= rbuf[3];
+	Uart_Transmit_IT_PC((uint8_t *)rbuf);
+	_delay_ms(100);
 	return value;
 }
 
-void tmc6200_writeInt(uint8_t motor, uint8_t address, int value)
+void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 {
-	// write address
-	tmc6200_readwriteByte(motor, address | TMC6200_WRITE_BIT, false);
+	unsigned char tbuf[5];
 
-	// write value
-	tmc6200_readwriteByte(motor, 0xFF & (value>>24), false);
-	tmc6200_readwriteByte(motor, 0xFF & (value>>16), false);
-	tmc6200_readwriteByte(motor, 0xFF & (value>>8), false);
-	tmc6200_readwriteByte(motor, 0xFF & (value>>0), true);
+	//set Write-Bit
+	tbuf[0] = address | 0x80;
+	
+	tbuf[1] = 0xFF & (value>>24);
+	tbuf[2] = 0xFF & (value>>16);
+	tbuf[3] = 0xFF & (value>>8);
+	tbuf[4] = 0xFF & value;
+	enable_Slave(TMC6200);
+	
+	SPI_Transmit_IT(tbuf, 5, TMC6200);
+	
+	disable_Slave(TMC6200);
+}
+
+void initTMC6200(void)
+{
+	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000030);
+	// 	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, );
+	// 	tmc6200_writeInt(MOTOR0, TMC6200_IOIN_OUTPUT, );
+	// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_PROG, );
+	// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_READ, );
+	// 	tmc6200_writeInt(MOTOR0, TMC6200_FACTORY_CONF, );
+	// 	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, );
+	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080000);
 }

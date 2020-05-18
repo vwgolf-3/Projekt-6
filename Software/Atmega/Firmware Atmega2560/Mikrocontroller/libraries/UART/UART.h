@@ -10,10 +10,8 @@
 #define UART_H_
 
 #include "../RingBuffer/ring_buffer.h"
-#include <avr/io.h>
 #include <avr/interrupt.h>
 #include <string.h>
-#include <util/delay.h>
 
 
 #define BAUD9600 9600
@@ -34,8 +32,8 @@
 #define		Uart_EnableTransmitIT_2()		UCSR2B |= (1<<UDRIE2)
 #define		Uart_DisableTransmitIT_2()	UCSR2B &= ~(1<<UDRIE2)
 
-#define		Uart_EnableTransmitIT_3()		UCSR3B |= (1<<UDRIE3)
-#define		Uart_DisableTransmitIT_3()	UCSR3B &= ~(1<<UDRIE3)
+// #define		Uart_EnableTransmitIT_3()		UCSR3B |= (1<<UDRIE3)
+// #define		Uart_DisableTransmitIT_3()	UCSR3B &= ~(1<<UDRIE3)
 
 #define		Uart_EnableRxIT_0()		UCSR0B |= (1<<RXCIE0)
 #define		Uart_DisableRxIT_0()		UCSR0B &= ~(1<<RXCIE0)
@@ -46,20 +44,8 @@
 #define		Uart_EnableRxIT_2()		UCSR2B |= (1<<RXCIE2)
 #define		Uart_DisableRxIT_2()		UCSR2B &= ~(1<<RXCIE2)
 
-#define		Uart_EnableRxIT_3()		UCSR3B |= (1<<RXCIE3)
-#define		Uart_DisableRxIT_3()		UCSR3B &= ~(1<<RXCIE3)
-
-extern ring_buffer_t rb_tx_PC;
-extern ring_buffer_t rb_rx_PC;
-
-extern ring_buffer_t rb_tx_Display;
-extern ring_buffer_t rb_rx_Display;
-
-extern ring_buffer_t rb_tx_ESP;
-extern ring_buffer_t rb_rx_ESP;
-
-extern ring_buffer_t rb_tx_RFID;
-extern ring_buffer_t rb_rx_RFID;
+// #define		Uart_EnableRxIT_3()		UCSR3B |= (1<<RXCIE3)
+// #define		Uart_DisableRxIT_3()		UCSR3B &= ~(1<<RXCIE3)
 
 void UART_init();
 
@@ -69,7 +55,7 @@ void Uart_Transmit_IT_Display(uint8_t *data, uint8_t nbytes);
 
 void Uart_Transmit_IT_ESP(uint8_t *data, uint8_t nbytes);
 
-void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes);
+// void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes);
 
 void tx_completed();
 

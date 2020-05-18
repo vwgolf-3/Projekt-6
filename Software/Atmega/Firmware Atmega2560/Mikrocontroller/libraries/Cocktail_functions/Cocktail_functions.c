@@ -6,199 +6,243 @@
  */ 
 
 #include "Cocktail_functions.h"
-#define DEBUG_1 0
 
-void cocktail_check_command(char page, char button)
+void cocktail_check_command(uint8_t page, uint8_t button)
 {
-	if(page==0xFF&&button==0xB1)
+
+ 	unsigned char buff[3] = {0};
+
+	switch (page)
 	{
-		cocktail_do_command1();
+	case 1:
+	
+		switch (button)
+		{
+			
+			case ZUTATEN:
+/*
+				- Wechsle auf Zutatenseite
+				- für 0 ... Anzahl Getränke
+					- Wenn Menge > 0
+						- Schreibe Zutat
+						- Schreibe Menge
+						- Schreibe Zeilenumbruch
+*/
+			
+			break;
+			
+			case LINKS:
+/*
+				- Wähle vorgehendes Getränk aus
+				- Schreibe Name des Getränks
+				- Setze Bild des Getränks
+*/
+				aktuellesGetraenk = aktuellesGetraenk->prev;
+				nextion_setText((unsigned char *)"cocktailname",(unsigned char *)aktuellesGetraenk->name,1);
+				itoa(aktuellesGetraenk->picture,(char *)buff,10);
+				nextion_setPicture((unsigned char *)"235",(unsigned char *)"80",(unsigned char *)buff,1);
+			
+			break;
+			
+			case 4:
+			
+				cocktail_do_command1();
+				
+			break;
+			
+			case RECHTS:
+/*
+				- Wähle nächstes Getränk aus
+				- Schreibe Name des Getränks
+				- Setze Bild des Getränks
+*/
+				aktuellesGetraenk = aktuellesGetraenk->next;
+				nextion_setText((unsigned char *)"cocktailname",(unsigned char *)aktuellesGetraenk->name,1);
+				itoa(aktuellesGetraenk->picture,(char *)buff,10);
+				nextion_setPicture((unsigned char *)"235",(unsigned char *)"80",(unsigned char *)buff,1);						
+			break;
+			
+			case LISTE:
+			
+			break;
+			
+			case MENU:
+			
+			break;
+			
+			case ALKOHOLJANEIN:
+			
+			break;
+		}
+		
+		break;
+		
+	case ZUTATENANZEIGE:
+		
+		switch(button)
+		{
+			case OKZUTATEN:
+			
+			break;
+			
+			case ZUTATENLISTE:
+			
+			break;
+		}
+		
+		break;
+		
+	case LISTENANZEIGE:
+	
+		switch (button)
+		{
+			case COCKTAIL1:
+			
+			break;
+			
+			case COCKTAIL2:
+			
+			break;
+			
+			case COCKTAIL3:
+			
+			break;
+			
+			case COCKTAIL4:
+			
+			break;
+			
+			case COCKTAIL5:
+			
+			break;
+			
+			case COCKTAIL6:
+			
+			break;
+			
+			case COCKTAIL7:
+			
+			break;
+			
+			case COCKTAIL8:
+			
+			break;
+			
+			case RAUFLIST:
+			
+			break;
+			
+			case RUNTERLIST:
+			
+			break;
+		}
+	
+	break;
+	
+	case ZUBABFRAGE:
+	
+	switch (button)
+	{
+		case KLEIN:
+		
+		break;
+		
+		case GROSS:
+		
+		break;
+		
+		case ABBRUCHZUBAB:
+		
+		break;
 	}
 	
-	if(page==0x07&&button==0x01)
+	break;
+	
+	case ZUBBILDSCHIRM:
+	
+	switch (button)
 	{
-		cocktail_do_command2();
+		case ZUFALLSTEXT:
+		
+		break;
+		
+		case ABBRUCHZUB:
+		
+		break;
+	}
+	
+	break;
+	
+	case BREITANZEIGE:
+	
+	switch (button)
+	{
+		case BEREIT:
+		
+		break;
+	}
+	
+	break;
+	
+	case MENUANZEIGE:
+	
+	break;
+	
+	case BEARBEITUNGSANZEIGE:
+	
+	break;
+	
+	case CEINSTANZEIGE:
+	
+	break;
+	
+	case REINANZEIGE1:
+	
+	break;
+	
+	case REINANZEIGE2:
+	
+	break;
+	
+	case REINANZEIGE3:
+	
+	break;
+	
+	case INFOANZEIGE:
+	
+	break;
+	
+	case ABBRUCHANZEIGE:
+	
+	break;
+	
+	case FEHLERANZEIGE:
+	
+	break;
+	
+	case ERSTANZEIGE1:
+	
+	break;
+	
+	case ERSTANZEIGE2:
+	
+	break;
 	}
 }
 
 void cocktail_do_command1(void)
 {
-	unsigned char *ch0 = (unsigned char *)"Beginn Command1: \r\n\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
-	
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Initialisiere TMC: \r\n";//******************************************	Status Beginn:		Init_SPI
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Init_SPI
-		_delay_ms(50);
-	}
-	
-	TMC4671_init();//****************************************************************************	Aktion:				Initialisiere SPI
 
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Setze Text Display 1: \r\n";//***************************************	Status Beginn:		Test Text 1
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Test Text 1
-		_delay_ms(50);
-	}
-	
-	unsigned char * ch1 = (unsigned char *)"b1";//***********************************************	Button:				b1
-	unsigned char * ch2 = (unsigned char *)"Lemon Soda1";//**************************************	Text:				Lemon Soda1
-	nextion_setText(ch1,ch2,NEXTION_DISPLAY_1);//************************************************	Aktion:				setText
-
-
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Setze Text Display 2: \r\n";//***************************************	Status Beginn:		Test Text 2
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Test Text 2
-		_delay_ms(50);
-	}
-	ch1 = (unsigned char *)"b0";//***************************************************************	Button:				b0
-	ch2 = (unsigned char *)"Lemon Soda2";//******************************************************	Text:				Lemon Soda2
-	nextion_setText(ch1,ch2,NEXTION_DISPLAY_1);//************************************************	Aktion:				setText
-
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Setze Text Display 3: \r\n";//***************************************	Status Beginn:		Test Text 3
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test Text 3
-		_delay_ms(50);
-	}
-	
-	ch1 = (unsigned char *)"t0";//****************************************************************	Button:				t0
-	ch2 = (unsigned char *)"Lemon Soda3";//*******************************************************	Text:				Lemon Soda3
-	nextion_setText(ch1,ch2,NEXTION_DISPLAY_1);//*************************************************	Aktion:				setText
-
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Setze Bild 1: \r\n";//************************************************	Status Beginn:		Test Setze Bild 1
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test Setze Bild 1
-		_delay_ms(50);
-	}
-	
-	ch1 = (unsigned char *)"250";//***************************************************************	x-Koordinate:		250
-	ch2 = (unsigned char *)"80";//****************************************************************	y-Koordinate:		80
-	unsigned char * ch3 = (unsigned char *)"7";//*************************************************	Bild Nr.:			7
-	nextion_setPicture(ch1,ch2,ch3,NEXTION_DISPLAY_1);//******************************************	Aktion:				setPicture
-	
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Setze Bild 2: \r\n";//************************************************	Status Beginn:		Test Setze Bild 2
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test Setze Bild 2
-		_delay_ms(50);
-	}
-	
-	ch1 = (unsigned char *)"0";//*****************************************************************	x-Koordinate:		0
-	ch2 = (unsigned char *)"80";//****************************************************************	y-Koordinate:		80
-	ch3 = (unsigned char *)"7";//*****************************************************************	Bild Nr.:			7
-	nextion_setPicture(ch1,ch2,ch3,NEXTION_DISPLAY_1);//******************************************	Aktion:				setPicture
-	
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Toggle LED: \r\n";//**************************************************	Status Beginn:		Toggle LED
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Toggle LED
-		_delay_ms(50);
-	}
-		
-	toggle_LED();//*******************************************************************************	Aktion:				Toggle LED
-		
-
-	if(DEBUG_1)
-	{
-		ch0 = (unsigned char *)"8kHz-Signal: \r\n";// *************************************	Status Beginn:		Test 8kHz-Signal einschalten
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Toggle LED
-		_delay_ms(50);
-	}
-
+	nextion_setPicture((unsigned char *)"250",(unsigned char *)"80",(unsigned char *)"3",1);//********************************	Aktion:				setPicture
 }
 
 void cocktail_do_command2(void)
 {
+	aktuellesGetraenk = aktuellesGetraenk->next;
 	unsigned char *ch0 = (unsigned char *)"Beginn Command2: \r\n\r\n";//************************	Start
 	Uart_Transmit_IT_PC(ch0);
+	nextion_setText((unsigned char *)"cocktailname",(unsigned char *)aktuellesGetraenk->name,1);
 
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Unterhaltungstext schreiben: \r\n";//********************************	Status Beginn:		Test Text 1
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n\r\n";
-		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Test Text 1			
-	}
-
-	unsigned char * ch1 = (unsigned char *)"t1";//***********************************************	Button:				b1
-	unsigned char * ch2 = (unsigned char *)"Wussten Sie, dass dieser\\rDrink in unter einer Minute\\rhergestellt wird?\\rNicht?";
-	//*******************************************************************************************	Text:				Lemon Soda1
-	nextion_setText(ch1,ch2,NEXTION_DISPLAY_1);//************************************************	Aktion:				setText
-
-
-	if (DEBUG_1)
-	{			
-		ch0 = (unsigned char *)"TMC im Openloop laufen lassen: \r\n";//******************************	Status Beginn:		TMC Openloop
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		TMC Openloop
-	}
-	
-// 	initTMC4671_Openloop();//********************************************************************	Aktion:				TMC Openloop
-	
-	if (DEBUG_1)
-	{	
-		ch0 = (unsigned char *)"Auf Seite 9 wechseln: \r\n";//***************************************	Status Beginn:		Seite wechseln
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//*****************************************	Status Ende:		Seite wechseln
-	}
-	
-	ch1 = (unsigned char *)"9";//****************************************************************	Seite:				9
-	nextion_change_page(ch1);//******************************************************************	Aktion:				changePage
-
-	_delay_ms(2000);
-	
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Auf Seite 4 wechseln: \r\n";//***************************************	Status Beginn:		Seite wechseln
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);// *****************************************	Status Ende:		Seite wechseln
-	}
-	
-	ch1 = (unsigned char *)"4";// ****************************************************************	Seite:				4 (Cocktailliste)
-	nextion_change_page(ch1);// ******************************************************************	Aktion:				changePage
-
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"Toggle LED: \r\n";//**************************************************	Status Beginn:		Toggle LED
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Toggle LED
-	}
-	
-	toggle_LED();//*******************************************************************************	Aktion:				Toggle LED
-		
-
-	if (DEBUG_1)
-	{
-		ch0 = (unsigned char *)"8kHz-Signal: \r\n";// ************************************************	Status Beginn:		Test 8kHz-Signal ausschalten
-		Uart_Transmit_IT_PC(ch0);
-		ch0 = (unsigned char *)"\r\n";
-		Uart_Transmit_IT_PC(ch0);//******************************************	Status Ende:		Test 8kHz-Signal ausschalten
-	}
-	
 }
 
 void cocktail_test_command(unsigned char INPUT[256])
@@ -213,21 +257,202 @@ void cocktail_test_command(unsigned char INPUT[256])
 // 	add_drink_to_eeprom(address,(char *)INPUT,(uint8_t *)array,1,1);
 // 	
 // 	tmp = read_drink_from_eemprom(address);
-// 	head = insert_at_head(&head, tmp);	
-
-// 	PUMPE_PORT = PUMPE_PORT ^ 0b11111100;
-// 	PUMPE_PORT2 = PUMPE_PORT2 ^ 0b00000100;
-// 	PUMPE_PORT3 = PUMPE_PORT3 ^ 0b01111100;
+// 	head = insert_at_head(&head, tmp);
 	
 // 	showlist();
-	PUMPE0_PORT|=PUMPE0_BIT;
-	test = 1;
-// 	fuelle_getraenk(head->mengen, 50000);
+	fuelle_getraenk(20);
 	
 }
 
-
-void fuelle_getraenk(uint8_t * mengen, uint16_t fuellmenge)
+void fuelle_getraenk(uint16_t fuellmenge)
 {
+	// Switche durch alle Getränke
+	for (uint8_t i = 0 ; i < 12 ; i++)
+	{
+		// Falls das Getränk vorkommt
+		if (*(uint8_t *)(aktuellesGetraenk->mengen + i) != 0)
+		{
+			// Bewege Motor an stelle XY
+/*
+	Gebe Motor Position vor
+	
+	While momentane Position != vorgegebene Position
+		warten
+	
+	Weiter mit Programmm
+			
+*/			
+			// Berechne Menge, schalte Pumpe ein und beginne mit füllen
+			uint16_t Menge = fuellmenge * *(uint16_t *)(aktuellesGetraenk->mengen + i);
+			uint8_t fuellen = 1;
+			schalte_pumpe_ein(i);
+			while (fuellen)
+			{
+				// Polle PWM-Signal des Durchflusssensor
+				static uint8_t oldval=0;
+				static uint32_t count=0;
+			
+				// Lese Sensor ein
+				uint8_t newval = oldval ^ 0b00000001;
+				
+// 				uint8_t newval = lese_sensor(i);
+
+				// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
+				if( !oldval && newval){
+					// Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
+					if(count++ > Menge){
+						schalte_pumpe_aus(i);
+						count = 0;
+						fuellen = 0;
+					}
+
+//*************************************************************************
+				_delay_ms(1);
+//				Delay entfernen wenn mit Sensor gearbeitet wird.
+				}
+			// Aktueller Sensorwert speichern
+			oldval = newval;
+			}
+		}
+	}
+	aktuellesGetraenk = aktuellesGetraenk->next;
+	
+/*
+	Fahre zurück bis Home-Schalter betätigt wird
+*/		
 	
 }
+
+void schalte_pumpe_ein(uint8_t Pumpe)
+{
+	switch (Pumpe)
+	{
+		case 0:
+		PUMPE0_PORT|=PUMPE0_BIT;
+		break;
+		case 1:
+		PUMPE1_PORT|=PUMPE1_BIT;
+		break;
+		case 2:
+		PUMPE2_PORT|=PUMPE2_BIT;
+		break;
+		case 3:
+		PUMPE3_PORT|=PUMPE3_BIT;
+		break;
+		case 4:
+		PUMPE4_PORT|=PUMPE4_BIT;
+		break;
+		case 5:
+		PUMPE5_PORT|=PUMPE5_BIT;
+		break;
+		case 6:
+		PUMPE6_PORT|=PUMPE6_BIT;
+		break;
+		case 7:
+		PUMPE7_PORT|=PUMPE7_BIT;
+		break;
+		case 8:
+		PUMPE8_PORT|=PUMPE8_BIT;
+		break;
+		case 9:
+		PUMPE9_PORT|=PUMPE9_BIT;
+		break;
+		case 10:
+		PUMPE10_PORT|=PUMPE10_BIT;
+		break;
+		case 11:
+		PUMPE11_PORT|=PUMPE11_BIT;
+		break;
+	}
+}
+
+void schalte_pumpe_aus(uint8_t Pumpe)
+{
+	switch (Pumpe)
+	{
+		case 0:
+		PUMPE0_PORT &= ~PUMPE0_BIT;
+		break;
+		case 1:
+		PUMPE1_PORT &= ~PUMPE1_BIT;
+		break;
+		case 2:
+		PUMPE2_PORT &= ~PUMPE2_BIT;
+		break;
+		case 3:
+		PUMPE3_PORT &= ~PUMPE3_BIT;
+		break;
+		case 4:
+		PUMPE4_PORT &= ~PUMPE4_BIT;
+		break;
+		case 5:
+		PUMPE5_PORT &= ~PUMPE5_BIT;
+		break;
+		case 6:
+		PUMPE6_PORT &= ~PUMPE6_BIT;
+		break;
+		case 7:
+		PUMPE7_PORT &= ~PUMPE7_BIT;
+		break;
+		case 8:
+		PUMPE8_PORT &= ~PUMPE8_BIT;
+		break;
+		case 9:
+		PUMPE9_PORT &= ~PUMPE9_BIT;
+		break;
+		case 10:
+		PUMPE10_PORT &= ~PUMPE10_BIT;
+		break;
+		case 11:
+		PUMPE11_PORT &= ~PUMPE11_BIT;
+		break;
+	}
+}
+
+uint8_t lese_sensor(uint8_t Sensor)
+{
+	uint8_t val = 0;
+
+	switch (Sensor)
+	{
+		case 0:
+		val = FLUSS0_PIN & FLUSS0_BIT;
+		break;
+		case 1:
+		val = FLUSS1_PIN & FLUSS1_BIT;
+		break;
+		case 2:
+		val = FLUSS2_PIN & FLUSS2_BIT;
+		break;
+		case 3:
+		val = FLUSS3_PIN & FLUSS3_BIT;
+		break;
+		case 4:
+		val = FLUSS4_PIN & FLUSS4_BIT;
+		break;
+		case 5:
+		val = FLUSS5_PIN & FLUSS5_BIT;
+		break;
+		case 6:
+		val = FLUSS6_PIN & FLUSS6_BIT;
+		break;
+		case 7:
+		val = FLUSS7_PIN & FLUSS7_BIT;
+		break;
+		case 8:
+		val = FLUSS8_PIN & FLUSS8_BIT;
+		break;
+		case 9:
+		val = FLUSS9_PIN & FLUSS9_BIT;
+		break;
+		case 10:
+		val = FLUSS10_PIN & FLUSS10_BIT;
+		break;
+		case 11:
+		val = FLUSS11_PIN & FLUSS11_BIT;
+		break;
+	}
+	return val;
+}
+
+

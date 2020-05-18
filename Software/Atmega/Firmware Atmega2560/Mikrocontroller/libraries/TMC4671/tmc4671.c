@@ -34,45 +34,31 @@ int tmc4671_readInt(unsigned int motor, unsigned char address)
 }
 
 void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long value)
-{
-	unsigned char tbuf[5];
-	
+{	
 	//set Write-Bit
-	tbuf[0] = address | 0x80;
-	
-	tbuf[1] = 0xFF & (value>>24);
-	tbuf[2] = 0xFF & (value>>16);
-	tbuf[3] = 0xFF & (value>>8);
-	tbuf[4] = 0xFF & value;
-	
-	while (!(SPI_PORT&&SPI_CS_TMC4671_BIT));
-	_delay_us(30);
-	SPI_Transmit_IT_TMC(tbuf, 5);
+	enable_Slave(TMC4671);
+	spi_transmit(address | 0x80);
+	spi_transmit(0xFF & (value>>24));
+	spi_transmit(0xFF & (value>>16));
+	spi_transmit(0xFF & (value>>8));
+	spi_transmit(0xFF & value);
+	disable_Slave(TMC4671);
 }
 
 int tmc40bit_readInt(unsigned int motor, unsigned char address)
 {
-	unsigned char * tbuf[4], rbuf[4];
 	int value;
 	
 	// clear write bit
-	tbuf[0] = address & 0x7F;
-	
-	SPI_Transmit_IT_TMC(tbuf[0], 1);
-	
-	for(int k = 0 ; k<4 ; k++)
-	{
-		while(!(SPSR & (1<<SPIF)))
-		;
-		rbuf[k] = SPDR;
-	}
-	value =rbuf[0];
+	spi_transmit(address & 0x7F);
+
+	value = spi_transmit(0x00);
 	value <<= 8;
-	value |= rbuf[1];
+	value |= spi_transmit(0x00);
 	value <<= 8;
-	value |= rbuf[2];
+	value |= spi_transmit(0x00);
 	value <<= 8;
-	value |= rbuf[3];
+	value |= spi_transmit(0x00);
 
 	return value;
 }
@@ -165,33 +151,12 @@ void initTMC4671_Openloop(void)
 
 	// Rotate right
 	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
-	int val = 0;
-	unsigned char ch4 [10];
-
-for (char i =0;i<50;i++)
-{
-	itoa((int)val,(char *)ch4,10);
-// 	Uart_Transmit_IT_2(ab,strlen((const char*)ab));
-// 	Uart_Transmit_IT_2((unsigned char *)ch4,2);
-// 	Uart_Transmit_IT_2((unsigned char *)ch3,3);
-	nextion_setValue((unsigned char *)"j0",(unsigned char *)ch4,1);
-	_delay_ms(50);
-	val++;
-}
+	_delay_ms(3000);
 
 	// Rotate left
 	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
+	_delay_ms(3000);
 	
-for (unsigned char i =0;i<50;i++)
-{
-	itoa(val,(char *)ch4,10);
-// 	Uart_Transmit_IT_2(ab,strlen((const char*)ab));
-// 	Uart_Transmit_IT_2((unsigned char *)ch4,2);
-// 	Uart_Transmit_IT_2((unsigned char *)ch3,3);
-	nextion_setValue((unsigned char *)"j0",(unsigned char *)ch4,1);
-	_delay_ms(50);
-	val++;
-}
 	// Stop
 	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
 	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);

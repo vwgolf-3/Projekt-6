@@ -1,32 +1,17 @@
 /*
- * SPI_Def_Res.h
+ * pin_defs.h
  *
- * Created: 30.04.2020 22:19:18
+ * Created: 13.05.2020 14:24:54
  *  Author: kimsc
  */ 
 
 
-#ifndef SPI_DEF_RES_H_
-#define SPI_DEF_RES_H_
-
-
-/*
- * SPI_Defines.h
- *
- * Created: 03.01.2020 18:17:46
- *  Author: kimsc
- */ 
-
-
-#ifndef SPI_DEFINES_H_
-#define SPI_DEFINES_H_
+#ifndef PIN_DEFS_H_
+#define PIN_DEFS_H_
 
 #include <avr/io.h>
 
-int test;
-
-
-//************************    A       ***************************************//
+// ************************    A       ***************************************//
 
 #define PUMPE_PORT PORTA						// Namensgebung Timerregister H
 #define PUMPE_DDR DDRA							// Namensgebung Timer Register
@@ -73,42 +58,43 @@ int test;
 #define PUMPE5_PIN PINA							// PUMPE5 PINA
 
 #define PUMPE_OUTPUT_MASK (PUMPE0_BIT|PUMPE1_BIT|PUMPE2_BIT|PUMPE3_BIT|PUMPE4_BIT|PUMPE5_BIT)
-
-//************************    B       ***************************************//
-
+//
+// ************************    B       ***************************************//
+//
 #define SPI_PORT PORTB							// Namensgebung Ausgaberegister B
 #define SPI_DDR DDRB							// Namensgebung DataDirection Register
 #define SPI_PIN PINB
-
-#define SPI_CS_TMC4671_BIT (1<<0)				// Bit-Zuweisung PB0 (Arduino: 53, Pinnr: 19)
+//
+#define SPI_CS_TMC4671_BIT (1<<0)						// Bit-Zuweisung PB5 (Arduino: 49, Pinnr: 23)
 #define SPI_CS_TMC4671_PORT PORTB				// SPI_CS_RC522 PORTB
 #define SPI_CS_TMC4671_DDR DDRB					// SPI_CS_RC522 DDRB
 #define SPI_CS_TMC4671_PIN PINB					// SPI_CS_RC522 PINB
-
-#define SPI_CLK_BIT (1<<1)						// Bit-Zuweisung PB1 (Arduino: 52, Pinnr: 20)
+//
+#define SPI_CLK_BIT (1<<1)							// Bit-Zuweisung PB1 (Arduino: 52, Pinnr: 20)
 #define SPI_CLK_PORT PORTB						// SPI_CS_RC522 PORTB
-#define SPI_CLK_DDR DDRB						// SPI_CS_RC522 DDRB
-#define SPI_CLK_PIN PINB						// SPI_CS_RC522 PINB
-
+#define SPI_CLK_DDR DDRB							// SPI_CS_RC522 DDRB
+#define SPI_CLK_PIN PINB							// SPI_CS_RC522 PINB
+//
 #define SPI_MOSI_BIT (1<<2)						// Bit-Zuweisung PB2 (Arduino: 51, Pinnr: 21)
 #define SPI_MOSI_PORT PORTB						// SPI_CS_RC522 PORTB
-#define SPI_MOSI_DDR DDRB						// SPI_CS_RC522 DDRB
-#define SPI_MOSI_PIN PINB						// SPI_CS_RC522 PINB
-
-#define SPI_MISO_BIT (1<<3)						// Bit-Zuweisung PB3 (Arduino: 50, Pinnr: 22)
+#define SPI_MOSI_DDR DDRB							// SPI_CS_RC522 DDRB
+#define SPI_MOSI_PIN PINB							// SPI_CS_RC522 PINB
+//
+#define SPI_MISO_BIT (1<<3)							// Bit-Zuweisung PB3 (Arduino: 50, Pinnr: 22)
 #define SPI_MISO_PORT PORTB						// SPI_CS_RC522 PORTB
 #define SPI_MISO_DDR DDRB						// SPI_CS_RC522 DDRB
 #define SPI_MISO_PIN PINB						// SPI_CS_RC522 PINB
+//
 
-#define HEARTBEAT_LED_BIT (1<<7)				// Bit-Zuweisung PB7 (Arduino: 13, Pinnr: 26)
-#define HEARTBEAT_LED_PORT PORTB				// SPI_CS_RC522 PORTB
+#define HEARTBEAT_LED_BIT (1<<7)					// Bit-Zuweisung PB7 (Arduino: 13, Pinnr: 26)
+#define HEARTBEAT_LED_PORT PORTB					// SPI_CS_RC522 PORTB
 #define HEARTBEAT_LED_DDR DDRB					// SPI_CS_RC522 DDRB
 #define HEARTBEAT_LED_PIN PINB					// SPI_CS_RC522 PINB
-
+//
 #define SPI_OUTPUT_MASK (SPI_CS_TMC4671_BIT|SPI_CLK_BIT|SPI_MOSI_BIT|HEARTBEAT_LED_BIT)
-
-//************************    C       ***************************************//
-
+//
+// ************************    C       ***************************************//
+//
 #define RFID_PORT PORTC
 #define RFID_DDR DDRC
 #define RFID_PIN PINC
@@ -117,10 +103,10 @@ int test;
 #define SPI_CS_RC522_PORT PORTC					// SPI_CS_RC522 PORTC
 #define SPI_CS_RC522_DDR DDRC					// SPI_CS_RC522 DDRC
 #define SPI_CS_RC522_PIN PINC					// SPI_CS_RC522 PINC
-
+//
 #define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT)
-
-//************************    F       ***************************************//
+//
+// ************************    F       ***************************************//
 #define LED_PORT PORTF							// Namensgebung LED/Durchfluss/Referenzschalter
 #define LED_DDR DDRF							// Namensgebung
 #define LED_PIN PINF
@@ -164,11 +150,11 @@ int test;
 #define FLUSS0_PORT PORTF						// FLUSS0 PORTF
 #define FLUSS0_DDR DDRF							// FLUSS0 DDRF
 #define FLUSS0_PIN PINF							// FLUSS0 PINF
-
+//
 #define LED_OUTPUT_MASK (LEDR_BIT|LEDG_BIT|LEDB_BIT|LEDW_BIT)
-
-//************************    G       ***************************************//
-
+//
+// ************************    G       ***************************************//
+//
 #define PUMPE_PORT2 PORTG						// Namensgebung Timerregister H
 #define PUMPE_DDR2 DDRG							// Namensgebung Timer Register
 #define PUMPE_PIN2 PING
@@ -182,10 +168,11 @@ int test;
 #define SPI_CS_SD_CARD_PORT PORTG				// SPI_CS_SD_CARD PORTG
 #define SPI_CS_SD_CARD_DDR DDRG					// SPI_CS_SD_CARD DDRG
 #define SPI_CS_SD_CARD_PIN PING					// SPI_CS_SD_CARD PING
-
+//
 #define PUMPE2_OUTPUT_MASK (PUMPE6_BIT|SPI_CS_SD_CARD_BIT)
+//
+// ************************    H       ***************************************
 
-//************************    H       ***************************************//
 #define SPI2_PORT PORTH						// Namensgebung Timerregister H
 #define SPI2_DDR DDRH							// Namensgebung Timer Register
 #define SPI2_PIN PINH
@@ -212,11 +199,11 @@ int test;
 
 #define SPI2_OUTPUT_MASK (EN_TMC6200_BIT|SPI_CS_ESP32_BIT|SPI_CS_TMC6200_BIT)
 
-//************************    J       ***************************************//
+// ************************    J       ***************************************//
 
 #define PUMPE_PORT3 PORTJ						// Namensgebung Timerregister H
 #define PUMPE_DDR3 DDRJ							// Namensgebung Timer Register
-#define PUMPE_PIN3 PINJ							
+#define PUMPE_PIN3 PINJ
 
 #define PUMPE11_BIT (1<<2)						// PUMPE11 PIN2
 #define PUMPE11_PORT PORTJ						// PUMPE11 PORTJ
@@ -249,9 +236,9 @@ int test;
 #define FLUSS9_PIN PINJ							// FLUSS9 PINJ
 
 #define PUMPE3_OUTPUT_MASK (PUMPE11_BIT|PUMPE10_BIT|PUMPE9_BIT|PUMPE8_BIT|PUMPE7_BIT)
-
-//************************    K       ***************************************//
-
+//
+// ************************    K       ***************************************//
+//
 #define FLUSS_PORT PORTK						// Namensgebung Durchflusssensoren
 #define FLUSS_DDR DDRK							// Namensgebung
 #define FLUSS_PIN PINK
@@ -296,26 +283,7 @@ int test;
 #define FLUSS8_DDR DDRK							// FLUSS8 DDRK
 #define FLUSS8_PIN PINK							// FLUSS8 PINK
 
-// MAKROS
-#define TOGGLE_LED() SPI_PORT = SPI_PORT ^ HEARTBEAT_LED
-
-//Settings UART_OUTPUTS
-#define NEXTION_DISPLAY_1 1
-#define NEXTION_DISPLAY_2 2
-
-//Settings TMC4671
-#define MOTOR0 0
-
-// Enable / Disable TMC4671
-#define ENABLE_TMC4671() SPI_CS_TMC4671_PORT &= ~SPI_CS_TMC4671_BIT
-#define DISABLE_TMC4671() SPI_CS_TMC4671_PORT |= SPI_CS_TMC4671_BIT
-
-#define ENABLE_RC522() SPI_CS_RC522_PORT &= ~SPI_CS_RC522_BIT
-#define DISABLE_RC522() SPI_CS_RC522_PORT |= SPI_CS_RC522_BIT
-
-// Enable / Disable CS
-#define ENABLE_CS(PORT, CS) PORT &= ~CS
-#define DISABLE_CS(PORT,CS) PORT |= CS
 
 
-#endif /* SPI_DEF_RES_H_ */
+
+#endif /* PIN_DEFS_H_ */

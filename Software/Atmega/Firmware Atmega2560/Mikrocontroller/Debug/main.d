@@ -10,63 +10,48 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ .././pin_defs.h .././main_variables.h .././Main_Func/Main_Func.h \
+ .././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h \
+ .././Main_Func/../libraries/Cocktail_functions/../../pin_defs.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- .././libraries/SPI/SPI_Defines.h .././libraries/RingBuffer/ring_buffer.h \
- .././libraries/UART/UART.h \
- .././libraries/UART/../RingBuffer/ring_buffer.h .././libraries/SPI/SPI.h \
- .././libraries/SPI/../RingBuffer/ring_buffer.h \
- .././libraries/SPI/SPI_Defines.h .././libraries/TMC4671/TMC4671.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/API_Header.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/Config.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/Constants.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/Types.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/API_Header.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Config.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/Macros.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/Bits.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/CRC.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/RegisterAccess.h \
- .././libraries/TMC4671/TMC4671_Register.h \
- .././libraries/TMC4671/TMC4671_Constants.h \
- .././libraries/TMC4671/../../TMC-API/tmc/helpers/Constants.h \
- .././libraries/TMC4671/TMC4671_Fields.h \
- .././libraries/TMC4671/../SPI/SPI.h \
- .././libraries/TMC4671/../Nextion_Display/Nextion_Display.h \
- .././libraries/TMC4671/../Nextion_Display/../../libraries/UART/UART.h \
- .././libraries/TMC4671/../Nextion_Display/../../libraries/RingBuffer/ring_buffer.h \
- .././libraries/Nextion_Display/Nextion_Display.h \
- .././libraries/RC522/mfrc522.h .././libraries/RC522/mfrc522_cmd.h \
- .././libraries/RC522/mfrc522_reg.h .././libraries/RC522/../SPI/SPI.h \
- .././libraries/RC522/../SPI/SPI_Defines.h .././Main_Func/Main_Func.h \
- .././Main_Func/../libraries/SPI/SPI_Defines.h \
- .././Main_Func/../libraries/RingBuffer/ring_buffer.h \
- .././Main_Func/../libraries/UART/UART.h \
- .././Main_Func/../libraries/SPI/SPI.h \
- .././Main_Func/../libraries/TMC4671/TMC4671.h \
- .././Main_Func/../libraries/Nextion_Display/Nextion_Display.h \
- .././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h \
- .././Main_Func/../libraries/Cocktail_functions/../SPI/SPI_Defines.h \
- .././Main_Func/../libraries/Cocktail_functions/../UART/UART.h \
- .././Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h \
- .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Macros.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Bits.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/CRC.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/RegisterAccess.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Register.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Constants.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Fields.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/SPI.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../../pin_defs.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../RingBuffer/ring_buffer.h \
  .././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
- .././Main_Func/../libraries/Cocktail_functions/../../Main_Func/Main_Func.h \
+ .././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
+ .././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/../RingBuffer/ring_buffer.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  .././Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
- .././Main_Func/../libraries/Cocktail_functions/../Getraenk/../SPI/SPI_Defines.h \
  .././Main_Func/../libraries/Cocktail_functions/../Getraenk/../UART/UART.h \
- .././Main_Func/../libraries/Cocktail_functions/../Getraenk/../SPI/SPI.h \
- .././Main_Func/../libraries/Cocktail_functions/../Getraenk/../TMC4671/TMC4671.h \
- .././Main_Func/../libraries/Cocktail_functions/../Getraenk/../Nextion_Display/Nextion_Display.h \
- .././Main_Func/../libraries/Cocktail_functions/../Getraenk/../../Main_Func/Main_Func.h \
- .././libraries/Getraenk/Getraenk.h
+ .././Main_Func/../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC6200/../SPI/SPI.h \
+ .././Main_Func/../libraries/Cocktail_functions/../TMC6200/../UART/UART.h \
+ .././Main_Func/../libraries/UART/UART.h .././libraries/SPI/SPI.h \
+ .././libraries/UART/UART.h .././libraries/TMC4671/TMC4671.h \
+ .././libraries/TMC6200/TMC6200.h .././libraries/RC522/mfrc522.h \
+ .././libraries/RC522/mfrc522_cmd.h .././libraries/RC522/mfrc522_reg.h \
+ .././libraries/RC522/../SPI/SPI.h .././libraries/RC522/../UART/UART.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -90,11 +75,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+.././pin_defs.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+.././main_variables.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+.././Main_Func/Main_Func.h:
+
+.././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../../pin_defs.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -102,63 +93,75 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/API_Header.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Config.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h:
 
-.././libraries/SPI/SPI_Defines.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Types.h:
 
-.././libraries/RingBuffer/ring_buffer.h:
-
-.././libraries/UART/UART.h:
-
-.././libraries/UART/../RingBuffer/ring_buffer.h:
-
-.././libraries/SPI/SPI.h:
-
-.././libraries/SPI/../RingBuffer/ring_buffer.h:
-
-.././libraries/SPI/SPI_Defines.h:
-
-.././libraries/TMC4671/TMC4671.h:
-
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/API_Header.h:
-
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/Config.h:
-
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/Constants.h:
-
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/Types.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
 
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/Macros.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Macros.h:
 
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/Bits.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Bits.h:
 
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/CRC.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/CRC.h:
 
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/RegisterAccess.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/RegisterAccess.h:
 
-.././libraries/TMC4671/TMC4671_Register.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-.././libraries/TMC4671/TMC4671_Constants.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Register.h:
 
-.././libraries/TMC4671/../../TMC-API/tmc/helpers/Constants.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Constants.h:
 
-.././libraries/TMC4671/TMC4671_Fields.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h:
 
-.././libraries/TMC4671/../SPI/SPI.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Fields.h:
 
-.././libraries/TMC4671/../Nextion_Display/Nextion_Display.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/SPI.h:
 
-.././libraries/TMC4671/../Nextion_Display/../../libraries/UART/UART.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-.././libraries/TMC4671/../Nextion_Display/../../libraries/RingBuffer/ring_buffer.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../../pin_defs.h:
 
-.././libraries/Nextion_Display/Nextion_Display.h:
+.././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../RingBuffer/ring_buffer.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/../RingBuffer/ring_buffer.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../UART/UART.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../TMC6200/TMC6200.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../TMC6200/../SPI/SPI.h:
+
+.././Main_Func/../libraries/Cocktail_functions/../TMC6200/../UART/UART.h:
+
+.././Main_Func/../libraries/UART/UART.h:
+
+.././libraries/SPI/SPI.h:
+
+.././libraries/UART/UART.h:
+
+.././libraries/TMC4671/TMC4671.h:
+
+.././libraries/TMC6200/TMC6200.h:
 
 .././libraries/RC522/mfrc522.h:
 
@@ -168,50 +171,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././libraries/RC522/../SPI/SPI.h:
 
-.././libraries/RC522/../SPI/SPI_Defines.h:
-
-.././Main_Func/Main_Func.h:
-
-.././Main_Func/../libraries/SPI/SPI_Defines.h:
-
-.././Main_Func/../libraries/RingBuffer/ring_buffer.h:
-
-.././Main_Func/../libraries/UART/UART.h:
-
-.././Main_Func/../libraries/SPI/SPI.h:
-
-.././Main_Func/../libraries/TMC4671/TMC4671.h:
-
-.././Main_Func/../libraries/Nextion_Display/Nextion_Display.h:
-
-.././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../SPI/SPI_Defines.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../UART/UART.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../SPI/SPI.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../../Main_Func/Main_Func.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../SPI/SPI_Defines.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../UART/UART.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../SPI/SPI.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../TMC4671/TMC4671.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../Nextion_Display/Nextion_Display.h:
-
-.././Main_Func/../libraries/Cocktail_functions/../Getraenk/../../Main_Func/Main_Func.h:
-
-.././libraries/Getraenk/Getraenk.h:
+.././libraries/RC522/../UART/UART.h:

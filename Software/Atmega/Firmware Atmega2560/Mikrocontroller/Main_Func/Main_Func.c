@@ -30,6 +30,7 @@ void heartbeat_LED(void)
 void toggle_LED(void)
 {
 		LED_PORT = LED_PORT ^ (LEDR_BIT|LEDG_BIT|LEDB_BIT|LEDW_BIT);
+// 		SPI_CS_TMC4671_PORT = SPI_CS_TMC4671_PORT ^ (SPI_CS_TMC4671_BIT);
 }
 
 char check_Communication_Input_UART_0(void)
@@ -258,4 +259,24 @@ void proceed_Communication_Input_UART_3(void)
 	Uart_Transmit_IT_PC(ch0);
 	
 	cocktail_check_command(INPUT_UART_3[0],INPUT_UART_3[1]);
+}
+
+void check_Communication_Input_UART(void)
+{
+	if (check_Communication_Input_UART_0())				// Check UART_0 (USB), ob vollständige Übertragung stattgefunden hat (Ende = "\r")
+	{
+		proceed_Communication_Input_UART_0();				// Vollständige Übertragung des USB verarbeiten
+	}
+	if (check_Communication_Input_UART_1())				// Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+	{
+		proceed_Communication_INPUT_UART_1();				// Vollständige Übertragung des Displays verarbeiten
+	}
+	if (check_Communication_Input_UART_2())				// Check UART_2 (ESP), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+	{
+		proceed_Communication_Input_UART_2();				// Vollständige Übertragung des ESP's verarbeiten
+	}
+	if (check_Communication_Input_UART_3())				// Check UART_3 (RFID), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+	{
+		proceed_Communication_Input_UART_3();				// Vollständige Übertragung des ESP's verarbeiten
+	}
 }

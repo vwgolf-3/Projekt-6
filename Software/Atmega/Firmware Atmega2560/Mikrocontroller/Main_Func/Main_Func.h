@@ -9,15 +9,8 @@
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
 
-#include "../libraries/SPI/SPI_Defines.h"
-#include "../libraries/RingBuffer/ring_buffer.h"
-#include "../libraries/UART/UART.h"
-#include "../libraries/SPI/SPI.h"
-#include "../libraries/TMC4671/TMC4671.h"
-#include "../libraries/Nextion_Display/Nextion_Display.h"
 #include "../libraries/Cocktail_functions/Cocktail_functions.h"
-#include <util/delay.h>
-#include <stdlib.h>
+#include "../libraries/UART/UART.h"
 
 void TIMER_init(void);
 void IO_init(void);
@@ -31,6 +24,8 @@ char check_Communication_Input_UART_2(void);
 void proceed_Communication_Input_UART_2(void);
 char check_Communication_Input_UART_3(void);
 void proceed_Communication_Input_UART_3(void);
+void check_Communication_Input_UART(void);
+void check_Communication_Input_MFRC522(void);
 
 void testFunc(void);
 

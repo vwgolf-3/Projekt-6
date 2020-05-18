@@ -28,10 +28,10 @@ void UART_init()
 	UCSR2B = (1<<RXEN2)|(1<<TXEN2)|(1<<RXCIE2);
 	UCSR2C = (1<<UCSZ20)|(1<<UCSZ21);
 	
-	UBRR3H = (BRC9600>>8);
-	UBRR3L = BRC9600;
-	UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
-	UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);
+// 	UBRR3H = (BRC9600>>8);
+// 	UBRR3L = BRC9600;
+// 	UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
+// 	UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);
 	
 	RB_init(&rb_tx_PC);
 	RB_init(&rb_rx_PC);
@@ -42,8 +42,8 @@ void UART_init()
 	RB_init(&rb_tx_ESP);
 	RB_init(&rb_rx_ESP);
 	
-	RB_init(&rb_tx_RFID);
-	RB_init(&rb_rx_RFID);
+// 	RB_init(&rb_tx_RFID);
+// 	RB_init(&rb_rx_RFID);
 	
 	Uart_EnableRxIT_0();
 	
@@ -51,14 +51,14 @@ void UART_init()
 
 	Uart_EnableRxIT_2();
 
-	Uart_EnableRxIT_3();
+// 	Uart_EnableRxIT_3();
 
 	sei();
 	
 	ptr_tx_completed_0=tx_completed;
 	ptr_tx_completed_1=tx_completed;
 	ptr_tx_completed_2=tx_completed;
-	ptr_tx_completed_3=tx_completed;
+// 	ptr_tx_completed_3=tx_completed;
 }
 
 void Uart_Transmit_IT_PC(uint8_t *data)
@@ -80,11 +80,11 @@ void Uart_Transmit_IT_ESP(uint8_t *data, uint8_t nbytes )
 	Uart_EnableTransmitIT_2();
 }
 
-void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes )
-{
-	RB_write(&rb_tx_RFID, data, nbytes);
-	Uart_EnableTransmitIT_3();
-}
+// void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes )
+// {
+// 	RB_write(&rb_tx_RFID, data, nbytes);
+// 	Uart_EnableTransmitIT_3();
+// }
 
 void tx_completed(){	asm("nop");	asm("nop");}
 
@@ -93,7 +93,6 @@ ISR(USART0_UDRE_vect)
 	if (RB_length(&rb_tx_PC) > 0)
 	{
 		UDR0 = RB_readByte(&rb_tx_PC);
-		_delay_ms(1);
 	}
 	else
 	{
@@ -149,7 +148,7 @@ ISR(USART2_RX_vect)
 	RB_writeByte(&rb_rx_ESP,ch);
 }
 
-
+/*
 ISR(USART3_UDRE_vect)
 {
 	if (RB_length(&rb_tx_RFID) > 0)
@@ -168,4 +167,4 @@ ISR(USART3_RX_vect)
 {
 	char ch = UDR3;
 	RB_writeByte(&rb_rx_RFID,ch);
-}
+}*/
