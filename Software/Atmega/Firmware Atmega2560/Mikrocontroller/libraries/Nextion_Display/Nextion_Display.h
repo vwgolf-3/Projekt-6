@@ -9,13 +9,23 @@
 #ifndef NEXTION_DISPLAY_H_
 #define NEXTION_DISPLAY_H_
 
+#include <stdlib.h>
+
 #include "../../libraries/UART/UART.h"
 
-void endConversation(char UART_PORT);
-void nextion_setText(unsigned char * object, unsigned char * text, char UART_PORT);
-void nextion_change_page(unsigned char * page);
-void nextion_setValue(unsigned char * object, unsigned char * text, char UART_PORT);
-void nextion_setPicture(unsigned char * x, unsigned char * y, unsigned char * picture, char UART_PORT);
+#define UART_PORT_PC 0
+#define UART_PORT_DISPLAY 1
+#define UART_PORT_ESP 2
+#define UART_PORT_RFID 3
+
+#define DEBUG_DISPLAY 0
+
+
+void endConversation(void);
+void nextion_setText(char * object, char * text);
+void nextion_change_page(char page);
+void nextion_setValue( char * object,  char * text);
+void nextion_setPicture( char * x,  char * y,  char * picture);
 
 
 #endif /* NEXTION_DISPLAY_H_ */

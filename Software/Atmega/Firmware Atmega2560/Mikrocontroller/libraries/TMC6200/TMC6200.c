@@ -36,7 +36,7 @@ int tmc6200_readInt(uint8_t motor, uint8_t address)
 	value |= rbuf[2];
 	value <<= 8;
 	value |= rbuf[3];
-	Uart_Transmit_IT_PC((uint8_t *)rbuf);
+	Uart_Transmit_IT_PC((char *)rbuf);
 	_delay_ms(100);
 	return value;
 }

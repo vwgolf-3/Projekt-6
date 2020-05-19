@@ -9,11 +9,14 @@
 
 // https://www.youtube.com/watch?v=VOpjAHCee7c
 
+
+
+
 void cocktails_init(void)
 {
-	address  = (uint8_t *)0;
+	address_getraenk  = (uint8_t *)0;
 	
-	char standardGetraenke[21][50] = {
+	char standardGetraenke[10][20] = {
 		"7 & 7",
 		"Blue Kamikaze",
 		"Blue Lagoon",
@@ -23,18 +26,19 @@ void cocktails_init(void)
 		"Highball",
 		"Whisky Cola",
 		"Kamikaze",
-		"Martini Lemon Drop",
-		"Monkey Gland",
-		"Screwdriver",
-		"Silver Bullet",
-		"Ward 8",
-		"WhiteLady",
-		"7-Up",
-		"Coca Cola",
-		"Orangensaft",
-		"Spezi",
-		"Roy Rogers",
-		"Shirley Temple"
+		"Martini Lemon Drop"
+// 		,
+// 		"Monkey Gland",
+// 		"Screwdriver",
+// 		"Silver Bullet",
+// 		"Ward 8",
+// 		"WhiteLady",
+// 		"7-Up",
+// 		"Coca Cola",
+// 		"Orangensaft",
+// 		"Spezi",
+// 		"Roy Rogers",
+// 		"Shirley Temple"
 	};
 
 	uint8_t standardZutaten[21][15] = {
@@ -90,64 +94,50 @@ void cocktails_init(void)
 		0
 	};
 
-// 	char zutaten[12][50] = {
-// 		"7Up",
-// 		"Coca-Cola",
-// 		"Ginger-Ale",
-// 		"Orangensaft",
-// 		"Limettensaft",
-// 		"Zitronensaft",
-// 		"Grenadinensirup",
-// 		"Blue Curacao",
-// 		"Gin",
-// 		"Triple Sec",
-// 		"Whisky",
-// 		"Wodka",
-// 	};
-
-	head = NULL;
+	head_getraenk = NULL;
 	getraenk_t * tmp;
-	for ( int i = 0 ; i<21;i++){
+	for ( int i = 0 ; i<10;i++){
 		tmp = create_new_getraenk(standardGetraenke[i],standardZutaten[i],i,standardAlkohol[i], pictures[i]);
-		head = insert_at_head(&head, tmp);
+		head_getraenk = insert_at_head(&head_getraenk, tmp);
 	}
+	
 // 	add_EEPROM_drinks_to_list((uint8_t *) 0);
 }
 
 void showlist(void)
 {
-	getraenk_t * temporary= head;
+	getraenk_t * temporary= head_getraenk;
  	char buff[3] = {0};
 	char buff2[3] = {0};
 		
 	while (temporary != 0)
 	{
-		Uart_Transmit_IT_PC((uint8_t *)"Name: ");
-		Uart_Transmit_IT_PC((uint8_t *)temporary->name);
+		Uart_Transmit_IT_PC("Name: ");
+		Uart_Transmit_IT_PC((char *)temporary->name);
 		_delay_ms(2);
 	
  		itoa(temporary->value,buff,10);
-		Uart_Transmit_IT_PC((uint8_t *)": Wert = ");
-		Uart_Transmit_IT_PC((uint8_t *)buff);
+		Uart_Transmit_IT_PC(": Wert = ");
+		Uart_Transmit_IT_PC((char *)buff);
 		_delay_ms(2);
 		
- 		Uart_Transmit_IT_PC((uint8_t *)", Mengen = ");
+ 		Uart_Transmit_IT_PC(", Mengen = ");
 		
 		uint8_t buff[3] = {0};
 		
 		for (int i = 0; i <12 ; i++)
 		{
 			itoa(temporary->mengen[i],(char *)buff, 10);
-			Uart_Transmit_IT_PC((uint8_t *) buff);
-			Uart_Transmit_IT_PC((uint8_t *) ", ");
+			Uart_Transmit_IT_PC((char *) buff);
+			Uart_Transmit_IT_PC(", ");
 			_delay_ms(2);
 		}
 		_delay_ms(2);
 		
-		Uart_Transmit_IT_PC((uint8_t *)", Alkohol = ");
+		Uart_Transmit_IT_PC(", Alkohol = ");
  		itoa(temporary->alkohol,(char *)buff2,10);
-		Uart_Transmit_IT_PC((uint8_t *)buff2);
- 		Uart_Transmit_IT_PC((uint8_t *)".\n\r");
+		Uart_Transmit_IT_PC((char *)buff2);
+ 		Uart_Transmit_IT_PC(".\n\r");
 		_delay_ms(2);
 		temporary = temporary->next;
 	}
@@ -156,14 +146,14 @@ _delay_ms(2);
 
 void printlist(void)
 {
-	getraenk_t *temporary2 = head;
+	getraenk_t *temporary2 = head_getraenk;
 	char buff[3] = {0};
 		
 	while (temporary2 != NULL){
-		Uart_Transmit_IT_PC((unsigned char *)temporary2->name);
+		Uart_Transmit_IT_PC((char *)temporary2->name);
 		itoa(temporary2->value,buff,10);
-		Uart_Transmit_IT_PC((uint8_t *)buff);
-		Uart_Transmit_IT_PC((uint8_t *)"\n\r");
+		Uart_Transmit_IT_PC((char *)buff);
+		Uart_Transmit_IT_PC("\n\r");
 		_delay_ms(1);
 		
 		temporary2 = temporary2->next;
@@ -172,7 +162,7 @@ void printlist(void)
 
 int8_t length_list(void)
 {
-	getraenk_t *tmp = head;
+	getraenk_t *tmp = head_getraenk;
 	int8_t n = 0;
 	
 	while (tmp != NULL)
@@ -184,7 +174,6 @@ int8_t length_list(void)
 	
 		return n;
 }
-
 
 getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t picture)
 {
@@ -201,37 +190,38 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, ui
 	newGetraenk->picture = picture;
 	
 	int i = 0;
-    for (i=0; i<(n1-1); i++)
-    {
-	    *(char *)(newGetraenk->name + i) = *(char *)(name + i);
-    }
+	for (i=0; i<(n1-1); i++)
+	{
+		*(char *)(newGetraenk->name + i) = *(char *)(name + i);
+	}
 	*(char *)(newGetraenk->name + (i+1)) = *(char *)(name + (i+1));
 	
 	
-    for (i=0; i<(n2-1); i++)
-    {
-	    *(char *)(newGetraenk->mengen + i) = *(char *)(mengen + i);
-    }
+	for (i=0; i<(n2-1); i++)
+	{
+		*(char *)(newGetraenk->mengen + i) = *(char *)(mengen + i);
+	}
 	*(char *)(newGetraenk->mengen + (i+1)) = '\0';
 
 	return newGetraenk;
 }
 
+
 getraenk_t *insert_at_head(getraenk_t **head, getraenk_t *getraenk_to_insert)
 {
-	getraenk_to_insert->next = (*head);
+	getraenk_to_insert->next = *head;
 	getraenk_to_insert->prev = NULL;
 	
 	if((*head) == NULL)
 	{
-		tail = getraenk_to_insert;
+		tail_getraenk = getraenk_to_insert;
 	} else
 	{
 		(*head)->prev = getraenk_to_insert;
-		getraenk_to_insert->prev = tail;
+		getraenk_to_insert->prev = tail_getraenk;
 	}
 	*head = getraenk_to_insert;
-	tail->next = *head;
+	tail_getraenk->next = *head;
 	return getraenk_to_insert;
 }
 
@@ -290,7 +280,7 @@ void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t v
 	i++;
 	eeprom_write_byte((add+i+1),'\0');
 	
-	address = add+i+1;
+	address_getraenk = add+i+1;
 }
 
 int8_t count_eeprom_drinks(uint8_t * add)
@@ -350,7 +340,7 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 	drink = create_new_getraenk(name, mengen, value, alkohol, 24);
 	
 	i++;
-	address = add+i+1;
+	address_getraenk = add+i+1;
 	
 	return drink;
 }
@@ -359,10 +349,10 @@ void add_EEPROM_drinks_to_list(uint8_t * add)
 {
 	getraenk_t * drink = 0;
 	
-	while (eeprom_read_byte(address) != '\0')
+	while (eeprom_read_byte(address_getraenk) != '\0')
 	{
-		drink = read_drink_from_eemprom(address);
-		insert_at_head(&head, drink);
+		drink = read_drink_from_eemprom(address_getraenk);
+		insert_at_head(&head_getraenk, drink);
 	}
 }
 
@@ -372,9 +362,4 @@ void delete_EEPROM (uint8_t * add)
 	{
 		eeprom_write_byte(add+i,'\0');
 	}
-}
-
-void init_Getraenke_func()
-{
-	aktuellesGetraenk = head;
 }

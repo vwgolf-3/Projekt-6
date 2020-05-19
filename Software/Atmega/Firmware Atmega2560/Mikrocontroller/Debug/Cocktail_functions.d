@@ -40,8 +40,10 @@ Cocktail_functions.d Cocktail_functions.o: \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- ../libraries/Cocktail_functions/../Getraenk/Getraenk.h \
+ ../libraries/Cocktail_functions/../../Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
+ ../libraries/Cocktail_functions/../../libraries/UART/UART.h \
+ ../libraries/Cocktail_functions/../Getraenk/Getraenk.h \
  ../libraries/Cocktail_functions/../Getraenk/../UART/UART.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h \
@@ -128,9 +130,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
+../libraries/Cocktail_functions/../../Zutaten.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
+
+../libraries/Cocktail_functions/../../libraries/UART/UART.h:
+
+../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
 
 ../libraries/Cocktail_functions/../Getraenk/../UART/UART.h:
 

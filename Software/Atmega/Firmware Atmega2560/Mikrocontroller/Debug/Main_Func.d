@@ -40,8 +40,10 @@ Main_Func.d Main_Func.o: ../Main_Func/Main_Func.c \
  ../Main_Func/../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../Main_Func/../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- ../Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h \
+ ../Main_Func/../libraries/Cocktail_functions/../../Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
+ ../Main_Func/../libraries/Cocktail_functions/../../libraries/UART/UART.h \
+ ../Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h \
  ../Main_Func/../libraries/Cocktail_functions/../Getraenk/../UART/UART.h \
  ../Main_Func/../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
  ../Main_Func/../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h \
@@ -131,9 +133,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-../Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
+../Main_Func/../libraries/Cocktail_functions/../../Zutaten.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
+
+../Main_Func/../libraries/Cocktail_functions/../../libraries/UART/UART.h:
+
+../Main_Func/../libraries/Cocktail_functions/../Getraenk/Getraenk.h:
 
 ../Main_Func/../libraries/Cocktail_functions/../Getraenk/../UART/UART.h:
 

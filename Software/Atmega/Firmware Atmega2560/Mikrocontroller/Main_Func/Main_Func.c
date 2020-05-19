@@ -61,7 +61,7 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
-	Uart_Transmit_IT_PC((uint8_t *)"Proceed UART 0: \n\r");
+	Uart_Transmit_IT_PC("Proceed UART 0: \n\r");
 	cocktail_test_command(INPUT_UART_0);
 	
 	for (int i = 0; i < strlen((const char *)INPUT_UART_0);i++)
@@ -126,11 +126,9 @@ char check_Communication_Input_UART_1(void)
 
 void proceed_Communication_INPUT_UART_1(void)
 {
-	unsigned char *ch0 = (unsigned char *)"Proceed UART 1: ";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
-	Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_1);
-	ch0 = (unsigned char *)"\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
+	Uart_Transmit_IT_PC("Proceed UART 1: ");
+	Uart_Transmit_IT_PC((char *)INPUT_UART_1);
+	Uart_Transmit_IT_PC("\r\n");
 
 	cocktail_check_command(INPUT_UART_1[0],INPUT_UART_1[1]);
 }
@@ -188,11 +186,9 @@ char check_Communication_Input_UART_2(void)
 
 void proceed_Communication_Input_UART_2(void)
 {
-	unsigned char *ch0 = (unsigned char *)"Proceed UART 2: ";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
-	Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_2);
-	ch0 = (unsigned char *)"\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
+	Uart_Transmit_IT_PC("Proceed UART 2: ");
+	Uart_Transmit_IT_PC((char *)INPUT_UART_2);
+	Uart_Transmit_IT_PC("\r\n");
 	
 	cocktail_check_command(INPUT_UART_2[0],INPUT_UART_2[1]);
 }
@@ -252,11 +248,9 @@ char check_Communication_Input_UART_3(void)
 
 void proceed_Communication_Input_UART_3(void)
 {
-	unsigned char *ch0 = (unsigned char *)"Proceed UART 3: ";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
-	Uart_Transmit_IT_PC((unsigned char *)INPUT_UART_3);
-	ch0 = (unsigned char *)"\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
+	Uart_Transmit_IT_PC("Proceed UART 3: ");
+	Uart_Transmit_IT_PC((char *)INPUT_UART_3);
+	Uart_Transmit_IT_PC("\r\n");
 	
 	cocktail_check_command(INPUT_UART_3[0],INPUT_UART_3[1]);
 }

@@ -37,7 +37,7 @@ int main(void)
 // 	initTMC6200();
 // 	initTMC4671_Openloop();
 	mfrc522_init();
-	heartbeat_LED();
+	zutaten_init();
 	cocktails_init();
 	init_Getraenke_func();
 	

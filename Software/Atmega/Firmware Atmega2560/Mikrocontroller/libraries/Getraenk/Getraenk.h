@@ -27,10 +27,9 @@ typedef struct getraenk getraenk_t;
 
 getraenk_t *aktuellesGetraenk;
 
-uint8_t * address;	// EEprom address-Pointer
-getraenk_t *head;	// Getränk-Pointer
-getraenk_t *tail;
-uint8_t * zutat;	// Zutaten-Pointer
+uint8_t * address_getraenk;	// EEprom address-Pointer
+getraenk_t *head_getraenk;	// Getränk-Pointer
+getraenk_t *tail_getraenk;
 
 void cocktails_init(void);
 void printlist(void);

@@ -37,13 +37,12 @@ enum Startaneige_Buttons{COCKTAILNAME = 1, ZUTATEN, LINKS, B3, RECHTS, LISTE, ME
 #include "../../pin_defs.h"
 #include "../TMC4671/TMC4671.h"
 #include "../Nextion_Display/Nextion_Display.h"
+#include "../../Zutaten.h"
 #include "../Getraenk/Getraenk.h"
 #include "../TMC6200/TMC6200.h"
 
 void init_Getraenke_func();
 void cocktail_check_command(uint8 page, uint8 button);
-void cocktail_do_command1(void);
-void cocktail_do_command2(void);
 void cocktail_test_command(unsigned char INPUT[256]);
 void fuelle_getraenk(uint16_t fuellmenge);
 void setze_port(void);

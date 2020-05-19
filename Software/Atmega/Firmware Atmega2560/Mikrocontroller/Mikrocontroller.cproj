@@ -200,6 +200,12 @@
     <Compile Include="pin_defs.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Zutaten.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Zutaten.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

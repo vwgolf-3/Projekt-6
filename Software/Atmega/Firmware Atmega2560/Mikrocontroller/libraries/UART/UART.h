@@ -49,13 +49,13 @@
 
 void UART_init();
 
-void Uart_Transmit_IT_PC(uint8_t *data);
+void Uart_Transmit_IT_PC(char *data);
 
-void Uart_Transmit_IT_Display(uint8_t *data, uint8_t nbytes);
+void Uart_Transmit_IT_Display(char *data);
 
-void Uart_Transmit_IT_ESP(uint8_t *data, uint8_t nbytes);
+void Uart_Transmit_IT_ESP(char *data);
 
-// void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes);
+// void Uart_Transmit_IT_RFID(char *data);
 
 void tx_completed();
 

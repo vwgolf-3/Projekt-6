@@ -10,11 +10,12 @@
 void cocktail_check_command(uint8_t page, uint8_t button)
 {
 
- 	unsigned char buff[3] = {0};
 
+	getraenk_t * tmp_getraenk = head_getraenk;
+	
 	switch (page)
 	{
-	case 1:
+	case STARTANZEIGE:
 	
 		switch (button)
 		{
@@ -22,31 +23,65 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 			case ZUTATEN:
 /*
 				- Wechsle auf Zutatenseite
+				- Setze Überschrift
+				
+				- Erstelle lokale Variable für itoa-Buffer
+				- Erstelle lokale Variable für Stringkette
+				- Erstelle lokale Variable für Zutaten
+				
 				- für 0 ... Anzahl Getränke
-					- Wenn Menge > 0
-						- Schreibe Zutat
-						- Schreibe Menge
-						- Schreibe Zeilenumbruch
+					- Wenn die Menge des aktuellen Getränkes > 0
+						- Hänge Zutat an Kette
+						- Hänge Zeilenumbruch an Kette
+						- Switche zur nächsten Zutat
+						
+				- Schreibe Zutatenkette in Textfeld
 */
-			
+				nextion_change_page(ZUTATENANZEIGE);
+				nextion_setText("cocktailname",aktuellesGetraenk->name);
+
+
+				zutat_t * tmp_zutat = head_zut;
+			 	char string[256] = {'\0'};
+					char buff[4] = {0};
+				for (int i = 0 ; i<12 ; i++)
+				{
+					if (*(uint8_t *)(aktuellesGetraenk->mengen + i) != (unsigned char)0)
+					{
+						strcat((char *)string, (const char *)tmp_zutat->name);
+						for (int i = 0 ; i<(20-strlen(tmp_zutat->name)) ; i++)
+						{
+							strcat((char *)string, "-");
+						}
+						strcat((char *)string, (const char *)"(");
+						itoa(*(uint8_t *)(aktuellesGetraenk->mengen + i),buff,10);
+						strcat((char *)string, (const char *)buff);
+						strcat((char *)string, (const char *)"%)");
+						strcat((char *)string, (const char *)"\\r");
+					}
+						tmp_zutat = tmp_zutat->next;
+				}
+				nextion_setText("zutatenliste",string);
+
 			break;
 			
 			case LINKS:
 /*
 				- Wähle vorgehendes Getränk aus
 				- Schreibe Name des Getränks
+				- Integer to ASCI
 				- Setze Bild des Getränks
 */
 				aktuellesGetraenk = aktuellesGetraenk->prev;
-				nextion_setText((unsigned char *)"cocktailname",(unsigned char *)aktuellesGetraenk->name,1);
+				nextion_setText("cocktailname",aktuellesGetraenk->name);
 				itoa(aktuellesGetraenk->picture,(char *)buff,10);
-				nextion_setPicture((unsigned char *)"235",(unsigned char *)"80",(unsigned char *)buff,1);
-			
+				nextion_setPicture("235","80",(char *)buff);
+				
 			break;
 			
-			case 4:
-			
-				cocktail_do_command1();
+			case B3:
+				
+				
 				
 			break;
 			
@@ -57,13 +92,26 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 				- Setze Bild des Getränks
 */
 				aktuellesGetraenk = aktuellesGetraenk->next;
-				nextion_setText((unsigned char *)"cocktailname",(unsigned char *)aktuellesGetraenk->name,1);
+				nextion_setText("cocktailname",aktuellesGetraenk->name);
 				itoa(aktuellesGetraenk->picture,(char *)buff,10);
-				nextion_setPicture((unsigned char *)"235",(unsigned char *)"80",(unsigned char *)buff,1);						
+				nextion_setPicture("235","80",( char *)buff);						
 			break;
 			
 			case LISTE:
 			
+				nextion_change_page(LISTENANZEIGE);
+				
+				for (int i = 1 ; i < 9 ; i++)
+				{
+					char string[20] = {'\0'};
+					char buff[4] = {0};
+					strcat((char *)string, (const char *)"cocktail");
+					itoa(i,buff,10);
+					strcat((char *)string, (const char *)buff);
+					nextion_setText(string,aktuellesGetraenk->name);
+					aktuellesGetraenk = aktuellesGetraenk->next;
+				}
+
 			break;
 			
 			case MENU:
@@ -83,6 +131,11 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 		{
 			case OKZUTATEN:
 			
+				nextion_change_page(STARTANZEIGE);
+				nextion_setText("cocktailname",aktuellesGetraenk->name);
+				char buff[4] = {0};
+				itoa(aktuellesGetraenk->picture,(char *)buff,10);
+				nextion_setPicture("235","80",(char *)buff);			
 			break;
 			
 			case ZUTATENLISTE:
@@ -97,6 +150,8 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 		switch (button)
 		{
 			case COCKTAIL1:
+			
+				nextion_change_page(STARTANZEIGE);
 			
 			break;
 			
@@ -230,27 +285,12 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 	}
 }
 
-void cocktail_do_command1(void)
-{
-
-	nextion_setPicture((unsigned char *)"250",(unsigned char *)"80",(unsigned char *)"3",1);//********************************	Aktion:				setPicture
-}
-
-void cocktail_do_command2(void)
-{
-	aktuellesGetraenk = aktuellesGetraenk->next;
-	unsigned char *ch0 = (unsigned char *)"Beginn Command2: \r\n\r\n";//************************	Start
-	Uart_Transmit_IT_PC(ch0);
-	nextion_setText((unsigned char *)"cocktailname",(unsigned char *)aktuellesGetraenk->name,1);
-
-}
-
 void cocktail_test_command(unsigned char INPUT[256])
 {
 // 	int8_t array[12] = {1,2,3,4,5,6,7,8,9,0,1,2};
 // 	getraenk_t * tmp;
-	Uart_Transmit_IT_PC((uint8_t *)INPUT);
-	Uart_Transmit_IT_PC((uint8_t *)"\r\n");
+	Uart_Transmit_IT_PC((char *)INPUT);
+	Uart_Transmit_IT_PC("\r\n");
 	
 // 	delete_EEPROM((uint8_t *)0);
 // 	
@@ -456,3 +496,9 @@ uint8_t lese_sensor(uint8_t Sensor)
 }
 
 
+void init_Getraenke_func()
+{
+	aktuellesGetraenk = head_getraenk;
+	nextion_change_page(STARTANZEIGE);
+	nextion_setText("cocktailname",aktuellesGetraenk->name);
+}

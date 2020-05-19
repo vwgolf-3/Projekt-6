@@ -61,27 +61,30 @@ void UART_init()
 // 	ptr_tx_completed_3=tx_completed;
 }
 
-void Uart_Transmit_IT_PC(uint8_t *data)
+void Uart_Transmit_IT_PC(char *data)
 {
 	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_PC, data, nbytes);
 	Uart_EnableTransmitIT_0();
 }
 
-void Uart_Transmit_IT_Display(uint8_t *data, uint8_t nbytes )
+void Uart_Transmit_IT_Display(char *data)
 {
+	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_Display, data, nbytes);
 	Uart_EnableTransmitIT_1();
 }
 
-void Uart_Transmit_IT_ESP(uint8_t *data, uint8_t nbytes )
+void Uart_Transmit_IT_ESP(char *data)
 {
+	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_ESP, data, nbytes);
 	Uart_EnableTransmitIT_2();
 }
 
-// void Uart_Transmit_IT_RFID(uint8_t *data, uint8_t nbytes )
+// void Uart_Transmit_IT_RFID(char *data)
 // {
+// 	uint8_t nbytes = strlen((const char *)data);
 // 	RB_write(&rb_tx_RFID, data, nbytes);
 // 	Uart_EnableTransmitIT_3();
 // }

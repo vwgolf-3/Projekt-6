@@ -120,7 +120,7 @@ unsigned char RB_read( ring_buffer_t *rb, unsigned char *data, unsigned char dat
 	return 1;
 }
 
-unsigned char RB_write( ring_buffer_t *rb, unsigned char *data, unsigned char datal )
+unsigned char RB_write( ring_buffer_t *rb, char *data, unsigned char datal )
 {
 	unsigned char head;
 	
