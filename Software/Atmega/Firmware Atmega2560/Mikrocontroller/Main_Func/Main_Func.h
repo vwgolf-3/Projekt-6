@@ -22,8 +22,8 @@ char check_Communication_Input_UART_1(void);
 void proceed_Communication_INPUT_UART_1(void);
 char check_Communication_Input_UART_2(void);
 void proceed_Communication_Input_UART_2(void);
-char check_Communication_Input_UART_3(void);
-void proceed_Communication_Input_UART_3(void);
+// char check_Communication_Input_UART_3(void);
+// void proceed_Communication_Input_UART_3(void);
 void check_Communication_Input_UART(void);
 void check_Communication_Input_MFRC522(void);
 
@@ -75,5 +75,6 @@ extern ring_buffer_t rb_rx_RFID;
 
 extern ring_buffer_t rb_SPI_r;
 extern ring_buffer_t rb_SPI_w;
+
 
 #endif /* MAIN_FUNC_H_ */

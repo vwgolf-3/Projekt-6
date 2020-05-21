@@ -130,7 +130,7 @@ void proceed_Communication_INPUT_UART_1(void)
 	Uart_Transmit_IT_PC((char *)INPUT_UART_1);
 	Uart_Transmit_IT_PC("\r\n");
 
-	cocktail_check_command(INPUT_UART_1[0],INPUT_UART_1[1]);
+	cocktail_check_command((char)INPUT_UART_1[0],(char)INPUT_UART_1[1]);
 }
 
 char check_Communication_Input_UART_2(void)
@@ -190,70 +190,70 @@ void proceed_Communication_Input_UART_2(void)
 	Uart_Transmit_IT_PC((char *)INPUT_UART_2);
 	Uart_Transmit_IT_PC("\r\n");
 	
-	cocktail_check_command(INPUT_UART_2[0],INPUT_UART_2[1]);
+	cocktail_check_command(4,1);
 }
 
-char check_Communication_Input_UART_3(void)
-{
-	char ret = 0;
-	
-	while(RB_length(&rb_rx_RFID)>0)
-	{
-		
-		unsigned char ch = RB_readByte(&rb_rx_RFID);
-
-		if (ch == 0xFF)
-		{
-			if (cntr_End_UART_3==0)
-			{
-				cntr_End_UART_3++;
-			}
-			if (cntr_End_UART_3==1 && (INPUT_UART_3[cntr_UART_3-1] == 0xFF))
-			{
-				cntr_End_UART_3++;
-			}
-			if (cntr_End_UART_3==1 && (INPUT_UART_3[cntr_UART_3-3] != 0xFF))
-			{
-				cntr_End_UART_3=0;
-			}
-			if (cntr_End_UART_3==2 && (INPUT_UART_3[cntr_UART_3-1] == 0xFF) && (INPUT_UART_3[cntr_UART_3-2] == 0xFF))
-			{
-				cntr_End_UART_3++;
-			}
-			if (cntr_End_UART_3==2 && ((INPUT_UART_3[cntr_UART_3-1] != 0xFF) || (INPUT_UART_3[cntr_UART_3-2] != 0xFF)))
-			{
-				cntr_End_UART_3 = 0;
-			}
-		}
-		if (cntr_End_UART_3 == 3)
-		{
-			INPUT_UART_3[cntr_UART_3] = 0;
-			INPUT_UART_3[cntr_UART_3-1]=0;
-			INPUT_UART_3[cntr_UART_3-2]=0;
-			cntr_UART_3 = 0;
-			cntr_End_UART_3 = 0;
-			ret = 1;
-			toggle_LED();
-		}
-		else
-		{
-			INPUT_UART_3[cntr_UART_3]=ch;
-			cntr_UART_3++;
-			ret = 0;
-			toggle_LED();
-		}
-	}
-	return ret;
-}
-
-void proceed_Communication_Input_UART_3(void)
-{
-	Uart_Transmit_IT_PC("Proceed UART 3: ");
-	Uart_Transmit_IT_PC((char *)INPUT_UART_3);
-	Uart_Transmit_IT_PC("\r\n");
-	
-	cocktail_check_command(INPUT_UART_3[0],INPUT_UART_3[1]);
-}
+// char check_Communication_Input_UART_3(void)
+// {
+// 	char ret = 0;
+// 	
+// 	while(RB_length(&rb_rx_RFID)>0)
+// 	{
+// 		
+// 		unsigned char ch = RB_readByte(&rb_rx_RFID);
+// 
+// 		if (ch == 0xFF)
+// 		{
+// 			if (cntr_End_UART_3==0)
+// 			{
+// 				cntr_End_UART_3++;
+// 			}
+// 			if (cntr_End_UART_3==1 && (INPUT_UART_3[cntr_UART_3-1] == 0xFF))
+// 			{
+// 				cntr_End_UART_3++;
+// 			}
+// 			if (cntr_End_UART_3==1 && (INPUT_UART_3[cntr_UART_3-3] != 0xFF))
+// 			{
+// 				cntr_End_UART_3=0;
+// 			}
+// 			if (cntr_End_UART_3==2 && (INPUT_UART_3[cntr_UART_3-1] == 0xFF) && (INPUT_UART_3[cntr_UART_3-2] == 0xFF))
+// 			{
+// 				cntr_End_UART_3++;
+// 			}
+// 			if (cntr_End_UART_3==2 && ((INPUT_UART_3[cntr_UART_3-1] != 0xFF) || (INPUT_UART_3[cntr_UART_3-2] != 0xFF)))
+// 			{
+// 				cntr_End_UART_3 = 0;
+// 			}
+// 		}
+// 		if (cntr_End_UART_3 == 3)
+// 		{
+// 			INPUT_UART_3[cntr_UART_3] = 0;
+// 			INPUT_UART_3[cntr_UART_3-1]=0;
+// 			INPUT_UART_3[cntr_UART_3-2]=0;
+// 			cntr_UART_3 = 0;
+// 			cntr_End_UART_3 = 0;
+// 			ret = 1;
+// 			toggle_LED();
+// 		}
+// 		else
+// 		{
+// 			INPUT_UART_3[cntr_UART_3]=ch;
+// 			cntr_UART_3++;
+// 			ret = 0;
+// 			toggle_LED();
+// 		}
+// 	}
+// 	return ret;
+// }
+// 
+// void proceed_Communication_Input_UART_3(void)
+// {
+// 	Uart_Transmit_IT_PC("Proceed UART 3: ");
+// 	Uart_Transmit_IT_PC((char *)INPUT_UART_3);
+// 	Uart_Transmit_IT_PC("\r\n");
+// 	
+// 	cocktail_check_command(INPUT_UART_3[0],INPUT_UART_3[1]);
+// }
 
 void check_Communication_Input_UART(void)
 {
@@ -269,8 +269,8 @@ void check_Communication_Input_UART(void)
 	{
 		proceed_Communication_Input_UART_2();				// Vollständige Übertragung des ESP's verarbeiten
 	}
-	if (check_Communication_Input_UART_3())				// Check UART_3 (RFID), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
-	{
-		proceed_Communication_Input_UART_3();				// Vollständige Übertragung des ESP's verarbeiten
-	}
+// 	if (check_Communication_Input_UART_3())				// Check UART_3 (RFID), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+// 	{
+// 		proceed_Communication_Input_UART_3();				// Vollständige Übertragung des ESP's verarbeiten
+// 	}
 }

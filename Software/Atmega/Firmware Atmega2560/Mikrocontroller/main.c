@@ -41,12 +41,12 @@ int main(void)
 	cocktails_init();
 	init_Getraenke_func();
 	
-	_delay_ms(2000);
 	// Mainroutine
 	while (1)
 	{				// Check Communication MFRC522		check_Communication_Input_MFRC522();		// Check Communication UART		check_Communication_Input_UART();
 
 		//Testloop Blink LED
-  		heartbeat_LED();
+//   		heartbeat_LED();
+_delay_ms(10);
 	}
 }

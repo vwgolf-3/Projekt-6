@@ -7,12 +7,9 @@
 
 #include "Cocktail_functions.h"
 
-void cocktail_check_command(uint8_t page, uint8_t button)
-{
 
-
-	getraenk_t * tmp_getraenk = head_getraenk;
-	
+void cocktail_check_command(char page, char button)
+{	
 	switch (page)
 	{
 	case STARTANZEIGE:
@@ -25,43 +22,11 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 				- Wechsle auf Zutatenseite
 				- Setze Überschrift
 				
-				- Erstelle lokale Variable für itoa-Buffer
-				- Erstelle lokale Variable für Stringkette
-				- Erstelle lokale Variable für Zutaten
-				
-				- für 0 ... Anzahl Getränke
-					- Wenn die Menge des aktuellen Getränkes > 0
-						- Hänge Zutat an Kette
-						- Hänge Zeilenumbruch an Kette
-						- Switche zur nächsten Zutat
-						
-				- Schreibe Zutatenkette in Textfeld
+
 */
 				nextion_change_page(ZUTATENANZEIGE);
 				nextion_setText("cocktailname",aktuellesGetraenk->name);
-
-
-				zutat_t * tmp_zutat = head_zut;
-			 	char string[256] = {'\0'};
-					char buff[4] = {0};
-				for (int i = 0 ; i<12 ; i++)
-				{
-					if (*(uint8_t *)(aktuellesGetraenk->mengen + i) != (unsigned char)0)
-					{
-						strcat((char *)string, (const char *)tmp_zutat->name);
-						for (int i = 0 ; i<(20-strlen(tmp_zutat->name)) ; i++)
-						{
-							strcat((char *)string, "-");
-						}
-						strcat((char *)string, (const char *)"(");
-						itoa(*(uint8_t *)(aktuellesGetraenk->mengen + i),buff,10);
-						strcat((char *)string, (const char *)buff);
-						strcat((char *)string, (const char *)"%)");
-						strcat((char *)string, (const char *)"\\r");
-					}
-						tmp_zutat = tmp_zutat->next;
-				}
-				nextion_setText("zutatenliste",string);
+				erstelle_Zutatenliste(aktuellesGetraenk);
 
 			break;
 			
@@ -72,16 +37,14 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 				- Integer to ASCI
 				- Setze Bild des Getränks
 */
-				aktuellesGetraenk = aktuellesGetraenk->prev;
-				nextion_setText("cocktailname",aktuellesGetraenk->name);
-				itoa(aktuellesGetraenk->picture,(char *)buff,10);
-				nextion_setPicture("235","80",(char *)buff);
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk, 1 , 1);
+				setze_startanzeige(aktuellesGetraenk);
 				
 			break;
 			
 			case B3:
 				
-				
+				nextion_change_page(ZUBABFRAGE);
 				
 			break;
 			
@@ -91,25 +54,25 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 				- Schreibe Name des Getränks
 				- Setze Bild des Getränks
 */
-				aktuellesGetraenk = aktuellesGetraenk->next;
-				nextion_setText("cocktailname",aktuellesGetraenk->name);
-				itoa(aktuellesGetraenk->picture,(char *)buff,10);
-				nextion_setPicture("235","80",( char *)buff);						
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk, 1 , 0);
+				setze_startanzeige(aktuellesGetraenk);
+					
 			break;
 			
 			case LISTE:
 			
 				nextion_change_page(LISTENANZEIGE);
-				
+				aktuellesGetraenk = head_getraenk;
 				for (int i = 1 ; i < 9 ; i++)
 				{
-					char string[20] = {'\0'};
+					char string[21] = {'\0'};
 					char buff[4] = {0};
 					strcat((char *)string, (const char *)"cocktail");
 					itoa(i,buff,10);
 					strcat((char *)string, (const char *)buff);
 					nextion_setText(string,aktuellesGetraenk->name);
 					aktuellesGetraenk = aktuellesGetraenk->next;
+					_delay_ms(10);
 				}
 
 			break;
@@ -132,14 +95,15 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 			case OKZUTATEN:
 			
 				nextion_change_page(STARTANZEIGE);
-				nextion_setText("cocktailname",aktuellesGetraenk->name);
-				char buff[4] = {0};
-				itoa(aktuellesGetraenk->picture,(char *)buff,10);
-				nextion_setPicture("235","80",(char *)buff);			
+				setze_startanzeige(aktuellesGetraenk);
+					
 			break;
 			
 			case ZUTATENLISTE:
 			
+				nextion_change_page(STARTANZEIGE);
+				setze_startanzeige(aktuellesGetraenk);
+				
 			break;
 		}
 		
@@ -151,43 +115,88 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 		{
 			case COCKTAIL1:
 			
-				nextion_change_page(STARTANZEIGE);
-			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,8,1);
+				setze_startanzeige(aktuellesGetraenk);
+							
 			break;
 			
 			case COCKTAIL2:
 			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,7,1);
+				setze_startanzeige(aktuellesGetraenk);
+			
 			break;
 			
 			case COCKTAIL3:
+
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,6,1);
+				setze_startanzeige(aktuellesGetraenk);
 			
 			break;
 			
 			case COCKTAIL4:
 			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,5,1);
+				setze_startanzeige(aktuellesGetraenk);
+				
 			break;
 			
 			case COCKTAIL5:
 			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,4,1);
+				setze_startanzeige(aktuellesGetraenk);
+				
 			break;
 			
 			case COCKTAIL6:
 			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,3,1);
+				setze_startanzeige(aktuellesGetraenk);
+				
 			break;
 			
 			case COCKTAIL7:
 			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,2,1);
+				setze_startanzeige(aktuellesGetraenk);
+				
 			break;
 			
 			case COCKTAIL8:
 			
+				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,1,1);
+				setze_startanzeige(aktuellesGetraenk);
+
 			break;
 			
 			case RAUFLIST:
-			
+				for (int i = 1 ; i < 9 ; i++)
+				{
+					char string[21] = {'\0'};
+					char buff[4] = {0};
+					strcat((char *)string, (const char *)"cocktail");
+					itoa(i,buff,10);
+					strcat((char *)string, (const char *)buff);
+					nextion_setText(string,aktuellesGetraenk->name);
+					aktuellesGetraenk = aktuellesGetraenk->next;
+					_delay_ms(10);
+				}			
 			break;
 			
-			case RUNTERLIST:
+			case 10:
+			
+				nextion_change_page(STARTANZEIGE);
+// 				for (int i = 1 ; i < 9 ; i++)
+// 				{
+// 					char string[21] = {'\0'};
+// 					char buff[4] = {0};
+// 					strcat((char *)string, (const char *)"cocktail");
+// 					itoa(i,buff,10);
+// 					strcat((char *)string, (const char *)buff);
+// 					nextion_setText(string,aktuellesGetraenk->name);
+// 					aktuellesGetraenk = aktuellesGetraenk->prev;
+// 					_delay_ms(10);
+// 				}
 			
 			break;
 		}
@@ -199,14 +208,37 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 	switch (button)
 	{
 		case KLEIN:
+			
+			nextion_change_page(ZUBBILDSCHIRM);
+			nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
+			_delay_ms(1000);
+			fuelle_getraenk(100);
+			nextion_change_page(BEREITANZEIGE);
+			_delay_ms(2000);
+			aktuellesGetraenk = head_getraenk;
+			nextion_change_page(STARTANZEIGE);
+			setze_startanzeige(aktuellesGetraenk);
+
 		
 		break;
 		
 		case GROSS:
 		
+			nextion_change_page(ZUBBILDSCHIRM);
+			nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
+			_delay_ms(1000);
+			fuelle_getraenk(300);
+			nextion_change_page(BEREITANZEIGE);
+			_delay_ms(2000);
+			aktuellesGetraenk = head_getraenk;
+			nextion_change_page(STARTANZEIGE);
+			setze_startanzeige(aktuellesGetraenk);
+			
 		break;
 		
 		case ABBRUCHZUBAB:
+		
+			nextion_change_page(STARTANZEIGE);
 		
 		break;
 	}
@@ -228,7 +260,7 @@ void cocktail_check_command(uint8_t page, uint8_t button)
 	
 	break;
 	
-	case BREITANZEIGE:
+	case BEREITANZEIGE:
 	
 	switch (button)
 	{
@@ -306,6 +338,7 @@ void cocktail_test_command(unsigned char INPUT[256])
 
 void fuelle_getraenk(uint16_t fuellmenge)
 {
+
 	// Switche durch alle Getränke
 	for (uint8_t i = 0 ; i < 12 ; i++)
 	{
@@ -355,12 +388,11 @@ void fuelle_getraenk(uint16_t fuellmenge)
 			}
 		}
 	}
-	aktuellesGetraenk = aktuellesGetraenk->next;
+// 	aktuellesGetraenk = aktuellesGetraenk->next;
 	
 /*
 	Fahre zurück bis Home-Schalter betätigt wird
 */		
-	
 }
 
 void schalte_pumpe_ein(uint8_t Pumpe)
@@ -495,10 +527,78 @@ uint8_t lese_sensor(uint8_t Sensor)
 	return val;
 }
 
-
 void init_Getraenke_func()
 {
 	aktuellesGetraenk = head_getraenk;
 	nextion_change_page(STARTANZEIGE);
 	nextion_setText("cocktailname",aktuellesGetraenk->name);
+}
+
+getraenk_t * shift_getraenk(getraenk_t *getraenk_to_shift, uint8_t ngetr, uint8_t down_up)
+{
+	switch (down_up)
+	{
+	case 0:
+		for (int i = 0 ; i < ngetr ; i++)
+		{
+			getraenk_to_shift = getraenk_to_shift->next;
+		}
+	break;
+	
+	case 1:
+		for (int i = 0 ; i < ngetr ; i++)
+		{
+			getraenk_to_shift = getraenk_to_shift->prev;
+		}
+	break;
+	}
+	return getraenk_to_shift;
+}
+
+void setze_startanzeige(getraenk_t * anzeige_getraenk)
+{
+	char buff[4];
+	nextion_change_page(STARTANZEIGE);
+	nextion_setText("cocktailname",anzeige_getraenk->name);
+	itoa(anzeige_getraenk->picture,(char *)buff,10);
+	nextion_setPicture("235","80",(char *)buff);
+}
+
+void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
+{
+	
+// 					- Erstelle lokale Variable für itoa-Buffer
+// 					- Erstelle lokale Variable für Stringkette
+// 					- Erstelle lokale Variable für Zutaten
+// 					
+// 					- für 0 ... Anzahl Getränke
+// 					- Wenn die Menge des aktuellen Getränkes > 0
+// 					- Hänge Zutat an Kette
+// 					- Hänge Zeilenumbruch an Kette
+// 					- Switche zur nächsten Zutat
+// 					
+// 					- Schreibe Zutatenkette in Textfeld
+					
+	zutat_t * tmp_zutat = head_zut;
+	
+	char string[256] = {'\0'};
+	char buff[4] = {0};
+	for (int i = 0 ; i<12 ; i++)
+	{
+		if (*(uint8_t *)(anzeige_getraenk->mengen + i) != (unsigned char)0)
+		{
+			strcat((char *)string, (const char *)tmp_zutat->name);
+			for (int i = 0 ; i<(20-strlen(tmp_zutat->name)) ; i++)
+			{
+				strcat((char *)string, "-");
+			}
+			strcat((char *)string, (const char *)"(");
+			itoa(*(uint8_t *)(anzeige_getraenk->mengen + i),buff,10);
+			strcat((char *)string, (const char *)buff);
+			strcat((char *)string, (const char *)"%)");
+			strcat((char *)string, (const char *)"\\r");
+		}
+		tmp_zutat = tmp_zutat->next;
+	}
+	nextion_setText("zutatenliste",string);
 }

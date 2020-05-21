@@ -27,11 +27,11 @@ unsigned char INPUT_UART_2[256];
 char UART_recieved_finished_2 = 0;
 char cntr_End_UART_2 = 0;
 
-//Variabeln UART_3
-unsigned char cntr_UART_3 = 0;
-unsigned char INPUT_UART_3[256];
-char UART_recieved_finished_3 = 0;
-char cntr_End_UART_3 = 0;
+// Variabeln UART_3
+// unsigned char cntr_UART_3 = 0;
+// unsigned char INPUT_UART_3[256];
+// char UART_recieved_finished_3 = 0;
+// char cntr_End_UART_3 = 0;
 
 //Variabeln SPI_0
 unsigned char cntr_SPI_0 = 0;
