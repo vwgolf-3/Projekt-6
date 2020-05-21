@@ -42,6 +42,8 @@ C_SRCS +=  \
 ../libraries/Nextion_Display/Nextion_Display.c \
 ../libraries/RC522/mfrc522.c \
 ../libraries/RingBuffer/ring_buffer.c \
+../libraries/SD-Karte/sdcard.c \
+../libraries/SD-Karte/sdprint.c \
 ../libraries/SPI/SPI.c \
 ../libraries/TMC4671/tmc4671.c \
 ../libraries/TMC6200/TMC6200.c \
@@ -63,6 +65,8 @@ Getraenk.o \
 Nextion_Display.o \
 mfrc522.o \
 ring_buffer.o \
+sdcard.o \
+sdprint.o \
 SPI.o \
 tmc4671.o \
 TMC6200.o \
@@ -77,6 +81,8 @@ Getraenk.o \
 Nextion_Display.o \
 mfrc522.o \
 ring_buffer.o \
+sdcard.o \
+sdprint.o \
 SPI.o \
 tmc4671.o \
 TMC6200.o \
@@ -91,6 +97,8 @@ Getraenk.d \
 Nextion_Display.d \
 mfrc522.d \
 ring_buffer.d \
+sdcard.d \
+sdprint.d \
 SPI.d \
 tmc4671.d \
 TMC6200.d \
@@ -105,6 +113,8 @@ Getraenk.d \
 Nextion_Display.d \
 mfrc522.d \
 ring_buffer.d \
+sdcard.d \
+sdprint.d \
 SPI.d \
 tmc4671.d \
 TMC6200.d \
@@ -156,6 +166,20 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./ring_buffer.o: ../libraries/RingBuffer/ring_buffer.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./sdcard.o: ../libraries/SD-Karte/sdcard.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./sdprint.o: ../libraries/SD-Karte/sdprint.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

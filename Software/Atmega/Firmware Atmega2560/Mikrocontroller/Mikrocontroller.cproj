@@ -168,6 +168,14 @@
       <SubType>compile</SubType>
       <Link>ring_buffer.c</Link>
     </Compile>
+    <Compile Include="libraries\SD-Karte\sdcard.c">
+      <SubType>compile</SubType>
+      <Link>sdcard.c</Link>
+    </Compile>
+    <Compile Include="libraries\SD-Karte\sdprint.c">
+      <SubType>compile</SubType>
+      <Link>sdprint.c</Link>
+    </Compile>
     <Compile Include="libraries\SPI\SPI.c">
       <SubType>compile</SubType>
       <Link>SPI.c</Link>

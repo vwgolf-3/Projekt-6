@@ -53,7 +53,8 @@ main.d main.o: .././main.c \
  .././libraries/UART/UART.h .././libraries/TMC4671/TMC4671.h \
  .././libraries/TMC6200/TMC6200.h .././libraries/RC522/mfrc522.h \
  .././libraries/RC522/mfrc522_cmd.h .././libraries/RC522/mfrc522_reg.h \
- .././libraries/RC522/../SPI/SPI.h .././libraries/RC522/../UART/UART.h
+ .././libraries/RC522/../SPI/SPI.h .././libraries/RC522/../UART/UART.h \
+ .././libraries/SD-Karte/sdcard.h .././libraries/SD-Karte/sdprint.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -178,3 +179,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././libraries/RC522/../SPI/SPI.h:
 
 .././libraries/RC522/../UART/UART.h:
+
+.././libraries/SD-Karte/sdcard.h:
+
+.././libraries/SD-Karte/sdprint.h:

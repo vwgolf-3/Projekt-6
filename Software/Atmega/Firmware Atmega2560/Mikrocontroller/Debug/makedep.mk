@@ -12,6 +12,10 @@ libraries\RC522\mfrc522.c
 
 libraries\RingBuffer\ring_buffer.c
 
+libraries\SD-Karte\sdcard.c
+
+libraries\SD-Karte\sdprint.c
+
 libraries\SPI\SPI.c
 
 libraries\TMC4671\tmc4671.c
