@@ -332,7 +332,7 @@ void cocktail_test_command(unsigned char INPUT[256])
 // 	head = insert_at_head(&head, tmp);
 	
 // 	showlist();
-	fuelle_getraenk(20);
+// 	fuelle_getraenk(20);
 	
 }
 

@@ -1,4 +1,5 @@
-Zutaten.d Zutaten.o: .././Zutaten.c .././Zutaten.h \
+Zutaten.d Zutaten.o: ../libraries/Cocktail_functions/Zutaten.c \
+ ../libraries/Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -16,12 +17,12 @@ Zutaten.d Zutaten.o: .././Zutaten.c .././Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././libraries/UART/UART.h \
- .././libraries/UART/../RingBuffer/ring_buffer.h \
+ ../libraries/Cocktail_functions/../UART/UART.h \
+ ../libraries/Cocktail_functions/../UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h
 
-.././Zutaten.h:
+../libraries/Cocktail_functions/Zutaten.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
 
@@ -57,9 +58,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././libraries/UART/UART.h:
+../libraries/Cocktail_functions/../UART/UART.h:
 
-.././libraries/UART/../RingBuffer/ring_buffer.h:
+../libraries/Cocktail_functions/../UART/../RingBuffer/ring_buffer.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 

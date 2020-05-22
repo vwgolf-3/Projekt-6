@@ -8,7 +8,9 @@
 
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
-
+#include <avr/pgmspace.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
 #include "../libraries/Cocktail_functions/Cocktail_functions.h"
 #include "../libraries/UART/UART.h"
 
@@ -75,6 +77,5 @@ extern ring_buffer_t rb_rx_RFID;
 
 extern ring_buffer_t rb_SPI_r;
 extern ring_buffer_t rb_SPI_w;
-
 
 #endif /* MAIN_FUNC_H_ */

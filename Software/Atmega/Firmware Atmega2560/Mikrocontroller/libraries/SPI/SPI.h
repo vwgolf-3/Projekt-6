@@ -14,20 +14,21 @@
 #include "../../pin_defs.h"
 #include "../RingBuffer/ring_buffer.h"
 
+#define SPI_SD             SPCR = 0x52
+#define SPI_HIGH_SPEED     SPCR = 0x50; SPSR |= (1<<SPI2X)
+
+
 void SPI_init(void);
-void SPI_Transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave);
+void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave);
 uint8_t spi_transmit(uint8_t data);
+unsigned char spi_receive(void);
+
 // void SPI_w_completed();
 
-enum SPI_Slaves{TMC4671, TMC6200, MFRC522}SPI_Slave;
+enum SPI_Slaves{TMC4671, TMC6200, MFRC522, SDCARD}SPI_Slave;
 enum SPI_States{ON, OFF}SPI_State;
 
 void enable_Slave(uint8_t Slave);
 void disable_Slave(uint8_t Slave);
-
-#define ACTUALPORT PUMPE1_PORT
-#define ACTUALPIN PUMPE1_PIN
-#define ACTUALDDR PUMPE1_DDR
-#define ACTUALBIT PUMPE1_BIT
 
 #endif /* SPI_H_ */

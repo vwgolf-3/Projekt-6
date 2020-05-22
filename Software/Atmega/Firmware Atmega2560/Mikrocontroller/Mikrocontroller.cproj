@@ -152,9 +152,13 @@
       <SubType>compile</SubType>
       <Link>Cocktail_functions.c</Link>
     </Compile>
-    <Compile Include="libraries\Getraenk\Getraenk.c">
+    <Compile Include="libraries\Cocktail_functions\Getraenk.c">
       <SubType>compile</SubType>
       <Link>Getraenk.c</Link>
+    </Compile>
+    <Compile Include="libraries\Cocktail_functions\Zutaten.c">
+      <SubType>compile</SubType>
+      <Link>Zutaten.c</Link>
     </Compile>
     <Compile Include="libraries\Nextion_Display\Nextion_Display.c">
       <SubType>compile</SubType>
@@ -168,13 +172,13 @@
       <SubType>compile</SubType>
       <Link>ring_buffer.c</Link>
     </Compile>
-    <Compile Include="libraries\SD-Karte\sdcard.c">
+    <Compile Include="libraries\SD-Karte\FAT32.c">
       <SubType>compile</SubType>
-      <Link>sdcard.c</Link>
+      <Link>FAT32.c</Link>
     </Compile>
-    <Compile Include="libraries\SD-Karte\sdprint.c">
+    <Compile Include="libraries\SD-Karte\SD_routines.c">
       <SubType>compile</SubType>
-      <Link>sdprint.c</Link>
+      <Link>SD_routines.c</Link>
     </Compile>
     <Compile Include="libraries\SPI\SPI.c">
       <SubType>compile</SubType>
@@ -206,12 +210,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="pin_defs.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Zutaten.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Zutaten.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

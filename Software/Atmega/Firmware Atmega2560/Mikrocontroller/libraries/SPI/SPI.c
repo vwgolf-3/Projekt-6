@@ -31,7 +31,7 @@ void SPI_init(void)
 	
 }
 
-void SPI_Transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)
+void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)
 {
 	for (int i = 0 ; i < nbytes ; i++)
 	{
@@ -45,6 +45,19 @@ uint8_t spi_transmit(uint8_t data)
 	SPDR = data;
 	while(!(SPSR & (1<<SPIF)));
 	return SPDR;
+}
+
+unsigned char spi_receive(void)
+{
+	unsigned char data;
+	// Wait for reception complete
+
+	SPDR = 0xff;
+	while(!(SPSR & (1<<SPIF)));
+	data = SPDR;
+
+	// Return data register
+	return data;
 }
 
 void enable_Slave(uint8_t Slave)
@@ -61,6 +74,10 @@ void enable_Slave(uint8_t Slave)
 		
 		case MFRC522:
 		SPI_CS_RC522_PORT &= ~SPI_CS_RC522_BIT;
+		break;
+		
+		case SDCARD:
+		SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT;
 		break;
 	}
 }
@@ -79,6 +96,10 @@ void disable_Slave(uint8_t Slave)
 		
 		case MFRC522:
 		SPI_CS_RC522_PORT |= SPI_CS_RC522_BIT;
+		break;
+		
+		case SDCARD:
+		SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT;
 		break;
 	}
 }

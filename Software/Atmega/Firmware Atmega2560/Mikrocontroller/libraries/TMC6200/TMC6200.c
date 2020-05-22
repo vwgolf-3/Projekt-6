@@ -20,7 +20,7 @@ int tmc6200_readInt(uint8_t motor, uint8_t address)
 	
 	enable_Slave(TMC6200);
 	// write address
-//  	SPI_Transmit_IT((unsigned char *)tbuf, 1, TMC6200);
+//  	spi_transmit_IT((unsigned char *)tbuf, 1, TMC6200);
 	spi_transmit(address & 0x7F);
 	// read data
 	for(int k = 0 ; k<4 ; k++)
@@ -54,7 +54,7 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 	tbuf[4] = 0xFF & value;
 	enable_Slave(TMC6200);
 	
-	SPI_Transmit_IT(tbuf, 5, TMC6200);
+	spi_transmit_IT(tbuf, 5, TMC6200);
 	
 	disable_Slave(TMC6200);
 }

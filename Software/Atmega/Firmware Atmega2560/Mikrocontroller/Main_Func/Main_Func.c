@@ -19,6 +19,7 @@ void IO_init(void)
 	PUMPE_DDR3 = PUMPE3_OUTPUT_MASK;
 	RFID_DDR = RFID_OUTPUT_MASK;
 	FLUSS_DDR = 0b00000000;
+	SPI_PORT |= SPI_MISO_PIN;
 }
 
 void heartbeat_LED(void)
@@ -30,7 +31,6 @@ void heartbeat_LED(void)
 void toggle_LED(void)
 {
 		LED_PORT = LED_PORT ^ (LEDR_BIT|LEDG_BIT|LEDB_BIT|LEDW_BIT);
-// 		SPI_CS_TMC4671_PORT = SPI_CS_TMC4671_PORT ^ (SPI_CS_TMC4671_BIT);
 }
 
 char check_Communication_Input_UART_0(void)
@@ -61,7 +61,8 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
-	Uart_Transmit_IT_PC("Proceed UART 0: \n\r");
+	char * ch = "Proceed UART 0: \n\r";
+	Uart_Transmit_IT_PC(ch);
 	cocktail_test_command(INPUT_UART_0);
 	
 	for (int i = 0; i < strlen((const char *)INPUT_UART_0);i++)

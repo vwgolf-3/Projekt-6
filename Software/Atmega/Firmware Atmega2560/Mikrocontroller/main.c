@@ -7,6 +7,9 @@
 
 // Einfügen der Standardbibliotheken
 #include <avr/io.h>
+#include <avr/pgmspace.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
 
 // Einbinden der eigenen Bibliotheken
 #include "pin_defs.h"
@@ -19,8 +22,11 @@
 #include "libraries/TMC4671/TMC4671.h"
 #include "libraries/TMC6200/TMC6200.h"
 #include "libraries/RC522/mfrc522.h"
-#include "libraries/SD-Karte/sdcard.h"
-#include "libraries/SD-Karte/sdprint.h"
+
+#include "libraries/SD-Karte/SD_routines.h"
+#include "libraries/SD-Karte/FAT32.h"
+
+
 
 // MainLoop
 int main(void)
@@ -37,80 +43,86 @@ int main(void)
 // 	TMC4671_init();
 // 	initTMC6200();
 // 	initTMC4671_Openloop();
-	mfrc522_init();
+// 	mfrc522_init();
 	zutaten_init();
 	cocktails_init();
 	init_Getraenke_func();
+
+	unsigned char option, error, data, FAT32_active;
+	unsigned int i;
+	unsigned char fileName[13];
+
+	_delay_ms(100);  //delay for VCC stabilization
+
+	PORTD |= 0x04; //switching ON the LED (for testing purpose only)
+
+	TX_NEWLINE;
+	TX_NEWLINE;
+	transmitString_F ((char*)PSTR("*********************************************"));
+	TX_NEWLINE;
+	transmitString_F ((char*)PSTR("    Dharmani's microSD Card Testing..  "));
+	TX_NEWLINE;
+	transmitString_F ((char*)PSTR("*********************************************"));
+	TX_NEWLINE;
+
+	cardType = 0;
+
+	for (i=0; i<10; i++)
+	{
+		error = SD_init();
+		if(!error) break;
+	}
+
+	if(error)
+	{
+		if(error == 1) transmitString_F((char*)PSTR("SD card not detected.."));
+		if(error == 2) transmitString_F((char*)PSTR("Card Initialization failed.."));
+
+// 		while(1);  //wait here forever if error in SD init
+	}else{
+		
+	switch (cardType)
+	{
+		case 1:transmitString_F((char*)PSTR("Standard Capacity Card (Ver 1.x) Detected!"));
+		break;
+		case 2:transmitString_F((char*)PSTR("High Capacity Card Detected!"));
+		break;
+		case 3:transmitString_F((char*)PSTR("Standard Capacity Card (Ver 2.x) Detected!"));
+		break;
+		default:transmitString_F((char*)PSTR("Unknown SD Card Detected!"));
+		break;
+	}
+	}
+
+	SPI_HIGH_SPEED;	//SCK - 4 MHz
+	_delay_ms(1);   //some delay
+
+
+	FAT32_active = 1;
+	error = getBootSectorData (); //read boot sector and keep necessary data in global variables
+	if(error)
+	{
+		TX_NEWLINE;
+		transmitString_F ((char*)PSTR("FAT32 not found!\r\n"));  //FAT32 incompatible drive
+		FAT32_active = 0;
+	}
+			findFiles(GET_LIST,0);
+			TX_NEWLINE
+
+	readFile( READ, (unsigned char *)"hoi.txt");
 	
-	
-	
-	
-    // array to hold responses
-    uint8_t res[5], buf[512], token;
-    uint32_t addr = 0x00000000;
+	Uart_Transmit_IT_PC("\r\n");
+	Uart_Transmit_IT_PC("\r\n");
+	Uart_Transmit_IT_PC((char *)buffer);
 
-    // initialize sd card
-    if(SD_init() != SD_SUCCESS)
-    {
-	    Uart_Transmit_IT_PC("Error initializaing SD CARD\r\n");
-    }
-    else
-    {
-	    Uart_Transmit_IT_PC("SD Card initialized\r\n");
-
-	    // read sector 0
-	    Uart_Transmit_IT_PC("\r\nReading sector: 0x");
-	    Uart_Transmit_IT_PC((uint8_t)(addr >> 24));
-	    Uart_Transmit_IT_PC((uint8_t)(addr >> 16));
-	    Uart_Transmit_IT_PC((uint8_t)(addr >> 8));
-	    Uart_Transmit_IT_PC((uint8_t)addr);
-	    res[0] = SD_readSingleBlock(addr, buf, &token);
-	    Uart_Transmit_IT_PC("\r\nResponse:\r\n");
-	    SD_printR1(res[0]);
-
-	    // if no error, print buffer
-	    if((res[0] == 0x00) && (token == SD_START_TOKEN))
-	    SD_printBuf(buf);
-	    // else if error token received, print
-	    else if(!(token & 0xF0))
-	    {
-		    Uart_Transmit_IT_PC("Error token:\r\n");
-		    SD_printDataErrToken(token);
-	    }
-
-	    // update address to 0x00000100
-	    addr = 0x00000100;
-
-	    // fill buffer with 0x55
-	    for(uint16_t i = 0; i < 512; i++) buf[i] = 0x55;
-
-	    Uart_Transmit_IT_PC("Writing 0x55 to sector: 0x");
-	    Uart_Transmit_IT_PC((uint8_t)(addr >> 24));
-	    Uart_Transmit_IT_PC((uint8_t)(addr >> 16));
-	    Uart_Transmit_IT_PC((uint8_t)(addr >> 8));
-	    Uart_Transmit_IT_PC((uint8_t)addr);
-
-	    // write data to sector
-	    res[0] = SD_writeSingleBlock(addr, buf, &token);
-
-	    Uart_Transmit_IT_PC("\r\nResponse:\r\n");
-	    SD_printR1(res[0]);
-
-	    // if no errors writing
-	    if(res[0] == 0x00)
-	    {
-		    if(token == SD_DATA_ACCEPTED)
-		    Uart_Transmit_IT_PC("Write successful\r\n");
-	    }
-    }
-
-	
 	// Mainroutine
 	while (1)
-	{																		// Check Communication MFRC522		check_Communication_Input_MFRC522();		// Check Communication UART		check_Communication_Input_UART();
+	{		// Check Communication MFRC522// 		check_Communication_Input_MFRC522();
+		// Check Communication UART		check_Communication_Input_UART();
 
 		//Testloop Blink LED
-//   		heartbeat_LED();
-_delay_ms(10);
+  	heartbeat_LED();
+// 		_delay_ms(10);
 	}
+	return 0;
 }

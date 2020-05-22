@@ -10,18 +10,20 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././pin_defs.h .././main_variables.h .././Main_Func/Main_Func.h \
  .././Main_Func/../libraries/Cocktail_functions/Cocktail_functions.h \
  .././Main_Func/../libraries/Cocktail_functions/../../pin_defs.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/API_Header.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Config.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Macros.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Bits.h \
@@ -33,7 +35,6 @@ main.d main.o: .././main.c \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Fields.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/SPI.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../../pin_defs.h \
  .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../RingBuffer/ring_buffer.h \
  .././Main_Func/../libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
@@ -54,7 +55,7 @@ main.d main.o: .././main.c \
  .././libraries/TMC6200/TMC6200.h .././libraries/RC522/mfrc522.h \
  .././libraries/RC522/mfrc522_cmd.h .././libraries/RC522/mfrc522_reg.h \
  .././libraries/RC522/../SPI/SPI.h .././libraries/RC522/../UART/UART.h \
- .././libraries/SD-Karte/sdcard.h .././libraries/SD-Karte/sdprint.h
+ .././libraries/SD-Karte/SD_routines.h .././libraries/SD-Karte/FAT32.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -78,6 +79,18 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
 .././pin_defs.h:
 
 .././main_variables.h:
@@ -90,12 +103,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/API_Header.h:
 
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Config.h:
@@ -103,8 +110,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Constants.h:
 
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../../TMC-API/tmc/helpers/Types.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
 
@@ -127,8 +132,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/TMC4671_Fields.h:
 
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/SPI.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 .././Main_Func/../libraries/Cocktail_functions/../TMC4671/../SPI/../../pin_defs.h:
 
@@ -180,6 +183,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././libraries/RC522/../UART/UART.h:
 
-.././libraries/SD-Karte/sdcard.h:
+.././libraries/SD-Karte/SD_routines.h:
 
-.././libraries/SD-Karte/sdprint.h:
+.././libraries/SD-Karte/FAT32.h:

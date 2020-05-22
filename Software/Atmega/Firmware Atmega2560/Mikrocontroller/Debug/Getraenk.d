@@ -1,5 +1,5 @@
-Getraenk.d Getraenk.o: ../libraries/Getraenk/Getraenk.c \
- ../libraries/Getraenk/Getraenk.h \
+Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
+ ../libraries/Cocktail_functions/Getraenk.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -17,12 +17,12 @@ Getraenk.d Getraenk.o: ../libraries/Getraenk/Getraenk.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../libraries/Getraenk/../UART/UART.h \
- ../libraries/Getraenk/../UART/../RingBuffer/ring_buffer.h \
+ ../libraries/Cocktail_functions/../UART/UART.h \
+ ../libraries/Cocktail_functions/../UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h
 
-../libraries/Getraenk/Getraenk.h:
+../libraries/Cocktail_functions/Getraenk.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
 
@@ -58,9 +58,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-../libraries/Getraenk/../UART/UART.h:
+../libraries/Cocktail_functions/../UART/UART.h:
 
-../libraries/Getraenk/../UART/../RingBuffer/ring_buffer.h:
+../libraries/Cocktail_functions/../UART/../RingBuffer/ring_buffer.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
