@@ -1,0 +1,4 @@
+Name:Blue Lagoon
+Mengen:66,0,0,0,0,0,0,17,0,0,0,17
+Alkohol:1
+Bild:5

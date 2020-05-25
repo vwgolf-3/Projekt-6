@@ -209,11 +209,10 @@ ISR(USART3_RX_vect)
 //*************************************************
 unsigned char receiveByte( void )
 {
-	unsigned char data, status;
+	unsigned char data;
 	
 	while(RB_length(&rb_rx_PC)==0); 	// Wait for incomming data
 	
-	status = UCSR0A;
 	data = RB_readByte(&rb_rx_PC);
 	
 	return(data);

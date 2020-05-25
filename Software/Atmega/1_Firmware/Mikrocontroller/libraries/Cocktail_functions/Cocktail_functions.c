@@ -37,7 +37,9 @@ void cocktail_check_command(char page, char button)
 				- Integer to ASCI
 				- Setze Bild des Getränks
 */
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk, 1 , 1);
+				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				Uart_Transmit_IT_PC("\r\n");
 				setze_startanzeige(aktuellesGetraenk);
 				
 			break;
@@ -54,7 +56,9 @@ void cocktail_check_command(char page, char button)
 				- Schreibe Name des Getränks
 				- Setze Bild des Getränks
 */
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk, 1 , 0);
+				aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				Uart_Transmit_IT_PC("\r\n");
 				setze_startanzeige(aktuellesGetraenk);
 					
 			break;
@@ -321,8 +325,6 @@ void cocktail_test_command(unsigned char INPUT[256])
 {
 	Uart_Transmit_IT_PC((char *)INPUT);
 	Uart_Transmit_IT_PC("\r\n");
-
-	lese_textfile_in_getraenk(1);
 }
 
 void fuelle_getraenk(uint16_t fuellmenge)
@@ -518,6 +520,7 @@ uint8_t lese_sensor(uint8_t Sensor)
 
 void init_Getraenke_func()
 {
+	aktuellesGetraenk_file = head_getraenk_file;
 	aktuellesGetraenk = head_getraenk;
 	nextion_change_page(STARTANZEIGE);
 	nextion_setText("cocktailname",aktuellesGetraenk->name);
@@ -597,7 +600,11 @@ void lese_textfile_in_getraenk(uint8_t file)
 {
 	// Erstellen eines Strings in Form von: "file.txt"
 	char buff[20];
-	itoa(file,(char *)buff,10);
+	char buff2[4];
+	itoa((int)file,(char *)buff,10);
+	itoa((int)file,(char *)buff2,10);
+	Uart_Transmit_IT_PC((char *)buff2);
+	Uart_Transmit_IT_PC("\r");
 	char * txt = ".txt";	
 	strcat((char *)buff,txt);
 	
@@ -610,7 +617,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 	readFile( READ, (unsigned char *)buff);
 		
 	// Trennungszeichen definieren, Pointer initialisiern für Abschnitte
-	char delimiter[] = ":;\r\n";
+	char delimiter[] = ":,{}\r\n";
 	char *ptr;
 	// initialisieren und ersten Abschnitt erstellen (1. Kopf)
 	
@@ -620,50 +627,39 @@ void lese_textfile_in_getraenk(uint8_t file)
 /*
 	Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:
 	********************************************************************
-	Name:Getraenk 1;
-	Mengen:0,0,0,0,0,0,0,0,0,0;
-	Alkohol:1;
-	Bild:2;
+	Name:Getraenk 1
+	Mengen:{0,0,0,0,0,0,0,0,0,0}
+	Alkohol:1
+	Bild:2
 */ 
 	while(ptr != NULL) {
 			
 	// Kopf prüfen und jeweilige Aktion ausführen
 		if (pruefe_kopf(ptr, "Name"))
 		{
-			Uart_Transmit_IT_PC("It's a Match (1)!\r");
 			ptr = strtok(NULL, delimiter);
 			strcpy(aktuellesGetraenk->name,ptr);
-			Uart_Transmit_IT_PC(aktuellesGetraenk->name);
-			Uart_Transmit_IT_PC("\r");
 		}
 		
 		if (pruefe_kopf(ptr, "Mengen"))
-		{
-			Uart_Transmit_IT_PC("It's a Match (2)!\r");
+		{		
+			for (int i = 0 ; i < 12 ; i++)
+			{
+				ptr = strtok(NULL,delimiter);
+				*(aktuellesGetraenk->mengen + i) = atoi(ptr);
+			}
 			ptr = strtok(NULL, delimiter);
-// 			char *ptr2;
-// 			int i = 0;
-// 			ptr2 = strtok(ptr,",");
-// 			*(aktuellesGetraenk->mengen + i) = *(ptr2+i);
-// 			i++;
-// 			while (ptr != NULL)
-// 			{
-// 				ptr2 = strtok(NULL,",");
-// 				*(aktuellesGetraenk->mengen + i) = *(ptr2+i);
-// 				i++;
-// 			}
 		}
 		
 		if (pruefe_kopf(ptr, "Alkohol"))
 		{
-			Uart_Transmit_IT_PC("It's a Match (3)!\r");
 			ptr = strtok(NULL, delimiter);
 		}
 		
 		if (pruefe_kopf(ptr, "Bild"))
 		{
-			Uart_Transmit_IT_PC("It's a Match (4)!\r");
 			ptr = strtok(NULL, delimiter);
+			(aktuellesGetraenk->picture) = atoi(ptr);
 		}
 		
 	// Neuer Kopf suchen und ptr darauf zeigen lassen
@@ -701,4 +697,53 @@ uint8_t compare_string(char *first, char *second)
 	{
 	return -1;
 	}
+}
+
+void SD_startup(void)
+{
+	cardType = 0;
+
+	for (i=0; i<10; i++)
+	{
+		error = SD_init();
+		if(!error) break;
+	}
+
+	if(error)
+	{
+		if(error == 1) Uart_Transmit_IT_PC((char*)("SD card not detected..\r"));
+		if(error == 2) Uart_Transmit_IT_PC((char*)("Card Initialization failed..\r"));
+
+		// 		while(1);  //wait here forever if error in SD init
+		}else{
+		
+		switch (cardType)
+		{
+			case 1:Uart_Transmit_IT_PC(("Standard Capacity Card (Ver 1.x) Detected!\r"));
+			break;
+			case 2:Uart_Transmit_IT_PC(("High Capacity Card Detected!\r"));
+			break;
+			case 3:Uart_Transmit_IT_PC(("Standard Capacity Card (Ver 2.x) Detected!\r"));
+			break;
+			default:Uart_Transmit_IT_PC(("Unknown SD Card Detected!\r"));
+			break;
+		}
+	}
+
+	SPI_HIGH_SPEED;	//SCK - 4 MHz
+	_delay_ms(1);   //some delay
+
+
+	FAT32_active = 1;
+	error = getBootSectorData (); //read boot sector and keep necessary data in global variables
+	if(error)
+	{
+		TX_NEWLINE;
+		Uart_Transmit_IT_PC (("FAT32 not found!\r\n"));  //FAT32 incompatible drive
+		FAT32_active = 0;
+	}
+	findFiles(GET_LIST,0);
+	TX_NEWLINE
+	TX_NEWLINE
+
 }

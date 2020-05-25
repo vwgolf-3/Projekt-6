@@ -1,0 +1,4 @@
+Name:Kamikaze
+Mengen:0,0,0,0,35,0,0,0,0,35,0,30
+Alkohol:1
+Bild:11

@@ -1,0 +1,4 @@
+Name:Shirley Temple
+Mengen:45,0,45,0,0,0,10,0,0,0,0,0
+Alkohol:0
+Bild:23

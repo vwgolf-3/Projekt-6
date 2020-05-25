@@ -1,0 +1,4 @@
+Name: Roy Rogers
+Mengen:0,95,0,0,0,0,5,0,0,0,0,0
+Alkohol:0
+Bild:22

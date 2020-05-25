@@ -1,0 +1,4 @@
+Name:Monkey Gland
+Mengen:0,0,0,35,0,0,5,0,60,0,0,0
+Alkohol:1
+Bild:13

@@ -61,6 +61,8 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 
 void initTMC6200(void)
 {
+ 	EN_TMC6200_PORT |= EN_TMC6200_BIT;
+
 	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000030);
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, );
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_IOIN_OUTPUT, );

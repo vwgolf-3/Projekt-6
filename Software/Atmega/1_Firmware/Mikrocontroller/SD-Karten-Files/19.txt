@@ -1,0 +1,4 @@
+Name:Spezi
+Mengen:50,50,0,0,0,0,0,0,0,0,0,0
+Alkohol:0
+Bild:21

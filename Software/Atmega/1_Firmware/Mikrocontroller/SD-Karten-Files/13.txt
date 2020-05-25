@@ -1,0 +1,4 @@
+Name:Silver Bullet
+Mengen:0,0,0,0,0,10,0,0,60,0,30,0
+Alkohol:1
+Bild:15

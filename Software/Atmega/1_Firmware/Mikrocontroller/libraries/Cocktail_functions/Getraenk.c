@@ -15,92 +15,18 @@
 void cocktails_init(void)
 {
 	address_getraenk  = (uint8_t *)0;
-	
-	char standardGetraenke[10][20] = {
-		"7 & 7",
-		"Blue Kamikaze",
-		"Blue Lagoon",
-		"Buck Cocktails",
-		"Gimlet",
-		"Gin Sin",
-		"Highball",
-		"Whisky Cola",
-		"Kamikaze",
-		"Martini Lemon Drop"
-// 		,
-// 		"Monkey Gland",
-// 		"Screwdriver",
-// 		"Silver Bullet",
-// 		"Ward 8",
-// 		"WhiteLady",
-// 		"7-Up",
-// 		"Coca Cola",
-// 		"Orangensaft",
-// 		"Spezi",
-// 		"Roy Rogers",
-// 		"Shirley Temple"
-	};
-
-	uint8_t standardZutaten[21][15] = {
-		{75,0,0,0,0,0,0,0,0,0,0,25},
-		{0,0,0,0,33,0,0,34,0,0,0,33},
-		{66,0,0,0,0,0,0,17,0,0,0,17},
-		{0,0,60,0,7,0,0,0,0,0,0,33},
-		{0,0,0,0,15,0,15,0,70,0,0,0},
-		{0,0,0,40,0,15,5,0,40,0,0,0},
-		{0,0,70,0,0,0,0,0,0,0,30,0},
-		{0,70,0,0,0,0,0,0,0,0,30,0},
-		{0,0,0,0,35,0,0,0,0,35,0,30},
-		{0,0,0,0,0,25,0,0,0,34,0,41},
-		{0,0,0,35,0,0,5,0,60,0,0,0},
-		{0,0,0,65,0,0,0,0,0,0,0,35},
-		{0,0,0,0,0,10,0,0,60,0,30,0},
-		{0,0,0,15,0,10,5,0,0,0,70,0},
-		{0,0,0,0,0,15,0,0,50,35,0,0},
-		{100,0,0,0,0,0,0,0,0,0,0,0},
-		{0,100,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,100,0,0,0,0,0,0,0,0},
-		{50,50,0,0,0,0,0,0,0,0,0,0},
-		{0,95,0,0,0,0,5,0,0,0,0,0},
-		{45,0,45,0,0,0,10,0,0,0,0,0}
-	};
-	
-	uint8_t pictures[21] =
-	{
-3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23
-	};	
-
-	uint8_t standardAlkohol[21] = {
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		1,
-		0,
-		0,
-		0,
-		0,
-		0,
-		0
-	};
-
-	
 
 	head_getraenk = NULL;
 	getraenk_t * tmp;
-	for ( int i = 0 ; i<10;i++){
-		tmp = create_new_getraenk(standardGetraenke[i],standardZutaten[i],i,standardAlkohol[i], pictures[i]);
-		head_getraenk = insert_at_head(&head_getraenk, tmp);
+	uint8_t typ [12]= {0,0,0,0,0,0,0,0,0,0,0,0};
+	tmp = create_new_getraenk("Martini Lemon Drop",(uint8_t*)typ,1,0,24);
+	head_getraenk = insert_at_head(&head_getraenk, tmp);
+	
+	head_getraenk_file = NULL;
+	getraenk_file_t * tmp2;
+	for ( int i = 1 ; i<22;i++){
+		tmp2 = create_new_getraenk_file(i);
+		head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
 	}
 	
 // 	add_EEPROM_drinks_to_list((uint8_t *) 0);
@@ -364,4 +290,29 @@ void delete_EEPROM (uint8_t * add)
 	{
 		eeprom_write_byte(add+i,'\0');
 	}
+}
+
+getraenk_file_t *create_new_getraenk_file(uint8_t file_to_create)
+{
+	getraenk_file_t *newFile = calloc(1,sizeof(getraenk_file_t));
+	newFile->file = file_to_create;
+	return newFile;
+}
+
+getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *file_to_insert)
+{
+	file_to_insert->next = *head;
+	file_to_insert->prev = NULL;
+	
+	if((*head) == NULL)
+	{
+		tail_getraenk_file = file_to_insert;
+	} else
+	{
+		(*head)->prev = file_to_insert;
+		file_to_insert->prev = tail_getraenk_file;
+	}
+	*head = file_to_insert;
+	tail_getraenk_file->next = *head;
+	return file_to_insert;
 }

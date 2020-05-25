@@ -25,7 +25,7 @@ void IO_init(void)
 void heartbeat_LED(void)
 {
 	toggle_LED();
-   		_delay_ms(1000);
+   		_delay_ms(200);
 }
 
 void toggle_LED(void)

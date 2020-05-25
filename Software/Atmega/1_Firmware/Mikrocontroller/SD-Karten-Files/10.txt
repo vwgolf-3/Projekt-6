@@ -1,0 +1,4 @@
+Name:Martini Lemon Drop
+Mengen:0,0,0,0,0,25,0,0,0,34,0,41
+Alkohol:1
+Bild:12

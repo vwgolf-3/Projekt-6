@@ -1,0 +1,4 @@
+Name:White Lady
+Mengen:0,0,0,0,0,15,0,0,50,35,0,0
+Alkohol:1
+Bild:17

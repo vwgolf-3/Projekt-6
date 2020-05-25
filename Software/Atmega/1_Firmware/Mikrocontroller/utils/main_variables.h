@@ -33,8 +33,4 @@ char cntr_End_UART_2 = 0;
 // char UART_recieved_finished_3 = 0;
 // char cntr_End_UART_3 = 0;
 
-unsigned char option, error, data, FAT32_active;
-unsigned int i;
-unsigned char fileName[13];
-
 #endif /* MAIN_VARIABLES_H_ */

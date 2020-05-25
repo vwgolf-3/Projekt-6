@@ -1,0 +1,4 @@
+Name:Whisky Cola
+Mengen:0,70,0,0,0,0,0,0,0,0,30,0
+Alkohol:1
+Bild:10

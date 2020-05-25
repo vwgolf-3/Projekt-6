@@ -1,0 +1,4 @@
+Name:Orangensaft
+Mengen:0,0,0,100,0,0,0,0,0,0,0,0
+Alkohol:0
+Bild:20

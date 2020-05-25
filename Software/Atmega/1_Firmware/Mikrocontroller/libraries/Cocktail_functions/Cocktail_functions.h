@@ -18,6 +18,10 @@
 #include "../SD-Karte/SD_routines.h"
 #include "../SD-Karte/FAT32.h"
 
+unsigned char option, error, data, FAT32_active;
+unsigned int i;
+unsigned char fileName[13];
+
 // Initialisierungen
 void init_Getraenke_func();
 
@@ -37,6 +41,7 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 getraenk_t * shift_getraenk(getraenk_t *getraenk_to_shift, uint8_t ngetr, uint8_t down_up);
 
 // SD-Karte
+void SD_startup(void);
 uint8_t compare_string(char *first, char *second);
 uint8_t pruefe_kopf(char * beginn, char string[]);
 void lese_textfile_in_getraenk(uint8_t file);

@@ -1,0 +1,4 @@
+Name:Gin & Sin
+Mengen:0,0,0,40,0,15,5,0,40,0,0,0
+Alkohol:1
+Bild:8

@@ -1,0 +1,4 @@
+Name:Buck Cocktails
+Mengen:0,0,60,0,7,0,0,0,0,0,0,33
+Alkohol:1
+Bild:6

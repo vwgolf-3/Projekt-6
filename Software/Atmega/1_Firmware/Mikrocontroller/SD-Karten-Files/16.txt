@@ -1,0 +1,4 @@
+Name:7-Up
+Mengen:100,0,0,0,0,0,0,0,0,0,0,0
+Alkohol:0
+Bild:18
