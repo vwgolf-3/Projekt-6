@@ -8,6 +8,7 @@
 
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
+#include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -43,6 +44,7 @@ extern unsigned char cntr_UART_1;
 extern unsigned char INPUT_UART_1[256];
 extern char UART_recieved_finished_1;
 extern char cntr_End_UART_1;
+extern char * ptr_Uart_1;
 
 //Variabeln UART_2
 extern unsigned char cntr_UART_2;

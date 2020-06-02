@@ -16,6 +16,7 @@
 
 struct zutat{
 	char * name;
+	char nr;
 	struct zutat* next;
 	struct zutat* prev;
 };
@@ -32,6 +33,6 @@ void zutaten_init(void);
 
 // Cocktail-Liste
 zutat_t *insert_zutat_at_head(zutat_t **head_zut, zutat_t *zutat_to_insert);
-zutat_t *create_neue_zutat(char * name);
+zutat_t *create_neue_zutat(char * name, char k);
 
 #endif /* ZUTATEN_H_ */

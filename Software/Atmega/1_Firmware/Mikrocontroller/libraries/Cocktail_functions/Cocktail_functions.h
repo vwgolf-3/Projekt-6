@@ -22,11 +22,16 @@ unsigned char option, error, data, FAT32_active;
 unsigned int i;
 unsigned char fileName[13];
 
+// Variable für Liste
+uint8_t i_Liste;
+uint8_t block_list_hoch;
+uint8_t block_list_runter;
+
 // Initialisierungen
 void init_Getraenke_func();
 
 // Commands Display/ESP
-void cocktail_check_command(char page, char button);
+void cocktail_check_command(int8_t page_in, int8_t button_in);
 
 // Zubereitung
 void fuelle_getraenk(uint16_t fuellmenge);
@@ -38,7 +43,8 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk);
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 
 // Getränke-Pointer
-getraenk_t * shift_getraenk(getraenk_t *getraenk_to_shift, uint8_t ngetr, uint8_t down_up);
+void erstelle_Liste_name(char * input);
+void erstelle_Liste_zutat(char * input);
 
 // SD-Karte
 void SD_startup(void);
@@ -48,5 +54,26 @@ void lese_textfile_in_getraenk(uint8_t file);
 
 // Testfunktion
 void cocktail_test_command(unsigned char INPUT[256]);
+
+// Subfunktionen
+void check_startseite(uint8_t button);
+void check_zutatenanzeige(uint8_t button);
+void check_listenanzeige(uint8_t button);
+void choose_drink(uint8_t nr);
+void check_zubabfrage(uint8_t button);
+void check_zubbildschirm(uint8_t button);
+void check_menuanzeige(uint8_t button);
+void check_bearbeitungsanzeige(uint8_t button);
+void check_ceinstanzeige(uint8_t button);
+void check_reinanzeige1(uint8_t button);
+void check_reinanzeige2(uint8_t button);
+void check_reinanzeige3(uint8_t button);
+void check_infoanzeige(uint8_t button);
+void check_abbruchanzeige(uint8_t button);
+void check_fehleranzeige(uint8_t button);
+void check_erstanzeige1(uint8_t button);
+void check_erstanzeige2(uint8_t button);
+
+extern unsigned char INPUT_UART_1[256];
 
 #endif /* COCKTAIL_FUNCTIONS_H_ */

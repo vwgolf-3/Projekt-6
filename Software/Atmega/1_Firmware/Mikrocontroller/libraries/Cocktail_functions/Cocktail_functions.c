@@ -6,213 +6,251 @@
  */ 
 
 #include "Cocktail_functions.h"
+#include "../Main_functions/Main_Func.h"
 
+void cocktail_test_command(unsigned char INPUT[256])
+{
+/*
+	Diese Funktion ist eine Testfunktion, welche ausgelöst wird, wenn etwas über UART0 (PC) ankommt
+*/
+	Uart_Transmit_IT_PC((char *)INPUT);
+	Uart_Transmit_IT_PC("\r\n");
+}
 
-void cocktail_check_command(char page, char button)
-{	
+void cocktail_check_command(int8_t page, int8_t button)
+{
+/*
+	Diese Funktion checkt, von welcher Seiter der Befehl kommt
+*/
 	switch (page)
 	{
+		/*0x01 = 0d01*/
 	case STARTANZEIGE:
+		check_startseite(button);	
+	break;
+		
+		/*0x02 = 0d02*/
+	case ZUTATENANZEIGE:
+		check_zutatenanzeige(button);		
+	break;
+		
+		/*0x03 = 0d03*/
+	case LISTENANZEIGE:
+		check_listenanzeige(button);
+	break;
 	
-		switch (button)
-		{
-			
-			case ZUTATEN:
+		/*0x04 = 0d04*/
+	case ZUBABFRAGE:
+		check_zubabfrage(button);	
+	break;
+	
+		/*0x05 = 0d05*/
+	case ZUBBILDSCHIRM:
+		check_zubbildschirm(button);	
+	break;
+		
+		/*0x07 = 0d07*/
+	case MENUANZEIGE:
+		check_menuanzeige(button);
+	break;
+	
+		/*0x08 = 0d08*/
+	case BEARBEITUNGSANZEIGE:
+		check_bearbeitungsanzeige(button);
+	break;
+	
+		/*0x09 0d09*/
+	case CEINSTANZEIGE:
+		check_ceinstanzeige(button);
+	break;
+	
+		/*0x0A = 0d10*/
+	case REINANZEIGE1:
+		check_reinanzeige1(button);	
+	break;
+		
+		/*0x0B = 0d11*/
+	case REINANZEIGE2:
+		check_reinanzeige2(button);	
+	break;
+	
+		/*0x0C = 0d12*/
+	case REINANZEIGE3:
+		check_reinanzeige3(button);
+	break;
+		/*0x0D = 0d13*/
+	case INFOANZEIGE:
+		check_infoanzeige(button);
+	break;
+	
+		/*0x0E = 0d14*/
+	case ABBRUCHANZEIGE:
+		check_abbruchanzeige(button);
+	break;
+	
+		/*0x0F = 0d15*/
+	case FEHLERANZEIGE:
+		check_fehleranzeige(button);
+	break;
+	
+		/*0x10 = 0d16*/
+	case ERSTANZEIGE1:
+		check_erstanzeige1(button);
+	break;
+	
+		/*0x11 = 0d17*/
+	case ERSTANZEIGE2:
+		check_erstanzeige2(button);
+	break;
+	}
+}
+
+void check_startseite(uint8_t button)
+{
+	switch (button)
+	{
+		
+		case ZUTATEN:
 /*
 				- Wechsle auf Zutatenseite
 				- Setze Überschrift
-				
-
 */
-				nextion_change_page(ZUTATENANZEIGE);
-				nextion_setText("cocktailname",aktuellesGetraenk->name);
-				erstelle_Zutatenliste(aktuellesGetraenk);
+			nextion_change_page(ZUTATENANZEIGE);
+			nextion_setText("cocktailname",aktuellesGetraenk->name);
+			erstelle_Zutatenliste(aktuellesGetraenk);
 
-			break;
+		break;
 			
-			case LINKS:
+		case LINKS:
 /*
-				- Wähle vorgehendes Getränk aus
-				- Schreibe Name des Getränks
-				- Integer to ASCI
-				- Setze Bild des Getränks
+			- Wähle vorgehendes Getränk aus
+			- Schreibe Name des Getränks
+			- Integer to ASCI
+			- Setze Bild des Getränks
 */
-				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
-				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-				Uart_Transmit_IT_PC("\r\n");
-				setze_startanzeige(aktuellesGetraenk);
-				
-			break;
+			aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			Uart_Transmit_IT_PC("\r\n");
+			setze_startanzeige(aktuellesGetraenk);
 			
-			case B3:
-				
-				nextion_change_page(ZUBABFRAGE);
-				
-			break;
+		break;
+		
+		case B3:
 			
-			case RECHTS:
+			nextion_change_page(ZUBABFRAGE);
+			
+		break;
+		
+		case RECHTS:
 /*
-				- Wähle nächstes Getränk aus
-				- Schreibe Name des Getränks
-				- Setze Bild des Getränks
+			- Wähle nächstes Getränk aus
+			- Schreibe Name des Getränks
+			- Setze Bild des Getränks
 */
-				aktuellesGetraenk_file = aktuellesGetraenk_file->next;
-				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-				Uart_Transmit_IT_PC("\r\n");
-				setze_startanzeige(aktuellesGetraenk);
-					
+			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			Uart_Transmit_IT_PC("\r\n");
+			setze_startanzeige(aktuellesGetraenk);
+				
+		break;
+		
+		case LISTE:
+		
+			nextion_change_page(LISTENANZEIGE);
+			i_Liste = 0;
+			erstelle_Liste_name("cocktail");
 			break;
-			
-			case LISTE:
-			
-				nextion_change_page(LISTENANZEIGE);
-				aktuellesGetraenk = head_getraenk;
-				for (int i = 1 ; i < 9 ; i++)
-				{
-					char string[21] = {'\0'};
-					char buff[4] = {0};
-					strcat((char *)string, (const char *)"cocktail");
-					itoa(i,buff,10);
-					strcat((char *)string, (const char *)buff);
-					nextion_setText(string,aktuellesGetraenk->name);
-					aktuellesGetraenk = aktuellesGetraenk->next;
-					_delay_ms(10);
-				}
-
-			break;
-			
-			case MENU:
-			
-			break;
-			
-			case ALKOHOLJANEIN:
-			
-			break;
-		}
+		
+		case MENU:
+		
+			nextion_change_page(MENUANZEIGE);
 		
 		break;
 		
-	case ZUTATENANZEIGE:
-		
-		switch(button)
-		{
-			case OKZUTATEN:
-			
-				nextion_change_page(STARTANZEIGE);
-				setze_startanzeige(aktuellesGetraenk);
-					
-			break;
-			
-			case ZUTATENLISTE:
-			
-				nextion_change_page(STARTANZEIGE);
-				setze_startanzeige(aktuellesGetraenk);
-				
-			break;
-		}
+		case ALKOHOLJANEIN:
 		
 		break;
+	}
+}
+
+void check_zutatenanzeige(uint8_t button)
+{
+	switch(button)
+	{
+		case OKZUTATEN:
+			nextion_change_page(STARTANZEIGE);
+			setze_startanzeige(aktuellesGetraenk);
+		break;
 		
-	case LISTENANZEIGE:
-	
-		switch (button)
-		{
-			case COCKTAIL1:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,8,1);
-				setze_startanzeige(aktuellesGetraenk);
-							
-			break;
-			
-			case COCKTAIL2:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,7,1);
-				setze_startanzeige(aktuellesGetraenk);
-			
-			break;
-			
-			case COCKTAIL3:
+		case ZUTATENLISTE:
+			nextion_change_page(STARTANZEIGE);
+			setze_startanzeige(aktuellesGetraenk);	
+		break;
+	}
+}
 
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,6,1);
-				setze_startanzeige(aktuellesGetraenk);
-			
-			break;
-			
-			case COCKTAIL4:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,5,1);
-				setze_startanzeige(aktuellesGetraenk);
-				
-			break;
-			
-			case COCKTAIL5:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,4,1);
-				setze_startanzeige(aktuellesGetraenk);
-				
-			break;
-			
-			case COCKTAIL6:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,3,1);
-				setze_startanzeige(aktuellesGetraenk);
-				
-			break;
-			
-			case COCKTAIL7:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,2,1);
-				setze_startanzeige(aktuellesGetraenk);
-				
-			break;
-			
-			case COCKTAIL8:
-			
-				aktuellesGetraenk = shift_getraenk(aktuellesGetraenk,1,1);
-				setze_startanzeige(aktuellesGetraenk);
-
-			break;
-			
-			case RAUFLIST:
-				for (int i = 1 ; i < 9 ; i++)
-				{
-					char string[21] = {'\0'};
-					char buff[4] = {0};
-					strcat((char *)string, (const char *)"cocktail");
-					itoa(i,buff,10);
-					strcat((char *)string, (const char *)buff);
-					nextion_setText(string,aktuellesGetraenk->name);
-					aktuellesGetraenk = aktuellesGetraenk->next;
-					_delay_ms(10);
-				}			
-			break;
-			
-			case 10:
-			
-				nextion_change_page(STARTANZEIGE);
-// 				for (int i = 1 ; i < 9 ; i++)
-// 				{
-// 					char string[21] = {'\0'};
-// 					char buff[4] = {0};
-// 					strcat((char *)string, (const char *)"cocktail");
-// 					itoa(i,buff,10);
-// 					strcat((char *)string, (const char *)buff);
-// 					nextion_setText(string,aktuellesGetraenk->name);
-// 					aktuellesGetraenk = aktuellesGetraenk->prev;
-// 					_delay_ms(10);
-// 				}
-			
-			break;
-		}
-	
-	break;
-	
-	case ZUBABFRAGE:
-	
+void check_listenanzeige(uint8_t button)
+{
 	switch (button)
 	{
-		case KLEIN:
-			
+		case COCKTAIL1:
+			choose_drink(1);
+		break;
+		
+		case COCKTAIL2:
+			choose_drink(2);
+		break;
+		
+		case COCKTAIL3:
+			choose_drink(3);	
+		break;
+		
+		case COCKTAIL4:
+			choose_drink(4);		
+		break;
+		
+		case COCKTAIL5:
+			choose_drink(5);
+		break;
+		
+		case COCKTAIL6:
+			choose_drink(6);
+		break;
+		
+		case COCKTAIL7:
+			choose_drink(7);
+		break;
+		
+		case COCKTAIL8:
+			choose_drink(8);
+		break;
+		
+		case RAUFLIST1:
+			block_list_runter = 0;
+			if (!block_list_hoch)
+			{
+				i_Liste -= 8;
+				erstelle_Liste_name("cocktail");
+			}		
+		break;
+		
+		case RUNTERLIST1:
+			block_list_hoch = 0;
+			if (!block_list_runter)
+			{
+				i_Liste += 8;
+				erstelle_Liste_name("cocktail");
+			}	
+		break;
+	}
+	
+}
+
+void check_zubabfrage(uint8_t button)
+{
+	switch (button)
+	{
+		case KLEIN:		
 			nextion_change_page(ZUBBILDSCHIRM);
 			nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
 			_delay_ms(1000);
@@ -222,12 +260,9 @@ void cocktail_check_command(char page, char button)
 			aktuellesGetraenk = head_getraenk;
 			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
-
-		
 		break;
 		
 		case GROSS:
-		
 			nextion_change_page(ZUBBILDSCHIRM);
 			nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
 			_delay_ms(1000);
@@ -237,94 +272,327 @@ void cocktail_check_command(char page, char button)
 			aktuellesGetraenk = head_getraenk;
 			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
-			
 		break;
 		
 		case ABBRUCHZUBAB:
-		
 			nextion_change_page(STARTANZEIGE);
-		
 		break;
 	}
-	
-	break;
-	
-	case ZUBBILDSCHIRM:
-	
+}
+
+void check_zubbildschirm(uint8_t button)
+{
 	switch (button)
 	{
-		case ZUFALLSTEXT:
-		
-		break;
-		
+
 		case ABBRUCHZUB:
 		
 		break;
 	}
-	
-	break;
-	
-	case BEREITANZEIGE:
-	
+}
+
+void check_menuanzeige(uint8_t button)
+{
 	switch (button)
 	{
-		case BEREIT:
+		case COCKTAILBEARBEITEN:
+		
+		nextion_change_page(BEARBEITUNGSANZEIGE);
+		i_Liste = 0;
+		erstelle_Liste_name("bearbcocktail");
+		
+		break;
+		
+		case COCKTAILERSTELLEN:
+		
+		nextion_change_page(ERSTANZEIGE1);
+		
+		break;
+		
+		case MASCHINEREINIGEN:
+		
+		nextion_change_page(REINANZEIGE1);
+		
+		break;
+		
+		case ZURUECK1:
+		
+		nextion_change_page(MENUANZEIGE);
 		
 		break;
 	}
-	
-	break;
-	
-	case MENUANZEIGE:
-	
-	break;
-	
-	case BEARBEITUNGSANZEIGE:
-	
-	break;
-	
-	case CEINSTANZEIGE:
-	
-	break;
-	
-	case REINANZEIGE1:
-	
-	break;
-	
-	case REINANZEIGE2:
-	
-	break;
-	
-	case REINANZEIGE3:
-	
-	break;
-	
-	case INFOANZEIGE:
-	
-	break;
-	
-	case ABBRUCHANZEIGE:
-	
-	break;
-	
-	case FEHLERANZEIGE:
-	
-	break;
-	
-	case ERSTANZEIGE1:
-	
-	break;
-	
-	case ERSTANZEIGE2:
-	
-	break;
+}
+
+void check_bearbeitungsanzeige(uint8_t button)
+{
+	switch (button)
+	{
+		case BEARBCOCKTAIL1:
+			lese_textfile_in_getraenk(i_Liste + 1);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL2:
+			lese_textfile_in_getraenk(i_Liste + 2);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL3:
+			lese_textfile_in_getraenk(i_Liste + 3);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL4:
+			lese_textfile_in_getraenk(i_Liste + 4);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL5:
+			lese_textfile_in_getraenk(i_Liste + 5);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL6:
+			lese_textfile_in_getraenk(i_Liste + 6);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL7:
+			lese_textfile_in_getraenk(i_Liste + 7);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case BEARBCOCKTAIL8:
+			lese_textfile_in_getraenk(i_Liste + 8);
+			nextion_change_page(CEINSTANZEIGE);
+			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			aktuelleZutat = head_zut;
+			erstelle_Liste_zutat("zutat");
+		break;
+		
+		case RAUFLIST2:
+			block_list_runter = 0;
+			if (!block_list_hoch)
+			{
+				i_Liste -= 8;
+				erstelle_Liste_name("bearbcocktail");
+			}
+		break;
+		
+		case RUNTERLIST2:
+			block_list_hoch = 0;
+			if (!block_list_runter)
+			{
+				i_Liste += 8;
+				erstelle_Liste_name("bearbcocktail");
+			}
+		break;		
+	}	
+}
+
+void check_ceinstanzeige(uint8_t button)
+{
+		char buff[5];
+
+	switch(button)
+	{
+		case RAUFLIST3:
+			block_list_runter = 0;
+			if (!block_list_hoch)
+			{
+				i_Liste -= 4;
+				erstelle_Liste_zutat("zutat");
+			}
+		break;
+		
+		case RUNTERLIST3:
+			block_list_hoch = 0;
+			if (!block_list_runter)
+			{
+				i_Liste += 4;
+				erstelle_Liste_zutat("zutat");
+			}
+		break;
+		
+		case STANDARDEINST:
+			Uart_Transmit_IT_Display("get slider1.val");
+			endConversation();
+		break;
+		
+		case SPEICHERN1:
+		
+			nextion_change_page(STARTANZEIGE);
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			
+		break;
+		
+		case 5:
+			Uart_Transmit_IT_Display("get slider1.val");
+			endConversation();
+		while (check_Communication_Input_UART_1()==0)
+		;
+		proceed_Communication_INPUT_UART_1();
+		buff[5];
+		if (INPUT_UART_1[1]==255)
+		{
+			itoa(0,(char *)buff,10);
+			}else{
+			itoa(INPUT_UART_1[1],(char *)buff,10);
+		}
+		nextion_setText("menge1",buff);
+		break;
+		
+		case 6:
+			Uart_Transmit_IT_Display("get slider2.val");
+			endConversation();
+		while (check_Communication_Input_UART_1()==0)
+		;
+		proceed_Communication_INPUT_UART_1();
+		buff[5];
+		if (INPUT_UART_1[1]==255)
+		{
+			itoa(0,(char *)buff,10);
+			}else{
+			itoa(INPUT_UART_1[1],(char *)buff,10);
+		}
+		nextion_setText("menge2",buff);
+		break;
+		
+		case 7:
+			Uart_Transmit_IT_Display("get slider3.val");
+			endConversation();
+		while (check_Communication_Input_UART_1()==0)
+		;
+		proceed_Communication_INPUT_UART_1();
+		buff[5];
+		if (INPUT_UART_1[1]==255)
+		{
+			itoa(0,(char *)buff,10);
+			}else{
+			itoa(INPUT_UART_1[1],(char *)buff,10);
+		}
+		nextion_setText("menge3",buff);
+		break;
+		
+		case 8:
+			Uart_Transmit_IT_Display("get slider4.val");
+			endConversation();
+		while (check_Communication_Input_UART_1()==0)
+		;
+		proceed_Communication_INPUT_UART_1();
+		buff[5];
+		if (INPUT_UART_1[1]==255)
+		{
+			itoa(0,(char *)buff,10);
+			}else{
+			itoa(INPUT_UART_1[1],(char *)buff,10);
+		}
+		nextion_setText("menge4",buff);
+		break;
+	}
+
+}
+
+void check_reinanzeige1(uint8_t button)
+{
+	switch(button){
+		
+		case ABBRECHEN1:
+			nextion_change_page(STARTANZEIGE);
+		break;
+		
+		case WEITER1:
+			nextion_change_page(REINANZEIGE2);
+		break;
 	}
 }
 
-void cocktail_test_command(unsigned char INPUT[256])
+void check_reinanzeige2(uint8_t button)
 {
-	Uart_Transmit_IT_PC((char *)INPUT);
-	Uart_Transmit_IT_PC("\r\n");
+	switch(button)
+	{
+		case ABBRECHEN2:
+			nextion_change_page(STARTANZEIGE);
+		break;
+		
+		case WEITER2:
+			nextion_change_page(REINANZEIGE3);
+		break;
+	}
+}
+
+void check_reinanzeige3(uint8_t button)
+{
+	
+}
+
+void check_infoanzeige(uint8_t button)
+{
+	
+}
+
+void check_abbruchanzeige(uint8_t button)
+{
+	
+}
+
+void check_fehleranzeige(uint8_t button)
+{
+	
+}
+
+void check_erstanzeige1(uint8_t button)
+{
+	
+}
+
+void check_erstanzeige2(uint8_t button)
+{
+	
+}
+
+void choose_drink(uint8_t nr)
+{
+	lese_textfile_in_getraenk(i_Liste + nr);
+	setze_startanzeige(aktuellesGetraenk);
+	block_list_hoch = 0;
+	block_list_runter = 0;
 }
 
 void fuelle_getraenk(uint16_t fuellmenge)
@@ -526,25 +794,137 @@ void init_Getraenke_func()
 	nextion_setText("cocktailname",aktuellesGetraenk->name);
 }
 
-getraenk_t * shift_getraenk(getraenk_t *getraenk_to_shift, uint8_t ngetr, uint8_t down_up)
+void erstelle_Liste_name(char * input)
 {
-	switch (down_up)
+	for (int i = i_Liste ; i < (9 + i_Liste) ; i++)
 	{
-	case 0:
-		for (int i = 0 ; i < ngetr ; i++)
+		char string[21] = {'\0'};
+		char buff[4] = {0};
+		itoa((i-i_Liste),buff,10);
+		strcat((char *)string, (const char *)input);
+		strcat((char *)string, (const char *)buff);
+		
+		if (i == head_getraenk_file->file && !block_list_runter)
 		{
-			getraenk_to_shift = getraenk_to_shift->next;
+			block_list_runter = 1;
+			lese_textfile_in_getraenk(i);
+			nextion_setText(string,aktuellesGetraenk->name);
 		}
-	break;
-	
-	case 1:
-		for (int i = 0 ; i < ngetr ; i++)
+		else if (block_list_runter)
 		{
-			getraenk_to_shift = getraenk_to_shift->prev;
+			nextion_setText(string,"");
 		}
-	break;
+		else
+		{
+			lese_textfile_in_getraenk(i);
+			nextion_setText(string,aktuellesGetraenk->name);
+		}
+		
+		if(i == tail_getraenk_file->file)
+		{
+			block_list_hoch = 1;
+		}
+		_delay_ms(10);
 	}
-	return getraenk_to_shift;
+}
+
+void erstelle_Liste_zutat(char * input)
+{
+	aktuelleZutat = head_zut;
+	
+	for (int i = i_Liste ; i < (4 + i_Liste) ; i++)
+	{
+		char string[21] = {'\0'};
+		char string2[21] = {'\0'};
+		char string3[21] = {'\0'};
+		char buff[5] = {0};
+			
+		itoa((i-i_Liste+1),buff,10);
+		strcat((char *)string, (const char *)input);
+		strcat((char *)string, (const char *)buff);
+		
+		strcat((char *)string2, (const char *)"slider");
+		strcat((char *)string2, (const char *)buff);
+		
+		strcat((char *)string3, (const char *)"menge");
+		strcat((char *)string3, (const char *)buff);
+				
+		// Falls das Ende der Liste erreicht ist und Liste noch nicht blockiert,
+		// Weiteres Scrollen blockieren,
+		// Letzter Eintrag eintragen
+		
+		int run = 1;
+		while (run)
+		{
+			aktuelleZutat = aktuelleZutat->next;
+			if (aktuelleZutat->nr == i)
+			{
+				run = 0;
+			}
+		}
+		
+		if (i == head_zut->nr && !block_list_runter)
+		{
+			block_list_runter = 1;
+			nextion_setText(string,aktuelleZutat->name);
+			itoa(*(aktuellesGetraenk->mengen+i),buff,10);
+			nextion_setValue(string2,buff);
+			strcat(buff, "%");
+			nextion_setText(string3,buff);
+		}
+		// Sonst, wenn Liste Blockiert
+		// Leerer String in Feld schreiben
+		else if (block_list_runter)
+		{
+			nextion_setText(string,"");
+			nextion_setValue(string2,"0");
+		}
+		// Im Normalbetrieb Zutat in Feld schreiben,
+		// Auf nächste Zutat zeigen
+		else
+		{
+			nextion_setText(string,aktuelleZutat->name);
+			itoa(*(aktuellesGetraenk->mengen+i),buff,10);
+			nextion_setValue(string2,buff);
+			strcat(buff, "%");
+			nextion_setText(string3,buff);
+		}
+		
+		if(i == tail_zut->nr)
+		{
+			block_list_hoch = 1;
+		}
+		_delay_ms(10);
+	}
+}
+
+void erstelle_bearb_Cocktailliste(void)
+{
+	for (int i = i_Liste ; i < (9 + i_Liste) ; i++)
+	{
+		char string[21] = {'\0'};
+		char buff[4] = {0};
+		itoa((i-i_Liste),buff,10);
+		strcat((char *)string, (const char *)"bearbcocktail");
+		strcat((char *)string, (const char *)buff);
+		
+		if (i == head_getraenk_file->file && !block_list_runter)
+		{
+			block_list_runter = 1;
+			lese_textfile_in_getraenk(i);
+			nextion_setText(string,aktuellesGetraenk->name);
+		}
+		else if (block_list_runter)
+		{
+			nextion_setText(string,"");
+		}
+		else
+		{
+			lese_textfile_in_getraenk(i);
+			nextion_setText(string,aktuellesGetraenk->name);
+		}
+		_delay_ms(10);
+	}
 }
 
 void setze_startanzeige(getraenk_t * anzeige_getraenk)
@@ -577,6 +957,15 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 	char buff[4] = {0};
 	for (int i = 0 ; i<12 ; i++)
 	{
+		int run = 1;
+		while (run)
+		{
+			tmp_zutat = tmp_zutat->next;
+			if (tmp_zutat->nr == i)
+			{
+				run = 0;
+			}
+		}
 		if (*(uint8_t *)(anzeige_getraenk->mengen + i) != (unsigned char)0)
 		{
 			strcat((char *)string, (const char *)tmp_zutat->name);
@@ -594,7 +983,6 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 	}
 	nextion_setText("zutatenliste",string);
 }
-
 
 void lese_textfile_in_getraenk(uint8_t file)
 {

@@ -20,6 +20,7 @@ unsigned char cntr_UART_1 = 0;
 unsigned char INPUT_UART_1[256];
 char UART_recieved_finished_1 = 0;
 char cntr_End_UART_1 = 0;
+char * ptr_Uart_1;
 
 //Variabeln UART_2
 unsigned char cntr_UART_2 = 0;

@@ -41,23 +41,25 @@ void zutaten_init(void)
 		"Whisky",
 		"Wodka"
 	};
+	
 	head_zut = NULL;
 	zutat_t *tmp;
  	for ( int i = 0 ; i<12;i++){
-	tmp = create_neue_zutat(zutaten[i]);
+	tmp = create_neue_zutat(zutaten[i], i);
 	head_zut = insert_zutat_at_head(&head_zut, tmp);
  	}
 }
 
-zutat_t *create_neue_zutat(char * name)
+zutat_t *create_neue_zutat(char * name, char k)
 {
 	zutat_t *newZutat = calloc(1,sizeof(zutat_t));
  	size_t n1 = strlen((const char *)name)+1;
 
  	newZutat->name = calloc(n1,sizeof(char));
 	 
-	 newZutat->prev = NULL;
-	 newZutat->next = NULL;
+	newZutat->nr = k;
+	newZutat->prev = NULL;
+	newZutat->next = NULL;
 	 
 	int i = 0;
  	for (i=0; i<(n1-1); i++)

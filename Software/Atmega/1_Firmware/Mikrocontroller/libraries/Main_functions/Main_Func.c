@@ -61,48 +61,47 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
-	char * ch = "Proceed UART 0: \n\r";
-	Uart_Transmit_IT_PC(ch);
-	cocktail_test_command(INPUT_UART_0);
+// 	char * ch = "Proceed UART 0: \n\r";
+// 	Uart_Transmit_IT_PC(ch);
 	
-	for (int i = 0; i < strlen((const char *)INPUT_UART_0);i++)
-	{
-		INPUT_UART_0[i] = '\0';
-	}
-	
+	Uart_Transmit_IT_Display("get slider1.val");
+	endConversation();
 }
 
 char check_Communication_Input_UART_1(void)
 {
 	char ret = 0;
-	
 	while(RB_length(&rb_rx_Display)>0)					// UART_1
 	{
-		
+
 		unsigned char ch = RB_readByte(&rb_rx_Display);
 
-		if (ch == 0xFF)
+		if (ch == 0xFF && INPUT_UART_1[0] != 'q')
 		{
 			if (cntr_End_UART_1==0)
 			{
 				cntr_End_UART_1++;
 			}
-			if (cntr_End_UART_1==1 && (INPUT_UART_1[cntr_UART_1-1] == 0xFF))
+			else if (cntr_End_UART_1==1 && (INPUT_UART_1[cntr_UART_1-1] == 0xFF))
 			{
 				cntr_End_UART_1++;
 			}
-			if (cntr_End_UART_1==1 && (INPUT_UART_1[cntr_UART_1-1] != 0xFF))
+			else if (cntr_End_UART_1==1 && (INPUT_UART_1[cntr_UART_1-1] != 0xFF))
 			{
 				cntr_End_UART_1=0;
 			}
-			if (cntr_End_UART_1==2 && (INPUT_UART_1[cntr_UART_1-1] == 0xFF) && (INPUT_UART_1[cntr_UART_1-2] == 0xFF))
+			else if (cntr_End_UART_1==2 && (INPUT_UART_1[cntr_UART_1-1] == 0xFF) && (INPUT_UART_1[cntr_UART_1-2] == 0xFF))
 			{
 				cntr_End_UART_1++;
 			}
-			if (cntr_End_UART_1==2 && ((INPUT_UART_1[cntr_UART_1-1] != 0xFF) || (INPUT_UART_1[cntr_UART_1-2] != 0xFF)))
+			else if (cntr_End_UART_1==2 && ((INPUT_UART_1[cntr_UART_1-1] != 0xFF) || (INPUT_UART_1[cntr_UART_1-2] != 0xFF)))
 			{
 				cntr_End_UART_1 = 0;
 			}
+		}
+		if (INPUT_UART_1[0] == 'q' && strlen((const char *)INPUT_UART_1) >=4)
+		{
+			INPUT_UART_1[0] = 255;
 		}
 		if (cntr_End_UART_1 == 3)
 		{
@@ -129,9 +128,9 @@ void proceed_Communication_INPUT_UART_1(void)
 {
 	Uart_Transmit_IT_PC("Proceed UART 1: ");
 	Uart_Transmit_IT_PC((char *)INPUT_UART_1);
-	Uart_Transmit_IT_PC("\r\n");
-
-	cocktail_check_command((char)INPUT_UART_1[0],(char)INPUT_UART_1[1]);
+	Uart_Transmit_IT_PC("\r");
+	
+	cocktail_check_command(INPUT_UART_1[0], INPUT_UART_1[1]);
 }
 
 char check_Communication_Input_UART_2(void)
@@ -180,6 +179,7 @@ char check_Communication_Input_UART_2(void)
 			cntr_UART_2++;
 			ret = 0;
 			toggle_LED();
+			
 		}
 	}
 	return ret;

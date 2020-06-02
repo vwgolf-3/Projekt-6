@@ -50,7 +50,7 @@ void nextion_setText(char * object, char * text)
 
 void nextion_setValue( char * object,  char * value)
 {
-	 char * val = "val=";
+	 char * val = ".val=";
 	Uart_Transmit_IT_Display(object);
 	Uart_Transmit_IT_Display(val);
 	Uart_Transmit_IT_Display(value);
