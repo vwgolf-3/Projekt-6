@@ -73,6 +73,8 @@ void check_abbruchanzeige(uint8_t button);
 void check_fehleranzeige(uint8_t button);
 void check_erstanzeige1(uint8_t button);
 void check_erstanzeige2(uint8_t button);
+void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
+void loesche_FIle(uint8_t filename);
 
 extern unsigned char INPUT_UART_1[256];
 

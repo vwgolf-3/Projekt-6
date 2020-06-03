@@ -40,10 +40,11 @@ enum Loeschabfrage{JA = 1, NEIN};
 	
 
 void endConversation(void);
-void nextion_setText(char * object, char * text);
 void nextion_change_page(char page);
+void nextion_setText(char * object, char * text);
 void nextion_setValue( char * object,  char * text);
 void nextion_setPicture( char * x,  char * y,  char * picture);
+uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT);
 
 
 #endif /* NEXTION_DISPLAY_H_ */

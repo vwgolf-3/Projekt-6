@@ -6,6 +6,7 @@
  */ 
 
 #include "Getraenk.h"
+#include "../Cocktail_functions/Cocktail_functions.h"
 
 // https://www.youtube.com/watch?v=VOpjAHCee7c
 
@@ -14,22 +15,59 @@
 
 void cocktails_init(void)
 {
-	address_getraenk  = (uint8_t *)0;
+	
+	
+/**************************************************************************************************************
+
+			- Initialisierungen
+
+**************************************************************************************************************/
 
 	head_getraenk = NULL;
 	getraenk_t * tmp;
-	uint8_t typ [12]= {0,0,0,0,0,0,0,0,0,0,0,0};
-	tmp = create_new_getraenk("Martini Lemon Drop",(uint8_t*)typ,1,0,24);
-	head_getraenk = insert_at_head(&head_getraenk, tmp);
-	
 	head_getraenk_file = NULL;
 	getraenk_file_t * tmp2;
-	for ( int i = 1 ; i<22;i++){
-		tmp2 = create_new_getraenk_file(i);
-		head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+
+/**************************************************************************************************************
+
+			- Ab hier werden die Getränke gesucht, welche sich auf der SD-Karte befinden. (0.txt bis 100.txt)
+			- Für jedes gefundene File wird ein dynamisch gelinkter Eintrag in einer Liste generiert.
+			- Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
+
+**************************************************************************************************************/
+
+	for ( uint8_t i = 0 ; i<100;i++){
+		char buff[15] = {'\0'};
+		itoa(i, (char *)buff,10);
+		strcat((char *)buff, (const char *)".txt");
+		if(readFile(VERIFY, (unsigned char *)buff)==1)
+		{
+			tmp2 = create_new_getraenk_file(i);
+			head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+		}
 	}
 	
-// 	add_EEPROM_drinks_to_list((uint8_t *) 0);
+/**************************************************************************************************************
+
+			- Für ein Getränk wird eine Struktur werdendet. Hier wird solch eine Struktur
+			  des Typs getraenk_t initialisiert
+			- Werden Daten benötigt, wird zuerst ein File in diese eine Getränke-Struktur eingelesen
+			  und erst dann verarbeitet.
+
+**************************************************************************************************************/
+
+	tmp = create_new_getraenk("12345678901234567890",0,0,0,0);
+	aktuellesGetraenk = insert_at_head(&head_getraenk, tmp);
+
+/**************************************************************************************************************
+
+			- Hier wird der aktuelle Pointer auf den Listeneintrag gesetzt und das aktuelle File in die
+			  Struktur des Type getraenk_t geladen.
+
+**************************************************************************************************************/
+
+	aktuellesGetraenk_file = tail_getraenk_file;
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
 void showlist(void)

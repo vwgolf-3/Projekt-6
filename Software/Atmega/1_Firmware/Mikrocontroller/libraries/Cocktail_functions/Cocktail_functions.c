@@ -130,7 +130,6 @@ void check_startseite(uint8_t button)
 */
 			aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-			Uart_Transmit_IT_PC("\r\n");
 			setze_startanzeige(aktuellesGetraenk);
 			
 		break;
@@ -149,7 +148,6 @@ void check_startseite(uint8_t button)
 */
 			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
 			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-			Uart_Transmit_IT_PC("\r\n");
 			setze_startanzeige(aktuellesGetraenk);
 				
 		break;
@@ -325,18 +323,45 @@ void check_menuanzeige(uint8_t button)
 
 void check_bearbeitungsanzeige(uint8_t button)
 {
+	int run = 1;
 	switch (button)
 	{
 		case BEARBCOCKTAIL1:
-			lese_textfile_in_getraenk(i_Liste + 1);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 1))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
 			aktuelleZutat = head_zut;
 			erstelle_Liste_zutat("zutat");
 		break;
 		
 		case BEARBCOCKTAIL2:
-			lese_textfile_in_getraenk(i_Liste + 2);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 2))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -346,7 +371,19 @@ void check_bearbeitungsanzeige(uint8_t button)
 		break;
 		
 		case BEARBCOCKTAIL3:
-			lese_textfile_in_getraenk(i_Liste + 3);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 3))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -356,7 +393,19 @@ void check_bearbeitungsanzeige(uint8_t button)
 		break;
 		
 		case BEARBCOCKTAIL4:
-			lese_textfile_in_getraenk(i_Liste + 4);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 4))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -366,7 +415,19 @@ void check_bearbeitungsanzeige(uint8_t button)
 		break;
 		
 		case BEARBCOCKTAIL5:
-			lese_textfile_in_getraenk(i_Liste + 5);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 5))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -376,7 +437,19 @@ void check_bearbeitungsanzeige(uint8_t button)
 		break;
 		
 		case BEARBCOCKTAIL6:
-			lese_textfile_in_getraenk(i_Liste + 6);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 6))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -386,7 +459,19 @@ void check_bearbeitungsanzeige(uint8_t button)
 		break;
 		
 		case BEARBCOCKTAIL7:
-			lese_textfile_in_getraenk(i_Liste + 7);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 7))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -396,7 +481,19 @@ void check_bearbeitungsanzeige(uint8_t button)
 		break;
 		
 		case BEARBCOCKTAIL8:
-			lese_textfile_in_getraenk(i_Liste + 8);
+			aktuellesGetraenk_file = head_getraenk_file;
+			while (run)
+			{
+				if(aktuellesGetraenk_file->file == (i_Liste + 8))
+				{
+					run = 0;
+				}
+				else
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				}
+			}
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_change_page(CEINSTANZEIGE);
 			i_Liste = 0;
 			block_list_hoch = 0;
@@ -427,8 +524,8 @@ void check_bearbeitungsanzeige(uint8_t button)
 
 void check_ceinstanzeige(uint8_t button)
 {
-		char buff[5];
-
+	char buff[15] = {0};
+	uint8_t buff2 = 0;
 	switch(button)
 	{
 		case RAUFLIST3:
@@ -450,83 +547,52 @@ void check_ceinstanzeige(uint8_t button)
 		break;
 		
 		case STANDARDEINST:
-			Uart_Transmit_IT_Display("get slider1.val");
-			endConversation();
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			nextion_change_page(STARTANZEIGE);
 		break;
 		
 		case SPEICHERN1:
-		
 			nextion_change_page(STARTANZEIGE);
 			block_list_hoch = 0;
 			block_list_runter = 0;
-			
+			loesche_FIle(aktuellesGetraenk_file->file);
+			erstelle_File(aktuellesGetraenk_file->file, aktuellesGetraenk->name, 1);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case 5:
-			Uart_Transmit_IT_Display("get slider1.val");
-			endConversation();
-		while (check_Communication_Input_UART_1()==0)
-		;
-		proceed_Communication_INPUT_UART_1();
-		buff[5];
-		if (INPUT_UART_1[1]==255)
-		{
-			itoa(0,(char *)buff,10);
-			}else{
-			itoa(INPUT_UART_1[1],(char *)buff,10);
-		}
-		nextion_setText("menge1",buff);
+			buff2 = nextion_getSliderValue("slider1", (unsigned char *)INPUT_UART_1);
+			itoa((int)buff2, (char *)buff, 10);
+			strcat((char *)buff, "%");
+			nextion_setText("menge1",buff);
+			*(aktuellesGetraenk->mengen) = buff2;
 		break;
 		
 		case 6:
-			Uart_Transmit_IT_Display("get slider2.val");
-			endConversation();
-		while (check_Communication_Input_UART_1()==0)
-		;
-		proceed_Communication_INPUT_UART_1();
-		buff[5];
-		if (INPUT_UART_1[1]==255)
-		{
-			itoa(0,(char *)buff,10);
-			}else{
-			itoa(INPUT_UART_1[1],(char *)buff,10);
-		}
-		nextion_setText("menge2",buff);
+			buff2 = nextion_getSliderValue("slider2", (unsigned char *)INPUT_UART_1);
+			itoa((int)buff2, (char *)buff, 10);
+			strcat((char *)buff, "%");
+			nextion_setText("menge2",buff);
+			*(aktuellesGetraenk->mengen+1) = buff2;	
 		break;
 		
 		case 7:
-			Uart_Transmit_IT_Display("get slider3.val");
-			endConversation();
-		while (check_Communication_Input_UART_1()==0)
-		;
-		proceed_Communication_INPUT_UART_1();
-		buff[5];
-		if (INPUT_UART_1[1]==255)
-		{
-			itoa(0,(char *)buff,10);
-			}else{
-			itoa(INPUT_UART_1[1],(char *)buff,10);
-		}
-		nextion_setText("menge3",buff);
+			buff2 = nextion_getSliderValue("slider3", (unsigned char *)INPUT_UART_1);
+			itoa((int)buff2, (char *)buff, 10);
+			strcat((char *)buff, "%");
+			nextion_setText("menge3",buff);
+			*(aktuellesGetraenk->mengen+2) = buff2;
 		break;
 		
 		case 8:
-			Uart_Transmit_IT_Display("get slider4.val");
-			endConversation();
-		while (check_Communication_Input_UART_1()==0)
-		;
-		proceed_Communication_INPUT_UART_1();
-		buff[5];
-		if (INPUT_UART_1[1]==255)
-		{
-			itoa(0,(char *)buff,10);
-			}else{
-			itoa(INPUT_UART_1[1],(char *)buff,10);
-		}
-		nextion_setText("menge4",buff);
+			buff2 = nextion_getSliderValue("slider4", (unsigned char *)INPUT_UART_1);
+			itoa((int)buff2, (char *)buff, 10);
+			strcat((char *)buff, "%");
+			nextion_setText("menge4",buff);
+			*(aktuellesGetraenk->mengen+3) = buff2;
 		break;
 	}
-
 }
 
 void check_reinanzeige1(uint8_t button)
@@ -788,10 +854,8 @@ uint8_t lese_sensor(uint8_t Sensor)
 
 void init_Getraenke_func()
 {
-	aktuellesGetraenk_file = head_getraenk_file;
-	aktuellesGetraenk = head_getraenk;
 	nextion_change_page(STARTANZEIGE);
-	nextion_setText("cocktailname",aktuellesGetraenk->name);
+	setze_startanzeige(aktuellesGetraenk);	
 }
 
 void erstelle_Liste_name(char * input)
@@ -988,14 +1052,9 @@ void lese_textfile_in_getraenk(uint8_t file)
 {
 	// Erstellen eines Strings in Form von: "file.txt"
 	char buff[20];
-	char buff2[4];
 	itoa((int)file,(char *)buff,10);
-	itoa((int)file,(char *)buff2,10);
-	Uart_Transmit_IT_PC((char *)buff2);
-	Uart_Transmit_IT_PC("\r");
 	char * txt = ".txt";	
 	strcat((char *)buff,txt);
-	
 	
 	// "file.txt" lesen (File wird in char buffer[512] geschrieben)
 	//return: 0, if normal operation or flag is READ
@@ -1021,7 +1080,6 @@ void lese_textfile_in_getraenk(uint8_t file)
 	Bild:2
 */ 
 	while(ptr != NULL) {
-			
 	// Kopf prüfen und jeweilige Aktion ausführen
 		if (pruefe_kopf(ptr, "Name"))
 		{
@@ -1101,7 +1159,8 @@ void SD_startup(void)
 	{
 		if(error == 1) Uart_Transmit_IT_PC((char*)("SD card not detected..\r"));
 		if(error == 2) Uart_Transmit_IT_PC((char*)("Card Initialization failed..\r"));
-
+	nextion_change_page(FEHLERANZEIGE);
+	nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte vorhanden.\\rBitte einfügen und\\rneu starten.");
 		// 		while(1);  //wait here forever if error in SD init
 		}else{
 		
@@ -1130,8 +1189,60 @@ void SD_startup(void)
 		Uart_Transmit_IT_PC (("FAT32 not found!\r\n"));  //FAT32 incompatible drive
 		FAT32_active = 0;
 	}
-	findFiles(GET_LIST,0);
+// 	findFiles(GET_LIST,0);
 	TX_NEWLINE
 	TX_NEWLINE
 
+}
+
+void erstelle_File(uint8_t filename, char * name, uint8_t alkohol)
+{
+	char buff[128] = {0};
+	char * ptr = buff;
+	strcat(ptr, "Name:");
+	strcat(ptr, name);
+
+	strcat(ptr, "\rMengen:{");
+	char buff2[5]  = {0};
+	
+	int i = 0;
+	itoa(*(aktuellesGetraenk->mengen + i), (char *)buff2, 10);
+	strcat(ptr, buff2);
+	for (i = 1 ; i < 12 ; i++)
+	{
+		strcat(ptr,",");
+		itoa(*(aktuellesGetraenk->mengen + i), (char *)buff2, 10);
+		strcat(ptr, buff2);
+	}
+	strcat(ptr, "}\r");
+	strcat(ptr, "Alkohol:");
+	itoa(alkohol, (char *)buff2, 10);
+	strcat(ptr, (char *)buff2);
+	strcat(ptr, "\r");
+
+	strcat(ptr, "Bild:");
+	if (aktuellesGetraenk->picture != 24)
+	{
+		char buff[5];
+		itoa(aktuellesGetraenk->picture,(char *)buff, 10);
+		strcat(ptr, (char *)buff);
+	}
+	else
+	{
+		strcat(ptr, "24");
+	}
+	strcat(ptr, "~");
+	
+	char buff3[15] = {'\0'};
+	itoa(filename, (char *)buff3, 10);
+	strcat((char *)buff3, (const char *)".txt");
+	writeFile((unsigned char *)buff3,(unsigned char *)ptr);
+}
+
+void loesche_FIle(uint8_t filename)
+{
+	unsigned char buff[20] = {'\0'};
+	itoa(filename, (char *)buff, 10);
+	strcat((char *)buff,".txt");
+	deleteFile((unsigned char *)buff);
 }

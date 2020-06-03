@@ -194,7 +194,8 @@ while(1)
         if(dir->name[0] == EMPTY) //indicates end of the file list of the directory
 		{
 		  if((flag == GET_FILE) || (flag == DELETE))
-		      Uart_Transmit_IT_PC((char*)("File does not exist!"));
+// 		      Uart_Transmit_IT_PC((char*)("File does not exist!"));
+		      Uart_Transmit_IT_PC((char*)("N/F\r"));
 		  return 0;   
 		}
 		if((dir->name[0] != DELETED) && (dir->attrib != ATTR_LONG_NAME))
@@ -375,7 +376,7 @@ return 0;
 //Arguments: pointer to the file name
 //return: none
 //************************************************************************************
-void writeFile (unsigned char *fileName)
+void writeFile (unsigned char *fileName, unsigned char * INPUT)
 {
 unsigned char j, data, error, fileCreatedFlag = 0, start = 0, appendFile = 0, sectorEndFlag = 0, sector;
 unsigned int i, firstClusterHigh, firstClusterLow;
@@ -450,7 +451,7 @@ while(1)
 
    TX_NEWLINE;
    Uart_Transmit_IT_PC((char*)(" Enter text (end with ~):"));
-   
+   uint32_t counter = 0;
    do
    {
      if(sectorEndFlag == 1) //special case when the last character in previous sector was '\r'
@@ -462,7 +463,7 @@ while(1)
 
 	sectorEndFlag = 0;
 
-	 data = receiveByte();
+	 data = *(INPUT + counter);
 	 if(data == 0x08)	//'Back Space' key pressed
 	 { 
 	   if(i != 0)
@@ -498,6 +499,7 @@ while(1)
 	   if(j == sectorPerCluster) {j = 0; break;}
 	   startBlock++; 
      }
+	 counter ++;
 	}while (data != '~');
 
    if(data == '~') 

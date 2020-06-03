@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <util/delay.h>
 #include "../UART/UART.h"
+#include "../SD-Karte/FAT32.h"
 
 struct getraenk{
 	char * name;

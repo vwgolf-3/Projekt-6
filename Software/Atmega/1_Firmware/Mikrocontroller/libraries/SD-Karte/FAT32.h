@@ -145,7 +145,7 @@ struct dir_Structure* findFiles (unsigned char flag, unsigned char *fileName);
 unsigned long getSetNextCluster (unsigned long clusterNumber,unsigned char get_set,unsigned long clusterEntry);
 unsigned char readFile (unsigned char flag, unsigned char *fileName);
 unsigned char convertFileName (unsigned char *fileName);
-void writeFile (unsigned char *fileName);
+void writeFile (unsigned char *fileName, unsigned char * INPUT);
 void appendFile (void);
 unsigned long searchNextFreeCluster (unsigned long startCluster);
 void memoryStatistics (void);

@@ -6,6 +6,7 @@
  */ 
 
 #include "Nextion_Display.h"
+#include "../Main_functions/Main_Func.h"
 
 void nextion_change_page(char page)
 {
@@ -47,7 +48,6 @@ void nextion_setText(char * object, char * text)
 	endConversation();
 }
 
-
 void nextion_setValue( char * object,  char * value)
 {
 	 char * val = ".val=";
@@ -87,6 +87,34 @@ void nextion_setPicture( char * x,  char * y,  char * picture)
 		endConversation();
 }
 
+uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
+{
+	uint8_t ret = 0;
+	
+	char buff[20] = {0};
+	char * get_slider = "get ";
+	char * val = ".val";
+
+	strcat((char *)buff, (const char *)get_slider);
+	strcat((char *)buff, (const char *)object);
+	strcat((char *)buff, (const char *)val);
+	Uart_Transmit_IT_Display((char *) buff);
+	endConversation();
+	
+	while (check_Communication_Input_UART_1()==0)
+	;
+	proceed_Communication_INPUT_UART_1();
+	
+	if (*(INPUT+1)==255)
+	{
+		ret = 0;
+	}
+	else
+	{
+		ret = *(INPUT + 1);
+	}
+	return ret;
+}
 
 void endConversation(void)
 {

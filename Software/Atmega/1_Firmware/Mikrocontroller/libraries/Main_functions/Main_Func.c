@@ -63,9 +63,7 @@ void proceed_Communication_Input_UART_0(void)
 {
 // 	char * ch = "Proceed UART 0: \n\r";
 // 	Uart_Transmit_IT_PC(ch);
-	
-	Uart_Transmit_IT_Display("get slider1.val");
-	endConversation();
+	cocktail_test_command(INPUT_UART_0);
 }
 
 char check_Communication_Input_UART_1(void)

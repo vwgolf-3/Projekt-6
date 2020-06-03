@@ -806,19 +806,19 @@ END GROUP
  .debug_frame   0x000004d8       0x44 SPI_routines.o
  .debug_frame   0x0000051c       0x6c UART_routines.o
 
-.debug_str      0x00000000      0xc98
+.debug_str      0x00000000      0xc9a
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6      0x763 FAT32.o
-                                0x7a5 (size before relaxing)
- .debug_str     0x00000b49       0xc0 main.o
-                                0x39c (size before relaxing)
- .debug_str     0x00000c09       0x44 SD_Routines.o
-                                0x24e (size before relaxing)
- .debug_str     0x00000c4d       0x14 SPI_routines.o
-                                0x1cf (size before relaxing)
- .debug_str     0x00000c61       0x37 UART_routines.o
-                                0x215 (size before relaxing)
+ .debug_str     0x000003e6      0x765 FAT32.o
+                                0x7a7 (size before relaxing)
+ .debug_str     0x00000b4b       0xc0 main.o
+                                0x39e (size before relaxing)
+ .debug_str     0x00000c0b       0x44 SD_Routines.o
+                                0x250 (size before relaxing)
+ .debug_str     0x00000c4f       0x14 SPI_routines.o
+                                0x1d1 (size before relaxing)
+ .debug_str     0x00000c63       0x37 UART_routines.o
+                                0x217 (size before relaxing)
 
 .debug_loc      0x00000000     0x25bd
  *(.debug_loc)
