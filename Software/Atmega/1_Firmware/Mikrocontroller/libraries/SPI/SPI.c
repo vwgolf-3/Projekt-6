@@ -22,9 +22,6 @@ void SPI_init(void)
 
 	SPSR = (0<<SPI2X);      // Double Clock Rate			(0 = Disable, 1 = Enable)					Datasheet S. 198 (Kapitel 21.2.1)
 
-	RB_init(&rb_SPI_w);
-	RB_init(&rb_SPI_r);
-
 	disable_Slave(TMC4671);
 	disable_Slave(TMC6200);
 	disable_Slave(MFRC522);

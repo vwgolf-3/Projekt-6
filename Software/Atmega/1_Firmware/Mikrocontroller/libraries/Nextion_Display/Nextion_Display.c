@@ -116,6 +116,19 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
 	return ret;
 }
 
+void nextion_disableButton(char * object)
+{
+	char buff10[20] = {'\0'};
+	strcpy((char *)buff10, (const char *)"tsw ");
+	strcat((char *)buff10, (const char *)object);
+	strcat((char *)buff10, (const char *)",0");
+	
+	Uart_Transmit_IT_Display((char *)buff10);
+	
+	endConversation();
+}
+
+
 void endConversation(void)
 {
 	unsigned char end [4]= {255,255,255,'\0'};

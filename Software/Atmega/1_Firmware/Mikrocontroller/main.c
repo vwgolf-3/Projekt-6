@@ -27,8 +27,7 @@ int main(void)
 {
 	// Gate Treiber disable (active high)
  	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;
-	 
-	 
+	 Grossschreib = 1;
 //Initialisierungen
 	IO_init();
 	SPI_init();
@@ -46,7 +45,7 @@ int main(void)
 	while (1)
 	{//  	check_Communication_Input_MFRC522();
 		check_Communication_Input_UART();
-  		heartbeat_LED();
+//   		heartbeat_LED();
 	}
 	return 0;
 }

@@ -12,7 +12,8 @@ void zutaten_init(void)
 {
 	address_zut  = (uint8_t *)0;
 
-	uint8_t standardAlkohol[12] = {
+	uint8_t standardAlkohol[12] = 
+	{
 		0,
 		0,
 		0,
@@ -27,7 +28,8 @@ void zutaten_init(void)
 		1,
 	};
 
-	char zutaten[12][20] = {
+	char zutaten[12][20] = 
+	{
 		"7Up",
 		"Coca-Cola",
 		"Ginger-Ale",

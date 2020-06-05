@@ -17,6 +17,7 @@
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/SD_routines.h"
 #include "../SD-Karte/FAT32.h"
+uint8_t lese_sensor(uint8_t Sensor);
 
 unsigned char option, error, data, FAT32_active;
 unsigned int i;
@@ -26,6 +27,11 @@ unsigned char fileName[13];
 uint8_t i_Liste;
 uint8_t block_list_hoch;
 uint8_t block_list_runter;
+uint8_t Grossschreib;
+uint8_t counter;
+char buff_name[21];
+char stop;
+
 
 // Initialisierungen
 void init_Getraenke_func();
@@ -75,6 +81,7 @@ void check_erstanzeige1(uint8_t button);
 void check_erstanzeige2(uint8_t button);
 void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
 void loesche_FIle(uint8_t filename);
+void schreibe_Menge_in_Getraenk(uint8_t zutat);
 
 extern unsigned char INPUT_UART_1[256];
 

@@ -25,7 +25,7 @@ void IO_init(void)
 void heartbeat_LED(void)
 {
 	toggle_LED();
-   		_delay_ms(200);
+   		_delay_ms(1000);
 }
 
 void toggle_LED(void)
@@ -46,14 +46,12 @@ char check_Communication_Input_UART_0(void)
 			cntr_UART_0 = 0;
 			cntr_End_UART_0 = 0;
 			ret = 1;
-			toggle_LED();
 		}
 		else
 		{
 			INPUT_UART_0[cntr_UART_0]=ch;
 			cntr_UART_0++;
 			ret = 0;
-			toggle_LED();
 		}
 	}
 	return ret;
@@ -109,14 +107,12 @@ char check_Communication_Input_UART_1(void)
 			cntr_UART_1 = 0;
 			cntr_End_UART_1 = 0;
 			ret = 1;
-			toggle_LED();
 		}
 		else
 		{
 			INPUT_UART_1[cntr_UART_1]=ch;
 			cntr_UART_1++;
 			ret = 0;
-			toggle_LED();
 		}
 	}
 	return ret;
@@ -169,14 +165,12 @@ char check_Communication_Input_UART_2(void)
 			cntr_UART_2 = 0;
 			cntr_End_UART_2 = 0;
 			ret = 1;
-			toggle_LED();
 		}
 		else
 		{
 			INPUT_UART_2[cntr_UART_2]=ch;
 			cntr_UART_2++;
 			ret = 0;
-			toggle_LED();
 			
 		}
 	}
@@ -232,14 +226,12 @@ void proceed_Communication_Input_UART_2(void)
 // 			cntr_UART_3 = 0;
 // 			cntr_End_UART_3 = 0;
 // 			ret = 1;
-// 			toggle_LED();
 // 		}
 // 		else
 // 		{
 // 			INPUT_UART_3[cntr_UART_3]=ch;
 // 			cntr_UART_3++;
 // 			ret = 0;
-// 			toggle_LED();
 // 		}
 // 	}
 // 	return ret;

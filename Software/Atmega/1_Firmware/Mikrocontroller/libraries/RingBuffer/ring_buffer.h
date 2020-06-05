@@ -35,10 +35,4 @@ ring_buffer_t rb_rx_Display;
 ring_buffer_t rb_tx_ESP;
 ring_buffer_t rb_rx_ESP;
 
-ring_buffer_t rb_tx_RFID;
-ring_buffer_t rb_rx_RFID;
-
-ring_buffer_t rb_SPI_r;
-ring_buffer_t rb_SPI_w;
-
 #endif /* RING_BUFFER_H_ */

@@ -26,7 +26,7 @@ enum Zutatenanzeige_Buttons{OKZUTATEN = 1, ZUTATENLISTE};
 enum Listenanzeige_Buttons{COCKTAIL1 = 1, COCKTAIL2, COCKTAIL3, COCKTAIL4, COCKTAIL5, COCKTAIL6, COCKTAIL7, COCKTAIL8, RAUFLIST1, RUNTERLIST1};
 enum Zubabfrage_Buttons{KLEIN = 1, GROSS, ABBRUCHZUBAB};
 enum Zubbildschirm_Buttons{ABBRUCHZUB};
-enum Menuanzeige_Buttons{COCKTAILBEARBEITEN = 1, COCKTAILERSTELLEN, MASCHINEREINIGEN, COCKTAILBEARBEITEN3, ZURUECK1};
+enum Menuanzeige_Buttons{COCKTAILBEARBEITEN = 1, COCKTAILERSTELLEN, MASCHINEREINIGEN, MASCHINENINFO, ZURUECK1};
 enum Bearbeitungsanzeige{BEARBCOCKTAIL1 = 1, BEARBCOCKTAIL2, BEARBCOCKTAIL3, BEARBCOCKTAIL4, BEARBCOCKTAIL5, BEARBCOCKTAIL6, BEARBCOCKTAIL7, BEARBCOCKTAIL8, RAUFLIST2, RUNTERLIST2};
 enum Ceinstanzeige_Buttons{RAUFLIST3= 1, RUNTERLIST3, STANDARDEINST, SPEICHERN1};
 enum Reinanzeige1_Buttons{ABBRECHEN1 = 1, WEITER1};
@@ -45,6 +45,7 @@ void nextion_setText(char * object, char * text);
 void nextion_setValue( char * object,  char * text);
 void nextion_setPicture( char * x,  char * y,  char * picture);
 uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT);
+void nextion_disableButton(char * object);
 
 
 #endif /* NEXTION_DISPLAY_H_ */
