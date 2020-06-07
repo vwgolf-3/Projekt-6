@@ -99,18 +99,12 @@
 #define RFID_DDR DDRC
 #define RFID_PIN PINC
 
-#define SPI_CS_RC522_BIT (1<<1)					// SPI_CS_RC522 PIN0
+#define SPI_CS_RC522_BIT (1<<0)					// SPI_CS_RC522 PIN0
 #define SPI_CS_RC522_PORT PORTC					// SPI_CS_RC522 PORTC
 #define SPI_CS_RC522_DDR DDRC					// SPI_CS_RC522 DDRC
 #define SPI_CS_RC522_PIN PINC					// SPI_CS_RC522 PINC
-
-#define SPI_CS_SD_CARD_BIT (1<<0)					// SPI_CS_RC522 PIN0
-#define SPI_CS_SD_CARD_PORT PORTC					// SPI_CS_RC522 PORTC
-#define SPI_CS_SD_CARD_DDR DDRC					// SPI_CS_RC522 DDRC
-#define SPI_CS_SD_CARD_PIN PINC					// SPI_CS_RC522 PINC
-
 //
-#define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT|SPI_CS_SD_CARD_BIT)
+#define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT)
 //
 // ************************    F       ***************************************//
 #define LED_PORT PORTF							// Namensgebung LED/Durchfluss/Referenzschalter
@@ -170,10 +164,10 @@
 #define PUMPE6_DDR DDRG							// PUMPE6 DDRG
 #define PUMPE6_PIN PING							// PUMPE6 PING
 
-// #define SPI_CS_SD_CARD_BIT (1<<5)				// SPI_CS_SD_CARD PIN5
-// #define SPI_CS_SD_CARD_PORT PORTG				// SPI_CS_SD_CARD PORTG
-// #define SPI_CS_SD_CARD_DDR DDRG					// SPI_CS_SD_CARD DDRG
-// #define SPI_CS_SD_CARD_PIN PING					// SPI_CS_SD_CARD PING
+#define SPI_CS_SD_CARD_BIT (1<<5)				// SPI_CS_SD_CARD PIN5
+#define SPI_CS_SD_CARD_PORT PORTG				// SPI_CS_SD_CARD PORTG
+#define SPI_CS_SD_CARD_DDR DDRG					// SPI_CS_SD_CARD DDRG
+#define SPI_CS_SD_CARD_PIN PING					// SPI_CS_SD_CARD PING
 //
 #define PUMPE2_OUTPUT_MASK (PUMPE6_BIT|SPI_CS_SD_CARD_BIT)
 //

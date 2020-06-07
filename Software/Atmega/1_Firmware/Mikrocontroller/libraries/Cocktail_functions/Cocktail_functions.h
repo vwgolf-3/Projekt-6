@@ -32,6 +32,8 @@ uint8_t counter;
 char buff_name[21];
 char stop;
 
+enum Liste_Startbildschirm {ALLE, ALKOHOL, ALKOHOLFREI};
+uint8_t Liste;
 
 // Initialisierungen
 void init_Getraenke_func();
@@ -79,6 +81,7 @@ void check_abbruchanzeige(uint8_t button);
 void check_fehleranzeige(uint8_t button);
 void check_erstanzeige1(uint8_t button);
 void check_erstanzeige2(uint8_t button);
+void check_loeschanzeige(uint8_t button);
 void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
 void loesche_FIle(uint8_t filename);
 void schreibe_Menge_in_Getraenk(uint8_t zutat);

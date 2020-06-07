@@ -16,6 +16,7 @@ void cocktail_test_command(unsigned char INPUT[256])
 	Uart_Transmit_IT_PC((char *)INPUT);
 	Uart_Transmit_IT_PC("\r\n");
 	
+	tmc6200_readInt(MOTOR0, TMC6200_GSTAT);
 }
 
 void cocktail_check_command(int8_t page, int8_t button)
@@ -100,8 +101,13 @@ void cocktail_check_command(int8_t page, int8_t button)
 	break;
 	
 		/*0x11 = 0d17*/
-	case ERSTANZEIGE2:
+		case ERSTANZEIGE2:
 		check_erstanzeige2(button);
+	break;
+		
+		/*0x12 = 0d18*/
+	case LOESCHABFRAGE:
+		check_loeschanzeige(button);
 	break;
 	}
 }
@@ -129,9 +135,34 @@ void check_startseite(uint8_t button)
 			- Integer to ASCI
 			- Setze Bild des Getränks
 */
+			switch (Liste)
+			{
+			case ALLE:
+				aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			break;
+			
+			case ALKOHOL:
 			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
 			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			while(aktuellesGetraenk->alkohol == 0)
+			{
+				aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			}
+			break;
+			case ALKOHOLFREI:
+			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			while(aktuellesGetraenk->alkohol == 1)
+			{
+				aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			}
+			break;
+			}
 			setze_startanzeige(aktuellesGetraenk);
+
 			
 		break;
 		
@@ -148,8 +179,32 @@ void check_startseite(uint8_t button)
 			- Schreibe Name des Getränks
 			- Setze Bild des Getränks
 */
-			aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
-			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			switch (Liste)
+			{
+				case ALLE:
+				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				break;
+				
+				case ALKOHOL:
+				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				while(aktuellesGetraenk->alkohol == 0)
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+					lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				}
+				break;
+				case ALKOHOLFREI:
+				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				while(aktuellesGetraenk->alkohol == 1)
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+					lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				}
+				break;
+			}
 			setze_startanzeige(aktuellesGetraenk);
 				
 		break;
@@ -168,7 +223,39 @@ void check_startseite(uint8_t button)
 		break;
 		
 		case ALKOHOLJANEIN:
+
+			aktuellesGetraenk_file = tail_getraenk_file;
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			switch(Liste)
+			{
+				case ALLE:
+				Liste = ALKOHOL;
+				while (aktuellesGetraenk->alkohol == 0)
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+					lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				}
+				break;
+				
+				case ALKOHOL:
+				Liste = ALKOHOLFREI;
+				while (aktuellesGetraenk->alkohol == 1)
+				{
+					aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+					lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				}
+				break;
+				
+				case ALKOHOLFREI:
+				Liste = ALLE;
+				break;
+			}
+			setze_startanzeige(aktuellesGetraenk);
+			
+		break;
 		
+		case LOESCHEN:
+			nextion_change_page(LOESCHABFRAGE);
 		break;
 	}
 }
@@ -1052,6 +1139,29 @@ void check_erstanzeige2(uint8_t button)
 	}
 }
 
+void check_loeschanzeige(uint8_t button)
+{
+	switch (button)
+	{
+	case JA:
+		aktuellesGetraenk_file->prev->next = aktuellesGetraenk_file->next;
+		aktuellesGetraenk_file->next->prev = aktuellesGetraenk_file->prev;
+		char buff[20];
+		itoa(aktuellesGetraenk_file->file, (char *)buff, 10);
+		strcat((char *) buff,(const char *)".txt");
+		deleteFile((unsigned char *)buff);
+		aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+		lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+		setze_startanzeige(aktuellesGetraenk);
+	break;
+	case NEIN:
+		nextion_change_page(STARTANZEIGE);
+		setze_startanzeige(aktuellesGetraenk);
+	break;
+	}
+}
+
+
 void choose_drink(uint8_t nr)
 {
 	lese_textfile_in_getraenk(i_Liste + nr);
@@ -1344,28 +1454,27 @@ void erstelle_Liste_name(char * name_button)
 void erstelle_Liste_zutat(char * input)
 {
 	aktuelleZutat = head_zut;
-	
+	char string[21] = {'\0'};
+	char string2[21] = {'\0'};
+	char string3[21] = {'\0'};
+	char buff[5] = {0};
+
 	for (int i = i_Liste ; i < (4 + i_Liste) ; i++)
 	{
-		char string[21] = {'\0'};
-		char string2[21] = {'\0'};
-		char string3[21] = {'\0'};
-		char buff[5] = {0};
-			
+		// Schreibe Buttonname, Slidername und Anzeiename in einen String
 		itoa((i-i_Liste+1),buff,10);
-		strcat((char *)string, (const char *)input);
+		strcpy((char *)string, (const char *)input);
 		strcat((char *)string, (const char *)buff);
 		
-		strcat((char *)string2, (const char *)"slider");
+		strcpy((char *)string2, (const char *)"slider");
 		strcat((char *)string2, (const char *)buff);
 		
-		strcat((char *)string3, (const char *)"menge");
+		strcpy((char *)string3, (const char *)"menge");
 		strcat((char *)string3, (const char *)buff);
 				
 		// Falls das Ende der Liste erreicht ist und Liste noch nicht blockiert,
 		// Weiteres Scrollen blockieren,
 		// Letzter Eintrag eintragen
-		
 		int run = 1;
 		while (run)
 		{
@@ -1375,6 +1484,7 @@ void erstelle_Liste_zutat(char * input)
 				run = 0;
 			}
 		}
+		
 		
 		if (i == head_zut->nr && !block_list_runter)
 		{
@@ -1449,6 +1559,20 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk)
 	nextion_setText("cocktailname",anzeige_getraenk->name);
 	itoa(anzeige_getraenk->picture,(char *)buff,10);
 	nextion_setPicture("235","80",(char *)buff);
+	switch(Liste)
+	{
+		case ALLE:
+		nextion_setText("alkoholjanein", "Alkoholisch");
+		break;
+		
+		case ALKOHOL:
+		nextion_setText("alkoholjanein", "Alkoholfrei");
+		break;
+		
+		case ALKOHOLFREI:
+		nextion_setText("alkoholjanein", "Alle");
+		break;
+	}
 }
 
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
@@ -1551,6 +1675,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 		if (pruefe_kopf(ptr, "Alkohol"))
 		{
 			ptr = strtok(NULL, delimiter);
+			aktuellesGetraenk->alkohol = atoi(ptr);
 		}
 		
 		if (pruefe_kopf(ptr, "Bild"))

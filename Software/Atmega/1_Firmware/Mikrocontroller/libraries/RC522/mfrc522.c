@@ -303,6 +303,6 @@ void check_Communication_Input_MFRC522(void)
 	}
 	else
 	{
-		// 			Uart_Transmit_IT_PC(" Error \r\n");
+// 		 			Uart_Transmit_IT_PC(" Error \r\n");
 	}
 }

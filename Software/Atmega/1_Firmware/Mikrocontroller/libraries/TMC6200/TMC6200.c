@@ -14,8 +14,8 @@ extern uint8_t tmc6200_readwriteByte(uint8_t motor, uint8_t data, uint8_t lastTr
 
 // spi access
 int tmc6200_readInt(uint8_t motor, uint8_t address)
-{
-	unsigned char rbuf[4];
+{	
+	unsigned char rbuf[5];
 	int value;
 	
 	enable_Slave(TMC6200);
@@ -25,8 +25,7 @@ int tmc6200_readInt(uint8_t motor, uint8_t address)
 	// read data
 	for(int k = 0 ; k<4 ; k++)
 	{
-		while(!(SPSR & (1<<SPIF)));
-		rbuf[k] = SPDR;
+		rbuf[k] = spi_transmit(0x00);
 	}
 	disable_Slave(TMC6200);
 	value =rbuf[0];
@@ -36,8 +35,6 @@ int tmc6200_readInt(uint8_t motor, uint8_t address)
 	value |= rbuf[2];
 	value <<= 8;
 	value |= rbuf[3];
-	Uart_Transmit_IT_PC((char *)rbuf);
-	_delay_ms(100);
 	return value;
 }
 
@@ -61,14 +58,14 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 
 void initTMC6200(void)
 {
- 	EN_TMC6200_PORT |= EN_TMC6200_BIT;
-
-	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000030);
+	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000034);
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, );
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_IOIN_OUTPUT, );
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_PROG, );
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_READ, );
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_FACTORY_CONF, );
 	// 	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, );
-	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080000);
+	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080004);
+	
+//  	EN_TMC6200_PORT |= EN_TMC6200_BIT;
 }
