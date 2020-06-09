@@ -20,6 +20,7 @@ main.d main.o: .././main.c \
  .././utils/pin_defs.h .././utils/main_variables.h \
  .././libraries/Main_functions/Main_Func.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
+ .././libraries/Main_functions/../Cocktail_functions/Cocktail_Statemachine.h \
  .././libraries/Main_functions/../Cocktail_functions/Cocktail_functions.h \
  .././libraries/Main_functions/../Cocktail_functions/../../utils/pin_defs.h \
  .././libraries/Main_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
@@ -54,6 +55,7 @@ main.d main.o: .././main.c \
  .././libraries/Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  .././libraries/Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h \
  .././libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
+ .././libraries/Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h \
  .././libraries/Main_functions/../UART/UART.h .././libraries/SPI/SPI.h \
  .././libraries/UART/UART.h .././libraries/TMC4671/TMC4671.h \
  .././libraries/TMC6200/TMC6200.h .././libraries/RC522/mfrc522.h \
@@ -103,6 +105,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././libraries/Main_functions/Main_Func.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
+
+.././libraries/Main_functions/../Cocktail_functions/Cocktail_Statemachine.h:
 
 .././libraries/Main_functions/../Cocktail_functions/Cocktail_functions.h:
 
@@ -171,6 +175,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././libraries/Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h:
 
 .././libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h:
 
 .././libraries/Main_functions/../UART/UART.h:
 

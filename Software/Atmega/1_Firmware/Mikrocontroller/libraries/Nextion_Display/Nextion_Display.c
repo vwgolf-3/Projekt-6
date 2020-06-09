@@ -21,7 +21,6 @@ void nextion_change_page(char page)
 		Uart_Transmit_IT_PC(pge);
 		Uart_Transmit_IT_PC((char *)buff);
 	}
-	
 	endConversation();
 }
 
@@ -41,7 +40,7 @@ void nextion_setText(char * object, char * text)
 		Uart_Transmit_IT_PC(object);
 		Uart_Transmit_IT_PC(txt);
 		Uart_Transmit_IT_PC(slash);
-		Uart_Transmit_IT_PC(( char *)text);
+		Uart_Transmit_IT_PC(text);
 		Uart_Transmit_IT_PC(slash);
 	}
 	

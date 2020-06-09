@@ -7,6 +7,7 @@
 #include "UART.h"
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <util/delay.h>
 
 void (*ptr_tx_completed_0)(void);
 void (*ptr_tx_completed_1)(void);
@@ -81,9 +82,14 @@ void Uart_Transmit_IT_PC(char *data)
 
 void Uart_Transmit_IT_Display(char *data)
 {
-	uint8_t nbytes = strlen((const char *)data);
-	RB_write(&rb_tx_Display, data, nbytes);
-	Uart_EnableTransmitIT_1();
+	int i = 0;
+	while (*(data + i) !='\0')
+		{
+			while ( !(UCSR1A & (1<<UDRE1)) )
+			; 			                /* Wait for empty transmit buffer */
+			UDR1 = *(data+i); 			        /* Start transmition */
+			i++;
+	}
 }
 
 void Uart_Transmit_IT_ESP(char *data)
@@ -128,6 +134,7 @@ ISR(USART0_RX_vect)
 
 ISR(USART1_UDRE_vect)
 {
+
 	if (RB_length(&rb_tx_Display) > 0)
 	{
 		UDR1 = RB_readByte(&rb_tx_Display);

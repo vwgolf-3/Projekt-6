@@ -27,9 +27,7 @@ int main(void)
 {
 	// Gate Treiber disable (active high)
  	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;
-// 	 _delay_ms(2000);
-//  	EN_TMC6200_PORT |= EN_TMC6200_BIT;
-// 	 _delay_ms(2000);
+
 	Grossschreib = 1;
 //Initialisierungen
 	IO_init();
@@ -39,7 +37,7 @@ int main(void)
 // 	initTMC6200();
 // 	TMC4671_init();
 // 	initTMC4671_Openloop();
-	mfrc522_init();
+// 	mfrc522_init();
 	
 	zutaten_init();
 	cocktails_init();
@@ -47,7 +45,7 @@ int main(void)
 		
 // Mainroutine
 	while (1)
-	{		check_Communication_Input_MFRC522();
+	{// 		check_Communication_Input_MFRC522();
 		check_Communication_Input_UART();
 //   		heartbeat_LED();
 	}

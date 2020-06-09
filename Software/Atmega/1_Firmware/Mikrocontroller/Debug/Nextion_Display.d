@@ -23,6 +23,7 @@ Nextion_Display.d Nextion_Display.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_Statemachine.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_functions.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../../utils/pin_defs.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
@@ -53,6 +54,7 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h \
  ../libraries/Nextion_Display/../Main_functions/../UART/UART.h
 
 ../libraries/Nextion_Display/Nextion_Display.h:
@@ -100,6 +102,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_Statemachine.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_functions.h:
 
@@ -160,5 +164,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h:
 
 ../libraries/Nextion_Display/../Main_functions/../UART/UART.h:

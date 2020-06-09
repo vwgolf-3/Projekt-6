@@ -148,15 +148,13 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Cocktail_Statemachine.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Cocktail_Statemachine.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="libraries\Cocktail_functions\Cocktail_functions.c">
       <SubType>compile</SubType>
       <Link>Cocktail_functions.c</Link>
+    </Compile>
+    <Compile Include="libraries\Cocktail_functions\Cocktail_Statemachine.c">
+      <SubType>compile</SubType>
+      <Link>Cocktail_Statemachine.c</Link>
     </Compile>
     <Compile Include="libraries\Cocktail_functions\Getraenk.c">
       <SubType>compile</SubType>

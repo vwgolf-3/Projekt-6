@@ -17,6 +17,8 @@
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/SD_routines.h"
 #include "../SD-Karte/FAT32.h"
+#include "../Main_functions/Main_Func.h"
+
 uint8_t lese_sensor(uint8_t Sensor);
 
 unsigned char option, error, data, FAT32_active;
@@ -35,11 +37,7 @@ char stop;
 enum Liste_Startbildschirm {ALLE, ALKOHOL, ALKOHOLFREI};
 uint8_t Liste;
 
-// Initialisierungen
-void init_Getraenke_func();
 
-// Commands Display/ESP
-void cocktail_check_command(int8_t page_in, int8_t button_in);
 
 // Zubereitung
 void fuelle_getraenk(uint16_t fuellmenge);
@@ -63,25 +61,7 @@ void lese_textfile_in_getraenk(uint8_t file);
 // Testfunktion
 void cocktail_test_command(unsigned char INPUT[256]);
 
-// Subfunktionen
-void check_startseite(uint8_t button);
-void check_zutatenanzeige(uint8_t button);
-void check_listenanzeige(uint8_t button);
-void choose_drink(uint8_t nr);
-void check_zubabfrage(uint8_t button);
-void check_zubbildschirm(uint8_t button);
-void check_menuanzeige(uint8_t button);
-void check_bearbeitungsanzeige(uint8_t button);
-void check_ceinstanzeige(uint8_t button);
-void check_reinanzeige1(uint8_t button);
-void check_reinanzeige2(uint8_t button);
-void check_reinanzeige3(uint8_t button);
-void check_infoanzeige(uint8_t button);
-void check_abbruchanzeige(uint8_t button);
-void check_fehleranzeige(uint8_t button);
-void check_erstanzeige1(uint8_t button);
-void check_erstanzeige2(uint8_t button);
-void check_loeschanzeige(uint8_t button);
+
 void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
 void loesche_FIle(uint8_t filename);
 void schreibe_Menge_in_Getraenk(uint8_t zutat);

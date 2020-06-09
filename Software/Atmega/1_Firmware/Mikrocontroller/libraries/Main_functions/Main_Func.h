@@ -12,7 +12,7 @@
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include "../Cocktail_functions/Cocktail_functions.h"
+#include "../Cocktail_functions/Cocktail_Statemachine.h"
 #include "../UART/UART.h"
 
 void TIMER_init(void);
