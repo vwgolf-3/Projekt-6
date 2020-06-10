@@ -20,6 +20,34 @@ void cocktail_test_command(unsigned char INPUT[256])
 	tmc6200_readInt(MOTOR0, TMC6200_GSTAT);
 }
 
+void bearbeite_Cocktail(uint8_t cocktail)
+{
+	aktuellesGetraenk_file = tail_getraenk_file;
+	for (int i = 0 ; i < (i_Liste + cocktail) ; i++)
+	{
+		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+	}
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+	nextion_change_page(CEINSTANZEIGE);
+	i_Liste = 0;
+	block_list_hoch = 0;
+	block_list_runter = 0;
+	aktuelleZutat = head_zut;
+	erstelle_Liste_zutat("zutat");
+}
+
+void zubereitung_getraenk(uint16_t Menge)
+{
+	nextion_change_page(ZUBBILDSCHIRM);
+	nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
+	_delay_ms(1000);
+	fuelle_getraenk(Menge);
+	nextion_change_page(BEREITANZEIGE);
+	_delay_ms(2000);
+	nextion_change_page(STARTANZEIGE);
+	setze_startanzeige(aktuellesGetraenk);
+}
+
 void schreibe_Menge_in_Getraenk(uint8_t zutat)
 {
 	uint8_t val = 0;
@@ -53,7 +81,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 		val = restval;
 	}
 	
-	*(aktuellesGetraenk->mengen+i_Liste+zutat- 1) = val;
+	*(aktuellesGetraenk->mengen+i_Liste+zutat) = val;
 	
 	// String um Text zu Setzen
 	itoa((int)val, (char *)buff2, 10);
@@ -95,7 +123,7 @@ void fuelle_getraenk(uint16_t fuellmenge)
 	for (uint8_t i = 0 ; i < 12 ; i++)
 	{
 		// Falls das Getränk vorkommt
-		if (*(uint8_t *)(aktuellesGetraenk->mengen + i) > 0)
+		if ((*(uint8_t *)(aktuellesGetraenk->mengen + i) > 0) && (stop ==0))
 		{
 			char buff[5];
 			itoa(*(uint16_t *)(aktuellesGetraenk->mengen + i), buff, 10);
@@ -133,28 +161,46 @@ void fuelle_getraenk(uint16_t fuellmenge)
 // 				uint8_t newval = lese_sensor(i);
 
 				// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
-				if( !oldval && newval){
+				if( !oldval && newval)
+				{
 					// Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
-					if(count++ > Menge){
+					if(count++ > Menge)
+					{
 						schalte_pumpe_aus(i);
 						count = 0;
 						fuellen = 0;
 					}
-
 //*************************************************************************
-				_delay_ms(1);
-//				Delay entfernen wenn mit Sensor gearbeitet wird.
+					_delay_ms(5);
+//					Delay entfernen wenn mit Sensor gearbeitet wird.
+
+				
+					if (check_Communication_Input_UART_1())
+					{
+						proceed_Communication_INPUT_UART_1();
+						if (stop == 1)
+						{
+							for (int k = 0 ; k < 12 ; k++)
+							{
+								schalte_pumpe_aus(k);
+							}
+							nextion_change_page(ABBRUCHANZEIGE);
+							_delay_ms(2000);
+							setze_startanzeige(aktuellesGetraenk);
+							count = 0;
+							fuellen = 0;
+						}
+					}
 				}
 			// Aktueller Sensorwert speichern
 			oldval = newval;
 			}
 		}
-	}
-// 	aktuellesGetraenk = aktuellesGetraenk->next;
-	
+	}	
 /*
 	Fahre zurück bis Home-Schalter betätigt wird
-*/		
+*/	
+	stop = 0;
 }
 
 void schalte_pumpe_ein(uint8_t Pumpe)
@@ -535,6 +581,18 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 	nextion_setText("zutatenliste",string);
 }
 
+void schiebe_file_next(void)
+{
+	aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+}
+
+void schiebe_file_prev(void)
+{
+	aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+}
+
 void lese_textfile_in_getraenk(uint8_t file)
 {
 	// Erstellen eines Strings in Form von: "file.txt"
@@ -734,4 +792,76 @@ void loesche_FIle(uint8_t filename)
 	itoa(filename, (char *)buff, 10);
 	strcat((char *)buff,".txt");
 	deleteFile((unsigned char *)buff);
+}
+
+void erstelle_Liste_Zutat_Pos(char * name_button)
+{
+	// Getränkedurchwahr bei Tail starten.
+	aktuelleZutat = tail_zut;
+	
+	// Shifte aktuelles Getränk auf bestimmte Seite
+	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
+	for (int i = 0 ; i < i_Liste ; i++)
+	{
+		aktuelleZutat = aktuelleZutat->prev;
+	}
+
+	// Für alle Buttons auf der Seite ...
+	// Initialisierungen
+	char button[21] = {'\0'};
+	char buff[4] = {0};
+	
+	for (int i = 0 ; i < 6 ; i++)
+	{
+		// Schreibe Zahl und Name des Buttons in String
+		itoa((i + 1),buff,10);
+		strcpy((char *)button, (const char *)name_button);
+		strcat((char *)button, (const char *)buff);
+		
+		// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
+		// runterscrollen, blockieren und letzter Name einschreiben.
+		if ((i + i_Liste ) == head_zut->nr && !block_list_runter)
+		{
+			block_list_runter = 1;
+			nextion_setText(button,aktuelleZutat->name);
+		}
+		
+		// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
+		// die Buttons disablen
+		else if (block_list_runter)
+		{
+			// leerer String
+			nextion_setText(button,"");
+			
+			// Sicherheitsdelay, Programm stürzt sonst ab
+			_delay_ms(10);
+			
+			// Schreibe Text und Buttonnummer für disable in String
+			char buff10[20] = {'\0'};
+			strcat((char *)buff10, (const char *)name_button);
+			itoa((i + 1), (char *)buff, 10);
+			strcat((char *)buff10, (const char *)buff);
+			
+			// Disable Button
+			nextion_disableButton(buff10);
+		}
+		
+		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
+		else
+		{
+			nextion_setText(button,aktuelleZutat->name);
+		}
+		
+		// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
+		if((i + i_Liste) == tail_zut->nr)
+		{
+			block_list_hoch = 1;
+		}
+		
+		// Ein Getraenk weiter Scrollen
+		aktuelleZutat = aktuelleZutat->prev;
+		
+		// Sicherheitsdelay, Programm stürzt sonst ab
+		_delay_ms(1);
+	}
 }

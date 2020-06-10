@@ -66,6 +66,12 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
 void loesche_FIle(uint8_t filename);
 void schreibe_Menge_in_Getraenk(uint8_t zutat);
 
+void schiebe_file_prev(void);
+void schiebe_file_next(void);
+void zubereitung_getraenk(uint16_t Menge);
+void bearbeite_Cocktail(uint8_t cocktail);
+void erstelle_Liste_Zutat_Pos(char * name_button);
+
 extern unsigned char INPUT_UART_1[256];
 
 #endif /* COCKTAIL_FUNCTIONS_H_ */

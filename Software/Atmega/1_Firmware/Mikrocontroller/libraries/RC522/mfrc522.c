@@ -64,7 +64,6 @@ void mfrc522_write(uint8_t reg, uint8_t data)
 {
 	enable_Slave(MFRC522);
 	spi_transmit((reg<<1)&0x7E);
-	_delay_us(10);
 	spi_transmit(data);
 	disable_Slave(MFRC522);
 }
@@ -76,6 +75,10 @@ uint8_t mfrc522_read(uint8_t reg)
 	spi_transmit(((reg<<1)&0x7E)|0x80);
 	data = spi_transmit(0x00);
 	disable_Slave(MFRC522);
+	char buff[5];
+	itoa(data, (char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	Uart_Transmit_IT_PC("\r");
 	return data;
 }
 

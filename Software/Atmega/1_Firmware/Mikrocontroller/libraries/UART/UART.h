@@ -37,8 +37,8 @@
 #define		Uart_EnableTransmitIT_2()		UCSR2B |= (1<<UDRIE2)
 #define		Uart_DisableTransmitIT_2()	UCSR2B &= ~(1<<UDRIE2)
 
-// #define		Uart_EnableTransmitIT_3()		UCSR3B |= (1<<UDRIE3)
-// #define		Uart_DisableTransmitIT_3()	UCSR3B &= ~(1<<UDRIE3)
+#define		Uart_EnableTransmitIT_3()		UCSR3B |= (1<<UDRIE3)
+#define		Uart_DisableTransmitIT_3()	UCSR3B &= ~(1<<UDRIE3)
 
 #define		Uart_EnableRxIT_0()		UCSR0B |= (1<<RXCIE0)
 #define		Uart_DisableRxIT_0()		UCSR0B &= ~(1<<RXCIE0)
@@ -49,14 +49,14 @@
 #define		Uart_EnableRxIT_2()		UCSR2B |= (1<<RXCIE2)
 #define		Uart_DisableRxIT_2()		UCSR2B &= ~(1<<RXCIE2)
 
-// #define		Uart_EnableRxIT_3()		UCSR3B |= (1<<RXCIE3)
-// #define		Uart_DisableRxIT_3()		UCSR3B &= ~(1<<RXCIE3)
+#define		Uart_EnableRxIT_3()		UCSR3B |= (1<<RXCIE3)
+#define		Uart_DisableRxIT_3()		UCSR3B &= ~(1<<RXCIE3)
 
 void UART_init();
 void Uart_Transmit_IT_PC(char *data);
 void Uart_Transmit_IT_Display(char *data);
 void Uart_Transmit_IT_ESP(char *data);
-// void Uart_Transmit_IT_RFID(char *data);
+void Uart_Transmit_IT_RFID(char *data);
 void tx_completed();
 
 unsigned char receiveByte(void);

@@ -36,5 +36,11 @@ void check_fehleranzeige(uint8_t button);
 void check_erstanzeige1(uint8_t button);
 void check_erstanzeige2(uint8_t button);
 void check_loeschanzeige(uint8_t button);
+void check_posanzeige(uint8_t button);
+void check_fluessanzeige1(uint8_t button);
+void check_fluessanzeige2(uint8_t button);
+void check_RFIDAnzeige1(uint8_t button);
+void check_RFIDAnzeige2(uint8_t button);
+void check_RFIDFehler(uint8_t button);
 
 #endif /* COCKTAIL_STATEMACHINE_H_ */

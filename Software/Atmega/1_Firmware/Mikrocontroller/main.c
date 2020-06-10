@@ -38,7 +38,10 @@ int main(void)
 // 	TMC4671_init();
 // 	initTMC4671_Openloop();
 // 	mfrc522_init();
-	
+	mfrc522_read(0x33);
+	mfrc522_write(0x33,0x03);
+	mfrc522_read(0x33);
+
 	zutaten_init();
 	cocktails_init();
 	init_Getraenke_func();
@@ -47,7 +50,7 @@ int main(void)
 	while (1)
 	{// 		check_Communication_Input_MFRC522();
 		check_Communication_Input_UART();
-//   		heartbeat_LED();
+  		heartbeat_LED();
 	}
 	return 0;
 }

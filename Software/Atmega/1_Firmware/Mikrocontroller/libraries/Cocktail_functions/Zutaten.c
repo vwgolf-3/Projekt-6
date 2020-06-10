@@ -46,10 +46,12 @@ void zutaten_init(void)
 	
 	head_zut = NULL;
 	zutat_t *tmp;
- 	for ( int i = 0 ; i<12;i++){
+ 	for ( int i = 0 ; i<12;i++)
+	 {
 	tmp = create_neue_zutat(zutaten[i], i);
 	head_zut = insert_zutat_at_head(&head_zut, tmp);
  	}
+	 aktuelleZutat = head_zut;
 }
 
 zutat_t *create_neue_zutat(char * name, char k)
@@ -63,13 +65,10 @@ zutat_t *create_neue_zutat(char * name, char k)
 	newZutat->prev = NULL;
 	newZutat->next = NULL;
 	 
-	int i = 0;
- 	for (i=0; i<(n1-1); i++)
+ 	for (int i=0; i<(n1); i++)
  	{
  		*(char *)(newZutat->name + i) = *(char *)(name + i);
  	}
-	 	*(char *)(newZutat->name + (i+1)) = '\0';
-
 
 	return newZutat;
 }

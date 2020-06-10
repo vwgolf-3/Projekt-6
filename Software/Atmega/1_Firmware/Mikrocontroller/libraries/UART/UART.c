@@ -27,7 +27,7 @@ void UART_init()
 	UBRR0H = (BRC9600 >> 8);
 	UBRR0L = (BRC9600);
 	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-// 	UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
 	UCSR0C = (1<<UCSZ00)|(1<<UCSZ01);	
 	
 	UBRR1H = (BRC9600>>8);
@@ -40,10 +40,10 @@ void UART_init()
 	UCSR2B = (1<<RXEN2)|(1<<TXEN2)|(1<<RXCIE2);
 	UCSR2C = (1<<UCSZ20)|(1<<UCSZ21);
 	
-// 	UBRR3H = (BRC9600>>8);
-// 	UBRR3L = BRC9600;
-// 	UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
-// 	UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);
+	UBRR3H = (BRC9600>>8);
+	UBRR3L = BRC9600;
+	UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
+	UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);
 	
 	RB_init(&rb_tx_PC);
 	RB_init(&rb_rx_PC);
@@ -63,14 +63,14 @@ void UART_init()
 
 	Uart_EnableRxIT_2();
 
-// 	Uart_EnableRxIT_3();
+	Uart_EnableRxIT_3();
 
 	sei();
 	
 	ptr_tx_completed_0=tx_completed;
 	ptr_tx_completed_1=tx_completed;
 	ptr_tx_completed_2=tx_completed;
-// 	ptr_tx_completed_3=tx_completed;
+	ptr_tx_completed_3=tx_completed;
 }
 
 void Uart_Transmit_IT_PC(char *data)
@@ -99,12 +99,12 @@ void Uart_Transmit_IT_ESP(char *data)
 	Uart_EnableTransmitIT_2();
 }
 
-// void Uart_Transmit_IT_RFID(char *data)
-// {
-// 	uint8_t nbytes = strlen((const char *)data);
-// 	RB_write(&rb_tx_RFID, data, nbytes);
-// 	Uart_EnableTransmitIT_3();
-// }
+void Uart_Transmit_IT_RFID(char *data)
+{
+	uint8_t nbytes = strlen((const char *)data);
+	RB_write(&rb_tx_RFID, data, nbytes);
+	Uart_EnableTransmitIT_3();
+}
 
 void tx_completed()
 {
@@ -173,12 +173,11 @@ ISR(USART2_RX_vect)
 	RB_writeByte(&rb_rx_ESP,ch);
 }
 
-/*
 ISR(USART3_UDRE_vect)
 {
 	if (RB_length(&rb_tx_RFID) > 0)
 	{
-		UDR2 = RB_readByte(&rb_tx_RFID);
+		UDR3 = RB_readByte(&rb_tx_RFID);
 	}
 	else
 	{
@@ -192,7 +191,7 @@ ISR(USART3_RX_vect)
 {
 	char ch = UDR3;
 	RB_writeByte(&rb_rx_RFID,ch);
-}*/
+}
 
 //**************************************************************
 //******** FUNCTIONS FOR SERIAL COMMUNICATION USING UART *******
