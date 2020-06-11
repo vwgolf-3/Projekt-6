@@ -6,6 +6,7 @@ void init_Getraenke_func()
 {
 	nextion_change_page(STARTANZEIGE);
 	setze_startanzeige(aktuellesGetraenk);
+	test2 = 0;
 }
 
 
@@ -390,15 +391,28 @@ void check_zubabfrage(uint8_t button)
 /*		0x01 = 0b01
 			- Getränk mit 3dl zubereiten
 */
-			zubereitung_getraenk(3000);
+	for (uint32_t i = 0 ; i < 12 ; i ++)
+	{
+		*(aktuellesGetraenk->mengen + i) = '\0';
+	}
+	*(aktuellesGetraenk->mengen + test2) = (uint8_t)100;
+	zubereitung_getraenk((uint32_t)3);
+	test2++;
 		break;
 		
 		case GROSS:
 /*		0x02 = 0b02
-			- Getränk mit 3dl zubereiten
+			- Getränk mit 5dl zubereiten
 */
-			zubereitung_getraenk(5000);
-		break;
+		
+	for (uint32_t i = 0 ; i < 12 ; i ++)
+	{
+		*(aktuellesGetraenk->mengen + i) = '\0';
+	}
+	*(aktuellesGetraenk->mengen + test2) = (uint8_t)100;
+	zubereitung_getraenk((uint32_t)5);
+	test2++;
+	break;
 		
 		case ABBRUCHZUBAB:
 /*		0x03 = 0b03

@@ -40,7 +40,7 @@ uint8_t Liste;
 
 
 // Zubereitung
-void fuelle_getraenk(uint16_t fuellmenge);
+void fuelle_getraenk(uint32_t fuellmenge);
 void schalte_pumpe_aus(uint8_t Pumpe);
 void schalte_pumpe_ein(uint8_t Pumpe);
 
@@ -68,9 +68,12 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat);
 
 void schiebe_file_prev(void);
 void schiebe_file_next(void);
-void zubereitung_getraenk(uint16_t Menge);
+void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
 void erstelle_Liste_Zutat_Pos(char * name_button);
+
+extern uint8_t test2;
+
 
 extern unsigned char INPUT_UART_1[256];
 

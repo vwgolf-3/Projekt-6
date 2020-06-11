@@ -16,8 +16,6 @@ void cocktail_test_command(unsigned char INPUT[256])
 */
 	Uart_Transmit_IT_PC((char *)INPUT);
 	Uart_Transmit_IT_PC("\r\n");
-	
-	tmc6200_readInt(MOTOR0, TMC6200_GSTAT);
 }
 
 void bearbeite_Cocktail(uint8_t cocktail)
@@ -36,7 +34,7 @@ void bearbeite_Cocktail(uint8_t cocktail)
 	erstelle_Liste_zutat("zutat");
 }
 
-void zubereitung_getraenk(uint16_t Menge)
+void zubereitung_getraenk(uint32_t Menge)
 {
 	nextion_change_page(ZUBBILDSCHIRM);
 	nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
@@ -116,14 +114,14 @@ void choose_drink(uint8_t nr)
 	block_list_runter = 0;
 }
 
-void fuelle_getraenk(uint16_t fuellmenge)
+void fuelle_getraenk(uint32_t fuellmenge)
 {
 
 	// Switche durch alle Getränke
-	for (uint8_t i = 0 ; i < 12 ; i++)
+	for (uint32_t i = 0 ; i < 12 ; i++)
 	{
 		// Falls das Getränk vorkommt
-		if ((*(uint8_t *)(aktuellesGetraenk->mengen + i) > 0) && (stop ==0))
+		if ((*(uint8_t *)(aktuellesGetraenk->mengen + i) > 0) && (stop == 0))
 		{
 			char buff[5];
 			itoa(*(uint16_t *)(aktuellesGetraenk->mengen + i), buff, 10);
@@ -135,19 +133,37 @@ void fuelle_getraenk(uint16_t fuellmenge)
 	
 	While momentane Position != vorgegebene Position
 		warten
-	
+
 	Weiter mit Programmm
 			
 */			
-			// Berechne Menge, schalte Pumpe ein und beginne mit füllen
-			uint16_t Menge = (fuellmenge * *(uint16_t *)(aktuellesGetraenk->mengen + i))/100;
+			uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
+			uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506};
 			
 			char buff2[10];
-			itoa(Menge, buff2, 10);
-			Uart_Transmit_IT_PC(buff2);
+			
+			itoa(pulse_prp_5dl[i], (char *)buff2, 10);
+			Uart_Transmit_IT_PC((char *)buff2);
+			Uart_Transmit_IT_PC("\r");
+			
+			// Berechne Menge, schalte Pumpe ein und beginne mit füllen
+			uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp_5dl[i]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
+						
+			itoa(*(aktuellesGetraenk->mengen+i), (char *)buff2, 10);
+			Uart_Transmit_IT_PC((char *)buff2);
+			Uart_Transmit_IT_PC("\r");
+			
+			itoa((int)(fuellmenge), (char *)buff2, 10);
+			Uart_Transmit_IT_PC((char *)buff2);
+			Uart_Transmit_IT_PC("\r");
+			
+			itoa(Menge, (char *)buff2, 10);
+			Uart_Transmit_IT_PC((char *)buff2);
 			Uart_Transmit_IT_PC("\r");
 						
 			uint8_t fuellen = 1;
+			uint8_t newval = lese_sensor(i);
+
 			schalte_pumpe_ein(i);
 			while (fuellen)
 			{
@@ -156,9 +172,8 @@ void fuelle_getraenk(uint16_t fuellmenge)
 				static uint32_t count=0;
 			
 				// Lese Sensor ein
-				uint8_t newval = oldval ^ 0b00000001;
-				
-// 				uint8_t newval = lese_sensor(i);
+// 				uint8_t newval = oldval ^ 0b00000001;
+				newval = lese_sensor(i);
 
 				// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
 				if( !oldval && newval)
@@ -171,9 +186,11 @@ void fuelle_getraenk(uint16_t fuellmenge)
 						fuellen = 0;
 					}
 //*************************************************************************
-					_delay_ms(5);
 //					Delay entfernen wenn mit Sensor gearbeitet wird.
-
+					char buff[5] = {'\0'};
+					itoa(count, (char * )buff, 10);
+					Uart_Transmit_IT_PC(buff);
+					Uart_Transmit_IT_PC("\r");
 				
 					if (check_Communication_Input_UART_1())
 					{
