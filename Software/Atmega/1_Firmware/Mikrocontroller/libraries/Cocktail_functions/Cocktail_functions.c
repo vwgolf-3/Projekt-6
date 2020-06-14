@@ -21,8 +21,8 @@ void bearbeite_Cocktail(uint8_t cocktail)
 	choose_aktuellesGetraenk(cocktail);
 	nextion_change_page(CEINSTANZEIGE);
 	aktuelleZutat = head_zut;
+	i_Liste = 0;
 	erstelle_Liste_zutat("zutat");
-
 }
 
 void zubereitung_getraenk(uint32_t Menge)
@@ -50,7 +50,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	for (int i = 0 ; i < 12 ; i++)
 	{
-		if (i != (zutat + i_Liste - 1))
+		if (i != (zutat + i_Liste))
 		{
 			totval += *(aktuellesGetraenk->mengen + i);
 		}
@@ -60,17 +60,21 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// String, um Slider auszuwählen
 	strcpy((char *)buff, (const char *)"slider");
-	itoa(zutat, (char *)buff2, 10);
+	itoa((zutat + 1), (char *)buff2, 10);
 	strcat((char *)buff, (const char *)buff2);
 	
 	// Wert aus Slider holen und in Getränkeliste eintragen
 	val = nextion_getSliderValue(buff, (unsigned char *)INPUT_UART_1);
+	char buff_not[10] = {'\0'};
+	itoa(val, (char *)buff_not, 10);
+	Uart_Transmit_IT_PC((char *)buff_not);
+	Uart_Transmit_IT_PC("\r");
 	if (val > restval)
 	{
 		val = restval;
 	}
 	
-	*(aktuellesGetraenk->mengen+i_Liste+zutat) = val;
+	*(aktuellesGetraenk->mengen+(i_Liste+zutat)) = val;
 	
 	// String um Text zu Setzen
 	itoa((int)val, (char *)buff2, 10);
@@ -78,7 +82,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// String um Textfeld auszuwählen
 	strcpy((char *)buff, (const char *)"menge");
-	itoa(zutat, (char *) buff3, 10);
+	itoa((zutat+1), (char *) buff3, 10);
 	strcat((char *)buff, (const char *)buff3);
 	
 	// Text schreiben
@@ -89,7 +93,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// String um Textfeld auszuwählen
 	strcpy((char *)buff, (const char *)"slider");
-	itoa(zutat, (char *) buff3, 10);
+	itoa((zutat +1), (char *) buff3, 10);
 	strcat((char *)buff, (const char *)buff3);
 	
 	// Text schreiben

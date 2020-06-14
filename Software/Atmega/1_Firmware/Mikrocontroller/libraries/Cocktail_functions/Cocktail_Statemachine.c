@@ -1072,6 +1072,7 @@ void check_erstanzeige2(uint8_t button)
 	
 	// Ob Alkohol oder nicht, kann nicht gesagt werden. (default = 1)
 	
+	
 	// Das Bild wird defaultmässig auf 24 gestellt (Custom Cocktail).
 		aktuellesGetraenk->picture = 24;
 		
