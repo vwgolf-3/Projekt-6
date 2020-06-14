@@ -321,35 +321,43 @@ void check_listenanzeige(uint8_t button)
 			- Wähle x-ten Cocktail des aktuellen Listenabschnitts
 */
 		case COCKTAIL1:
-			choose_drink(0);
+			choose_aktuellesGetraenk(0);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL2:
-			choose_drink(1);
+			choose_aktuellesGetraenk(1);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL3:
-			choose_drink(2);	
+			choose_aktuellesGetraenk(2);	
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL4:
-			choose_drink(3);		
+			choose_aktuellesGetraenk(3);		
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL5:
-			choose_drink(4);
+			choose_aktuellesGetraenk(4);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL6:
-			choose_drink(5);
+			choose_aktuellesGetraenk(5);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL7:
-			choose_drink(6);
+			choose_aktuellesGetraenk(6);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL8:
-			choose_drink(7);
+			choose_aktuellesGetraenk(7);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case RAUFLIST1:
@@ -448,7 +456,7 @@ void check_menuanzeige(uint8_t button)
 */
 			nextion_change_page(BEARBEITUNGSANZEIGE);
 			i_Liste = 0;
-			erstelle_Liste_name("bearbcocktail");
+			erstelle_Liste_name("cocktail");
 		break;
 		
 		case COCKTAILERSTELLEN:
@@ -549,7 +557,7 @@ void check_bearbeitungsanzeige(uint8_t button)
 			if (!block_list_hoch)
 			{
 				i_Liste -= 8;
-				erstelle_Liste_name("bearbcocktail");
+				erstelle_Liste_name("cocktail");
 			}
 		break;
 		
@@ -558,7 +566,7 @@ void check_bearbeitungsanzeige(uint8_t button)
 			if (!block_list_runter)
 			{
 				i_Liste += 8;
-				erstelle_Liste_name("bearbcocktail");
+				erstelle_Liste_name("cocktail");
 			}
 		break;		
 	}	

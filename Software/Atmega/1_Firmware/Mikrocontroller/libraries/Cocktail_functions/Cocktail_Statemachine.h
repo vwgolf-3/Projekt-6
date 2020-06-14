@@ -22,7 +22,7 @@ void cocktail_check_command(int8_t page_in, int8_t button_in);
 void check_startseite(uint8_t button);
 void check_zutatenanzeige(uint8_t button);
 void check_listenanzeige(uint8_t button);
-void choose_drink(uint8_t nr);
+void choose_aktuellesGetraenk(uint8_t nr);
 void check_zubabfrage(uint8_t button);
 void check_zubbildschirm(uint8_t button);
 void check_menuanzeige(uint8_t button);
