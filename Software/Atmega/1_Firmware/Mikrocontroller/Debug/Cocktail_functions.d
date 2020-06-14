@@ -43,13 +43,14 @@ Cocktail_functions.d Cocktail_functions.o: \
  ../libraries/Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  ../libraries/Cocktail_functions/../UART/UART.h \
- ../libraries/Cocktail_functions/Getraenk.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h \
+ ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Cocktail_functions/Getraenk.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../TMC6200/../UART/UART.h \
- ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Cocktail_functions/../Main_functions/Main_Func.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../libraries/Cocktail_functions/../Main_functions/../Cocktail_functions/Cocktail_Statemachine.h \
@@ -142,9 +143,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Cocktail_functions/../UART/UART.h:
 
-../libraries/Cocktail_functions/Getraenk.h:
+../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h:
+
+../libraries/Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Cocktail_functions/../SD-Karte/FAT32.h:
+
+../libraries/Cocktail_functions/Getraenk.h:
 
 ../libraries/Cocktail_functions/../TMC6200/TMC6200.h:
 
@@ -153,8 +158,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Cocktail_functions/../TMC6200/../SPI/SPI.h:
 
 ../libraries/Cocktail_functions/../TMC6200/../UART/UART.h:
-
-../libraries/Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Cocktail_functions/../Main_functions/Main_Func.h:
 

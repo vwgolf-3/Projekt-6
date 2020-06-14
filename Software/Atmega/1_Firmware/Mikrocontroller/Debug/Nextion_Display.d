@@ -47,13 +47,14 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../UART/UART.h \
- ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Cocktail_functions/Cocktail_functions.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h \
- ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h \
  ../libraries/Nextion_Display/../Main_functions/../UART/UART.h
 
@@ -151,9 +152,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../UART/UART.h:
 
-../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h:
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Cocktail_functions/Cocktail_functions.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
@@ -162,8 +167,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h:
-
-../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h:
 

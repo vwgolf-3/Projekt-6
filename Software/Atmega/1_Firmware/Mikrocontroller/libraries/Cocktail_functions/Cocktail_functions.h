@@ -71,6 +71,8 @@ void schiebe_file_next(void);
 void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
 void erstelle_Liste_Zutat_Pos(char * name_button);
+void lese_textfile_in_zutat(uint8_t file);
+void setze_Posanzeige_Rot_Gruen(void);
 
 extern uint8_t test2;
 

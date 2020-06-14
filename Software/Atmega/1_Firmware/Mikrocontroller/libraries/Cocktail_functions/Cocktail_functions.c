@@ -356,7 +356,7 @@ void erstelle_Liste_name(char * name_button)
 {
 	// Getränkedurchwahr bei Tail starten.
 	aktuellesGetraenk_file = tail_getraenk_file;
-	
+
 	// Shifte aktuelles Getränk auf bestimmte Seite
 	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
 	for (int i = 0 ; i < i_Liste ; i++)
@@ -378,7 +378,7 @@ void erstelle_Liste_name(char * name_button)
 		
 		// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
 		// runterscrollen, blockieren und letzter Name einschreiben.
-		if ((i + i_Liste + 1) == head_getraenk_file->file && !block_list_runter)
+		if (aktuellesGetraenk_file == head_getraenk_file && !block_list_runter)
 		{
 			block_list_runter = 1;
 			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
@@ -403,6 +403,7 @@ void erstelle_Liste_name(char * name_button)
 			
 			// Disable Button
 			nextion_disableButton(buff10);
+			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
 		}
 		
 		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
@@ -412,14 +413,17 @@ void erstelle_Liste_name(char * name_button)
 			nextion_setText(button,aktuellesGetraenk->name);
 		}
 		
-		// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
-		if((i + i_Liste + 1) == tail_getraenk_file->file)
+		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde 
+		// (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
+		// Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
+		
+		if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
 		{
 			block_list_hoch = 1;
 		}
 		
-		// Ein Getraenk weiter Scrollen
-		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+			// Ein Getraenk weiter Scrollen.
+			aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 		
 		// Sicherheitsdelay, Programm stürzt sonst ab
 		_delay_ms(1);
@@ -429,6 +433,7 @@ void erstelle_Liste_name(char * name_button)
 void erstelle_Liste_zutat(char * input)
 {
 	aktuelleZutat = head_zut;
+	
 	char string[21] = {'\0'};
 	char string2[21] = {'\0'};
 	char string3[21] = {'\0'};
@@ -552,7 +557,7 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk)
 
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 {
-	
+
 // 					- Erstelle lokale Variable für itoa-Buffer
 // 					- Erstelle lokale Variable für Stringkette
 // 					- Erstelle lokale Variable für Zutaten
@@ -564,26 +569,18 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 // 					- Switche zur nächsten Zutat
 // 					
 // 					- Schreibe Zutatenkette in Textfeld
-					
-	zutat_t * tmp_zutat = head_zut;
-	
+
+	aktuelles_zutat_file = tail_zutat_file;
+
 	char string[512] = {'\0'};
 	char buff[4] = {0};
 	for (int i = 0 ; i<12 ; i++)
 	{
-		int run = 1;
-		while (run)
-		{
-			tmp_zutat = tmp_zutat->next;
-			if (tmp_zutat->nr == i)
-			{
-				run = 0;
-			}
-		}
+		lese_textfile_in_zutat(aktuelles_zutat_file->file);
 		if (*(uint8_t *)(anzeige_getraenk->mengen + i) != (unsigned char)0)
 		{
-			strcat((char *)string, (const char *)tmp_zutat->name);
-			for (int i = 0 ; i<(20-strlen(tmp_zutat->name)) ; i++)
+			strcat((char *)string, (const char *)aktuelle_zutat_test->name);
+			for (int i = 0 ; i<(20-strlen(aktuelle_zutat_test->name)) ; i++)
 			{
 				strcat((char *)string, "-");
 			}
@@ -593,7 +590,7 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 			strcat((char *)string, (const char *)"%)");
 			strcat((char *)string, (const char *)"\\r");
 		}
-		tmp_zutat = tmp_zutat->next;
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
 	}
 	nextion_setText("zutatenliste",string);
 }
@@ -630,7 +627,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 	char *ptr;
 	// initialisieren und ersten Abschnitt erstellen (1. Kopf)
 	
-	ptr = strtok(buffer, delimiter);
+	ptr = strtok((char *)buffer, delimiter);
 	
 	//	Abschnitt in buffer extrahieren:
 /*
@@ -809,6 +806,7 @@ void loesche_FIle(uint8_t filename)
 	itoa(filename, (char *)buff, 10);
 	strcat((char *)buff,".txt");
 	deleteFile((unsigned char *)buff);
+	
 }
 
 void erstelle_Liste_Zutat_Pos(char * name_button)
@@ -880,5 +878,79 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 		
 		// Sicherheitsdelay, Programm stürzt sonst ab
 		_delay_ms(1);
+	}
+}
+
+void lese_textfile_in_zutat(uint8_t file)
+{
+	char buff_textfiles_zutat[21] = {'\0'};
+	char buff2_textfiles_zutat[5] = {'\0'};
+	
+	strcpy((char *)buff_textfiles_zutat, (const char *)"Z");
+	itoa(file, (char *)buff2_textfiles_zutat, 10);
+	strcat((char *)buff_textfiles_zutat, (const char *)buff2_textfiles_zutat);
+	strcat((char *)buff_textfiles_zutat, (const char *)".txt");
+	
+	readFile(READ, (unsigned char *)buff_textfiles_zutat);
+	
+	// Trennungszeichen definieren, Pointer initialisiern f?r Abschnitte
+	char delimiter[] = ":,{}\r\n";
+	char *ptr;
+	
+	// initialisieren und ersten Abschnitt erstellen (1. Kopf)
+	ptr = strtok((char *)buffer, delimiter);
+	
+	//	Abschnitt in buffer extrahieren:
+	
+/*	Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:
+	*******************************************************************
+	Name:Getraenk1
+	Alkohol:1/0
+*/	
+
+	while(ptr != NULL) 
+	{
+		// Kopf pruefen und jeweilige Aktion ausfuehren
+		if (pruefe_kopf(ptr, "Name"))
+		{
+			ptr = strtok(NULL, delimiter);
+			strcpy((char *)aktuelle_zutat_test->name,(const char *)ptr);
+		}
+		if (pruefe_kopf(ptr, "Alkohol"))
+		{
+			ptr = strtok(NULL, delimiter);
+			aktuelle_zutat_test->alkohol = atoi(ptr);
+		}
+			
+		// Neuer Kopf suchen und ptr darauf zeigen lassen
+		ptr = strtok(NULL, delimiter);
+	}
+}
+
+void setze_Posanzeige_Rot_Gruen(void)
+{
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	char buff[50];
+	char buff2[10];
+	for (int i = 0 ; i <12 ; i++)
+	{
+		strcpy((char *)buff, "b");
+		itoa(i,(char *) buff2, 10);
+		strcat((char *)buff, (const char *)buff2);
+		switch (aktuelleZutatInMaschine->status)
+		{
+			case 0:
+			strcat((char *)buff, ".pco=0");
+			break;
+			case 1:
+			strcat((char *)buff, ".pco=2016");
+			break;
+			case 2:
+			strcat((char *)buff, ".pco=63488");
+			break;
+		}
+		Uart_Transmit_IT_Display((char *)buff);
+		endConversation();
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	}
 }

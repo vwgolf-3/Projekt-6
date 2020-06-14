@@ -502,6 +502,7 @@ void check_menuanzeige(uint8_t button)
 			- Setze Startabzeige
 */
 		nextion_change_page(POSANZEIGE);
+		setze_Posanzeige_Rot_Gruen();
 		break;
 		
 		case RFID:
@@ -1117,8 +1118,21 @@ void check_loeschanzeige(uint8_t button)
 	switch (button)
 	{
 	case JA:
-		aktuellesGetraenk_file->prev->next = aktuellesGetraenk_file->next;
-		aktuellesGetraenk_file->next->prev = aktuellesGetraenk_file->prev;
+	if (aktuellesGetraenk_file == tail_getraenk_file)
+	{
+		tail_getraenk_file = aktuellesGetraenk_file->prev;
+		(aktuellesGetraenk_file->prev)->next = aktuellesGetraenk_file->next;
+		(aktuellesGetraenk_file->next)->prev = aktuellesGetraenk_file->prev;
+	}
+	else if (aktuellesGetraenk_file == head_getraenk_file)
+	{
+		head_getraenk_file = aktuellesGetraenk_file->next;
+	}
+	else
+	{
+		(aktuellesGetraenk_file->prev)->next = aktuellesGetraenk_file->next;
+		(aktuellesGetraenk_file->next)->prev = aktuellesGetraenk_file->prev;
+	}
 		char buff[20];
 		itoa(aktuellesGetraenk_file->file, (char *)buff, 10);
 		strcat((char *) buff,(const char *)".txt");

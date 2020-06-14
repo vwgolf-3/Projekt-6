@@ -45,13 +45,14 @@ Main_Func.d Main_Func.o: ../libraries/Main_functions/Main_Func.c \
  ../libraries/Main_functions/../Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  ../libraries/Main_functions/../Cocktail_functions/../UART/UART.h \
- ../libraries/Main_functions/../Cocktail_functions/Getraenk.h \
+ ../libraries/Main_functions/../Cocktail_functions/../Cocktail_functions/Cocktail_functions.h \
+ ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Main_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Main_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h \
- ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h \
  ../libraries/Main_functions/../UART/UART.h
 
@@ -147,9 +148,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Main_functions/../Cocktail_functions/../UART/UART.h:
 
-../libraries/Main_functions/../Cocktail_functions/Getraenk.h:
+../libraries/Main_functions/../Cocktail_functions/../Cocktail_functions/Cocktail_functions.h:
+
+../libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+
+../libraries/Main_functions/../Cocktail_functions/Getraenk.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
@@ -158,8 +163,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../TMC6200/../UART/UART.h:
-
-../libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../Main_functions/Main_Func.h:
 
