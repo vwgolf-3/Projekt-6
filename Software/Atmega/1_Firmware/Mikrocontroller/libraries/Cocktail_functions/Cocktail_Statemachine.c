@@ -1384,19 +1384,8 @@ void check_fluessanzeige2(uint8_t button)
 {
 	switch (button)
 	{
-		case 31:
-		nextion_change_page(FLUESSANZEIGE1);
-		zutat_t * tmp;
-		tmp = create_neue_zutat("12345678901234567899012",(head_zut->nr+1));
-		head_zut = insert_zutat_at_head(&head_zut, tmp);
-		for (int i = 0 ; i < 21 ; i++)
-		{
-			*(head_zut->name + i) = buff_name[i];
-			buff_name[i] = '\0';
-		}
-		i_Liste = 0;
-		erstelle_Liste_Zutat_Pos("fluessigkeit");
-		counter = 0;
+		case 1:
+
 		break;
 	}
 }

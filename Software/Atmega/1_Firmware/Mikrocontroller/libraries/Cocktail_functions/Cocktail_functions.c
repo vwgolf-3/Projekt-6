@@ -20,7 +20,6 @@ void bearbeite_Cocktail(uint8_t cocktail)
 {
 	choose_aktuellesGetraenk(cocktail);
 	nextion_change_page(CEINSTANZEIGE);
-	aktuelleZutat = head_zut;
 	i_Liste = 0;
 	erstelle_Liste_zutat("zutat");
 }
@@ -432,72 +431,79 @@ void erstelle_Liste_name(char * name_button)
 
 void erstelle_Liste_zutat(char * input)
 {
-	aktuelleZutat = head_zut;
-	
-	char string[21] = {'\0'};
-	char string2[21] = {'\0'};
-	char string3[21] = {'\0'};
-	char buff[5] = {0};
+	// Getränkedurchwahr bei Tail starten.
+	aktuelles_zutat_file = tail_zutat_file;
 
-	for (int i = i_Liste ; i < (4 + i_Liste) ; i++)
+	// Shifte aktuelles Getränk auf bestimmte Seite
+	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
+	for (int i = 0 ; i < i_Liste ; i++)
 	{
-		// Schreibe Buttonname, Slidername und Anzeiename in einen String
-		itoa((i-i_Liste+1),buff,10);
-		strcpy((char *)string, (const char *)input);
-		strcat((char *)string, (const char *)buff);
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+	}
+
+	// Für alle Buttons auf der Seite ...
+	// Initialisierungen
+	char button[21] = {'\0'};
+	char buff[4] = {0};
+	
+	for (int i = 0 ; i < 4 ; i++)
+	{
+		// Schreibe Zahl und Name des Buttons in String
+		itoa((i + 1),buff,10);
+		strcpy((char *)button, (const char *)input);
+		strcat((char *)button, (const char *)buff);
 		
-		strcpy((char *)string2, (const char *)"slider");
-		strcat((char *)string2, (const char *)buff);
-		
-		strcpy((char *)string3, (const char *)"menge");
-		strcat((char *)string3, (const char *)buff);
-				
-		// Falls das Ende der Liste erreicht ist und Liste noch nicht blockiert,
-		// Weiteres Scrollen blockieren,
-		// Letzter Eintrag eintragen
-		int run = 1;
-		while (run)
-		{
-			aktuelleZutat = aktuelleZutat->next;
-			if (aktuelleZutat->nr == i)
-			{
-				run = 0;
-			}
-		}
-		
-		
-		if (i == head_zut->nr && !block_list_runter)
+		// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
+		// runterscrollen, blockieren und letzter Name einschreiben.
+		if (aktuelles_zutat_file == head_zutat_file && !block_list_runter)
 		{
 			block_list_runter = 1;
-			nextion_setText(string,aktuelleZutat->name);
-			itoa(*(aktuellesGetraenk->mengen+i),buff,10);
-			nextion_setValue(string2,buff);
-			strcat(buff, "%");
-			nextion_setText(string3,buff);
-		}
-		// Sonst, wenn Liste Blockiert
-		// Leerer String in Feld schreiben
-		else if (block_list_runter)
-		{
-			nextion_setText(string,"");
-			nextion_setValue(string2,"0");
-		}
-		// Im Normalbetrieb Zutat in Feld schreiben,
-		// Auf nächste Zutat zeigen
-		else
-		{
-			nextion_setText(string,aktuelleZutat->name);
-			itoa(*(aktuellesGetraenk->mengen+i),buff,10);
-			nextion_setValue(string2,buff);
-			strcat(buff, "%");
-			nextion_setText(string3,buff);
+			lese_textfile_in_zutat(aktuelles_zutat_file->file);
+			nextion_setText(button,aktuelle_zutat_test->name);
 		}
 		
-		if(i == tail_zut->nr)
+		// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
+		// die Buttons disablen
+		else if (block_list_runter)
+		{
+			// leerer String
+			nextion_setText(button,"");
+			
+			// Sicherheitsdelay, Programm stürzt sonst ab
+			_delay_ms(10);
+			
+			// Schreibe Text und Buttonnummer für disable in String
+			char buff10[20] = {'\0'};
+			strcat((char *)buff10, (const char *)input);
+			itoa((i + 1), (char *)buff, 10);
+			strcat((char *)buff10, (const char *)buff);
+			
+			// Disable Button
+			nextion_disableButton(buff10);
+			aktuelles_zutat_file = aktuelles_zutat_file->next;
+		}
+		
+		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
+		else
+		{
+			lese_textfile_in_zutat(aktuelles_zutat_file->file);
+			nextion_setText(button,aktuelle_zutat_test->name);
+		}
+		
+		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
+		// (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
+		// Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
+		
+		if(aktuelles_zutat_file == tail_zutat_file && !block_list_runter)
 		{
 			block_list_hoch = 1;
 		}
-		_delay_ms(10);
+		
+		// Ein Getraenk weiter Scrollen.
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+		
+		// Sicherheitsdelay, Programm stürzt sonst ab
+		_delay_ms(1);
 	}
 }
 
@@ -812,15 +818,15 @@ void loesche_FIle(uint8_t filename)
 void erstelle_Liste_Zutat_Pos(char * name_button)
 {
 	// Getränkedurchwahr bei Tail starten.
-	aktuelleZutat = tail_zut;
-	
+	aktuelles_zutat_file = tail_zutat_file;
+
 	// Shifte aktuelles Getränk auf bestimmte Seite
 	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
 	for (int i = 0 ; i < i_Liste ; i++)
 	{
-		aktuelleZutat = aktuelleZutat->prev;
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
 	}
-
+	
 	// Für alle Buttons auf der Seite ...
 	// Initialisierungen
 	char button[21] = {'\0'};
@@ -835,10 +841,11 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 		
 		// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
 		// runterscrollen, blockieren und letzter Name einschreiben.
-		if ((i + i_Liste ) == head_zut->nr && !block_list_runter)
+		if (aktuelles_zutat_file == head_zutat_file && !block_list_runter)
 		{
 			block_list_runter = 1;
-			nextion_setText(button,aktuelleZutat->name);
+			lese_textfile_in_zutat(aktuelles_zutat_file->file);
+			nextion_setText(button,aktuelle_zutat_test->name);
 		}
 		
 		// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
@@ -859,22 +866,27 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 			
 			// Disable Button
 			nextion_disableButton(buff10);
+			aktuelles_zutat_file = aktuelles_zutat_file->next;
 		}
 		
 		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
 		else
 		{
-			nextion_setText(button,aktuelleZutat->name);
+			lese_textfile_in_zutat(aktuelles_zutat_file->file);
+			nextion_setText(button,aktuelle_zutat_test->name);
 		}
 		
-		// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
-		if((i + i_Liste) == tail_zut->nr)
+		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
+		// (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
+		// Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
+		
+		if(aktuelles_zutat_file == tail_zutat_file && !block_list_runter)
 		{
 			block_list_hoch = 1;
 		}
 		
-		// Ein Getraenk weiter Scrollen
-		aktuelleZutat = aktuelleZutat->prev;
+		// Ein Getraenk weiter Scrollen.
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
 		
 		// Sicherheitsdelay, Programm stürzt sonst ab
 		_delay_ms(1);

@@ -17,20 +17,20 @@
 #include "../SD-Karte/SD_routines.h"
 #include "../SD-Karte/FAT32.h"
 
-struct zutat{
-	char * name;
-	char nr;
-	struct zutat* next;
-	struct zutat* prev;
-};
-typedef struct zutat zutat_t;
+// struct zutat{
+// 	char * name;
+// 	char nr;
+// 	struct zutat* next;
+// 	struct zutat* prev;
+// };
+// typedef struct zutat zutat_t;
 
-zutat_t *aktuelleZutat;
+// zutat_t *aktuelleZutat;
 
 uint8_t * address_zut;	// EEprom address-Pointer
 
-zutat_t *head_zut;	// Getränk-Pointer
-zutat_t *tail_zut;
+// zutat_t *head_zut;	// Getränk-Pointer
+// zutat_t *tail_zut;
 
 
 
@@ -85,8 +85,6 @@ zutat_file_t * tail_zutat_file;
 void zutaten_init(void);
 
 // Cocktail-Liste
-zutat_t *insert_zutat_at_head(zutat_t **head_zut, zutat_t *zutat_to_insert);
-zutat_t *create_neue_zutat(char * name, char k);
 
 zutat_test_t *insert_zutat_at_head_test(zutat_test_t **head_zutat, zutat_test_t ** tail_zutat, zutat_test_t *zutat_to_insert);
 zutat_test_t *create_neue_zutat_test(char * name, uint8_t alkohol);
