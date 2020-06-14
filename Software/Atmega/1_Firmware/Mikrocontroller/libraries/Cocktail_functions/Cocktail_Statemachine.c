@@ -321,35 +321,35 @@ void check_listenanzeige(uint8_t button)
 			- Wähle x-ten Cocktail des aktuellen Listenabschnitts
 */
 		case COCKTAIL1:
-			choose_drink(1);
+			choose_drink(0);
 		break;
 		
 		case COCKTAIL2:
-			choose_drink(2);
+			choose_drink(1);
 		break;
 		
 		case COCKTAIL3:
-			choose_drink(3);	
+			choose_drink(2);	
 		break;
 		
 		case COCKTAIL4:
-			choose_drink(4);		
+			choose_drink(3);		
 		break;
 		
 		case COCKTAIL5:
-			choose_drink(5);
+			choose_drink(4);
 		break;
 		
 		case COCKTAIL6:
-			choose_drink(6);
+			choose_drink(5);
 		break;
 		
 		case COCKTAIL7:
-			choose_drink(7);
+			choose_drink(6);
 		break;
 		
 		case COCKTAIL8:
-			choose_drink(8);
+			choose_drink(7);
 		break;
 		
 		case RAUFLIST1:

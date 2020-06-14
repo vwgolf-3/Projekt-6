@@ -108,10 +108,16 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 
 void choose_drink(uint8_t nr)
 {
-	lese_textfile_in_getraenk(i_Liste + nr);
+	aktuellesGetraenk_file = tail_getraenk_file;
+	for (int i = 0 ; i < (i_Liste + nr) ; i++)
+	{
+		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+	}
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 	setze_startanzeige(aktuellesGetraenk);
 	block_list_hoch = 0;
 	block_list_runter = 0;
+	i_Liste = 0;
 }
 
 void fuelle_getraenk(uint32_t fuellmenge)
