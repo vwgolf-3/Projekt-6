@@ -5,76 +5,90 @@
  *  Author: kimsc
  */ 
 #include "UART.h"
-#include <avr/io.h>
-#include <avr/pgmspace.h>
-#include <util/delay.h>
 
-void (*ptr_tx_completed_0)(void);
-void (*ptr_tx_completed_1)(void);
-void (*ptr_tx_completed_2)(void);
-void (*ptr_tx_completed_3)(void);
+
+
 
 void UART_init()
 {
-	
-	//**************************************************
-	//UART0 initialize
-	//baud rate: 9600  (for controller clock = 16MHz)
-	//char size: 8 bit
-	//parity: Disabled
-	//**************************************************
 
-	UBRR0H = (BRC9600 >> 8);
-	UBRR0L = (BRC9600);
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
-	UCSR0C = (1<<UCSZ00)|(1<<UCSZ01);	
-	
-	UBRR1H = (BRC9600>>8);
-	UBRR1L = BRC9600;
-	UCSR1B = (1<<RXEN1)|(1<<TXEN1)|(1<<RXCIE1);
-	UCSR1C = (1<<UCSZ10)|(1<<UCSZ11);
-	
-	UBRR2H = (BRC9600>>8);
-	UBRR2L = BRC9600;
-	UCSR2B = (1<<RXEN2)|(1<<TXEN2)|(1<<RXCIE2);
-	UCSR2C = (1<<UCSZ20)|(1<<UCSZ21);
-	
-	UBRR3H = (BRC9600>>8);
-	UBRR3L = BRC9600;
-	UCSR3B = (1<<RXEN3)|(1<<TXEN3)|(1<<RXCIE3);
-	UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);
-	
-	RB_init(&rb_tx_PC);
-	RB_init(&rb_rx_PC);
-	
-	RB_init(&rb_tx_Display);
-	RB_init(&rb_rx_Display);
-	
-	RB_init(&rb_tx_ESP);
-	RB_init(&rb_rx_ESP);
-	
-// 	RB_init(&rb_tx_RFID);
-// 	RB_init(&rb_rx_RFID);
-	
-	Uart_EnableRxIT_0();
-	
-	Uart_EnableRxIT_1();
+/******************************************************************************************************************************/
+#define BAUD9600 9600									// Define für Baudrate-Register
+#define BRC9600 ((F_CPU/16/BAUD9600) -1)				// Define für Baudrate-Register
+/******************************************************************************************************************************/
 
-	Uart_EnableRxIT_2();
 
-	Uart_EnableRxIT_3();
-
-	sei();
+/******************************************************************************************************************************/
+	UBRR0H = (BRC9600>>8);										// Baudrate Register1 (9600) UART0
+	UBRR0L = (BRC9600);											// Baudrate Register2 (9600) UART0
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);								// Enable RX und TX UART 0
+	UCSR0C = (1<<UCSZ00)|(1<<UCSZ01);							// Übertragene Bits: 8 und parity disabled UART0
 	
-	ptr_tx_completed_0=tx_completed;
-	ptr_tx_completed_1=tx_completed;
-	ptr_tx_completed_2=tx_completed;
-	ptr_tx_completed_3=tx_completed;
+	UBRR1H = (BRC9600>>8);										// Baudrate Register1 (9600) UART1
+	UBRR1L = BRC9600;											// Baudrate Register2 (9600) UART1
+	UCSR1B = (1<<RXEN1)|(1<<TXEN1);								// Enable RX und TX UART 1
+	UCSR1C = (1<<UCSZ10)|(1<<UCSZ11);							// Übertragene Bits: 8 und parity disabled UART1
+	
+	UBRR2H = (BRC9600>>8);										// Baudrate Register1 (9600) UART2
+	UBRR2L = BRC9600;											// Baudrate Register2 (9600) UART2
+	UCSR2B = (1<<RXEN2)|(1<<TXEN2);								// Enable RX und TX UART 2
+	UCSR2C = (1<<UCSZ20)|(1<<UCSZ21);							// Übertragene Bits: 8 und parity disabled UART2
+	
+	UBRR3H = (BRC9600>>8);										// Baudrate Register1 (9600) UART3
+	UBRR3L = BRC9600;											// Baudrate Register2 (9600) UART3
+	UCSR3B = (1<<RXEN3)|(1<<TXEN3);								// Enable RX und TX UART 3
+	UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);							// Übertragene Bits: 8 und parity disabled UART3
+/******************************************************************************************************************************/
+
+
+/******************************************************************************************************************************/
+	RB_init(&rb_tx_PC);											// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART0
+	RB_init(&rb_rx_PC);											// Initialisiere Ring-Buffer (head = 0, tail = 0) RX UART0
+	
+	RB_init(&rb_rx_Display);									// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART1
+	
+	RB_init(&rb_tx_ESP);										// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART2
+	RB_init(&rb_rx_ESP);										// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART2
+	
+	RB_init(&rb_tx_RFID);										// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART3
+	RB_init(&rb_rx_RFID);										// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART3
+/******************************************************************************************************************************/
+
+	
+/******************************************************************************************************************************/
+	Uart_EnableRxIT_0();										// Enable RX-Interrupt: Receive Complete UART 0
+	
+	Uart_EnableRxIT_1();										// Enable RX-Interrupt: Receive Complete UART 1
+
+	Uart_EnableRxIT_2();										// Enable RX-Interrupt: Receive Complete UART 2
+
+	Uart_EnableRxIT_3();										// Enable RX-Interrupt: Receive Complete UART 3
+/******************************************************************************************************************************/
+
+
+/******************************************************************************************************************************/
+	sei();														// Enable globale Interrupts
+/******************************************************************************************************************************/
+
+	
+/******************************************************************************************************************************/
+	ptr_tx_completed_0=tx_completed;							// Pointer tx Completed UART0 auf Funktion (Kurz warten) setzen
+	ptr_tx_completed_1=tx_completed;							// Pointer tx Completed UART1 auf Funktion (Kurz warten) setzen
+	ptr_tx_completed_2=tx_completed;							// Pointer tx Completed UART2 auf Funktion (Kurz warten) setzen
+	ptr_tx_completed_3=tx_completed;							// Pointer tx Completed UART3 auf Funktion (Kurz warten) setzen
+/******************************************************************************************************************************/
+
 }
 
 void Uart_Transmit_IT_PC(char *data)
 {
+/*
+	- Ermittle Länge des Strings
+	- Schreibe n Bytes in den Buffer für PC
+	- Enable Interrupt wenn Datenregister leer ist
+	
+	PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
+*/
 	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_PC, data, nbytes);
 	Uart_EnableTransmitIT_0();
@@ -82,18 +96,30 @@ void Uart_Transmit_IT_PC(char *data)
 
 void Uart_Transmit_IT_Display(char *data)
 {
+/*
+	- Solange sich daten im Pointer befinden:
+	- Warten bis die Übertragung des vorherigen Bytes fertig ist
+	- Byte in UART-Senderegister schreiben
+	- Auf nächstes Byte pointen
+*/
 	int i = 0;
 	while (*(data + i) !='\0')
 		{
-			while ( !(UCSR1A & (1<<UDRE1)) )
-			; 			                /* Wait for empty transmit buffer */
-			UDR1 = *(data+i); 			        /* Start transmition */
+			while (!(UCSR1A & (1<<UDRE1)));
+			UDR1 = *(data+i);
 			i++;
 	}
 }
 
 void Uart_Transmit_IT_ESP(char *data)
 {
+/*
+	- Ermittle Länge des Strings
+	- Schreibe n Bytes in den Buffer für das ESP
+	- Enable Interrupt wenn Datenregister leer ist
+	
+	PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
+*/
 	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_ESP, data, nbytes);
 	Uart_EnableTransmitIT_2();
@@ -101,6 +127,13 @@ void Uart_Transmit_IT_ESP(char *data)
 
 void Uart_Transmit_IT_RFID(char *data)
 {
+/*
+	- Ermittle Länge des Strings
+	- Schreibe n Bytes in den Buffer für RFID
+	- Enable Interrupt wenn Datenregister leer ist
+	
+	PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
+*/
 	uint8_t nbytes = strlen((const char *)data);
 	RB_write(&rb_tx_RFID, data, nbytes);
 	Uart_EnableTransmitIT_3();
@@ -108,12 +141,19 @@ void Uart_Transmit_IT_RFID(char *data)
 
 void tx_completed()
 {
+/*
+	- Warte zwei Arbeitsschritte (Nulloperation) wenn Übertragung zu Ende
+*/
 	asm("nop");
 	asm("nop");
 }
 
 ISR(USART0_UDRE_vect)
 {
+/*
+	- Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
+	- Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet	
+*/
 	if (RB_length(&rb_tx_PC) > 0)
 	{
 		UDR0 = RB_readByte(&rb_tx_PC);
@@ -128,33 +168,28 @@ ISR(USART0_UDRE_vect)
 
 ISR(USART0_RX_vect)
 {	
+/*
+	- Wird ein Empfangs-Interrupt seitens PC ausgelöst, wird das empfangene Byte in den PC-Buffer geschrieben
+*/
 	char ch = UDR0;
 	RB_writeByte(&rb_rx_PC,ch);
 }
 
-ISR(USART1_UDRE_vect)
-{
-
-	if (RB_length(&rb_tx_Display) > 0)
-	{
-		UDR1 = RB_readByte(&rb_tx_Display);
-	}
-	else
-	{
-		Uart_DisableTransmitIT_1();
-		if(ptr_tx_completed_1 != 0)
-		ptr_tx_completed_1();
-	}
-}
-
 ISR(USART1_RX_vect)
 {
+/*
+	- Wird ein Empfangs-Interrupt seitens Display ausgelöst, wird das empfangene Byte in den Display-Buffer geschrieben
+*/
 	char ch = UDR1;
 	RB_writeByte(&rb_rx_Display,ch);
 }
 
 ISR(USART2_UDRE_vect)
 {
+/*
+	- Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
+	- Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet	
+*/
 	if (RB_length(&rb_tx_ESP) > 0)
 	{
 		UDR2 = RB_readByte(&rb_tx_ESP);
@@ -169,12 +204,19 @@ ISR(USART2_UDRE_vect)
 
 ISR(USART2_RX_vect)
 {
+/*
+	- Wird ein Empfangs-Interrupt seitens ESP ausgelöst, wird das empfangene Byte in den ESP-Buffer geschrieben
+*/
 	char ch = UDR2;
 	RB_writeByte(&rb_rx_ESP,ch);
 }
 
 ISR(USART3_UDRE_vect)
 {
+/*
+	- Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
+	- Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet	
+*/
 	if (RB_length(&rb_tx_RFID) > 0)
 	{
 		UDR3 = RB_readByte(&rb_tx_RFID);
@@ -189,26 +231,15 @@ ISR(USART3_UDRE_vect)
 
 ISR(USART3_RX_vect)
 {
+/*
+	- Wird ein Empfangs-Interrupt seitens RFID ausgelöst, wird das empfangene Byte in den RFID-Buffer geschrieben
+*/
 	char ch = UDR3;
 	RB_writeByte(&rb_rx_RFID,ch);
 }
 
-//**************************************************************
-//******** FUNCTIONS FOR SERIAL COMMUNICATION USING UART *******
-//**************************************************************
-//Controller: ATmega32 (Clock: 8 Mhz-internal)
-//Compiler	: AVR-GCC (winAVR with AVRStudio)
-//Version 	: 2.3
-//Author	: CC Dharmani, Chennai (India)
-//			  www.dharmanitech.com
-//Date		: 08 May 2010
-//**************************************************************
-
-//**************************************************
-// ***** SOURCE FILE : UART_routines.c ******
-//**************************************************
-
-
+// Funktionen, welche in der SD- und FAT-Library verwendet werden. Diese wurden so umgeschrieben, dass sie an die
+// Initialisierungen angepasst sind. Es wurde hauptsächlich auf die Funktion geachtet.
 
 //**************************************************
 //Function to receive a single byte
@@ -233,42 +264,6 @@ void transmitByte( unsigned char data )
 		; 			                /* Wait for empty transmit buffer */
 	UDR0 = data; 			        /* Start transmition */
 }
-
-
-//***************************************************
-//Function to transmit hex format data
-//first argument indicates type: CHAR, INT or LONG
-//Second argument is the data to be displayed
-//***************************************************
-void transmitHex( unsigned char dataType, unsigned long data )
-{
-unsigned char count, i, temp;
-unsigned char dataString[] = "0x        ";
-
-if (dataType == CHAR) count = 2;
-if (dataType == INT) count = 4;
-if (dataType == LONG) count = 8;
-
-for(i=count; i>0; i--)
-{
-  temp = data % 16;
-  if((temp>=0) && (temp<10)) dataString [i+1] = temp + 0x30;
-  else dataString [i+1] = (temp - 10) + 0x41;
-
-  data = data/16;
-}
-
-transmitString (dataString);
-}
-
-//***************************************************
-//Function to transmit a string in Flash
-//***************************************************
-// void Uart_Transmit_IT_PC(char* string)
-// {
-//   while (pgm_read_byte(&(*string)))
-//    transmitByte(pgm_read_byte(&(*string++)));
-// }
 
 //***************************************************
 //Function to transmit a string in RAM

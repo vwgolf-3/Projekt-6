@@ -54,9 +54,7 @@ if(bpb->jumpBoot[0]!=0xE9 && bpb->jumpBoot[0]!=0xEB)   //check if it is boot sec
 }
 
 bytesPerSector = bpb->bytesPerSector;
-//transmitHex(INT, bytesPerSector); transmitByte(' ');
 sectorPerCluster = bpb->sectorPerCluster;
-//transmitHex(INT, sectorPerCluster); transmitByte(' ');
 reservedSectorCount = bpb->reservedSectorCount;
 rootCluster = bpb->rootCluster;// + (sector / sectorPerCluster) +1;
 firstDataSector = bpb->hiddenSectors + reservedSectorCount + (bpb->numberofFATs * bpb->FATsize_F32);
@@ -65,7 +63,6 @@ dataSectors = bpb->totalSectors_F32
               - bpb->reservedSectorCount
               - ( bpb->numberofFATs * bpb->FATsize_F32);
 totalClusters = dataSectors / sectorPerCluster;
-//transmitHex(LONG, totalClusters); transmitByte(' ');
 
 if((getSetFreeCluster (TOTAL_FREE, GET, 0)) > totalClusters)  //check if FSinfo free clusters count is valid
      freeClusterCountUpdated = 0;
@@ -304,9 +301,8 @@ if(flag == VERIFY) return (1);	//specified file name is already existing
 cluster = (((unsigned long) dir->firstClusterHI) << 16) | dir->firstClusterLO;
 
 fileSize = dir->fileSize;
-
-TX_NEWLINE;
-TX_NEWLINE;
+asm("nop");
+asm("nop");
 
 while(1)
 {
@@ -671,9 +667,9 @@ unsigned int i;
 totalMemory = totalClusters * sectorPerCluster / 1024;
 totalMemory *= bytesPerSector;
 
-TX_NEWLINE;
-TX_NEWLINE;
-Uart_Transmit_IT_PC((char*)("Total Memory: "));
+asm("nop");
+asm("nop");
+Uart_Transmit_IT_PC((char*)("\r\rTotal Memory: "));
 
 displayMemory (HIGH, totalMemory);
 
@@ -709,10 +705,10 @@ if(!freeClusterCountUpdated)
 freeClusterCountUpdated = 1;  //set flag
 freeMemory = freeClusters * sectorPerCluster / 1024;
 freeMemory *= bytesPerSector ;
-TX_NEWLINE;
-Uart_Transmit_IT_PC((char*)(" Free Memory: "));
+asm("nop");
+Uart_Transmit_IT_PC((char*)("\r Free Memory: \r"));
 displayMemory (HIGH, freeMemory);
-TX_NEWLINE; 
+asm("nop");
 }
 
 //************************************************************

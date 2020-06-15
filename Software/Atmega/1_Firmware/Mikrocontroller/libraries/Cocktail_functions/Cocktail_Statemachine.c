@@ -147,7 +147,6 @@ void check_startseite(uint8_t button)
 			nextion_change_page(ZUTATENANZEIGE);
 			nextion_setText("cocktailname",aktuellesGetraenk->name);
 			erstelle_Zutatenliste(aktuellesGetraenk);
-
 		break;
 			
 		case LINKS:
@@ -254,7 +253,7 @@ void check_startseite(uint8_t button)
 /*		0x08 = 0b08
 			- Lese erstes Getränk ein
 			- Wechsle Modus: Alle Getränke/Alkoholisch/Alkoholfrei
-			- Schreibe File in aktuelles Getränk
+			- Schreibe erstes File gemäss Modus in aktuelles Getränk
 			- Setze Startanzeige
 */
 			aktuellesGetraenk_file = tail_getraenk_file;
@@ -319,6 +318,7 @@ void check_listenanzeige(uint8_t button)
 	{
 /*		0x01 bis 0x08 = 0b01 bis 0b08
 			- Wähle x-ten Cocktail des aktuellen Listenabschnitts
+			- Setze Startanzeige
 */
 		case COCKTAIL1:
 			choose_aktuellesGetraenk(0);
@@ -399,27 +399,14 @@ void check_zubabfrage(uint8_t button)
 /*		0x01 = 0b01
 			- Getränk mit 3dl zubereiten
 */
-	for (uint32_t i = 0 ; i < 12 ; i ++)
-	{
-		*(aktuellesGetraenk->mengen + i) = '\0';
-	}
-	*(aktuellesGetraenk->mengen + test2) = (uint8_t)100;
-	zubereitung_getraenk((uint32_t)3);
-	test2++;
+			zubereitung_getraenk((uint32_t)3);
 		break;
 		
 		case GROSS:
 /*		0x02 = 0b02
 			- Getränk mit 5dl zubereiten
 */
-		
-	for (uint32_t i = 0 ; i < 12 ; i ++)
-	{
-		*(aktuellesGetraenk->mengen + i) = '\0';
-	}
-	*(aktuellesGetraenk->mengen + test2) = (uint8_t)100;
-	zubereitung_getraenk((uint32_t)5);
-	test2++;
+			zubereitung_getraenk((uint32_t)5);
 	break;
 		
 		case ABBRUCHZUBAB:
@@ -499,7 +486,8 @@ void check_menuanzeige(uint8_t button)
 		
 		case FLUESSPOS:
 /*		0x06 = 0b06
-			- Setze Startabzeige
+			- Setze Posanzeige
+			- Färbe die Nummern der Positionen gemäss Status
 */
 		nextion_change_page(POSANZEIGE);
 		setze_Posanzeige_Rot_Gruen();
@@ -507,7 +495,8 @@ void check_menuanzeige(uint8_t button)
 		
 		case RFID:
 /*		0x07 = 0b07
-			- Setze Startabzeige
+			- Setze RFIDANZEIGE1
+			- 
 */
 		nextion_change_page(RFIDANZEIGE1);
 		erstelle_Liste_name("cocktail");

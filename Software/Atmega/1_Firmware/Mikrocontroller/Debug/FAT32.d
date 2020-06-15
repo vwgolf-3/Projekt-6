@@ -11,7 +11,9 @@ FAT32.d FAT32.o: ../libraries/SD-Karte/FAT32.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../libraries/SD-Karte/FAT32.h ../libraries/SD-Karte/UART_routines.h \
- ../libraries/SD-Karte/SD_routines.h ../libraries/SD-Karte/../UART/UART.h \
+ ../libraries/SD-Karte/SD_routines.h ../libraries/SD-Karte/../SPI/SPI.h \
+ ../libraries/SD-Karte/../SPI/../../utils/pin_defs.h \
+ ../libraries/SD-Karte/../UART/UART.h \
  ../libraries/SD-Karte/../UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
@@ -44,6 +46,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/SD-Karte/UART_routines.h:
 
 ../libraries/SD-Karte/SD_routines.h:
+
+../libraries/SD-Karte/../SPI/SPI.h:
+
+../libraries/SD-Karte/../SPI/../../utils/pin_defs.h:
 
 ../libraries/SD-Karte/../UART/UART.h:
 

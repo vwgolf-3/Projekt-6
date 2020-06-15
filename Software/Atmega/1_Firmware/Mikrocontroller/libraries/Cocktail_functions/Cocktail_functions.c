@@ -12,6 +12,7 @@ void cocktail_test_command(unsigned char INPUT[256])
 /*
 	Diese Funktion ist eine Testfunktion, welche ausgelöst wird, wenn etwas über UART0 (PC) ankommt
 */
+	Uart_Transmit_IT_PC("Test Command: ");
 	Uart_Transmit_IT_PC((char *)INPUT);
 	Uart_Transmit_IT_PC("\r\n");
 }
@@ -27,7 +28,7 @@ void bearbeite_Cocktail(uint8_t cocktail)
 void zubereitung_getraenk(uint32_t Menge)
 {
 	nextion_change_page(ZUBBILDSCHIRM);
-	nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk, Schwul.");
+	nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk.");
 	_delay_ms(1000);
 	fuelle_getraenk(Menge);
 	nextion_change_page(BEREITANZEIGE);
@@ -64,10 +65,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// Wert aus Slider holen und in Getränkeliste eintragen
 	val = nextion_getSliderValue(buff, (unsigned char *)INPUT_UART_1);
-	char buff_not[10] = {'\0'};
-	itoa(val, (char *)buff_not, 10);
-	Uart_Transmit_IT_PC((char *)buff_not);
-	Uart_Transmit_IT_PC("\r");
+	
 	if (val > restval)
 	{
 		val = restval;
@@ -122,10 +120,6 @@ void fuelle_getraenk(uint32_t fuellmenge)
 		// Falls das Getränk vorkommt
 		if ((*(uint8_t *)(aktuellesGetraenk->mengen + i) > 0) && (stop == 0))
 		{
-			char buff[5];
-			itoa(*(uint16_t *)(aktuellesGetraenk->mengen + i), buff, 10);
-			Uart_Transmit_IT_PC(buff);
-			Uart_Transmit_IT_PC("\r");
 			// Bewege Motor an stelle XY
 /*
 	Gebe Motor Position vor
@@ -136,30 +130,12 @@ void fuelle_getraenk(uint32_t fuellmenge)
 	Weiter mit Programmm
 			
 */			
-			uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
+// 			uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
 			uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506};
-			
-			char buff2[10];
-			
-			itoa(pulse_prp_5dl[i], (char *)buff2, 10);
-			Uart_Transmit_IT_PC((char *)buff2);
-			Uart_Transmit_IT_PC("\r");
-			
+						
 			// Berechne Menge, schalte Pumpe ein und beginne mit füllen
 			uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp_5dl[i]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
-						
-			itoa(*(aktuellesGetraenk->mengen+i), (char *)buff2, 10);
-			Uart_Transmit_IT_PC((char *)buff2);
-			Uart_Transmit_IT_PC("\r");
-			
-			itoa((int)(fuellmenge), (char *)buff2, 10);
-			Uart_Transmit_IT_PC((char *)buff2);
-			Uart_Transmit_IT_PC("\r");
-			
-			itoa(Menge, (char *)buff2, 10);
-			Uart_Transmit_IT_PC((char *)buff2);
-			Uart_Transmit_IT_PC("\r");
-						
+
 			uint8_t fuellen = 1;
 			uint8_t newval = lese_sensor(i);
 
@@ -186,10 +162,6 @@ void fuelle_getraenk(uint32_t fuellmenge)
 					}
 //*************************************************************************
 //					Delay entfernen wenn mit Sensor gearbeitet wird.
-					char buff[5] = {'\0'};
-					itoa(count, (char * )buff, 10);
-					Uart_Transmit_IT_PC(buff);
-					Uart_Transmit_IT_PC("\r");
 				
 					if (check_Communication_Input_UART_1())
 					{
@@ -459,7 +431,7 @@ void erstelle_Liste_zutat(char * input)
 		{
 			block_list_runter = 1;
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(button,aktuelle_zutat_test->name);
+			nextion_setText(button,aktuelle_zutat->name);
 		}
 		
 		// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
@@ -487,7 +459,7 @@ void erstelle_Liste_zutat(char * input)
 		else
 		{
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(button,aktuelle_zutat_test->name);
+			nextion_setText(button,aktuelle_zutat->name);
 		}
 		
 		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
@@ -585,8 +557,8 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 		lese_textfile_in_zutat(aktuelles_zutat_file->file);
 		if (*(uint8_t *)(anzeige_getraenk->mengen + i) != (unsigned char)0)
 		{
-			strcat((char *)string, (const char *)aktuelle_zutat_test->name);
-			for (int i = 0 ; i<(20-strlen(aktuelle_zutat_test->name)) ; i++)
+			strcat((char *)string, (const char *)aktuelle_zutat->name);
+			for (int i = 0 ; i<(20-strlen(aktuelle_zutat->name)) ; i++)
 			{
 				strcat((char *)string, "-");
 			}
@@ -751,13 +723,10 @@ void SD_startup(void)
 	error = getBootSectorData (); //read boot sector and keep necessary data in global variables
 	if(error)
 	{
-		TX_NEWLINE;
 		Uart_Transmit_IT_PC (("FAT32 not found!\r\n"));  //FAT32 incompatible drive
 		FAT32_active = 0;
 	}
 // 	findFiles(GET_LIST,0);
-	TX_NEWLINE
-	TX_NEWLINE
 
 }
 
@@ -845,7 +814,7 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 		{
 			block_list_runter = 1;
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(button,aktuelle_zutat_test->name);
+			nextion_setText(button,aktuelle_zutat->name);
 		}
 		
 		// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
@@ -873,7 +842,7 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 		else
 		{
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(button,aktuelle_zutat_test->name);
+			nextion_setText(button,aktuelle_zutat->name);
 		}
 		
 		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
@@ -926,12 +895,12 @@ void lese_textfile_in_zutat(uint8_t file)
 		if (pruefe_kopf(ptr, "Name"))
 		{
 			ptr = strtok(NULL, delimiter);
-			strcpy((char *)aktuelle_zutat_test->name,(const char *)ptr);
+			strcpy((char *)aktuelle_zutat->name,(const char *)ptr);
 		}
 		if (pruefe_kopf(ptr, "Alkohol"))
 		{
 			ptr = strtok(NULL, delimiter);
-			aktuelle_zutat_test->alkohol = atoi(ptr);
+			aktuelle_zutat->alkohol = atoi(ptr);
 		}
 			
 		// Neuer Kopf suchen und ptr darauf zeigen lassen

@@ -13,6 +13,7 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
+// Testfunktion 3s links / 3s rechts
 #include <util/delay.h>
 
 #include "../TMC-API/tmc/helpers/API_Header.h"

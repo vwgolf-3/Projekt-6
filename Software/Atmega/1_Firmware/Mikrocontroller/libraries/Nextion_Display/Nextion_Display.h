@@ -10,7 +10,7 @@
 #define NEXTION_DISPLAY_H_
 
 #include <stdlib.h>
-
+#include "../Main_functions/Main_Func.h"
 #include "../../libraries/UART/UART.h"
 
 #define UART_PORT_PC 0

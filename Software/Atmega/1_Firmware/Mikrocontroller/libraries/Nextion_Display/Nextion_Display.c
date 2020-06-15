@@ -6,7 +6,6 @@
  */ 
 
 #include "Nextion_Display.h"
-#include "../Main_functions/Main_Func.h"
 
 void nextion_change_page(char page)
 {

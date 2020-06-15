@@ -6,7 +6,6 @@
  */
 
 #include "TMC6200.h"
-#include <util/delay.h>
 
 // => SPI wrapper
 extern uint8_t tmc6200_readwriteByte(uint8_t motor, uint8_t data, uint8_t lastTransfer);

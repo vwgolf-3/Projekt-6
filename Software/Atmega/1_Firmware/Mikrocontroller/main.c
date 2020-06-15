@@ -5,19 +5,14 @@
 * Author : kimsc
 */
 
-// Einfügen der Standardbibliotheken
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include <util/delay.h>
-#include <stdio.h>
 // Einbinden der eigenen Bibliotheken
 #include "utils/pin_defs.h"
-
 #include "utils/main_variables.h"
-
 #include "libraries/Main_functions/Main_Func.h"
+
 #include "libraries/SPI/SPI.h"
 #include "libraries/UART/UART.h"
+
 #include "libraries/TMC4671/TMC4671.h"
 #include "libraries/TMC6200/TMC6200.h"
 #include "libraries/RC522/mfrc522.h"
@@ -38,9 +33,6 @@ int main(void)
 // 	TMC4671_init();
 // 	initTMC4671_Openloop();
 // 	mfrc522_init();
-	mfrc522_read(0x33);
-	mfrc522_write(0x33,0x03);
-	mfrc522_read(0x33);
 
 	zutaten_init();
 	cocktails_init();

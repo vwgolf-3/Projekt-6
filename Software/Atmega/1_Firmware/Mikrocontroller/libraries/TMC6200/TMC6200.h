@@ -10,7 +10,6 @@
 
 #include "TMC6200_Register.h"
 #include "../SPI/SPI.h"
-#include "../UART/UART.h"
 
 int tmc6200_readInt(uint8_t motor, uint8_t address);
 void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value);

@@ -1,4 +1,6 @@
 SD_routines.d SD_routines.o: ../libraries/SD-Karte/SD_routines.c \
+ ../libraries/SD-Karte/SD_routines.h ../libraries/SD-Karte/../SPI/SPI.h \
+ ../libraries/SD-Karte/../SPI/../../utils/pin_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -10,14 +12,17 @@ SD_routines.d SD_routines.o: ../libraries/SD-Karte/SD_routines.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../libraries/SD-Karte/../SPI/SPI.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ../libraries/SD-Karte/../SPI/../../utils/pin_defs.h \
- ../libraries/SD-Karte/../SPI/../RingBuffer/ring_buffer.h \
- ../libraries/SD-Karte/SD_routines.h ../libraries/SD-Karte/../UART/UART.h \
+ ../libraries/SD-Karte/../UART/UART.h \
  ../libraries/SD-Karte/../UART/../RingBuffer/ring_buffer.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
+
+../libraries/SD-Karte/SD_routines.h:
+
+../libraries/SD-Karte/../SPI/SPI.h:
+
+../libraries/SD-Karte/../SPI/../../utils/pin_defs.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -41,19 +46,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../libraries/SD-Karte/../SPI/SPI.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
-
-../libraries/SD-Karte/../SPI/../../utils/pin_defs.h:
-
-../libraries/SD-Karte/../SPI/../RingBuffer/ring_buffer.h:
-
-../libraries/SD-Karte/SD_routines.h:
-
 ../libraries/SD-Karte/../UART/UART.h:
 
 ../libraries/SD-Karte/../UART/../RingBuffer/ring_buffer.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 

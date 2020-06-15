@@ -15,18 +15,17 @@
 #ifndef _SD_ROUTINES_H_
 #define _SD_ROUTINES_H_
 
+#include "../SPI/SPI.h"
+#include "../UART/UART.h"
+
 //Use following macro if you don't want to activate the multiple block access functions
 //those functions are not required for FAT32
 
 #define FAT_TESTING_ONLY         
 
-//use following macros if PB1 pin is used for Chip Select of SD
+//use following macros is used for Chip Select of SD
 #define SD_CS_ASSERT     SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT
 #define SD_CS_DEASSERT   SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT
-
-//use following macros if SS (PB4) pin is used for Chip Select of SD
-//#define SD_CS_ASSERT     PORTB &= ~0x10
-//#define SD_CS_DEASSERT   PORTB |= 0x10
 
 //SD commands, many of these are not used here
 #define GO_IDLE_STATE            0

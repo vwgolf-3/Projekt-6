@@ -12,10 +12,7 @@
 //**************************************************
 // ***** SOURCE FILE : SD_routines.c ******
 //**************************************************
-#include <avr/io.h>
-#include "../SPI/SPI.h"
 #include "SD_routines.h"
-#include "../UART/UART.h"
 
 //******************************************************************
 //Function	: to initialize the SD/SDHC card in SPI mode
@@ -56,7 +53,7 @@ response = SD_sendCommand(SEND_IF_COND,0x000001AA); //Check power supply status,
 retry++;
 if(retry>0xfe) 
    {
-	  TX_NEWLINE;
+	   asm("nop");
 	  SD_version = 1;
 	  cardType = 1;
 	  break;
@@ -74,7 +71,7 @@ response = SD_sendCommand(SD_SEND_OP_COND,0x40000000); //ACMD41
 retry++;
 if(retry>0xfe) 
    {
-      TX_NEWLINE;
+	   asm("nop");
 	  return 2;  //time out, card initialization failed
    } 
 
@@ -92,7 +89,7 @@ if (SD_version == 2)
 	 retry++;
 	 if(retry>0xfe) 
      {
-       TX_NEWLINE;
+	   asm("nop");
 	   cardType = 0;
 	   break;
      } //time out

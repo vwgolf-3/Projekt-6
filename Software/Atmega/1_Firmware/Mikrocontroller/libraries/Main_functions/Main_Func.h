@@ -8,10 +8,6 @@
 
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
-#include <avr/io.h>
-#include <avr/pgmspace.h>
-#include <avr/interrupt.h>
-#include <util/delay.h>
 #include "../Cocktail_functions/Cocktail_Statemachine.h"
 #include "../UART/UART.h"
 
@@ -58,13 +54,6 @@ extern unsigned char INPUT_UART_3[256];
 extern char UART_recieved_finished_3;
 extern char cntr_End_UART_3;
 
-//Variabeln SPI_0
-extern unsigned char cntr_SPI_0;
-extern unsigned char INPUT_SPI_0[256];
-extern unsigned char OUTPUT_SPI_0[256];
-extern int SPI_received_finished_0;
-extern char cntr_End_SPI_0;
-
 extern ring_buffer_t rb_tx_PC;
 extern ring_buffer_t rb_rx_PC;
 
@@ -76,8 +65,5 @@ extern ring_buffer_t rb_rx_ESP;
 
 extern ring_buffer_t rb_tx_RFID;
 extern ring_buffer_t rb_rx_RFID;
-
-extern ring_buffer_t rb_SPI_r;
-extern ring_buffer_t rb_SPI_w;
 
 #endif /* MAIN_FUNC_H_ */

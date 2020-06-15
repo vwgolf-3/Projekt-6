@@ -21,7 +21,6 @@
  * 
  */
 #include "mfrc522.h"
-#include <util/delay.h>
 
 void mfrc522_init()
 {
