@@ -6,7 +6,6 @@ void init_Getraenke_func()
 {
 	nextion_change_page(STARTANZEIGE);
 	setze_startanzeige(aktuellesGetraenk);
-	test2 = 0;
 }
 
 
@@ -549,6 +548,7 @@ void check_bearbeitungsanzeige(uint8_t button)
 				i_Liste -= 8;
 				erstelle_Liste_name("cocktail");
 			}
+
 		break;
 		
 		case RUNTERLIST2:
@@ -558,6 +558,8 @@ void check_bearbeitungsanzeige(uint8_t button)
 				i_Liste += 8;
 				erstelle_Liste_name("cocktail");
 			}
+			
+
 		break;		
 	}	
 }
@@ -573,6 +575,7 @@ void check_ceinstanzeige(uint8_t button)
 				i_Liste -= 4;
 				erstelle_Liste_zutat("zutat");
 			}
+
 		break;
 		
 		case RUNTERLIST3:
@@ -1137,6 +1140,81 @@ void check_loeschanzeige(uint8_t button)
 	}
 }
 
+void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr)
+{
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	for (int i = 0 ; i < nr; i++)
+	{
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	}
+}
+
+
+void setze_Fluessgkeit_in_Position(uint8_t nr)
+{
+	// Finde Zutat, aufd welche gedr?ckt wurde.
+	aktuelles_zutat_file = tail_zutat_file;
+	for (int i = 0 ; i < (i_Liste + nr) ; i++)
+	{
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+	}
+	
+	lese_textfile_in_zutat(aktuelles_zutat_file->file);
+	// Schreibe Name der gefundenen Zutat in die ausgew?hlte Position.
+	char len = strlen((const char *)aktuelle_zutat->name);
+	for (int count = 0 ; count < (len + 1) ; count++)
+	{
+		*(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
+	}
+	Uart_Transmit_IT_PC(aktuelleZutatInMaschine->name);
+	Uart_Transmit_IT_PC("\r");
+	
+	// Definiere den Status des Getr?nks
+	aktuelleZutatInMaschine->status = VOLL;
+	
+	// Zur?ck zur Positionsanzeige
+	nextion_change_page(POSANZEIGE);
+	
+	char buff[50] = {'\0'};
+	char buff2[5] = {'\0'};
+	strcpy((char *)buff, "Nr.");
+	itoa(aktuelleZutatInMaschine->position+1, buff2, 10);
+	strcat((char *)buff, (const char *)buff2);
+	strcat((char *)buff, " = ");
+	strcat((char *)buff, aktuelleZutatInMaschine->name);
+	nextion_setText("zubabfrage",buff);
+	setze_Posanzeige_Rot_Gruen();
+	block_list_hoch = 0;
+	block_list_runter = 0;
+	i_Liste = 0;
+
+	// 	char buff[20] = {'\0'};
+	// 	char * ptr = buff;
+	// 	ptr = "Maschine.txt";
+	// 	deleteFile((unsigned char *)ptr);
+	//
+	// 	char buff_file[512] = {'\0'};
+	//
+	// 	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	// 	strcpy((char *)buff_file, (const char *)aktuelleZutatInMaschine->name);
+	// 	strcat((char *)buff_file, (const char *)",");
+	// 	strcat((char *)buff_file, (const char *));
+	
+	
+	// 	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	// 	for (int i = 0 ; i < 12 ; i++)
+	// 	{
+	// 		char buff99[10];
+	// 		itoa(i, (char *)buff99, 10);
+	// 		Uart_Transmit_IT_PC(buff99);
+	// 		Uart_Transmit_IT_PC(": ");
+	// 		Uart_Transmit_IT_PC(aktuelleZutatInMaschine->name);
+	// 		Uart_Transmit_IT_PC("\r");
+	// 		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	// 		_delay_ms(5);
+	// 	}
+}
+
 void check_posanzeige(uint8_t button)
 {
 	switch (button)
@@ -1148,6 +1226,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(0);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1158,6 +1241,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(1);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1168,6 +1256,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(2);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1178,6 +1271,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(3);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1188,6 +1286,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(4);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1198,6 +1301,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(5);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1208,6 +1316,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(6);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1218,6 +1331,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(7);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1228,6 +1346,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(8);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1238,6 +1361,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(9);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1248,6 +1376,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(10);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1258,6 +1391,11 @@ void check_posanzeige(uint8_t button)
 */
 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
+			
+			// Aktuelle Zutat in Maschine auw?hlen und setzen, damit Getr?nk darin abgelegt werden kann
+			setze_aktuelle_Zutat_in_Maschine_prev(11);
+			
+			// Liste erstellen f?r n?chste Anzeige
 			erstelle_Liste_Zutat_Pos("fluessigkeit");
 		break;
 
@@ -1266,7 +1404,8 @@ void check_posanzeige(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */
-			nextion_change_page(STARTANZEIGE);
+			nextion_change_page(MENUANZEIGE);
+			i_Liste = 0;
 		break;
 	}
 }
@@ -1280,7 +1419,7 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */
-			setze_startanzeige(aktuellesGetraenk);
+			setze_Fluessgkeit_in_Position(0);
 		break;
 		
 		case FLUESSIGKEIT2:
@@ -1288,7 +1427,7 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */		
-			setze_startanzeige(aktuellesGetraenk);
+			setze_Fluessgkeit_in_Position(1);
 		break;
 		
 		case FLUESSIGKEIT3:
@@ -1296,7 +1435,7 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */
-			setze_startanzeige(aktuellesGetraenk);
+			setze_Fluessgkeit_in_Position(2);
 		break;
 		
 		case FLUESSIGKEIT4:
@@ -1304,7 +1443,7 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */
-			setze_startanzeige(aktuellesGetraenk);
+			setze_Fluessgkeit_in_Position(3);
 		break;
 		
 		case FLUESSIGKEIT5:
@@ -1312,7 +1451,7 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */
-			setze_startanzeige(aktuellesGetraenk);
+			setze_Fluessgkeit_in_Position(4);
 		break;
 		
 		case FLUESSIGKEIT6:
@@ -1320,7 +1459,7 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			- 
 */
-			setze_startanzeige(aktuellesGetraenk);
+			setze_Fluessgkeit_in_Position(5);
 		break;
 		
 		case RAUFLIST5:
@@ -1355,6 +1494,7 @@ void check_fluessanzeige1(uint8_t button)
 			- 
 */
 			nextion_change_page(FLUESSANZEIGE2);
+			i_Liste = 0;
 		break;
 		
 		case ZURUECK4:
@@ -1362,7 +1502,9 @@ void check_fluessanzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			-
 */
-			setze_startanzeige(aktuellesGetraenk);
+			nextion_change_page(POSANZEIGE);
+			setze_Posanzeige_Rot_Gruen();
+			i_Liste = 0;
 		break;
 				
 	}

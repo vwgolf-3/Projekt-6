@@ -8,8 +8,9 @@
 
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
+// Projektspezifische Pindefinitionen Cocktailmaschine<==>AVR uC
 #include "../Cocktail_functions/Cocktail_Statemachine.h"
-#include "../UART/UART.h"
+#include "../UART/UART.h"											// Wird benötigt für UART und Ring-Buffer
 
 void TIMER_init(void);
 void IO_init(void);

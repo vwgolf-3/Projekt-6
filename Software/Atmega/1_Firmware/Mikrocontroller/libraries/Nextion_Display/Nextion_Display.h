@@ -50,5 +50,7 @@ void nextion_setPicture( char * x,  char * y,  char * picture);
 uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT);
 void nextion_disableButton(char * object);
 
+extern unsigned char INPUT_UART_0[256];
+
 
 #endif /* NEXTION_DISPLAY_H_ */

@@ -66,5 +66,6 @@ uint8_t mfrc522_read(uint8_t reg);
 uint8_t	mfrc522_request(uint8_t req_mode, uint8_t * tag_type);
 uint8_t mfrc522_to_card(uint8_t cmd, uint8_t *send_data, uint8_t send_data_len, uint8_t *back_data, uint32_t *back_data_len);
 uint8_t mfrc522_get_card_serial(uint8_t * serial_out);
+void check_Communication_Input_UART(void);
 
 #endif

@@ -63,5 +63,15 @@ unsigned char receiveByte(void);										// Byte über UART empfangen und zurück
 void transmitByte(unsigned char);										// Byte über UART senden (FAT/SD)
 void transmitString(unsigned char*);									// String über UART senden (FAT)
 /******************************************************************************************************************************/
+#define CHAR 0
+#define INT  1
+#define LONG 2
 
+#define TX_NEWLINE {transmitByte(0x0d); transmitByte(0x0a);}
+
+unsigned char receiveByte(void);
+void transmitByte(unsigned char);
+void transmitString_F(char*);
+void transmitString(unsigned char*);
+void transmitHex( unsigned char dataType, unsigned long data );
 #endif /* UART_H_ */

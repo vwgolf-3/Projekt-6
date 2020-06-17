@@ -6,43 +6,41 @@
 */
 
 // Einbinden der eigenen Bibliotheken
-#include "utils/pin_defs.h"
-#include "utils/main_variables.h"
-#include "libraries/Main_functions/Main_Func.h"
-
-#include "libraries/SPI/SPI.h"
-#include "libraries/UART/UART.h"
-
-#include "libraries/TMC4671/TMC4671.h"
-#include "libraries/TMC6200/TMC6200.h"
-#include "libraries/RC522/mfrc522.h"
+#include "utils/main_variables.h"							// "Global" includbare Variabeln deklarieren
+#include "libraries/Main_functions/Main_Func.h"				// Wird benötigt für Funktionen, welche im Hauptprogrammfluss aufgerufen werden (z. B IO_init, Check_communication, SD_Startup(), zutaten_init(), cocktails_init()...)
 
 // MainLoop
 int main(void)
 {
 	// Gate Treiber disable (active high)
- 	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;
+ 	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;						// Disable TMC6200 (Active High)
+	
+// Initialisierungen Interfaces
+	IO_init();												// Ein-/Ausgangspins initialisieren
+	SPI_init();												// SPI-Schnittstelle initialisieren
+	UART_init();											// UART-Schnittstelle initialisieren
+	SD_startup();											// SD-Karte initialisieren
+// 	initTMC6200();											// Gate-Treiber initialisieren
+// 	TMC4671_init();											// FOC-Treiber initialisieren
+// 	initTMC4671_Openloop();									// FOC-Treiber im Openloop laufen lassen
+// 	mfrc522_init();											// RFID initialisieren
 
-	Grossschreib = 1;
-//Initialisierungen
-	IO_init();
-	SPI_init();
-	UART_init();
-	SD_startup();
-// 	initTMC6200();
-// 	TMC4671_init();
-// 	initTMC4671_Openloop();
-// 	mfrc522_init();
+// Initialisierungen Speicher
+	zutaten_init();											// Zutaten initialisieren
+	cocktails_init();										// Cocktails initialisieren
 
-	zutaten_init();
-	cocktails_init();
-	init_Getraenke_func();
+// Initialisierungen Display
+	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
+	Grossschreib = 1;										// Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
+	i_Liste = 0;
+	block_list_hoch = 0;
+	block_list_runter = 0;
 		
 // Mainroutine
 	while (1)
 	{// 		check_Communication_Input_MFRC522();
 		check_Communication_Input_UART();
-  		heartbeat_LED();
+// 		heartbeat_LED();
 	}
 	return 0;
 }

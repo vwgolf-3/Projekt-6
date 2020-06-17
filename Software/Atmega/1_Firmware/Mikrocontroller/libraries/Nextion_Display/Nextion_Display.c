@@ -92,24 +92,25 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
 	char buff[20] = {0};
 	char * get_slider = "get ";
 	char * val = ".val";
-
+	
 	strcat((char *)buff, (const char *)get_slider);
 	strcat((char *)buff, (const char *)object);
 	strcat((char *)buff, (const char *)val);
 	Uart_Transmit_IT_Display((char *) buff);
+	Uart_Transmit_IT_PC((char *) buff);
 	endConversation();
 	
 	while (check_Communication_Input_UART_1()==0)
 	;
 	proceed_Communication_INPUT_UART_1();
 	
-	if (*(INPUT+1)==255)
+	if (INPUT_UART_1[1]==255)
 	{
 		ret = 0;
 	}
 	else
 	{
-		ret = *(INPUT + 1);
+		ret = INPUT_UART_1[1];
 	}
 	return ret;
 }
@@ -136,5 +137,6 @@ void endConversation(void)
 	{
 		Uart_Transmit_IT_PC((char *)end);
 		Uart_Transmit_IT_PC("\r\n");
+		_delay_ms(20);
 	}
 }

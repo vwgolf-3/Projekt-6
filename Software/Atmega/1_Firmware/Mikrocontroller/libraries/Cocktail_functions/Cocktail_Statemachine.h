@@ -43,6 +43,7 @@ void check_RFIDAnzeige1(uint8_t button);
 void check_RFIDAnzeige2(uint8_t button);
 void check_RFIDFehler(uint8_t button);
 
+enum Zutat_in_Maschine_Status{KEINGETRAENK, VOLL, LEER};
 
 uint8_t test2;
 

@@ -17,6 +17,8 @@
 #ifndef _FAT32_H_
 #define _FAT32_H_
 
+#include "SD_routines.h"
+
 //Structure to access Master Boot Record for getting info about partioions
 struct MBRinfo_Structure{
 unsigned char	nothing[446];		//ignore, placed here to fill the gap in the structure

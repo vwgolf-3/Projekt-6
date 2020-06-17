@@ -15,11 +15,8 @@
 // ***** SOURCE FILE : FAT32.c ******
 //**************************************************
 
-#include <avr/io.h>
 #include "FAT32.h"
-#include "UART_routines.h"
-#include "SD_routines.h"
-#include "../UART/UART.h"
+
 
 //***************************************************************************
 //Function: to read data from boot sector of SD card, to determine important

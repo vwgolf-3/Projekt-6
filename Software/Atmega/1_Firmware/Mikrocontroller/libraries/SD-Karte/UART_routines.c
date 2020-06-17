@@ -14,8 +14,6 @@
 //**************************************************
 
 #include "UART_routines.h"
-#include <avr/io.h>
-#include <avr/pgmspace.h>
 
 //**************************************************
 //UART0 initialize

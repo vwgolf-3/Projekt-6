@@ -23,8 +23,6 @@ void cocktails_init(void)
 
 **************************************************************************************************************/
 
-	head_getraenk = NULL;
-	getraenk_t * tmp;
 	head_getraenk_file = NULL;
 	getraenk_file_t * tmp2;
 
@@ -55,8 +53,7 @@ void cocktails_init(void)
 
 **************************************************************************************************************/
 
-	tmp = create_new_getraenk("12345678901234567890",0,0,0,0);
-	aktuellesGetraenk = insert_at_head(&head_getraenk, tmp);
+	aktuellesGetraenk = create_new_getraenk("12345678901234567890",0,0,0,0);
 
 /**************************************************************************************************************
 
@@ -99,42 +96,6 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, ui
 	*(char *)(newGetraenk->mengen + (i+1)) = '\0';
 
 	return newGetraenk;
-}
-
-
-getraenk_t *insert_at_head(getraenk_t **head, getraenk_t *getraenk_to_insert)
-{
-	getraenk_to_insert->next = *head;
-	getraenk_to_insert->prev = NULL;
-	
-	if((*head) == NULL)
-	{
-		tail_getraenk = getraenk_to_insert;
-	} else
-	{
-		(*head)->prev = getraenk_to_insert;
-		getraenk_to_insert->prev = tail_getraenk;
-	}
-	*head = getraenk_to_insert;
-	tail_getraenk->next = *head;
-	return getraenk_to_insert;
-}
-
-getraenk_t *find_getraenk(getraenk_t *head, char * name)
-{
-	getraenk_t *tmp = head;
-	while (tmp != NULL)
-	{
-		if(tmp->name == name)	return tmp;
-		tmp = tmp->next;
-	}
-	return NULL;
-}
-
-void insert_after_getraenk(getraenk_t *getraenk_to_insert_after, getraenk_t* newgetraenk)
-{
-	newgetraenk->next = getraenk_to_insert_after->next;
-	getraenk_to_insert_after->next = newgetraenk;
 }
 
 
@@ -242,13 +203,13 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 
 void add_EEPROM_drinks_to_list(uint8_t * add)
 {
-	getraenk_t * drink = 0;
+// 	getraenk_t * drink = 0;
 	
-	while (eeprom_read_byte(address_getraenk) != '\0')
-	{
-		drink = read_drink_from_eemprom(address_getraenk);
-		insert_at_head(&head_getraenk, drink);
-	}
+// 	while (eeprom_read_byte(address_getraenk) != '\0')
+// 	{
+// 		drink = read_drink_from_eemprom(address_getraenk);
+// 		insert_at_head(&head_getraenk, drink);
+// 	}
 }
 
 void delete_EEPROM (uint8_t * add)

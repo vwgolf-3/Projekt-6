@@ -21,8 +21,12 @@ void bearbeite_Cocktail(uint8_t cocktail)
 {
 	choose_aktuellesGetraenk(cocktail);
 	nextion_change_page(CEINSTANZEIGE);
-	i_Liste = 0;
 	erstelle_Liste_zutat("zutat");
+	i_Liste = 0;
+	for (int count = 0 ; count < 4 ; count ++)
+	{
+		
+	}
 }
 
 void zubereitung_getraenk(uint32_t Menge)
@@ -48,15 +52,14 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	uint8_t restval = 0;
 	// Alle Werte aus den anderen Mengen holen
 	
-	for (int i = 0 ; i < 12 ; i++)
+	for (int count = 0 ; count < 12 ; count++)
 	{
-		if (i != (zutat + i_Liste))
+		if (count != (zutat + i_Liste))
 		{
-			totval += *(aktuellesGetraenk->mengen + i);
+			totval += *(aktuellesGetraenk->mengen + count);
 		}
 	}
 	restval = 100 - totval;
-	
 	
 	// String, um Slider auszuwählen
 	strcpy((char *)buff, (const char *)"slider");
@@ -65,14 +68,13 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// Wert aus Slider holen und in Getränkeliste eintragen
 	val = nextion_getSliderValue(buff, (unsigned char *)INPUT_UART_1);
-	
 	if (val > restval)
 	{
 		val = restval;
 	}
 	
 	*(aktuellesGetraenk->mengen+(i_Liste+zutat)) = val;
-	
+			
 	// String um Text zu Setzen
 	itoa((int)val, (char *)buff2, 10);
 	strcat((char *)buff2, "%");
@@ -106,6 +108,8 @@ void choose_aktuellesGetraenk(uint8_t nr)
 		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 	}
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+	Uart_Transmit_IT_PC(aktuellesGetraenk->name);
+	Uart_Transmit_IT_PC("\r");
 	block_list_hoch = 0;
 	block_list_runter = 0;
 	i_Liste = 0;
@@ -131,6 +135,7 @@ void fuelle_getraenk(uint32_t fuellmenge)
 			
 */			
 // 			uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
+//			uint32_t pulse_prp_3dl[12] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501};
 			uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506};
 						
 			// Berechne Menge, schalte Pumpe ein und beginne mit füllen
@@ -147,8 +152,8 @@ void fuelle_getraenk(uint32_t fuellmenge)
 				static uint32_t count=0;
 			
 				// Lese Sensor ein
-// 				uint8_t newval = oldval ^ 0b00000001;
-				newval = lese_sensor(i);
+				newval = oldval ^ 0b00000001;
+// 				newval = lese_sensor(i);
 
 				// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
 				if( !oldval && newval)
@@ -162,7 +167,7 @@ void fuelle_getraenk(uint32_t fuellmenge)
 					}
 //*************************************************************************
 //					Delay entfernen wenn mit Sensor gearbeitet wird.
-				
+				_delay_ms(2);
 					if (check_Communication_Input_UART_1())
 					{
 						proceed_Communication_INPUT_UART_1();
@@ -403,79 +408,69 @@ void erstelle_Liste_name(char * name_button)
 
 void erstelle_Liste_zutat(char * input)
 {
-	// Getränkedurchwahr bei Tail starten.
+	char string[21] = {'\0'};
+	char string2[21] = {'\0'};
+	char string3[21] = {'\0'};
+	char buff[5] = {0};
 	aktuelles_zutat_file = tail_zutat_file;
-
-	// Shifte aktuelles Getränk auf bestimmte Seite
-	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
 	for (int i = 0 ; i < i_Liste ; i++)
 	{
 		aktuelles_zutat_file = aktuelles_zutat_file->prev;
 	}
 
-	// Für alle Buttons auf der Seite ...
-	// Initialisierungen
-	char button[21] = {'\0'};
-	char buff[4] = {0};
-	
-	for (int i = 0 ; i < 4 ; i++)
+	for (int count = 0 ; count < 4 ; count++)
 	{
-		// Schreibe Zahl und Name des Buttons in String
-		itoa((i + 1),buff,10);
-		strcpy((char *)button, (const char *)input);
-		strcat((char *)button, (const char *)buff);
+		// Schreibe Buttonname, Slidername und Anzeiename in einen String
+		itoa((count+1),buff,10);
+		strcpy((char *)string, (const char *)input);
+		strcat((char *)string, (const char *)buff);
 		
-		// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
-		// runterscrollen, blockieren und letzter Name einschreiben.
+		strcpy((char *)string2, (const char *)"slider");
+		strcat((char *)string2, (const char *)buff);
+		
+		strcpy((char *)string3, (const char *)"menge");
+		strcat((char *)string3, (const char *)buff);
+		
+		// Falls das Ende der Liste erreicht ist und Liste noch nicht blockiert,
+		// Weiteres Scrollen blockieren,
+		// Letzter Eintrag eintragen
+		
 		if (aktuelles_zutat_file == head_zutat_file && !block_list_runter)
 		{
 			block_list_runter = 1;
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(button,aktuelle_zutat->name);
+			nextion_setText(string,aktuelle_zutat->name);
+			itoa(*(aktuellesGetraenk->mengen+(count+i_Liste)),buff,10);
+			nextion_setValue(string2,buff);
+			strcat(buff, "%");
+			nextion_setText(string3,buff);
 		}
-		
-		// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
-		// die Buttons disablen
+		// Sonst, wenn Liste Blockiert
+		// Leerer String in Feld schreiben
 		else if (block_list_runter)
 		{
-			// leerer String
-			nextion_setText(button,"");
-			
-			// Sicherheitsdelay, Programm stürzt sonst ab
-			_delay_ms(10);
-			
-			// Schreibe Text und Buttonnummer für disable in String
-			char buff10[20] = {'\0'};
-			strcat((char *)buff10, (const char *)input);
-			itoa((i + 1), (char *)buff, 10);
-			strcat((char *)buff10, (const char *)buff);
-			
-			// Disable Button
-			nextion_disableButton(buff10);
-			aktuelles_zutat_file = aktuelles_zutat_file->next;
+			nextion_setText(string,"");
+			nextion_setValue(string2,"0");
 		}
-		
-		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
+		// Im Normalbetrieb Zutat in Feld schreiben,
+		// Auf n?chste Zutat zeigen
 		else
 		{
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(button,aktuelle_zutat->name);
+			nextion_setText(string,aktuelle_zutat->name);
+			itoa(*(aktuellesGetraenk->mengen+(count+i_Liste)),buff,10);
+			nextion_setValue(string2,buff);
+			strcat(buff, "%");
+			nextion_setText(string3,buff);
 		}
 		
-		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
-		// (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
-		// Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
-		
-		if(aktuelles_zutat_file == tail_zutat_file && !block_list_runter)
+		if(aktuelles_zutat_file == tail_zutat_file)
 		{
 			block_list_hoch = 1;
 		}
-		
-		// Ein Getraenk weiter Scrollen.
 		aktuelles_zutat_file = aktuelles_zutat_file->prev;
 		
-		// Sicherheitsdelay, Programm stürzt sonst ab
-		_delay_ms(1);
+		_delay_ms(10);
 	}
 }
 
@@ -786,6 +781,8 @@ void loesche_FIle(uint8_t filename)
 
 void erstelle_Liste_Zutat_Pos(char * name_button)
 {
+	nextion_change_page(FLUESSANZEIGE1);
+
 	// Getränkedurchwahr bei Tail starten.
 	aktuelles_zutat_file = tail_zutat_file;
 
@@ -798,9 +795,10 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 	
 	// Für alle Buttons auf der Seite ...
 	// Initialisierungen
-	char button[21] = {'\0'};
-	char buff[4] = {0};
-	
+	char button[50] = {'\0'};
+	char buff[5] = {0};
+	char buff10[50] = {'\0'};
+
 	for (int i = 0 ; i < 6 ; i++)
 	{
 		// Schreibe Zahl und Name des Buttons in String
@@ -827,15 +825,8 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 			// Sicherheitsdelay, Programm stürzt sonst ab
 			_delay_ms(10);
 			
-			// Schreibe Text und Buttonnummer für disable in String
-			char buff10[20] = {'\0'};
-			strcat((char *)buff10, (const char *)name_button);
-			itoa((i + 1), (char *)buff, 10);
-			strcat((char *)buff10, (const char *)buff);
-			
 			// Disable Button
-			nextion_disableButton(buff10);
-			aktuelles_zutat_file = aktuelles_zutat_file->next;
+			nextion_disableButton(button);
 		}
 		
 		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
@@ -853,6 +844,14 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 		{
 			block_list_hoch = 1;
 		}
+		
+		if (compare_string((char *)aktuelleZutatInMaschine->name, (char *)aktuelle_zutat->name)==0)
+		{
+			strcpy((char *)buff10, (const char *)button);
+			strcat((char *)buff10, (const char *)".pco=2016");
+			Uart_Transmit_IT_Display((char *)buff10);
+			endConversation();
+		}	
 		
 		// Ein Getraenk weiter Scrollen.
 		aktuelles_zutat_file = aktuelles_zutat_file->prev;

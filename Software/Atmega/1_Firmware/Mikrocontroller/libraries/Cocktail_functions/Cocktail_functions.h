@@ -9,17 +9,18 @@
 #ifndef COCKTAIL_FUNCTIONS_H_
 #define COCKTAIL_FUNCTIONS_H_
 
-#include "../../utils/pin_defs.h"
-#include "../TMC4671/TMC4671.h"
+#include <stdint.h>
+
+// Verbindungsbibliotheken Software/Hardware
 #include "../Nextion_Display/Nextion_Display.h"
+#include "../TMC4671/TMC4671.h"
+#include "../TMC6200/TMC6200.h"
+#include "../SD-Karte/FAT32.h"
+
+// Speicherstrukturen
 #include "Zutaten.h"
 #include "Getraenk.h"
-#include "../TMC6200/TMC6200.h"
-#include "../SD-Karte/SD_routines.h"
-#include "../SD-Karte/FAT32.h"
-#include "../Main_functions/Main_Func.h"
 
-uint8_t lese_sensor(uint8_t Sensor);
 
 unsigned char option, error, data, FAT32_active;
 unsigned int i;
@@ -31,6 +32,7 @@ uint8_t block_list_hoch;
 uint8_t block_list_runter;
 uint8_t Grossschreib;
 uint8_t counter;
+
 char buff_name[21];
 char stop;
 
@@ -51,6 +53,8 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 // Getränke-Pointer
 void erstelle_Liste_name(char * input);
 void erstelle_Liste_zutat(char * input);
+
+uint8_t lese_sensor(uint8_t Sensor);
 
 // SD-Karte
 void SD_startup(void);

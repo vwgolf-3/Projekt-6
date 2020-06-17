@@ -22,7 +22,8 @@
  */
 #include "mfrc522.h"
 
-void mfrc522_init()
+void 
+_init()
 {
 	uint8_t byte;
 	mfrc522_reset();

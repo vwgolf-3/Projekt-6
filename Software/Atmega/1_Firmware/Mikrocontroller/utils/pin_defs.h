@@ -283,7 +283,4 @@
 #define FLUSS8_DDR DDRK							// FLUSS8 DDRK
 #define FLUSS8_PIN PINK							// FLUSS8 PINK
 
-
-
-
 #endif /* PIN_DEFS_H_ */
