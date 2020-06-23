@@ -77,9 +77,11 @@ void bearbeite_Cocktail(uint8_t cocktail);
 void erstelle_Liste_Zutat_Pos(char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
-
+void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
+void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr);
 extern uint8_t test2;
 
+enum Zutat_in_Maschine_Status{KEINGETRAENK, VOLL, LEER};
 
 extern unsigned char INPUT_UART_1[256];
 

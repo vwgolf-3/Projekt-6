@@ -104,14 +104,14 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 	uint8_t buff2;										// Buffer für Status der Zutat
 	uint8_t buff3;										// Buffer für Alkohol Ja/Nein der Zutat
 	
-	char buff4[20] = {'\0'};							// Buffer für Filename "Maschine.txt"
+	char buff4[20] = {'\0'};							// Buffer für Filename "M.txt"
 
 	uint8_t position = 0;								// Variable, welche die Position des Getränks hochzählt.
 
 /******************************************************************************************************************
 
-	- String des Filenames wird in Buffer geschrieben	"Maschine.txt"
-	- File wird gelesen und in buffer geschrieben		"Maschine.txt"
+	- String des Filenames wird in Buffer geschrieben	"M.txt"
+	- File wird gelesen und in buffer geschrieben		"M.txt"
 	
 	Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:
 	********************************************************************
@@ -123,12 +123,12 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 
 ******************************************************************************************************************/
 
-	strcpy((char *)buff4, (const char *)"Maschine.txt");
+	strcpy((char *)buff4, (const char *)"M.txt");
 	readFile(READ, (unsigned char *)buff4);
 	
 /******************************************************************************************************************
 
-	- Ab hier wird das File "Maschine.txt" zerlegt und die eingeschriebenen Getränke, sowie deren Status und
+	- Ab hier wird das File "M.txt" zerlegt und die eingeschriebenen Getränke, sowie deren Status und
 	  Alkoholgehalt Ja/Nein in die Liste geschrieben.
 	- Die Daten sind dann jederzeit verfügbar, der alloziierte Speicher reicht, um die Zutaten umzuschreiben
 	  während des Betriebs. (20 Zeichen maximum)
@@ -136,7 +136,7 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 
 ******************************************************************************************************************/
 	
-	// Extrahiere erstes Maschinen-Zutat aus File "Maschine.txt"
+	// Extrahiere erstes Maschinen-Zutat aus File "M.txt"
 	ptr = strtok((char *)buffer, delimiter);							// Abschnitt Name Zutat
 	strcpy((char *)buff1,ptr);											// Kopiere Name in Buffer
 	ptr = strtok(NULL, delimiter);										// Abschnitt Status

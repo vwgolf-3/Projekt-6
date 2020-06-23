@@ -116,16 +116,21 @@ void cocktail_check_command(int8_t page, int8_t button)
 	break;
 	
 	/*0x16 = 0d22*/
+	case FLUESSANZEIGE3:
+	check_fluessanzeige3(button);
+	break;
+	
+	/*0x17 = 0d23*/
 	case RFIDANZEIGE1:
 	check_RFIDAnzeige1(button);
 	break;
 	
-	/*0x17 = 0d23*/
+	/*0x18 = 0d24*/
 	case RFIDANZEIGE2:
 	check_RFIDAnzeige2(button);
 	break;
 	
-	/*0x18 = 0d24*/
+	/*0x19 = 0d25*/
 	case RFIDFEHLER:
 	check_RFIDFehler(button);
 	break;
@@ -1140,81 +1145,6 @@ void check_loeschanzeige(uint8_t button)
 	}
 }
 
-void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr)
-{
-	aktuelleZutatInMaschine = tail_zut_in_Maschine;
-	for (int i = 0 ; i < nr; i++)
-	{
-		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
-	}
-}
-
-
-void setze_Fluessgkeit_in_Position(uint8_t nr)
-{
-	// Finde Zutat, aufd welche gedr?ckt wurde.
-	aktuelles_zutat_file = tail_zutat_file;
-	for (int i = 0 ; i < (i_Liste + nr) ; i++)
-	{
-		aktuelles_zutat_file = aktuelles_zutat_file->prev;
-	}
-	
-	lese_textfile_in_zutat(aktuelles_zutat_file->file);
-	// Schreibe Name der gefundenen Zutat in die ausgew?hlte Position.
-	char len = strlen((const char *)aktuelle_zutat->name);
-	for (int count = 0 ; count < (len + 1) ; count++)
-	{
-		*(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
-	}
-	Uart_Transmit_IT_PC(aktuelleZutatInMaschine->name);
-	Uart_Transmit_IT_PC("\r");
-	
-	// Definiere den Status des Getr?nks
-	aktuelleZutatInMaschine->status = VOLL;
-	
-	// Zur?ck zur Positionsanzeige
-	nextion_change_page(POSANZEIGE);
-	
-	char buff[50] = {'\0'};
-	char buff2[5] = {'\0'};
-	strcpy((char *)buff, "Nr.");
-	itoa(aktuelleZutatInMaschine->position+1, buff2, 10);
-	strcat((char *)buff, (const char *)buff2);
-	strcat((char *)buff, " = ");
-	strcat((char *)buff, aktuelleZutatInMaschine->name);
-	nextion_setText("zubabfrage",buff);
-	setze_Posanzeige_Rot_Gruen();
-	block_list_hoch = 0;
-	block_list_runter = 0;
-	i_Liste = 0;
-
-	// 	char buff[20] = {'\0'};
-	// 	char * ptr = buff;
-	// 	ptr = "Maschine.txt";
-	// 	deleteFile((unsigned char *)ptr);
-	//
-	// 	char buff_file[512] = {'\0'};
-	//
-	// 	aktuelleZutatInMaschine = tail_zut_in_Maschine;
-	// 	strcpy((char *)buff_file, (const char *)aktuelleZutatInMaschine->name);
-	// 	strcat((char *)buff_file, (const char *)",");
-	// 	strcat((char *)buff_file, (const char *));
-	
-	
-	// 	aktuelleZutatInMaschine = tail_zut_in_Maschine;
-	// 	for (int i = 0 ; i < 12 ; i++)
-	// 	{
-	// 		char buff99[10];
-	// 		itoa(i, (char *)buff99, 10);
-	// 		Uart_Transmit_IT_PC(buff99);
-	// 		Uart_Transmit_IT_PC(": ");
-	// 		Uart_Transmit_IT_PC(aktuelleZutatInMaschine->name);
-	// 		Uart_Transmit_IT_PC("\r");
-	// 		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
-	// 		_delay_ms(5);
-	// 	}
-}
-
 void check_posanzeige(uint8_t button)
 {
 	switch (button)
@@ -1416,56 +1346,49 @@ void check_fluessanzeige1(uint8_t button)
 	{
 		case FLUESSIGKEIT1:
 /*		0x01 = 0b01
-			- Wechsle auf Zutatenanzeige
-			- 
+			- Lese File an Stelle 0 der Liste und setze Status VOLL
 */
-			setze_Fluessgkeit_in_Position(0);
+			setze_Fluessgkeit_in_Position(0, VOLL);
 		break;
 		
 		case FLUESSIGKEIT2:
 /*		0x02 = 0b02
-			- Wechsle auf Zutatenanzeige
-			- 
+			- Lese File an Stelle 1 der Liste und setze Status VOLL
 */		
-			setze_Fluessgkeit_in_Position(1);
+			setze_Fluessgkeit_in_Position(1, VOLL);
 		break;
 		
 		case FLUESSIGKEIT3:
 /*		0x03 = 0b03
-			- Wechsle auf Zutatenanzeige
-			- 
+			- Lese File an Stelle 2 der Liste und setze Status VOLL
 */
-			setze_Fluessgkeit_in_Position(2);
+			setze_Fluessgkeit_in_Position(2, VOLL);
 		break;
 		
 		case FLUESSIGKEIT4:
 /*		0x04 = 0b04
-			- Wechsle auf Zutatenanzeige
-			- 
+			- Lese File an Stelle 3 der Liste und setze Status VOLL
 */
-			setze_Fluessgkeit_in_Position(3);
+			setze_Fluessgkeit_in_Position(3, VOLL);
 		break;
 		
 		case FLUESSIGKEIT5:
 /*		0x05 = 0b05
-			- Wechsle auf Zutatenanzeige
-			- 
+			- Lese File an Stelle 4 der Liste und setze Status VOLL
 */
-			setze_Fluessgkeit_in_Position(4);
+			setze_Fluessgkeit_in_Position(4, VOLL);
 		break;
 		
 		case FLUESSIGKEIT6:
 /*		0x06 = 0b06
-			- Wechsle auf Zutatenanzeige
-			- 
+			- Lese File an Stelle 5 der Liste und setze Status VOLL
 */
-			setze_Fluessgkeit_in_Position(5);
+			setze_Fluessgkeit_in_Position(5, VOLL);
 		break;
 		
 		case RAUFLIST5:
 /*		0x07 = 0b07
 			- Wechsle auf Zutatenanzeige
-			- 
 */
 			block_list_runter = 0;
 			if (!block_list_hoch)
@@ -1497,27 +1420,112 @@ void check_fluessanzeige1(uint8_t button)
 			i_Liste = 0;
 		break;
 		
+		case KEINEFLUESSIGKEIT:
+/*		0x0A = 0b10
+			- Wechsle auf Zutatenanzeige
+			-
+*/
+			setze_Fluessgkeit_in_Position(6, KEINGETRAENK);
+		break;
+		
 		case ZURUECK4:
 /*		0x0A = 0b10
 			- Wechsle auf Zutatenanzeige
 			-
 */
+			i_Liste = 0;
 			nextion_change_page(POSANZEIGE);
 			setze_Posanzeige_Rot_Gruen();
-			i_Liste = 0;
 		break;
 				
 	}
 }
-
 
 void check_fluessanzeige2(uint8_t button)
 {
 	switch (button)
 	{
 		case 1:
-
+			nextion_change_page(FLUESSANZEIGE3);
+			uint8_t len = strlen((const char *)buff_name);
+			for (int count = 0 ; count < len + 1; count++)
+			{
+				*(aktuellesGetraenk->name + count) = *(buff_name + count);
+			}
+			counter = 0;
 		break;
+	}
+}
+
+void check_fluessanzeige3(uint8_t button)
+{
+	char buff_filename[15] = {'\0'};
+		char buff_string[50] = {'\0'};
+		char buff_itoa[5] = {'\0'};
+		char * ptr = buff_string;
+		zutat_file_t * tmp;
+		switch (button)
+	{
+	case JA1:
+	case NEIN2:
+		strcpy(ptr, (const char *)"Name:");
+		strcat(ptr, (const char *)aktuellesGetraenk->name);
+		strcat(ptr, (const char *)"\rAlkohol:");
+		if (button == JA1)
+		{
+			itoa(1, (char *)buff_itoa, 10);
+		}
+		if (button == NEIN2)
+		{
+			itoa(0, (char *)buff_itoa, 10);
+		}
+		strcat(ptr, (const char *)buff_itoa);
+		strcat(ptr, (const char *)"~");
+		
+		uint8_t stop_suche = 0;
+		uint8_t count = 1;
+		while (stop_suche == 0)
+		{
+			// String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
+			strcpy((char *)buff_filename, (const char *)"Z");
+			itoa(count, (char *)buff_itoa, 10);
+			strcat((char *)buff_filename, (const char *)buff_itoa);
+			strcat((char *)buff_filename, (const char *)".txt");
+			
+			// Prüfen ob File existiert
+			if(readFile(VERIFY, (unsigned char *)buff_filename)!=1)
+			{
+				// Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
+				tmp = create_new_zutat_file(count);
+				head_zutat_file = insert_zutat_file_at_head(&head_zutat_file, tmp);
+				stop_suche = 1;
+				count--;
+			}
+			count++;
+		}
+		strcpy((char *)buff_filename, (const char *)"Z");
+		itoa(count, (char *)buff_itoa, 10);
+		strcat((char *)buff_filename, (const char *)buff_itoa);
+		strcat((char *)buff_filename, (const char *)".txt");
+		Uart_Transmit_IT_PC((char *)buff_filename);
+		Uart_Transmit_IT_PC("\r");
+		writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
+		
+// 		nextion_change_page(FLUESSANZEIGE1);
+		i_Liste = 0;
+		block_list_runter = 0;
+		block_list_hoch = 0;
+		erstelle_Liste_Zutat_Pos("fluessigkeit");
+		uint8_t len = strlen((const char *)buff_name);
+		for (int count = 0 ; count < len + 1; count++)
+		{
+			*(aktuellesGetraenk->name + count) = '\0';
+		}
+	break;
+	
+	case ZURUECK7:
+		nextion_change_page(FLUESSANZEIGE2);
+	break;
 	}
 }
 
@@ -1693,3 +1701,4 @@ void check_RFIDFehler(uint8_t button)
 		break;
 	}
 }
+

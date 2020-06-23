@@ -10,7 +10,101 @@
 
 // https://www.youtube.com/watch?v=VOpjAHCee7c
 
+uint8_t check_existence(uint8_t file)
+{
+	uint8_t exists = 1;
 
+	// Erstellen eines Strings in Form von: "file.txt"
+	char buff[20];
+	itoa((int)file,(char *)buff,10);
+	char * txt = ".txt";	
+	strcat((char *)buff,txt);
+	
+	// "file.txt" lesen (File wird in char buffer[512] geschrieben)
+	//return: 0, if normal operation or flag is READ
+	//	      1, if file is already existing and flag = VERIFY
+	//		  2, if file name is incompatible
+	
+	readFile( READ, (unsigned char *)buff);
+		
+	// Trennungszeichen definieren, Pointer initialisiern für Abschnitte
+	char delimiter[] = ":,{}\r\n";
+	char *ptr;
+	// initialisieren und ersten Abschnitt erstellen (1. Kopf)
+	
+	ptr = strtok((char *)buffer, delimiter);
+	
+	//	Abschnitt in buffer extrahieren:
+/*
+	Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:
+	********************************************************************
+	Name:Getraenk1
+	Mengen:
+	Zutat1:75
+	Zutat2:25
+	;
+	Alkohol:1
+	Bild:2
+*/ 
+// 	Uart_Transmit_IT_PC("Start Init: ");
+// 	Uart_Transmit_IT_PC(ptr);
+// 	Uart_Transmit_IT_PC("\r");
+	while(ptr != NULL) {
+	// Kopf prüfen und jeweilige Aktion ausführen
+		
+		if (pruefe_kopf(ptr, "Mengen"))
+		{
+			ptr = strtok(NULL, delimiter);
+// 			Uart_Transmit_IT_PC("Zutat: ");
+// 			Uart_Transmit_IT_PC(ptr);
+// 			Uart_Transmit_IT_PC("\r");
+			_delay_ms(20);
+			uint8_t counter = 0;
+
+			while(*ptr != ';' && counter < 13)
+			{
+
+				uint8_t count = 0;
+				uint8_t run = 1;
+				aktuelleZutatInMaschine = tail_zut_in_Maschine;
+				
+				while (run)
+				{
+					if((compare_string((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0))
+					{
+						run = 0;
+						ptr = strtok(NULL, delimiter);
+// 						Uart_Transmit_IT_PC("Position");
+// 						char buff[5] = {'\0'};
+// 						itoa(aktuelleZutatInMaschine->position, (char *)buff, 10);
+// 						Uart_Transmit_IT_PC((char *)buff);
+// 						Uart_Transmit_IT_PC("\rMenge: ");
+// 						Uart_Transmit_IT_PC(ptr);
+// 						Uart_Transmit_IT_PC("\r");
+						_delay_ms(50);
+					}
+					if (count >=12)
+					{
+						run = 0;
+						exists = 0;
+					}
+					count ++;
+					aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+				}
+				ptr = strtok(NULL, delimiter);
+				counter ++;
+// 				Uart_Transmit_IT_PC("Loop: ");
+// 				Uart_Transmit_IT_PC(ptr);
+// 				Uart_Transmit_IT_PC("\r");
+				_delay_ms(20);
+			}
+		}
+		
+	// Neuer Kopf suchen und ptr darauf zeigen lassen
+		ptr = strtok(NULL, delimiter);
+	}
+	return exists;
+}
 
 
 void cocktails_init(void)
@@ -33,17 +127,21 @@ void cocktails_init(void)
 			- Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
 **************************************************************************************************************/
-	for ( int8_t i = 1 ; i <= 100; i++){
+	for ( int8_t count = 0 ; count <= 100; count++)
+	{
 		char buff[15] = {'\0'};
-		itoa(i, (char *)buff,10);
+		itoa(count, (char *)buff,10);
 		strcat((char *)buff, (const char *)".txt");
 		if(readFile(VERIFY, (unsigned char *)buff)==1)
 		{
-			tmp2 = create_new_getraenk_file(i);
-			head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+			if(check_existence(count))
+			{
+				tmp2 = create_new_getraenk_file(count);
+				head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+			}
 		}
 	}
-	
+		
 /**************************************************************************************************************
 
 			- Für ein Getränk wird eine Struktur werdendet. Hier wird solch eine Struktur

@@ -23,10 +23,6 @@ void bearbeite_Cocktail(uint8_t cocktail)
 	nextion_change_page(CEINSTANZEIGE);
 	erstelle_Liste_zutat("zutat");
 	i_Liste = 0;
-	for (int count = 0 ; count < 4 ; count ++)
-	{
-		
-	}
 }
 
 void zubereitung_getraenk(uint32_t Menge)
@@ -98,7 +94,6 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	// Text schreiben
 	nextion_setValue(buff,buff2);
 }
-
 
 void choose_aktuellesGetraenk(uint8_t nr)
 {
@@ -341,6 +336,7 @@ void erstelle_Liste_name(char * name_button)
 	}
 
 	// Für alle Buttons auf der Seite ...
+		
 		// Initialisierungen
 	char button[21] = {'\0'};
 	char buff[4] = {0};
@@ -453,7 +449,7 @@ void erstelle_Liste_zutat(char * input)
 			nextion_setValue(string2,"0");
 		}
 		// Im Normalbetrieb Zutat in Feld schreiben,
-		// Auf n?chste Zutat zeigen
+		// Auf nächste Zutat zeigen
 		else
 		{
 			lese_textfile_in_zutat(aktuelles_zutat_file->file);
@@ -542,28 +538,26 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 // 					- Switche zur nächsten Zutat
 // 					
 // 					- Schreibe Zutatenkette in Textfeld
-
-	aktuelles_zutat_file = tail_zutat_file;
-
+	char buff[10] = {'\0'};
 	char string[512] = {'\0'};
-	char buff[4] = {0};
-	for (int i = 0 ; i<12 ; i++)
+		
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	
+	for (uint8_t count = 0 ; count<12 ; count++)
 	{
-		lese_textfile_in_zutat(aktuelles_zutat_file->file);
-		if (*(uint8_t *)(anzeige_getraenk->mengen + i) != (unsigned char)0)
+		if (*(aktuellesGetraenk->mengen + count) > (uint8_t)0)
 		{
-			strcat((char *)string, (const char *)aktuelle_zutat->name);
-			for (int i = 0 ; i<(20-strlen(aktuelle_zutat->name)) ; i++)
+			strcat((char *)string, (const char *)aktuelleZutatInMaschine->name);
+			for (int count2 = 0 ; count2<(20-strlen(aktuelleZutatInMaschine->name)) ; count2++)
 			{
-				strcat((char *)string, "-");
+				strcat((char *)string,(const char *)"-");
 			}
 			strcat((char *)string, (const char *)"(");
-			itoa(*(uint8_t *)(anzeige_getraenk->mengen + i),buff,10);
+			itoa(*(aktuellesGetraenk->mengen + count),(char *)buff, 10);
 			strcat((char *)string, (const char *)buff);
-			strcat((char *)string, (const char *)"%)");
-			strcat((char *)string, (const char *)"\\r");
+			strcat((char *)string, (const char *)"%)\\r");
 		}
-		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	}
 	nextion_setText("zutatenliste",string);
 }
@@ -583,7 +577,7 @@ void schiebe_file_prev(void)
 void lese_textfile_in_getraenk(uint8_t file)
 {
 	// Erstellen eines Strings in Form von: "file.txt"
-	char buff[20];
+	char buff[50];
 	itoa((int)file,(char *)buff,10);
 	char * txt = ".txt";	
 	strcat((char *)buff,txt);
@@ -595,7 +589,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 	
 	readFile( READ, (unsigned char *)buff);
 		
-	// Trennungszeichen definieren, Pointer initialisiern für Abschnitte
+	// Trennungszeichen definieren, Pointer initialisiern f?r Abschnitte
 	char delimiter[] = ":,{}\r\n";
 	char *ptr;
 	// initialisieren und ersten Abschnitt erstellen (1. Kopf)
@@ -612,7 +606,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 	Bild:2
 */ 
 	while(ptr != NULL) {
-	// Kopf prüfen und jeweilige Aktion ausführen
+	// Kopf pr?fen und jeweilige Aktion ausf?hren
 		if (pruefe_kopf(ptr, "Name"))
 		{
 			ptr = strtok(NULL, delimiter);
@@ -621,12 +615,37 @@ void lese_textfile_in_getraenk(uint8_t file)
 		
 		if (pruefe_kopf(ptr, "Mengen"))
 		{		
-			for (int i = 0 ; i < 12 ; i++)
-			{
-				ptr = strtok(NULL,delimiter);
-				*(aktuellesGetraenk->mengen + i) = atoi(ptr);
-			}
 			ptr = strtok(NULL, delimiter);
+			
+			aktuelleZutatInMaschine = tail_zut_in_Maschine;
+			
+			do
+			{
+				*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position) = (uint8_t) 0;
+				aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+			}while(aktuelleZutatInMaschine != head_zut_in_Maschine);
+
+			// Suche Zutaten im File
+			while(*ptr != ';')
+			{
+				aktuelleZutatInMaschine = tail_zut_in_Maschine;
+				
+				// Suche nach richtiger Position der Zutat in der Maschine
+				do
+				{
+					// Vergleiche dafür den Namen der Zutat im File mit dem Namen der Zutat in der Maschine
+					if(compare_string((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0)
+					{
+						ptr = strtok(NULL, delimiter);
+						
+						// Und schreibe Wert in die richtige Position
+						*(uint8_t *)(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position) = atoi(ptr);
+					}
+					aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+				}while(aktuelleZutatInMaschine != tail_zut_in_Maschine);
+				
+				ptr = strtok(NULL, delimiter);
+			}
 		}
 		
 		if (pruefe_kopf(ptr, "Alkohol"))
@@ -732,19 +751,24 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol)
 	strcat(ptr, "Name:");
 	strcat(ptr, name);
 
-	strcat(ptr, "\rMengen:{");
+	strcat(ptr, "\rMengen:\r");
 	char buff2[5]  = {0};
 	
-	int i = 0;
-	itoa(*(aktuellesGetraenk->mengen + i), (char *)buff2, 10);
-	strcat(ptr, buff2);
-	for (i = 1 ; i < 12 ; i++)
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	do 
 	{
-		strcat(ptr,",");
-		itoa(*(aktuellesGetraenk->mengen + i), (char *)buff2, 10);
-		strcat(ptr, buff2);
-	}
-	strcat(ptr, "}\r");
+		if (*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position) > (uint8_t) 0)
+		{
+			strcat(ptr,aktuelleZutatInMaschine->name);
+			strcat(ptr, (const char *)":");
+			itoa(*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position), (char *)buff2, 10);
+			strcat(ptr, (const char *)buff2);
+			strcat(ptr, (const char *)"\r");
+		}
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	} while (aktuelleZutatInMaschine != tail_zut_in_Maschine);
+	
+	strcat(ptr, ";\r");
 	strcat(ptr, "Alkohol:");
 	itoa(alkohol, (char *)buff2, 10);
 	strcat(ptr, (char *)buff2);
@@ -934,3 +958,113 @@ void setze_Posanzeige_Rot_Gruen(void)
 		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	}
 }
+
+void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr)
+{
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	for (int i = 0 ; i < nr; i++)
+	{
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	}
+}
+
+void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
+{
+	// Falls nr ausserhalb des Listenbereichs ==> Keine Flüssigkeit
+	if (nr > 5)
+	{
+		// Schreibe Null-Terminator über bestehenden Namen
+		char * leer = "(keine)";
+		char len1 = strlen((const char *)aktuelleZutatInMaschine->name);
+		char len2 = strlen((const char *)leer);
+		for (int count = 0 ; count < (len1 + 1) ; count++)
+		{
+			*(aktuelleZutatInMaschine->name + count) = '\0';
+		}
+		for (int count = 0 ; count < (len2 + 1) ; count++)
+		{
+			*(aktuelleZutatInMaschine->name + count) = *(leer + count);
+		}
+	}
+	
+	// Falls innerhalb des Listenbereichs ==> Flüssigkeit aus File laden
+	else
+	{
+		
+	// Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
+	aktuelles_zutat_file = tail_zutat_file;
+	for (int i = 0 ; i < (i_Liste + nr) ; i++)
+	{
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+	}
+	lese_textfile_in_zutat(aktuelles_zutat_file->file);
+	
+	// Schreibe Name der gefundenen Zutat in die ausgewählte Position.
+	char len = strlen((const char *)aktuelle_zutat->name);
+	for (int count = 0 ; count < (len + 1) ; count++)
+	{
+		*(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
+	}
+	}
+	
+	// Definiere den Status des Getränks
+	aktuelleZutatInMaschine->status = status;
+	
+	// Zurück zur Positionsanzeige
+	nextion_change_page(POSANZEIGE);
+	
+	// Schreibe Änderung in Titel der Positionsanzeige
+	char buff[50] = {'\0'};
+	char buff2[5] = {'\0'};
+	strcpy((char *)buff, "Nr.");
+	itoa(aktuelleZutatInMaschine->position+1, buff2, 10);
+	strcat((char *)buff, (const char *)buff2);
+	strcat((char *)buff, " = ");
+	strcat((char *)buff, aktuelleZutatInMaschine->name);
+	nextion_setText("zubabfrage",buff);
+	setze_Posanzeige_Rot_Gruen();
+	block_list_hoch = 0;
+	block_list_runter = 0;
+	i_Liste = 0;
+
+	char buff98[20] = {'\0'};
+	strcpy((char *)buff98, (const char *)"M.txt");
+	deleteFile((unsigned char *)buff98);
+
+	char buff_file[512] = {'\0'};
+	char buff99[10];
+
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+
+	for (int count = 0 ; count < 12 ; count++)
+	{
+		if (count != 0)
+		{
+			strcat((char *)buff_file, (const char *)aktuelleZutatInMaschine->name);
+		}
+		else
+		{
+			strcpy((char *)buff_file, (const char *)aktuelleZutatInMaschine->name);
+		}
+	strcat((char *)buff_file, (const char *)",");
+	itoa(aktuelleZutatInMaschine->status, (char *)buff99, 10);
+	strcat((char *)buff_file, (const char *)buff99);
+	strcat((char *)buff_file, (const char *)",");
+	itoa(aktuelleZutatInMaschine->alkohol, (char *)buff99, 10);
+	strcat((char *)buff_file, (const char *)buff99);
+	if (aktuelleZutatInMaschine != head_zut_in_Maschine)
+	{
+		strcat((char *)buff_file, (const char *)"\r");
+	}
+	else
+	{
+		strcat(buff_file, "~");
+	}
+	aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	}
+	
+	char buff97[20] = {'\0'};
+	strcpy((char *)buff97, (const char *)"M.txt");	
+	writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
+}
+
