@@ -408,10 +408,10 @@ void erstelle_Liste_zutat(char * input)
 	char string2[21] = {'\0'};
 	char string3[21] = {'\0'};
 	char buff[5] = {0};
-	aktuelles_zutat_file = tail_zutat_file;
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
 	for (int i = 0 ; i < i_Liste ; i++)
 	{
-		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	}
 
 	for (int count = 0 ; count < 4 ; count++)
@@ -431,12 +431,11 @@ void erstelle_Liste_zutat(char * input)
 		// Weiteres Scrollen blockieren,
 		// Letzter Eintrag eintragen
 		
-		if (aktuelles_zutat_file == head_zutat_file && !block_list_runter)
+		if (aktuelleZutatInMaschine == head_zut_in_Maschine && !block_list_runter)
 		{
 			block_list_runter = 1;
-			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(string,aktuelle_zutat->name);
-			itoa(*(aktuellesGetraenk->mengen+(count+i_Liste)),buff,10);
+			nextion_setText(string,aktuelleZutatInMaschine->name);
+			itoa(*(aktuellesGetraenk->mengen+aktuelleZutatInMaschine->position),buff,10);
 			nextion_setValue(string2,buff);
 			strcat(buff, "%");
 			nextion_setText(string3,buff);
@@ -452,21 +451,18 @@ void erstelle_Liste_zutat(char * input)
 		// Auf nächste Zutat zeigen
 		else
 		{
-			lese_textfile_in_zutat(aktuelles_zutat_file->file);
-			nextion_setText(string,aktuelle_zutat->name);
-			itoa(*(aktuellesGetraenk->mengen+(count+i_Liste)),buff,10);
+			nextion_setText(string,aktuelleZutatInMaschine->name);
+			itoa(*(aktuellesGetraenk->mengen+aktuelleZutatInMaschine->position),buff,10);
 			nextion_setValue(string2,buff);
 			strcat(buff, "%");
 			nextion_setText(string3,buff);
 		}
 		
-		if(aktuelles_zutat_file == tail_zutat_file)
+		if(aktuelleZutatInMaschine == tail_zut_in_Maschine)
 		{
 			block_list_hoch = 1;
 		}
-		aktuelles_zutat_file = aktuelles_zutat_file->prev;
-		
-		_delay_ms(10);
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	}
 }
 
@@ -623,7 +619,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 			{
 				*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position) = (uint8_t) 0;
 				aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
-			}while(aktuelleZutatInMaschine != head_zut_in_Maschine);
+			}while(aktuelleZutatInMaschine != tail_zut_in_Maschine);
 
 			// Suche Zutaten im File
 			while(*ptr != ';')

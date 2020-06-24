@@ -32,15 +32,15 @@ int main(void)
 // Initialisierungen Display
 	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
 	Grossschreib = 1;										// Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
-	i_Liste = 0;
-	block_list_hoch = 0;
-	block_list_runter = 0;
+	i_Liste = 0;											// Listenabschnitt auf 0 vordefinieren
+	block_list_hoch = 0;									// Blockierung der Listen aufheben
+	block_list_runter = 0;									// Blockierung der Listen aufheben
 		
 // Mainroutine
 	while (1)
-	{// 		check_Communication_Input_MFRC522();
-		check_Communication_Input_UART();
-// 		heartbeat_LED();
+	{// 		check_Communication_Input_MFRC522();				// Prüfen, ob ein RFID-Tag erkannt wurde
+		check_Communication_Input_UART();					// Prüfen. ob über UART einen Befehl geesendet wurde
+// 		heartbeat_LED();									// Loop-Delay und Prüf-LED, ob uC hängen bleibt
 	}
-	return 0;
+	return 0;												// Loop erneut beginnen
 }

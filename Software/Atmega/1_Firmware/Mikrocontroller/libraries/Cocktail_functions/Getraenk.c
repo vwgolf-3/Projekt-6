@@ -46,19 +46,12 @@ uint8_t check_existence(uint8_t file)
 	Alkohol:1
 	Bild:2
 */ 
-// 	Uart_Transmit_IT_PC("Start Init: ");
-// 	Uart_Transmit_IT_PC(ptr);
-// 	Uart_Transmit_IT_PC("\r");
 	while(ptr != NULL) {
 	// Kopf prüfen und jeweilige Aktion ausführen
 		
 		if (pruefe_kopf(ptr, "Mengen"))
 		{
 			ptr = strtok(NULL, delimiter);
-// 			Uart_Transmit_IT_PC("Zutat: ");
-// 			Uart_Transmit_IT_PC(ptr);
-// 			Uart_Transmit_IT_PC("\r");
-			_delay_ms(20);
 			uint8_t counter = 0;
 
 			while(*ptr != ';' && counter < 13)
@@ -74,14 +67,6 @@ uint8_t check_existence(uint8_t file)
 					{
 						run = 0;
 						ptr = strtok(NULL, delimiter);
-// 						Uart_Transmit_IT_PC("Position");
-// 						char buff[5] = {'\0'};
-// 						itoa(aktuelleZutatInMaschine->position, (char *)buff, 10);
-// 						Uart_Transmit_IT_PC((char *)buff);
-// 						Uart_Transmit_IT_PC("\rMenge: ");
-// 						Uart_Transmit_IT_PC(ptr);
-// 						Uart_Transmit_IT_PC("\r");
-						_delay_ms(50);
 					}
 					if (count >=12)
 					{
@@ -93,10 +78,6 @@ uint8_t check_existence(uint8_t file)
 				}
 				ptr = strtok(NULL, delimiter);
 				counter ++;
-// 				Uart_Transmit_IT_PC("Loop: ");
-// 				Uart_Transmit_IT_PC(ptr);
-// 				Uart_Transmit_IT_PC("\r");
-				_delay_ms(20);
 			}
 		}
 		
@@ -151,7 +132,7 @@ void cocktails_init(void)
 
 **************************************************************************************************************/
 
-	aktuellesGetraenk = create_new_getraenk("12345678901234567890",0,0,0,0);
+	aktuellesGetraenk = create_new_getraenk("12345678901234567890",0,0,0);
 
 /**************************************************************************************************************
 
@@ -164,7 +145,7 @@ void cocktails_init(void)
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
-getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t picture)
+getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, uint8_t picture)
 {
 	getraenk_t *newGetraenk = calloc(1,sizeof(getraenk_t));
 	size_t n1 = strlen((const char *)name)+1;
@@ -174,7 +155,6 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t value, ui
 	newGetraenk->mengen = calloc(n2,sizeof(uint8_t));
 	
 	newGetraenk->alkohol = alkohol;
-	newGetraenk->value = value;
 	
 	newGetraenk->picture = picture;
 	
@@ -264,7 +244,6 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 	uint8_t n = eeprom_read_byte(add);					// Schauen, wie lang der String ist
 	char name[n];
 	uint8_t mengen [12];
-	uint8_t value = 0;
 	uint8_t alkohol = 0;
 	
 	for (i = 0; i<n ; i++)
@@ -282,16 +261,13 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 	}
 	*(mengen+i)='\0';									// Beende Array mit Terminator '\0'
 	_delay_ms(5);
-	
-	i++;
-	value = eeprom_read_byte(add+i+1);					// Value aus EEPROM lesen und in Variable ablegen
-	
+		
 	i++;
 	alkohol = eeprom_read_byte(add+i+1);				// Alkoholgehalt aus EEPROM lesen und in Variable ablegen
 	
 	_delay_ms(5);
 	
-	drink = create_new_getraenk(name, mengen, value, alkohol, 24);
+	drink = create_new_getraenk(name, mengen, alkohol, 24);
 	
 	i++;
 	address_getraenk = add+i+1;

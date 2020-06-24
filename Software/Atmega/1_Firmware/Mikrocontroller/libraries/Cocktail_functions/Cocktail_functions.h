@@ -39,8 +39,6 @@ char stop;
 enum Liste_Startbildschirm {ALLE, ALKOHOL, ALKOHOLFREI};
 uint8_t Liste;
 
-
-
 // Zubereitung
 void fuelle_getraenk(uint32_t fuellmenge);
 void schalte_pumpe_aus(uint8_t Pumpe);
