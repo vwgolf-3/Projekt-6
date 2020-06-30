@@ -14,6 +14,7 @@
 // Verbindungsbibliotheken Software/Hardware
 #include "../Nextion_Display/Nextion_Display.h"
 #include "../TMC4671/TMC4671.h"
+#include "../TAGS/TAGS.h"
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/FAT32.h"
 

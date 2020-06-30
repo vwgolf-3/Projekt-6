@@ -37,6 +37,8 @@ Nextion_Display.d Nextion_Display.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TAGS/TAGS.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
@@ -46,7 +48,6 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
@@ -128,6 +129,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TAGS/TAGS.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h:
@@ -145,8 +150,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../UART/../RingBuffer/ring_buffer.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h:
 

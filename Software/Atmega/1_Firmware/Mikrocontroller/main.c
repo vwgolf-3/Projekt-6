@@ -28,6 +28,7 @@ int main(void)
 // Initialisierungen Speicher
 	zutaten_init();											// Zutaten initialisieren
 	cocktails_init();										// Cocktails initialisieren
+	RFID_init();
 
 // Initialisierungen Display
 	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen

@@ -192,6 +192,10 @@
       <SubType>compile</SubType>
       <Link>SPI.c</Link>
     </Compile>
+    <Compile Include="libraries\Tags\TAGS.c">
+      <SubType>compile</SubType>
+      <Link>TAGS.c</Link>
+    </Compile>
     <Compile Include="libraries\TMC4671\tmc4671.c">
       <SubType>compile</SubType>
       <Link>tmc4671.c</Link>
