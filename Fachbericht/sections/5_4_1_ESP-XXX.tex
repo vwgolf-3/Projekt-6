@@ -6,51 +6,130 @@ Für die Implementierung des WiFi's wird das ESP32 verwendet. Die Hauptfunktion 
 
 \paragraph{Schema (WiFi-Modul)}\mbox{}
 
-In Abbildung \ref{fig:Schema_ESP32} wird das Schema rund um das ESP32 an sich gezeigt. Es beinhaltet Stütz- und Filterkondensatoren sowie einige Pull-up- und Pull-down-Widerstände, welche verwendet werden, um einen definierten Grundzustand beim Booten des ESP32-Moduls zu erreichen (Strapping-Pins). Weiter gibt es einen Kondensator, welcher dazu da ist, bei gewünschter Zeit in den Boot-Modus zu gelangen. 
+In Abbildung \ref{fig:Schema_ESP32} wird das Schema rund um das ESP32 an sich gezeigt. Es beinhaltet Stütz- und Filterkondensatoren sowie einige Pull-up- und Pull-down-Widerstände, welche verwendet werden, um einen vordefinierten Grundzustand beim Booten des ESP32-Moduls zu erreichen (Strapping-Pins). Weiter gibt es einen Kondensator, welcher dazu da ist, bei gewünschter Zeit in den Boot-Modus zu gelangen. 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Schema_ESP32}
+	\includegraphics[width=\textwidth]{graphics/Schema_ESP32}
 	\caption{Schema ESP32-Wroom-32U.}
 	\label{fig:Schema_ESP32}
 \end{figure}
 
 \paragraph{Funktionsbeschrieb (WiFi-Modul)}\mbox{}
 
-Das ESP32 ist mit MOD1 beschriftet, es übernimmt die in Kapitel \ref{subsec:Wirelessmodul} beschriebenen Funktionen. Die Kondensatoren C9 und C10 dienen zu Stütz- und Filterzwecken am Spannungseingang. Der Widerstand R7 ist ein Pull-Up für Chip-Enable. Die Widerstände R8, R9, R10 und R11 dienen dazu, die Eingänge der Strapping-Pins anzusteuern. Über diese werden der Boot-Modus, die Versorgungsspannung von VDD\_SDIO\footnote{Secure Digital Input Output}-Slave (Erweiterung der SD-Spezifikationen) und andere Initialisierungseinstellungen konfiguriert. Details zu den Konfigurationen sind in Tabelle \ref{tab:Strapping_pins} aufgelistet\footnote{https://www.espressif.com/sites/default/files/documentation/esp32\_datasheet\_en.pdf S.13}. Mit dem Kondensator C7 wird sichergestellt, dass nach einem Reset der Bootmodus gestartet werden kann. Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high).
+Das ESP32 ist mit MOD1 beschriftet, es übernimmt die in Kapitel \ref{subsec:Wirelessmodul} beschriebenen Funktionen. Die Kondensatoren C9 und C10 dienen zu Stütz- und Filterzwecken am Spannungseingang.  Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high). Der Widerstand R7 ist ein Pull-Up für Chip-Enable. Die Widerstände R8, R9, R10 und R11 sind an die Strapping-Pins angeschlossen. Über diese werden beim Aufstarten des ESP32 der Boot-Modus, die Versorgungsspannung von VDD\_SDIO\footnote{Secure Digital Input Output}-Slave (Erweiterung der SD-Spezifikationen) und andere Initialisierungseinstellungen konfiguriert. Details zu den Konfigurationen sind in Tabelle \ref{tab:Strapping_pins} aufgelistet\footnote{https://www.espressif.com/sites/default/files/documentation/esp32\_datasheet\_en.pdf S.13}. Der Widerstand R15 zieht U0TXD auf HIGH. Aus Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} ist ersichtlich, dass dieser für den normalen Boot-Modus auf HIGH sein muss. Für den Download-Boot-Modus hat dieser kein Einfluss. Mit dem Kondensator C7 wird sichergestellt, dass nach einem Reset der Bootmodus gestartet werden kann. Wird der Reset-Pin au LOW gezogen, so entlädt sich der Kondensator. Sobald der Reset-Pin auf HIGH gezogen wird, dauert es länger, bis ein logic High-Zustand am CMOS-Eingang erkannt wird. Wird der Pin IO0 auf LOW gezogen, bevor der Enable-Pin nach einem Reset einen HIGH-Zustand erreicht, so wird das ESP32 in den Download-Boot-Modus gesetzt. Um automatisch in diesen Boot-Modus zu kommen benötigt es eine Logik, welche im Folgenden erklärt wird.
 
 \paragraph{Schema (Automatische Boot-Logik)}\mbox{}
 
-In Abbildung \ref{fig:Schema_ESP32_Flashbuttons} wird die Schaltung gezeigt, welche verwendet wird, das ESP32-Modul in den gewünschten Boot-Zustand zu bringen. Für die Beschaltung der automatischen Boot-Logik benötigt es eine XNOR-Schaltung mit DTR und RTS als Input und EN und IO0 als Outputs. Die Buttons können bei Bedarf verwendet werden, sind für den automatischen Boot-Modus jedoch nicht nötig.
+In Abbildung \ref{fig:Schema_ESP32_Flashbuttons} wird die Schaltung gezeigt, welche verwendet wird, das ESP32-Modul in den gewünschten Boot-Zustand zu bringen. Für die Beschaltung der automatischen Boot-Logik benötigt es eine XNOR-Schaltung mit DTR und RTS als Input und EN und IO0 als Outputs. Die Buttons können bei Bedarf verwendet werden, sind für den automatischen Boot-Modus jedoch nicht zwingend nötig. Sie könnten dazu verwendet werden, manuell in den Bootmodus zu gelangen.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Schema_ESP32_Flashbuttons}
+	\includegraphics[width=0.6\textwidth]{graphics/Schema_ESP32_Flashbuttons}
 	\caption{Schema ESP32-Wroom-32U.}
 	\label{fig:Schema_ESP32_Flashbuttons}
 \end{figure}
 
 \paragraph{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}\mbox{}
 
-Mit der Schaltung kann das ESP32-Modul mit einer bestimmten Signalabfolge an den Leitungen DTR und RTS in einen Bestimmten Boot-Modus gesetzt werden:
+Für den Beschrieb der Schaltung muss die Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} betrachtet werden, worin die Strapping-Pins aufgelistet sind und welchen Einfluss sie auf denn Boot- oder Download-Modus haben. Aufgrund der defaultmässigen Pull-up und -down Widerstände kann aus dieser interpretiert werden, dass wenn U0TXD, IO2 und IO5 ''floating'' sind, IO0 den Boot-Modus bestimmt.
 
-Wenn DTR LOW ist und RTS von HIGH nach LOW wechselt, wird der Run-Modus gestartet.\\
-Wenn RTS HIGH ist und DTR von LOW nach HIGH wechselt, wird der automatische Bootloader gestartet.
+\begin{table}[h!]
+\center
+\begin{tabular}{|l|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{Boot-Mode Konfiguration}\\
+\hline
+Pin & Default & Boot & Download \\
+\hline
+IO0 & 1 & 1 & 0 \\
+\hline
+U0TXD & 1 & 1 & X \\
+\hline
+IO2 & 0 & X & 0 \\
+\hline
+IO15 & 1 & X & X \\
+\hline
+IO5 & 1 & 1 & X \\
+\hline
+\end{tabular}
+\caption{Wenn U0TXD, IO2, IO5 floating sind, bestimmt IO0 den Boot-Modus.}
+\label{tab:Einfluss_Pins_auf_Boot_Modus}
+\end{table}
 
+Im Getting Started Guide vom ESP32 steht geschrieben: ''Holding down Boot and then pressing EN initiates Firmware Download mode for downloading firmware through the serial port'' \footnote{https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html}. Was bedeutet, dass wenn während die beiden Pins IO0 und EN GND gezogen werden, das Modul in den Download-Modus versetzt wird, die Firmware über den UART-Port herunterlädt und diese in den Flash-Speicher schreibt.
+
+Mit der Schaltung, wie sie in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} ersichtlich ist, kann das ESP32-Modul mit einer bestimmten Signalabfolge an den Leitungen DTR und RTS in diesen Boot-Modus gesetzt werden. Die Auswirkung der Schaltung auf IO0 und den EN-Pin kann in Tabelle \ref{tab:Einfluss_Boot_Schaltung} entnommen werden.
+
+\begin{table}[h!]
+\center
+\begin{tabular}{|l|c||c|c|}
+\hline
+\multicolumn{4}{|c|}{Auto Program Cirquit}\\
+\hline
+DTR & RTS & EN & IO0 \\
+\hline
+1 & 1 & 1 & 1 \\
+\hline
+0 & 0 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 1 \\
+\hline
+0 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+
+\caption{Strapping pins des ESP32 und deren Auswirkung auf den Boot- und Download-Modus beim aufstarten.}
+\label{tab:Einfluss_Boot_Schaltung}
+\end{table}
+
+Die Programmierlogik wird aus dem Programmiertool angesteuert. Es befindet sich in der ESP-Bibliothek, welche verwendet wird, um Code aus der Arduino-Umgebung hochzuladen. Aus dem Python-Skript kann entnommen werden, wie die Pins angesteuert werden. Der Code ist in Abbildung \ref{fig:ESP32_Boot_Code} dargestellt.\\
+Bei der Interpretation des Codes ist darauf zu achten, dass die beiden Pins DTR und RTS Active-Low sind. (True = 0V = 0 und False = VCC = 1). Der Bezug zwischen dem Upload des Programms, den Pins des ESP32 und dessen Download-Boot-Modus sowie den Leitungen DTR und RST wird in Tabelle \ref{tab:Abfolge_Download_Boot_Modus} aufgezeigt. Daraus erkennbar ist, dass:
+\begin{table}
+\begin{tabular}{lll}
+DTR & RTS & Status\\
+1 & 0 & Reset\\
+1 & 1 & Starte Run-Modus\\
+1 & 0 & IO0 = 0\\
+0 & 0 & Starte Run-Modus\\
+\hline
+\end{tabular}
+\end{table}
 \todo{Referenz einfügen: http://loboris.eu/ESP32/ESP32\_AutoReset.jpg}
 
 
-
 \newpage
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{graphics/ESP32_Boot_Code}
+	\caption{Codeausschnitt aus dem Programmier-Tool. Auf diese Weise werden der DTR- und der RTS-Pin angesteuert während dem Programmiervorgang.}
+	\label{fig:ESP32_Boot_Code}
+\end{figure}
 
-
+\begin{table}[h!]
+\center
+\begin{tabularx}{\textwidth}{|l|X|c|c|c|c|}
+\hline
+Schritt & Beschreibung & DTR & RTS & EN & IO0\\
+\hline
+1 & Im ersten Schritt wird der Chip mit \textit{EN = 0} und \textit{IO0 = 1} in den Reset-Modus geschaltet und im Progremm 0.1ms gewartet. & 1 & 0 & 0 & 1 \\
+\hline
+2 & Im zweiten Schritt werden die Zustände geändert, jetzt ist \textit{EN = 1} und \textit{IO0 = 0} \textit{IO0 = 0}. Aufgrund der Kapazität am EN-Pin wird die Spannung für einen kurzen moment tief gehalten. Dies hat Schritt 3 zur Folge. & 0 & 1 & 1 & 0 \\
+\hline
+3 & Die durch den Kondensator C7 tief gehaltene Spannung bewirkt, dass sich die Zustsände über den Pins wie folgt verhalten: \textit{EN = 0} und \textit{IO0 = 0}. Im Programm wird 0.05ms gewartet. Danach ist das ESP32 im Download-Boot-Modus und das zu speichernde Programm kann hochgeladen werden. & 0 & 1 & 0 & 0 \\
+\hline
+4 & Nachdem das Programm hochgeladen wurde, werden beide Zustände auf 1 gesetzt. Das ESP32 startet nun den neu hochgeladenen Programmcode. & 0 & 0 & 1 & 1 \\
+\hline
+\end{tabularx}
+\caption{Abfolge der Schritte während dem Aufrufen des Download-Boot-Modus.}
+\label{tab:Abfolge_Download_Boot_Modus}
+\end{table}
 
 \newpage
 
 \begin{table}[h!]
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
 \center
-\begin{tabularx}{\textwidth}{|c|c|c|Y|Y|Y|Y|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 \multicolumn{7}{|c|}{\textbf{Ausgangsspannung internen Spannungsregler (VDD\_SDIO)}}\\
 \hline
@@ -74,18 +153,18 @@ RTS & IO12 & Pull-down & \multicolumn{2}{|c|}{\textcolor{red}{1}} & \multicolumn
 \hline
 \multicolumn{7}{|c|}{\textbf{Timing\footnotemark des SDIO}}\\
 \hline
-RS232 & ESP & default & FF Sampling \newline FF Output & FF Sampling \newline SF Output & SF Sampling \newline FF Output & SF Sampling \newline SF Output \\
+RS232 & ESP & default & \shortstack{FF Sampling \\ FF Output} & \shortstack{FF Sampling \\ SF Output} & \shortstack{SF Sampling \\ FF Output} & \shortstack{SF Sampling \\ SF Output} \\
 \hline
 CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
 \hline
 - & GPIO5 & Pull-up & 0 & 1 & 0 & 1 \\
 \hline
-\end{tabularx}
+\end{tabular}
 
 \caption{Tabelle Pinkonfiguration für Strapping-Pins.}
 \label{tab:Strapping_pins}
 \end{table}
-\footnotetext[5]{Da das ESP32-WROOM-32U einen 3.3V SPI flash integriert hat, kann der MTDI nicht auf 1 gesetzt werden, wenn die Module aufgestartet sind.}
+\footnotetext[6]{Da das ESP32-WROOM-32U einen 3.3V SPI flash integriert hat, kann der MTDI nicht auf 1 gesetzt werden, wenn die Module aufgestartet sind.}
 \footnotetext{FF = Fallende Flanke, SF = Steigende Flanke}
 
 

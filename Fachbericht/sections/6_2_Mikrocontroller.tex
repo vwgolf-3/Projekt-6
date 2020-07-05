@@ -240,15 +240,46 @@ Alternativ direkt mit ISP-Programmer wie in Schritt 2 (ohne Bootloader, Programm
 \textcolor{magenta}{z.B C:\textbackslash Users\textbackslash DaU\textbackslash Software\textbackslash Cocktailmixer\textbackslash Cocktailmixer\textbackslash Debug\textbackslash Cocktailmixer.HEX}
 \end{enumerate}
 
-Die Messung des Oszillator-Eingangs ergab eine saubere harmonische Schwingung mit 16MHz, abgebildet in Abbildung \ref{fig:Crystal_Swing}. Das Programm wurde auch ordnungsgemäss gestartet. Dies wurde geprüft, indem in der while-Schleife eine heartbeat-LED immer nach einer Sekunde toggelt.
+Das Setzen der Fuse- und Lock-Bits sowie das brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann\footnote{https://www.instructables.com/id/Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl/}.
+
+Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Die Ergebnisse können sich zeigen lassen. Der Mikrocontroller ist programmierbar und erste Tests mit der Software waren erfolgreich, was im nächsten Kapitel gezeigt wird.
+
+\subsubsection{Messungen}
+
+Die Messung des Oszillator-Eingangs ergab eine saubere harmonische Schwingung mit 16MHz, abgebildet in Abbildung \ref{fig:Crystal_Swing}. 
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = \textwidth]{graphics/Crystal_Swing}
+\includegraphics[width = 0.8\textwidth]{graphics/Crystal_Swing}
 \caption{Schwingung des Oszillators}
 \label{fig:Crystal_Swing}
 \end{figure}
 
-Das Setzen der Fuse- und Lock-Bits sowie das brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann\footnote{https://www.instructables.com/id/Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl/}.
+Auch das Einbinden von AVRdude in Atmel Studio wurde überprüft. Es galt herauszufinden, ob und wie der Handshake durchgeführt wird. Dazu wurde an den folgenden Leitungen gemessen:
 
-Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Die Ergebnisse können sich zeigen lassen. Der Mikrocontroller ist programmierbar und erste Tests mit der Software waren erfolgreich.
+\begin{tabular}{lcl}
+1 & Gelb & DTR\\
+2 & Blau & Reset\\
+3 & Violett & RX\\
+4 & Grün & TX\\
+\end{tabular}
+
+In Abbildung \ref{fig:ATMega2560_DTR_RESET_RX_TX_gesamt} ist die Kommunikation mit den ersten Bytes zu sehen, in Abbildung \ref{fig:ATMega2560_DTR_RESET_RX_TX_1} wird der Handshake genauer aufgezeigt. Sobald die DTR-Leitung auf GND gezogen wird, fällt die Spannung über dem Reset-Pin aufgrund des Kondensators zwischen DTR und Reset nur kurzzeitig. Dies reicht jedoch aus, dass der Mikrocontroller in den Boot-Modus fällt. Nach ca. 50ms beginnt die Datenübertragung vom Computer in den Flash-Speicher des uC.
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = 0.8 \textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_gesamt}
+\caption{Hochladen des Programmcodes auf den ATMega2560.}
+\label{fig:ATMega2560_DTR_RESET_RX_TX_gesamt}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = 0.8 \textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_1}
+\caption{Handshake zum Hochladen des Programmcodes auf den ATMega2560.}
+\label{fig:ATMega2560_DTR_RESET_RX_TX_1}
+\end{figure}
+
+Das Programm wurde auch ordnungsgemäss gestartet. Dies wurde geprüft, indem der während dem Projekt 5 erarbeitete Code hochgeladen wurde.
+
+Wird der Mikrocontroller per Reset-Button neu gestartet, dauert es aufgrund des Bootloaders 2s, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Danach startet das Programm, sollten keine Daten kommen.

@@ -15883,8 +15883,8 @@ int main(void)
     66b4:	30 91 03 02 	lds	r19, 0x0203	; 0x800203 <__malloc_heap_start+0x1>
     66b8:	30 93 cc 14 	sts	0x14CC, r19	; 0x8014cc <__brkval+0x1>
     66bc:	20 93 cb 14 	sts	0x14CB, r18	; 0x8014cb <__brkval>
-    66c0:	20 91 00 02 	lds	r18, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
-    66c4:	30 91 01 02 	lds	r19, 0x0201	; 0x800201 <__DATA_REGION_ORIGIN__+0x1>
+    66c0:	20 91 00 02 	lds	r18, 0x0200	; 0x800200 <__data_start>
+    66c4:	30 91 01 02 	lds	r19, 0x0201	; 0x800201 <__data_start+0x1>
     66c8:	21 15       	cp	r18, r1
     66ca:	31 05       	cpc	r19, r1
     66cc:	41 f4       	brne	.+16     	; 0x66de <malloc+0xea>

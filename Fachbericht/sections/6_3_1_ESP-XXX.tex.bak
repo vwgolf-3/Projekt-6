@@ -1,6 +1,19 @@
 \subsubsection{ESP}
 \label{subsubsec:Inbetriebnahme_ESP}
 
+
+Inbetriebnahme Programmierlogik:
+
+1 = RTS
+
+2 = DTR
+
+3 = EN
+
+4 = IO0
+
+
+
 Die Inbetriebnahme des ESP32-WROOM-32U geschieht mit der Programmierumgebung Arduino IDE. Um diesen in Betrieb nehmen zu können, waren einige Einstellungen und Downloads nötig, welche dann in der Arduino IDE eingebunden werden können. Es wird getestet, ob das ESP sich im vorgegebenen Netz anmeldet und als Webhost dient, ob bei Klicken auf ein Button im Explorer ein Event auslöst, ob die Kommunikation zwischen \textmu C und Mikrokontroller funktioniert.
 
 Folgende Schritte wurden befolgt:
