@@ -23,7 +23,7 @@
 #include "mfrc522.h"
 
 void 
-_init()
+mfrc522_init()
 {
 	uint8_t byte;
 	mfrc522_reset();
@@ -42,6 +42,9 @@ _init()
 	}
 	
 	byte = mfrc522_read(VersionReg);
+	
+	char buff[10] = {'\0'};
+	itoa(byte, (char *)buff, 10);
 	
 	if(byte == 0x92)
 	{

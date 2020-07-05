@@ -3,9 +3,12 @@
 \label{subsubsec:FOC-Treiber_TMC4671}
 
 Wie dem Grobkonzept in Kapitel \ref{subsec:Blockschaldbild} entnommen werden kann, wird für die Ansteuerung des BLDC-Motors eine Steuerlogik (Motor Control Unit) benötigt. Dabei handelt es sich um den TMC4671.
-Der FOC-Treiber berechnet den Modulationsindex für die H-Brücke anhand des Drehmoments, der Geschwindigkeit oder der Position, welche der Mikrocontroller dem FOC-Treiber vorgibt. Die vom FOC-Treiber ausgehenden PWM-Leitungen gehen direkt auf den Gate-Treiber, welcher dann wiederum die MOSFETs ansteuert.
+Der FOC-Treiber berechnet den Modulationsindex für die H-Brücke anhand des Drehmoments, der Geschwindigkeit oder der Position, welche der Mikrocontroller dem FOC-Treiber vorgibt. Die vom FOC-Treiber ausgehenden PWM-Leitungen gehen direkt auf den Gate-Treiber, welcher dann wiederum die MOSFETs ansteuert. Als Feedback benötigt der FOC-Treiber zwei Phasenströme. Der dritte Strom wird mit dem Knotengesetz berechnet. Da der BLDC in Stern geschaltet ist gilt:
+\begin{equation}
+I_U + I_V + I_W = 0
+\end{equation}
 Auf den FOC-Treiber und weitere für diesen Schaltkreis benötigte Komponenten wird im folgenden eingegangen.
-Da in diesem Projekt die Gewichtung auf dem Aufbau der Cocktailmaschine liegt, wird ein Breakout-Board (BOB) verwendet, welche die Aufgabe der Kommuntierung übernimmt.
+Da das Gehäuse des IC's nur schwierig lötbar ist, wird ein Breakout-Board (BOB) verwendet.
 Auf dem Board sind die Eingänge des FOC-Treibers schon geschützt mit Filtern und Überspannungsdioden. Somit entfällt eine Dimensionierung der Filter und Schutzschaltungen. Es wird jedoch die jeweilige Funktion der Schaltung beschrieben.
 
 \paragraph{Schaltungsaufbau}\label{par:Schaltungsaufbau_TMC4671}\mbox{}
@@ -20,7 +23,7 @@ Auf dem Breakout-Board sind diverse Anschlussmöglichkeiten vorhanden. Für den 
 \item Steuersignale Output
 \end{itemize}
 
-Im Anhang \ref{Appendix:TMC4671} zeigt Abbildung \ref{fig:Blockdiagramm_TMC4671} anhand eines Blockdiagramms, welche Funktionen im Treiber vorhanden sind und wie diese zusammenhängen. Im wesentlichen kann daraus entnommen werden, dass der TMC4671 aus einer FOC-Logik\footnote{FOC= \textbf{F}ield \textbf{O}riented \textbf{C}ontrol}, einer Servo-Logik, einem SPI-Interface und diversen Engines (PWM, ADC, Encoder) besteht. In Abbildung \ref{fig:Schaltung_TMC4671} wird eine Standard-Anwendungsschaltung gezeigt, worin erkennbar ist, dass der Treiber sehr universell aufgebaut ist und für mehrere Motorentypen verwendet werden kann.
+Im Anhang \ref{Appendix:TMC4671} zeigt Abbildung \ref{fig:Blockdiagramm_TMC4671} anhand eines Blockdiagramms, welche Funktionen im Treiber vorhanden sind und wie diese zusammenhängen. Im wesentlichen kann daraus entnommen werden, dass der TMC4671 aus einer FOC-Logik\footnote{FOC= \textbf{F}ield \textbf{O}riented \textbf{C}ontrol}, einer Servo-Logik, einem SPI-Interface und diversen Engines (PWM, ADC, Encoder) besteht. In Abbildung \ref{fig:Schaltung_TMC4671} wird eine Standard-Anwendungsschaltung gezeigt, worin erkennbar ist, dass der Treiber sehr universell aufgebaut ist und für mehrere Motorentypen verwendet werden können.
 
 \begin{figure}[h!]
 	\centering
@@ -39,7 +42,7 @@ Im Folgenden werden kurz die Teilsysteme auf dem TMC4671-BOB beschrieben, welche
 
 \subparagraph{Kommunikation Input (SPI)}
 
-Der Kommunikationseingang ist nicht speziell geschützt. Hier ist für das eigene Layout darauf zu achten, dass die Eingänge nicht mit mehr als 3.3V belastet werden. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4672 gewährleistet.
+Der Kommunikationseingang ist nicht speziell geschützt. Hier ist für das eigene Layout darauf zu achten, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4671 gewährleistet.
 
 \begin{figure}[h!]
 	\centering

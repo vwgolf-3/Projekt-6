@@ -31,9 +31,10 @@ Damit ein komplizierter Aufbau vermieden werden kann und einige Zusatzfunktionen
 %	\label{fig:Schema_TMC6200}
 %\end{figure}
 
-\newpage
+\paragraph{Funktionsbeschrieb}\mbox{}
+
 \subparagraph{Shunt-Widerstände $\mathrm{\mathbf{R_{Sense}}}$}
-Die Shunt-Widerstände ermöglichen einen geschlossenen Loop für die Stromsteuerung, so wie es für eine feldorientierte Steuerung (FOC) benötigt wird. Dazu wird solch ein Shunt in Serie mit der Spule des BLDC-Motors geschaltet. Durch den fliessenden Strom liegt eine Spannung über dem Shunt, welche dann vom TMC6200 verstärkt wird und aufbereitet an den Kontroll-Chip TMC4671 ausgegeben wird. Die Verstärkung sowie Offset auf das Signal sind programmierbar.
+Die Shunt-Widerstände ermöglichen einen geschlossenen Loop für die Stromsteuerung, so wie es für eine feldorientierte Steuerung (FOC) benötigt wird. Dazu wird solch ein Shunt in Serie mit der Spule des BLDC-Motors geschaltet (siehe R89 - R91, Abb. \ref{fig:Schema_H_Bruecke_und_BLDC}). Durch den fliessenden Strom liegt eine Spannung über dem Shunt, welche dann vom TMC6200 verstärkt wird und aufbereitet an den Kontroll-Chip TMC4671 ausgegeben wird. Die Verstärkung sowie Offset auf das Signal sind programmierbar.
 
 Die Dimensionierung der Widerstände und die darauf folgende Programmierung des TMC6200 sind schon von Trinamic ermittelt worden. Es wird empfohlen, die Widerstände nach dem Maximalstrom des Motors auszuwählen. Im Falle des AKM22h sind dies 5A. Darüber hinaus wird empfohlen, eine Überdimensionierung von 25-50\% vorzunehmen. Aus Qualitätsgründen wird jedoch von 10A ausgegangen, was die Zuverlässigkeit und Lebensdauer erhöhen soll, zudem wird so die Verlustleistung des Shunts kleiner gehalten als bei einer Grösse ober-/unterhalb. Eine von Trinamic erstellte Tabelle (siehe Anhang \ref{Appendix:TMC6200} Tabelle \ref{fig:Tabelle_Shunts}) ergibt folgende Grösse für die Shunt-Widerstände: \cite[S.31]{trinamic_tmc6200_datasheet_2013}
 
@@ -44,7 +45,7 @@ $\mathbf{R_{Sense}}$ =  \textbf{10m\textOmega}\\
 
 \paragraph{Gate Vorwiderstände $\mathrm{\mathbf{R_{Gate}}}$}
 
-Da das Gate ein kapazitives Verhalten zeigt, ist der Strom, welcher zu Beginn ins Gate fliesst, sehr hoch. Der Gate-Vorwiderstand begrenzt diesen, um das Gate und den Pin des TMC6200 vor Überströmen zu schützen.
+Da das Gate ein kapazitives Verhalten zeigt, ist der Strom, welcher zu Beginn ins Gate fliesst, sehr hoch. Der Gate-Vorwiderstand begrenzt diesen, um das Gate und den Pin des TMC6200 vor Überströmen zu schützen (R82 - R83 und R85 - R88, Abb. \ref{fig:Schema_Gate_Treiber}).
 
 Die Dimensionierung der Gate-Widerständen sollte grundsätzlich an die MOSFET Gate-Drain- Ladung (Miller charge) angelehnt werden, um an angemessene Anstiegszeiten während des Schaltens zu erreichen. Auch in diesem Falle wurden von Trinamic schon einige Parameter ermittelt und im Anhang \ref{Appendix:TMC6200} in Tabelle \ref{fig:Tabelle_Gatewiderstaende} dargestellt. Die Gate-Ladung des ausgewählten MOSFET's beträgt 61nC. Mit dem programmierbaren Register DRV\_STRENGTH wird der Strom ins Gate angepasst. \cite[S.13]{trinamic_tmc6200_datasheet_2013}
 
@@ -55,7 +56,7 @@ $\mathrm{\mathbf{R_{Gate}}}$ & \textbf{=} & $\mathrm{\mathbf{R_{Gate}\leq2.5\Ome
 
 \paragraph{Schutzwiderstände Messeingang $\mathrm{\mathbf{R_{Protect}}}$}
 
-Wird von einem High-Zustand in einen Low-Zustand gewechselt, kann aufgrund von Induktivitäten der Shunts oder deren Verbindungen die Spannung unterschiessen. Der Schutzwiderstand schützt den Messeingang des TMC6200 vor diesem Effekt.
+Wird von einem High-Zustand in einen Low-Zustand gewechselt, kann aufgrund von Induktivitäten der Shunts oder deren Verbindungen die Spannung unterschiessen. Der Schutzwiderstand schützt den Messeingang des TMC6200 vor diesem Effekt (R80, R81 und R84, Abb. \ref{fig:Schema_Gate_Treiber}.
 
 Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Widerstandswert zwischen 10\textOmega\ und 22\textOmega\ angegeben.\cite[S.10]{trinamic_tmc6200_datasheet_2013}
 
@@ -65,10 +66,22 @@ $\mathrm{\mathbf{R_{P}}}$ & \textbf{=} & \textbf{10\textOmega\ bis 22\textOmega}
 
 \paragraph{Bootstrap Kondensatoren $\mathrm{\mathbf{C_{Bootstrap}}}$}
 
-Die Bootstrap-Kondensator werden benutzt, wenn eine Änderung des Potentials innert kurzer Zeit benötigt wird.
+Die Bootstrap-Kondensator werden benutzt, wenn eine Änderung des Potentials innert kurzer Zeit benötigt wird (C76 - C78, Abb. \ref{fig:Schema_Gate_Treiber}.
 
 Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Kapazitätswert zwischen 470nF und 1\textmugreek F angegeben, bei einer Nennspannung von 16V oder 25V. Weiter gilt gemäss Datenblatt, dass bei MOSFET's mit einem $\mathrm{Q_G \geq 40nC}$ die Gatekapazität 1\textmugreek F sein soll. Da die Kapazität 61nF beträgt, ist dies der Fall.\cite[S.10]{trinamic_tmc6200_datasheet_2013}
 
 \begin{tabular}{lll}
 $\mathrm{\mathbf{C_{Bootstrap}}}$ & \textbf{=} & \textbf{1\textmugreek F (25V)}\\
 \end{tabular}
+
+\paragraph{Externer Gate-Spannungsregler}
+
+Aufgrund der hohen Versorgungsspannug (48V), treten im IC über den Gate- und 5V-Spannungsreglern erhebliche Verluste auf. Um diese Verluste zu reduzieren, wird gemäss Datenblatt \cite[S.11]{trinamic_tmc6200_datasheet_2013} geraten, eine externe Gate-Spannung anzuhängen. Für beste Resultate wird eine Spannung von 12V $\pm$ 1V empfohlen.
+
+Die Dimensionierung der benötigten Kondensatoren ist im Anhang \ref{Appendix:TMC6200}, aus Abbildung \ref{fig:Schema_Gate_Treiber_Gatespannung} zu entnehmen.
+
+\begin{tabular}{lll}
+$\mathrm{\mathbf{C_{69}}}$ & \textbf{=} & \textbf{2.2\textmugreek F}\\
+$\mathrm{\mathbf{C_{73}}}$ & \textbf{=} & \textbf{100nF}\\
+\end{tabular}
+

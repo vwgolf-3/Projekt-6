@@ -48,6 +48,11 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Fields.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../SPI/SPI.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_cmd.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_reg.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../SPI/SPI.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TAGS/TAGS.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
@@ -153,6 +158,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Fields.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../SPI/SPI.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_cmd.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_reg.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../SPI/SPI.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../UART/UART.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TAGS/TAGS.h:
 

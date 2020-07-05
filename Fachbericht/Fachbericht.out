@@ -70,15 +70,16 @@
 \BOOKMARK [2][-]{subsection.B.2}{B.2 Blockdiagramm TMC6200}{appendix.B}% 70
 \BOOKMARK [2][-]{subsection.B.3}{B.3 Verst\344rkungsfaktor, Strommessung, Strommesswiderstand}{appendix.B}% 71
 \BOOKMARK [2][-]{subsection.B.4}{B.4 Gate-Vorwiderstand}{appendix.B}% 72
-\BOOKMARK [1][-]{appendix.C}{C H-Br\374cke}{}% 73
-\BOOKMARK [2][-]{subsection.C.1}{C.1 Referenzschema}{appendix.C}% 74
-\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 75
-\BOOKMARK [2][-]{subsection.D.1}{D.1 Brown-out-Detection}{appendix.D}% 76
-\BOOKMARK [2][-]{subsection.D.2}{D.2 Full Swing Crystal Oscillator}{appendix.D}% 77
-\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader-Speicherplatz}{appendix.D}% 78
-\BOOKMARK [2][-]{subsection.D.4}{D.4 Memory-Lock Bootloader}{appendix.D}% 79
-\BOOKMARK [1][-]{appendix.E}{E Atmel Studio}{}% 80
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Fuse Bits}{appendix.E}% 81
-\BOOKMARK [2][-]{subsection.E.2}{E.2 Lock Bits}{appendix.E}% 82
-\BOOKMARK [2][-]{subsection.E.3}{E.3 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.E}% 83
-\BOOKMARK [2][-]{subsection.E.4}{E.4 Bootloader ''Brennen''}{appendix.E}% 84
+\BOOKMARK [2][-]{subsection.B.5}{B.5 Externe Gate-Spannungsversorgung}{appendix.B}% 73
+\BOOKMARK [1][-]{appendix.C}{C H-Br\374cke}{}% 74
+\BOOKMARK [2][-]{subsection.C.1}{C.1 Referenzschema}{appendix.C}% 75
+\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 76
+\BOOKMARK [2][-]{subsection.D.1}{D.1 Brown-out-Detection}{appendix.D}% 77
+\BOOKMARK [2][-]{subsection.D.2}{D.2 Full Swing Crystal Oscillator}{appendix.D}% 78
+\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader-Speicherplatz}{appendix.D}% 79
+\BOOKMARK [2][-]{subsection.D.4}{D.4 Memory-Lock Bootloader}{appendix.D}% 80
+\BOOKMARK [1][-]{appendix.E}{E Atmel Studio}{}% 81
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Fuse Bits}{appendix.E}% 82
+\BOOKMARK [2][-]{subsection.E.2}{E.2 Lock Bits}{appendix.E}% 83
+\BOOKMARK [2][-]{subsection.E.3}{E.3 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.E}% 84
+\BOOKMARK [2][-]{subsection.E.4}{E.4 Bootloader ''Brennen''}{appendix.E}% 85

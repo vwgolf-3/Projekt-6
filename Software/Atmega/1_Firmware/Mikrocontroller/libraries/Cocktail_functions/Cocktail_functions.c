@@ -325,26 +325,40 @@ uint8_t lese_sensor(uint8_t Sensor)
 
 void erstelle_Liste_name(char * name_button)
 {
+	char buff[10] = {'\0'};
+	Uart_Transmit_IT_PC("Liste:\r");
+	Uart_Transmit_IT_PC("i_Liste_test_cnt = ");
+	itoa(i_Liste_test_cnt, (char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	Uart_Transmit_IT_PC("\ri_Liste[] = ");
+	itoa(i_Liste_test[i_Liste_test_cnt],(char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	Uart_Transmit_IT_PC("\r");
+	_delay_ms(100);
+	
+	uint8_t list_length = 8;
+	
 	// Getränkedurchwahr bei Tail starten.
 	aktuellesGetraenk_file = tail_getraenk_file;
-
+	
 	// Shifte aktuelles Getränk auf bestimmte Seite
 	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
-	for (int i = 0 ; i < i_Liste ; i++)
+	for (int count = 0 ; count < i_Liste_test[i_Liste_test_cnt] ; count++)
 	{
 		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 	}
-
+	
+	uint8_t counter = 0;
+	
 	// Für alle Buttons auf der Seite ...
 		
 		// Initialisierungen
 	char button[21] = {'\0'};
-	char buff[4] = {0};
-			
-	for (int i = 0 ; i < 8 ; i++)
+	
+	for (int count = 0 ; count < list_length ; count++)
 	{
 		// Schreibe Zahl und Name des Buttons in String
-		itoa((i + 1),buff,10);
+		itoa((count + 1),buff,10);
 		strcpy((char *)button, (const char *)name_button);
 		strcat((char *)button, (const char *)buff);
 		
@@ -389,17 +403,61 @@ void erstelle_Liste_name(char * name_button)
 		// (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
 		// Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
 		
-		if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
+		switch (Liste)
 		{
-			block_list_hoch = 1;
+			char run = 1;
+			
+			case ALKOHOL:
+			//				0x01 = 0b01
+			schiebe_file_prev();
+			counter++;
+			while(aktuellesGetraenk->alkohol == 0 && run == 1)
+			{
+				schiebe_file_prev();
+				counter++;
+				if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
+				{
+					block_list_hoch = 1;
+					run = 0;
+				}
+			}
+			break;
+			case ALKOHOLFREI:
+			//				0x02 = 0b02
+			schiebe_file_prev();
+			counter++;
+			while(aktuellesGetraenk->alkohol == 1 && run == 1)
+			{
+				schiebe_file_prev();
+				counter++;
+				if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
+				{
+					block_list_hoch = 1;
+					run = 0;
+				}			
+			}
+			break;
 		}
-		
-			// Ein Getraenk weiter Scrollen.
-			aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
-		
+				
 		// Sicherheitsdelay, Programm stürzt sonst ab
 		_delay_ms(1);
+		if (i == (list_length - 1))
+		{
+			i_Liste_test[i_Liste_test_cnt+1] = i_Liste_test[i_Liste_test_cnt] + counter;
+			i_Liste_test_cnt++;
+			char buff[10] = {'\0'};
+			Uart_Transmit_IT_PC("Liste Ende:\r");
+			Uart_Transmit_IT_PC("i_Liste_test_cnt = ");
+			itoa(i_Liste_test_cnt, (char *)buff, 10);
+			Uart_Transmit_IT_PC((char *)buff);
+			Uart_Transmit_IT_PC("\ri_Liste[] = ");
+			itoa(i_Liste_test[i_Liste_test_cnt],(char *)buff, 10);
+			Uart_Transmit_IT_PC((char *)buff);
+			Uart_Transmit_IT_PC("\r");
+			_delay_ms(100);
+	
 		}
+	}
 }
 
 void erstelle_Liste_zutat(char * input)

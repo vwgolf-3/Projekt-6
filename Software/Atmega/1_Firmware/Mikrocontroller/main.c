@@ -14,6 +14,7 @@ int main(void)
 {
 	// Gate Treiber disable (active high)
  	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;						// Disable TMC6200 (Active High)
+ 	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Disable TMC6200 (Active High)
 	
 // Initialisierungen Interfaces
 	IO_init();												// Ein-/Ausgangspins initialisieren
@@ -21,9 +22,9 @@ int main(void)
 	UART_init();											// UART-Schnittstelle initialisieren
 	SD_startup();											// SD-Karte initialisieren
 // 	initTMC6200();											// Gate-Treiber initialisieren
-// 	TMC4671_init();											// FOC-Treiber initialisieren
+	TMC4671_init();											// FOC-Treiber initialisieren
 // 	initTMC4671_Openloop();									// FOC-Treiber im Openloop laufen lassen
-// 	mfrc522_init();											// RFID initialisieren
+	mfrc522_init();											// RFID initialisieren
 
 // Initialisierungen Speicher
 	zutaten_init();											// Zutaten initialisieren
@@ -34,6 +35,8 @@ int main(void)
 	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
 	Grossschreib = 1;										// Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
 	i_Liste = 0;											// Listenabschnitt auf 0 vordefinieren
+	i_Liste_test_cnt = 0;
+	i_Liste_test[i_Liste_test_cnt] = 0;
 	block_list_hoch = 0;									// Blockierung der Listen aufheben
 	block_list_runter = 0;									// Blockierung der Listen aufheben
 		

@@ -14,6 +14,7 @@
 // Verbindungsbibliotheken Software/Hardware
 #include "../Nextion_Display/Nextion_Display.h"
 #include "../TMC4671/TMC4671.h"
+#include "../RC522/mfrc522.h"
 #include "../TAGS/TAGS.h"
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/FAT32.h"
@@ -29,6 +30,8 @@ unsigned char fileName[13];
 
 // Variable für Liste
 uint8_t i_Liste;
+uint8_t i_Liste_test[50];
+uint8_t i_Liste_test_cnt;
 uint8_t block_list_hoch;
 uint8_t block_list_runter;
 uint8_t Grossschreib;

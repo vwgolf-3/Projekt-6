@@ -1,0 +1,14 @@
+\subsubsection{Display}
+\label{subsubsec:Display}
+
+\paragraph{Schaltungsaufbau}\mbox{}
+
+\paragraph{Funktionsbeschrieb}\mbox{}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{graphics/Schema_Display}
+	\caption{Schema Display.}
+	\label{fig:Schema_Display}
+\end{figure}
+
