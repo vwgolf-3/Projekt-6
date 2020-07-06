@@ -7,7 +7,7 @@
 
 Der Motor wird über eine H-Brücke gesteuert. Dies bedingt pro Spule zwei MOSFET's, um diese entsprechend magnetisieren zu können. Um einen MOSFET in einen leitenden Zustand zu bringen, muss das Gate des MOSFET's mit einer elektrischen Ladung gefüllt werden. Während diesem Vorgang hat am Gate ein kapazitives Verhalten, was bedeutet, dass bei jedem Schaltvorgang Ströme fliessen. Damit die Umschaltverluste und daraus folgende Abwärme verhindert werden kann, ist es vorteilhaft die Gates so schnell wie möglich laden und entladen zu können. Da kommt der Gate-Treiber ins Spiel. Dieser ladet und entladet das Gate schnell genug und stellt die dazu benötigte Energie für das Gate zur Verfügung.
 
-\paragraph{Schaltungsaufbau}\mbox{}
+\paragraph{Schema}\mbox{}
 
 Damit ein komplizierter Aufbau vermieden werden kann und einige Zusatzfunktionen wie Strommessung, Messverstärkung etc. angeboten werden können, wurde während des Entwicklungsprozesses ein Gate-Treiber von Trinamic ausgewählt. Das entsprechende Bauteil ist der TMC6200. Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:TMC6200} Abbildung \ref{fig:Schaltung_TMC6200} und Abbildung \ref{fig:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der TMC6200 aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Spannungsversogrung besteht.
 
@@ -31,7 +31,7 @@ Damit ein komplizierter Aufbau vermieden werden kann und einige Zusatzfunktionen
 %	\label{fig:Schema_TMC6200}
 %\end{figure}
 
-\paragraph{Funktionsbeschrieb}\mbox{}
+\paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
 \subparagraph{Shunt-Widerstände $\mathrm{\mathbf{R_{Sense}}}$}
 Die Shunt-Widerstände ermöglichen einen geschlossenen Loop für die Stromsteuerung, so wie es für eine feldorientierte Steuerung (FOC) benötigt wird. Dazu wird solch ein Shunt in Serie mit der Spule des BLDC-Motors geschaltet (siehe R89 - R91, Abb. \ref{fig:Schema_H_Bruecke_und_BLDC}). Durch den fliessenden Strom liegt eine Spannung über dem Shunt, welche dann vom TMC6200 verstärkt wird und aufbereitet an den Kontroll-Chip TMC4671 ausgegeben wird. Die Verstärkung sowie Offset auf das Signal sind programmierbar.
@@ -56,7 +56,7 @@ $\mathrm{\mathbf{R_{Gate}}}$ & \textbf{=} & $\mathrm{\mathbf{R_{Gate}\leq2.5\Ome
 
 \paragraph{Schutzwiderstände Messeingang $\mathrm{\mathbf{R_{Protect}}}$}
 
-Wird von einem High-Zustand in einen Low-Zustand gewechselt, kann aufgrund von Induktivitäten der Shunts oder deren Verbindungen die Spannung unterschiessen. Der Schutzwiderstand schützt den Messeingang des TMC6200 vor diesem Effekt (R80, R81 und R84, Abb. \ref{fig:Schema_Gate_Treiber}.
+Wird von einem High-Zustand in einen Low-Zustand gewechselt, kann aufgrund von Induktivitäten der Shunts oder deren Verbindungen die Spannung unterschiessen. Der Schutzwiderstand schützt den Messeingang des TMC6200 vor diesem Effekt (R80, R81 und R84, Abb. \ref{fig:Schema_Gate_Treiber}).
 
 Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Widerstandswert zwischen 10\textOmega\ und 22\textOmega\ angegeben.\cite[S.10]{trinamic_tmc6200_datasheet_2013}
 
@@ -66,7 +66,7 @@ $\mathrm{\mathbf{R_{P}}}$ & \textbf{=} & \textbf{10\textOmega\ bis 22\textOmega}
 
 \paragraph{Bootstrap Kondensatoren $\mathrm{\mathbf{C_{Bootstrap}}}$}
 
-Die Bootstrap-Kondensator werden benutzt, wenn eine Änderung des Potentials innert kurzer Zeit benötigt wird (C76 - C78, Abb. \ref{fig:Schema_Gate_Treiber}.
+Die Bootstrap-Kondensator werden benutzt, wenn eine Änderung des Potentials innert kurzer Zeit benötigt wird (C76 - C78, Abb. \ref{fig:Schema_Gate_Treiber}).
 
 Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Kapazitätswert zwischen 470nF und 1\textmugreek F angegeben, bei einer Nennspannung von 16V oder 25V. Weiter gilt gemäss Datenblatt, dass bei MOSFET's mit einem $\mathrm{Q_G \geq 40nC}$ die Gatekapazität 1\textmugreek F sein soll. Da die Kapazität 61nF beträgt, ist dies der Fall.\cite[S.10]{trinamic_tmc6200_datasheet_2013}
 

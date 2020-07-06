@@ -2,4 +2,20 @@
 \subsection{Benutzerschnittstellen}
 \label{subsec:Benutzerschnittstellen}
 
-Im Folgenden werden die Benutzerschnittstellen 
+Im Folgenden werden die Benutzerschnittstellen, welche sich auf der Leiterplatine befinden erklärt. Die vorkommenden Interfaces sind mit ihren Funktionen tabellarisch aufgelistet:
+
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Interface} & \textbf{Funktion}\\
+\hline
+Display & Direkte Steuerung zur Cocktailherstellung und Konfiguration der Maschine mit GUI auf dem Display. \\
+\hline
+ESP32 & Indirekte Steuerung zur Cocktailherstellung und Konfiguration der Maschine mit GUI im Browser.\\
+\hline
+RFID & Abrufen des per Webhost oder Display hinterlegten Getränkes mit Badge. Mengenauswahl per Display.\\
+\hline
+USB-B & Hochladen von Software auf die aktiven Komponenten (Mikrocontroller und WiFi-Modul)\\
+\hline
+Beleuchtung & Showeffekt.\\
+\hline
+\end{tabularx}

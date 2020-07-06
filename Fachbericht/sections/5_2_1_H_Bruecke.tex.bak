@@ -16,7 +16,7 @@ Der Schltungsaufbau ergibt sich durch den dreiphasigen Aufbau des BLDCs. Es werd
 	\label{fig:Schema_H_Bruecke_und_BLDC}
 \end{figure}
 
-\paragraph{Funktionsbeschrieb}\mbox{}
+\paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
 Wie erwähnt werden die Eingänge gefiltert. Dies geschieht mit den Kondensatoren C85-C88, um die Eingangsspannung konstant zu halten und hochfrequente Störspannungen nicht ins Netz gespeist werden.
 Bei C86-C88 handelt sich um Low-ESR Stützkondensatoren, jeweils ein Kondensator pro Phase.

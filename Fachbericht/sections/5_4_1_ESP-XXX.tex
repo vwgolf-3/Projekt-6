@@ -15,20 +15,23 @@ In Abbildung \ref{fig:Schema_ESP32} wird das Schema rund um das ESP32 an sich ge
 	\label{fig:Schema_ESP32}
 \end{figure}
 
-\paragraph{Funktionsbeschrieb (WiFi-Modul)}\mbox{}
+\paragraph{Funktionsbeschrieb der Schaltung (WiFi-Modul)}\mbox{}
 
 Das ESP32 ist mit MOD1 beschriftet, es übernimmt die in Kapitel \ref{subsec:Wirelessmodul} beschriebenen Funktionen. Die Kondensatoren C9 und C10 dienen zu Stütz- und Filterzwecken am Spannungseingang.  Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high). Der Widerstand R7 ist ein Pull-Up für Chip-Enable. Die Widerstände R8, R9, R10 und R11 sind an die Strapping-Pins angeschlossen. Über diese werden beim Aufstarten des ESP32 der Boot-Modus, die Versorgungsspannung von VDD\_SDIO\footnote{Secure Digital Input Output}-Slave (Erweiterung der SD-Spezifikationen) und andere Initialisierungseinstellungen konfiguriert. Details zu den Konfigurationen sind in Tabelle \ref{tab:Strapping_pins} aufgelistet\footnote{https://www.espressif.com/sites/default/files/documentation/esp32\_datasheet\_en.pdf S.13}. Der Widerstand R15 zieht U0TXD auf HIGH. Aus Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} ist ersichtlich, dass dieser für den normalen Boot-Modus auf HIGH sein muss. Für den Download-Boot-Modus hat dieser kein Einfluss. Mit dem Kondensator C7 wird sichergestellt, dass nach einem Reset der Bootmodus gestartet werden kann. Wird der Reset-Pin au LOW gezogen, so entlädt sich der Kondensator. Sobald der Reset-Pin auf HIGH gezogen wird, dauert es länger, bis ein logic High-Zustand am CMOS-Eingang erkannt wird. Wird der Pin IO0 auf LOW gezogen, bevor der Enable-Pin nach einem Reset einen HIGH-Zustand erreicht, so wird das ESP32 in den Download-Boot-Modus gesetzt. Um automatisch in diesen Boot-Modus zu kommen benötigt es eine Logik, welche im Folgenden erklärt wird.
 
 \paragraph{Schema (Automatische Boot-Logik)}\mbox{}
 
-In Abbildung \ref{fig:Schema_ESP32_Flashbuttons} wird die Schaltung gezeigt, welche verwendet wird, das ESP32-Modul in den gewünschten Boot-Zustand zu bringen. Für die Beschaltung der automatischen Boot-Logik benötigt es eine XNOR-Schaltung mit DTR und RTS als Input und EN und IO0 als Outputs. Die Buttons können bei Bedarf verwendet werden, sind für den automatischen Boot-Modus jedoch nicht zwingend nötig. Sie könnten dazu verwendet werden, manuell in den Bootmodus zu gelangen.
+In Abbildung \ref{fig:Schema_ESP32_Flashbuttons} wird die Schaltung gezeigt, welche verwendet wird, das ESP32-Modul in den gewünschten Boot-Zustand zu bringen. Für die Beschaltung der automatischen Boot-Logik benötigt es eine Schaltung mit DTR und RTS als Inputs vom USB-UART-Converter her und EN und IO0 als Outputs auf das ESP32. Die Buttons können bei Bedarf verwendet werden, sind für den automatischen Boot-Modus jedoch nicht zwingend nötig. Sie könnten dazu verwendet werden, manuell in den Bootmodus zu gelangen.\\
+Die Widerstände R20 und R21 sind Vorwiderstände an der Basis der Transistoren Q1 und Q2. R22 und R23 sind Pull-Up-Widerstände für die EN- und IO0-Leitung. Die Kondensatoren C13 und C12 dienen zum entprellen. Die Widerstände R25 und R24 begrenzen den Strom bei Drücken der Buttons S1 und S2.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{graphics/Schema_ESP32_Flashbuttons}
+	\includegraphics[width=0.7\textwidth]{graphics/Schema_ESP32_Flashbuttons}
 	\caption{Schema ESP32-Wroom-32U.}
 	\label{fig:Schema_ESP32_Flashbuttons}
 \end{figure}
+
+\newpage
 
 \paragraph{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}\mbox{}
 
@@ -38,19 +41,19 @@ Für den Beschrieb der Schaltung muss die Tabelle \ref{tab:Einfluss_Pins_auf_Boo
 \center
 \begin{tabular}{|l|c|c|c|}
 \hline
-\multicolumn{4}{|c|}{Boot-Mode Konfiguration}\\
+\multicolumn{4}{|c|}{\textbf{Boot-Mode Konfiguration}}\\
 \hline
-Pin & Default & Boot & Download \\
+\textbf{Pin} & \textbf{Default} & \textbf{Boot} & \textbf{Download} \\
 \hline
 IO0 & 1 & 1 & 0 \\
 \hline
-U0TXD & 1 & 1 & X \\
+U0TXD & 1 & 1 & Don't care \\
 \hline
-IO2 & 0 & X & 0 \\
+IO2 & 0 & Don't care & 0 \\
 \hline
-IO15 & 1 & X & X \\
+IO15 & 1 & Don't care & Don't care \\
 \hline
-IO5 & 1 & 1 & X \\
+IO5 & 1 & 1 & Don't care \\
 \hline
 \end{tabular}
 \caption{Wenn U0TXD, IO2, IO5 floating sind, bestimmt IO0 den Boot-Modus.}
@@ -63,11 +66,11 @@ Mit der Schaltung, wie sie in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} ersi
 
 \begin{table}[h!]
 \center
-\begin{tabular}{|l|c||c|c|}
+\begin{tabular}{|c|c||c|c|}
 \hline
-\multicolumn{4}{|c|}{Auto Program Cirquit}\\
+\multicolumn{4}{|c|}{\textbf{Auto Program Cirquit}}\\
 \hline
-DTR & RTS & EN & IO0 \\
+\textbf{DTR} & \textbf{RTS} & \textbf{EN} & \textbf{IO0} \\
 \hline
 1 & 1 & 1 & 1 \\
 \hline
@@ -84,17 +87,18 @@ DTR & RTS & EN & IO0 \\
 \end{table}
 
 Die Programmierlogik wird aus dem Programmiertool angesteuert. Es befindet sich in der ESP-Bibliothek, welche verwendet wird, um Code aus der Arduino-Umgebung hochzuladen. Aus dem Python-Skript kann entnommen werden, wie die Pins angesteuert werden. Der Code ist in Abbildung \ref{fig:ESP32_Boot_Code} dargestellt.\\
-Bei der Interpretation des Codes ist darauf zu achten, dass die beiden Pins DTR und RTS Active-Low sind. (True = 0V = 0 und False = VCC = 1). Der Bezug zwischen dem Upload des Programms, den Pins des ESP32 und dessen Download-Boot-Modus sowie den Leitungen DTR und RST wird in Tabelle \ref{tab:Abfolge_Download_Boot_Modus} aufgezeigt. Daraus erkennbar ist, dass:
-\begin{table}
-\begin{tabular}{lll}
-DTR & RTS & Status\\
-1 & 0 & Reset\\
-1 & 1 & Starte Run-Modus\\
-1 & 0 & IO0 = 0\\
-0 & 0 & Starte Run-Modus\\
-\hline
-\end{tabular}
-\end{table}
+Bei der Interpretation des Codes ist darauf zu achten, dass die beiden Pins DTR und RTS Active-Low sind. (True = 0V = 0 = LOW und False = VCC = 1 = HIGH). Der Bezug zwischen dem Upload des Programms, den Pins des ESP32 und dessen Download-Boot-Modus sowie den Leitungen DTR und RST wird in Tabelle \ref{tab:Abfolge_Download_Boot_Modus} aufgezeigt.
+%Daraus erkennbar ist, dass:
+%\begin{table}
+%\begin{tabular}{lll}
+%DTR & RTS & Status\\
+%1 & 0 & Reset\\
+%1 & 1 & Starte Run-Modus\\
+%1 & 0 & IO0 = 0\\
+%0 & 0 & Starte Run-Modus\\
+%\hline
+%\end{tabular}
+%\end{table}
 \todo{Referenz einfügen: http://loboris.eu/ESP32/ESP32\_AutoReset.jpg}
 
 
@@ -108,7 +112,7 @@ DTR & RTS & Status\\
 
 \begin{table}[h!]
 \center
-\begin{tabularx}{\textwidth}{|l|X|c|c|c|c|}
+\begin{tabularx}{\textwidth}{|l|X||c|c||c|c|}
 \hline
 Schritt & Beschreibung & DTR & RTS & EN & IO0\\
 \hline
@@ -124,63 +128,3 @@ Schritt & Beschreibung & DTR & RTS & EN & IO0\\
 \caption{Abfolge der Schritte während dem Aufrufen des Download-Boot-Modus.}
 \label{tab:Abfolge_Download_Boot_Modus}
 \end{table}
-
-\newpage
-
-\begin{table}[h!]
-\center
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-\multicolumn{7}{|c|}{\textbf{Ausgangsspannung internen Spannungsregler (VDD\_SDIO)}}\\
-\hline
-RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{3.3V}} & \multicolumn{2}{|c|}{\textbf{1.8V}}\\
-\hline
-\sout{RTS} & \sout{IO12} & Pull-down & \multicolumn{2}{|c|}{\sout{\textcolor{red}{0}}\footnotemark} & \multicolumn{2}{|c|}{\sout{1}}\\
-\hline
-\multicolumn{7}{|c|}{\textbf{Boot-Modus}}\\
-\hline
-RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{SPI-flash Boot}} & \multicolumn{2}{|c|}{\textbf{Download Boot}}\\
-\hline
-DTR & IO0 & Pull-up & \multicolumn{2}{|c|}{1} & \multicolumn{2}{|c|}{0}\\
-\hline
-- & IO2 & Pull-down & \multicolumn{2}{|c|}{Egal} & \multicolumn{2}{|c|}{0}\\
-\hline
-\multicolumn{7}{|c|}{\textbf{Debugging Log Print über U0TXD während Booten}}\\
-\hline
-RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{U0TXD Active}} & \multicolumn{2}{|c|}{\textbf{U0TXD Silent}}\\
-\hline
-RTS & IO12 & Pull-down & \multicolumn{2}{|c|}{\textcolor{red}{1}} & \multicolumn{2}{|c|}{0}\\
-\hline
-\multicolumn{7}{|c|}{\textbf{Timing\footnotemark des SDIO}}\\
-\hline
-RS232 & ESP & default & \shortstack{FF Sampling \\ FF Output} & \shortstack{FF Sampling \\ SF Output} & \shortstack{SF Sampling \\ FF Output} & \shortstack{SF Sampling \\ SF Output} \\
-\hline
-CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
-\hline
-- & GPIO5 & Pull-up & 0 & 1 & 0 & 1 \\
-\hline
-\end{tabular}
-
-\caption{Tabelle Pinkonfiguration für Strapping-Pins.}
-\label{tab:Strapping_pins}
-\end{table}
-\footnotetext[6]{Da das ESP32-WROOM-32U einen 3.3V SPI flash integriert hat, kann der MTDI nicht auf 1 gesetzt werden, wenn die Module aufgestartet sind.}
-\footnotetext{FF = Fallende Flanke, SF = Steigende Flanke}
-
-
-\textbf{Spannung des internen Spannungsgeglers (VDD\_SDIO)}
-
-Das ESP32 hat einen eingebauten host controller für SD/SDIO/MMC-Speichergeräte. Dieser kann mit 3.3V (IO12 = 0) oder 1.8V (IO12 = 1) betrieben werden. Wird der Pin auf 1 gesetzt, könnte ein Brown-out der IO-Versorgungspannung VCC\_IO ausgelöst werden.
-
-\textbf{Booting Mode}
-Der Pin IO0 gibt vor, ob das ESP32 vom internen SPI-flash bootet (IO0 = 1) oder ob neuer Code in den flash Speicher geschrieben wird (IO0 = 0). Soll das ESP vom Flash-Speicher booten, so hat der Pin IO2 kein Einfluss, um jedoch den Code speichern zu können, muss der Pin auf 0 sein.
-
-\textbf{De-/Aktivieren vom Debug-Log über U0TXD während dem Bootvorgang}
-
-Über den Pin IO12 kann konfiguriert werden, ob während dem Booten ein Debug-Log über die Serielleschnittstelle gesendet wird (IO12 = 1) oder nicht (IO12 = 0). 
-
-\textbf{Timing der Kommunikation mit dem SDIO Slave}:
-
-Über die Pins IO15 und IO5 kann das Übertragungsprotokoll des SDIO-Slaves festgelegt werden. Dabei kommt es darauf an, ob das Sampling auf eine fallende Flanke (IO15 = 0) oder steigende Flanke (IO15 = 1) geschehen soll, und ob der Output auf eine fallende Flanke (IO5 = 0) oder steigende Flanke (IO5 = 1) geschehen soll.
-
-\newpage
