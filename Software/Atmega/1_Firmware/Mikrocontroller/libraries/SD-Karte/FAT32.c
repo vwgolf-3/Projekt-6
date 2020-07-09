@@ -189,7 +189,7 @@ while(1)
 		{
 		  if((flag == GET_FILE) || (flag == DELETE))
 // 		      Uart_Transmit_IT_PC((char*)("File does not exist!"));
-		      Uart_Transmit_IT_PC((char*)("N/F\r"));
+// 		      Uart_Transmit_IT_PC((char*)("N/F\r"));
 		  return 0;   
 		}
 		if((dir->name[0] != DELETED) && (dir->attrib != ATTR_LONG_NAME))

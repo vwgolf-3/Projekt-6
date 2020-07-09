@@ -22,17 +22,17 @@ int main(void)
 	UART_init();											// UART-Schnittstelle initialisieren
 	SD_startup();											// SD-Karte initialisieren
 // 	initTMC6200();											// Gate-Treiber initialisieren
-	TMC4671_init();											// FOC-Treiber initialisieren
+// 	TMC4671_init();											// FOC-Treiber initialisieren
 // 	initTMC4671_Openloop();									// FOC-Treiber im Openloop laufen lassen
-	mfrc522_init();											// RFID initialisieren
+// 	mfrc522_init();											// RFID initialisieren
 
 // Initialisierungen Speicher
-	zutaten_init();											// Zutaten initialisieren
-	cocktails_init();										// Cocktails initialisieren
-	RFID_init();
+// 	zutaten_init();											// Zutaten initialisieren
+// 	cocktails_init();										// Cocktails initialisieren
+// 	RFID_init();
 
 // Initialisierungen Display
-	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
+// 	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
 	Grossschreib = 1;										// Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
 	i_Liste = 0;											// Listenabschnitt auf 0 vordefinieren
 	i_Liste_test_cnt = 0;
@@ -43,7 +43,7 @@ int main(void)
 // Mainroutine
 	while (1)
 	{// 		check_Communication_Input_MFRC522();				// Prüfen, ob ein RFID-Tag erkannt wurde
-		check_Communication_Input_UART();					// Prüfen. ob über UART einen Befehl geesendet wurde
+// 		check_Communication_Input_UART();					// Prüfen. ob über UART einen Befehl geesendet wurde
 // 		heartbeat_LED();									// Loop-Delay und Prüf-LED, ob uC hängen bleibt
 	}
 	return 0;												// Loop erneut beginnen
