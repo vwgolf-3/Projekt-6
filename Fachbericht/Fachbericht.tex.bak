@@ -65,6 +65,8 @@
 	
 \input{sections/3_3_RFID}
 
+\input{sections/3_1_SD-Karte}
+
 \input{sections/3_4_Beleuchtung}
 
 \input{sections/4_0_Printaufbau}
