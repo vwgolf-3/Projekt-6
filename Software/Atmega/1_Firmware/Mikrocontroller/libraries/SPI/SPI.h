@@ -11,8 +11,8 @@
 
 #include "../../utils/pin_defs.h"
 
-#define SPI_SD             SPCR = 0x52
-#define SPI_HIGH_SPEED     SPCR = 0x50; SPSR |= (1<<SPI2X)
+// #define SPI_SD             SPCR = 0x52
+// #define SPI_HIGH_SPEED     SPCR = 0x50; SPSR |= (1<<SPI2X)
 
 void SPI_init(void);
 void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave);

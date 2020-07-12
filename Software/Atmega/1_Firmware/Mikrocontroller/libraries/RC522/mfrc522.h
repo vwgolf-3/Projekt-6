@@ -34,7 +34,7 @@
 #define CARD_NOT_FOUND	2
 #define ERROR			3
 
-#define MAX_LEN			16
+#define MAX_LEN			32
 
 //Card types
 #define Mifare_UltraLight 	0x4400
@@ -61,7 +61,7 @@
 
 void mfrc522_init();
 void mfrc522_reset();
-void mfrc522_write(uint8_t reg, uint8_t data);
+void mfrc522_write(uint8_t reg, uint8_t gulu);
 uint8_t mfrc522_read(uint8_t reg);
 uint8_t	mfrc522_request(uint8_t req_mode, uint8_t * tag_type);
 uint8_t mfrc522_to_card(uint8_t cmd, uint8_t *send_data, uint8_t send_data_len, uint8_t *back_data, uint32_t *back_data_len);

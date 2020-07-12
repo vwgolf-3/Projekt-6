@@ -99,18 +99,12 @@
 #define RFID_DDR DDRC
 #define RFID_PIN PINC
 
-#define SPI_CS_RC522_BIT (1<<1)					// SPI_CS_RC522 PIN0
+#define SPI_CS_RC522_BIT (1<<0)					// SPI_CS_RC522 PIN0
 #define SPI_CS_RC522_PORT PORTC					// SPI_CS_RC522 PORTC
 #define SPI_CS_RC522_DDR DDRC					// SPI_CS_RC522 DDRC
 #define SPI_CS_RC522_PIN PINC					// SPI_CS_RC522 PINC
-
-#define SPI_CS_SD_CARD_BIT (1<<0)					// SPI_CS_RC522 PIN0
-#define SPI_CS_SD_CARD_PORT PORTC					// SPI_CS_RC522 PORTC
-#define SPI_CS_SD_CARD_DDR DDRC					// SPI_CS_RC522 DDRC
-#define SPI_CS_SD_CARD_PIN PINC					// SPI_CS_RC522 PINC
-
 //
-#define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT|SPI_CS_SD_CARD_BIT)
+#define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT)
 //
 // ************************    F       ***************************************//
 #define LED_PORT PORTF							// Namensgebung LED/Durchfluss/Referenzschalter
@@ -170,10 +164,10 @@
 #define PUMPE6_DDR DDRG							// PUMPE6 DDRG
 #define PUMPE6_PIN PING							// PUMPE6 PING
 
-// #define SPI_CS_SD_CARD_BIT (1<<5)				// SPI_CS_SD_CARD PIN5
-// #define SPI_CS_SD_CARD_PORT PORTG				// SPI_CS_SD_CARD PORTG
-// #define SPI_CS_SD_CARD_DDR DDRG					// SPI_CS_SD_CARD DDRG
-// #define SPI_CS_SD_CARD_PIN PING					// SPI_CS_SD_CARD PING
+#define SPI_CS_SD_CARD_BIT (1<<5)				// SPI_CS_SD_CARD PIN5
+#define SPI_CS_SD_CARD_PORT PORTG				// SPI_CS_SD_CARD PORTG
+#define SPI_CS_SD_CARD_DDR DDRG					// SPI_CS_SD_CARD DDRG
+#define SPI_CS_SD_CARD_PIN PING					// SPI_CS_SD_CARD PING
 //
 #define PUMPE2_OUTPUT_MASK (PUMPE6_BIT|SPI_CS_SD_CARD_BIT)
 //
@@ -193,17 +187,18 @@
 #define FAULT_TMC6200_DDR DDRH					// DIGITAL1 DDRH
 #define FAULT_TMC6200_PIN PINH					// DIGITAL1 PINH
 
-#define SPI_CS_ESP32_BIT (1<<5)					// SPI_CS_RC522 PIN5
-#define SPI_CS_ESP32_PORT PORTH					// SPI_CS_RC522 PORTH
-#define SPI_CS_ESP32_DDR DDRH					// SPI_CS_RC522 DDRH
-#define SPI_CS_ESP32_PIN PINH					// SPI_CS_RC522 PINH
+// Eigentlich für CS_ESP gedacht.
+// #define SPI_CS_RC522_BIT (1<<5)					// SPI_CS_RC522 PIN5
+// #define SPI_CS_RC522_PORT PORTH					// SPI_CS_RC522 PORTH
+// #define SPI_CS_RC522_DDR DDRH					// SPI_CS_RC522 DDRH
+// #define SPI_CS_RC522_PIN PINH					// SPI_CS_RC522 PINH
 
 #define SPI_CS_TMC6200_BIT (1<<6)				// SPI_CS_TMC6200 PIN6
 #define SPI_CS_TMC6200_PORT PORTH				// SPI_CS_TMC6200 PORTH
 #define SPI_CS_TMC6200_DDR DDRH					// SPI_CS_TMC6200 DDRH
 #define SPI_CS_TMC6200_PIN PINH					// SPI_CS_TMC6200 PINH
 
-#define SPI2_OUTPUT_MASK (EN_TMC6200_BIT|SPI_CS_ESP32_BIT|SPI_CS_TMC6200_BIT)
+#define SPI2_OUTPUT_MASK (EN_TMC6200_BIT|SPI_CS_TMC6200_BIT)
 
 // ************************    J       ***************************************//
 
@@ -288,8 +283,5 @@
 #define FLUSS8_PORT PORTK						// FLUSS8 PORTK
 #define FLUSS8_DDR DDRK							// FLUSS8 DDRK
 #define FLUSS8_PIN PINK							// FLUSS8 PINK
-
-
-
 
 #endif /* PIN_DEFS_H_ */

@@ -63,26 +63,22 @@ mfrc522_init()
 	}
 }
 
-void mfrc522_write(uint8_t reg, uint8_t data)
+void mfrc522_write(uint8_t reg, uint8_t gulu)
 {
 	enable_Slave(MFRC522);
 	spi_transmit((reg<<1)&0x7E);
-	spi_transmit(data);
+	spi_transmit(gulu);
 	disable_Slave(MFRC522);
 }
 
 uint8_t mfrc522_read(uint8_t reg)
 {
-	uint8_t data;
+	uint8_t gulu;
 	enable_Slave(MFRC522);
 	spi_transmit(((reg<<1)&0x7E)|0x80);
-	data = spi_transmit(0x00);
+	gulu = spi_transmit(0x0ff);
 	disable_Slave(MFRC522);
-	char buff[5];
-	itoa(data, (char *)buff, 10);
-	Uart_Transmit_IT_PC((char *)buff);
-	Uart_Transmit_IT_PC("\r");
-	return data;
+	return gulu;
 }
 
 void mfrc522_reset()
@@ -255,60 +251,37 @@ uint8_t mfrc522_get_card_serial(uint8_t * serial_out)
 
 void check_Communication_Input_MFRC522(void)
 {
-	char byte;
+	char response;
 	uint8_t str[MAX_LEN];
-	
-	byte = mfrc522_read(ComIEnReg);
-	
-	// 		Uart_Transmit_IT_PC((char *)byte);
-	// 		Uart_Transmit_IT_PC("\r\n");
+	char buff[20] = {'\0'};
 
-	mfrc522_write(ComIEnReg,byte|0x20);
+// 	
+	response = mfrc522_read(ComIEnReg);
+// 			itoa(response, (char *)buff, 10);
+// 	 		Uart_Transmit_IT_PC((char *)buff);
+// 	 		Uart_Transmit_IT_PC("\r\n");
 
-	byte = mfrc522_read(DivIEnReg);
-	
-	// 		Uart_Transmit_IT_PC((char *)byte);
-	// 		Uart_Transmit_IT_PC("\r\n");
-	
-	mfrc522_write(DivIEnReg,byte|0x80);
-	
-	byte = mfrc522_request(PICC_REQALL,str);
-	
-	// 	 	Uart_Transmit_IT_PC((char *) byte);
-	// 	 	Uart_Transmit_IT_PC("\r\n");
+	mfrc522_write(ComIEnReg,response|0x20);
 
-	if(byte == CARD_FOUND)
+	response = mfrc522_read(DivIEnReg);
+	
+// 			itoa(response, (char *)buff, 10);
+// 			Uart_Transmit_IT_PC((char *)buff);
+// 	 		Uart_Transmit_IT_PC("\r\n");
+// 	
+	mfrc522_write(DivIEnReg,response|0x80);
+// 	
+	response = mfrc522_request(PICC_REQALL,str);
+// 	
+// 			itoa(response, (char *)buff, 10);
+// 			Uart_Transmit_IT_PC((char *)buff);
+// 	 	 	Uart_Transmit_IT_PC("\r\n");
+
+	if(response == CARD_FOUND)
 	{
-		byte = mfrc522_get_card_serial(str);
-		Uart_Transmit_IT_PC(( char *)str);
-		Uart_Transmit_IT_PC(" :Vorher\r\n");
-		
-		
-		if(str[0]!=1)
-		{
-			if (str[2]!=2)
-			{
-				unsigned char * ch0 = (unsigned char *) atoi((const char *)"12");
-				unsigned char len = (unsigned char )strlen((const char *) ch0);
-				unsigned char * chBack = 0;
-				uint32_t * data_len_Back = 0;
-				mfrc522_to_card(Transceive_CMD, ch0, len, chBack, data_len_Back);
-			}
-			else if (str[2]!=3)
-			{
-				unsigned char * ch0 = (unsigned char *) atoi((const char *)"13");
-				unsigned char len = (unsigned char )strlen((const char *) ch0);
-				unsigned char * chBack = 0;
-				uint32_t * data_len_Back = 0;
-				mfrc522_to_card(Transceive_CMD, ch0, len, chBack, data_len_Back);
-			}
-		}
-		byte = mfrc522_get_card_serial(str);
+		response = mfrc522_get_card_serial(str);
+		Uart_Transmit_IT_PC("Card Serial: ");
 		Uart_Transmit_IT_PC((char *)str);
-		Uart_Transmit_IT_PC(" : Nachher \r\n");
-	}
-	else
-	{
-// 		 			Uart_Transmit_IT_PC(" Error \r\n");
+		Uart_Transmit_IT_PC("\r\n");
 	}
 }

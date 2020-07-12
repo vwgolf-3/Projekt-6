@@ -6,7 +6,7 @@
  */ 
 
 #include "Zutaten.h"
-
+#include <util/delay.h>
 
 void zutaten_init(void)
 {
@@ -53,7 +53,7 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 
 ******************************************************************************************************************/
 		
-	for (int8_t count = 0 ; count <= 100; count++)
+	for (int8_t count = 0 ; count <= 20; count++)
 	{
 		// String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
 		strcpy((char *)buff_init_textfiles_zutat, (const char *)"Z");
@@ -68,7 +68,6 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 			tmp = create_new_zutat_file(count);
 			head_zutat_file = insert_zutat_file_at_head(&head_zutat_file, tmp);
 		}
-
  	}
 
 /******************************************************************************************************************

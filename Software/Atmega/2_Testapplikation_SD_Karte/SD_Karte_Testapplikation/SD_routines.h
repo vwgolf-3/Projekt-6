@@ -1,14 +1,13 @@
 //**************************************************************
 // ****** FUNCTIONS FOR SD RAW DATA TRANSFER *******
 //**************************************************************
-//Controller: ATmega8 (Clock: 8 Mhz-internal)
-//Compiler: AVR-GCC
-//Version : 2.0
-//Author: CC Dharmani, Chennai (India)
-// www.dharmanitech.com
-//Date: 26 Feb 2009
+//Controller: ATmega32 (Clock: 8 Mhz-internal)
+//Compiler	: AVR-GCC (winAVR with AVRStudio)
+//Version 	: 2.3
+//Author	: CC Dharmani, Chennai (India)
+//			  www.dharmanitech.com
+//Date		: 08 May 2010
 //**************************************************************
-//Link to the Post: http://www.dharmanitech.com/2009/01/sd-card-interfacing-with-atmega8-fat32.html
 
 //**************************************************
 // ***** HEADER FILE : SD_routines.h ******
@@ -16,13 +15,25 @@
 #ifndef _SD_ROUTINES_H_
 #define _SD_ROUTINES_H_
 
-#define FAT_TESTING_ONLY
+#include "pin_defs.h"
 
-#define SD_CS_ASSERT     PORTC &= ~(1<<0)
-#define SD_CS_DEASSERT   PORTC |= (1<<0)
+//Use following macro if you don't want to activate the multiple block access functions
+//those functions are not required for FAT32
 
+#define FAT_TESTING_ONLY         
+
+//use following macros if PB1 pin is used for Chip Select of SD
+#define SD_CS_ASSERT     SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT
+#define SD_CS_DEASSERT   SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT
+
+//use following macros if SS (PB4) pin is used for Chip Select of SD
+//#define SD_CS_ASSERT     PORTB &= ~0x10
+//#define SD_CS_DEASSERT   PORTB |= 0x10
+
+//SD commands, many of these are not used here
 #define GO_IDLE_STATE            0
 #define SEND_OP_COND             1
+#define SEND_IF_COND			 8
 #define SEND_CSD                 9
 #define STOP_TRANSMISSION        12
 #define SEND_STATUS              13
@@ -34,14 +45,17 @@
 #define ERASE_BLOCK_START_ADDR   32
 #define ERASE_BLOCK_END_ADDR     33
 #define ERASE_SELECTED_BLOCKS    38
+#define SD_SEND_OP_COND			 41   //ACMD
+#define APP_CMD					 55
+#define READ_OCR				 58
 #define CRC_ON_OFF               59
+
 
 #define ON     1
 #define OFF    0
 
-extern volatile unsigned long startBlock;
-extern volatile unsigned long totalBlocks;
-extern volatile unsigned char buffer[512];
+volatile unsigned long startBlock, totalBlocks; 
+volatile unsigned char SDHC_flag, cardType, buffer[4096];
 
 unsigned char SD_init(void);
 unsigned char SD_sendCommand(unsigned char cmd, unsigned long arg);

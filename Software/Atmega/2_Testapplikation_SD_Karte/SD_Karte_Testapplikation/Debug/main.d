@@ -16,8 +16,8 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././SPI_routines.h .././SD_routines.h .././UART_routines.h .././FAT32.h \
- .././pin_defs.h
+ .././SPI_routines.h .././SD_routines.h .././pin_defs.h \
+ .././UART_routines.h .././FAT32.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -57,8 +57,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././SD_routines.h:
 
+.././pin_defs.h:
+
 .././UART_routines.h:
 
 .././FAT32.h:
-
-.././pin_defs.h:

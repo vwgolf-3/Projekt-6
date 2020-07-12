@@ -211,6 +211,10 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="utils\pin_defs.h">
+      <SubType>compile</SubType>
+      <Link>pin_defs.h</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

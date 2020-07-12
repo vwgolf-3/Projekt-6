@@ -619,12 +619,20 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 void schiebe_file_next(void)
 {
 	aktuellesGetraenk_file = aktuellesGetraenk_file->next;
+	char buff[50] = {'\0'};
+	itoa(aktuellesGetraenk_file->file, (char *) buff, 10);
+	Uart_Transmit_IT_PC(buff);
+	Uart_Transmit_IT_PC("\r");
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
 void schiebe_file_prev(void)
 {
 	aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+	char buff[50] = {'\0'};
+	itoa(aktuellesGetraenk_file->file, (char *) buff, 10);
+	Uart_Transmit_IT_PC(buff);
+	Uart_Transmit_IT_PC("\r");
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
@@ -642,14 +650,13 @@ void lese_textfile_in_getraenk(uint8_t file)
 	//		  2, if file name is incompatible
 	
 	readFile( READ, (unsigned char *)buff);
-		
+
 	// Trennungszeichen definieren, Pointer initialisiern f?r Abschnitte
-	char delimiter[] = ":,{}\r\n";
+	char delimiter[] = ":\r\n";
 	char *ptr;
 	// initialisieren und ersten Abschnitt erstellen (1. Kopf)
 	
 	ptr = strtok((char *)buffer, delimiter);
-	
 	//	Abschnitt in buffer extrahieren:
 /*
 	Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:
@@ -695,6 +702,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 						// Und schreibe Wert in die richtige Position
 						*(uint8_t *)(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position) = atoi(ptr);
 					}
+
 					aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 				}while(aktuelleZutatInMaschine != tail_zut_in_Maschine);
 				
@@ -765,8 +773,8 @@ void SD_startup(void)
 	{
 		if(error == 1) Uart_Transmit_IT_PC((char*)("SD card not detected..\r"));
 		if(error == 2) Uart_Transmit_IT_PC((char*)("Card Initialization failed..\r"));
-	nextion_change_page(FEHLERANZEIGE);
-	nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte vorhanden.\\rBitte einfügen und\\rneu starten.");
+		nextion_change_page(FEHLERANZEIGE);
+		nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte vorhanden.\\rBitte einfügen und\\rneu starten.");
 		// 		while(1);  //wait here forever if error in SD init
 		}else{
 		
@@ -783,7 +791,7 @@ void SD_startup(void)
 		}
 	}
 
-	SPI_HIGH_SPEED;	//SCK - 4 MHz
+// 	SPI_HIGH_SPEED;	//SCK - 4 MHz
 	_delay_ms(1);   //some delay
 
 
