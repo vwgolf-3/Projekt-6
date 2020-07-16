@@ -16,6 +16,7 @@
 #define _SD_ROUTINES_H_
 
 #include "../SPI/SPI.h"
+#include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
 
 //Use following macro if you don't want to activate the multiple block access functions
@@ -26,6 +27,10 @@
 //use following macros is used for Chip Select of SD
 #define SD_CS_ASSERT     SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT
 #define SD_CS_DEASSERT   SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT
+
+// #define SD_CS_ASSERT SW_SPI_CS2_PORT &= ~SW_SPI_CS2_BIT
+// #define SD_CS_DEASSERT SW_SPI_CS2_PORT |= SW_SPI_CS2_BIT;
+
 
 //SD commands, many of these are not used here
 #define GO_IDLE_STATE            0

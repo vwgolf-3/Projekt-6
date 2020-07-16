@@ -19,7 +19,8 @@ void IO_init(void)
 	PUMPE_DDR3 = PUMPE3_OUTPUT_MASK;
 	RFID_DDR = RFID_OUTPUT_MASK;
 	FLUSS_DDR = 0b00000000;
-	SPI_PORT |= SPI_MISO_PIN;
+	SPI_MISO_DDR &= ~SPI_MISO_BIT;
+	SW_SPI_MISO_DDR &= ~SW_SPI_MISO_BIT;
 }
 
 void heartbeat_LED(void)
@@ -62,6 +63,7 @@ void proceed_Communication_Input_UART_0(void)
 // 	char * ch = "Proceed UART 0: \n\r";
 // 	Uart_Transmit_IT_PC(ch);
 	cocktail_test_command(INPUT_UART_0);
+	cocktail_check_command(26,0);
 }
 
 char check_Communication_Input_UART_1(void)
@@ -179,11 +181,11 @@ char check_Communication_Input_UART_2(void)
 
 void proceed_Communication_Input_UART_2(void)
 {
+	cocktail_check_command((int8_t) INPUT_UART_2[0], (int8_t) INPUT_UART_2[1]);	
+	
 	Uart_Transmit_IT_PC("Proceed UART 2: ");
 	Uart_Transmit_IT_PC((char *)INPUT_UART_2);
 	Uart_Transmit_IT_PC("\r\n");
-	
-	cocktail_check_command(4,1);
 }
 
 // char check_Communication_Input_UART_3(void)

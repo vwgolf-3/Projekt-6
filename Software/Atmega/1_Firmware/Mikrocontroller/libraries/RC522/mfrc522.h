@@ -27,7 +27,7 @@
 
 #include "mfrc522_cmd.h"
 #include "mfrc522_reg.h"
-#include "../SPI/SPI.h"
+#include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
 
 #define CARD_FOUND		1

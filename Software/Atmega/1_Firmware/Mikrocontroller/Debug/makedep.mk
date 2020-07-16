@@ -22,6 +22,8 @@ libraries\SD-Karte\FAT32.c
 
 libraries\SD-Karte\SD_routines.c
 
+libraries\Software_SPI\Software_SPI.c
+
 libraries\SPI\SPI.c
 
 libraries\Tags\TAGS.c

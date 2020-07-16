@@ -1,0 +1,556 @@
+
+Software_SPI.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800200  00800200  000002fc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000002a8  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  000002fc  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000032c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000e8  00000000  00000000  0000036c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001a32  00000000  00000000  00000454  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000f8c  00000000  00000000  00001e86  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000a35  00000000  00000000  00002e12  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000288  00000000  00000000  00003848  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000802  00000000  00000000  00003ad0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000a74  00000000  00000000  000042d2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000b8  00000000  00000000  00004d46  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	71 c0       	rjmp	.+226    	; 0xe4 <__ctors_end>
+   2:	00 00       	nop
+   4:	79 c0       	rjmp	.+242    	; 0xf8 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	77 c0       	rjmp	.+238    	; 0xf8 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	75 c0       	rjmp	.+234    	; 0xf8 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	73 c0       	rjmp	.+230    	; 0xf8 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	71 c0       	rjmp	.+226    	; 0xf8 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	6f c0       	rjmp	.+222    	; 0xf8 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	6d c0       	rjmp	.+218    	; 0xf8 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	6b c0       	rjmp	.+214    	; 0xf8 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	69 c0       	rjmp	.+210    	; 0xf8 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	67 c0       	rjmp	.+206    	; 0xf8 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	65 c0       	rjmp	.+202    	; 0xf8 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	63 c0       	rjmp	.+198    	; 0xf8 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	61 c0       	rjmp	.+194    	; 0xf8 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	5f c0       	rjmp	.+190    	; 0xf8 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	5d c0       	rjmp	.+186    	; 0xf8 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	5b c0       	rjmp	.+182    	; 0xf8 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	59 c0       	rjmp	.+178    	; 0xf8 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	57 c0       	rjmp	.+174    	; 0xf8 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	55 c0       	rjmp	.+170    	; 0xf8 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	53 c0       	rjmp	.+166    	; 0xf8 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	51 c0       	rjmp	.+162    	; 0xf8 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	4f c0       	rjmp	.+158    	; 0xf8 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	4d c0       	rjmp	.+154    	; 0xf8 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	4b c0       	rjmp	.+150    	; 0xf8 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	49 c0       	rjmp	.+146    	; 0xf8 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	47 c0       	rjmp	.+142    	; 0xf8 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	45 c0       	rjmp	.+138    	; 0xf8 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	43 c0       	rjmp	.+134    	; 0xf8 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	41 c0       	rjmp	.+130    	; 0xf8 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	3f c0       	rjmp	.+126    	; 0xf8 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	3d c0       	rjmp	.+122    	; 0xf8 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	3b c0       	rjmp	.+118    	; 0xf8 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	39 c0       	rjmp	.+114    	; 0xf8 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	37 c0       	rjmp	.+110    	; 0xf8 <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	35 c0       	rjmp	.+106    	; 0xf8 <__bad_interrupt>
+  8e:	00 00       	nop
+  90:	33 c0       	rjmp	.+102    	; 0xf8 <__bad_interrupt>
+  92:	00 00       	nop
+  94:	31 c0       	rjmp	.+98     	; 0xf8 <__bad_interrupt>
+  96:	00 00       	nop
+  98:	2f c0       	rjmp	.+94     	; 0xf8 <__bad_interrupt>
+  9a:	00 00       	nop
+  9c:	2d c0       	rjmp	.+90     	; 0xf8 <__bad_interrupt>
+  9e:	00 00       	nop
+  a0:	2b c0       	rjmp	.+86     	; 0xf8 <__bad_interrupt>
+  a2:	00 00       	nop
+  a4:	29 c0       	rjmp	.+82     	; 0xf8 <__bad_interrupt>
+  a6:	00 00       	nop
+  a8:	27 c0       	rjmp	.+78     	; 0xf8 <__bad_interrupt>
+  aa:	00 00       	nop
+  ac:	25 c0       	rjmp	.+74     	; 0xf8 <__bad_interrupt>
+  ae:	00 00       	nop
+  b0:	23 c0       	rjmp	.+70     	; 0xf8 <__bad_interrupt>
+  b2:	00 00       	nop
+  b4:	21 c0       	rjmp	.+66     	; 0xf8 <__bad_interrupt>
+  b6:	00 00       	nop
+  b8:	1f c0       	rjmp	.+62     	; 0xf8 <__bad_interrupt>
+  ba:	00 00       	nop
+  bc:	1d c0       	rjmp	.+58     	; 0xf8 <__bad_interrupt>
+  be:	00 00       	nop
+  c0:	1b c0       	rjmp	.+54     	; 0xf8 <__bad_interrupt>
+  c2:	00 00       	nop
+  c4:	19 c0       	rjmp	.+50     	; 0xf8 <__bad_interrupt>
+  c6:	00 00       	nop
+  c8:	17 c0       	rjmp	.+46     	; 0xf8 <__bad_interrupt>
+  ca:	00 00       	nop
+  cc:	15 c0       	rjmp	.+42     	; 0xf8 <__bad_interrupt>
+  ce:	00 00       	nop
+  d0:	13 c0       	rjmp	.+38     	; 0xf8 <__bad_interrupt>
+  d2:	00 00       	nop
+  d4:	11 c0       	rjmp	.+34     	; 0xf8 <__bad_interrupt>
+  d6:	00 00       	nop
+  d8:	0f c0       	rjmp	.+30     	; 0xf8 <__bad_interrupt>
+  da:	00 00       	nop
+  dc:	0d c0       	rjmp	.+26     	; 0xf8 <__bad_interrupt>
+  de:	00 00       	nop
+  e0:	0b c0       	rjmp	.+22     	; 0xf8 <__bad_interrupt>
+	...
+
+000000e4 <__ctors_end>:
+  e4:	11 24       	eor	r1, r1
+  e6:	1f be       	out	0x3f, r1	; 63
+  e8:	cf ef       	ldi	r28, 0xFF	; 255
+  ea:	d1 e2       	ldi	r29, 0x21	; 33
+  ec:	de bf       	out	0x3e, r29	; 62
+  ee:	cd bf       	out	0x3d, r28	; 61
+  f0:	00 e0       	ldi	r16, 0x00	; 0
+  f2:	0c bf       	out	0x3c, r16	; 60
+  f4:	02 d0       	rcall	.+4      	; 0xfa <main>
+  f6:	d6 c0       	rjmp	.+428    	; 0x2a4 <_exit>
+
+000000f8 <__bad_interrupt>:
+  f8:	83 cf       	rjmp	.-250    	; 0x0 <__vectors>
+
+000000fa <main>:
+#include "Software_SPI_lib.h"
+#include "RC522/mfrc522.h"
+
+int main(void)
+{
+	softspi_setup_master();
+  fa:	63 d0       	rcall	.+198    	; 0x1c2 <softspi_setup_master>
+	mfrc522_init();											// RFID initialisieren
+  fc:	26 d0       	rcall	.+76     	; 0x14a <mfrc522_init>
+    /* Replace with your application code */
+    while (1) 
+    {
+	mfrc522_init();											// RFID initialisieren
+  fe:	25 d0       	rcall	.+74     	; 0x14a <mfrc522_init>
+ 100:	2f ef       	ldi	r18, 0xFF	; 255
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 102:	33 eb       	ldi	r19, 0xB3	; 179
+ 104:	84 ec       	ldi	r24, 0xC4	; 196
+ 106:	94 e0       	ldi	r25, 0x04	; 4
+ 108:	21 50       	subi	r18, 0x01	; 1
+ 10a:	30 40       	sbci	r19, 0x00	; 0
+ 10c:	80 40       	sbci	r24, 0x00	; 0
+ 10e:	90 40       	sbci	r25, 0x00	; 0
+ 110:	d9 f7       	brne	.-10     	; 0x108 <main+0xe>
+ 112:	00 c0       	rjmp	.+0      	; 0x114 <main+0x1a>
+ 114:	00 00       	nop
+ 116:	f3 cf       	rjmp	.-26     	; 0xfe <main+0x4>
+
+00000118 <mfrc522_write>:
+ 118:	cf 93       	push	r28
+// 		Uart_Transmit_IT_PC("No reader found \r\n");
+	}
+}
+
+void mfrc522_write(uint8_t reg, uint8_t gulu)
+{
+ 11a:	c6 2f       	mov	r28, r22
+		SOFTSPI_CS_PORT &= ~SOFTSPI_CS_MASK;
+ 11c:	41 98       	cbi	0x08, 1	; 8
+	softspi_write_uint8((reg<<1)&0x7E);
+ 11e:	88 0f       	add	r24, r24
+ 120:	8e 77       	andi	r24, 0x7E	; 126
+ 122:	72 d0       	rcall	.+228    	; 0x208 <softspi_write_uint8>
+	softspi_write_uint8(gulu);
+ 124:	8c 2f       	mov	r24, r28
+ 126:	70 d0       	rcall	.+224    	; 0x208 <softspi_write_uint8>
+		SOFTSPI_CS_PORT |= SOFTSPI_CS_MASK;
+ 128:	41 9a       	sbi	0x08, 1	; 8
+}
+ 12a:	cf 91       	pop	r28
+ 12c:	08 95       	ret
+
+0000012e <mfrc522_read>:
+
+uint8_t mfrc522_read(uint8_t reg)
+{
+	uint8_t gulu;
+	SOFTSPI_CS_PORT &= ~SOFTSPI_CS_MASK;
+ 12e:	41 98       	cbi	0x08, 1	; 8
+	softspi_write_uint8(((reg<<1)&0x7E)|0x80);
+ 130:	88 0f       	add	r24, r24
+ 132:	8e 77       	andi	r24, 0x7E	; 126
+ 134:	80 68       	ori	r24, 0x80	; 128
+ 136:	68 d0       	rcall	.+208    	; 0x208 <softspi_write_uint8>
+	softspi_write_uint8(0x0ff);
+ 138:	8f ef       	ldi	r24, 0xFF	; 255
+ 13a:	66 d0       	rcall	.+204    	; 0x208 <softspi_write_uint8>
+	SOFTSPI_CS_PORT |= SOFTSPI_CS_MASK;
+ 13c:	41 9a       	sbi	0x08, 1	; 8
+	return gulu;
+}
+ 13e:	80 e0       	ldi	r24, 0x00	; 0
+ 140:	08 95       	ret
+
+00000142 <mfrc522_reset>:
+
+void mfrc522_reset()
+{
+	mfrc522_write(CommandReg,SoftReset_CMD);
+ 142:	6f e0       	ldi	r22, 0x0F	; 15
+ 144:	81 e0       	ldi	r24, 0x01	; 1
+ 146:	e8 cf       	rjmp	.-48     	; 0x118 <mfrc522_write>
+ 148:	08 95       	ret
+
+0000014a <mfrc522_init>:
+#include "../pin_defs.h"
+#include "../Software_SPI_lib.h"
+
+void 
+mfrc522_init()
+{
+ 14a:	cf 93       	push	r28
+ 14c:	df 93       	push	r29
+ 14e:	cd b7       	in	r28, 0x3d	; 61
+ 150:	de b7       	in	r29, 0x3e	; 62
+ 152:	2a 97       	sbiw	r28, 0x0a	; 10
+ 154:	0f b6       	in	r0, 0x3f	; 63
+ 156:	f8 94       	cli
+ 158:	de bf       	out	0x3e, r29	; 62
+ 15a:	0f be       	out	0x3f, r0	; 63
+ 15c:	cd bf       	out	0x3d, r28	; 61
+	uint8_t byte;
+	mfrc522_reset();
+ 15e:	f1 df       	rcall	.-30     	; 0x142 <mfrc522_reset>
+
+	mfrc522_write(TModeReg, 0x8D);
+ 160:	6d e8       	ldi	r22, 0x8D	; 141
+ 162:	8a e2       	ldi	r24, 0x2A	; 42
+ 164:	d9 df       	rcall	.-78     	; 0x118 <mfrc522_write>
+    mfrc522_write(TPrescalerReg, 0x3E);
+ 166:	6e e3       	ldi	r22, 0x3E	; 62
+ 168:	8b e2       	ldi	r24, 0x2B	; 43
+ 16a:	d6 df       	rcall	.-84     	; 0x118 <mfrc522_write>
+    mfrc522_write(TReloadReg_1, 30);   
+ 16c:	6e e1       	ldi	r22, 0x1E	; 30
+ 16e:	8c e2       	ldi	r24, 0x2C	; 44
+ 170:	d3 df       	rcall	.-90     	; 0x118 <mfrc522_write>
+    mfrc522_write(TReloadReg_2, 0);	
+ 172:	60 e0       	ldi	r22, 0x00	; 0
+ 174:	8d e2       	ldi	r24, 0x2D	; 45
+ 176:	d0 df       	rcall	.-96     	; 0x118 <mfrc522_write>
+	mfrc522_write(TxASKReg, 0x40);	
+ 178:	60 e4       	ldi	r22, 0x40	; 64
+ 17a:	85 e1       	ldi	r24, 0x15	; 21
+	mfrc522_write(ModeReg, 0x3D);
+ 17c:	cd df       	rcall	.-102    	; 0x118 <mfrc522_write>
+ 17e:	6d e3       	ldi	r22, 0x3D	; 61
+ 180:	81 e1       	ldi	r24, 0x11	; 17
+ 182:	ca df       	rcall	.-108    	; 0x118 <mfrc522_write>
+	
+	byte = mfrc522_read(TxControlReg);
+ 184:	84 e1       	ldi	r24, 0x14	; 20
+ 186:	d3 df       	rcall	.-90     	; 0x12e <mfrc522_read>
+	if(!(byte&0x03))
+ 188:	98 2f       	mov	r25, r24
+ 18a:	93 70       	andi	r25, 0x03	; 3
+	{
+		mfrc522_write(TxControlReg,byte|0x03);
+ 18c:	21 f4       	brne	.+8      	; 0x196 <mfrc522_init+0x4c>
+ 18e:	68 2f       	mov	r22, r24
+ 190:	63 60       	ori	r22, 0x03	; 3
+ 192:	84 e1       	ldi	r24, 0x14	; 20
+ 194:	c1 df       	rcall	.-126    	; 0x118 <mfrc522_write>
+	}
+	
+	byte = mfrc522_read(VersionReg);
+ 196:	87 e3       	ldi	r24, 0x37	; 55
+ 198:	ca df       	rcall	.-108    	; 0x12e <mfrc522_read>
+ 19a:	be 01       	movw	r22, r28
+	
+	char buff[10] = {'\0'};
+ 19c:	6f 5f       	subi	r22, 0xFF	; 255
+ 19e:	7f 4f       	sbci	r23, 0xFF	; 255
+ 1a0:	9a e0       	ldi	r25, 0x0A	; 10
+ 1a2:	fb 01       	movw	r30, r22
+ 1a4:	11 92       	st	Z+, r1
+ 1a6:	9a 95       	dec	r25
+ 1a8:	e9 f7       	brne	.-6      	; 0x1a4 <mfrc522_init+0x5a>
+    } else if (__radix < 2 || __radix > 36) {
+	*__s = 0;
+	return __s;
+    } else {
+	extern char *__itoa_ncheck (int, char *, unsigned char);
+	return __itoa_ncheck (__val, __s, __radix);
+ 1aa:	4a e0       	ldi	r20, 0x0A	; 10
+ 1ac:	90 e0       	ldi	r25, 0x00	; 0
+ 1ae:	47 d0       	rcall	.+142    	; 0x23e <__itoa_ncheck>
+ 1b0:	2a 96       	adiw	r28, 0x0a	; 10
+	}
+	else
+	{
+// 		Uart_Transmit_IT_PC("No reader found \r\n");
+	}
+}
+ 1b2:	0f b6       	in	r0, 0x3f	; 63
+ 1b4:	f8 94       	cli
+ 1b6:	de bf       	out	0x3e, r29	; 62
+ 1b8:	0f be       	out	0x3f, r0	; 63
+ 1ba:	cd bf       	out	0x3d, r28	; 61
+ 1bc:	df 91       	pop	r29
+ 1be:	cf 91       	pop	r28
+ 1c0:	08 95       	ret
+
+000001c2 <softspi_setup_master>:
+ 1c2:	3c 9a       	sbi	0x07, 4	; 7
+#include "Software_SPI_lib.h"
+
+void softspi_setup_master(void)
+{
+	SOFTSPI_CLK_DDR |= SOFTSPI_CLK_MASK;
+	SOFTSPI_MOSI_DDR |= SOFTSPI_MOSI_MASK;
+ 1c4:	3a 9a       	sbi	0x07, 2	; 7
+	SOFTSPI_CS_DDR |= SOFTSPI_CS_MASK;
+ 1c6:	39 9a       	sbi	0x07, 1	; 7
+
+	#if (SOFTSPI_DONT_USE_MISO == 0)
+	SOFTSPI_MISO_DDR |= SOFTSPI_MISO_MASK;
+ 1c8:	3b 9a       	sbi	0x07, 3	; 7
+ 1ca:	08 95       	ret
+
+000001cc <softspi_clk_low>:
+	#endif
+}
+
+void softspi_clk_low(void)
+{
+	SOFTSPI_CLK_PORT &= ~SOFTSPI_CLK_MASK;
+ 1cc:	44 98       	cbi	0x08, 4	; 8
+ 1ce:	08 95       	ret
+
+000001d0 <softspi_clk_high>:
+}
+
+void softspi_clk_high(void)
+{
+	SOFTSPI_CLK_PORT |= SOFTSPI_CLK_MASK;
+ 1d0:	44 9a       	sbi	0x08, 4	; 8
+ 1d2:	08 95       	ret
+
+000001d4 <softspi_mosi_low>:
+}
+
+void softspi_mosi_low(void)
+{
+	SOFTSPI_MOSI_PORT &= ~SOFTSPI_MOSI_MASK;
+ 1d4:	42 98       	cbi	0x08, 2	; 8
+ 1d6:	08 95       	ret
+
+000001d8 <softspi_mosi_high>:
+}
+
+void softspi_mosi_high(void)
+{
+	SOFTSPI_MOSI_PORT |= SOFTSPI_MOSI_MASK;
+ 1d8:	42 9a       	sbi	0x08, 2	; 8
+ 1da:	08 95       	ret
+
+000001dc <softspi_write_bit>:
+}
+
+void softspi_write_bit(uint8_t x, uint8_t m)
+{
+ 1dc:	cf 93       	push	r28
+ 1de:	df 93       	push	r29
+ 1e0:	d8 2f       	mov	r29, r24
+ 1e2:	c6 2f       	mov	r28, r22
+	/* dac7554 samples at clock falling edge */
+
+	/* 5 insns per bit */
+	softspi_clk_low();
+ 1e4:	f3 df       	rcall	.-26     	; 0x1cc <softspi_clk_low>
+	if (x & m) softspi_mosi_high(); else softspi_mosi_low();
+ 1e6:	cd 23       	and	r28, r29
+ 1e8:	11 f0       	breq	.+4      	; 0x1ee <softspi_write_bit+0x12>
+ 1ea:	f6 df       	rcall	.-20     	; 0x1d8 <softspi_mosi_high>
+ 1ec:	01 c0       	rjmp	.+2      	; 0x1f0 <softspi_write_bit+0x14>
+ 1ee:	f2 df       	rcall	.-28     	; 0x1d4 <softspi_mosi_low>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1f0:	8a e1       	ldi	r24, 0x1A	; 26
+ 1f2:	8a 95       	dec	r24
+ 1f4:	f1 f7       	brne	.-4      	; 0x1f2 <softspi_write_bit+0x16>
+	_delay_us(5);
+	softspi_clk_high();
+ 1f6:	00 c0       	rjmp	.+0      	; 0x1f8 <softspi_write_bit+0x1c>
+ 1f8:	eb df       	rcall	.-42     	; 0x1d0 <softspi_clk_high>
+ 1fa:	8a e1       	ldi	r24, 0x1A	; 26
+ 1fc:	8a 95       	dec	r24
+ 1fe:	f1 f7       	brne	.-4      	; 0x1fc <softspi_write_bit+0x20>
+ 200:	00 c0       	rjmp	.+0      	; 0x202 <softspi_write_bit+0x26>
+	_delay_us(5);
+}
+ 202:	df 91       	pop	r29
+ 204:	cf 91       	pop	r28
+ 206:	08 95       	ret
+
+00000208 <softspi_write_uint8>:
+
+void softspi_write_uint8(uint8_t x)
+{
+ 208:	cf 93       	push	r28
+ 20a:	c8 2f       	mov	r28, r24
+	/* transmit msb first, sample at clock falling edge */
+
+	softspi_write_bit(x, (1 << 7));
+ 20c:	60 e8       	ldi	r22, 0x80	; 128
+ 20e:	e6 df       	rcall	.-52     	; 0x1dc <softspi_write_bit>
+	softspi_write_bit(x, (1 << 6));
+ 210:	60 e4       	ldi	r22, 0x40	; 64
+ 212:	8c 2f       	mov	r24, r28
+ 214:	e3 df       	rcall	.-58     	; 0x1dc <softspi_write_bit>
+	softspi_write_bit(x, (1 << 5));
+ 216:	60 e2       	ldi	r22, 0x20	; 32
+ 218:	8c 2f       	mov	r24, r28
+ 21a:	e0 df       	rcall	.-64     	; 0x1dc <softspi_write_bit>
+	softspi_write_bit(x, (1 << 4));
+ 21c:	60 e1       	ldi	r22, 0x10	; 16
+ 21e:	8c 2f       	mov	r24, r28
+ 220:	dd df       	rcall	.-70     	; 0x1dc <softspi_write_bit>
+	softspi_write_bit(x, (1 << 3));
+ 222:	68 e0       	ldi	r22, 0x08	; 8
+ 224:	8c 2f       	mov	r24, r28
+ 226:	da df       	rcall	.-76     	; 0x1dc <softspi_write_bit>
+	softspi_write_bit(x, (1 << 2));
+ 228:	64 e0       	ldi	r22, 0x04	; 4
+ 22a:	8c 2f       	mov	r24, r28
+ 22c:	d7 df       	rcall	.-82     	; 0x1dc <softspi_write_bit>
+	softspi_write_bit(x, (1 << 1));
+ 22e:	62 e0       	ldi	r22, 0x02	; 2
+ 230:	8c 2f       	mov	r24, r28
+ 232:	d4 df       	rcall	.-88     	; 0x1dc <softspi_write_bit>
+ 234:	61 e0       	ldi	r22, 0x01	; 1
+	softspi_write_bit(x, (1 << 0));
+ 236:	8c 2f       	mov	r24, r28
+ 238:	d1 df       	rcall	.-94     	; 0x1dc <softspi_write_bit>
+ 23a:	cf 91       	pop	r28
+ 23c:	08 95       	ret
+
+0000023e <__itoa_ncheck>:
+}
+ 23e:	bb 27       	eor	r27, r27
+ 240:	4a 30       	cpi	r20, 0x0A	; 10
+ 242:	31 f4       	brne	.+12     	; 0x250 <__itoa_ncheck+0x12>
+ 244:	99 23       	and	r25, r25
+ 246:	22 f4       	brpl	.+8      	; 0x250 <__itoa_ncheck+0x12>
+ 248:	bd e2       	ldi	r27, 0x2D	; 45
+ 24a:	90 95       	com	r25
+ 24c:	81 95       	neg	r24
+ 24e:	9f 4f       	sbci	r25, 0xFF	; 255
+ 250:	01 c0       	rjmp	.+2      	; 0x254 <__utoa_common>
+
+00000252 <__utoa_ncheck>:
+ 252:	bb 27       	eor	r27, r27
+
+00000254 <__utoa_common>:
+ 254:	fb 01       	movw	r30, r22
+ 256:	55 27       	eor	r21, r21
+ 258:	aa 27       	eor	r26, r26
+ 25a:	88 0f       	add	r24, r24
+ 25c:	99 1f       	adc	r25, r25
+ 25e:	aa 1f       	adc	r26, r26
+ 260:	a4 17       	cp	r26, r20
+ 262:	10 f0       	brcs	.+4      	; 0x268 <__utoa_common+0x14>
+ 264:	a4 1b       	sub	r26, r20
+ 266:	83 95       	inc	r24
+ 268:	50 51       	subi	r21, 0x10	; 16
+ 26a:	b9 f7       	brne	.-18     	; 0x25a <__utoa_common+0x6>
+ 26c:	a0 5d       	subi	r26, 0xD0	; 208
+ 26e:	aa 33       	cpi	r26, 0x3A	; 58
+ 270:	08 f0       	brcs	.+2      	; 0x274 <__utoa_common+0x20>
+ 272:	a9 5d       	subi	r26, 0xD9	; 217
+ 274:	a1 93       	st	Z+, r26
+ 276:	00 97       	sbiw	r24, 0x00	; 0
+ 278:	79 f7       	brne	.-34     	; 0x258 <__utoa_common+0x4>
+ 27a:	b1 11       	cpse	r27, r1
+ 27c:	b1 93       	st	Z+, r27
+ 27e:	11 92       	st	Z+, r1
+ 280:	cb 01       	movw	r24, r22
+ 282:	00 c0       	rjmp	.+0      	; 0x284 <strrev>
+
+00000284 <strrev>:
+ 284:	dc 01       	movw	r26, r24
+ 286:	fc 01       	movw	r30, r24
+ 288:	67 2f       	mov	r22, r23
+ 28a:	71 91       	ld	r23, Z+
+ 28c:	77 23       	and	r23, r23
+ 28e:	e1 f7       	brne	.-8      	; 0x288 <strrev+0x4>
+ 290:	32 97       	sbiw	r30, 0x02	; 2
+ 292:	04 c0       	rjmp	.+8      	; 0x29c <strrev+0x18>
+ 294:	7c 91       	ld	r23, X
+ 296:	6d 93       	st	X+, r22
+ 298:	70 83       	st	Z, r23
+ 29a:	62 91       	ld	r22, -Z
+ 29c:	ae 17       	cp	r26, r30
+ 29e:	bf 07       	cpc	r27, r31
+ 2a0:	c8 f3       	brcs	.-14     	; 0x294 <strrev+0x10>
+ 2a2:	08 95       	ret
+
+000002a4 <_exit>:
+ 2a4:	f8 94       	cli
+
+000002a6 <__stop_program>:
+ 2a6:	ff cf       	rjmp	.-2      	; 0x2a6 <__stop_program>

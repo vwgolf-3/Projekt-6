@@ -43,7 +43,8 @@ Main_Func.d Main_Func.o: ../libraries/Main_functions/Main_Func.c \
  ../libraries/Main_functions/../Cocktail_functions/../RC522/mfrc522.h \
  ../libraries/Main_functions/../Cocktail_functions/../RC522/mfrc522_cmd.h \
  ../libraries/Main_functions/../Cocktail_functions/../RC522/mfrc522_reg.h \
- ../libraries/Main_functions/../Cocktail_functions/../RC522/../SPI/SPI.h \
+ ../libraries/Main_functions/../Cocktail_functions/../RC522/../Software_SPI/Software_SPI.h \
+ ../libraries/Main_functions/../Cocktail_functions/../RC522/../Software_SPI/../../utils/pin_defs.h \
  ../libraries/Main_functions/../Cocktail_functions/../RC522/../UART/UART.h \
  ../libraries/Main_functions/../Cocktail_functions/../TAGS/TAGS.h \
  ../libraries/Main_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
@@ -52,6 +53,7 @@ Main_Func.d Main_Func.o: ../libraries/Main_functions/Main_Func.c \
  ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
  ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/../SPI/SPI.h \
+ ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/../Software_SPI/Software_SPI.h \
  ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Main_functions/../Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
@@ -147,7 +149,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Main_functions/../Cocktail_functions/../RC522/mfrc522_reg.h:
 
-../libraries/Main_functions/../Cocktail_functions/../RC522/../SPI/SPI.h:
+../libraries/Main_functions/../Cocktail_functions/../RC522/../Software_SPI/Software_SPI.h:
+
+../libraries/Main_functions/../Cocktail_functions/../RC522/../Software_SPI/../../utils/pin_defs.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../RC522/../UART/UART.h:
 
@@ -164,6 +168,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/../SPI/SPI.h:
+
+../libraries/Main_functions/../Cocktail_functions/../SD-Karte/../Software_SPI/Software_SPI.h:
 
 ../libraries/Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h:
 

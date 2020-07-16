@@ -188,6 +188,10 @@
       <SubType>compile</SubType>
       <Link>SD_routines.c</Link>
     </Compile>
+    <Compile Include="libraries\Software_SPI\Software_SPI.c">
+      <SubType>compile</SubType>
+      <Link>Software_SPI.c</Link>
+    </Compile>
     <Compile Include="libraries\SPI\SPI.c">
       <SubType>compile</SubType>
       <Link>SPI.c</Link>

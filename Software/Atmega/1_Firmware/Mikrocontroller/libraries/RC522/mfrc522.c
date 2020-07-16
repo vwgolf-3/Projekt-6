@@ -22,8 +22,7 @@
  */
 #include "mfrc522.h"
 
-void 
-mfrc522_init()
+void mfrc522_init()
 {
 	uint8_t byte;
 	mfrc522_reset();
@@ -65,19 +64,19 @@ mfrc522_init()
 
 void mfrc522_write(uint8_t reg, uint8_t gulu)
 {
-	enable_Slave(MFRC522);
-	spi_transmit((reg<<1)&0x7E);
-	spi_transmit(gulu);
-	disable_Slave(MFRC522);
+	enable_SW_Slave(1);
+	softspi_write_uint8((reg<<1)&0x7E);
+	softspi_write_uint8(gulu);
+	disable_SW_Slave(1);
 }
 
 uint8_t mfrc522_read(uint8_t reg)
 {
 	uint8_t gulu;
-	enable_Slave(MFRC522);
-	spi_transmit(((reg<<1)&0x7E)|0x80);
-	gulu = spi_transmit(0x0ff);
-	disable_Slave(MFRC522);
+	enable_SW_Slave(1);
+	softspi_write_uint8(((reg<<1)&0x7E)|0x80);
+	softspi_write_uint8(0x0ff);
+	disable_SW_Slave(1);
 	return gulu;
 }
 
@@ -257,9 +256,9 @@ void check_Communication_Input_MFRC522(void)
 
 // 	
 	response = mfrc522_read(ComIEnReg);
-// 			itoa(response, (char *)buff, 10);
-// 	 		Uart_Transmit_IT_PC((char *)buff);
-// 	 		Uart_Transmit_IT_PC("\r\n");
+			itoa(response, (char *)buff, 10);
+	 		Uart_Transmit_IT_PC((char *)buff);
+	 		Uart_Transmit_IT_PC("\r\n");
 
 	mfrc522_write(ComIEnReg,response|0x20);
 
@@ -273,9 +272,9 @@ void check_Communication_Input_MFRC522(void)
 // 	
 	response = mfrc522_request(PICC_REQALL,str);
 // 	
-// 			itoa(response, (char *)buff, 10);
-// 			Uart_Transmit_IT_PC((char *)buff);
-// 	 	 	Uart_Transmit_IT_PC("\r\n");
+			itoa(response, (char *)buff, 10);
+			Uart_Transmit_IT_PC((char *)buff);
+	 	 	Uart_Transmit_IT_PC("\r\n");
 
 	if(response == CARD_FOUND)
 	{

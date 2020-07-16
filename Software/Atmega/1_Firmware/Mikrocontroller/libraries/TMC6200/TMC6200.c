@@ -6,7 +6,7 @@
  */
 
 #include "TMC6200.h"
-
+#include <util/delay.h>
 // => SPI wrapper
 extern uint8_t tmc6200_readwriteByte(uint8_t motor, uint8_t data, uint8_t lastTransfer);
 // <= SPI wrapper
@@ -57,14 +57,14 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 
 void initTMC6200(void)
 {
-	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000034);
-	// 	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, );
-	// 	tmc6200_writeInt(MOTOR0, TMC6200_IOIN_OUTPUT, );
-	// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_PROG, );
-	// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_READ, );
-	// 	tmc6200_writeInt(MOTOR0, TMC6200_FACTORY_CONF, );
-	// 	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, );
+	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000000);
+	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, 0x00000001);
+// 	tmc6200_writeInt(MOTOR0, TMC6200_IOIN_OUTPUT, );
+	tmc6200_writeInt(MOTOR0, TMC6200_OTP_PROG, 0x00000000);
+// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_READ, );
+	tmc6200_writeInt(MOTOR0, TMC6200_FACTORY_CONF, 0x0000000C);
+	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, 0x12010606);
 	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080004);
-	
-//  	EN_TMC6200_PORT |= EN_TMC6200_BIT;
+	_delay_ms(100);
+ 	EN_TMC6200_PORT |= EN_TMC6200_BIT;
 }

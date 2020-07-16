@@ -25,6 +25,8 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h \
+ ../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/Software_SPI.h \
+ ../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/../../utils/pin_defs.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/Nextion_Display.h \
@@ -51,7 +53,7 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_cmd.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_reg.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../SPI/SPI.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../Software_SPI/Software_SPI.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TAGS/TAGS.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
@@ -113,6 +115,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h:
 
+../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/Software_SPI.h:
+
+../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/../../utils/pin_defs.h:
+
 ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h:
@@ -165,7 +171,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_reg.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../SPI/SPI.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../Software_SPI/Software_SPI.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../UART/UART.h:
 

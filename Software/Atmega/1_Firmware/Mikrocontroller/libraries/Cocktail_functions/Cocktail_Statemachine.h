@@ -43,6 +43,7 @@ void check_fluessanzeige3(uint8_t button);
 void check_RFIDAnzeige1(uint8_t button);
 void check_RFIDAnzeige2(uint8_t button);
 void check_RFIDFehler(uint8_t button);
+void check_ESP32(uint8_t button);
 
 
 uint8_t test2;

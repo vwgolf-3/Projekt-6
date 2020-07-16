@@ -134,6 +134,11 @@ void cocktail_check_command(int8_t page, int8_t button)
 	case RFIDFEHLER:
 	check_RFIDFehler(button);
 	break;
+	
+	/*0x1A = 0d26*/
+	case ESP32_PAGE:
+	check_ESP32(button);
+	break;
 	}
 }
 
@@ -2064,5 +2069,51 @@ void check_RFIDFehler(uint8_t button)
 		case 1:
 			setze_startanzeige(aktuellesGetraenk);
 		break;
+	}
+}
+
+void check_ESP32(uint8_t button)
+{
+	char buff[10] = {'\0'};
+	uint8_t tmp = 0;
+
+	switch (button)
+	{
+		// Sende Anzahl Tags
+		case ANZAHLTAGS:
+			itoa(head_tag->tag_nummer, (char *) buff, 10);
+			Uart_Transmit_IT_ESP(buff);
+			Uart_Transmit_IT_ESP("\r");
+		break;
+		
+		case 2:
+			tmp = aktuellesGetraenk_file->file;
+			aktuellesGetraenk_file = tail_getraenk_file;
+			do 
+			{
+				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+				Uart_Transmit_IT_ESP(aktuellesGetraenk->name);
+				Uart_Transmit_IT_ESP(":");
+			} while (aktuellesGetraenk_file  != tail_getraenk_file);
+			Uart_Transmit_IT_ESP(";");
+			aktuellesGetraenk_file = tail_getraenk_file;
+			
+			char run = 1;
+			
+			do 
+			{
+				if (tmp == aktuellesGetraenk_file->file)
+				{
+					run = 0;
+				}
+				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+			} while (run == 1);
+			
+		break;
+		
+		case 3:
+		setze_startanzeige(aktuellesGetraenk);
+		break;
+
 	}
 }

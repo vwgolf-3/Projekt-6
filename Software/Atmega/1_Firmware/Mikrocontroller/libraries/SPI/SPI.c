@@ -5,6 +5,7 @@
  *  Author: kimsc
  */ 
 #include "SPI.h"
+#include "../Software_SPI/Software_SPI.h"
 
 void (*ptr_SPI_w_completed)(void);
 
@@ -40,15 +41,17 @@ void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)
 
 uint8_t spi_transmit(uint8_t data)
 {
+// 	softspi_write_uint8(data);
 	SPDR = data;
 	while(!(SPSR & (1<<SPIF)));
-	return SPDR;
+	return data;
 }
 
 unsigned char spi_receive(void)
 {
 	unsigned char data;
 	// Wait for reception complete
+// data = softspi_read_uint8();
 
 	SPDR = 0xff;
 	while(!(SPSR & (1<<SPIF)));
