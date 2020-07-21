@@ -7,8 +7,7 @@
 
 #include "Software_SPI.h"
 
-
-void softspi_setup_master(void)
+void softspi_init(void)
 {
 	#if (SOFTSPI_DONT_USE_MISO == 0)
 	SOFTSPI_MISO_DDR |= SOFTSPI_MISO_MASK;

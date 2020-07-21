@@ -18,20 +18,20 @@
 int main(void)
 {
 	// Gate Treiber disable (active high)
-	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;						// Disable TMC6200 (Active High)
+// 	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;						// Disable TMC6200 (Active High)
 	
 	IO_init();												// Ein-/Ausgangspins initialisieren
 	SPI_init();												// SPI-Schnittstelle initialisieren
 	UART_init();											// UART-Schnittstelle initialisieren
-	initTMC6200();											// Gate-Treiber initialisieren
-// 	TMC4671_init();											// FOC-Treiber initialisieren
+// 	initTMC6200();											// Gate-Treiber initialisieren
+	TMC4671_init();											// FOC-Treiber initialisieren
 
     /* Replace with your application code */
     while (1) 
     {
 		_delay_ms(20000);
 		check_Communication_Input_UART();
-		read_registers_TMC6200();
+// 		read_registers_TMC6200();
     }
 }
 

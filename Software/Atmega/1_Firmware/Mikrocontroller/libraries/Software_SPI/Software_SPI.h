@@ -15,7 +15,7 @@
 
 #include <util/delay.h>
 
-void softspi_setup_master(void);
+void softspi_init(void);
 void softspi_clk_low(void);
 void softspi_clk_high(void);
 void softspi_mosi_low(void);

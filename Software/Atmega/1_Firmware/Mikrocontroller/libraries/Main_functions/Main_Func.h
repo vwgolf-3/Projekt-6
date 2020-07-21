@@ -14,6 +14,9 @@
 
 void TIMER_init(void);
 void IO_init(void);
+void speicher_init();
+void devices_init(void);
+void interfaces_init(void);
 void heartbeat_LED(void);
 void toggle_LED(void);
 char check_Communication_Input_UART_0(void);

@@ -53,7 +53,7 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 
 ******************************************************************************************************************/
 		
-	for (int8_t count = 0 ; count <= 20; count++)
+	for (int8_t count = 0 ; count <= 100; count++)
 	{
 		// String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
 		strcpy((char *)buff_init_textfiles_zutat, (const char *)"Z");

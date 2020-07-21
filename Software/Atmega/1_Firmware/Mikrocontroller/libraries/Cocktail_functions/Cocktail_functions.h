@@ -63,14 +63,12 @@ void SD_startup(void);
 uint8_t compare_string(char *first, char *second);
 uint8_t pruefe_kopf(char * beginn, char string[]);
 void lese_textfile_in_getraenk(uint8_t file);
-
-// Testfunktion
-void cocktail_test_command(unsigned char INPUT[256]);
-
-
 void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
 void loesche_FIle(uint8_t filename);
 void schreibe_Menge_in_Getraenk(uint8_t zutat);
+
+// Testfunktion
+void cocktail_test_command(unsigned char INPUT[256]);
 
 void schiebe_file_prev(void);
 void schiebe_file_next(void);
@@ -81,6 +79,11 @@ void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
 void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr);
+
+void send_List_Getraenke (void);
+void send_List_RFID (void);
+void send_List_Zutaten (void);
+
 extern uint8_t test2;
 
 enum Zutat_in_Maschine_Status{KEINGETRAENK, VOLL, LEER};

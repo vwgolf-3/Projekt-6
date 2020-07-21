@@ -58,10 +58,7 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 void initTMC6200(void)
 {
 	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000000);
-	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, 0x00000001);
-// 	tmc6200_writeInt(MOTOR0, TMC6200_IOIN_OUTPUT, );
 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_PROG, 0x00000000);
-// 	tmc6200_writeInt(MOTOR0, TMC6200_OTP_READ, );
 	tmc6200_writeInt(MOTOR0, TMC6200_FACTORY_CONF, 0x0000000C);
 	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, 0x12010606);
 	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080004);

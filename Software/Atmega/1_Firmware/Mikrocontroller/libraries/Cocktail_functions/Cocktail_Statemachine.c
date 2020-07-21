@@ -2074,46 +2074,19 @@ void check_RFIDFehler(uint8_t button)
 
 void check_ESP32(uint8_t button)
 {
-	char buff[10] = {'\0'};
-	uint8_t tmp = 0;
-
 	switch (button)
 	{
 		// Sende Anzahl Tags
-		case ANZAHLTAGS:
-			itoa(head_tag->tag_nummer, (char *) buff, 10);
-			Uart_Transmit_IT_ESP(buff);
-			Uart_Transmit_IT_ESP("\r");
+		case TAGNR:
+			send_List_RFID();
 		break;
 		
-		case 2:
-			tmp = aktuellesGetraenk_file->file;
-			aktuellesGetraenk_file = tail_getraenk_file;
-			do 
-			{
-				lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-				Uart_Transmit_IT_ESP(aktuellesGetraenk->name);
-				Uart_Transmit_IT_ESP(":");
-			} while (aktuellesGetraenk_file  != tail_getraenk_file);
-			Uart_Transmit_IT_ESP(";");
-			aktuellesGetraenk_file = tail_getraenk_file;
-			
-			char run = 1;
-			
-			do 
-			{
-				if (tmp == aktuellesGetraenk_file->file)
-				{
-					run = 0;
-				}
-				aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
-			} while (run == 1);
-			
+		case GETRAENKE:
+			send_List_Getraenke();
 		break;
 		
-		case 3:
-		setze_startanzeige(aktuellesGetraenk);
+		case ZUTATEN2:
+			send_List_Zutaten();
 		break;
-
 	}
 }

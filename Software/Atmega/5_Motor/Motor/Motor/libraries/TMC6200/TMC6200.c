@@ -57,6 +57,8 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 	disable_Slave(TMC6200);
 }
 
+
+
 void initTMC6200(void)
 {
   	EN_TMC6200_PORT |= EN_TMC6200_BIT;

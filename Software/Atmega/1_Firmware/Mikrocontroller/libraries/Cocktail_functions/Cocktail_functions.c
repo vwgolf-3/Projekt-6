@@ -1130,3 +1130,69 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 	writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
 }
 
+void send_List_Getraenke (void)
+{
+	char buff[512] = {'\0'};
+	char * ptr = buff;
+	aktuellesGetraenk_file = tail_getraenk_file;
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+	strcat(ptr, "getraenkeliste:");
+	strcat(ptr, aktuellesGetraenk->name);
+	do
+	{
+		strcat(ptr, ",");
+		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+		lese_textfile_in_getraenk(aktuelles_zutat_file->file);
+		strcat(ptr, aktuellesGetraenk->name);
+	} while (aktuellesGetraenk_file != tail_getraenk_file);
+	strcat(ptr,":");
+	strcat(ptr,";");
+	Uart_Transmit_IT_PC(ptr);
+	Uart_Transmit_IT_ESP(ptr);
+}
+
+void send_List_RFID (void)
+{
+	char buff[512] = {'\0'};
+	char buff2[10] = {'\0'};
+	char * ptr = buff;
+	char * ptr2 = buff2;
+	aktueller_tag = tail_tag;
+	strcat(ptr, "tagnummer:");
+	itoa(aktueller_tag->tag_nummer, ptr2, 10);
+	strcat(ptr, ptr2);
+	do
+	{
+		strcat(ptr, ",");
+		aktueller_tag = aktueller_tag->prev;
+		itoa(aktueller_tag->tag_nummer, ptr2, 10);
+		strcat(ptr, ptr2);
+		aktueller_tag = aktueller_tag->prev;
+	} while (aktueller_tag != tail_tag);
+	strcat(ptr,":");
+	strcat(ptr,";");
+	Uart_Transmit_IT_ESP(ptr);
+	Uart_Transmit_IT_PC(ptr);
+}
+
+void send_List_Zutaten (void)
+{
+	char buff[512] = {'\0'};
+	char * ptr = buff;
+	
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	
+	strcat(ptr, "zutaten:");
+	strcat(ptr, aktuelleZutatInMaschine->name);
+	aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	do
+	{
+		strcat(ptr, ",");
+		strcat(ptr, aktuelleZutatInMaschine->name);
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	} while (aktuelleZutatInMaschine != tail_zut_in_Maschine);
+	
+	strcat(ptr,":");
+	strcat(ptr,";");
+	Uart_Transmit_IT_ESP(ptr);
+}

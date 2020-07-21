@@ -23,6 +23,65 @@ void IO_init(void)
 	SW_SPI_MISO_DDR &= ~SW_SPI_MISO_BIT;
 }
 
+void interfaces_init(void)
+{
+// Initialisierungen Interfaces
+	IO_init();												// Ein-/Ausgangspins initialisieren
+	SPI_init();												// SPI-Schnittstelle initialisieren
+	UART_init();											// UART-Schnittstelle initialisieren
+// 	softspi_init();											// Software-SPI initialisieren
+}
+
+void devices_init(void)
+{
+		nextion_change_page(FEHLERANZEIGE);
+
+	// Initialisierungen Devices
+	
+// 	nextion_setText("fehlertxt","Initialisierung RFID-Reader...");
+	// 	mfrc522_init();											// RFID initialisieren
+	
+	nextion_setText("fehlertxt","Initialisierung SD-Karte...");
+	_delay_ms(100);
+	SD_startup();											// SD-Karte initialisieren
+	_delay_ms(100);
+
+	// 	initTMC6200();											// Gate-Treiber initialisieren
+	// 	TMC4671_init();											// FOC-Treiber initialisieren
+	// 	initTMC4671_Openloop();									// FOC-Treiber im Openloop laufen lassen
+}
+
+void speicher_init()
+{
+	// Initialisierungen Speicher
+	nextion_setText("fehlertxt","Initialisierung Zutaten...");
+	Uart_Transmit_IT_PC("Initialisierung Zutaten...\r");
+	zutaten_init();											// Zutaten initialisieren
+	
+	nextion_setText("fehlertxt","Initialisierung Cocktails...");
+	Uart_Transmit_IT_PC("Initialisierung Cocktails...");
+	Uart_Transmit_IT_PC("\r");
+	cocktails_init();										// Cocktails initialisieren
+	
+	nextion_setText("fehlertxt","Initialisierung RFID...");
+	Uart_Transmit_IT_PC("Initialisierung RFID...");
+	Uart_Transmit_IT_PC("\r");
+	RFID_init();											// Tags initialisieren
+}
+
+void display_init()
+{
+	// Initialisierungen Display
+	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
+	Grossschreib = 1;										// Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
+	i_Liste = 0;											// Listenabschnitt auf 0 vordefinieren
+	block_list_hoch = 0;									// Blockierung der Listen aufheben
+	block_list_runter = 0;									// Blockierung der Listen aufheben
+	i_Liste_test_cnt = 0;
+	i_Liste_test[i_Liste_test_cnt] = 0;
+}
+
+
 void heartbeat_LED(void)
 {
 	toggle_LED();
