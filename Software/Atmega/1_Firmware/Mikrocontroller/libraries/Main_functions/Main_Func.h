@@ -9,8 +9,9 @@
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
 // Projektspezifische Pindefinitionen Cocktailmaschine<==>AVR uC
-#include "../Cocktail_functions/Cocktail_Statemachine.h"
 #include "../UART/UART.h"											// Wird benötigt für UART und Ring-Buffer
+#include "../../utils/pin_defs.h"
+#include <util/delay.h>
 
 void TIMER_init(void);
 void IO_init(void);
@@ -25,10 +26,17 @@ char check_Communication_Input_UART_1(void);
 void proceed_Communication_INPUT_UART_1(void);
 char check_Communication_Input_UART_2(void);
 void proceed_Communication_Input_UART_2(void);
-// char check_Communication_Input_UART_3(void);
-// void proceed_Communication_Input_UART_3(void);
 void check_Communication_Input_UART(void);
 void check_Communication_Input_MFRC522(void);
+
+extern void SPI_init(void);
+extern void SD_startup(void);
+extern void zutaten_init(void);
+extern void cocktails_init(void);
+extern void RFID_init(void);
+extern void cocktail_test_command(unsigned char INPUT[256]);
+extern void cocktail_check_command(int8_t page, int8_t button);
+extern void Uart_Transmit_IT_PC(char * data);
 
 void testFunc(void);
 
@@ -69,5 +77,14 @@ extern ring_buffer_t rb_rx_ESP;
 
 extern ring_buffer_t rb_tx_RFID;
 extern ring_buffer_t rb_rx_RFID;
+
+// Variable für Liste
+extern uint8_t i_Liste;
+extern uint8_t i_Liste_test[50];
+extern uint8_t i_Liste_test_cnt;
+extern uint8_t block_list_hoch;
+extern uint8_t block_list_runter;
+extern uint8_t Grossschreib;
+extern uint8_t counter;
 
 #endif /* MAIN_FUNC_H_ */

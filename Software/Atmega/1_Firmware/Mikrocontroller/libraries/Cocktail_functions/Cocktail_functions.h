@@ -14,15 +14,13 @@
 // Verbindungsbibliotheken Software/Hardware
 #include "../Nextion_Display/Nextion_Display.h"
 #include "../TMC4671/TMC4671.h"
-#include "../RC522/mfrc522.h"
-#include "../TAGS/TAGS.h"
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/FAT32.h"
 
 // Speicherstrukturen
 #include "Zutaten.h"
 #include "Getraenk.h"
-
+#include "TAGS.h"
 
 unsigned char option, error, data, FAT32_active;
 unsigned int i;
@@ -83,11 +81,8 @@ void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr);
 void send_List_Getraenke (void);
 void send_List_RFID (void);
 void send_List_Zutaten (void);
-
-extern uint8_t test2;
+void choose_aktuellesGetraenk(uint8_t nr);
 
 enum Zutat_in_Maschine_Status{KEINGETRAENK, VOLL, LEER};
-
-extern unsigned char INPUT_UART_1[256];
 
 #endif /* COCKTAIL_FUNCTIONS_H_ */

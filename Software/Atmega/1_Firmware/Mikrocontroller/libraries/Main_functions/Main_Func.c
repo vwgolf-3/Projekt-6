@@ -33,16 +33,7 @@ void interfaces_init(void)
 }
 
 void devices_init(void)
-{
-		nextion_change_page(FEHLERANZEIGE);
-
-	// Initialisierungen Devices
-	
-// 	nextion_setText("fehlertxt","Initialisierung RFID-Reader...");
-	// 	mfrc522_init();											// RFID initialisieren
-	
-	nextion_setText("fehlertxt","Initialisierung SD-Karte...");
-	_delay_ms(100);
+{	
 	SD_startup();											// SD-Karte initialisieren
 	_delay_ms(100);
 
@@ -54,25 +45,16 @@ void devices_init(void)
 void speicher_init()
 {
 	// Initialisierungen Speicher
-	nextion_setText("fehlertxt","Initialisierung Zutaten...");
-	Uart_Transmit_IT_PC("Initialisierung Zutaten...\r");
 	zutaten_init();											// Zutaten initialisieren
 	
-	nextion_setText("fehlertxt","Initialisierung Cocktails...");
-	Uart_Transmit_IT_PC("Initialisierung Cocktails...");
-	Uart_Transmit_IT_PC("\r");
 	cocktails_init();										// Cocktails initialisieren
 	
-	nextion_setText("fehlertxt","Initialisierung RFID...");
-	Uart_Transmit_IT_PC("Initialisierung RFID...");
-	Uart_Transmit_IT_PC("\r");
 	RFID_init();											// Tags initialisieren
 }
 
 void display_init()
 {
 	// Initialisierungen Display
-	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
 	Grossschreib = 1;										// Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
 	i_Liste = 0;											// Listenabschnitt auf 0 vordefinieren
 	block_list_hoch = 0;									// Blockierung der Listen aufheben

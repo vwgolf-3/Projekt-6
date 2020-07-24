@@ -5,7 +5,6 @@
  *  Author: kimsc
  */ 
 #include "SPI.h"
-#include "../Software_SPI/Software_SPI.h"
 
 void (*ptr_SPI_w_completed)(void);
 

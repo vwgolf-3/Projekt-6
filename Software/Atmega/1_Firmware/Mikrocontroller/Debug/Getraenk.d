@@ -25,15 +25,12 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h \
- ../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/Software_SPI.h \
- ../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/../../utils/pin_defs.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/Main_Func.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_Statemachine.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_functions.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../UART/UART.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/API_Header.h \
@@ -50,18 +47,13 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Fields.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../SPI/SPI.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_cmd.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_reg.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../Software_SPI/Software_SPI.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../UART/UART.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TAGS/TAGS.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Zutaten.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/Getraenk.h
+ ../libraries/Cocktail_functions/../Cocktail_functions/Getraenk.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/TAGS.h
 
 ../libraries/Cocktail_functions/Getraenk.h:
 
@@ -115,10 +107,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h:
 
-../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/Software_SPI.h:
-
-../libraries/Cocktail_functions/../SD-Karte/../Software_SPI/../../utils/pin_defs.h:
-
 ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h:
@@ -127,11 +115,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/Main_Func.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_Statemachine.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Cocktail_functions.h:
-
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../UART/UART.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 
@@ -165,18 +151,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../SPI/SPI.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_cmd.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../RC522/mfrc522_reg.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../Software_SPI/Software_SPI.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../RC522/../UART/UART.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../TAGS/TAGS.h:
-
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h:
@@ -188,3 +162,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Cocktail_functions/../Cocktail_functions/Zutaten.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/Getraenk.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/TAGS.h:

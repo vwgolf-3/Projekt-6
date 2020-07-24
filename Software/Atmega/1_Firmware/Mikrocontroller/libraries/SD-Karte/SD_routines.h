@@ -16,7 +16,6 @@
 #define _SD_ROUTINES_H_
 
 #include "../SPI/SPI.h"
-#include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
 
 //Use following macro if you don't want to activate the multiple block access functions

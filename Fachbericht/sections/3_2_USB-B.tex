@@ -5,7 +5,7 @@ Auf der Leiterplatte des PartyMixer's gibt es zwei Komponenten, welche programmi
 
 Die USB-B-Schnittstelle benötigt nur zwei Kommunikationsleitungen (D+ und D-). Die zu programmierenden Komponenten (ESP32 und ATMega2560) benötigen zusätzliche Steuerleitungen um in einen Programmiermodus zu kommen und statt einem differenziellen Verfahrens ein serielles Verfahren. Deswegen wird ein USB-UART-Converter verwendet, welcher das Signal wandelt und die Steuerleitungen zur Verfügung stellt.
 
-Die beiden Programmierschnittstellen (ATMega2560 und ESP32) benötigen unterschiedlich viele Steuerleitungen, da sie sich im Verfahren zum Aufruf des Download-Boot-Modus unterscheiden. In Tabelle \ref{tab:USB_uC} und \ref{tab:USB_ESP} wird dargestellt, welche Leitungen für das jeweilige Flash-Interface benötigt werden. In den Kapiteln \ref{}
+Die beiden Programmierschnittstellen (ATMega2560 und ESP32) benötigen unterschiedlich viele Steuerleitungen, da sie sich im Verfahren zum Aufruf des Download-Boot-Modus unterscheiden. In Tabelle \ref{tab:USB_uC} und \ref{tab:USB_ESP} wird dargestellt, welche Leitungen für das jeweilige Flash-Interface benötigt werden. Die Signalfolge, um den Programmier-Modus zu starten, wird in den Kapiteln \ref{subsubsec:Handshake_ATMega2560} und \ref{subsubsec:Handshake_ESP32} beschrieben.
 %Die USB-B-seitige Schnittstelle wird an den Computer angeschlossen und muss nicht häher betrachtet werden.
 
 \begin{table}[h!]
@@ -61,7 +61,7 @@ IO\_15 & <== & über Widerstand & === & CTS \\
 
 Der Handshake zwischen Computer und ATMega2560 ist einfacher zu verstehen als der Handshake zwischen Computer und ESP32. Da für den ATMega2560 ein stk500v2-Bootloader verwendet wird, erwartet dieser nur ein Flankenwechsel am Reset-Pin. Dadurch wird automatisch der im Programmspeicher abgelegte Bootloader gestartet und auf einkommende Daten gewartet. Nachdem das Programmiertool AVRdude die Device-Signatur (0x1E9801) verifiziert hat, sendet es das kompilierte HEX-File an den ATMega2560.
 
-Um die Daten hochladen zu können, muss sichergestellt werden, dass avrdude mit dem stk500v2 programmer hochlädt und die DTR-Leitung toggelt, bevor der Programmiervorgang stattfindet. Die DTR-Leitung hängt über einen Kondensator an der Reset-Leitung und zieht diese auf GND, womit der Bootloader des ATMega2560 aktiv wird. Deswegen wird beim Hochladen in AVRdude als programming-id der \textit{wiring}-programmer angegeben, sichtbar in Kapitel \ref{subsubsec:avrdude_in_atmelstudio_einbinden} Tabelle \ref{tab:AVRdude_commands}.
+Um die Daten hochladen zu können, muss sichergestellt werden, dass avrdude mit dem stk500v2 programmer hochlädt und die DTR-Leitung toggelt, bevor der Programmiervorgang stattfindet. Die DTR-Leitung hängt über einen Kondensator an der Reset-Leitung und zieht diese auf GND, womit der Bootloader des ATMega2560 aktiv wird. Deswegen wird beim Hochladen in AVRdude als programming-id der \textit{wiring}-programmer angegeben, sichtbar in Kapitel \ref{subsubsec:avrdude_in_atmelstudio_einbinden} Tabelle \ref{tab:AVRdude_commands} (-c wiring).
 
 \newpage
 

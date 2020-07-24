@@ -8,6 +8,8 @@ libraries\Cocktail_functions\Cocktail_Statemachine.c
 
 libraries\Cocktail_functions\Getraenk.c
 
+libraries\Cocktail_functions\TAGS.c
+
 libraries\Cocktail_functions\Zutaten.c
 
 libraries\Main_functions\Main_Func.c
@@ -22,11 +24,7 @@ libraries\SD-Karte\FAT32.c
 
 libraries\SD-Karte\SD_routines.c
 
-libraries\Software_SPI\Software_SPI.c
-
 libraries\SPI\SPI.c
-
-libraries\Tags\TAGS.c
 
 libraries\TMC4671\tmc4671.c
 

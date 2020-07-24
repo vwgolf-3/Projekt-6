@@ -160,6 +160,10 @@
       <SubType>compile</SubType>
       <Link>Getraenk.c</Link>
     </Compile>
+    <Compile Include="libraries\Cocktail_functions\TAGS.c">
+      <SubType>compile</SubType>
+      <Link>TAGS.c</Link>
+    </Compile>
     <Compile Include="libraries\Cocktail_functions\Zutaten.c">
       <SubType>compile</SubType>
       <Link>Zutaten.c</Link>
@@ -188,17 +192,9 @@
       <SubType>compile</SubType>
       <Link>SD_routines.c</Link>
     </Compile>
-    <Compile Include="libraries\Software_SPI\Software_SPI.c">
-      <SubType>compile</SubType>
-      <Link>Software_SPI.c</Link>
-    </Compile>
     <Compile Include="libraries\SPI\SPI.c">
       <SubType>compile</SubType>
       <Link>SPI.c</Link>
-    </Compile>
-    <Compile Include="libraries\Tags\TAGS.c">
-      <SubType>compile</SubType>
-      <Link>TAGS.c</Link>
     </Compile>
     <Compile Include="libraries\TMC4671\tmc4671.c">
       <SubType>compile</SubType>
