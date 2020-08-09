@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  9 AUG 2020 18:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  9 AUG 2020 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2124,7 +2124,23 @@ File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 
 LaTeX Warning: Label `fig:Schema_H_Bruecke_und_BLDC' multiply defined.
 
-(./sections/appendix.aux))
+
+LaTeX Warning: Label `fig:Crystal_Swing' multiply defined.
+
+(./sections/appendix.aux
+
+LaTeX Warning: Label `fig:PWM_UX1_H' multiply defined.
+
+
+LaTeX Warning: Label `fig:PWM_UX1_H' multiply defined.
+
+
+LaTeX Warning: Label `fig:PWM_UX1_H' multiply defined.
+
+
+LaTeX Warning: Label `fig:AtmelStudio_Locks' multiply defined.
+
+))
 \openout1 = `Fachbericht.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -2149,7 +2165,8 @@ File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 9.
 LaTeX Font Info:    Try loading font information for LGR+cmr on input line 9.
- (c:/texlive/2018/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+
+(c:/texlive/2018/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
 LaTeX Font Info:    ... okay on input line 9.
@@ -2324,7 +2341,7 @@ LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 9.
 (c:/texlive/2018/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<graphics/fhnw_ht_logo_de.pdf, id=195, 183.81773pt x 28.4543pt>
+<graphics/fhnw_ht_logo_de.pdf, id=429, 183.81773pt x 28.4543pt>
 File: graphics/fhnw_ht_logo_de.pdf Graphic file (type pdf)
 <use graphics/fhnw_ht_logo_de.pdf>
 Package pdftex.def Info: graphics/fhnw_ht_logo_de.pdf  used on input line 16.
@@ -2341,11 +2358,11 @@ _ht_logo_de.pdf>]
 
 ] (./Fachbericht.toc [1
 
-])
+] [2] [3])
 \tf@toc=\write7
 \openout7 = `Fachbericht.toc'.
 
- [2]
+ [4]
 (./sections/1_0_Einleitung.tex)pdfTeX warning (ext4): destination with the same
  identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
@@ -2355,7 +2372,7 @@ l.54 \input
 
 
 ] (./sections/2_0_Ausgangslage.tex
-<graphics/P5-Blockschema.png, id=287, 1153.30875pt x 832.61063pt>
+<graphics/P5-Blockschema.png, id=588, 1153.30875pt x 832.61063pt>
 File: graphics/P5-Blockschema.png Graphic file (type png)
 <use graphics/P5-Blockschema.png>
 Package pdftex.def Info: graphics/P5-Blockschema.png  used on input line 8.
@@ -2367,7 +2384,7 @@ been already used, duplicate ignored
 l.13 \newpage
               [2 <./graphics/P5-Blockschema.png>])
 (./sections/2_1_0_Blockschaldbild.tex
-<graphics/Blockschaltbild.png, id=293, 940.26282pt x 680.5425pt>
+<graphics/Blockschaltbild.png, id=594, 940.26282pt x 680.5425pt>
 File: graphics/Blockschaltbild.png Graphic file (type png)
 <use graphics/Blockschaltbild.png>
 Package pdftex.def Info: graphics/Blockschaltbild.png  used on input line 8.
@@ -2384,16 +2401,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 80.
  [5])
-(./sections/3_2_USB-B.tex
-
-LaTeX Warning: Reference `subsubsec:avrdude_in_atmelstudio_einbinden' on page 6
- undefined on input line 64.
-
-
-LaTeX Warning: Reference `tab:AVRdude_commands' on page 6 undefined on input li
-ne 64.
-
-[6]
+(./sections/3_2_USB-B.tex [6]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 134.
 
@@ -2407,14 +2415,14 @@ Overfull \hbox (147.17137pt too wide) in paragraph at lines 134--134
  []
 
 [7]
-<graphics/ESP32_Boot_Code.png, id=349, 394.47375pt x 347.79938pt>
+<graphics/ESP32_Boot_Code.png, id=652, 394.47375pt x 347.79938pt>
 File: graphics/ESP32_Boot_Code.png Graphic file (type png)
 <use graphics/ESP32_Boot_Code.png>
 Package pdftex.def Info: graphics/ESP32_Boot_Code.png  used on input line 140.
 (pdftex.def)             Requested size: 364.19664pt x 321.10439pt.
 ) (./sections/3_3_RFID.tex [8 <./graphics/ESP32_Boot_Code.png>])
 (./sections/3_1_SD-Karte.tex
-<graphics/micro-sd-pinout.png, id=357, 1008.01593pt x 533.74406pt>
+<graphics/micro-sd-pinout.png, id=660, 1008.01593pt x 533.74406pt>
 File: graphics/micro-sd-pinout.png Graphic file (type png)
 <use graphics/micro-sd-pinout.png>
 Package pdftex.def Info: graphics/micro-sd-pinout.png  used on input line 10.
@@ -2592,7 +2600,7 @@ Overfull \hbox (24.2562pt too wide) in paragraph at lines 51--51
  []
 
 ) (./sections/3_4_Beleuchtung.tex
-<graphics/Schema_LED1.png, id=386, 1168.365pt x 784.9325pt>
+<graphics/Schema_LED1.png, id=689, 1168.365pt x 784.9325pt>
 File: graphics/Schema_LED1.png Graphic file (type png)
 <use graphics/Schema_LED1.png>
 Package pdftex.def Info: graphics/Schema_LED1.png  used on input line 8.
@@ -2602,7 +2610,7 @@ Package pdftex.def Info: graphics/Schema_LED1.png  used on input line 8.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (./sections/4_0_Printaufbau.tex [12]
-<graphics/Print_3D.png, id=395, 1269.99469pt x 903.375pt>
+<graphics/Print_3D.png, id=698, 1269.99469pt x 903.375pt>
 File: graphics/Print_3D.png Graphic file (type png)
 <use graphics/Print_3D.png>
 Package pdftex.def Info: graphics/Print_3D.png  used on input line 7.
@@ -2619,7 +2627,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-<graphics/Netzteil_48V.png, id=403, 672.71326pt x 405.9165pt>
+<graphics/Netzteil_48V.png, id=707, 672.71326pt x 405.9165pt>
 File: graphics/Netzteil_48V.png Graphic file (type png)
 <use graphics/Netzteil_48V.png>
 Package pdftex.def Info: graphics/Netzteil_48V.png  used on input line 11.
@@ -2634,7 +2642,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-<graphics/Schema_Speisung_12V.png, id=412, 1230.09563pt x 306.39468pt>
+<graphics/Schema_Speisung_12V.png, id=716, 1230.09563pt x 306.39468pt>
 File: graphics/Schema_Speisung_12V.png Graphic file (type png)
 <use graphics/Schema_Speisung_12V.png>
 Package pdftex.def Info: graphics/Schema_Speisung_12V.png  used on input line 1
@@ -2656,7 +2664,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
  []
 
 [16]
-<graphics/Schema_Speisung_5V.png, id=442, 1234.6125pt x 271.0125pt>
+<graphics/Schema_Speisung_5V.png, id=745, 1234.6125pt x 271.0125pt>
 File: graphics/Schema_Speisung_5V.png Graphic file (type png)
 <use graphics/Schema_Speisung_5V.png>
 Package pdftex.def Info: graphics/Schema_Speisung_5V.png  used on input line 12
@@ -2678,7 +2686,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-<graphics/Schema_Speisung_3,3V.png, id=455, 886.81313pt x 450.9347pt>
+<graphics/Schema_Speisung_3,3V.png, id=758, 886.81313pt x 450.9347pt>
 File: graphics/Schema_Speisung_3,3V.png Graphic file (type png)
 <use graphics/Schema_Speisung_3,3V.png>
 Package pdftex.def Info: graphics/Schema_Speisung_3,3V.png  used on input line 
@@ -2690,14 +2698,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--19
  []
 
 ) (./sections/5_2_Motor.tex [18 <./graphics/Schema_Speisung_3,3V.PNG>]
-<graphics/Blockdiagramm_TMC4671_und_TMC6200.png, id=468, 593.21625pt x 194.9784
+<graphics/Blockdiagramm_TMC4671_und_TMC6200.png, id=770, 593.21625pt x 194.9784
 4pt>
 File: graphics/Blockdiagramm_TMC4671_und_TMC6200.png Graphic file (type png)
 <use graphics/Blockdiagramm_TMC4671_und_TMC6200.png>
 Package pdftex.def Info: graphics/Blockdiagramm_TMC4671_und_TMC6200.png  used o
 n input line 9.
 (pdftex.def)             Requested size: 364.19664pt x 119.70721pt.
-<graphics/Blockdiagramm_Motorengruppe.png, id=470, 830.72859pt x 263.10797pt>
+<graphics/Blockdiagramm_Motorengruppe.png, id=772, 830.72859pt x 263.10797pt>
 File: graphics/Blockdiagramm_Motorengruppe.png Graphic file (type png)
 <use graphics/Blockdiagramm_Motorengruppe.png>
 Package pdftex.def Info: graphics/Blockdiagramm_Motorengruppe.png  used on inpu
@@ -2708,7 +2716,7 @@ t line 18.
 
  <./graphics/Blockdiagramm_TMC4671_und_TMC6200.png> <./graphics/Blockdiagramm_M
 otorengruppe.png>]
-<graphics/Schema_H_Bruecke_und_BLDC.png, id=479, 669.78804pt x 385.87018pt>
+<graphics/Schema_H_Bruecke_und_BLDC.png, id=782, 669.78804pt x 385.87018pt>
 File: graphics/Schema_H_Bruecke_und_BLDC.png Graphic file (type png)
 <use graphics/Schema_H_Bruecke_und_BLDC.png>
 Package pdftex.def Info: graphics/Schema_H_Bruecke_und_BLDC.png  used on input 
@@ -2726,53 +2734,34 @@ Overfull \hbox (11.68845pt too wide) in paragraph at lines 4--4
  []
 
 [20 <./graphics/Schema_H_Bruecke_und_BLDC.png>]
-
-LaTeX Warning: Reference `Appendix:H_Bruecke' on page 21 undefined on input lin
-e 8.
-
-
-LaTeX Warning: Reference `fig:Schema_H_Bruecke_und_BLDC_Ref' on page 21 undefin
-ed on input line 8.
-
 File: graphics/Schema_H_Bruecke_und_BLDC.png Graphic file (type png)
 <use graphics/Schema_H_Bruecke_und_BLDC.png>
 Package pdftex.def Info: graphics/Schema_H_Bruecke_und_BLDC.png  used on input 
 line 14.
 (pdftex.def)             Requested size: 318.66946pt x 183.58463pt.
-[21]) (./sections/5_2_2_ABN-Encoder.tex
-<graphics/Schema_ABN_Encoder.png, id=499, 184.11642pt x 134.64589pt>
+ [21])
+(./sections/5_2_2_ABN-Encoder.tex
+<graphics/Schema_ABN_Encoder.png, id=805, 184.11642pt x 134.64589pt>
 File: graphics/Schema_ABN_Encoder.png Graphic file (type png)
 <use graphics/Schema_ABN_Encoder.png>
 Package pdftex.def Info: graphics/Schema_ABN_Encoder.png  used on input line 16
 .
 (pdftex.def)             Requested size: 227.62204pt x 166.46606pt.
-) (./sections/5_2_3_FOC_Treiber.tex
-[22 <./graphics/Schema_ABN_Encoder.png>]
-
-LaTeX Warning: Reference `Appendix:TMC4671' on page 23 undefined on input line 
-26.
-
-
-LaTeX Warning: Reference `fig:Blockdiagramm_TMC4671' on page 23 undefined on in
-put line 26.
-
-
-LaTeX Warning: Reference `fig:Schaltung_TMC4671' on page 23 undefined on input 
-line 26.
-
-<graphics/Schema_FOC_Treiber.png, id=510, 331.66768pt x 323.4943pt>
+) (./sections/5_2_3_FOC_Treiber.tex [22 <./graphics/Schema_ABN_Encoder.png>]
+<graphics/Schema_FOC_Treiber.png, id=819, 331.66768pt x 323.4943pt>
 File: graphics/Schema_FOC_Treiber.png Graphic file (type png)
 <use graphics/Schema_FOC_Treiber.png>
 Package pdftex.def Info: graphics/Schema_FOC_Treiber.png  used on input line 30
 .
 (pdftex.def)             Requested size: 227.62204pt x 222.01674pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [23
 
 ]
-<graphics/TMC4671_SPI_BOB_Schematic.png, id=521, 407.80928pt x 133.78554pt>
+<graphics/TMC4671_SPI_BOB_Schematic.png, id=832, 407.80928pt x 133.78554pt>
 File: graphics/TMC4671_SPI_BOB_Schematic.png Graphic file (type png)
 <use graphics/TMC4671_SPI_BOB_Schematic.png>
 Package pdftex.def Info: graphics/TMC4671_SPI_BOB_Schematic.png  used on input 
@@ -2780,14 +2769,14 @@ line 49.
 (pdftex.def)             Requested size: 455.24408pt x 149.35495pt.
  [24 <./graphics/Schema_FOC_Treiber.png> <./graphics/TMC4671_SPI_BOB_Schematic.
 png>]
-<graphics/TMC4671_Phasenstroeme_BOB_Schematic.png, id=531, 181.10518pt x 99.801
+<graphics/TMC4671_Phasenstroeme_BOB_Schematic.png, id=842, 181.10518pt x 99.801
 42pt>
 File: graphics/TMC4671_Phasenstroeme_BOB_Schematic.png Graphic file (type png)
 <use graphics/TMC4671_Phasenstroeme_BOB_Schematic.png>
 Package pdftex.def Info: graphics/TMC4671_Phasenstroeme_BOB_Schematic.png  used
  on input line 66.
 (pdftex.def)             Requested size: 227.62204pt x 125.44281pt.
-<graphics/TMC4671_ABN_Encoder_BOB_Schematic.png, id=532, 391.4625pt x 117.43875
+<graphics/TMC4671_ABN_Encoder_BOB_Schematic.png, id=843, 391.4625pt x 117.43875
 pt>
 File: graphics/TMC4671_ABN_Encoder_BOB_Schematic.png Graphic file (type png)
 <use graphics/TMC4671_ABN_Encoder_BOB_Schematic.png>
@@ -2796,14 +2785,14 @@ n input line 90.
 (pdftex.def)             Requested size: 318.66946pt x 95.60509pt.
  [25 <./graphics/TMC4671_Phasenstroeme_BOB_Schematic.png> <./graphics/TMC4671_A
 BN_Encoder_BOB_Schematic.png>]
-<graphics/TMC4671_Motorspannung_BOB_Schematic.png, id=546, 181.10518pt x 74.420
+<graphics/TMC4671_Motorspannung_BOB_Schematic.png, id=858, 181.10518pt x 74.420
 9pt>
 File: graphics/TMC4671_Motorspannung_BOB_Schematic.png Graphic file (type png)
 <use graphics/TMC4671_Motorspannung_BOB_Schematic.png>
 Package pdftex.def Info: graphics/TMC4671_Motorspannung_BOB_Schematic.png  used
  on input line 105.
 (pdftex.def)             Requested size: 318.66946pt x 130.9573pt.
-<graphics/TMC4671_PWM_BOB_Schematic.png, id=547, 342.42215pt x 202.18393pt>
+<graphics/TMC4671_PWM_BOB_Schematic.png, id=859, 342.42215pt x 202.18393pt>
 File: graphics/TMC4671_PWM_BOB_Schematic.png Graphic file (type png)
 <use graphics/TMC4671_PWM_BOB_Schematic.png>
 Package pdftex.def Info: graphics/TMC4671_PWM_BOB_Schematic.png  used on input 
@@ -2812,19 +2801,7 @@ line 116.
 ) (./sections/5_2_4_Gate_Treiber.tex
 [26 <./graphics/TMC4671_Motorspannung_BOB_Schematic.png> <./graphics/TMC4671_PW
 M_BOB_Schematic.png>]
-
-LaTeX Warning: Reference `Appendix:TMC6200' on page 27 undefined on input line 
-12.
-
-
-LaTeX Warning: Reference `fig:Schaltung_TMC6200' on page 27 undefined on input 
-line 12.
-
-
-LaTeX Warning: Reference `fig:Blockdiagramm_TMC6200' on page 27 undefined on in
-put line 12.
-
-<graphics/Schema_Gate_Treiber.png, id=559, 528.2593pt x 412.97144pt>
+<graphics/Schema_Gate_Treiber.png, id=874, 528.2593pt x 412.97144pt>
 File: graphics/Schema_Gate_Treiber.png Graphic file (type png)
 <use graphics/Schema_Gate_Treiber.png>
 Package pdftex.def Info: graphics/Schema_Gate_Treiber.png  used on input line 1
@@ -2840,14 +2817,6 @@ Overfull \hbox (67.93152pt too wide) in paragraph at lines 20--20
 [][][][]\T1/lmr/m/n/9 Kondensatoren/Widerstände |
  []
 
-
-LaTeX Warning: Reference `Appendix:TMC6200' on page 27 undefined on input line 
-39.
-
-
-LaTeX Warning: Reference `fig:Tabelle_Shunts' on page 27 undefined on input lin
-e 39.
-
 [27
 
  <./graphics/Schema_Gate_Treiber.png>]
@@ -2855,26 +2824,10 @@ LaTeX Font Info:    Try loading font information for U+eur on input line 42.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/ueur.fd
 File: ueur.fd 2013/01/14 v3.01 Euler Roman
-)
-
-LaTeX Warning: Reference `Appendix:TMC6200' on page 28 undefined on input line 
-50.
-
-
-LaTeX Warning: Reference `fig:Tabelle_Gatewiderstaende' on page 28 undefined on
- input line 50.
-
-
-LaTeX Warning: Reference `Appendix:TMC6200' on page 28 undefined on input line 
-81.
-
-
-LaTeX Warning: Reference `fig:Schema_Gate_Treiber_Gatespannung' on page 28 unde
-fined on input line 81.
-
-) (./sections/5_3_Fluessigkeitsbefoerderung.tex [28])
+))
+(./sections/5_3_Fluessigkeitsbefoerderung.tex [28])
 (./sections/5_3_0_Pumpen.tex
-<graphics/Schema_Pumpenansteuerung.png, id=588, 383.93437pt x 259.7203pt>
+<graphics/Schema_Pumpenansteuerung.png, id=913, 383.93437pt x 259.7203pt>
 File: graphics/Schema_Pumpenansteuerung.png Graphic file (type png)
 <use graphics/Schema_Pumpenansteuerung.png>
 Package pdftex.def Info: graphics/Schema_Pumpenansteuerung.png  used on input l
@@ -2884,7 +2837,7 @@ ine 12.
 
  <./graphics/Schema_Pumpenansteuerung.PNG>]
 (./sections/5_3_1_Durchflussmessgeraete.tex
-<graphics/Schema_Durchflussmessgeraete.png, id=601, 497.60907pt x 256.70906pt>
+<graphics/Schema_Durchflussmessgeraete.png, id=926, 497.60907pt x 256.70906pt>
 File: graphics/Schema_Durchflussmessgeraete.png Graphic file (type png)
 <use graphics/Schema_Durchflussmessgeraete.png>
 Package pdftex.def Info: graphics/Schema_Durchflussmessgeraete.png  used on inp
@@ -2893,7 +2846,7 @@ ut line 12.
 )
 (./sections/5_4_Programmierschnittstelle.tex [30 <./graphics/Schema_Durchflussm
 essgeraete.PNG>]) (./sections/5_4_2_USB-B.tex
-<graphics/Schema_USB_B.png, id=613, 670.64839pt x 373.82518pt>
+<graphics/Schema_USB_B.png, id=938, 670.64839pt x 373.82518pt>
 File: graphics/Schema_USB_B.png Graphic file (type png)
 <use graphics/Schema_USB_B.png>
 Package pdftex.def Info: graphics/Schema_USB_B.png  used on input line 11.
@@ -2907,7 +2860,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--109
  []
 
 (./sections/5_4_0_Touch_Display.tex
-<graphics/Schema_Display.png, id=626, 206.05554pt x 139.80803pt>
+<graphics/Schema_Display.png, id=952, 206.05554pt x 139.80803pt>
 File: graphics/Schema_Display.png Graphic file (type png)
 <use graphics/Schema_Display.png>
 Package pdftex.def Info: graphics/Schema_Display.png  used on input line 12.
@@ -2915,13 +2868,13 @@ Package pdftex.def Info: graphics/Schema_Display.png  used on input line 12.
 ) (./sections/5_4_1_ESP-XXX.tex [33
 
  <./graphics/Schema_Display.png>]
-<graphics/Schema_ESP32.png, id=637, 307.57768pt x 206.9159pt>
+<graphics/Schema_ESP32.png, id=962, 307.57768pt x 206.9159pt>
 File: graphics/Schema_ESP32.png Graphic file (type png)
 <use graphics/Schema_ESP32.png>
 Package pdftex.def Info: graphics/Schema_ESP32.png  used on input line 13.
 (pdftex.def)             Requested size: 455.24408pt x 306.2686pt.
  [34 <./graphics/Schema_ESP32.png>]
-<graphics/Schema_ESP32_Flashbuttons.png, id=653, 427.5975pt x 403.93768pt>
+<graphics/Schema_ESP32_Flashbuttons.png, id=978, 427.5975pt x 403.93768pt>
 File: graphics/Schema_ESP32_Flashbuttons.png Graphic file (type png)
 <use graphics/Schema_ESP32_Flashbuttons.png>
 Package pdftex.def Info: graphics/Schema_ESP32_Flashbuttons.png  used on input 
@@ -2932,7 +2885,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-<graphics/Schema_RFID.png, id=664, 572.56767pt x 458.14018pt>
+<graphics/Schema_RFID.png, id=989, 572.56767pt x 458.14018pt>
 File: graphics/Schema_RFID.png Graphic file (type png)
 <use graphics/Schema_RFID.png>
 Package pdftex.def Info: graphics/Schema_RFID.png  used on input line 21.
@@ -2943,19 +2896,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
  []
 
 [36 <./graphics/Schema_RFID.png>]) (./sections/5_5_Beleuchtung.tex
-<graphics/Schema_LED.png, id=677, 922.73303pt x 401.78679pt>
+<graphics/Schema_LED.png, id=1002, 922.73303pt x 401.78679pt>
 File: graphics/Schema_LED.png Graphic file (type png)
 <use graphics/Schema_LED.png>
 Package pdftex.def Info: graphics/Schema_LED.png  used on input line 12.
 (pdftex.def)             Requested size: 455.24408pt x 198.22601pt.
  [37 <./graphics/Schema_LED.png>]) (./sections/5_6_Mikrocontroller.tex
-<graphics/Schema_uC.png, id=687, 793.46437pt x 386.94562pt>
+<graphics/Schema_uC.png, id=1013, 793.46437pt x 386.94562pt>
 File: graphics/Schema_uC.png Graphic file (type png)
 <use graphics/Schema_uC.png>
 Package pdftex.def Info: graphics/Schema_uC.png  used on input line 12.
 (pdftex.def)             Requested size: 455.24408pt x 222.01375pt.
 ) [38 <./graphics/Schema_uC.png>] (./sections/5_6_SD_Karte.tex
-<graphics/Schema_SD_Karte.png, id=698, 522.45187pt x 245.41687pt>
+<graphics/Schema_SD_Karte.png, id=1024, 522.45187pt x 245.41687pt>
 File: graphics/Schema_SD_Karte.png Graphic file (type png)
 <use graphics/Schema_SD_Karte.png>
 Package pdftex.def Info: graphics/Schema_SD_Karte.png  used on input line 12.
@@ -2965,21 +2918,12 @@ Package pdftex.def Info: graphics/Schema_SD_Karte.png  used on input line 12.
 (./sections/6_1_1_12V_Speisung.tex) (./sections/6_1_2_5V_Speisung.tex)
 (./sections/6_1_3_3.3V_Speisung.tex)
 (./sections/6_3_Programmierschnittstellen.tex [40]) (./sections/6_3_2_USB-B.tex
-
-LaTeX Warning: Reference `subsubsec:Inbetriebnahme_uC_Vorgehen' on page 41 unde
-fined on input line 4.
-
-<graphics/USB_B_Print.jpg, id=716, 1381.41093pt x 1888.05376pt>
+<graphics/USB_B_Print.jpg, id=1042, 1381.41093pt x 1888.05376pt>
 File: graphics/USB_B_Print.jpg Graphic file (type jpg)
 <use graphics/USB_B_Print.jpg>
 Package pdftex.def Info: graphics/USB_B_Print.jpg  used on input line 9.
 (pdftex.def)             Requested size: 264.04239pt x 360.86583pt.
 [41 <./graphics/USB_B_Print.jpg>]
-
-LaTeX Warning: Reference `fig:USB_Devices_Ger_Man' on page 42 undefined on inpu
-t line 18.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 17--20
 
  []
@@ -2989,13 +2933,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
 
-<graphics/ATMega2560_DTR_RESET_RX_TX_gesamt.png, id=725, 803.0pt x 481.8pt>
+<graphics/ATMega2560_DTR_RESET_RX_TX_gesamt.png, id=1052, 803.0pt x 481.8pt>
 File: graphics/ATMega2560_DTR_RESET_RX_TX_gesamt.png Graphic file (type png)
 <use graphics/ATMega2560_DTR_RESET_RX_TX_gesamt.png>
 Package pdftex.def Info: graphics/ATMega2560_DTR_RESET_RX_TX_gesamt.png  used o
 n input line 38.
 (pdftex.def)             Requested size: 455.24408pt x 273.15115pt.
-<graphics/ATMega2560_DTR_RESET_RX_TX_1.png, id=726, 803.0pt x 481.8pt>
+<graphics/ATMega2560_DTR_RESET_RX_TX_1.png, id=1053, 803.0pt x 481.8pt>
 File: graphics/ATMega2560_DTR_RESET_RX_TX_1.png Graphic file (type png)
 <use graphics/ATMega2560_DTR_RESET_RX_TX_1.png>
 Package pdftex.def Info: graphics/ATMega2560_DTR_RESET_RX_TX_1.png  used on inp
@@ -3015,13 +2959,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
  []
 
 [43 <./graphics/ATMega2560_DTR_RESET_RX_TX_1.png (PNG copy)>]
-<graphics/ESP32_RTS_DTR_EN_IO0_gesamt.png, id=745, 803.0pt x 481.8pt>
+<graphics/ESP32_RTS_DTR_EN_IO0_gesamt.png, id=1074, 803.0pt x 481.8pt>
 File: graphics/ESP32_RTS_DTR_EN_IO0_gesamt.png Graphic file (type png)
 <use graphics/ESP32_RTS_DTR_EN_IO0_gesamt.png>
 Package pdftex.def Info: graphics/ESP32_RTS_DTR_EN_IO0_gesamt.png  used on inpu
 t line 75.
 (pdftex.def)             Requested size: 455.24408pt x 273.15115pt.
-<graphics/ESP32_RTS_DTR_EN_IO0_2.png, id=746, 803.0pt x 481.8pt>
+<graphics/ESP32_RTS_DTR_EN_IO0_2.png, id=1075, 803.0pt x 481.8pt>
 File: graphics/ESP32_RTS_DTR_EN_IO0_2.png Graphic file (type png)
 <use graphics/ESP32_RTS_DTR_EN_IO0_2.png>
 Package pdftex.def Info: graphics/ESP32_RTS_DTR_EN_IO0_2.png  used on input lin
@@ -3029,13 +2973,13 @@ e 82.
 (pdftex.def)             Requested size: 455.24408pt x 273.15115pt.
  [44 <./graphics/ESP32_RTS_DTR_EN_IO0_gesamt.png (PNG copy)> <./graphics/ESP32_
 RTS_DTR_EN_IO0_2.png (PNG copy)>]
-<graphics/ESP32_Handshake_Forum.png, id=754, 596.2275pt x 113.67468pt>
+<graphics/ESP32_Handshake_Forum.png, id=1083, 596.2275pt x 113.67468pt>
 File: graphics/ESP32_Handshake_Forum.png Graphic file (type png)
 <use graphics/ESP32_Handshake_Forum.png>
 Package pdftex.def Info: graphics/ESP32_Handshake_Forum.png  used on input line
  94.
 (pdftex.def)             Requested size: 455.24408pt x 86.79605pt.
-<graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1.png, id=756, 803.0pt x 481.8pt>
+<graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1.png, id=1085, 803.0pt x 481.8pt>
 File: graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1.png Graphic file (type png)
 <use graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1.png>
 Package pdftex.def Info: graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1.png  used 
@@ -3044,53 +2988,88 @@ on input line 108.
 ) (./sections/6_3_Benutzerschnittstellen.tex [45 <./graphics/ESP32_Handshake_Fo
 rum.png> <./graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1.png (PNG copy)>]) (./se
 ctions/6_3_0_Touch-Display.tex) (./sections/6_3_1_ESP-XXX.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
+Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--12
+Underfull \hbox (badness 10000) in paragraph at lines 12--18
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--15
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
+Underfull \hbox (badness 10000) in paragraph at lines 34--37
 
  []
 
 [46]) (./sections/6_3_3_RFID.tex
-<graphics/MFRC522.png, id=780, 236.082pt x 130.086pt>
+<graphics/MFRC522.png, id=1109, 236.082pt x 130.086pt>
 File: graphics/MFRC522.png Graphic file (type png)
 <use graphics/MFRC522.png>
 Package pdftex.def Info: graphics/MFRC522.png  used on input line 21.
 (pdftex.def)             Requested size: 264.04239pt x 145.50276pt.
  [47 <./graphics/MFRC522.png>]
-Overfull \hbox (214.04091pt too wide) in paragraph at lines 33--33
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+
+Overfull \hbox (214.04091pt too wide) in paragraph at lines 46--46
 \T1/lmr/m/n/9 https://www.heise.de/developer/imgs/06/2/0/1/4/1/0/3/RFID- |
  []
 
 
-Overfull \hbox (40.55066pt too wide) in paragraph at lines 33--33
+Overfull \hbox (40.55066pt too wide) in paragraph at lines 46--46
 \T1/lmr/m/n/9 5a5263ece3c12e96.png  |
  []
 
 
-Overfull \hbox (214.04091pt too wide) in paragraph at lines 33--33
+Overfull \hbox (214.04091pt too wide) in paragraph at lines 46--46
 \T1/lmr/m/n/9 https://www.heise.de/developer/imgs/06/2/0/1/4/1/0/3/RFID- |
  []
 
 
-Overfull \hbox (40.55066pt too wide) in paragraph at lines 33--33
+Overfull \hbox (40.55066pt too wide) in paragraph at lines 46--46
 \T1/lmr/m/n/9 5a5263ece3c12e96.png  |
  []
 
@@ -3135,19 +3114,6 @@ Overfull \hbox (134.12263pt too wide) in paragraph at lines 175--175
  []
 
 [49]
-
-LaTeX Warning: Reference `tab:Fuse_und_Lock-Bits' on page 50 undefined on input
- line 177.
-
-
-LaTeX Warning: Reference `Appendix:Mikrocontroller' on page 50 undefined on inp
-ut line 177.
-
-
-LaTeX Warning: Reference `Appendix:Atmel_Studio' on page 50 undefined on input 
-line 177.
-
-
 Overfull \hbox (169.45656pt too wide) in paragraph at lines 197--197
 [][][][]\T1/lmr/m/n/9 https://www.mikrocontroller.net/articles/AVRDUDE  |
  []
@@ -3156,10 +3122,6 @@ Overfull \hbox (169.45656pt too wide) in paragraph at lines 197--197
 Overfull \hbox (169.45656pt too wide) in paragraph at lines 197--197
 [][][][]\T1/lmr/m/n/9 https://www.mikrocontroller.net/articles/AVRDUDE  |
  []
-
-
-LaTeX Warning: Reference `tab:AVRdude_commands' on page 50 undefined on input l
-ine 199.
 
 
 Overfull \hbox (3.03941pt too wide) in paragraph at lines 199--200
@@ -3173,30 +3135,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--211
  []
 
 
-LaTeX Warning: Reference `Appendix:Mikrocontroller' on page 50 undefined on inp
-ut line 221.
-
-
-LaTeX Warning: Reference `fig:AtmelStudio_Fuses' on page 50 undefined on input 
-line 227.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 226--230
 
  []
 
 
-LaTeX Warning: Reference `fig:AtmelStudio_Program_Bootloader' on page 50 undefi
-ned on input line 231.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 230--233
 
  []
-
-
-LaTeX Warning: Reference `fig:AtmelStudio_Locks' on page 50 undefined on input 
-line 234.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 233--236
@@ -3208,11 +3154,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
-
-LaTeX Warning: Reference `fig:Crystal_Swing' on page 51 undefined on input line
- 251.
-
-<graphics/Crystal_Swing.png, id=821, 803.0pt x 481.8pt>
+<graphics/Crystal_Swing.png, id=1162, 803.0pt x 481.8pt>
 File: graphics/Crystal_Swing.png Graphic file (type png)
 <use graphics/Crystal_Swing.png>
 Package pdftex.def Info: graphics/Crystal_Swing.png  used on input line 255.
@@ -3263,10 +3205,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--20
  []
 
 [53]
-
-LaTeX Warning: Reference `Appendix:TMC4671' on page 54 undefined on input line 
-21.
-
 
 LaTeX Warning: Reference `)' on page 54 undefined on input line 21.
 
@@ -3327,10 +3265,6 @@ Overfull \hbox (8.72049pt too wide) in paragraph at lines 4--4
 
 ) (./sections/7_1_1_Strukturplan.tex [56]
 
-LaTeX Warning: Reference `fig:Softwareuebersicht_Atmega2560' on page 57 undefin
-ed on input line 5.
-
-
 LaTeX Warning: Reference `sec:Software_Atmega2560' on page 57 undefined on inpu
 t line 5.
 
@@ -3338,24 +3272,15 @@ t line 5.
 
 pdfTeX warning: pdflatex.exe (file ./graphics/Softwareuebersicht.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<graphics/Softwareuebersicht.pdf, id=895, 1084.05pt x 1102.1175pt>
+<graphics/Softwareuebersicht.pdf, id=1225, 1084.05pt x 1102.1175pt>
 File: graphics/Softwareuebersicht.pdf Graphic file (type pdf)
 <use graphics/Softwareuebersicht.pdf>
 Package pdftex.def Info: graphics/Softwareuebersicht.pdf  used on input line 16
 .
 (pdftex.def)             Requested size: 455.24408pt x 462.83574pt.
-) (./sections/7_1_2_Programmflussdiagramm.tex
-
-LaTeX Warning: Reference `fig:Programmfluss_Atmega2560' on page 57 undefined on
- input line 5.
-
-[57
+) (./sections/7_1_2_Programmflussdiagramm.tex [57
 
  <./graphics/Softwareuebersicht.pdf>]
-
-LaTeX Warning: Reference `fig:Softwareuebersicht_Atmega2560' on page 58 undefin
-ed on input line 8.
-
 
 LaTeX Warning: Reference `subsec:Strukturplan_Atmega' on page 58 undefined on i
 nput line 8.
@@ -3368,7 +3293,7 @@ input line 8.
 
 pdfTeX warning: pdflatex.exe (file ./graphics/Programmfluss_Atmega2560.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<graphics/Programmfluss_Atmega2560.pdf, id=931, 632.3625pt x 1084.05pt>
+<graphics/Programmfluss_Atmega2560.pdf, id=1261, 632.3625pt x 1084.05pt>
 File: graphics/Programmfluss_Atmega2560.pdf Graphic file (type pdf)
 <use graphics/Programmfluss_Atmega2560.pdf>
 Package pdftex.def Info: graphics/Programmfluss_Atmega2560.pdf  used on input l
@@ -3384,11 +3309,7 @@ Overfull \hbox (112.08817pt too wide) in paragraph at lines 28--28
 \T1/lmr/m/n/9 https://perlgeek.de/de/artikel/doppelt- |
  []
 
-
-LaTeX Warning: Reference `fig:Doubly_Linked_List_2_00' on page 60 undefined on 
-input line 30.
-
-<graphics/Doubly_Linked_List_2_00.png, id=946, 487.06969pt x 169.38281pt>
+<graphics/Doubly_Linked_List_2_00.png, id=1277, 487.06969pt x 169.38281pt>
 File: graphics/Doubly_Linked_List_2_00.png Graphic file (type png)
 <use graphics/Doubly_Linked_List_2_00.png>
 Package pdftex.def Info: graphics/Doubly_Linked_List_2_00.png  used on input li
@@ -3414,11 +3335,7 @@ Overfull \hbox (29.93773pt too wide) in paragraph at lines 39--39
 \T1/lmr/m/n/9 structures/circular- |
  []
 
-
-LaTeX Warning: Reference `fig:Doubly_Linked_List_2_0' on page 60 undefined on i
-nput line 41.
-
-<graphics/Doubly_Linked_List_2_0.png, id=947, 152.82094pt x 106.14656pt>
+<graphics/Doubly_Linked_List_2_0.png, id=1279, 152.82094pt x 106.14656pt>
 File: graphics/Doubly_Linked_List_2_0.png Graphic file (type png)
 <use graphics/Doubly_Linked_List_2_0.png>
 Package pdftex.def Info: graphics/Doubly_Linked_List_2_0.png  used on input lin
@@ -3444,11 +3361,7 @@ Overfull \hbox (4.58905pt too wide) in paragraph at lines 50--50
 \T1/lmr/m/n/9 introduction- |
  []
 
-
-LaTeX Warning: Reference `fig:Doubly_Linked_List_2_1' on page 60 undefined on i
-nput line 52.
-
-<graphics/Doubly_Linked_List_2_1.png, id=948, 361.35pt x 171.64125pt>
+<graphics/Doubly_Linked_List_2_1.png, id=1281, 361.35pt x 171.64125pt>
 File: graphics/Doubly_Linked_List_2_1.png Graphic file (type png)
 <use graphics/Doubly_Linked_List_2_1.png>
 Package pdftex.def Info: graphics/Doubly_Linked_List_2_1.png  used on input lin
@@ -3475,11 +3388,7 @@ Overfull \hbox (4.58905pt too wide) in paragraph at lines 61--61
 \T1/lmr/m/n/9 introduction- |
  []
 
-
-LaTeX Warning: Reference `fig:Doubly_Linked_List_2_2' on page 61 undefined on i
-nput line 63.
-
-<graphics/Doubly_Linked_List_2_2.png, id=962, 338.76563pt x 180.675pt>
+<graphics/Doubly_Linked_List_2_2.png, id=1296, 338.76563pt x 180.675pt>
 File: graphics/Doubly_Linked_List_2_2.png Graphic file (type png)
 <use graphics/Doubly_Linked_List_2_2.png>
 Package pdftex.def Info: graphics/Doubly_Linked_List_2_2.png  used on input lin
@@ -3505,11 +3414,7 @@ Overfull \hbox (4.58905pt too wide) in paragraph at lines 72--72
 \T1/lmr/m/n/9 introduction- |
  []
 
-
-LaTeX Warning: Reference `fig:Doubly_Linked_List_2_3' on page 61 undefined on i
-nput line 74.
-
-<graphics/Doubly_Linked_List_2_3.png, id=963, 371.88937pt x 101.62968pt>
+<graphics/Doubly_Linked_List_2_3.png, id=1298, 371.88937pt x 101.62968pt>
 File: graphics/Doubly_Linked_List_2_3.png Graphic file (type png)
 <use graphics/Doubly_Linked_List_2_3.png>
 Package pdftex.def Info: graphics/Doubly_Linked_List_2_3.png  used on input lin
@@ -3554,7 +3459,7 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 
 (./sections/appendix.tex
-<graphics/Standard_Application_Cirquit_TMC4671.png, id=1006, 555.95203pt x 363.
+<graphics/Standard_Application_Cirquit_TMC4671.png, id=1327, 555.95203pt x 363.
 23203pt>
 File: graphics/Standard_Application_Cirquit_TMC4671.png Graphic file (type png)
 
@@ -3572,7 +3477,7 @@ Overfull \hbox (6.36864pt too wide) in paragraph at lines 13--13
 [][][][]\T1/lmr/m/n/9 citeTMC4671 |
  []
 
-<graphics/Blockdiagramm_TMC4671.png, id=1007, 758.835pt x 211.16391pt>
+<graphics/Blockdiagramm_TMC4671.png, id=1328, 758.835pt x 211.16391pt>
 File: graphics/Blockdiagramm_TMC4671.png Graphic file (type png)
 <use graphics/Blockdiagramm_TMC4671.png>
 Package pdftex.def Info: graphics/Blockdiagramm_TMC4671.png  used on input line
@@ -3592,60 +3497,60 @@ Overfull \hbox (6.36864pt too wide) in paragraph at lines 24--24
 
  <./graphics/Standard_Application_Cirquit_TMC4671.png> <./graphics/Blockdiagram
 m_TMC4671.png>]
-<graphics/PWM_UX1_H.png, id=1019, 803.0pt x 481.8pt>
+<graphics/PWM_UX1_H.png, id=1335, 803.0pt x 481.8pt>
 File: graphics/PWM_UX1_H.png Graphic file (type png)
 <use graphics/PWM_UX1_H.png>
 Package pdftex.def Info: graphics/PWM_UX1_H.png  used on input line 32.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
-<graphics/PWM_UX1_L.png, id=1020, 803.0pt x 481.8pt>
+<graphics/PWM_UX1_L.png, id=1336, 803.0pt x 481.8pt>
 File: graphics/PWM_UX1_L.png Graphic file (type png)
 <use graphics/PWM_UX1_L.png>
 Package pdftex.def Info: graphics/PWM_UX1_L.png  used on input line 39.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
  [66 <./graphics/PWM_UX1_H.png (PNG copy)> <./graphics/PWM_UX1_L.png (PNG copy)
 >]
-<graphics/PWM_UX2_H.png, id=1028, 803.0pt x 481.8pt>
+<graphics/PWM_UX2_H.png, id=1343, 803.0pt x 481.8pt>
 File: graphics/PWM_UX2_H.png Graphic file (type png)
 <use graphics/PWM_UX2_H.png>
 Package pdftex.def Info: graphics/PWM_UX2_H.png  used on input line 48.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
-<graphics/PWM_UX2_L.png, id=1029, 803.0pt x 481.8pt>
+<graphics/PWM_UX2_L.png, id=1344, 803.0pt x 481.8pt>
 File: graphics/PWM_UX2_L.png Graphic file (type png)
 <use graphics/PWM_UX2_L.png>
 Package pdftex.def Info: graphics/PWM_UX2_L.png  used on input line 55.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
  [67 <./graphics/PWM_UX2_H.png (PNG copy)> <./graphics/PWM_UX2_L.png (PNG copy)
 >]
-<graphics/PWM_UX3_H.png, id=1036, 803.0pt x 481.8pt>
+<graphics/PWM_UX3_H.png, id=1352, 803.0pt x 481.8pt>
 File: graphics/PWM_UX3_H.png Graphic file (type png)
 <use graphics/PWM_UX3_H.png>
 Package pdftex.def Info: graphics/PWM_UX3_H.png  used on input line 64.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
-<graphics/PWM_UX3_L.png, id=1037, 803.0pt x 481.8pt>
+<graphics/PWM_UX3_L.png, id=1353, 803.0pt x 481.8pt>
 File: graphics/PWM_UX3_L.png Graphic file (type png)
 <use graphics/PWM_UX3_L.png>
 Package pdftex.def Info: graphics/PWM_UX3_L.png  used on input line 71.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
  [68 <./graphics/PWM_UX3_H.png (PNG copy)> <./graphics/PWM_UX3_L.png (PNG copy)
 >]
-<graphics/Motor_U.png, id=1044, 803.0pt x 481.8pt>
+<graphics/Motor_U.png, id=1360, 803.0pt x 481.8pt>
 File: graphics/Motor_U.png Graphic file (type png)
 <use graphics/Motor_U.png>
 Package pdftex.def Info: graphics/Motor_U.png  used on input line 81.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
-<graphics/Motor_V.png, id=1045, 803.0pt x 481.8pt>
+<graphics/Motor_V.png, id=1361, 803.0pt x 481.8pt>
 File: graphics/Motor_V.png Graphic file (type png)
 <use graphics/Motor_V.png>
 Package pdftex.def Info: graphics/Motor_V.png  used on input line 88.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
  [69 <./graphics/Motor_U.png (PNG copy)> <./graphics/Motor_V.png (PNG copy)>]
-<graphics/Motor_W.png, id=1053, 803.0pt x 481.8pt>
+<graphics/Motor_W.png, id=1368, 803.0pt x 481.8pt>
 File: graphics/Motor_W.png Graphic file (type png)
 <use graphics/Motor_W.png>
 Package pdftex.def Info: graphics/Motor_W.png  used on input line 98.
 (pdftex.def)             Requested size: 364.19664pt x 218.52092pt.
  [70 <./graphics/Motor_W.png (PNG copy)>]
-<graphics/Standard_Application_Cirquit_TMC6200.png, id=1059, 523.9575pt x 358.7
+<graphics/Standard_Application_Cirquit_TMC6200.png, id=1374, 523.9575pt x 358.7
 1515pt>
 File: graphics/Standard_Application_Cirquit_TMC6200.png Graphic file (type png)
 
@@ -3653,7 +3558,7 @@ File: graphics/Standard_Application_Cirquit_TMC6200.png Graphic file (type png)
 Package pdftex.def Info: graphics/Standard_Application_Cirquit_TMC6200.png  use
 d on input line 112.
 (pdftex.def)             Requested size: 364.19664pt x 249.34735pt.
-<graphics/Blockdiagramm_TMC6200.png, id=1060, 482.92921pt x 293.97328pt>
+<graphics/Blockdiagramm_TMC6200.png, id=1375, 482.92921pt x 293.97328pt>
 File: graphics/Blockdiagramm_TMC6200.png Graphic file (type png)
 <use graphics/Blockdiagramm_TMC6200.png>
 Package pdftex.def Info: graphics/Blockdiagramm_TMC6200.png  used on input line
@@ -3661,18 +3566,18 @@ Package pdftex.def Info: graphics/Blockdiagramm_TMC6200.png  used on input line
 (pdftex.def)             Requested size: 364.19664pt x 221.704pt.
  [71 <./graphics/Standard_Application_Cirquit_TMC6200.png> <./graphics/Blockdia
 gramm_TMC6200.png>]
-<graphics/Tabelle_Shunts.png, id=1070, 447.1104pt x 228.3732pt>
+<graphics/Tabelle_Shunts.png, id=1380, 447.1104pt x 228.3732pt>
 File: graphics/Tabelle_Shunts.png Graphic file (type png)
 <use graphics/Tabelle_Shunts.png>
 Package pdftex.def Info: graphics/Tabelle_Shunts.png  used on input line 132.
 (pdftex.def)             Requested size: 455.24408pt x 232.53334pt.
-<graphics/Tabelle_Gatewiderstaende.png, id=1071, 248.6088pt x 93.4692pt>
+<graphics/Tabelle_Gatewiderstaende.png, id=1381, 248.6088pt x 93.4692pt>
 File: graphics/Tabelle_Gatewiderstaende.png Graphic file (type png)
 <use graphics/Tabelle_Gatewiderstaende.png>
 Package pdftex.def Info: graphics/Tabelle_Gatewiderstaende.png  used on input l
 ine 141.
 (pdftex.def)             Requested size: 227.62204pt x 85.58337pt.
-<graphics/Schema_Gate_Treiber_Gatespannung.png, id=1072, 353.82187pt x 236.3831
+<graphics/Schema_Gate_Treiber_Gatespannung.png, id=1382, 353.82187pt x 236.3831
 2pt>
 File: graphics/Schema_Gate_Treiber_Gatespannung.png Graphic file (type png)
 <use graphics/Schema_Gate_Treiber_Gatespannung.png>
@@ -3685,13 +3590,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [72 <./graphics/Tabelle_Shunts.png (PNG copy)> <./graphics/Tabelle_Gatewidersta
 ende.png (PNG copy)>]
-<graphics/Referenzschema_10A70V.png, id=1082, 458.46281pt x 258.21469pt>
+<graphics/Referenzschema_10A70V.png, id=1388, 458.46281pt x 258.21469pt>
 File: graphics/Referenzschema_10A70V.png Graphic file (type png)
 <use graphics/Referenzschema_10A70V.png>
 Package pdftex.def Info: graphics/Referenzschema_10A70V.png  used on input line
  163.
 (pdftex.def)             Requested size: 318.66946pt x 179.48824pt.
-<graphics/Tabelle_BoD.png, id=1083, 460.72125pt x 143.78719pt>
+<graphics/Tabelle_BoD.png, id=1389, 460.72125pt x 143.78719pt>
 File: graphics/Tabelle_BoD.png Graphic file (type png)
 <use graphics/Tabelle_BoD.png>
 Package pdftex.def Info: graphics/Tabelle_BoD.png  used on input line 176.
@@ -3700,7 +3605,7 @@ Package pdftex.def Info: graphics/Tabelle_BoD.png  used on input line 176.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphics/Tabelle_Crystal.png, id=1084, 639.89063pt x 50.43843pt>
+<graphics/Tabelle_Crystal.png, id=1390, 639.89063pt x 50.43843pt>
 File: graphics/Tabelle_Crystal.png Graphic file (type png)
 <use graphics/Tabelle_Crystal.png>
 Package pdftex.def Info: graphics/Tabelle_Crystal.png  used on input line 187.
@@ -3710,19 +3615,19 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [73 <./graphics/Schema_Gate_Treiber_Gatespannung.png> <./graphics/Referenzschem
 a_10A70V.png>]
-<graphics/Tabelle_Crystal2.png, id=1101, 639.89063pt x 321.45094pt>
+<graphics/Tabelle_Crystal2.png, id=1401, 639.89063pt x 321.45094pt>
 File: graphics/Tabelle_Crystal2.png Graphic file (type png)
 <use graphics/Tabelle_Crystal2.png>
 Package pdftex.def Info: graphics/Tabelle_Crystal2.png  used on input line 198.
 
 (pdftex.def)             Requested size: 318.66946pt x 160.08742pt.
-<graphics/Tabelle_Bootloader.png, id=1102, 462.97969pt x 142.28156pt>
+<graphics/Tabelle_Bootloader.png, id=1402, 462.97969pt x 142.28156pt>
 File: graphics/Tabelle_Bootloader.png Graphic file (type png)
 <use graphics/Tabelle_Bootloader.png>
 Package pdftex.def Info: graphics/Tabelle_Bootloader.png  used on input line 20
 9.
 (pdftex.def)             Requested size: 318.66946pt x 97.93338pt.
-<graphics/Tabelle_Memory_Lock.png, id=1103, 639.89063pt x 205.5178pt>
+<graphics/Tabelle_Memory_Lock.png, id=1403, 639.89063pt x 205.5178pt>
 File: graphics/Tabelle_Memory_Lock.png Graphic file (type png)
 <use graphics/Tabelle_Memory_Lock.png>
 Package pdftex.def Info: graphics/Tabelle_Memory_Lock.png  used on input line 2
@@ -3734,13 +3639,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [74 <./graphics/Tabelle_BoD.png> <./graphics/Tabelle_Crystal.png> <./graphics/T
 abelle_Crystal2.png> <./graphics/Tabelle_Bootloader.png>]
-<graphics/USB_Devices_Ger_Man.png, id=1122, 340.64766pt x 164.11313pt>
+<graphics/USB_Devices_Ger_Man.png, id=1419, 340.64766pt x 164.11313pt>
 File: graphics/USB_Devices_Ger_Man.png Graphic file (type png)
 <use graphics/USB_Devices_Ger_Man.png>
 Package pdftex.def Info: graphics/USB_Devices_Ger_Man.png  used on input line 2
 34.
 (pdftex.def)             Requested size: 273.14922pt x 131.60118pt.
-<graphics/AtmelStudio_Fuses.png, id=1123, 607.51968pt x 382.42876pt>
+<graphics/AtmelStudio_Fuses.png, id=1420, 607.51968pt x 382.42876pt>
 File: graphics/AtmelStudio_Fuses.png Graphic file (type png)
 <use graphics/AtmelStudio_Fuses.png>
 Package pdftex.def Info: graphics/AtmelStudio_Fuses.png  used on input line 245
@@ -3750,7 +3655,7 @@ Package pdftex.def Info: graphics/AtmelStudio_Fuses.png  used on input line 245
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphics/AtmelStudio_Locks.png, id=1124, 544.28343pt x 253.69781pt>
+<graphics/AtmelStudio_Locks.png, id=1421, 544.28343pt x 253.69781pt>
 File: graphics/AtmelStudio_Locks.png Graphic file (type png)
 <use graphics/AtmelStudio_Locks.png>
 Package pdftex.def Info: graphics/AtmelStudio_Locks.png  used on input line 254
@@ -3760,7 +3665,7 @@ Package pdftex.def Info: graphics/AtmelStudio_Locks.png  used on input line 254
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [75 <./graphics/Tabelle_Memory_Lock.png> <./graphics/USB_Devices_Ger_Man.png>]
-<graphics/AtmelStudio_External_Tools.png, id=1139, 292.84406pt x 339.51843pt>
+<graphics/AtmelStudio_External_Tools.png, id=1429, 292.84406pt x 339.51843pt>
 File: graphics/AtmelStudio_External_Tools.png Graphic file (type png)
 <use graphics/AtmelStudio_External_Tools.png>
 Package pdftex.def Info: graphics/AtmelStudio_External_Tools.png  used on input
@@ -3770,7 +3675,7 @@ Package pdftex.def Info: graphics/AtmelStudio_External_Tools.png  used on input
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphics/AtmelStudio_Program_Bootloader.png, id=1140, 563.10374pt x 285.31593p
+<graphics/AtmelStudio_Program_Bootloader.png, id=1430, 563.10374pt x 285.31593p
 t>
 File: graphics/AtmelStudio_Program_Bootloader.png Graphic file (type png)
 <use graphics/AtmelStudio_Program_Bootloader.png>
@@ -3789,15 +3694,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 220.
 (./sections/appendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 220.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 220.
+Package rerunfilecheck Info: File `Fachbericht.out' has not changed.
+(rerunfilecheck)             Checksum: F8BD6D9F2D7A2FD8E7074DFD0446E4F3;7453.
 
-
-Package rerunfilecheck Warning: File `Fachbericht.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Fachbericht.out':
-(rerunfilecheck)             Before: FC9C33670CE237BB9B7DA9EF44C7B660;3279
-(rerunfilecheck)             After:  F8BD6D9F2D7A2FD8E7074DFD0446E4F3;7453.
 
 LaTeX Warning: There were undefined references.
 
@@ -3810,10 +3709,10 @@ Package logreq Info: Writing requests to 'Fachbericht.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 220.
  ) 
 Here is how much of TeX's memory you used:
- 51145 strings out of 492639
- 1059105 string characters out of 6133088
- 1565137 words of memory out of 5000000
- 53559 multiletter control sequences out of 15000+600000
+ 51212 strings out of 492639
+ 1060133 string characters out of 6133088
+ 1572651 words of memory out of 5000000
+ 53617 multiletter control sequences out of 15000+600000
  641702 words of font info for 96 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  64i,14n,81p,1823b,3419s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3893,10 +3792,10 @@ dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/p
 ublic/lm/lmro10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy10.pf
 b><c:/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2018/
 texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Fachbericht.pdf (81 pages, 8794510 bytes).
+Output written on Fachbericht.pdf (83 pages, 8804313 bytes).
 PDF statistics:
- 1321 PDF objects out of 1440 (max. 8388607)
- 1074 compressed objects within 11 object streams
- 422 named destinations out of 1000 (max. 500000)
- 764 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1608 PDF objects out of 1728 (max. 8388607)
+ 1356 compressed objects within 14 object streams
+ 431 named destinations out of 1000 (max. 500000)
+ 1228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

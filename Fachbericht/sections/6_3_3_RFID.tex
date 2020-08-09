@@ -25,7 +25,20 @@ Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
 
 Diese Pinbelegung ist von der Arduino-Library gegeben und wird auch so bei der Cocktailmaschine eingesetzt, da es keinen Grund gibt diese direkt in der Library zu ändern. Lediglich die beiden Pin's \flqq SDA\frqq~und \flqq Reset\frqq~können flexibel festgelegt werden.
 
-Um das Lesegerät in Betrieb nehmen zu können, wurde nach dem Anschliessen der Pin's Arduino IDE geöffnet. 
+Um das Lesegerät in Betrieb nehmen zu können, wurden nach dem Anschliessen des ESP32 an den Computer folgende Schritte unternommen: 
+
+\begin{enumerate}
+\item Einbinden der MFRC522 Library unter: \textcolor{blue}{Werkzeuge \textrightarrow Bibliotheken verwalten} \newline
+\item Öffnen des Beispiels DunmInfo unter: \textcolor{blue}{Datei \textrightarrow Beispiele \textrightarrow MFRC522 \textrightarrow DumpInfo} \newline
+\item Einstellen des Reset und des SDA (SS) Pin's in den defines des Codes\newline
+\item Einbinden des ESP32-Boards unter: \textcolor{blue}{Werkzeuge \textrightarrow Board \textrightarrow Boardverwalter \textrightarrow esp32} \newline
+\item Einstellen des verwendeten Boards unter: \textcolor{blue}{Werkzeuge \textrightarrow Board \textrightarrow ESP32 Arduino \textrightarrow ESP32 Dev Module} \newline
+\item Einstellen des richtigen COM-Ports unter: \textcolor{blue}{Werkzeuge \textrightarrow Port} (Kann im Geräte-Manager des Computers nachgeschaut werden) \newline
+\item Upload des Pogrammes mittels Upload-Button \newline
+\item Öffnen des Serial Monitors unter: \textcolor{blue}{Werkzeuge \textrightarrow  Serieller Monitor} \newline
+\end{enumerate}
+
+Nun konnten die verschiedenen RFID-Tag's eingelesen werden und  die gelesenen Informationen wurden am seriellen Monitor ausgegeben. 
 
 
 
