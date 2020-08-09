@@ -122,6 +122,9 @@
 \contentsline {subsubsection}{\numberline {7.1.3}Doubly Dynamic Linked Lists Allgemein}{58}{subsubsection.7.1.3}
 \contentsline {subsubsection}{\numberline {7.1.4}Doubly Dynamic Linked Lists Cocktailmixer}{60}{subsubsection.7.1.4}
 \contentsline {subsection}{\numberline {7.2}ESP32}{60}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{61}{subsubsection.7.2.1}
+\contentsline {subsection}{\numberline {7.3}Displaysoftware}{61}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Android App}{61}{subsection.7.4}
 \contentsline {section}{\numberline {8}Evaluation}{61}{section.8}
 \contentsline {section}{\numberline {9}Fazit}{61}{section.9}
 \contentsline {subsection}{\numberline {9.1}Zielerreichung}{61}{subsection.9.1}
