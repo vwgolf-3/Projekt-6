@@ -1,101 +1,102 @@
 \BOOKMARK [1][-]{section.1}{1 Einleitung}{}% 1
 \BOOKMARK [1][-]{section.2}{2 Ausgangslage}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{2.1 Blockschaltbild}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{2.2 Komponentenauswahl}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{3 Neue Hardware}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{3.1 Wirelessmodul}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{3.2 USB-B}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.2.1}{3.2.1 Handshake ATMega2560}{subsection.3.2}% 8
-\BOOKMARK [3][-]{subsubsection.3.2.2}{3.2.2 Handshake ESP32}{subsection.3.2}% 9
-\BOOKMARK [2][-]{subsection.3.3}{3.3 RFID}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.4}{3.4 SD-Karte}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.5}{3.5 Beleuchtung}{section.3}% 12
-\BOOKMARK [1][-]{section.4}{4 Printaufbau}{}% 13
-\BOOKMARK [1][-]{section.5}{5 Teilsysteme}{}% 14
-\BOOKMARK [2][-]{subsection.5.1}{5.1 Speisungen}{section.5}% 15
-\BOOKMARK [3][-]{subsubsection.5.1.1}{5.1.1 48V Speisung}{subsection.5.1}% 16
-\BOOKMARK [3][-]{subsubsection.5.1.2}{5.1.2 12V Speisung}{subsection.5.1}% 17
-\BOOKMARK [3][-]{subsubsection.5.1.3}{5.1.3 5V Speisung}{subsection.5.1}% 18
-\BOOKMARK [3][-]{subsubsection.5.1.4}{5.1.4 3.3V Speisung}{subsection.5.1}% 19
-\BOOKMARK [2][-]{subsection.5.2}{5.2 Motor}{section.5}% 20
-\BOOKMARK [3][-]{subsubsection.5.2.1}{5.2.1 BLDC}{subsection.5.2}% 21
-\BOOKMARK [3][-]{subsubsection.5.2.2}{5.2.2 H-Br\374cke}{subsection.5.2}% 22
-\BOOKMARK [3][-]{subsubsection.5.2.3}{5.2.3 ABN-Encoder}{subsection.5.2}% 23
-\BOOKMARK [3][-]{subsubsection.5.2.4}{5.2.4 FOC-Treiber TMC4671}{subsection.5.2}% 24
-\BOOKMARK [3][-]{subsubsection.5.2.5}{5.2.5 Gate-Treiber}{subsection.5.2}% 25
-\BOOKMARK [2][-]{subsection.5.3}{5.3 Fl\374ssigkeitsbef\366rderung}{section.5}% 26
-\BOOKMARK [3][-]{subsubsection.5.3.1}{5.3.1 Pumpen}{subsection.5.3}% 27
-\BOOKMARK [3][-]{subsubsection.5.3.2}{5.3.2 Durchflussmessger\344te}{subsection.5.3}% 28
-\BOOKMARK [2][-]{subsection.5.4}{5.4 Programmierschnittstellen}{section.5}% 29
-\BOOKMARK [3][-]{subsubsection.5.4.1}{5.4.1 USB-B}{subsection.5.4}% 30
-\BOOKMARK [2][-]{subsection.5.5}{5.5 Benutzerschnittstellen}{section.5}% 31
-\BOOKMARK [3][-]{subsubsection.5.5.1}{5.5.1 Display}{subsection.5.5}% 32
-\BOOKMARK [3][-]{subsubsection.5.5.2}{5.5.2 ESP}{subsection.5.5}% 33
-\BOOKMARK [3][-]{subsubsection.5.5.3}{5.5.3 RFID}{subsection.5.5}% 34
-\BOOKMARK [2][-]{subsection.5.6}{5.6 Beleuchtung}{section.5}% 35
-\BOOKMARK [2][-]{subsection.5.7}{5.7 Mikrocontroller}{section.5}% 36
-\BOOKMARK [2][-]{subsection.5.8}{5.8 SD-Karte}{section.5}% 37
-\BOOKMARK [1][-]{section.6}{6 Inbetriebnahme}{}% 38
-\BOOKMARK [2][-]{subsection.6.1}{6.1 Speisungen}{section.6}% 39
-\BOOKMARK [3][-]{subsubsection.6.1.1}{6.1.1 12V Speisung}{subsection.6.1}% 40
-\BOOKMARK [3][-]{subsubsection.6.1.2}{6.1.2 5V Speisung}{subsection.6.1}% 41
-\BOOKMARK [3][-]{subsubsection.6.1.3}{6.1.3 3.3V Speisung}{subsection.6.1}% 42
-\BOOKMARK [2][-]{subsection.6.2}{6.2 Programmierschnittstellen}{section.6}% 43
-\BOOKMARK [3][-]{subsubsection.6.2.1}{6.2.1 USB-B}{subsection.6.2}% 44
-\BOOKMARK [2][-]{subsection.6.3}{6.3 Benutzerschnittstellen}{section.6}% 45
-\BOOKMARK [3][-]{subsubsection.6.3.1}{6.3.1 Touch-Display}{subsection.6.3}% 46
-\BOOKMARK [3][-]{subsubsection.6.3.2}{6.3.2 ESP}{subsection.6.3}% 47
-\BOOKMARK [3][-]{subsubsection.6.3.3}{6.3.3 RFID}{subsection.6.3}% 48
-\BOOKMARK [2][-]{subsection.6.4}{6.4 Mikrocontroller}{section.6}% 49
-\BOOKMARK [3][-]{subsubsection.6.4.1}{6.4.1 Bootloader}{subsection.6.4}% 50
-\BOOKMARK [3][-]{subsubsection.6.4.2}{6.4.2 Fuse-Bits}{subsection.6.4}% 51
-\BOOKMARK [3][-]{subsubsection.6.4.3}{6.4.3 AVRdude in Atmel Studio einbinden}{subsection.6.4}% 52
-\BOOKMARK [3][-]{subsubsection.6.4.4}{6.4.4 Vorgehen}{subsection.6.4}% 53
-\BOOKMARK [3][-]{subsubsection.6.4.5}{6.4.5 Messungen}{subsection.6.4}% 54
-\BOOKMARK [2][-]{subsection.6.5}{6.5 Datenspeicherung}{section.6}% 55
-\BOOKMARK [3][-]{subsubsection.6.5.1}{6.5.1 mikroSD-Karte}{subsection.6.5}% 56
-\BOOKMARK [2][-]{subsection.6.6}{6.6 Fl\374ssigkeitsbef\366rderung}{section.6}% 57
-\BOOKMARK [3][-]{subsubsection.6.6.1}{6.6.1 Pumpen}{subsection.6.6}% 58
-\BOOKMARK [3][-]{subsubsection.6.6.2}{6.6.2 Durchflussmessger\344te}{subsection.6.6}% 59
-\BOOKMARK [2][-]{subsection.6.7}{6.7 Beleuchtung}{section.6}% 60
-\BOOKMARK [2][-]{subsection.6.8}{6.8 Motor}{section.6}% 61
-\BOOKMARK [3][-]{subsubsection.6.8.1}{6.8.1 BLDC und H-Br\374cke}{subsection.6.8}% 62
-\BOOKMARK [3][-]{subsubsection.6.8.2}{6.8.2 ABN-Encoder}{subsection.6.8}% 63
-\BOOKMARK [3][-]{subsubsection.6.8.3}{6.8.3 FOC-Treiber}{subsection.6.8}% 64
-\BOOKMARK [3][-]{subsubsection.6.8.4}{6.8.4 Gate-Treiber}{subsection.6.8}% 65
-\BOOKMARK [1][-]{section.7}{7 Software}{}% 66
-\BOOKMARK [2][-]{subsection.7.1}{7.1 Atmega2560}{section.7}% 67
-\BOOKMARK [3][-]{subsubsection.7.1.1}{7.1.1 Strukturplan}{subsection.7.1}% 68
-\BOOKMARK [3][-]{subsubsection.7.1.2}{7.1.2 Programmflussdiagramm}{subsection.7.1}% 69
-\BOOKMARK [3][-]{subsubsection.7.1.3}{7.1.3 Doubly Dynamic Linked Lists Allgemein}{subsection.7.1}% 70
-\BOOKMARK [3][-]{subsubsection.7.1.4}{7.1.4 Doubly Dynamic Linked Lists Cocktailmixer}{subsection.7.1}% 71
+\BOOKMARK [1][-]{section.3}{3 Neue Hardware}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Wirelessmodul}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.2}{3.2 USB-B}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.1}{3.2.1 Handshake ATMega2560}{subsection.3.2}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.2}{3.2.2 Handshake ESP32}{subsection.3.2}% 8
+\BOOKMARK [2][-]{subsection.3.3}{3.3 RFID}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{3.4 SD-Karte}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{3.5 Beleuchtung}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{4 Printaufbau}{}% 12
+\BOOKMARK [1][-]{section.5}{5 Teilsysteme}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Speisungen}{section.5}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.1}{5.1.1 48V Speisung}{subsection.5.1}% 15
+\BOOKMARK [3][-]{subsubsection.5.1.2}{5.1.2 12V Speisung}{subsection.5.1}% 16
+\BOOKMARK [3][-]{subsubsection.5.1.3}{5.1.3 5V Speisung}{subsection.5.1}% 17
+\BOOKMARK [3][-]{subsubsection.5.1.4}{5.1.4 3.3V Speisung}{subsection.5.1}% 18
+\BOOKMARK [2][-]{subsection.5.2}{5.2 Motor}{section.5}% 19
+\BOOKMARK [3][-]{subsubsection.5.2.1}{5.2.1 BLDC}{subsection.5.2}% 20
+\BOOKMARK [3][-]{subsubsection.5.2.2}{5.2.2 H-Br\374cke}{subsection.5.2}% 21
+\BOOKMARK [3][-]{subsubsection.5.2.3}{5.2.3 ABN-Encoder}{subsection.5.2}% 22
+\BOOKMARK [3][-]{subsubsection.5.2.4}{5.2.4 FOC-Treiber TMC4671}{subsection.5.2}% 23
+\BOOKMARK [3][-]{subsubsection.5.2.5}{5.2.5 Gate-Treiber}{subsection.5.2}% 24
+\BOOKMARK [2][-]{subsection.5.3}{5.3 Fl\374ssigkeitsbef\366rderung}{section.5}% 25
+\BOOKMARK [3][-]{subsubsection.5.3.1}{5.3.1 Pumpen}{subsection.5.3}% 26
+\BOOKMARK [3][-]{subsubsection.5.3.2}{5.3.2 Durchflussmessger\344te}{subsection.5.3}% 27
+\BOOKMARK [2][-]{subsection.5.4}{5.4 Programmierschnittstellen}{section.5}% 28
+\BOOKMARK [3][-]{subsubsection.5.4.1}{5.4.1 USB-B}{subsection.5.4}% 29
+\BOOKMARK [2][-]{subsection.5.5}{5.5 Benutzerschnittstellen}{section.5}% 30
+\BOOKMARK [3][-]{subsubsection.5.5.1}{5.5.1 Display}{subsection.5.5}% 31
+\BOOKMARK [3][-]{subsubsection.5.5.2}{5.5.2 ESP}{subsection.5.5}% 32
+\BOOKMARK [3][-]{subsubsection.5.5.3}{5.5.3 RFID}{subsection.5.5}% 33
+\BOOKMARK [2][-]{subsection.5.6}{5.6 Beleuchtung}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.7}{5.7 Mikrocontroller}{section.5}% 35
+\BOOKMARK [2][-]{subsection.5.8}{5.8 SD-Karte}{section.5}% 36
+\BOOKMARK [1][-]{section.6}{6 Inbetriebnahme}{}% 37
+\BOOKMARK [2][-]{subsection.6.1}{6.1 Speisungen}{section.6}% 38
+\BOOKMARK [3][-]{subsubsection.6.1.1}{6.1.1 12V Speisung}{subsection.6.1}% 39
+\BOOKMARK [3][-]{subsubsection.6.1.2}{6.1.2 5V Speisung}{subsection.6.1}% 40
+\BOOKMARK [3][-]{subsubsection.6.1.3}{6.1.3 3.3V Speisung}{subsection.6.1}% 41
+\BOOKMARK [2][-]{subsection.6.2}{6.2 Programmierschnittstellen}{section.6}% 42
+\BOOKMARK [3][-]{subsubsection.6.2.1}{6.2.1 USB-B}{subsection.6.2}% 43
+\BOOKMARK [2][-]{subsection.6.3}{6.3 Benutzerschnittstellen}{section.6}% 44
+\BOOKMARK [3][-]{subsubsection.6.3.1}{6.3.1 Touch-Display}{subsection.6.3}% 45
+\BOOKMARK [3][-]{subsubsection.6.3.2}{6.3.2 ESP}{subsection.6.3}% 46
+\BOOKMARK [3][-]{subsubsection.6.3.3}{6.3.3 RFID}{subsection.6.3}% 47
+\BOOKMARK [2][-]{subsection.6.4}{6.4 Mikrocontroller}{section.6}% 48
+\BOOKMARK [3][-]{subsubsection.6.4.1}{6.4.1 Bootloader}{subsection.6.4}% 49
+\BOOKMARK [3][-]{subsubsection.6.4.2}{6.4.2 Fuse-Bits}{subsection.6.4}% 50
+\BOOKMARK [3][-]{subsubsection.6.4.3}{6.4.3 AVRdude in Atmel Studio einbinden}{subsection.6.4}% 51
+\BOOKMARK [3][-]{subsubsection.6.4.4}{6.4.4 Vorgehen}{subsection.6.4}% 52
+\BOOKMARK [3][-]{subsubsection.6.4.5}{6.4.5 Messungen}{subsection.6.4}% 53
+\BOOKMARK [2][-]{subsection.6.5}{6.5 Datenspeicherung}{section.6}% 54
+\BOOKMARK [3][-]{subsubsection.6.5.1}{6.5.1 mikroSD-Karte}{subsection.6.5}% 55
+\BOOKMARK [2][-]{subsection.6.6}{6.6 Fl\374ssigkeitsbef\366rderung}{section.6}% 56
+\BOOKMARK [3][-]{subsubsection.6.6.1}{6.6.1 Pumpen}{subsection.6.6}% 57
+\BOOKMARK [3][-]{subsubsection.6.6.2}{6.6.2 Durchflussmessger\344te}{subsection.6.6}% 58
+\BOOKMARK [2][-]{subsection.6.7}{6.7 Beleuchtung}{section.6}% 59
+\BOOKMARK [2][-]{subsection.6.8}{6.8 Motor}{section.6}% 60
+\BOOKMARK [3][-]{subsubsection.6.8.1}{6.8.1 BLDC und H-Br\374cke}{subsection.6.8}% 61
+\BOOKMARK [3][-]{subsubsection.6.8.2}{6.8.2 ABN-Encoder}{subsection.6.8}% 62
+\BOOKMARK [3][-]{subsubsection.6.8.3}{6.8.3 FOC-Treiber}{subsection.6.8}% 63
+\BOOKMARK [3][-]{subsubsection.6.8.4}{6.8.4 Gate-Treiber}{subsection.6.8}% 64
+\BOOKMARK [1][-]{section.7}{7 Software}{}% 65
+\BOOKMARK [2][-]{subsection.7.1}{7.1 Atmega2560}{section.7}% 66
+\BOOKMARK [3][-]{subsubsection.7.1.1}{7.1.1 Strukturplan}{subsection.7.1}% 67
+\BOOKMARK [3][-]{subsubsection.7.1.2}{7.1.2 Programmflussdiagramm}{subsection.7.1}% 68
+\BOOKMARK [3][-]{subsubsection.7.1.3}{7.1.3 Doubly Dynamic Linked Lists Allgemein}{subsection.7.1}% 69
+\BOOKMARK [3][-]{subsubsection.7.1.4}{7.1.4 Doubly Dynamic Linked Lists Cocktailmixer}{subsection.7.1}% 70
+\BOOKMARK [2][-]{subsection.7.2}{7.2 ESP32}{section.7}% 71
 \BOOKMARK [1][-]{section.8}{8 Evaluation}{}% 72
 \BOOKMARK [1][-]{section.9}{9 Fazit}{}% 73
 \BOOKMARK [2][-]{subsection.9.1}{9.1 Zielerreichung}{section.9}% 74
 \BOOKMARK [2][-]{subsection.9.2}{9.2 Kosten}{section.9}% 75
 \BOOKMARK [1][-]{section.10}{10 Schlusswort}{}% 76
 \BOOKMARK [1][-]{section.11}{11 Ehrlichkeitserkl\344rung}{}% 77
-\BOOKMARK [1][-]{appendix.A}{A TMC4671}{}% 78
-\BOOKMARK [2][-]{subsection.A.1}{A.1 Standard-Schaltkreis TMC4671}{appendix.A}% 79
-\BOOKMARK [2][-]{subsection.A.2}{A.2 Blockdiagramm TMC4671}{appendix.A}% 80
-\BOOKMARK [2][-]{subsection.A.3}{A.3 Inbetriebnahme Gate-Control}{appendix.A}% 81
-\BOOKMARK [1][-]{appendix.B}{B TMC6200}{}% 82
-\BOOKMARK [2][-]{subsection.B.1}{B.1 Standard-Schaltkreis TMC6200}{appendix.B}% 83
-\BOOKMARK [2][-]{subsection.B.2}{B.2 Blockdiagramm TMC6200}{appendix.B}% 84
-\BOOKMARK [2][-]{subsection.B.3}{B.3 Verst\344rkungsfaktor, Strommessung, Strommesswiderstand}{appendix.B}% 85
-\BOOKMARK [2][-]{subsection.B.4}{B.4 Gate-Vorwiderstand}{appendix.B}% 86
-\BOOKMARK [2][-]{subsection.B.5}{B.5 Externe Gate-Spannungsversorgung}{appendix.B}% 87
-\BOOKMARK [1][-]{appendix.C}{C H-Br\374cke}{}% 88
-\BOOKMARK [2][-]{subsection.C.1}{C.1 Referenzschema}{appendix.C}% 89
-\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 90
-\BOOKMARK [2][-]{subsection.D.1}{D.1 Brown-out-Detection}{appendix.D}% 91
-\BOOKMARK [2][-]{subsection.D.2}{D.2 Full Swing Crystal Oscillator}{appendix.D}% 92
-\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader-Speicherplatz}{appendix.D}% 93
-\BOOKMARK [2][-]{subsection.D.4}{D.4 Memory-Lock Bootloader}{appendix.D}% 94
-\BOOKMARK [1][-]{appendix.E}{E USB-B}{}% 95
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Ger\344te-Manager}{appendix.E}% 96
-\BOOKMARK [1][-]{appendix.F}{F Atmel Studio}{}% 97
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Fuse Bits}{appendix.F}% 98
-\BOOKMARK [2][-]{subsection.F.2}{F.2 Lock Bits}{appendix.F}% 99
-\BOOKMARK [2][-]{subsection.F.3}{F.3 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.F}% 100
-\BOOKMARK [2][-]{subsection.F.4}{F.4 Bootloader ''Brennen''}{appendix.F}% 101
+\BOOKMARK [1][-]{section*.140}{Literatur}{}% 78
+\BOOKMARK [1][-]{appendix.A}{A TMC4671}{}% 79
+\BOOKMARK [2][-]{subsection.A.1}{A.1 Standard-Schaltkreis TMC4671}{appendix.A}% 80
+\BOOKMARK [2][-]{subsection.A.2}{A.2 Blockdiagramm TMC4671}{appendix.A}% 81
+\BOOKMARK [2][-]{subsection.A.3}{A.3 Inbetriebnahme Gate-Control}{appendix.A}% 82
+\BOOKMARK [1][-]{appendix.B}{B TMC6200}{}% 83
+\BOOKMARK [2][-]{subsection.B.1}{B.1 Standard-Schaltkreis TMC6200}{appendix.B}% 84
+\BOOKMARK [2][-]{subsection.B.2}{B.2 Blockdiagramm TMC6200}{appendix.B}% 85
+\BOOKMARK [2][-]{subsection.B.3}{B.3 Verst\344rkungsfaktor, Strommessung, Strommesswiderstand}{appendix.B}% 86
+\BOOKMARK [2][-]{subsection.B.4}{B.4 Gate-Vorwiderstand}{appendix.B}% 87
+\BOOKMARK [2][-]{subsection.B.5}{B.5 Externe Gate-Spannungsversorgung}{appendix.B}% 88
+\BOOKMARK [1][-]{appendix.C}{C H-Br\374cke}{}% 89
+\BOOKMARK [2][-]{subsection.C.1}{C.1 Referenzschema}{appendix.C}% 90
+\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 91
+\BOOKMARK [2][-]{subsection.D.1}{D.1 Brown-out-Detection}{appendix.D}% 92
+\BOOKMARK [2][-]{subsection.D.2}{D.2 Full Swing Crystal Oscillator}{appendix.D}% 93
+\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader-Speicherplatz}{appendix.D}% 94
+\BOOKMARK [2][-]{subsection.D.4}{D.4 Memory-Lock Bootloader}{appendix.D}% 95
+\BOOKMARK [1][-]{appendix.E}{E USB-B}{}% 96
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Ger\344te-Manager}{appendix.E}% 97
+\BOOKMARK [1][-]{appendix.F}{F Atmel Studio}{}% 98
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Fuse Bits}{appendix.F}% 99
+\BOOKMARK [2][-]{subsection.F.2}{F.2 Lock Bits}{appendix.F}% 100
+\BOOKMARK [2][-]{subsection.F.3}{F.3 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.F}% 101
+\BOOKMARK [2][-]{subsection.F.4}{F.4 Bootloader ''Brennen''}{appendix.F}% 102

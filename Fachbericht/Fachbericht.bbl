@@ -1,0 +1,61 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{nxp_bv_2010_antenna_2010}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f39dc9d551cac0ed5289da9631726d81}{%
+           family={2010},
+           familyi={2\bibinitperiod},
+           given={NXP\bibnamedelima B.V.},
+           giveni={N\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {NXP-Semiconductors}%
+      }
+      \strng{namehash}{f39dc9d551cac0ed5289da9631726d81}
+      \strng{fullhash}{f39dc9d551cac0ed5289da9631726d81}
+      \strng{bibnamehash}{f39dc9d551cac0ed5289da9631726d81}
+      \strng{authorbibnamehash}{f39dc9d551cac0ed5289da9631726d81}
+      \strng{authornamehash}{f39dc9d551cac0ed5289da9631726d81}
+      \strng{authorfullhash}{f39dc9d551cac0ed5289da9631726d81}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Das Dokument zeigt, wie Antennen für den RFID-Chip dimensioniert werden müssen.}
+      \field{month}{10}
+      \field{title}{Antenna design guide for {MFRC52x}, {PN51x} and {PN53x}}
+      \field{year}{2010}
+      \verb{file}
+      \verb AN1445.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\26ZDXSLW\\AN1445.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+      \verb{url}
+      \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{trinamic_tmc6200_datasheet_2013}
+\endrefsection
+\endinput
+

@@ -1,0 +1,17 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'Fachbericht.blg'
+[52] biber-MSWIN32:313> INFO - === 
+[104] Biber.pm:371> INFO - Reading 'Fachbericht.bcf'
+[268] Biber.pm:857> INFO - Found 2 citekeys in bib section 0
+[297] Biber.pm:3976> INFO - Processing section 0
+[319] Biber.pm:4136> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
+[326] bibtex.pm:1500> INFO - LaTeX decoding ...
+[351] bibtex.pm:1316> INFO - Found BibTeX data source 'literature/bibliography.bib'
+[368] Utils.pm:193> WARN - I didn't find a database entry for 'trinamic_tmc6200_datasheet_2013' (section 0)
+[391] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[392] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[392] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[392] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[401] bbl.pm:617> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
+[402] bbl.pm:720> INFO - Output to Fachbericht.bbl
+[403] Biber.pm:110> INFO - WARNINGS: 1
