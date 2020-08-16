@@ -15,6 +15,12 @@ void UART_init()
 /******************************************************************************************************************************/
 #define BAUD9600 9600									// Define für Baudrate-Register
 #define BRC9600 ((F_CPU/16/BAUD9600) -1)				// Define für Baudrate-Register
+
+#define BAUD38400 38400
+#define BRC38400 ((F_CPU/16/BAUD38400) -1)
+
+#define BAUD57600 74880
+#define BRC57600 ((F_CPU/16/BAUD57600) -1)
 /******************************************************************************************************************************/
 
 
@@ -29,8 +35,8 @@ void UART_init()
 	UCSR1B = (1<<RXEN1)|(1<<TXEN1);								// Enable RX und TX UART 1
 	UCSR1C = (1<<UCSZ10)|(1<<UCSZ11);							// Übertragene Bits: 8 und parity disabled UART1
 	
-	UBRR2H = (BRC9600>>8);										// Baudrate Register1 (9600) UART2
-	UBRR2L = BRC9600;											// Baudrate Register2 (9600) UART2
+	UBRR2H = (BRC57600>>8);										// Baudrate Register1 (9600) UART2
+	UBRR2L = BRC57600;											// Baudrate Register2 (9600) UART2
 	UCSR2B = (1<<RXEN2)|(1<<TXEN2);								// Enable RX und TX UART 2
 	UCSR2C = (1<<UCSZ20)|(1<<UCSZ21);							// Übertragene Bits: 8 und parity disabled UART2
 	

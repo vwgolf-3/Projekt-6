@@ -137,7 +137,14 @@ void cocktail_check_command(int8_t page, int8_t button)
 	
 	/*0x1A = 0d26*/
 	case ESP32_PAGE:
+	Uart_Transmit_IT_PC("Page\r");
 	check_ESP32(button);
+	break;
+	
+	/*0x1B = 0d27*/
+	case LED_PAGE:
+	Uart_Transmit_IT_PC("Page\r");
+	check_LED(button);
 	break;
 	}
 }
@@ -517,6 +524,11 @@ void check_menuanzeige(uint8_t button)
 			itoa((count + i_Liste + 1), (char *)buff, 10);
 			nextion_setText((char *)string, (char *)buff);
 		}
+		break;
+		
+		case LED_BUTTON:
+			nextion_change_page(LED_PAGE-1);
+			asm("nop");
 		break;
 	}
 }
@@ -1575,7 +1587,41 @@ void check_posanzeige(uint8_t button)
 /*		0x0D = 0b13
 			- Wechsle auf Menuanzeige
 */
-			nextion_change_page(MENUANZEIGE);
+	nextion_change_page(RFIDFEHLER);
+	nextion_setText("fehlertxt", "Erstelle neue Cocktailliste.\\r Bitte warten.");
+	getraenk_file_t * tmp;
+	
+		    
+/* deref head_ref to get the real head */
+getraenk_file_t* current = head_getraenk_file;  
+getraenk_file_t* next;  
+  
+while (current != head_getraenk_file)  
+{  
+    next = current->next;  
+    free(current);  
+    current = next;  
+}  
+      
+/* deref head_ref to affect the real head back  
+    in the caller. */
+	head_getraenk_file = NULL;  
+	tail_getraenk_file = NULL;
+	
+	aktuellesGetraenk_file_2 = tail_getraenk_file_2;
+	do
+	{
+		if(check_existence(aktuellesGetraenk_file_2->file))
+		{
+			tmp = create_new_getraenk_file(aktuellesGetraenk_file_2->file);
+			head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp);
+		}
+		aktuellesGetraenk_file_2 = aktuellesGetraenk_file_2->prev;
+	} while (aktuellesGetraenk_file_2 != tail_getraenk_file_2);
+
+	aktuellesGetraenk_file = tail_getraenk_file;
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+	nextion_change_page(MENUANZEIGE);
 		break;
 	}
 }
@@ -1979,6 +2025,19 @@ void schreibe_Getraenk_in_tag(uint8_t nr)
 		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 	}
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+		char buffer[512] = {'\0'};
+		char * ptr = buffer;
+		
+		strcat(ptr, "tagzuweisungup:");
+		char buff[5] = {'\0'};
+		itoa(aktueller_tag->tag_nummer+1, buff, 10);
+		strcat(ptr, buff);
+		strcat(ptr, ":");
+		strcat(ptr, aktuellesGetraenk->name);
+		
+		
+		Uart_Transmit_IT_ESP(ptr);
+		Uart_Transmit_IT_PC(ptr);
 	strcpy((char *)aktueller_tag->cocktail_name, (const char *)aktuellesGetraenk->name);
 	setze_startanzeige(aktuellesGetraenk);
 	
@@ -2074,11 +2133,12 @@ void check_RFIDFehler(uint8_t button)
 
 void check_ESP32(uint8_t button)
 {
+	// Block RFID during zubereitung
 	switch (button)
 	{
 		// Sende Anzahl Tags
 		case TAGNR:
-			send_List_RFID();
+			Getraenk_erstellt();
 		break;
 		
 		case GETRAENKE:
@@ -2088,5 +2148,32 @@ void check_ESP32(uint8_t button)
 		case ZUTATEN2:
 			send_List_Zutaten();
 		break;
+		
+		case XXX:
+			ESP_Getraenk();
+		break;
+
+	}
+}
+
+void check_LED(uint8_t button)
+{
+	switch (button)
+	{
+	case WEISS:
+		light = WEISS_LED;
+	break;
+	
+	case RAINBOW:
+	light = RAINBOW_LED;
+	break;
+	
+	case USER:
+	light = USER_LED;
+	break;
+	
+	case ZURUECK8:
+		nextion_change_page(MENUANZEIGE);
+	break;
 	}
 }

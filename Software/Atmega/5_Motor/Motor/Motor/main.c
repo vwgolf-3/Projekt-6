@@ -29,9 +29,10 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
-		_delay_ms(20000);
+		Uart_Transmit_IT_PC("Hallo\r");
 		check_Communication_Input_UART();
 // 		read_registers_TMC6200();
+//  		read_registers_TMC4671();
+		_delay_ms(2000);
     }
 }
-

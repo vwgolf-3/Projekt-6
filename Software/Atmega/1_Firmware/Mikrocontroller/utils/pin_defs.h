@@ -65,7 +65,7 @@
 #define SPI_DDR DDRB							// Namensgebung DataDirection Register
 #define SPI_PIN PINB
 //
-#define SPI_CS_TMC4671_BIT (1<<0)						// Bit-Zuweisung PB5 (Arduino: 49, Pinnr: 23)
+#define SPI_CS_TMC4671_BIT (1<<0)				// Bit-Zuweisung PB5 (Arduino: 53, Pinnr: 23)
 #define SPI_CS_TMC4671_PORT PORTB				// SPI_CS_RC522 PORTB
 #define SPI_CS_TMC4671_DDR DDRB					// SPI_CS_RC522 DDRB
 #define SPI_CS_TMC4671_PIN PINB					// SPI_CS_RC522 PINB
@@ -153,22 +153,22 @@
 #define REF2_DDR DDRF							// LEDR DDRF
 #define REF2_PIN PINF							// LEDR PINF
 
-#define LEDR_BIT (1<<3)							// LEDR PIN3
+#define LEDR_BIT (1<<6)							// LEDR PIN3
 #define LEDR_PORT PORTF							// LEDR PORTF
 #define LEDR_DDR DDRF							// LEDR DDRF
 #define LEDR_PIN PINF							// LEDR PINF
 
-#define LEDG_BIT (1<<4)							// LEDG PIN4
+#define LEDG_BIT (1<<5)							// LEDG PIN4
 #define LEDG_PORT PORTF							// LEDG PORTF
 #define LEDG_DDR DDRF							// LEDG DDRF
 #define LEDG_PIN PINF							// LEDG PINF
 
-#define LEDB_BIT (1<<5)							// LEDB PIN5
+#define LEDB_BIT (1<<4)							// LEDB PIN5
 #define LEDB_PORT PORTF							// LEDB PORTF
 #define LEDB_DDR DDRF							// LEDB DDRF
 #define LEDB_PIN PINF							// LEDB PINF
 
-#define LEDW_BIT (1<<6)							// LEDW PIN6
+#define LEDW_BIT (1<<3)							// LEDW PIN6
 #define LEDW_PORT PORTF							// LEDW PORTF
 #define LEDW_DDR DDRF							// LEDW DDRF
 #define LEDW_PIN PINF							// LEDW PINF

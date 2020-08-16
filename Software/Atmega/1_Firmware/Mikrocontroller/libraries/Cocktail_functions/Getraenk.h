@@ -30,9 +30,20 @@ struct getraenk_file{
 };
 typedef struct getraenk_file getraenk_file_t;
 
+struct getraenk_file_2{
+	uint8_t file;
+	struct getraenk_file_2 * next;
+	struct getraenk_file_2 * prev;
+};
+typedef struct getraenk_file_2 getraenk_file_2_t;
+
 getraenk_file_t *aktuellesGetraenk_file;
 getraenk_file_t * head_getraenk_file;
 getraenk_file_t * tail_getraenk_file;
+
+getraenk_file_2_t *aktuellesGetraenk_file_2;
+getraenk_file_2_t * head_getraenk_file_2;
+getraenk_file_2_t * tail_getraenk_file_2;
 
 getraenk_t *aktuellesGetraenk;
 getraenk_t *head_getraenk;	// Getränk-Pointer
@@ -40,6 +51,7 @@ getraenk_t *tail_getraenk;
 
 uint8_t * address_getraenk;	// EEprom address-Pointer
 
+uint8_t check_existence(uint8_t file);
 void cocktails_init(void);
 void printlist(void);
 
@@ -59,5 +71,8 @@ void delete_EEPROM (uint8_t * add);
 // File struct
 getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *file_to_insert);
 getraenk_file_t *create_new_getraenk_file(uint8_t file_to_create);
+
+getraenk_file_2_t *insert_file_at_head_2(getraenk_file_2_t **head, getraenk_file_2_t *file_to_insert);
+getraenk_file_2_t *create_new_getraenk_file_2(uint8_t file_to_create);
 
 #endif /* GETRAENK_H_ */

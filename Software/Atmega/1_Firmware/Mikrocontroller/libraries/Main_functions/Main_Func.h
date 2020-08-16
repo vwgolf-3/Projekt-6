@@ -11,6 +11,7 @@
 // Projektspezifische Pindefinitionen Cocktailmaschine<==>AVR uC
 #include "../UART/UART.h"											// Wird benötigt für UART und Ring-Buffer
 #include "../../utils/pin_defs.h"
+#include "../TMC4671/TMC4671.h"
 #include <util/delay.h>
 
 void TIMER_init(void);

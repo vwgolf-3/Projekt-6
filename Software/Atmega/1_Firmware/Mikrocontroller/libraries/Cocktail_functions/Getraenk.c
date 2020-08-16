@@ -99,7 +99,9 @@ void cocktails_init(void)
 **************************************************************************************************************/
 
 	head_getraenk_file = NULL;
+	head_getraenk_file_2 = NULL;
 	getraenk_file_t * tmp2;
+	getraenk_file_2_t * tmp3;
 
 /**************************************************************************************************************
 
@@ -108,13 +110,16 @@ void cocktails_init(void)
 			- Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
 **************************************************************************************************************/
-	for ( int8_t count = 0 ; count <= 100; count++)
+	for ( int8_t count = 0 ; count <= 30; count++)
 	{
 		char buff[15] = {'\0'};
 		itoa(count, (char *)buff,10);
 		strcat((char *)buff, (const char *)".txt");
 		if(readFile(VERIFY, (unsigned char *)buff)==1)
 		{
+			tmp3 = create_new_getraenk_file_2(count);
+			head_getraenk_file_2 = insert_file_at_head_2(&head_getraenk_file_2, tmp3);
+			
 			if(check_existence(count))
 			{
 				tmp2 = create_new_getraenk_file(count);
@@ -142,6 +147,7 @@ void cocktails_init(void)
 **************************************************************************************************************/
 
 	aktuellesGetraenk_file = tail_getraenk_file;
+	aktuellesGetraenk_file_2 = tail_getraenk_file_2;
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
@@ -301,20 +307,45 @@ getraenk_file_t *create_new_getraenk_file(uint8_t file_to_create)
 	return newFile;
 }
 
+getraenk_file_2_t *create_new_getraenk_file_2(uint8_t file_to_create)
+{
+	getraenk_file_2_t *newFile = calloc(1,sizeof(getraenk_file_2_t));
+	newFile->file = file_to_create;
+	return newFile;
+}
+
 getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *file_to_insert)
-{	
-		file_to_insert->next = *head;
-		file_to_insert->prev = NULL;
-		
-		if((*head) == NULL)
-		{
-			tail_getraenk_file = file_to_insert;
-		} else
-		{
-			(*head)->prev = file_to_insert;
-			file_to_insert->prev = tail_getraenk_file;
-		}
-		*head = file_to_insert;
-		tail_getraenk_file->next = *head;
-		return file_to_insert;
+{
+	file_to_insert->next = *head;
+	file_to_insert->prev = NULL;
+	
+	if((*head) == NULL)
+	{
+		tail_getraenk_file = file_to_insert;
+	} else
+	{
+		(*head)->prev = file_to_insert;
+		file_to_insert->prev = tail_getraenk_file;
+	}
+	*head = file_to_insert;
+	tail_getraenk_file->next = *head;
+	return file_to_insert;
+}
+
+getraenk_file_2_t *insert_file_at_head_2(getraenk_file_2_t **head, getraenk_file_2_t *file_to_insert)
+{
+	file_to_insert->next = *head;
+	file_to_insert->prev = NULL;
+	
+	if((*head) == NULL)
+	{
+		tail_getraenk_file_2 = file_to_insert;
+	} else
+	{
+		(*head)->prev = file_to_insert;
+		file_to_insert->prev = tail_getraenk_file_2;
+	}
+	*head = file_to_insert;
+	tail_getraenk_file_2->next = *head;
+	return file_to_insert;
 }

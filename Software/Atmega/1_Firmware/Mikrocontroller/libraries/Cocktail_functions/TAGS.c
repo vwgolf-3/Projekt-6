@@ -35,7 +35,7 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 	{
 	// String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
 		// Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-		tmp = create_new_tag("Hoi", count+100, count);
+		tmp = create_new_tag("Hoi", count, count);
 		head_tag = insert_tag_at_head(&head_tag, tmp);
  	}
 }

@@ -34,6 +34,9 @@ void initTMC4671_Encoder(void);
 void initTMC4671_Openloop(void);
 // SPI
 
+void read_registers_TMC4671(void);
+
+
 
 // TMC4671 Direktbefehle
 

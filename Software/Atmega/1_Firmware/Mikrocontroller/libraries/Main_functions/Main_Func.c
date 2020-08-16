@@ -6,6 +6,7 @@
  */ 
 
 #include "Main_Func.h"
+#include "../Nextion_Display/Nextion_Display.h"
 
 //Init_IO
 
@@ -19,8 +20,6 @@ void IO_init(void)
 	PUMPE_DDR3 = PUMPE3_OUTPUT_MASK;
 	RFID_DDR = RFID_OUTPUT_MASK;
 	FLUSS_DDR = 0b00000000;
-	SPI_MISO_DDR &= ~SPI_MISO_BIT;
-	SW_SPI_MISO_DDR &= ~SW_SPI_MISO_BIT;
 }
 
 void interfaces_init(void)
@@ -34,21 +33,31 @@ void interfaces_init(void)
 
 void devices_init(void)
 {	
+	nextion_change_page(25);
+	nextion_setText("fehlertxt", "SD-Initialisieren");
 	SD_startup();											// SD-Karte initialisieren
 	_delay_ms(100);
 
-	// 	initTMC6200();											// Gate-Treiber initialisieren
-	// 	TMC4671_init();											// FOC-Treiber initialisieren
-	// 	initTMC4671_Openloop();									// FOC-Treiber im Openloop laufen lassen
+// 	 	initTMC6200();											// Gate-Treiber initialisieren
+// 	 	TMC4671_init();											// FOC-Treiber initialisieren
+// 	 	initTMC4671_Encoder();									// FOC-Treiber im Openloop laufen lassen
+// 	 	initTMC4671_Openloop();									// FOC-Treiber im Openloop laufen lassen
 }
 
 void speicher_init()
 {
 	// Initialisierungen Speicher
+	Uart_Transmit_IT_PC("Zutaten einkaufen...");
+	nextion_change_page(25);
+	nextion_setText("fehlertxt", "Zutaten einkaufen...");
 	zutaten_init();											// Zutaten initialisieren
 	
+	Uart_Transmit_IT_PC("Cocktailbuch lesen...");
+	nextion_setText("fehlertxt", "Cocktailbuch lesen...");
 	cocktails_init();										// Cocktails initialisieren
-	
+
+	Uart_Transmit_IT_PC("RFID-Tags sammeln...");
+	nextion_setText("fehlertxt", "RFID-Tags sammeln...");
 	RFID_init();											// Tags initialisieren
 }
 
@@ -72,7 +81,7 @@ void heartbeat_LED(void)
 
 void toggle_LED(void)
 {
-		LED_PORT = LED_PORT ^ (LEDR_BIT|LEDG_BIT|LEDB_BIT|LEDW_BIT);
+		LED_PORT = LED_PORT ^ (LEDW_BIT);
 }
 
 char check_Communication_Input_UART_0(void)
@@ -105,6 +114,7 @@ void proceed_Communication_Input_UART_0(void)
 // 	Uart_Transmit_IT_PC(ch);
 	cocktail_test_command(INPUT_UART_0);
 	cocktail_check_command(26,0);
+
 }
 
 char check_Communication_Input_UART_1(void)
@@ -221,12 +231,12 @@ char check_Communication_Input_UART_2(void)
 }
 
 void proceed_Communication_Input_UART_2(void)
-{
-	cocktail_check_command((int8_t) INPUT_UART_2[0], (int8_t) INPUT_UART_2[1]);	
-	
+{	
 	Uart_Transmit_IT_PC("Proceed UART 2: ");
 	Uart_Transmit_IT_PC((char *)INPUT_UART_2);
 	Uart_Transmit_IT_PC("\r\n");
+	
+	cocktail_check_command((int8_t) INPUT_UART_2[0], (int8_t) INPUT_UART_2[1]);
 }
 
 // char check_Communication_Input_UART_3(void)

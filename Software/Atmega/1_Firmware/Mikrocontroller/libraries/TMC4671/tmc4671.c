@@ -107,77 +107,311 @@ tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
 
 void initTMC4671_Encoder(void)
 {
-	// ABN encoder settings
-	tmc4671_writeInt(0, TMC4671_ABN_DECODER_MODE, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_ABN_DECODER_PPR, 0x00002000);
-	tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000960);
-	tmc4671_writeInt(0, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
-
-	// Limits
-	tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_LIMITS, 0x000003E8);
-
-	// PI settings
-	tmc4671_writeInt(0, TMC4671_PID_TORQUE_P_TORQUE_I, 0x01000100);
-	tmc4671_writeInt(0, TMC4671_PID_FLUX_P_FLUX_I, 0x01000100);
-	tmc4671_writeInt(0, 0x58, 0x01000100);
+// /*
+// Sonst
+// 
+// */	
 	
-	// 	// ===== ABN encoder test drive =====
-	//
-	// 	// Init encoder (mode 0)
-	// 	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
-	// 	tmc4671_writeInt(0, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
-	// 	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000001);
-	// 	tmc4671_writeInt(0, TMC4671_PHI_E_EXT, 0x00000000);
-	// 	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x000007D0);
-	// 	_delay_ms(1000);
-	// 	tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);
-	//
-	// 	// Feedback selection
-	// 	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000003);
-	// 	tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000009);
-	//
-	// 	// Switch to torque mode
-	// 	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
-	//
-	// 	// Rotate right
-	// 	tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x03E80000);
-	// 	_delay_ms(3000);
-	//
-	// 	// Rotate left
-	// 	tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0xFC180000);
-	// 	_delay_ms(3000);
-	//
-	// 	// Stop
-	// 	tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
+tmc4671_writeInt(0, TMC4671_CHIPINFO_ADDR, 0x00000000);
+
+	
+	
+	
+/*
+// General Settings
+
+Hier werden die Einstellungen getätigt, welche mit dem Motor und der Auswahl des Encoder-Signals
+zu tun haben. Auch die Motion-Ramp wird hier initialisiert.
+
+*/
+
+
+// Motor Type
+tmc4671_writeInt(0, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
+
+// Phi E Electrical/Mechanical and Position Ext
+tmc4671_writeInt(0, TMC4671_PHI_E_EXT, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PHI_M_EXT, 0x00000000);
+tmc4671_writeInt(0, TMC4671_POSITION_EXT, 0x00000000);
+
+// Openloop
+tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
+tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
+tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
+tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_ACTUAL, 0xFFFFFFF6);
+// tmc4671_writeInt(0, TMC4671_OPENLOOP_PHI, 0x00000000);
+
+// Uq Ud Ext
+tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
+
+// Selections
+tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000000);
+tmc4671_writeInt(0, TMC4671_POSITION_SELECTION, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000003);
+
+// Ramp Mode
+tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000003);
+
+// UART
+tmc4671_writeInt(0, TMC4671_UART_BPS, 0x00009600);
+tmc4671_writeInt(0, TMC4671_UART_ADDRS, 0x00000000);
+
+
+/*
+// ADC
+
+Hier werden die Einstellungen getätigt, welche mit der Strommessung und deren Skallierung
+zu tun haben. Sie wurden mit der TMCL-IDE bestimmt.
+
+*/
+
+// ADC Settings
+
+tmc4671_writeInt(0, TMC4671_ADC_RAW_ADDR, 0x00000000);
+tmc4671_writeInt(0, TMC4671_dsADC_MCFG_B_MCFG_A, 0x00100010);
+tmc4671_writeInt(0, TMC4671_dsADC_MCLK_A, 0x20000000);
+tmc4671_writeInt(0, TMC4671_dsADC_MCLK_B, 0x00000000);
+tmc4671_writeInt(0, TMC4671_dsADC_MDEC_B_MDEC_A, 0x014E014E);
+tmc4671_writeInt(0, TMC4671_ADC_I1_SCALE_OFFSET, 0x01005CE7);
+tmc4671_writeInt(0, TMC4671_ADC_I0_SCALE_OFFSET, 0x01005D44);
+tmc4671_writeInt(0, TMC4671_ADC_I_SELECT, 0x18000100);
+tmc4671_writeInt(0, TMC4671_ADC_I1_I0_EXT, 0x00000000);
+tmc4671_writeInt(0, TMC4671_DS_ANALOG_INPUT_STAGE_CFG, 0x00044400);
+
+// Analog Encoder
+tmc4671_writeInt(0, TMC4671_AENC_0_SCALE_OFFSET, 0x01000000);
+tmc4671_writeInt(0, TMC4671_AENC_1_SCALE_OFFSET, 0x01000000);
+tmc4671_writeInt(0, TMC4671_AENC_2_SCALE_OFFSET, 0x01000000);
+tmc4671_writeInt(0, TMC4671_AENC_SELECT, 0x03020100);
+
+// Watchdog
+tmc4671_writeInt(0, TMC4671_WATCHDOG_CFG, 0x00000000);
+
+// Voltage Motor Limit
+tmc4671_writeInt(0, TMC4671_ADC_VM_LIMITS, 0xFFFFFFFF);
+
+// Status
+tmc4671_writeInt(0, TMC4671_STATUS_FLAGS, 0xC4788098);
+tmc4671_writeInt(0, TMC4671_STATUS_MASK, 0x00000000);
+
+
+/*
+INPUTS/OUTPUTS
+
+*/
+
+tmc4671_writeInt(0, TMC4671_STEP_WIDTH, 0x00000000);
+tmc4671_writeInt(0, TMC4671_GPIO_dsADCI_CONFIG, 0x00000000);
+
+/*
+PWM
+
+*/
+
+tmc4671_writeInt(0, TMC4671_PWM_POLARITIES, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PWM_MAXCNT, 0x00000F9F);
+tmc4671_writeInt(0, TMC4671_PWM_BBM_H_BBM_L, 0x00000A0A);
+tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000007);
+
+/*
+ABN ENCODER
+
+*/
+
+tmc4671_writeInt(0, TMC4671_ABN_DECODER_MODE, 0x00000000);
+tmc4671_writeInt(0, TMC4671_ABN_DECODER_PPR, 0x00002000);
+// tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);
+tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT_N, 0x000011DE);
+tmc4671_writeInt(0, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
+
+tmc4671_writeInt(0, TMC4671_ABN_2_DECODER_MODE, 0x00000000);
+tmc4671_writeInt(0, TMC4671_ABN_2_DECODER_PPR, 0x00010000);
+tmc4671_writeInt(0, TMC4671_ABN_2_DECODER_COUNT, 0x00000000);
+tmc4671_writeInt(0, TMC4671_ABN_2_DECODER_COUNT_N, 0x00000000);
+tmc4671_writeInt(0, TMC4671_ABN_2_DECODER_PHI_M_OFFSET, 0x00000000);
+
+/*
+HALL SENSORS
+
+*/
+
+tmc4671_writeInt(0, TMC4671_HALL_MODE, 0x00000000);
+tmc4671_writeInt(0, TMC4671_HALL_POSITION_060_000, 0x2AAA0000);
+tmc4671_writeInt(0, TMC4671_HALL_POSITION_180_120, 0x80005555);
+tmc4671_writeInt(0, TMC4671_HALL_POSITION_300_240, 0xD555AAAA);
+tmc4671_writeInt(0, TMC4671_HALL_PHI_E_PHI_M_OFFSET, 0x00000000);
+tmc4671_writeInt(0, TMC4671_HALL_DPHI_MAX, 0x00002AAA);
+
+/*
+ANALOG ENCODER
+
+*/
+
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_MODE, 0x00000000);
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_N_MASK_N_THRESHOLD, 0x00000000);
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_PHI_A_OFFSET, 0x00000000);
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_PPR, 0x00000001);
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_COUNT, 0xFFFF9FFF);
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_COUNT_N, 0x00000000);
+tmc4671_writeInt(0, TMC4671_AENC_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
+
+/*
+CONFIG
+
+*/
+
+tmc4671_writeInt(0, TMC4671_CONFIG_DATA, 0x00000000);
+tmc4671_writeInt(0, TMC4671_CONFIG_ADDR, 0x00000000);
+
+
+
+/*
+PI-REGISTERS
+
+
+*/
+
+// PI-Parameters
+tmc4671_writeInt(0, TMC4671_PID_FLUX_P_FLUX_I, 0x006403E8);
+tmc4671_writeInt(0, TMC4671_PID_TORQUE_P_TORQUE_I, 0x006403E8);
+tmc4671_writeInt(0, TMC4671_PID_VELOCITY_P_VELOCITY_I, 0x05DC01F4);
+tmc4671_writeInt(0, TMC4671_PID_POSITION_P_POSITION_I, 0x01F40000);
+
+// PI-Limits
+tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET_DDT_LIMITS, 0x00007FFF);
+tmc4671_writeInt(0, TMC4671_PIDOUT_UQ_UD_LIMITS, 0x00005A81);
+tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_LIMITS, 0x000003E8);
+tmc4671_writeInt(0, TMC4671_PID_ACCELERATION_LIMIT, 0x000000C8);
+tmc4671_writeInt(0, TMC4671_PID_VELOCITY_LIMIT, 0x000001F4);
+tmc4671_writeInt(0, TMC4671_PID_POSITION_LIMIT_LOW, 0x80000001);
+tmc4671_writeInt(0, TMC4671_PID_POSITION_LIMIT_HIGH, 0x7FFFFFFF);
+
+// Torque Flux
+tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_ACTUAL, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_OFFSET, 0x00000000);
+
+// Velocity
+tmc4671_writeInt(0, TMC4671_PID_VELOCITY_ACTUAL, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PID_VELOCITY_OFFSET, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PID_VELOCITY_TARGET, 0x00000000);
+
+// Position
+tmc4671_writeInt(0, TMC4671_PID_POSITION_ACTUAL, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PID_POSITION_TARGET, 0x00000000);
+
+
+tmc4671_writeInt(0, TMC4671_PID_ERROR_ADDR, 0x00000000);
+tmc4671_writeInt(0, TMC4671_INTERIM_DATA, 0x00000000);
+
+
+
+
+
+
+//====================================================================================================//
+// ACTUAL SETTINGS FOR TMC4671 (created: 2020/08/09 19:59:32)                                        //
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+
+// tmc4671_writeInt(0, 0x01, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 0 = 0x01(CHIPINFO_ADDR)
+// tmc4671_writeInt(0, 0x03, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 1 = 0x03(ADC_RAW_ADDR)
+// tmc4671_writeInt(0, 0x04, 	0x00100010); 		// writing value 0x00100010 = 1048592 = 0.0 to address 2 = 0x04(dsADC_MCFG_B_MCFG_A)
+// tmc4671_writeInt(0, 0x05, 	0x20000000); 		// writing value 0x20000000 = 536870912 = 0.0 to address 3 = 0x05(dsADC_MCLK_A)
+// tmc4671_writeInt(0, 0x06, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 4 = 0x06(dsADC_MCLK_B)
+// tmc4671_writeInt(0, 0x07, 	0x014E014E); 		// writing value 0x014E014E = 21889358 = 0.0 to address 5 = 0x07(dsADC_MDEC_B_MDEC_A)
+// tmc4671_writeInt(0, 0x08, 	0x01005CE7); 		// writing value 0x01005CE7 = 16800999 = 0.0 to address 6 = 0x08(ADC_I1_SCALE_OFFSET)
+// tmc4671_writeInt(0, 0x09, 	0x01005D24); 		// writing value 0x01005D24 = 16801060 = 0.0 to address 7 = 0x09(ADC_I0_SCALE_OFFSET)
+// tmc4671_writeInt(0, 0x0A, 	0x18000100); 		// writing value 0x18000100 = 402653440 = 0.0 to address 8 = 0x0A(ADC_I_SELECT)
+// tmc4671_writeInt(0, 0x0B, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 9 = 0x0B(ADC_I1_I0_EXT)
+// tmc4671_writeInt(0, 0x0C, 	0x00044400); 		// writing value 0x00044400 = 279552 = 0.0 to address 10 = 0x0C(DS_ANALOG_INPUT_STAGE_CFG)
+// tmc4671_writeInt(0, 0x0D, 	0x01000000); 		// writing value 0x01000000 = 16777216 = 0.0 to address 11 = 0x0D(AENC_0_SCALE_OFFSET)
+// tmc4671_writeInt(0, 0x0E, 	0x01000000); 		// writing value 0x01000000 = 16777216 = 0.0 to address 12 = 0x0E(AENC_1_SCALE_OFFSET)
+// tmc4671_writeInt(0, 0x0F, 	0x01000000); 		// writing value 0x01000000 = 16777216 = 0.0 to address 13 = 0x0F(AENC_2_SCALE_OFFSET)
+// tmc4671_writeInt(0, 0x11, 	0x03020100); 		// writing value 0x03020100 = 50462976 = 0.0 to address 14 = 0x11(AENC_SELECT)
+// tmc4671_writeInt(0, 0x17, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 15 = 0x17(PWM_POLARITIES)
+// tmc4671_writeInt(0, 0x18, 	0x00000F9F); 		// writing value 0x00000F9F = 3999 = 0.0 to address 16 = 0x18(PWM_MAXCNT)
+// tmc4671_writeInt(0, 0x19, 	0x00000A0A); 		// writing value 0x00000A0A = 2570 = 0.0 to address 17 = 0x19(PWM_BBM_H_BBM_L)
+// tmc4671_writeInt(0, 0x1A, 	0x00000007); 		// writing value 0x00000007 = 7 = 0.0 to address 18 = 0x1A(PWM_SV_CHOP)
+// tmc4671_writeInt(0, 0x1B, 	0x00030003); 		// writing value 0x00030003 = 196611 = 0.0 to address 19 = 0x1B(MOTOR_TYPE_N_POLE_PAIRS)
+// tmc4671_writeInt(0, 0x1C, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 20 = 0x1C(PHI_E_EXT)
+// tmc4671_writeInt(0, 0x1D, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 21 = 0x1D(PHI_M_EXT)
+// tmc4671_writeInt(0, 0x1E, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 22 = 0x1E(POSITION_EXT)
+// tmc4671_writeInt(0, 0x1F, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 23 = 0x1F(OPENLOOP_MODE)
+// tmc4671_writeInt(0, 0x20, 	0x0000003C); 		// writing value 0x0000003C = 60 = 0.0 to address 24 = 0x20(OPENLOOP_ACCELERATION)
+// tmc4671_writeInt(0, 0x21, 	0xFFFFFFF6); 		// writing value 0xFFFFFFF6 = 0 = 0.0 to address 25 = 0x21(OPENLOOP_VELOCITY_TARGET)
+// tmc4671_writeInt(0, 0x22, 	0xFFFFFFF6); 		// writing value 0xFFFFFFF6 = 0 = 0.0 to address 26 = 0x22(OPENLOOP_VELOCITY_ACTUAL)
+// tmc4671_writeInt(0, 0x23, 	0x00001E4B); 		// writing value 0x00001E4B = 7755 = 0.0 to address 27 = 0x23(OPENLOOP_PHI)
+// tmc4671_writeInt(0, 0x24, 	0x00000FA0); 		// writing value 0x00000FA0 = 4000 = 0.0 to address 28 = 0x24(UQ_UD_EXT)
+// tmc4671_writeInt(0, 0x25, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 29 = 0x25(ABN_DECODER_MODE)
+// tmc4671_writeInt(0, 0x26, 	0x00002000); 		// writing value 0x00002000 = 8192 = 0.0 to address 30 = 0x26(ABN_DECODER_PPR)
+// tmc4671_writeInt(0, 0x27, 	0x00000AAC); 		// writing value 0x00000AAC = 2732 = 0.0 to address 31 = 0x27(ABN_DECODER_COUNT)
+// tmc4671_writeInt(0, 0x28, 	0x000011DE); 		// writing value 0x000011DE = 4574 = 0.0 to address 32 = 0x28(ABN_DECODER_COUNT_N)
+// tmc4671_writeInt(0, 0x29, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 33 = 0x29(ABN_DECODER_PHI_E_PHI_M_OFFSET)
+// tmc4671_writeInt(0, 0x2C, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 34 = 0x2C(ABN_2_DECODER_MODE)
+// tmc4671_writeInt(0, 0x2D, 	0x00010000); 		// writing value 0x00010000 = 65536 = 0.0 to address 35 = 0x2D(ABN_2_DECODER_PPR)
+// tmc4671_writeInt(0, 0x2E, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 36 = 0x2E(ABN_2_DECODER_COUNT)
+// tmc4671_writeInt(0, 0x2F, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 37 = 0x2F(ABN_2_DECODER_COUNT_N)
+// tmc4671_writeInt(0, 0x30, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 38 = 0x30(ABN_2_DECODER_PHI_M_OFFSET)
+// tmc4671_writeInt(0, 0x33, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 39 = 0x33(HALL_MODE)
+// tmc4671_writeInt(0, 0x34, 	0x2AAA0000); 		// writing value 0x2AAA0000 = 715784192 = 0.0 to address 40 = 0x34(HALL_POSITION_060_000)
+// tmc4671_writeInt(0, 0x35, 	0x80005555); 		// writing value 0x80005555 = 0 = 0.0 to address 41 = 0x35(HALL_POSITION_180_120)
+// tmc4671_writeInt(0, 0x36, 	0xD555AAAA); 		// writing value 0xD555AAAA = 0 = 0.0 to address 42 = 0x36(HALL_POSITION_300_240)
+// tmc4671_writeInt(0, 0x37, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 43 = 0x37(HALL_PHI_E_PHI_M_OFFSET)
+// tmc4671_writeInt(0, 0x38, 	0x00002AAA); 		// writing value 0x00002AAA = 10922 = 0.0 to address 44 = 0x38(HALL_DPHI_MAX)
+// tmc4671_writeInt(0, 0x3B, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 45 = 0x3B(AENC_DECODER_MODE)
+// tmc4671_writeInt(0, 0x3C, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 46 = 0x3C(AENC_DECODER_N_THRESHOLD)
+// tmc4671_writeInt(0, 0x3E, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 47 = 0x3E(AENC_DECODER_PHI_A_OFFSET)
+// tmc4671_writeInt(0, 0x40, 	0x00000001); 		// writing value 0x00000001 = 1 = 0.0 to address 48 = 0x40(AENC_DECODER_PPR)
+// tmc4671_writeInt(0, 0x42, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 49 = 0x42(AENC_DECODER_COUNT_N)
+// tmc4671_writeInt(0, 0x45, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 50 = 0x45(AENC_DECODER_PHI_E_PHI_M_OFFSET)
+// tmc4671_writeInt(0, 0x4D, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 51 = 0x4D(CONFIG_DATA)
+// tmc4671_writeInt(0, 0x4E, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 52 = 0x4E(CONFIG_ADDR)
+// tmc4671_writeInt(0, 0x50, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 53 = 0x50(VELOCITY_SELECTION)
+// tmc4671_writeInt(0, 0x51, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 54 = 0x51(POSITION_SELECTION)
+// tmc4671_writeInt(0, 0x52, 	0x00000003); 		// writing value 0x00000003 = 3 = 0.0 to address 55 = 0x52(PHI_E_SELECTION)
+// tmc4671_writeInt(0, 0x54, 	0x006403E8); 		// writing value 0x006403E8 = 6554600 = 0.0 to address 56 = 0x54(PID_FLUX_P_FLUX_I)
+// tmc4671_writeInt(0, 0x56, 	0x006403E8); 		// writing value 0x006403E8 = 6554600 = 0.0 to address 57 = 0x56(PID_TORQUE_P_TORQUE_I)
+// tmc4671_writeInt(0, 0x58, 	0x05DC01F4); 		// writing value 0x05DC01F4 = 98304500 = 0.0 to address 58 = 0x58(PID_VELOCITY_P_VELOCITY_I)
+// tmc4671_writeInt(0, 0x5A, 	0x01F40000); 		// writing value 0x01F40000 = 32768000 = 0.0 to address 59 = 0x5A(PID_POSITION_P_POSITION_I)
+// tmc4671_writeInt(0, 0x5C, 	0x00007FFF); 		// writing value 0x00007FFF = 32767 = 0.0 to address 60 = 0x5C(PID_TORQUE_FLUX_TARGET_DDT_LIMITS)
+// tmc4671_writeInt(0, 0x5D, 	0x00005A81); 		// writing value 0x00005A81 = 23169 = 0.0 to address 61 = 0x5D(PIDOUT_UQ_UD_LIMITS)
+// tmc4671_writeInt(0, 0x5E, 	0x000003E8); 		// writing value 0x000003E8 = 1000 = 0.0 to address 62 = 0x5E(PID_TORQUE_FLUX_LIMITS)
+// tmc4671_writeInt(0, 0x5F, 	0x000000C8); 		// writing value 0x000000C8 = 200 = 0.0 to address 63 = 0x5F(PID_ACCELERATION_LIMIT)
+// tmc4671_writeInt(0, 0x60, 	0x000001F4); 		// writing value 0x000001F4 = 500 = 0.0 to address 64 = 0x60(PID_VELOCITY_LIMIT)
+// tmc4671_writeInt(0, 0x61, 	0x80000001); 		// writing value 0x80000001 = 0 = 0.0 to address 65 = 0x61(PID_POSITION_LIMIT_LOW)
+// tmc4671_writeInt(0, 0x62, 	0x7FFFFFFF); 		// writing value 0x7FFFFFFF = 2147483647 = 0.0 to address 66 = 0x62(PID_POSITION_LIMIT_HIGH)
+// tmc4671_writeInt(0, 0x63, 	0x00000003); 		// writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
+// tmc4671_writeInt(0, 0x64, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 68 = 0x64(PID_TORQUE_FLUX_TARGET)
+// tmc4671_writeInt(0, 0x65, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 69 = 0x65(PID_TORQUE_FLUX_OFFSET)
+// tmc4671_writeInt(0, 0x66, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 70 = 0x66(PID_VELOCITY_TARGET)
+// tmc4671_writeInt(0, 0x67, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 71 = 0x67(PID_VELOCITY_OFFSET)
+// tmc4671_writeInt(0, 0x68, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 72 = 0x68(PID_POSITION_TARGET)
+// tmc4671_writeInt(0, 0x6B, 	0x00000008); 		// writing value 0x00000008 = 8 = 0.0 to address 73 = 0x6B(PID_POSITION_ACTUAL)
+// tmc4671_writeInt(0, 0x6D, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 74 = 0x6D(PID_ERROR_ADDR)
+// tmc4671_writeInt(0, 0x6E, 	0x00000017); 		// writing value 0x00000017 = 23 = 0.0 to address 75 = 0x6E(INTERIM_DATA)
+// tmc4671_writeInt(0, 0x6F, 	0x00000012); 		// writing value 0x00000012 = 18 = 0.0 to address 76 = 0x6F(INTERIM_ADDR)
+// tmc4671_writeInt(0, 0x74, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 77 = 0x74(WATCHDOG_CFG)
+// tmc4671_writeInt(0, 0x75, 	0xFFFFFFFF); 		// writing value 0xFFFFFFFF = 0 = 0.0 to address 78 = 0x75(ADC_VM_LIMITS)
+// tmc4671_writeInt(0, 0x78, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 79 = 0x78(STEP_WIDTH)
+// tmc4671_writeInt(0, 0x79, 	0x00009600); 		// writing value 0x00009600 = 38400 = 0.0 to address 80 = 0x79(UART_BPS)
+// tmc4671_writeInt(0, 0x7A, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 81 = 0x7A(UART_ADDRS)
+// tmc4671_writeInt(0, 0x7B, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 82 = 0x7B(GPIO_dsADCI_CONFIG)
+// tmc4671_writeInt(0, 0x7C, 	0xC4788098); 		// writing value 0xC4788098 = 0 = 0.0 to address 83 = 0x7C(STATUS_FLAGS)
+// tmc4671_writeInt(0, 0x7D, 	0x00000000); 		// writing value 0x00000000 = 0 = 0.0 to address 84 = 0x7D(STATUS_MASK)
+
+_delay_ms(2000);
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+
+
+// tmc4671_setRelativeTargetPosition(0, 0x000F0000);
+// _delay_ms(5000);
+// tmc4671_setAbsolutTargetPosition(0, 0x00000000);
+
 }
 
 void initTMC4671_Openloop(void)
 {
-	// Open loop settings
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
 
-	// Feedback selection
-	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
-
-	// ===== Open loop test drive =====
-
-	// Switch to open loop velocity mode
-	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
-
-	// Rotate right
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
-	_delay_ms(3000);
-
-	// Rotate left
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
-	_delay_ms(3000);
-	
-	// Stop
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
 }
 
 // <<=== Initialisierungen

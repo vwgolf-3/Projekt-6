@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../LED.c \
 ../libraries/Cocktail_functions/Cocktail_functions.c \
 ../libraries/Cocktail_functions/Cocktail_Statemachine.c \
 ../libraries/Cocktail_functions/Getraenk.c \
@@ -62,6 +63,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+LED.o \
 Cocktail_functions.o \
 Cocktail_Statemachine.o \
 Getraenk.o \
@@ -80,6 +82,7 @@ UART.o \
 main.o
 
 OBJS_AS_ARGS +=  \
+LED.o \
 Cocktail_functions.o \
 Cocktail_Statemachine.o \
 Getraenk.o \
@@ -98,6 +101,7 @@ UART.o \
 main.o
 
 C_DEPS +=  \
+LED.d \
 Cocktail_functions.d \
 Cocktail_Statemachine.d \
 Getraenk.d \
@@ -116,6 +120,7 @@ UART.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
+LED.d \
 Cocktail_functions.d \
 Cocktail_Statemachine.d \
 Getraenk.d \
@@ -147,6 +152,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./LED.o: .././LED.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./Cocktail_functions.o: ../libraries/Cocktail_functions/Cocktail_functions.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

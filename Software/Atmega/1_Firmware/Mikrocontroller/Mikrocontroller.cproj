@@ -148,6 +148,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LED.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LED.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="libraries\Cocktail_functions\Cocktail_functions.c">
       <SubType>compile</SubType>
       <Link>Cocktail_functions.c</Link>

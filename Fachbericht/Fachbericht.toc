@@ -2,157 +2,157 @@
 \babel@toc {ngerman}{}
 \babel@toc {english}{}
 \babel@toc {ngerman}{}
-\contentsline {section}{\numberline {1}Einleitung}{1}{section.1}
-\contentsline {section}{\numberline {2}Ausgangslage}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Blockschaltbild}{3}{subsection.2.1}
-\contentsline {section}{\numberline {3}Neue Hardware}{4}{section.3}
-\contentsline {subsection}{\numberline {3.1}Wirelessmodul}{4}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}USB-B}{6}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Handshake ATMega2560}{6}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Handshake ESP32}{7}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}RFID}{9}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}SD-Karte}{9}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Beleuchtung}{12}{subsection.3.5}
-\contentsline {section}{\numberline {4}Printaufbau}{13}{section.4}
-\contentsline {section}{\numberline {5}Teilsysteme}{14}{section.5}
-\contentsline {subsection}{\numberline {5.1}Speisungen}{14}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{14}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{15}{subsubsection.5.1.2}
-\contentsline {paragraph}{Schema}{15}{section*.28}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{15}{section*.30}
-\contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{16}{subsubsection.5.1.3}
-\contentsline {paragraph}{Schema}{17}{section*.31}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.33}
-\contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{18}{subsubsection.5.1.4}
-\contentsline {paragraph}{Schema}{18}{section*.34}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{18}{section*.36}
-\contentsline {subsection}{\numberline {5.2}Motor}{19}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}BLDC}{20}{subsubsection.5.2.1}
-\contentsline {paragraph}{Schaltungsaufbau}{20}{section*.39}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{20}{section*.41}
-\contentsline {subsubsection}{\numberline {5.2.2}H-Br\IeC {\"u}cke}{21}{subsubsection.5.2.2}
-\contentsline {paragraph}{Schaltungsaufbau}{21}{section*.43}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.45}
-\contentsline {subsubsection}{\numberline {5.2.3}ABN-Encoder}{22}{subsubsection.5.2.3}
-\contentsline {paragraph}{Schaltungsaufbau}{22}{section*.46}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.47}
-\contentsline {subsubsection}{\numberline {5.2.4}FOC-Treiber TMC4671}{23}{subsubsection.5.2.4}
-\contentsline {paragraph}{Schema}{23}{section*.49}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.51}
-\contentsline {subparagraph}{Kommunikation Input (SPI)}{24}{section*.52}
-\contentsline {subparagraph}{Str\IeC {\"o}me Input (ADC)}{25}{section*.54}
-\contentsline {subparagraph}{Encoder Input (ENC)}{25}{section*.56}
-\contentsline {subparagraph}{Motorspannung Input (48V)}{26}{section*.58}
-\contentsline {subparagraph}{Steuersignale Output (PWM)}{26}{section*.60}
-\contentsline {subsubsection}{\numberline {5.2.5}Gate-Treiber}{27}{subsubsection.5.2.5}
-\contentsline {paragraph}{Schema}{27}{section*.62}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.65}
-\contentsline {subparagraph}{Shunt-Widerst\IeC {\"a}nde $\mathrm {\mathbf {R_{Sense}}}$}{27}{section*.66}
-\contentsline {paragraph}{Gate Vorwiderst\IeC {\"a}nde $\mathrm {\mathbf {R_{Gate}}}$}{28}{section*.67}
-\contentsline {paragraph}{Schutzwiderst\IeC {\"a}nde Messeingang $\mathrm {\mathbf {R_{Protect}}}$}{28}{section*.68}
-\contentsline {paragraph}{Bootstrap Kondensatoren $\mathrm {\mathbf {C_{Bootstrap}}}$}{28}{section*.69}
-\contentsline {paragraph}{Externer Gate-Spannungsregler}{28}{section*.70}
-\contentsline {subsection}{\numberline {5.3}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{29}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Pumpen}{29}{subsubsection.5.3.1}
-\contentsline {paragraph}{Schema}{29}{section*.71}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.73}
-\contentsline {subsubsection}{\numberline {5.3.2}Durchflussmessger\IeC {\"a}te}{30}{subsubsection.5.3.2}
-\contentsline {paragraph}{Schema}{30}{section*.74}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{30}{section*.76}
-\contentsline {subsection}{\numberline {5.4}Programmierschnittstellen}{31}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}USB-B}{31}{subsubsection.5.4.1}
-\contentsline {paragraph}{Schema}{31}{section*.77}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.79}
-\contentsline {subsection}{\numberline {5.5}Benutzerschnittstellen}{33}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}Display}{33}{subsubsection.5.5.1}
-\contentsline {paragraph}{Schema}{33}{section*.80}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{33}{section*.82}
-\contentsline {subsubsection}{\numberline {5.5.2}ESP}{34}{subsubsection.5.5.2}
-\contentsline {paragraph}{Schema (WiFi-Modul)}{34}{section*.83}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (WiFi-Modul)}{34}{section*.85}
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{35}{section*.86}
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{36}{section*.88}
-\contentsline {subsubsection}{\numberline {5.5.3}RFID}{36}{subsubsection.5.5.3}
-\contentsline {paragraph}{Schema}{36}{section*.89}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.91}
-\contentsline {subsection}{\numberline {5.6}Beleuchtung}{37}{subsection.5.6}
-\contentsline {paragraph}{Schema}{37}{section*.92}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{38}{section*.94}
-\contentsline {subsection}{\numberline {5.7}Mikrocontroller}{38}{subsection.5.7}
-\contentsline {paragraph}{Schema}{38}{section*.95}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{38}{section*.97}
-\contentsline {subsection}{\numberline {5.8}SD-Karte}{39}{subsection.5.8}
-\contentsline {paragraph}{Schema}{39}{section*.98}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{39}{section*.100}
-\contentsline {section}{\numberline {6}Inbetriebnahme}{39}{section.6}
-\contentsline {subsection}{\numberline {6.1}Speisungen}{40}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}12V Speisung}{40}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}5V Speisung}{40}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}3.3V Speisung}{40}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}Programmierschnittstellen}{41}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}USB-B}{41}{subsubsection.6.2.1}
-\contentsline {subsection}{\numberline {6.3}Benutzerschnittstellen}{46}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Touch-Display}{46}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}ESP}{46}{subsubsection.6.3.2}
-\contentsline {subsubsection}{\numberline {6.3.3}RFID}{47}{subsubsection.6.3.3}
-\contentsline {subsection}{\numberline {6.4}Mikrocontroller}{49}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Bootloader}{49}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}Fuse-Bits}{49}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}AVRdude in Atmel Studio einbinden}{50}{subsubsection.6.4.3}
-\contentsline {subsubsection}{\numberline {6.4.4}Vorgehen}{50}{subsubsection.6.4.4}
-\contentsline {subsubsection}{\numberline {6.4.5}Messungen}{51}{subsubsection.6.4.5}
-\contentsline {subsection}{\numberline {6.5}Datenspeicherung}{52}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}mikroSD-Karte}{52}{subsubsection.6.5.1}
-\contentsline {subsection}{\numberline {6.6}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{53}{subsection.6.6}
-\contentsline {subsubsection}{\numberline {6.6.1}Pumpen}{53}{subsubsection.6.6.1}
-\contentsline {subsubsection}{\numberline {6.6.2}Durchflussmessger\IeC {\"a}te}{53}{subsubsection.6.6.2}
-\contentsline {subsection}{\numberline {6.7}Beleuchtung}{53}{subsection.6.7}
-\contentsline {subsection}{\numberline {6.8}Motor}{53}{subsection.6.8}
-\contentsline {subsubsection}{\numberline {6.8.1}BLDC und H-Br\IeC {\"u}cke}{53}{subsubsection.6.8.1}
-\contentsline {subsubsection}{\numberline {6.8.2}ABN-Encoder}{53}{subsubsection.6.8.2}
-\contentsline {subsubsection}{\numberline {6.8.3}FOC-Treiber}{53}{subsubsection.6.8.3}
-\contentsline {subsubsection}{\numberline {6.8.4}Gate-Treiber}{54}{subsubsection.6.8.4}
-\contentsline {section}{\numberline {7}Software}{56}{section.7}
-\contentsline {subsection}{\numberline {7.1}Atmega2560}{56}{subsection.7.1}
-\contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{57}{subsubsection.7.1.1}
-\contentsline {subsubsection}{\numberline {7.1.2}Programmflussdiagramm}{58}{subsubsection.7.1.2}
-\contentsline {paragraph}{Bootloader-Section}{58}{section*.127}
-\contentsline {paragraph}{Init-Section}{58}{section*.128}
-\contentsline {paragraph}{Main-Loop}{58}{section*.129}
-\contentsline {subsubsection}{\numberline {7.1.3}Doubly Dynamic Linked Lists Allgemein}{60}{subsubsection.7.1.3}
-\contentsline {subsubsection}{\numberline {7.1.4}Doubly Dynamic Linked Lists Cocktailmixer}{62}{subsubsection.7.1.4}
-\contentsline {subsection}{\numberline {7.2}ESP32}{62}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{63}{subsubsection.7.2.1}
-\contentsline {subsection}{\numberline {7.3}Displaysoftware}{63}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Android App}{63}{subsection.7.4}
-\contentsline {section}{\numberline {8}Evaluation}{63}{section.8}
-\contentsline {section}{\numberline {9}Fazit}{63}{section.9}
-\contentsline {subsection}{\numberline {9.1}Zielerreichung}{63}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Kosten}{63}{subsection.9.2}
-\contentsline {section}{\numberline {10}Schlusswort}{63}{section.10}
-\contentsline {section}{\numberline {11}Ehrlichkeitserkl\IeC {\"a}rung}{63}{section.11}
-\contentsline {section}{Literatur}{64}{section*.142}
-\contentsline {section}{\numberline {A}TMC4671}{65}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Standard-Schaltkreis TMC4671}{65}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Blockdiagramm TMC4671}{65}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Inbetriebnahme Gate-Control}{66}{subsection.A.3}
-\contentsline {section}{\numberline {B}TMC6200}{71}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}Standard-Schaltkreis TMC6200}{71}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}Blockdiagramm TMC6200}{71}{subsection.B.2}
-\contentsline {subsection}{\numberline {B.3}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{72}{subsection.B.3}
-\contentsline {subsection}{\numberline {B.4}Gate-Vorwiderstand}{72}{subsection.B.4}
-\contentsline {subsection}{\numberline {B.5}Externe Gate-Spannungsversorgung}{72}{subsection.B.5}
-\contentsline {section}{\numberline {C}H-Br\IeC {\"u}cke}{73}{appendix.C}
-\contentsline {subsection}{\numberline {C.1}Referenzschema}{73}{subsection.C.1}
-\contentsline {section}{\numberline {D}Mikrocontroller}{73}{appendix.D}
-\contentsline {subsection}{\numberline {D.1}Brown-out-Detection}{73}{subsection.D.1}
-\contentsline {subsection}{\numberline {D.2}Full Swing Crystal Oscillator}{73}{subsection.D.2}
-\contentsline {subsection}{\numberline {D.3}Bootloader-Speicherplatz}{74}{subsection.D.3}
-\contentsline {subsection}{\numberline {D.4}Memory-Lock Bootloader}{74}{subsection.D.4}
-\contentsline {section}{\numberline {E}USB-B}{75}{appendix.E}
-\contentsline {subsection}{\numberline {E.1}Ger\IeC {\"a}te-Manager}{75}{subsection.E.1}
-\contentsline {section}{\numberline {F}Atmel Studio}{75}{appendix.F}
-\contentsline {subsection}{\numberline {F.1}Fuse Bits}{75}{subsection.F.1}
-\contentsline {subsection}{\numberline {F.2}Lock Bits}{75}{subsection.F.2}
-\contentsline {subsection}{\numberline {F.3}Einbinden AVRdude und stk500v2 (wiring)}{76}{subsection.F.3}
-\contentsline {subsection}{\numberline {F.4}Bootloader ''Brennen''}{76}{subsection.F.4}
+\contentsline {section}{\numberline {1}Einleitung}{1}{section.1}%
+\contentsline {section}{\numberline {2}Ausgangslage}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Blockschaltbild}{3}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Neue Hardware}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Wirelessmodul}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}USB-B}{6}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Handshake ATMega2560}{6}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Handshake ESP32}{7}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}RFID}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}SD-Karte}{9}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Beleuchtung}{11}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Printaufbau}{12}{section.4}%
+\contentsline {section}{\numberline {5}Teilsysteme}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Speisungen}{13}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{13}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{14}{subsubsection.5.1.2}%
+\contentsline {paragraph}{Schema}{14}{section*.28}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.30}%
+\contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{15}{subsubsection.5.1.3}%
+\contentsline {paragraph}{Schema}{16}{section*.31}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{16}{section*.33}%
+\contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{17}{subsubsection.5.1.4}%
+\contentsline {paragraph}{Schema}{17}{section*.34}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.36}%
+\contentsline {subsection}{\numberline {5.2}Motor}{18}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}BLDC}{19}{subsubsection.5.2.1}%
+\contentsline {paragraph}{Schaltungsaufbau}{19}{section*.39}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.41}%
+\contentsline {subsubsection}{\numberline {5.2.2}H-Brücke}{20}{subsubsection.5.2.2}%
+\contentsline {paragraph}{Schaltungsaufbau}{20}{section*.43}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{20}{section*.45}%
+\contentsline {subsubsection}{\numberline {5.2.3}ABN-Encoder}{21}{subsubsection.5.2.3}%
+\contentsline {paragraph}{Schaltungsaufbau}{21}{section*.46}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.47}%
+\contentsline {subsubsection}{\numberline {5.2.4}FOC-Treiber TMC4671}{22}{subsubsection.5.2.4}%
+\contentsline {paragraph}{Schema}{22}{section*.49}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.51}%
+\contentsline {subparagraph}{Kommunikation Input (SPI)}{23}{section*.52}%
+\contentsline {subparagraph}{Ströme Input (ADC)}{24}{section*.54}%
+\contentsline {subparagraph}{Encoder Input (ENC)}{24}{section*.56}%
+\contentsline {subparagraph}{Motorspannung Input (48V)}{25}{section*.58}%
+\contentsline {subparagraph}{Steuersignale Output (PWM)}{25}{section*.60}%
+\contentsline {subsubsection}{\numberline {5.2.5}Gate-Treiber}{26}{subsubsection.5.2.5}%
+\contentsline {paragraph}{Schema}{26}{section*.62}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{26}{section*.65}%
+\contentsline {subparagraph}{Shunt-Widerstände $\mathrm {\mathbf {R_{Sense}}}$}{26}{section*.66}%
+\contentsline {paragraph}{Gate Vorwiderstände $\mathrm {\mathbf {R_{Gate}}}$}{27}{section*.67}%
+\contentsline {paragraph}{Schutzwiderstände Messeingang $\mathrm {\mathbf {R_{Protect}}}$}{27}{section*.68}%
+\contentsline {paragraph}{Bootstrap Kondensatoren $\mathrm {\mathbf {C_{Bootstrap}}}$}{27}{section*.69}%
+\contentsline {paragraph}{Externer Gate-Spannungsregler}{27}{section*.70}%
+\contentsline {subsection}{\numberline {5.3}Flüssigkeitsbeförderung}{28}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Pumpen}{28}{subsubsection.5.3.1}%
+\contentsline {paragraph}{Schema}{28}{section*.71}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{28}{section*.73}%
+\contentsline {subsubsection}{\numberline {5.3.2}Durchflussmessgeräte}{29}{subsubsection.5.3.2}%
+\contentsline {paragraph}{Schema}{29}{section*.74}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.76}%
+\contentsline {subsection}{\numberline {5.4}Programmierschnittstellen}{30}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}USB-B}{30}{subsubsection.5.4.1}%
+\contentsline {paragraph}{Schema}{30}{section*.77}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{31}{section*.79}%
+\contentsline {subsection}{\numberline {5.5}Benutzerschnittstellen}{32}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Display}{32}{subsubsection.5.5.1}%
+\contentsline {paragraph}{Schema}{32}{section*.80}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.82}%
+\contentsline {subsubsection}{\numberline {5.5.2}ESP}{33}{subsubsection.5.5.2}%
+\contentsline {paragraph}{Schema (WiFi-Modul)}{33}{section*.83}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (WiFi-Modul)}{33}{section*.85}%
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{34}{section*.86}%
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{35}{section*.88}%
+\contentsline {subsubsection}{\numberline {5.5.3}RFID}{35}{subsubsection.5.5.3}%
+\contentsline {paragraph}{Schema}{35}{section*.89}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{36}{section*.91}%
+\contentsline {subsection}{\numberline {5.6}Beleuchtung}{36}{subsection.5.6}%
+\contentsline {paragraph}{Schema}{36}{section*.92}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.94}%
+\contentsline {subsection}{\numberline {5.7}Mikrocontroller}{37}{subsection.5.7}%
+\contentsline {paragraph}{Schema}{37}{section*.95}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.97}%
+\contentsline {subsection}{\numberline {5.8}SD-Karte}{38}{subsection.5.8}%
+\contentsline {paragraph}{Schema}{38}{section*.98}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{38}{section*.100}%
+\contentsline {section}{\numberline {6}Inbetriebnahme}{38}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Speisungen}{39}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}12V Speisung}{39}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}5V Speisung}{39}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}3.3V Speisung}{39}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Programmierschnittstellen}{40}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}USB-B}{40}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Benutzerschnittstellen}{45}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Touch-Display}{45}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}ESP}{45}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}RFID}{46}{subsubsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.4}Mikrocontroller}{48}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Bootloader}{48}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Fuse-Bits}{48}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}AVRdude in Atmel Studio einbinden}{49}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.4}Vorgehen}{49}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.5}Messungen}{50}{subsubsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.5}Datenspeicherung}{51}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}mikroSD-Karte}{51}{subsubsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.6}Flüssigkeitsbeförderung}{52}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Pumpen}{52}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Durchflussmessgeräte}{52}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Beleuchtung}{52}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Motor}{52}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}BLDC und H-Brücke}{52}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}ABN-Encoder}{52}{subsubsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.3}FOC-Treiber}{52}{subsubsection.6.8.3}%
+\contentsline {subsubsection}{\numberline {6.8.4}Gate-Treiber}{52}{subsubsection.6.8.4}%
+\contentsline {section}{\numberline {7}Software}{55}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Atmega2560}{55}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{56}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Programmflussdiagramm}{57}{subsubsection.7.1.2}%
+\contentsline {paragraph}{Bootloader-Section}{57}{section*.127}%
+\contentsline {paragraph}{Init-Section}{57}{section*.128}%
+\contentsline {paragraph}{Main-Loop}{57}{section*.129}%
+\contentsline {subsubsection}{\numberline {7.1.3}Doubly Dynamic Linked Lists Allgemein}{59}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.4}Doubly Dynamic Linked Lists Cocktailmixer}{60}{subsubsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.2}ESP32}{61}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{62}{subsubsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.3}Displaysoftware}{62}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Android App}{62}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Evaluation}{62}{section.8}%
+\contentsline {section}{\numberline {9}Fazit}{62}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Zielerreichung}{62}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Kosten}{62}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Schlusswort}{62}{section.10}%
+\contentsline {section}{\numberline {11}Ehrlichkeitserklärung}{62}{section.11}%
+\contentsline {section}{Literatur}{63}{section*.142}%
+\contentsline {section}{\numberline {A}TMC4671}{64}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Standard-Schaltkreis TMC4671}{64}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Blockdiagramm TMC4671}{64}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Inbetriebnahme Gate-Control}{65}{subsection.A.3}%
+\contentsline {section}{\numberline {B}TMC6200}{70}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Standard-Schaltkreis TMC6200}{70}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Blockdiagramm TMC6200}{70}{subsection.B.2}%
+\contentsline {subsection}{\numberline {B.3}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{71}{subsection.B.3}%
+\contentsline {subsection}{\numberline {B.4}Gate-Vorwiderstand}{71}{subsection.B.4}%
+\contentsline {subsection}{\numberline {B.5}Externe Gate-Spannungsversorgung}{71}{subsection.B.5}%
+\contentsline {section}{\numberline {C}H-Brücke}{72}{appendix.C}%
+\contentsline {subsection}{\numberline {C.1}Referenzschema}{72}{subsection.C.1}%
+\contentsline {section}{\numberline {D}Mikrocontroller}{72}{appendix.D}%
+\contentsline {subsection}{\numberline {D.1}Brown-out-Detection}{72}{subsection.D.1}%
+\contentsline {subsection}{\numberline {D.2}Full Swing Crystal Oscillator}{73}{subsection.D.2}%
+\contentsline {subsection}{\numberline {D.3}Bootloader-Speicherplatz}{74}{subsection.D.3}%
+\contentsline {subsection}{\numberline {D.4}Memory-Lock Bootloader}{74}{subsection.D.4}%
+\contentsline {section}{\numberline {E}USB-B}{75}{appendix.E}%
+\contentsline {subsection}{\numberline {E.1}Geräte-Manager}{75}{subsection.E.1}%
+\contentsline {section}{\numberline {F}Atmel Studio}{75}{appendix.F}%
+\contentsline {subsection}{\numberline {F.1}Fuse Bits}{75}{subsection.F.1}%
+\contentsline {subsection}{\numberline {F.2}Lock Bits}{75}{subsection.F.2}%
+\contentsline {subsection}{\numberline {F.3}Einbinden AVRdude und stk500v2 (wiring)}{76}{subsection.F.3}%
+\contentsline {subsection}{\numberline {F.4}Bootloader ''Brennen''}{76}{subsection.F.4}%

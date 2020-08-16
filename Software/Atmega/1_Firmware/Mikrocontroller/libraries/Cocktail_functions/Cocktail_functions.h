@@ -16,6 +16,7 @@
 #include "../TMC4671/TMC4671.h"
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/FAT32.h"
+#include "../../LED.h"
 
 // Speicherstrukturen
 #include "Zutaten.h"
@@ -82,6 +83,11 @@ void send_List_Getraenke (void);
 void send_List_RFID (void);
 void send_List_Zutaten (void);
 void choose_aktuellesGetraenk(uint8_t nr);
+
+void ESP_Getraenk(void);
+
+void Getraenk_erstellt();
+void Maschineninfo_senden();
 
 enum Zutat_in_Maschine_Status{KEINGETRAENK, VOLL, LEER};
 

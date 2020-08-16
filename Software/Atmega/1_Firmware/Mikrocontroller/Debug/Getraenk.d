@@ -31,26 +31,29 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/Main_Func.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../UART/UART.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\api_header.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Config.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Constants.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Macros.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Bits.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\CRC.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\RegisterAccess.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Register.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Constants.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/API_Header.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Config.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Macros.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Bits.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/CRC.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Register.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Constants.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Fields.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../../LED.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../../utils/pin_defs.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Zutaten.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/TAGS.h
@@ -119,37 +122,39 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\api_header.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/API_Header.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Config.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Config.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Constants.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Types.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Macros.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Macros.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Bits.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Bits.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/CRC.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\CRC.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\RegisterAccess.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Register.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Register.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Constants.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Constants.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671_Fields.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/../SPI/SPI.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
@@ -158,6 +163,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../../LED.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../../utils/pin_defs.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/Zutaten.h:
 

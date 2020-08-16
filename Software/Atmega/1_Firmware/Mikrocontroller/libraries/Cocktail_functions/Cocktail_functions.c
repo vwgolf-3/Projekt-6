@@ -142,13 +142,14 @@ void fuelle_getraenk(uint32_t fuellmenge)
 			schalte_pumpe_ein(i);
 			while (fuellen)
 			{
+				asm("nop");
 				// Polle PWM-Signal des Durchflusssensor
 				static uint8_t oldval=0;
 				static uint32_t count=0;
 			
 				// Lese Sensor ein
-				newval = oldval ^ 0b00000001;
-// 				newval = lese_sensor(i);
+// 				newval = oldval ^ 0b00000001;
+				newval = lese_sensor(i);
 
 				// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
 				if( !oldval && newval)
@@ -162,7 +163,7 @@ void fuelle_getraenk(uint32_t fuellmenge)
 					}
 //*************************************************************************
 //					Delay entfernen wenn mit Sensor gearbeitet wird.
-				_delay_ms(2);
+// 				_delay_ms(2);
 					if (check_Communication_Input_UART_1())
 					{
 						proceed_Communication_INPUT_UART_1();
@@ -325,40 +326,25 @@ uint8_t lese_sensor(uint8_t Sensor)
 
 void erstelle_Liste_name(char * name_button)
 {
-	char buff[10] = {'\0'};
-	Uart_Transmit_IT_PC("Liste:\r");
-	Uart_Transmit_IT_PC("i_Liste_test_cnt = ");
-	itoa(i_Liste_test_cnt, (char *)buff, 10);
-	Uart_Transmit_IT_PC((char *)buff);
-	Uart_Transmit_IT_PC("\ri_Liste[] = ");
-	itoa(i_Liste_test[i_Liste_test_cnt],(char *)buff, 10);
-	Uart_Transmit_IT_PC((char *)buff);
-	Uart_Transmit_IT_PC("\r");
-	_delay_ms(100);
-	
-	uint8_t list_length = 8;
-	
 	// Getränkedurchwahr bei Tail starten.
 	aktuellesGetraenk_file = tail_getraenk_file;
 	
 	// Shifte aktuelles Getränk auf bestimmte Seite
 	// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
-	for (int count = 0 ; count < i_Liste_test[i_Liste_test_cnt] ; count++)
+	for (int i = 0 ; i < i_Liste ; i++)
 	{
 		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 	}
-	
-	uint8_t counter = 0;
-	
+
 	// Für alle Buttons auf der Seite ...
-		
-		// Initialisierungen
+	// Initialisierungen
 	char button[21] = {'\0'};
+	char buff[4] = {0};
 	
-	for (int count = 0 ; count < list_length ; count++)
+	for (int i = 0 ; i < 8 ; i++)
 	{
 		// Schreibe Zahl und Name des Buttons in String
-		itoa((count + 1),buff,10);
+		itoa((i + 1),buff,10);
 		strcpy((char *)button, (const char *)name_button);
 		strcat((char *)button, (const char *)buff);
 		
@@ -389,7 +375,6 @@ void erstelle_Liste_name(char * name_button)
 			
 			// Disable Button
 			nextion_disableButton(buff10);
-			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
 		}
 		
 		//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
@@ -399,64 +384,17 @@ void erstelle_Liste_name(char * name_button)
 			nextion_setText(button,aktuellesGetraenk->name);
 		}
 		
-		// Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde 
-		// (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
-		// Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
-		
-		switch (Liste)
+		// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
+		if((i + i_Liste + 1) == tail_getraenk_file->file)
 		{
-			char run = 1;
-			
-			case ALKOHOL:
-			//				0x01 = 0b01
-			schiebe_file_prev();
-			counter++;
-			while(aktuellesGetraenk->alkohol == 0 && run == 1)
-			{
-				schiebe_file_prev();
-				counter++;
-				if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
-				{
-					block_list_hoch = 1;
-					run = 0;
-				}
-			}
-			break;
-			case ALKOHOLFREI:
-			//				0x02 = 0b02
-			schiebe_file_prev();
-			counter++;
-			while(aktuellesGetraenk->alkohol == 1 && run == 1)
-			{
-				schiebe_file_prev();
-				counter++;
-				if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
-				{
-					block_list_hoch = 1;
-					run = 0;
-				}			
-			}
-			break;
+			block_list_hoch = 1;
 		}
-				
+		
+		// Ein Getraenk weiter Scrollen
+		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+		
 		// Sicherheitsdelay, Programm stürzt sonst ab
 		_delay_ms(1);
-		if (i == (list_length - 1))
-		{
-			i_Liste_test[i_Liste_test_cnt+1] = i_Liste_test[i_Liste_test_cnt] + counter;
-			i_Liste_test_cnt++;
-			char buff[10] = {'\0'};
-			Uart_Transmit_IT_PC("Liste Ende:\r");
-			Uart_Transmit_IT_PC("i_Liste_test_cnt = ");
-			itoa(i_Liste_test_cnt, (char *)buff, 10);
-			Uart_Transmit_IT_PC((char *)buff);
-			Uart_Transmit_IT_PC("\ri_Liste[] = ");
-			itoa(i_Liste_test[i_Liste_test_cnt],(char *)buff, 10);
-			Uart_Transmit_IT_PC((char *)buff);
-			Uart_Transmit_IT_PC("\r");
-			_delay_ms(100);
-	
-		}
 	}
 }
 
@@ -1053,22 +991,22 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 	else
 	{
 		
-	// Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
-	aktuelles_zutat_file = tail_zutat_file;
-	for (int i = 0 ; i < (i_Liste + nr) ; i++)
-	{
-		aktuelles_zutat_file = aktuelles_zutat_file->prev;
+		// Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
+		aktuelles_zutat_file = tail_zutat_file;
+		for (int i = 0 ; i < (i_Liste + nr) ; i++)
+		{
+			aktuelles_zutat_file = aktuelles_zutat_file->prev;
+		}
+		lese_textfile_in_zutat(aktuelles_zutat_file->file);
+		
+		// Schreibe Name der gefundenen Zutat in die ausgewählte Position.
+		char len = strlen((const char *)aktuelle_zutat->name);
+		for (int count = 0 ; count < (len + 1) ; count++)
+		{
+			*(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
+		}
 	}
-	lese_textfile_in_zutat(aktuelles_zutat_file->file);
-	
-	// Schreibe Name der gefundenen Zutat in die ausgewählte Position.
-	char len = strlen((const char *)aktuelle_zutat->name);
-	for (int count = 0 ; count < (len + 1) ; count++)
-	{
-		*(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
-	}
-	}
-	
+		
 	// Definiere den Status des Getränks
 	aktuelleZutatInMaschine->status = status;
 	
@@ -1088,16 +1026,13 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 	block_list_hoch = 0;
 	block_list_runter = 0;
 	i_Liste = 0;
-
 	char buff98[20] = {'\0'};
 	strcpy((char *)buff98, (const char *)"M.txt");
 	deleteFile((unsigned char *)buff98);
-
 	char buff_file[512] = {'\0'};
 	char buff99[10];
-
 	aktuelleZutatInMaschine = tail_zut_in_Maschine;
-
+	
 	for (int count = 0 ; count < 12 ; count++)
 	{
 		if (count != 0)
@@ -1108,71 +1043,67 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 		{
 			strcpy((char *)buff_file, (const char *)aktuelleZutatInMaschine->name);
 		}
-	strcat((char *)buff_file, (const char *)",");
-	itoa(aktuelleZutatInMaschine->status, (char *)buff99, 10);
-	strcat((char *)buff_file, (const char *)buff99);
-	strcat((char *)buff_file, (const char *)",");
-	itoa(aktuelleZutatInMaschine->alkohol, (char *)buff99, 10);
-	strcat((char *)buff_file, (const char *)buff99);
-	if (aktuelleZutatInMaschine != head_zut_in_Maschine)
-	{
-		strcat((char *)buff_file, (const char *)"\r");
+		strcat((char *)buff_file, (const char *)",");
+		itoa(aktuelleZutatInMaschine->status, (char *)buff99, 10);
+		strcat((char *)buff_file, (const char *)buff99);
+		strcat((char *)buff_file, (const char *)",");
+		itoa(aktuelleZutatInMaschine->alkohol, (char *)buff99, 10);
+		strcat((char *)buff_file, (const char *)buff99);
+		if (aktuelleZutatInMaschine != head_zut_in_Maschine)
+		{
+			strcat((char *)buff_file, (const char *)"\r");
+		}
+			else
+		{
+			strcat(buff_file, "~");
+		}
+		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	}
-	else
-	{
-		strcat(buff_file, "~");
-	}
-	aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
-	}
-	
+		
 	char buff97[20] = {'\0'};
 	strcpy((char *)buff97, (const char *)"M.txt");	
 	writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
+	
+
 }
 
 void send_List_Getraenke (void)
 {
 	char buff[512] = {'\0'};
 	char * ptr = buff;
+	
+	char counter = 0;
 	aktuellesGetraenk_file = tail_getraenk_file;
-	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-	strcat(ptr, "getraenkeliste:");
-	strcat(ptr, aktuellesGetraenk->name);
+	
 	do
 	{
-		strcat(ptr, ",");
-		aktuelles_zutat_file = aktuelles_zutat_file->prev;
-		lese_textfile_in_getraenk(aktuelles_zutat_file->file);
-		strcat(ptr, aktuellesGetraenk->name);
+		counter++;
+		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 	} while (aktuellesGetraenk_file != tail_getraenk_file);
-	strcat(ptr,":");
-	strcat(ptr,";");
-	Uart_Transmit_IT_PC(ptr);
-	Uart_Transmit_IT_ESP(ptr);
-}
+			
+	strcat(ptr, "getraenkeliste:");
+	char buffer[5] = {'\0'};
+	itoa(counter, (char *) buffer, 10);
+	strcat(ptr, (char *) buffer);
+	strcat(ptr, ":");
+	
+	aktuellesGetraenk_file = tail_getraenk_file;
+	
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+	
+	strcat(ptr, aktuellesGetraenk->name);
+	aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 
-void send_List_RFID (void)
-{
-	char buff[512] = {'\0'};
-	char buff2[10] = {'\0'};
-	char * ptr = buff;
-	char * ptr2 = buff2;
-	aktueller_tag = tail_tag;
-	strcat(ptr, "tagnummer:");
-	itoa(aktueller_tag->tag_nummer, ptr2, 10);
-	strcat(ptr, ptr2);
-	do
+	for (int cnt = 0 ; cnt < (counter - 1); cnt++)
 	{
 		strcat(ptr, ",");
-		aktueller_tag = aktueller_tag->prev;
-		itoa(aktueller_tag->tag_nummer, ptr2, 10);
-		strcat(ptr, ptr2);
-		aktueller_tag = aktueller_tag->prev;
-	} while (aktueller_tag != tail_tag);
+		lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+		strcat(ptr, aktuellesGetraenk->name);
+		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;		
+	}
 	strcat(ptr,":");
-	strcat(ptr,";");
-	Uart_Transmit_IT_ESP(ptr);
 	Uart_Transmit_IT_PC(ptr);
+	Uart_Transmit_IT_ESP(ptr);
 }
 
 void send_List_Zutaten (void)
@@ -1195,4 +1126,111 @@ void send_List_Zutaten (void)
 	strcat(ptr,":");
 	strcat(ptr,";");
 	Uart_Transmit_IT_ESP(ptr);
+}
+
+void ESP_Getraenk(void)
+{
+	char buff[21] = {'\0'};
+	while (check_Communication_Input_UART_2()==0)
+	;	
+	Uart_Transmit_IT_PC((char *)INPUT_UART_2);
+	strcpy((char *)buff, (char *)INPUT_UART_2);
+	// Altes aktuelles Getraenk speichern, neues aktuelles Getraenk laden, Auf Zubereitungsseite wechseln, Zubereiten oder nicht, altes aktuelles Getraenk wieder laden.
+	
+	aktuellesGetraenk_file = tail_getraenk_file;
+	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+
+	while (strcmp(aktuellesGetraenk->name, buff)!=0)
+	{
+		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+		lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+	}
+	nextion_change_page(ZUBABFRAGE);
+}
+
+void Getraenk_erstellt()
+{
+	// String extrahieren und SD-Karten-File speichern (Getraenk)
+	
+	while (check_Communication_Input_UART_2()==0)
+	;
+	Uart_Transmit_IT_PC((char *)INPUT_UART_2);
+	char buff[256] = {'\0'};
+	char string[256] = {'\0'};
+	char * ptr = buff;
+	char * ptr2 = string;
+	char delimiter[] = ",:\r";
+	
+	strcpy(buff, (char *)INPUT_UART_2);
+	//Name
+	ptr = strtok(ptr, delimiter);
+// 	Uart_Transmit_IT_PC("\rName: ");
+// 	Uart_Transmit_IT_PC(ptr);
+	strcat(ptr2, "Name:");
+	strcat(ptr2, ptr);
+	strcat(ptr2, "\rMengen:\r");
+	
+	char buff2[20] = {'\0'};
+	char temp2[21] = {'\0'};
+	char alkohol = 0;
+	for (int count = 0 ; count < 12 ; count++)
+	{
+	// Zutat 1 Name
+// 	Uart_Transmit_IT_PC("\rZutat");
+// 	itoa((count + 1), (char *)buff2, 10);
+// 	Uart_Transmit_IT_PC(buff2);
+// 	Uart_Transmit_IT_PC(": ");
+	ptr = strtok(NULL, delimiter);
+// 	Uart_Transmit_IT_PC(ptr);
+	strcpy((char *)temp2, ptr);
+	
+	// Zutat 1 Menge
+// 	Uart_Transmit_IT_PC("\rMenge");
+// 	itoa((count + 1), (char *)buff2, 10);
+// 	Uart_Transmit_IT_PC(buff2);
+// 	Uart_Transmit_IT_PC(": ");
+	ptr = strtok(NULL, delimiter);
+	if (atoi(ptr)>0)
+	{
+		aktuelleZutatInMaschine = tail_zut_in_Maschine;
+		for (int count2 = 0 ; count2 < 12 ; count2++)
+		{
+			if (strcmp(aktuelleZutatInMaschine->name, temp2) == 0)
+			{
+				if (aktuelleZutatInMaschine->alkohol == 1)
+				{
+					alkohol = 1;
+				}
+			}
+			aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+		}
+		strcat(ptr2, (const char *)temp2);
+		strcat(ptr2, ":");
+		strcat(ptr2, ptr);
+		strcat(ptr2, "\r");
+	}
+// 	Uart_Transmit_IT_PC(ptr);
+	_delay_ms(200);
+	}
+	strcat(ptr2, ";\r");
+	strcat(ptr2, "Alkohol:");
+	itoa(alkohol, (char *)buff2, 10);
+	strcat(ptr2, (char *)buff2);
+	strcat(ptr2, "\rBild:24");
+	strcat(ptr2, "~");
+	
+// 	Uart_Transmit_IT_PC(ptr2);
+	
+	// Filename erstellen
+	char buff97[20] = {'\0'};
+	itoa((head_getraenk_file->file)+1, (char *)buff2, 10);
+	strcpy((char *)buff97, (char *)buff2);
+	strcat((char *)buff97, (const char *)".txt");
+	writeFile((unsigned char *)buff97, (unsigned char *)ptr2);
+	Uart_Transmit_IT_PC((char *)buff97);
+	
+	// An dynamic linked list anhängen
+	getraenk_file_t * tmp2;
+	tmp2 = create_new_getraenk_file((head_getraenk_file->file)+1);
+	head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
 }
