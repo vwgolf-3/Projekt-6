@@ -1,3 +1,33 @@
 \subsection{Android App}
 \label{subsec:Software_App}
 
+Um den Aufwand der Erstellung einer App möglichst gering halten zu können wurde bei der Erstellung auf ein Web-Tool zurückgegriffen, welches mittels einer einfach gestalteten Benutzeroberfläche App Erstellungen ermöglicht. Bei dem Programm handelt es sich um AppInventor. Es gibt einige weitere solche Anbieter wie auch Kodular. Bei diversen Programmierversuchen stellte sich jedoch heraus, dass AppInventor trotz einiger schwächen flüssiger und zuverlässiger läuft als seine Konkurrenz.  Die beiden grössten Schwächen von AppInventor sind es, dass mit dem Tool keine Dynamischen Buttons erstellt werden können, was es schwierig gestaltet Buttonlists oder ähnliches zu erstellen. Als weiterer grosser Schwachpunkt gilt es, das zwar verschiedene Seiten erstellt werden können, jedoch ein Bluetooth-Client zum Beispiel jeweils nur auf einer Seite aktiv sein kann. Somit müsste man bei einem Seitenwechsel jedes Mal den Bluetooth-Client neu verbinden. Beide Schwächen können jedoch mit einem Trick umgangen werden. Anstelle von Buttonlists oder dynamischen Schiebereglern kann man mit Listen arbeiten, welche sich bei der Öffnung jeweils aktualisieren und an Stelle eines Seitenwechsels kann mit der Sichtbarkeit von Elementen gearbeitet werden. Dies macht jedoch den Programmaufbau komplexer und unübersichtlicher.\\
+
+\todo{Quelle:http://appinventor.mit.edu/}
+\todo{Quelle:https://www.kodular.io/}
+
+AppInventor arbeitet mit zwei verschiedenen Benutzeroberflächen. Einerseits mit dem Designer, in welchem die App mit relativ einfachen Bausteinen gestaltet werden kann und anderseits mit den Blocks, wo der Programmablauf Blockmässig erstellt werden kann.\\
+
+Der Designer, welcher in Abbildung \ref{fig:AppInventorDesigner} zu sehen ist, besteht aus vier Einheiten. Ganz links befinden sich die Bausteine in der Palette, welche per Drag and Drop in den Viewer gezogen werden können, welcher sich gross in der Mitte befindet. Links neben dem Viewer befinden sich dann die schon reingezogenen Komponenten als Übersicht und ganz rechts die Einstellungen und Formatierungsmöglichkeiten zu den gewählten Komponenten.
+
+\newpage
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/AppInventorDesigner}
+	\caption{Designer von AppInventor}
+	\label{fig:AppInventorDesigner}
+\end{figure}
+
+In den Blocks gemäss Abbildung \ref{fig:AppInventorBlocks} wird der eigentliche Programmablauf erstellt. Dabei ist der Programmablauf jedoch nicht handschriftlich zu erstellen, sondern kann mittels Blöcke zusammengesetzt werden. Dies erfordert zwar auch eine gewisse Programmierkenntnis, ist jedoch einfacher zu verstehen. Ausserdem sin viele Hilfeleistungen gegeben. Ein wichtiger Knackpunkt sind jedoch wie bei fast allen Programmiersprachen die Datentypen, welche sauber gemanagt werden müssen.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/AppInventorBlocks}
+	\caption{Blocks von AppInventor}
+	\label{fig:AppInventorBlocks}
+\end{figure}
+
+
+
+ 

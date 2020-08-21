@@ -71,35 +71,37 @@
 \BOOKMARK [2][-]{subsection.7.2}{7.2 ESP32}{section.7}% 71
 \BOOKMARK [3][-]{subsubsection.7.2.1}{7.2.1 Programmflussdiagramm}{subsection.7.2}% 72
 \BOOKMARK [2][-]{subsection.7.3}{7.3 Displaysoftware}{section.7}% 73
-\BOOKMARK [2][-]{subsection.7.4}{7.4 Android App}{section.7}% 74
-\BOOKMARK [1][-]{section.8}{8 Evaluation}{}% 75
-\BOOKMARK [1][-]{section.9}{9 Fazit}{}% 76
-\BOOKMARK [2][-]{subsection.9.1}{9.1 Zielerreichung}{section.9}% 77
-\BOOKMARK [2][-]{subsection.9.2}{9.2 Kosten}{section.9}% 78
-\BOOKMARK [1][-]{section.10}{10 Schlusswort}{}% 79
-\BOOKMARK [1][-]{section.11}{11 Ehrlichkeitserkl\344rung}{}% 80
-\BOOKMARK [1][-]{section*.147}{Literatur}{}% 81
-\BOOKMARK [1][-]{appendix.A}{A TMC4671}{}% 82
-\BOOKMARK [2][-]{subsection.A.1}{A.1 Standard-Schaltkreis TMC4671}{appendix.A}% 83
-\BOOKMARK [2][-]{subsection.A.2}{A.2 Blockdiagramm TMC4671}{appendix.A}% 84
-\BOOKMARK [2][-]{subsection.A.3}{A.3 Inbetriebnahme Gate-Control}{appendix.A}% 85
-\BOOKMARK [1][-]{appendix.B}{B TMC6200}{}% 86
-\BOOKMARK [2][-]{subsection.B.1}{B.1 Standard-Schaltkreis TMC6200}{appendix.B}% 87
-\BOOKMARK [2][-]{subsection.B.2}{B.2 Blockdiagramm TMC6200}{appendix.B}% 88
-\BOOKMARK [2][-]{subsection.B.3}{B.3 Verst\344rkungsfaktor, Strommessung, Strommesswiderstand}{appendix.B}% 89
-\BOOKMARK [2][-]{subsection.B.4}{B.4 Gate-Vorwiderstand}{appendix.B}% 90
-\BOOKMARK [2][-]{subsection.B.5}{B.5 Externe Gate-Spannungsversorgung}{appendix.B}% 91
-\BOOKMARK [1][-]{appendix.C}{C H-Br\374cke}{}% 92
-\BOOKMARK [2][-]{subsection.C.1}{C.1 Referenzschema}{appendix.C}% 93
-\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 94
-\BOOKMARK [2][-]{subsection.D.1}{D.1 Brown-out-Detection}{appendix.D}% 95
-\BOOKMARK [2][-]{subsection.D.2}{D.2 Full Swing Crystal Oscillator}{appendix.D}% 96
-\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader-Speicherplatz}{appendix.D}% 97
-\BOOKMARK [2][-]{subsection.D.4}{D.4 Memory-Lock Bootloader}{appendix.D}% 98
-\BOOKMARK [1][-]{appendix.E}{E USB-B}{}% 99
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Ger\344te-Manager}{appendix.E}% 100
-\BOOKMARK [1][-]{appendix.F}{F Atmel Studio}{}% 101
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Fuse Bits}{appendix.F}% 102
-\BOOKMARK [2][-]{subsection.F.2}{F.2 Lock Bits}{appendix.F}% 103
-\BOOKMARK [2][-]{subsection.F.3}{F.3 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.F}% 104
-\BOOKMARK [2][-]{subsection.F.4}{F.4 Bootloader ''Brennen''}{appendix.F}% 105
+\BOOKMARK [3][-]{subsubsection.7.3.1}{7.3.1 Displaymenu}{subsection.7.3}% 74
+\BOOKMARK [2][-]{subsection.7.4}{7.4 Android App}{section.7}% 75
+\BOOKMARK [3][-]{subsubsection.7.4.1}{7.4.1 PartyMixer App}{subsection.7.4}% 76
+\BOOKMARK [1][-]{section.8}{8 Evaluation}{}% 77
+\BOOKMARK [1][-]{section.9}{9 Fazit}{}% 78
+\BOOKMARK [2][-]{subsection.9.1}{9.1 Zielerreichung}{section.9}% 79
+\BOOKMARK [2][-]{subsection.9.2}{9.2 Kosten}{section.9}% 80
+\BOOKMARK [1][-]{section.10}{10 Schlusswort}{}% 81
+\BOOKMARK [1][-]{section.11}{11 Ehrlichkeitserkl\344rung}{}% 82
+\BOOKMARK [1][-]{section*.154}{Literatur}{}% 83
+\BOOKMARK [1][-]{appendix.A}{A TMC4671}{}% 84
+\BOOKMARK [2][-]{subsection.A.1}{A.1 Standard-Schaltkreis TMC4671}{appendix.A}% 85
+\BOOKMARK [2][-]{subsection.A.2}{A.2 Blockdiagramm TMC4671}{appendix.A}% 86
+\BOOKMARK [2][-]{subsection.A.3}{A.3 Inbetriebnahme Gate-Control}{appendix.A}% 87
+\BOOKMARK [1][-]{appendix.B}{B TMC6200}{}% 88
+\BOOKMARK [2][-]{subsection.B.1}{B.1 Standard-Schaltkreis TMC6200}{appendix.B}% 89
+\BOOKMARK [2][-]{subsection.B.2}{B.2 Blockdiagramm TMC6200}{appendix.B}% 90
+\BOOKMARK [2][-]{subsection.B.3}{B.3 Verst\344rkungsfaktor, Strommessung, Strommesswiderstand}{appendix.B}% 91
+\BOOKMARK [2][-]{subsection.B.4}{B.4 Gate-Vorwiderstand}{appendix.B}% 92
+\BOOKMARK [2][-]{subsection.B.5}{B.5 Externe Gate-Spannungsversorgung}{appendix.B}% 93
+\BOOKMARK [1][-]{appendix.C}{C H-Br\374cke}{}% 94
+\BOOKMARK [2][-]{subsection.C.1}{C.1 Referenzschema}{appendix.C}% 95
+\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 96
+\BOOKMARK [2][-]{subsection.D.1}{D.1 Brown-out-Detection}{appendix.D}% 97
+\BOOKMARK [2][-]{subsection.D.2}{D.2 Full Swing Crystal Oscillator}{appendix.D}% 98
+\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader-Speicherplatz}{appendix.D}% 99
+\BOOKMARK [2][-]{subsection.D.4}{D.4 Memory-Lock Bootloader}{appendix.D}% 100
+\BOOKMARK [1][-]{appendix.E}{E USB-B}{}% 101
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Ger\344te-Manager}{appendix.E}% 102
+\BOOKMARK [1][-]{appendix.F}{F Atmel Studio}{}% 103
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Fuse Bits}{appendix.F}% 104
+\BOOKMARK [2][-]{subsection.F.2}{F.2 Lock Bits}{appendix.F}% 105
+\BOOKMARK [2][-]{subsection.F.3}{F.3 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.F}% 106
+\BOOKMARK [2][-]{subsection.F.4}{F.4 Bootloader ''Brennen''}{appendix.F}% 107
