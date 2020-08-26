@@ -128,33 +128,39 @@
 \contentsline {subsection}{\numberline {7.4}Android App}{66}{subsection.7.4}
 \contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{69}{subsubsection.7.4.1}
 \contentsline {section}{\numberline {8}Evaluation}{71}{section.8}
-\contentsline {section}{\numberline {9}Fazit}{71}{section.9}
-\contentsline {subsection}{\numberline {9.1}Zielerreichung}{71}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Kosten}{71}{subsection.9.2}
-\contentsline {section}{\numberline {10}Schlusswort}{71}{section.10}
-\contentsline {section}{\numberline {11}Ehrlichkeitserkl\IeC {\"a}rung}{71}{section.11}
-\contentsline {section}{Literatur}{72}{section*.156}
-\contentsline {section}{\numberline {A}TMC4671}{73}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Standard-Schaltkreis TMC4671}{73}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Blockdiagramm TMC4671}{73}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Inbetriebnahme Gate-Control}{74}{subsection.A.3}
-\contentsline {section}{\numberline {B}TMC6200}{79}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}Standard-Schaltkreis TMC6200}{79}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}Blockdiagramm TMC6200}{79}{subsection.B.2}
-\contentsline {subsection}{\numberline {B.3}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{80}{subsection.B.3}
-\contentsline {subsection}{\numberline {B.4}Gate-Vorwiderstand}{80}{subsection.B.4}
-\contentsline {subsection}{\numberline {B.5}Externe Gate-Spannungsversorgung}{80}{subsection.B.5}
-\contentsline {section}{\numberline {C}H-Br\IeC {\"u}cke}{81}{appendix.C}
-\contentsline {subsection}{\numberline {C.1}Referenzschema}{81}{subsection.C.1}
-\contentsline {section}{\numberline {D}Mikrocontroller}{81}{appendix.D}
-\contentsline {subsection}{\numberline {D.1}Brown-out-Detection}{81}{subsection.D.1}
-\contentsline {subsection}{\numberline {D.2}Full Swing Crystal Oscillator}{81}{subsection.D.2}
-\contentsline {subsection}{\numberline {D.3}Bootloader-Speicherplatz}{82}{subsection.D.3}
-\contentsline {subsection}{\numberline {D.4}Memory-Lock Bootloader}{82}{subsection.D.4}
-\contentsline {section}{\numberline {E}USB-B}{83}{appendix.E}
-\contentsline {subsection}{\numberline {E.1}Ger\IeC {\"a}te-Manager}{83}{subsection.E.1}
-\contentsline {section}{\numberline {F}Atmel Studio}{83}{appendix.F}
-\contentsline {subsection}{\numberline {F.1}Fuse Bits}{83}{subsection.F.1}
-\contentsline {subsection}{\numberline {F.2}Lock Bits}{83}{subsection.F.2}
-\contentsline {subsection}{\numberline {F.3}Einbinden AVRdude und stk500v2 (wiring)}{84}{subsection.F.3}
-\contentsline {subsection}{\numberline {F.4}Bootloader ''Brennen''}{84}{subsection.F.4}
+\contentsline {section}{\numberline {9}Mechanik}{71}{section.9}
+\contentsline {subsection}{\numberline {9.1}Rahmen}{72}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Getr\IeC {\"a}nkeschlitten}{72}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Rahmen}{72}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Rahmen}{72}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}Rahmen}{72}{subsection.9.5}
+\contentsline {section}{\numberline {10}Fazit}{72}{section.10}
+\contentsline {subsection}{\numberline {10.1}Zielerreichung}{72}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Kosten}{72}{subsection.10.2}
+\contentsline {section}{\numberline {11}Schlusswort}{72}{section.11}
+\contentsline {section}{\numberline {12}Ehrlichkeitserkl\IeC {\"a}rung}{72}{section.12}
+\contentsline {section}{Literatur}{73}{section*.156}
+\contentsline {section}{\numberline {A}TMC4671}{74}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Standard-Schaltkreis TMC4671}{74}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}Blockdiagramm TMC4671}{74}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.3}Inbetriebnahme Gate-Control}{75}{subsection.A.3}
+\contentsline {section}{\numberline {B}TMC6200}{80}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}Standard-Schaltkreis TMC6200}{80}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}Blockdiagramm TMC6200}{80}{subsection.B.2}
+\contentsline {subsection}{\numberline {B.3}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{81}{subsection.B.3}
+\contentsline {subsection}{\numberline {B.4}Gate-Vorwiderstand}{81}{subsection.B.4}
+\contentsline {subsection}{\numberline {B.5}Externe Gate-Spannungsversorgung}{81}{subsection.B.5}
+\contentsline {section}{\numberline {C}H-Br\IeC {\"u}cke}{82}{appendix.C}
+\contentsline {subsection}{\numberline {C.1}Referenzschema}{82}{subsection.C.1}
+\contentsline {section}{\numberline {D}Mikrocontroller}{82}{appendix.D}
+\contentsline {subsection}{\numberline {D.1}Brown-out-Detection}{82}{subsection.D.1}
+\contentsline {subsection}{\numberline {D.2}Full Swing Crystal Oscillator}{82}{subsection.D.2}
+\contentsline {subsection}{\numberline {D.3}Bootloader-Speicherplatz}{83}{subsection.D.3}
+\contentsline {subsection}{\numberline {D.4}Memory-Lock Bootloader}{83}{subsection.D.4}
+\contentsline {section}{\numberline {E}USB-B}{84}{appendix.E}
+\contentsline {subsection}{\numberline {E.1}Ger\IeC {\"a}te-Manager}{84}{subsection.E.1}
+\contentsline {section}{\numberline {F}Atmel Studio}{84}{appendix.F}
+\contentsline {subsection}{\numberline {F.1}Fuse Bits}{84}{subsection.F.1}
+\contentsline {subsection}{\numberline {F.2}Lock Bits}{84}{subsection.F.2}
+\contentsline {subsection}{\numberline {F.3}Einbinden AVRdude und stk500v2 (wiring)}{85}{subsection.F.3}
+\contentsline {subsection}{\numberline {F.4}Bootloader ''Brennen''}{85}{subsection.F.4}
