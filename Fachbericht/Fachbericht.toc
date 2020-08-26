@@ -127,13 +127,13 @@
 \contentsline {subsubsection}{\numberline {7.3.1}Displaymenu}{66}{subsubsection.7.3.1}
 \contentsline {subsection}{\numberline {7.4}Android App}{66}{subsection.7.4}
 \contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{69}{subsubsection.7.4.1}
-\contentsline {section}{\numberline {8}Evaluation}{71}{section.8}
-\contentsline {section}{\numberline {9}Mechanik}{71}{section.9}
-\contentsline {subsection}{\numberline {9.1}Rahmen}{72}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Getr\IeC {\"a}nkeschlitten}{72}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Rahmen}{72}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}Rahmen}{72}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}Rahmen}{72}{subsection.9.5}
+\contentsline {section}{\numberline {8}Mechanik}{71}{section.8}
+\contentsline {subsection}{\numberline {8.1}Rahmen}{72}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Getr\IeC {\"a}nkeschlitten}{72}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Verkleidung}{72}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Unterbringung der Elektronik}{72}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}K\IeC {\"u}hlbox}{72}{subsection.8.5}
+\contentsline {section}{\numberline {9}Evaluation}{72}{section.9}
 \contentsline {section}{\numberline {10}Fazit}{72}{section.10}
 \contentsline {subsection}{\numberline {10.1}Zielerreichung}{72}{subsection.10.1}
 \contentsline {subsection}{\numberline {10.2}Kosten}{72}{subsection.10.2}
