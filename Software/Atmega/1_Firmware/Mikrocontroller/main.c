@@ -28,6 +28,8 @@ int main(void)
 
 	speicher_init();
 	
+	nextion_change_page(STARTANZEIGE);
+	
 	setze_startanzeige(aktuellesGetraenk);					// Startanzeige des Displays setzen
 
 	// Mainroutine

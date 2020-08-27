@@ -89,7 +89,7 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
 {
 	uint8_t ret = 0;
 	
-	char buff[20] = {0};
+	char buff[30] = {0};
 	char * get_slider = "get ";
 	char * val = ".val";
 	
@@ -102,7 +102,6 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
 	
 	while (check_Communication_Input_UART_1()==0)
 	;
-	proceed_Communication_INPUT_UART_1();
 	
 	if (INPUT_UART_1[1]==255)
 	{
@@ -112,6 +111,9 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
 	{
 		ret = INPUT_UART_1[1];
 	}
+		itoa(ret, (char *)buff, 10);
+		Uart_Transmit_IT_PC((char *)buff);
+		Uart_Transmit_IT_PC("\r");
 	return ret;
 }
 
@@ -121,6 +123,42 @@ void nextion_disableButton(char * object)
 	strcpy((char *)buff10, (const char *)"tsw ");
 	strcat((char *)buff10, (const char *)object);
 	strcat((char *)buff10, (const char *)",0");
+	
+	Uart_Transmit_IT_Display((char *)buff10);
+	
+	endConversation();
+}
+
+void nextion_enableButton(char * object)
+{
+	char buff10[20] = {'\0'};
+	strcpy((char *)buff10, (const char *)"tsw ");
+	strcat((char *)buff10, (const char *)object);
+	strcat((char *)buff10, (const char *)",1");
+	
+	Uart_Transmit_IT_Display((char *)buff10);
+	
+	endConversation();
+}
+
+void nextion_visible_off(char * object)
+{
+	char buff10[20] = {'\0'};
+	strcpy((char *)buff10, (const char *)"vis ");
+	strcat((char *)buff10, (const char *)object);
+	strcat((char *)buff10, (const char *)",0");
+	
+	Uart_Transmit_IT_Display((char *)buff10);
+	
+	endConversation();
+}
+
+void nextion_visible_on(char * object)
+{
+	char buff10[20] = {'\0'};
+	strcpy((char *)buff10, (const char *)"vis ");
+	strcat((char *)buff10, (const char *)object);
+	strcat((char *)buff10, (const char *)",1");
 	
 	Uart_Transmit_IT_Display((char *)buff10);
 	

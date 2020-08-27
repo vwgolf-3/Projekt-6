@@ -166,6 +166,10 @@ ISR(TIMER0_COMPA_vect)
 		LEDB_PORT &= ~LEDB_BIT;
 		LEDG_PORT &= ~LEDG_BIT;
 		LEDR_PORT &= ~LEDR_BIT;
+		OCR1B = 700;
+		OCR3B = 0;
+		OCR4B = 0;
+		OCR5B = 0;
 	break;
 	case RAINBOW_LED:
 		TCCR1B &= ~(1 << CS10);
@@ -173,17 +177,50 @@ ISR(TIMER0_COMPA_vect)
 		TCCR4B |= (1 << CS40);
 		TCCR5B |= (1 << CS50);
 		LEDW_PORT &= ~LEDW_BIT;
-	rainbow();
+		OCR1B = 0;
+		rainbow();
 	break;
 	case USER_LED:
-		if (PWM_DUTY_BLUE >= 0)
+		if (PWM_DUTY_WHITE > 0)
 		{
+			TCCR1B |= (1 << CS10);
 		}
-		TCCR1B |= (1 << CS10);
-		TCCR3B |= (1 << CS30);
-		TCCR4B |= (1 << CS40);
-		TCCR5B |= (1 << CS50);
-		LEDW_PORT &= ~LEDW_BIT;
+		else
+		{
+			TCCR1B &= ~(1 << CS10);
+			LEDW_PORT &= ~LEDW_BIT;
+		}
+	
+		if (PWM_DUTY_RED > 0)
+		{
+			TCCR3B |= (1 << CS30);
+		}
+		else
+		{
+			TCCR3B &= ~(1 << CS30);		
+			LEDR_PORT &= ~LEDR_BIT;
+		}
+	
+		if (PWM_DUTY_GREEN > 0)
+		{
+			TCCR4B |= (1 << CS40);
+		}
+		else
+		{
+			TCCR4B &= ~(1 << CS40);
+			LEDG_PORT &= ~LEDG_BIT;
+		}
+	
+		if (PWM_DUTY_BLUE > 0)
+		{
+			TCCR5B |= (1 << CS50);
+		}
+		else
+		{
+			TCCR5B &= ~(1 << CS50);
+			LEDB_PORT &= ~LEDB_BIT;
+		}
+		asm("nop");
 	break;
 	}
 }

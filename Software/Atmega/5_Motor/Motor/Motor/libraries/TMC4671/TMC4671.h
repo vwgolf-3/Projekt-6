@@ -16,12 +16,14 @@
 #define F_CPU 16000000UL
 // Testfunktion 3s links / 3s rechts
 #include <util/delay.h>
+#include <stdlib.h>
 
 #include "../TMC-API/tmc/helpers/API_Header.h"
 #include "TMC4671_Register.h"
 #include "TMC4671_Constants.h"
 #include "TMC4671_Fields.h"
 #include "../SPI/SPI.h"
+#include "../UART/UART.h"
 
 // SPI-Wrapper
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4);

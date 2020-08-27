@@ -31,7 +31,7 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 
 ******************************************************************************************************************/
 		
-	for (int8_t count = 0 ; count <= 12; count++)
+	for (int8_t count = 1 ; count <= 10; count++)
 	{
 	// String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
 		// Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)

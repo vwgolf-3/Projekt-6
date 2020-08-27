@@ -20,20 +20,30 @@ int tmc6200_readInt(uint8_t motor, uint8_t address)
 	enable_Slave(TMC6200);
 	// write address
 //  	spi_transmit_IT((unsigned char *)tbuf, 1, TMC6200);
-	spi_transmit(address & 0x7F);
+	spi_transmit(address &= 0x7F);
 	// read data
+		_delay_us(100);
 	for(int k = 0 ; k<4 ; k++)
 	{
-		rbuf[k] = spi_transmit(0x00);
+		rbuf[k] = spi_receive();
 	}
 	disable_Slave(TMC6200);
 	value =rbuf[0];
+	char buff[5] = {'0'};
+		itoa(rbuf[0],(char *)buff, 10);
+		Uart_Transmit_IT_PC((char *)buff);
 	value <<= 8;
 	value |= rbuf[1];
+		itoa(rbuf[1],(char *)buff, 10);
+		Uart_Transmit_IT_PC((char *)buff);
 	value <<= 8;
 	value |= rbuf[2];
+		itoa(rbuf[2],(char *)buff, 10);
+		Uart_Transmit_IT_PC((char *)buff);
 	value <<= 8;
 	value |= rbuf[3];
+		itoa(rbuf[3],(char *)buff, 10);
+		Uart_Transmit_IT_PC((char *)buff);
 	Uart_Transmit_IT_PC((char *)rbuf);
 	Uart_Transmit_IT_PC("\r");
 	return value;
@@ -52,7 +62,7 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 	tbuf[4] = 0xFF & value;
 	enable_Slave(TMC6200);
 	
-	spi_transmit_IT(tbuf, 5, TMC6200);
+	spi_transmit_IT((unsigned char *)tbuf, 5, TMC6200);
 	
 	disable_Slave(TMC6200);
 }
@@ -61,14 +71,26 @@ void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value)
 
 void initTMC6200(void)
 {
-  	EN_TMC6200_PORT |= EN_TMC6200_BIT;
-	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000000);
-	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000000);
+// 	tmc6200_writeInt(0, TMC6200_GCONF, 0x00000030);		// current amplification: 20
+// 	tmc6200_writeInt(0, TMC6200_OTP_PROG, 0x00000000);     //
+// 	tmc6200_writeInt(0, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
+// 	tmc6200_writeInt(0, TMC6200_SHORT_CONF, 0x13010606);	// default
+// 	tmc6200_writeInt(0, TMC6200_DRV_CONF, 0x00080004);		// DRVSTRENGTH = 2 (medium), BBMCLKS: 4
+	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+	_delay_ms(100);
+	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+	_delay_ms(100);
+	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+	_delay_ms(100);
+// 	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, 0x00000000);
 	tmc6200_writeInt(MOTOR0, TMC6200_GSTAT, 0x00000000);
-	tmc6200_writeInt(MOTOR0, TMC6200_OTP_PROG, 0x00000000);
-	tmc6200_writeInt(MOTOR0, TMC6200_FACTORY_CONF, 0x0000000C);
-	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, 0x12010606);
-	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080004);
+
+	tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000010);// current amplification: 10
+// 	tmc6200_writeInt(0, TMC6200_OTP_PROG, 0x00000000);
+	tmc6200_writeInt(0, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
+// 	tmc6200_writeInt(MOTOR0, TMC6200_SHORT_CONF, 0x13010606);
+// 	tmc6200_writeInt(MOTOR0, TMC6200_DRV_CONF, 0x00080004);
+
 }
 
 void read_registers_TMC6200(void)

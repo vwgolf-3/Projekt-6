@@ -39,6 +39,7 @@ void check_posanzeige(uint8_t button);
 void check_fluessanzeige1(uint8_t button);
 void check_fluessanzeige2(uint8_t button);
 void check_fluessanzeige3(uint8_t button);
+void check_fluessanzeige4(uint8_t button);
 void check_RFIDAnzeige1(uint8_t button);
 void check_RFIDAnzeige2(uint8_t button);
 void check_RFIDFehler(uint8_t button);

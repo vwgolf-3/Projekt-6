@@ -10,6 +10,7 @@
 #define SPI_H_
 
 #include "../../pin_defs.h"
+#include <util/delay.h>
 
 // #define SPI_SD             SPCR = 0x52
 // #define SPI_HIGH_SPEED     SPCR = 0x50; SPSR |= (1<<SPI2X)

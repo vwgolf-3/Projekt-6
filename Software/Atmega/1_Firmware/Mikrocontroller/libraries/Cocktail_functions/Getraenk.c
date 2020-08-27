@@ -49,7 +49,7 @@ uint8_t check_existence(uint8_t file)
 	while(ptr != NULL) {
 	// Kopf prüfen und jeweilige Aktion ausführen
 		
-		if (pruefe_kopf(ptr, "Mengen"))
+		if (strcmp(ptr, "Mengen")==0)
 		{
 			ptr = strtok(NULL, delimiter);
 			uint8_t counter = 0;
@@ -63,7 +63,7 @@ uint8_t check_existence(uint8_t file)
 				
 				while (run)
 				{
-					if((compare_string((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0))
+					if((strcmp((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0))
 					{
 						run = 0;
 						ptr = strtok(NULL, delimiter);
@@ -137,7 +137,7 @@ void cocktails_init(void)
 
 **************************************************************************************************************/
 
-	aktuellesGetraenk = create_new_getraenk("12345678901234567890",0,0,0);
+	aktuellesGetraenk = create_new_getraenk("12345678901234567890",0,0,0,0);
 
 /**************************************************************************************************************
 
@@ -151,7 +151,7 @@ void cocktails_init(void)
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
-getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, uint8_t picture)
+getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, uint8_t kohlensaeure, uint8_t picture)
 {
 	getraenk_t *newGetraenk = calloc(1,sizeof(getraenk_t));
 	size_t n1 = strlen((const char *)name)+1;
@@ -161,6 +161,8 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, 
 	newGetraenk->mengen = calloc(n2,sizeof(uint8_t));
 	
 	newGetraenk->alkohol = alkohol;
+
+	newGetraenk->kohlensaeure = kohlensaeure;
 	
 	newGetraenk->picture = picture;
 	
@@ -184,7 +186,7 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, 
 
 
 
-void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol)
+void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t kohlensaeure)
 {
 	int i = 0;
 	uint8_t n = strlen((const char *) name );
@@ -214,6 +216,9 @@ void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t v
 	
 	i++;
 	eeprom_write_byte((add+i+1),alkohol);
+	
+	i++;
+	eeprom_write_byte((add+i+1),kohlensaeure);
 	
 	_delay_ms(5);
 
@@ -251,6 +256,7 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 	char name[n];
 	uint8_t mengen [12];
 	uint8_t alkohol = 0;
+	uint8_t kohlensaeure = 0;
 	
 	for (i = 0; i<n ; i++)
 	{
@@ -271,9 +277,12 @@ getraenk_t * read_drink_from_eemprom(uint8_t * add)
 	i++;
 	alkohol = eeprom_read_byte(add+i+1);				// Alkoholgehalt aus EEPROM lesen und in Variable ablegen
 	
+	i++;
+	kohlensaeure = eeprom_read_byte(add+i+1);				// Alkoholgehalt aus EEPROM lesen und in Variable ablegen
+	
 	_delay_ms(5);
 	
-	drink = create_new_getraenk(name, mengen, alkohol, 24);
+	drink = create_new_getraenk(name, mengen, alkohol, kohlensaeure, 24);
 	
 	i++;
 	address_getraenk = add+i+1;

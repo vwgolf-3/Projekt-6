@@ -15,6 +15,7 @@ void cocktail_test_command(unsigned char INPUT[256])
 	Uart_Transmit_IT_PC("Test Command: ");
 	Uart_Transmit_IT_PC((char *)INPUT);
 	Uart_Transmit_IT_PC("\r\n");
+	send_List_Zutaten();
 }
 
 void bearbeite_Cocktail(uint8_t cocktail)
@@ -39,6 +40,7 @@ void zubereitung_getraenk(uint32_t Menge)
 
 void schreibe_Menge_in_Getraenk(uint8_t zutat)
 {
+	nextion_setText("t0", "");
 	uint8_t val = 0;
 	char buff[15] = {0};
 	char buff2[5];
@@ -64,9 +66,11 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// Wert aus Slider holen und in Getränkeliste eintragen
 	val = nextion_getSliderValue(buff, (unsigned char *)INPUT_UART_1);
+	val -= (val % 5);
 	if (val > restval)
 	{
 		val = restval;
+		nextion_setText("t0", "Schon 100% erreicht");
 	}
 	
 	*(aktuellesGetraenk->mengen+(i_Liste+zutat)) = val;
@@ -93,6 +97,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 	
 	// Text schreiben
 	nextion_setValue(buff,buff2);
+	_delay_ms(2);
 }
 
 void choose_aktuellesGetraenk(uint8_t nr)
@@ -112,14 +117,18 @@ void choose_aktuellesGetraenk(uint8_t nr)
 
 void fuelle_getraenk(uint32_t fuellmenge)
 {
-
+	aktuelleZutatInMaschine = tail_zut_in_Maschine;
+	externes_Getraenk_flag = 0;
+	
 	// Switche durch alle Getränke
-	for (uint32_t i = 0 ; i < 12 ; i++)
+	do
 	{
 		// Falls das Getränk vorkommt
-		if ((*(uint8_t *)(aktuellesGetraenk->mengen + i) > 0) && (stop == 0))
+		if ((*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->position) > 0) && (stop == 0))
 		{
-			// Bewege Motor an stelle XY
+			if (aktuelleZutatInMaschine->kohlensaeure == 0)
+			{
+				// Bewege Motor an stelle XY
 /*
 	Gebe Motor Position vor
 	
@@ -129,67 +138,81 @@ void fuelle_getraenk(uint32_t fuellmenge)
 	Weiter mit Programmm
 			
 */			
-// 			uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
-//			uint32_t pulse_prp_3dl[12] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501};
-			uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506};
-						
-			// Berechne Menge, schalte Pumpe ein und beginne mit füllen
-			uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp_5dl[i]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
-
-			uint8_t fuellen = 1;
-			uint8_t newval = lese_sensor(i);
-
-			schalte_pumpe_ein(i);
-			while (fuellen)
-			{
-				asm("nop");
-				// Polle PWM-Signal des Durchflusssensor
-				static uint8_t oldval=0;
-				static uint32_t count=0;
-			
-				// Lese Sensor ein
-// 				newval = oldval ^ 0b00000001;
-				newval = lese_sensor(i);
-
-				// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
-				if( !oldval && newval)
+// 				uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
+//				uint32_t pulse_prp_3dl[12] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501};
+				uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506};
+							
+				// Berechne Menge, schalte Pumpe ein und beginne mit füllen
+				uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp_5dl[i]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
+	
+				uint8_t fuellen = 1;
+				uint8_t newval = lese_sensor(i);
+	
+				schalte_pumpe_ein(i);
+				while (fuellen)
 				{
-					// Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
-					if(count++ > Menge)
+					asm("nop");
+					// Polle PWM-Signal des Durchflusssensor
+					static uint8_t oldval=0;
+					static uint32_t count=0;
+				
+					// Lese Sensor ein
+					newval = oldval ^ 0b00000001;
+// 					newval = lese_sensor(i);
+
+					// Falls ein Flankenwechsel stattgefunden hat, zähle hoch
+					if( !oldval && newval)
 					{
-						schalte_pumpe_aus(i);
-						count = 0;
-						fuellen = 0;
-					}
-//*************************************************************************
-//					Delay entfernen wenn mit Sensor gearbeitet wird.
-// 				_delay_ms(2);
-					if (check_Communication_Input_UART_1())
-					{
-						proceed_Communication_INPUT_UART_1();
-						if (stop == 1)
+						// Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
+						if(count++ > Menge)
 						{
-							for (int k = 0 ; k < 12 ; k++)
-							{
-								schalte_pumpe_aus(k);
-							}
-							nextion_change_page(ABBRUCHANZEIGE);
-							_delay_ms(2000);
-							setze_startanzeige(aktuellesGetraenk);
+							schalte_pumpe_aus(i);
 							count = 0;
 							fuellen = 0;
 						}
+//*************************************************************************
+//					Delay entfernen wenn mit Sensor gearbeitet wird.
+						_delay_ms(2);
+						if (check_Communication_Input_UART_1())
+						{
+							proceed_Communication_INPUT_UART_1();
+							if (stop == 1)
+							{
+								for (int k = 0 ; k < 12 ; k++)
+								{
+									schalte_pumpe_aus(k);
+								}
+								nextion_change_page(ABBRUCHANZEIGE);
+								_delay_ms(2000);
+								setze_startanzeige(aktuellesGetraenk);
+								count = 0;
+								fuellen = 0;
+							}
+						}
 					}
+					// Aktueller Sensorwert speichern
+					oldval = newval;
 				}
-			// Aktueller Sensorwert speichern
-			oldval = newval;
+			}
+			else
+			{
+				externes_Getraenk_flag = 1;
 			}
 		}
-	}	
+	aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+	}while(aktuelleZutatInMaschine != tail_zut_in_Maschine);
+	
 /*
 	Fahre zurück bis Home-Schalter betätigt wird
 */	
 	stop = 0;
+	
+	if (externes_Getraenk_flag == 1)
+	{
+		nextion_change_page(INFOANZEIGE);
+		nextion_setText("infotxt", "Bitte noochfülle extärn");
+		_delay_ms(2000);
+	}
 }
 
 void schalte_pumpe_ein(uint8_t Pumpe)
@@ -340,8 +363,14 @@ void erstelle_Liste_name(char * name_button)
 	// Initialisierungen
 	char button[21] = {'\0'};
 	char buff[4] = {0};
+	char buff10[20] = {'\0'};
+	strcat((char *)buff10, (const char *)name_button);
+	itoa((i + 1), (char *)buff, 10);
+	strcat((char *)buff10, (const char *)buff);
 	
-	for (int i = 0 ; i < 8 ; i++)
+	nextion_enableButton(buff10);
+	
+	for (int i = 0 ; i < 6 ; i++)
 	{
 		// Schreibe Zahl und Name des Buttons in String
 		itoa((i + 1),buff,10);
@@ -349,7 +378,7 @@ void erstelle_Liste_name(char * name_button)
 		strcat((char *)button, (const char *)buff);
 		
 		// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
-		// runterscrollen, blockieren und letzter Name einschreiben.
+		// runterscrollen blockieren und letzter Name einschreiben.
 		if (aktuellesGetraenk_file == head_getraenk_file && !block_list_runter)
 		{
 			block_list_runter = 1;
@@ -368,8 +397,7 @@ void erstelle_Liste_name(char * name_button)
 			_delay_ms(10);
 			
 			// Schreibe Text und Buttonnummer für disable in String
-			char buff10[20] = {'\0'};
-			strcat((char *)buff10, (const char *)name_button);
+			strcpy((char *)buff10, (const char *)name_button);
 			itoa((i + 1), (char *)buff, 10);
 			strcat((char *)buff10, (const char *)buff);
 			
@@ -383,9 +411,9 @@ void erstelle_Liste_name(char * name_button)
 			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 			nextion_setText(button,aktuellesGetraenk->name);
 		}
-		
+
 		// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
-		if((i + i_Liste + 1) == tail_getraenk_file->file)
+		if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
 		{
 			block_list_hoch = 1;
 		}
@@ -394,7 +422,7 @@ void erstelle_Liste_name(char * name_button)
 		aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 		
 		// Sicherheitsdelay, Programm stürzt sonst ab
-		_delay_ms(1);
+		_delay_ms(10);
 	}
 }
 
@@ -496,7 +524,14 @@ void erstelle_bearb_Cocktailliste(void)
 void setze_startanzeige(getraenk_t * anzeige_getraenk)
 {
 	char buff[4];
-	nextion_change_page(STARTANZEIGE);
+	if (aktuellesGetraenk->picture >= 32)
+	{
+		nextion_visible_on("loeschen");
+	}
+	else
+	{
+		nextion_visible_off("loeschen");
+	}
 	nextion_setText("cocktailname",anzeige_getraenk->name);
 	itoa(anzeige_getraenk->picture,(char *)buff,10);
 	nextion_setPicture("235","80",(char *)buff);
@@ -559,8 +594,6 @@ void schiebe_file_next(void)
 	aktuellesGetraenk_file = aktuellesGetraenk_file->next;
 	char buff[50] = {'\0'};
 	itoa(aktuellesGetraenk_file->file, (char *) buff, 10);
-	Uart_Transmit_IT_PC(buff);
-	Uart_Transmit_IT_PC("\r");
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
@@ -569,8 +602,6 @@ void schiebe_file_prev(void)
 	aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
 	char buff[50] = {'\0'};
 	itoa(aktuellesGetraenk_file->file, (char *) buff, 10);
-	Uart_Transmit_IT_PC(buff);
-	Uart_Transmit_IT_PC("\r");
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 }
 
@@ -606,13 +637,13 @@ void lese_textfile_in_getraenk(uint8_t file)
 */ 
 	while(ptr != NULL) {
 	// Kopf pr?fen und jeweilige Aktion ausf?hren
-		if (pruefe_kopf(ptr, "Name"))
+		if (strcmp(ptr, "Name")==0)
 		{
 			ptr = strtok(NULL, delimiter);
 			strcpy(aktuellesGetraenk->name,ptr);
 		}
 		
-		if (pruefe_kopf(ptr, "Mengen"))
+		if (strcmp(ptr, "Mengen")==0)
 		{		
 			ptr = strtok(NULL, delimiter);
 			
@@ -633,7 +664,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 				do
 				{
 					// Vergleiche dafür den Namen der Zutat im File mit dem Namen der Zutat in der Maschine
-					if(compare_string((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0)
+					if(strcmp((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0)
 					{
 						ptr = strtok(NULL, delimiter);
 						
@@ -648,13 +679,19 @@ void lese_textfile_in_getraenk(uint8_t file)
 			}
 		}
 		
-		if (pruefe_kopf(ptr, "Alkohol"))
+		if (strcmp(ptr, "Alkohol")==0)
 		{
 			ptr = strtok(NULL, delimiter);
 			aktuellesGetraenk->alkohol = atoi(ptr);
 		}
 		
-		if (pruefe_kopf(ptr, "Bild"))
+		if (strcmp(ptr, "Kohlensaeure")==0)
+		{
+			ptr = strtok(NULL, delimiter);
+			aktuellesGetraenk->kohlensaeure = atoi(ptr);
+		}
+		
+		if (strcmp(ptr, "Bild")==0)
 		{
 			ptr = strtok(NULL, delimiter);
 			(aktuellesGetraenk->picture) = atoi(ptr);
@@ -662,38 +699,6 @@ void lese_textfile_in_getraenk(uint8_t file)
 		
 	// Neuer Kopf suchen und ptr darauf zeigen lassen
 		ptr = strtok(NULL, delimiter);
-	}
-}
-
-uint8_t pruefe_kopf(char * beginn, char string[])
-{
-	uint8_t kopf = 0;
-	if (compare_string(beginn,string)==0)
-	{
-		kopf = 1;
-	}	
-	return kopf;
-}
-
-uint8_t compare_string(char *first, char *second)
-{
-	while(*first==*second)
-	{
-		if ( *first == '\0' || *second == '\0' )
-		{
-			break;
-		}
-		
-		first++;
-		second++;
-	}
-	if( *first == '\0' && *second == '\0' )
-	{
-		return 0;
-	}
-	else
-	{
-	return -1;
 	}
 }
 
@@ -744,7 +749,7 @@ void SD_startup(void)
 
 }
 
-void erstelle_File(uint8_t filename, char * name, uint8_t alkohol)
+void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohlensaeure)
 {
 	char buff[128] = {0};
 	char * ptr = buff;
@@ -771,6 +776,11 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol)
 	strcat(ptr, ";\r");
 	strcat(ptr, "Alkohol:");
 	itoa(alkohol, (char *)buff2, 10);
+	strcat(ptr, (char *)buff2);
+	strcat(ptr, "\r");
+	
+	strcat(ptr, "Kohlensaeure:");
+	itoa(kohlensaeure, (char *)buff2, 10);
 	strcat(ptr, (char *)buff2);
 	strcat(ptr, "\r");
 
@@ -869,7 +879,7 @@ void erstelle_Liste_Zutat_Pos(char * name_button)
 			block_list_hoch = 1;
 		}
 		
-		if (compare_string((char *)aktuelleZutatInMaschine->name, (char *)aktuelle_zutat->name)==0)
+		if (strcmp((char *)aktuelleZutatInMaschine->name, (char *)aktuelle_zutat->name)==0)
 		{
 			strcpy((char *)buff10, (const char *)button);
 			strcat((char *)buff10, (const char *)".pco=2016");
@@ -915,12 +925,12 @@ void lese_textfile_in_zutat(uint8_t file)
 	while(ptr != NULL) 
 	{
 		// Kopf pruefen und jeweilige Aktion ausfuehren
-		if (pruefe_kopf(ptr, "Name"))
+		if (strcmp(ptr, "Name")==0)
 		{
 			ptr = strtok(NULL, delimiter);
 			strcpy((char *)aktuelle_zutat->name,(const char *)ptr);
 		}
-		if (pruefe_kopf(ptr, "Alkohol"))
+		if (strcmp(ptr, "Alkohol")==0)
 		{
 			ptr = strtok(NULL, delimiter);
 			aktuelle_zutat->alkohol = atoi(ptr);
@@ -971,7 +981,7 @@ void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr)
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 {
 	// Falls nr ausserhalb des Listenbereichs ==> Keine Flüssigkeit
-	if (nr > 5)
+	if (nr == 6)
 	{
 		// Schreibe Null-Terminator über bestehenden Namen
 		char * leer = "(keine)";
@@ -987,10 +997,18 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 		}
 	}
 	
+	else if (nr == 7)
+	{
+		char len3 = strlen((const char *)aktuelle_zutat->name);
+		for (int count = 0 ; count < (len3 + 1) ; count++)
+		{
+			*(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
+		}
+	}
+	
 	// Falls innerhalb des Listenbereichs ==> Flüssigkeit aus File laden
 	else
 	{
-		
 		// Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
 		aktuelles_zutat_file = tail_zutat_file;
 		for (int i = 0 ; i < (i_Liste + nr) ; i++)
@@ -1022,10 +1040,18 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 	strcat((char *)buff, " = ");
 	strcat((char *)buff, aktuelleZutatInMaschine->name);
 	nextion_setText("zubabfrage",buff);
+	
+	// Setze Status der Zahlen
 	setze_Posanzeige_Rot_Gruen();
+	
+	// Initialisieren Listen-Variabeln
 	block_list_hoch = 0;
 	block_list_runter = 0;
 	i_Liste = 0;
+	
+	
+	
+	// Aktualisieren des Maschinen-Files
 	char buff98[20] = {'\0'};
 	strcpy((char *)buff98, (const char *)"M.txt");
 	deleteFile((unsigned char *)buff98);
@@ -1049,6 +1075,9 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 		strcat((char *)buff_file, (const char *)",");
 		itoa(aktuelleZutatInMaschine->alkohol, (char *)buff99, 10);
 		strcat((char *)buff_file, (const char *)buff99);
+		strcat((char *)buff_file, (const char *)",");
+		itoa(aktuelleZutatInMaschine->kohlensaeure, (char *)buff99, 10);
+		strcat((char *)buff_file, (const char *)buff99);
 		if (aktuelleZutatInMaschine != head_zut_in_Maschine)
 		{
 			strcat((char *)buff_file, (const char *)"\r");
@@ -1064,7 +1093,7 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 	strcpy((char *)buff97, (const char *)"M.txt");	
 	writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
 	
-
+	
 }
 
 void send_List_Getraenke (void)
@@ -1118,14 +1147,18 @@ void send_List_Zutaten (void)
 	aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	do
 	{
-		strcat(ptr, ",");
-		strcat(ptr, aktuelleZutatInMaschine->name);
+		if (strcmp("(keine)", aktuelleZutatInMaschine->name)!=0)
+		{
+			strcat(ptr, ",");
+			strcat(ptr, aktuelleZutatInMaschine->name);
+		}
 		aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
 	} while (aktuelleZutatInMaschine != tail_zut_in_Maschine);
 	
 	strcat(ptr,":");
 	strcat(ptr,";");
 	Uart_Transmit_IT_ESP(ptr);
+	Uart_Transmit_IT_PC(ptr);
 }
 
 void ESP_Getraenk(void)

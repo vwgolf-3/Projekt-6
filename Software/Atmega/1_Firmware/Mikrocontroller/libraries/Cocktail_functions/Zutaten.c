@@ -102,8 +102,9 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 	char buff1[21] = {'\0'};							// Buffer für Name der Zutat
 	uint8_t buff2;										// Buffer für Status der Zutat
 	uint8_t buff3;										// Buffer für Alkohol Ja/Nein der Zutat
+	uint8_t buff4;										// Buffer für Kohlensäure Ja/Nein der Zutat
 	
-	char buff4[20] = {'\0'};							// Buffer für Filename "M.txt"
+	char buff5[20] = {'\0'};							// Buffer für Filename "M.txt"
 
 	uint8_t position = 0;								// Variable, welche die Position des Getränks hochzählt.
 
@@ -122,8 +123,8 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 
 ******************************************************************************************************************/
 
-	strcpy((char *)buff4, (const char *)"M.txt");
-	readFile(READ, (unsigned char *)buff4);
+	strcpy((char *)buff5, (const char *)"M.txt");
+	readFile(READ, (unsigned char *)buff5);
 	
 /******************************************************************************************************************
 
@@ -142,9 +143,11 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 	buff2 = atoi(ptr);													// Schreibe ASCI-Status in Integer-Buffer
 	ptr = strtok(NULL, delimiter);										// Abschnitt Alkohol Ja/Nein
 	buff3 = atoi(ptr);													// Schreibe ASCI-JA//Nein in Integer-Buffer
+	ptr = strtok(NULL, delimiter);										// Abschnitt Kohlensäure Ja/Nein
+	buff4 = atoi(ptr);													// Schreibe ASCI-JA//Nein in Integer-Buffer
 	
 	// Speicher alloziieren
-	tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, position);
+	tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, buff4, position);
 	
 	// Zutat in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
 	head_zut_in_Maschine = insert_zutat_Maschine_at_head(&head_zut_in_Maschine,&tail_zut_in_Maschine, tmp_zutat_Maschine);
@@ -160,12 +163,14 @@ Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wie
 		buff2 = atoi(ptr);												// Schreibe ASCI-Status in Integer-Buffer
 		ptr = strtok(NULL, delimiter);									// Abschnitt Alkohol Ja/Nein
 		buff3 = atoi(ptr);												// Schreibe ASCI-JA//Nein in Integer-Buffer
+		ptr = strtok(NULL, delimiter);									// Abschnitt Kohlensäure Ja/Nein
+		buff4 = atoi(ptr);												// Schreibe ASCI-JA//Nein in Integer-Buffer
 		
 		// Falls der Name des Getränkes >=1 ist, erstelle neue Zutat in Maschine
 		if (strlen((const char *)buff1)>=1)
 		{
 			// Speicher alloziieren
-			tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, position);
+			tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, buff4, position);
 			
 			// Zutat in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
 			head_zut_in_Maschine = insert_zutat_Maschine_at_head(&head_zut_in_Maschine,&tail_zut_in_Maschine, tmp_zutat_Maschine);
@@ -191,6 +196,9 @@ zutat_t *create_zutat()
 	
 	// Schreibe 0 in die alloziierte Struct-Variable alkohol
 	newZutat->alkohol = 0;
+	
+	// Schreibe 0 in die alloziierte Struct-Variable kohlensaeure
+	newZutat->kohlensaeure = 0;
 
 	// Initialisiere den Speicher, auf den der Pointer zeigt mit '\0'
 	for (int i=0; i<(21); i++)
@@ -203,7 +211,7 @@ zutat_t *create_zutat()
 
 
 
-zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t k)
+zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t kohlensaeure, uint8_t k)
 {
 	// Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutatMaschine_t
 	zutatMaschine_t *newZutat = calloc(1,sizeof(zutatMaschine_t));
@@ -215,6 +223,7 @@ zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t al
 	newZutat->status = status;
 	newZutat->position = k;
 	newZutat->alkohol = alkohol;
+	newZutat->kohlensaeure = kohlensaeure;
 	newZutat->prev = NULL;
 	newZutat->next = NULL;
 	

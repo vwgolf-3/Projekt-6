@@ -35,6 +35,7 @@ void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)
 	{
 		SPDR = *(uint8_t *)(data + i);
 		while(!(SPSR & (1<<SPIF)));
+		_delay_us(100);
 	}
 }
 
@@ -42,6 +43,7 @@ uint8_t spi_transmit(uint8_t data)
 {
 	SPDR = data;
 	while(!(SPSR & (1<<SPIF)));
+	_delay_us(100);
 	return data;
 }
 
@@ -49,9 +51,10 @@ unsigned char spi_receive(void)
 {
 	unsigned char data;
 	// Wait for reception complete
-	SPDR = 0xff;
+	SPDR = 0x00;
 	while(!(SPSR & (1<<SPIF)));
 	data = SPDR;
+		_delay_us(100);
 
 	// Return data register
 	return data;

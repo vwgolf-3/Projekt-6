@@ -46,25 +46,37 @@ void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long 
 
 int tmc40bit_readInt(unsigned int motor, unsigned char address)
 {
+	unsigned char rbuf[5];
 	int value;
 	
 	enable_Slave(TMC4671);
-
-	// clear write bit
-	spi_transmit(address & 0x7F);
-
-	value = spi_transmit(0x00);
-	value <<= 8;
-	
-	value |= spi_transmit(0x00);
-	value <<= 8;
-	
-	value |= spi_transmit(0x00);	
-	value <<= 8;
-	
-	value |= spi_transmit(0x00);
-	
+	// write address
+	//  	spi_transmit_IT((unsigned char *)tbuf, 1, TMC6200);
+	address &= 0x7F;
+	spi_transmit(address);
+	// read data
+	for(int k = 0 ; k<4 ; k++)
+	{
+		rbuf[k] = spi_transmit(0x00);
+	}
 	disable_Slave(TMC4671);
+	value =rbuf[0];
+	char buff[5] = {'\0'};
+	itoa(rbuf[0],(char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	value <<= 8;
+	value |= rbuf[1];
+	itoa(rbuf[1],(char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	value <<= 8;
+	value |= rbuf[2];
+	itoa(rbuf[2],(char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	value <<= 8;
+	value |= rbuf[3];
+	itoa(rbuf[3],(char *)buff, 10);
+	Uart_Transmit_IT_PC((char *)buff);
+	Uart_Transmit_IT_PC("\r");
 	
 	return value;
 }
@@ -76,52 +88,7 @@ int tmc40bit_readInt(unsigned int motor, unsigned char address)
 
 void TMC4671_init(void)
 {
-// Motor type &  PWM configuration
-tmc4671_writeInt(0, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
-tmc4671_writeInt(0, TMC4671_PWM_POLARITIES, 0x00000000);
-tmc4671_writeInt(0, TMC4671_PWM_MAXCNT, 0x00000F9F);
-tmc4671_writeInt(0, TMC4671_PWM_BBM_H_BBM_L, 0x00000A0A);
-tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000007);
 
-// ADC configuration
-tmc4671_writeInt(0, TMC4671_ADC_I_SELECT, 0x18000100);
-tmc4671_writeInt(0, TMC4671_dsADC_MCFG_B_MCFG_A, 0x00100010);
-tmc4671_writeInt(0, TMC4671_dsADC_MCLK_A, 0x20000000);
-tmc4671_writeInt(0, TMC4671_dsADC_MCLK_B, 0x00000000);
-tmc4671_writeInt(0, TMC4671_dsADC_MDEC_B_MDEC_A, 0x014E014E);
-tmc4671_writeInt(0, TMC4671_ADC_I0_SCALE_OFFSET, 0x01005E6A);
-tmc4671_writeInt(0, TMC4671_ADC_I1_SCALE_OFFSET, 0x01005E13);
-
-// Open loop settings
-tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
-tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
-tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
-
-// Feedback selection
-tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
-tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
-
-// ===== Open loop test drive =====
-
-// Switch to open loop velocity mode
-tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00010008);
-
-// Rotate right
-tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
-_delay_ms(10000);
-
-// Rotate left
-tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
-_delay_ms(10000);
-tmc4671_readInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET);
-_delay_ms(10000);
-
-// Stop
-tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
-_delay_ms(10000);
-tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
-_delay_ms(10000);
-tmc4671_readInt(0, TMC4671_UQ_UD_EXT);
 }
 
 void read_registers_TMC4671(void)
@@ -141,10 +108,10 @@ void initTMC4671_Encoder(void)
 {
 // Motor type &  PWM configuration
 tmc4671_writeInt(0, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
+tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000000);
 tmc4671_writeInt(0, TMC4671_PWM_POLARITIES, 0x00000000);
 tmc4671_writeInt(0, TMC4671_PWM_MAXCNT, 0x00000F9F);
 tmc4671_writeInt(0, TMC4671_PWM_BBM_H_BBM_L, 0x00001919);
-tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000007);
 
 // ADC configuration
 tmc4671_writeInt(0, TMC4671_ADC_I_SELECT, 0x24000100);
@@ -200,31 +167,39 @@ tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
 
 void initTMC4671_Openloop(void)
 {
-	// Open loop settings
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
+// Motor type &  PWM configuration
+tmc4671_writeInt(0, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030001);
+tmc4671_writeInt(0, TMC4671_PWM_POLARITIES, 0x00000000);
+tmc4671_writeInt(0, TMC4671_PWM_MAXCNT, 0x00000F9F);
+tmc4671_writeInt(0, TMC4671_PWM_BBM_H_BBM_L, 0x00001919);
+tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000007);
 
-	// Feedback selection
-	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
+// Open loop settings
+tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
+tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
+tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
 
-	// ===== Open loop test drive =====
+// Feedback selection
+tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
+tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
 
-	// Switch to open loop velocity mode
-	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
+// ===== Open loop test drive =====
 
-	// Rotate right
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
-	_delay_ms(3000);
+// Switch to open loop velocity mode
+tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
 
-	// Rotate left
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
-	_delay_ms(3000);
-	
-	// Stop
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
+// Rotate right
+tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
+_delay_ms(2000);
+
+// Rotate left
+tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
+_delay_ms(4000);
+
+// Stop
+tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
+_delay_ms(2000);
+tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
 }
 
 // <<=== Initialisierungen

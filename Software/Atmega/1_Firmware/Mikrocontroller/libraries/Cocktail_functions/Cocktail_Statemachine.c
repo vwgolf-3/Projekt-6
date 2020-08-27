@@ -146,6 +146,12 @@ void cocktail_check_command(int8_t page, int8_t button)
 	Uart_Transmit_IT_PC("Page\r");
 	check_LED(button);
 	break;
+	
+	/*0x1C = 0d28*/
+	case FLUESSANZEIGE4:
+	Uart_Transmit_IT_PC("Page\r");
+	check_fluessanzeige4(button);
+	break;
 	}
 }
 
@@ -316,6 +322,7 @@ void check_zutatenanzeige(uint8_t button)
 /*		0x01 = 0b01
 			- Setze Startanzeige
 */
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
@@ -338,41 +345,37 @@ void check_listenanzeige(uint8_t button)
 */
 		case COCKTAIL1:
 			choose_aktuellesGetraenk(0);
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL2:
 			choose_aktuellesGetraenk(1);
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL3:
 			choose_aktuellesGetraenk(2);	
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL4:
 			choose_aktuellesGetraenk(3);		
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL5:
 			choose_aktuellesGetraenk(4);
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
 		case COCKTAIL6:
 			choose_aktuellesGetraenk(5);
-			setze_startanzeige(aktuellesGetraenk);
-		break;
-		
-		case COCKTAIL7:
-			choose_aktuellesGetraenk(6);
-			setze_startanzeige(aktuellesGetraenk);
-		break;
-		
-		case COCKTAIL8:
-			choose_aktuellesGetraenk(7);
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
@@ -382,10 +385,11 @@ void check_listenanzeige(uint8_t button)
 			- Gehe Liste um 8 Getränke hoch, falls nicht schon am oberen Ende
 			- Schreibe Cocktailnamen in die Liste
 */
-			block_list_runter = 0;
 			if (!block_list_hoch)
 			{
-				i_Liste -= 8;
+				block_list_runter = 0;
+				i_Liste -= 6;
+				nextion_change_page(LISTENANZEIGE);
 				erstelle_Liste_name("cocktail");
 			}		
 		break;
@@ -396,12 +400,26 @@ void check_listenanzeige(uint8_t button)
 			- Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
 			- Schreibe Cocktailnamen in die Liste
 */
-			block_list_hoch = 0;
 			if (!block_list_runter)
 			{
-				i_Liste += 8;
+				block_list_hoch = 0;
+				i_Liste += 6;
+				nextion_change_page(LISTENANZEIGE);
 				erstelle_Liste_name("cocktail");
 			}	
+		break;
+		
+		case ZURUECK9:
+/*		0x0B = 0b11
+			- Obere Blockierung aufheben
+			- Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
+			- Schreibe Cocktailnamen in die Liste
+*/
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			i_Liste = 0;
+			nextion_change_page(STARTANZEIGE);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 	}
 	
@@ -470,6 +488,11 @@ void check_menuanzeige(uint8_t button)
 			- Initialisiere neuen Cocktailname auf '\0'
 */
 			nextion_change_page(ERSTANZEIGE1);
+			char buff10[20] = {'\0'};
+			strcpy((char *)buff10, "Fs");
+			strcat((char *)buff10, (const char *)".pco=2016");
+			Uart_Transmit_IT_Display((char *)buff10);
+			endConversation();
 			Grossschreib = 1;
 			counter = 0;
 			char len = strlen(buff_name);
@@ -497,6 +520,7 @@ void check_menuanzeige(uint8_t button)
 /*		0x05 = 0b05
 			- Setze Startabzeige
 */
+		nextion_change_page(STARTANZEIGE);
 		setze_startanzeige(aktuellesGetraenk);
 		break;
 		
@@ -579,20 +603,6 @@ void check_bearbeitungsanzeige(uint8_t button)
 			bearbeite_Cocktail(5);
 		break;
 		
-		case BEARBCOCKTAIL7:
-/*		0x07 = 0b07
-			- Bearbeite Cocktail an Stelle 6 im aktuellen Listenabschnitt
-*/
-			bearbeite_Cocktail(6);
-		break;
-		
-		case BEARBCOCKTAIL8:
-/*		0x08 = 0b08
-			- Bearbeite Cocktail an Stelle 7 im aktuellen Listenabschnitt
-*/
-			bearbeite_Cocktail(7);
-		break;
-		
 		case RAUFLIST2:
 /*		0x09 = 0b09
 			- Untere Blockierung aufheben
@@ -602,7 +612,9 @@ void check_bearbeitungsanzeige(uint8_t button)
 			block_list_runter = 0;
 			if (!block_list_hoch)
 			{
-				i_Liste -= 8;
+				i_Liste -= 6;
+							nextion_change_page(BEARBEITUNGSANZEIGE);
+
 				erstelle_Liste_name("cocktail");
 			}
 
@@ -617,15 +629,35 @@ void check_bearbeitungsanzeige(uint8_t button)
 			block_list_hoch = 0;
 			if (!block_list_runter)
 			{
-				i_Liste += 8;
+				i_Liste += 6;
+							nextion_change_page(BEARBEITUNGSANZEIGE);
+
 				erstelle_Liste_name("cocktail");
 			}
-		break;		
+		break;	
+		
+		case ZURUECK10:
+/*		0x0B = 0b11
+			- Obere Blockierung aufheben
+			- Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
+			- Schreibe Cocktailnamen in die Liste
+*/
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			i_Liste = 0;
+			nextion_change_page(MENUANZEIGE);
+		break;
+		
+		case STANDARDEINST:
+
+		break;
 	}	
 }
 
 void check_ceinstanzeige(uint8_t button)
 {
+			uint8_t val = 0;
+
 	switch(button)
 	{
 		case RAUFLIST3:
@@ -672,12 +704,27 @@ void check_ceinstanzeige(uint8_t button)
 			- Aktuelles Getränke-File erstellen und speichern
 			- Startanzeige setzen
 */
-			block_list_hoch = 0;
-			block_list_runter = 0;
-			i_Liste = 0;
-			loesche_FIle(aktuellesGetraenk_file->file);
-			erstelle_File(aktuellesGetraenk_file->file, aktuellesGetraenk->name, aktuellesGetraenk->alkohol);
-			setze_startanzeige(aktuellesGetraenk);
+			for (int count = 0 ; count <12; count++)
+			{
+				val += *(aktuellesGetraenk->mengen+count);
+			}
+			
+			if (val == 100)
+			{
+				block_list_hoch = 0;
+				block_list_runter = 0;
+				i_Liste = 0;
+				nextion_change_page(RFIDFEHLER);
+				nextion_setText("fehlertxt", "Wird gespeichert...");
+				loesche_FIle(aktuellesGetraenk_file->file);
+				erstelle_File(aktuellesGetraenk_file->file, aktuellesGetraenk->name, aktuellesGetraenk->alkohol, aktuellesGetraenk->kohlensaeure);
+				nextion_change_page(STARTANZEIGE);
+				setze_startanzeige(aktuellesGetraenk);
+			}
+			else
+			{
+				nextion_setText("t0", "Noch nicht 100% ausgewählt.");
+			}
 		break;
 		
 		case SLIDER01:
@@ -706,6 +753,16 @@ void check_ceinstanzeige(uint8_t button)
 			- Auf drücken oder sliden aktueller Wert aus Slider 4 (Pos 3) lesen und in Menge des Getränkes schreiben
 */
 			schreibe_Menge_in_Getraenk(3);
+		break;
+		
+		case ABBRECHEN6:
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			i_Liste = 0;
+			nextion_change_page(STARTANZEIGE);
+			aktuellesGetraenk_file =tail_getraenk_file;
+			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			setze_startanzeige(aktuellesGetraenk);
 		break;
 	}
 }
@@ -813,6 +870,7 @@ void check_erstanzeige1(uint8_t button)
 {	
 	// Initialisierung für Gross-/Kleinschreib-Wechsel
 	char wechsel = 0;
+	char buff10[50] = {'0'};
 	
 	switch (button)
 	{
@@ -859,7 +917,7 @@ void check_erstanzeige1(uint8_t button)
 			}
 			else
 			{
-				buff_name[counter] = 'C';
+				buff_name[counter] = 'c';
 			}
 			counter++;
 		break;
@@ -1260,6 +1318,7 @@ void check_erstanzeige1(uint8_t button)
 			{
 				buff_name[i] = '\0';
 			}
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 
@@ -1268,6 +1327,7 @@ void check_erstanzeige1(uint8_t button)
 			- Leerzeichen in buff_name[counter] schreiben
 */
 			buff_name[counter]= ' ';
+			counter++;
 		break;
 
 		case OK:
@@ -1296,13 +1356,22 @@ void check_erstanzeige1(uint8_t button)
 */
 	if (wechsel == 1)
 		{
+			
 		if (Grossschreib == 1)
 		{
 			Grossschreib = 0;
+			strcpy((char *)buff10, "Fs");
+			strcat((char *)buff10, (const char *)".pco=0");
+			Uart_Transmit_IT_Display((char *)buff10);
+			endConversation();
 		}
 		else
 		{
 			Grossschreib = 1;
+			strcpy((char *)buff10, "Fs");
+			strcat((char *)buff10, (const char *)".pco=2016");
+			Uart_Transmit_IT_Display((char *)buff10);
+			endConversation();		
 		}
 	}
 	
@@ -1336,6 +1405,7 @@ void check_erstanzeige2(uint8_t button)
 			- Startanzeige setzen
 			- Listenabschnitt auf 0 setzen
 */
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 			i_Liste = 0;
 		break;
@@ -1353,9 +1423,14 @@ void check_erstanzeige2(uint8_t button)
 			- i_Liste für Listenabschnitt auf 0 setzen
 			- buff_name auf '\0' initialisieren für nächstes Getränk
 */
+			nextion_change_page(RFIDFEHLER);
+			nextion_setText("fehlertxt", "Wird gespeichert...");
 			strcpy(aktuellesGetraenk->name, (const char *)buff_name);
-			aktuellesGetraenk->picture = 24;
+			aktuellesGetraenk->picture = 32;
+			
 			uint8_t alkohol = 0;
+			uint8_t kohlensaeure = 0;
+			
 			aktuelleZutatInMaschine = tail_zut_in_Maschine;
 			do 
 			{
@@ -1364,6 +1439,11 @@ void check_erstanzeige2(uint8_t button)
 					if (aktuelleZutatInMaschine->alkohol == 1)
 					{
 						alkohol = 1;
+					}
+					
+					if (aktuelleZutatInMaschine->kohlensaeure == 1)
+					{
+						kohlensaeure = 1;
 					}
 				}
 				aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
@@ -1382,7 +1462,7 @@ void check_erstanzeige2(uint8_t button)
 			if(readFile(VERIFY, (unsigned char *)buff)!=1)
 			{
 				// File speichern
-				erstelle_File(count, buff_name, 1);
+				erstelle_File(count, buff_name, alkohol, kohlensaeure);
 				tmp2 = create_new_getraenk_file(count);
 				head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
 				count = 100;
@@ -1390,6 +1470,7 @@ void check_erstanzeige2(uint8_t button)
 				lese_textfile_in_getraenk(head_getraenk_file->file);
 			}
 		}
+		nextion_change_page(STARTANZEIGE);
 		setze_startanzeige(aktuellesGetraenk);
 		counter = 0;
 		i_Liste = 0;
@@ -1434,6 +1515,7 @@ void check_loeschanzeige(uint8_t button)
 			
 			aktuellesGetraenk_file = aktuellesGetraenk_file->next;
 			lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 		
@@ -1441,6 +1523,7 @@ void check_loeschanzeige(uint8_t button)
 /*		0x02 = 0b02
 			- Startanzeige setzen
 */
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 		break;
 	}	
@@ -1619,6 +1702,8 @@ while (current != head_getraenk_file)
 		aktuellesGetraenk_file_2 = aktuellesGetraenk_file_2->prev;
 	} while (aktuellesGetraenk_file_2 != tail_getraenk_file_2);
 
+
+
 	aktuellesGetraenk_file = tail_getraenk_file;
 	lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 	nextion_change_page(MENUANZEIGE);
@@ -1723,6 +1808,8 @@ void check_fluessanzeige1(uint8_t button)
 			- i_Liste für Listenabschnitt auf 0 setzen
 */
 			i_Liste = 0;
+			block_list_hoch = 0;
+			block_list_runter = 0;
 			nextion_change_page(POSANZEIGE);
 			setze_Posanzeige_Rot_Gruen();
 		break;
@@ -1747,13 +1834,12 @@ void check_fluessanzeige2(uint8_t button)
 			- Name in aktuellesGetraenk schreiben
 			- i_Liste für Listenabschnitt auf 0 setzen
 */
-			nextion_change_page(FLUESSANZEIGE3);
+			nextion_change_page(FLUESSANZEIGE4-1);
 			uint8_t len = strlen((const char *)buff_name);
 			for (int count = 0 ; count < len + 1; count++)
 			{
 				*(aktuelle_zutat->name + count) = *(buff_name + count);
 			}
-			counter = 0;
 		break;
 	}
 }
@@ -1784,6 +1870,9 @@ void check_fluessanzeige3(uint8_t button)
 			- Liste mit Zutaten erstellen
 			- Name der aktuellen Zutat auf 0 initialisieren
 */
+			nextion_change_page(RFIDFEHLER);
+			nextion_setText("fehlertxt", "Zutat wird probiert und \\rgespeichert...");
+			
 			strcpy(ptr, (const char *)"Name:");
 			strcat(ptr, (const char *)aktuelle_zutat->name);
 			strcat(ptr, (const char *)"\rAlkohol:");
@@ -1825,23 +1914,50 @@ void check_fluessanzeige3(uint8_t button)
 			strcat((char *)buff_filename, (const char *)".txt");
 			writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
 			
-// 			nextion_change_page(FLUESSANZEIGE1);
 			i_Liste = 0;
 			block_list_runter = 0;
 			block_list_hoch = 0;
-			erstelle_Liste_Zutat_Pos("fluessigkeit");
+		
+			strcpy((char *)aktuelleZutatInMaschine->name, (const char *)buff_name);
 			uint8_t len = strlen((const char *)buff_name);
 			for (int count = 0 ; count < len + 1; count++)
 			{
-				*(aktuelle_zutat->name + count) = '\0';
+				buff_name[count] = '\0';
 			}
+			counter = 0;
+			
+			setze_Fluessgkeit_in_Position(7, VOLL);
 		break;
 		
 		case ZURUECK7:
 /*		0x0A = 0b10
 			- FLUESSANZEIGE2 setzen
 */
+			nextion_change_page(FLUESSANZEIGE4-1);
+		break;
+	}
+}
+
+void check_fluessanzeige4(uint8_t button)
+{
+	switch (button)
+	{
+		case JA2:
+			nextion_change_page(FLUESSANZEIGE3);
+			aktuelle_zutat->kohlensaeure = 1;
+		break;
+		
+		case NEIN2:
+			nextion_change_page(FLUESSANZEIGE3);
+			aktuelle_zutat->kohlensaeure = 0;
+		break;
+		
+		case ZURUECK11:
+/*		0x0A = 0b10
+			- FLUESSANZEIGE2 setzen
+*/
 			nextion_change_page(FLUESSANZEIGE2);
+			nextion_setText("neuername", (char *)buff_name);
 		break;
 	}
 }
@@ -1961,19 +2077,81 @@ void check_RFIDAnzeige1(uint8_t button)
 			if (!block_list_hoch)
 			{
 				i_Liste -=6;
-				for(int count = 0 ; count < 6 ; count++)
+				
+				// Getränkedurchwahr bei Tail starten.
+				aktueller_tag = tail_tag;
+	
+				// Shifte aktuelles Getränk auf bestimmte Seite
+				// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
+				for (int i = 0 ; i < i_Liste ; i++)
 				{
-					char string[10] = {'\0'};
-					char buff[5] = {'\0'};
-					strcpy((char *)string, (const char *) "rfid");
-					itoa((count+1), (char *)buff, 10);
-					strcat((char *)string, buff);
-					itoa((count + i_Liste + 1), (char *)buff, 10);
-					nextion_setText((char *)string, (char *)buff);
-					if(count + i_Liste + 1 == 0)
+					aktueller_tag = aktueller_tag->prev;
+				}
+
+				// Für alle Buttons auf der Seite ...
+				// Initialisierungen
+				char button[21] = {'\0'};
+				char buff[4] = {0};
+				char buff10[20] = {'\0'};
+				strcat((char *)buff10, "rfid");
+				itoa((i + 1), (char *)buff, 10);
+				strcat((char *)buff10, (const char *)buff);
+	
+				nextion_enableButton(buff10);
+	
+				for (int i = 0 ; i < 6 ; i++)
+				{
+					// Schreibe Zahl und Name des Buttons in String
+					itoa((i + 1),buff,10);
+					strcpy((char *)button, "rfid");
+					strcat((char *)button, (const char *)buff);
+		
+					// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
+					// runterscrollen blockieren und letzter Name einschreiben.
+					if (aktueller_tag == head_tag && !block_list_runter)
+					{
+						block_list_runter = 1;
+						itoa(aktueller_tag->tag_nummer, (char *)buff, 10);
+						nextion_setText(button, buff);
+					}
+		
+					// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
+					// die Buttons disablen
+					else if (block_list_runter)
+					{
+						// leerer String
+						nextion_setText(button,"");
+			
+						// Sicherheitsdelay, Programm stürzt sonst ab
+						_delay_ms(10);
+			
+						// Schreibe Text und Buttonnummer für disable in String
+						strcpy((char *)buff10, "rfid");
+						itoa((i + 1), (char *)buff, 10);
+						strcat((char *)buff10, (const char *)buff);
+			
+						// Disable Button
+						nextion_disableButton(buff10);
+					}
+		
+					//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
+					else
+					{
+						itoa(aktueller_tag->tag_nummer, (char *)buff, 10);
+						nextion_setText(button, buff);
+					}
+
+					// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
+					if(aktueller_tag == tail_tag && !block_list_runter)
 					{
 						block_list_hoch = 1;
 					}
+		
+					// Ein Getraenk weiter Scrollen
+					aktueller_tag = aktueller_tag->prev;
+		
+					// Sicherheitsdelay, Programm stürzt sonst ab
+					_delay_ms(10);
 				}
 			}
 		break;
@@ -1986,22 +2164,82 @@ void check_RFIDAnzeige1(uint8_t button)
 			block_list_hoch = 0;
 			if (!block_list_runter)
 			{
-				i_Liste += 6;
+				i_Liste +=6;
+				// Getränkedurchwahr bei Tail starten.
+				aktueller_tag = tail_tag;
 				
-				for(int count = 0 ; count < 6 ; count++)
+				// Shifte aktuelles Getränk auf bestimmte Seite
+				// (1. Seite: i_Liste = 0; 2. Seite: i_Liste = 8; ...)
+				for (int i = 0 ; i < i_Liste ; i++)
 				{
-					char string[10] = {'\0'};
-					char buff[5] = {'\0'};
-					strcpy((char *)string, (const char *) "rfid");
-					itoa((count+1), (char *)buff, 10);
-					strcat((char *)string, buff);
-					itoa((count + i_Liste + 1), (char *)buff, 10);
-					nextion_setText((char *)string, (char *)buff);
-					if(count + i_Liste + 1 == 12)
+					aktueller_tag = aktueller_tag->prev;
+				}
+
+				// Für alle Buttons auf der Seite ...
+				// Initialisierungen
+				char button[21] = {'\0'};
+				char buff[4] = {0};
+				char buff10[20] = {'\0'};
+				strcat((char *)buff10, "rfid");
+				itoa((i + 1), (char *)buff, 10);
+				strcat((char *)buff10, (const char *)buff);
+				
+				nextion_enableButton(buff10);
+				
+				for (int i = 0 ; i < 6 ; i++)
+				{
+					// Schreibe Zahl und Name des Buttons in String
+					itoa((i + 1),buff,10);
+					strcpy((char *)button, "rfid");
+					strcat((char *)button, (const char *)buff);
+					
+					// Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
+					// runterscrollen blockieren und letzter Name einschreiben.
+					if (aktueller_tag == head_tag && !block_list_runter)
 					{
 						block_list_runter = 1;
+						itoa(aktueller_tag->tag_nummer, (char *)buff, 10);
+						nextion_setText(button, buff);
 					}
-				}	
+					
+					// Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
+					// die Buttons disablen
+					else if (block_list_runter)
+					{
+						// leerer String
+						nextion_setText(button,"");
+						
+						// Sicherheitsdelay, Programm stürzt sonst ab
+						_delay_ms(10);
+						
+						// Schreibe Text und Buttonnummer für disable in String
+						strcpy((char *)buff10, "rfid");
+						itoa((i + 1), (char *)buff, 10);
+						strcat((char *)buff10, (const char *)buff);
+						
+						// Disable Button
+						nextion_disableButton(buff10);
+					}
+					
+					//Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
+					else
+					{
+						itoa(aktueller_tag->tag_nummer, (char *)buff, 10);
+						nextion_setText(button, buff);
+					}
+
+					// Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
+					if(aktueller_tag == tail_tag && !block_list_runter)
+					{
+						block_list_hoch = 1;
+					}
+					
+					// Ein Getraenk weiter Scrollen
+					aktueller_tag = aktueller_tag->prev;
+					
+					// Sicherheitsdelay, Programm stürzt sonst ab
+					_delay_ms(10);
+				}
 						
 			}
 		break;
@@ -2011,6 +2249,7 @@ void check_RFIDAnzeige1(uint8_t button)
 			- Wechsle auf Zutatenanzeige
 			-
 */
+			nextion_change_page(STARTANZEIGE);
 			setze_startanzeige(aktuellesGetraenk);
 			i_Liste = 0;
 		break;
@@ -2039,17 +2278,8 @@ void schreibe_Getraenk_in_tag(uint8_t nr)
 		Uart_Transmit_IT_ESP(ptr);
 		Uart_Transmit_IT_PC(ptr);
 	strcpy((char *)aktueller_tag->cocktail_name, (const char *)aktuellesGetraenk->name);
+	nextion_change_page(STARTANZEIGE);
 	setze_startanzeige(aktuellesGetraenk);
-	
-	// Alternativ auf vorherige Seite und Änderung anzeigen
-	
-// 			nextion_change_page(RFIDANZEIGE1);
-// 			strcpy((char *)buff, "Nr.");
-// 			itoa(aktueller_tag->tag_nummer, buff2, 10);
-// 			strcat((char *)buff, (const char *)buff2);
-// 			strcat((char *)buff, " = ");
-// 			strcat((char *)buff, aktueller_tag->cocktail_name);
-// 			nextion_setText("fluessbfrage",buff);
 }
 
 void check_RFIDAnzeige2(uint8_t button)
@@ -2083,14 +2313,6 @@ void check_RFIDAnzeige2(uint8_t button)
 			schreibe_Getraenk_in_tag(5);
 		break;
 		
-		case COCKTAIL7:
-			schreibe_Getraenk_in_tag(6);
-		break;
-		
-		case COCKTAIL8:
-			schreibe_Getraenk_in_tag(7);
-		break;
-				
 		case RAUFLIST1:
 /*		0x09 = 0b09
 			- Untere Blockierung aufheben
@@ -2100,7 +2322,7 @@ void check_RFIDAnzeige2(uint8_t button)
 			block_list_runter = 0;
 			if (!block_list_hoch)
 			{
-				i_Liste -= 8;
+				i_Liste -= 6;
 				erstelle_Liste_name("cocktail");
 			}		
 		break;
@@ -2114,9 +2336,21 @@ void check_RFIDAnzeige2(uint8_t button)
 			block_list_hoch = 0;
 			if (!block_list_runter)
 			{
-				i_Liste += 8;
+				i_Liste += 6;
 				erstelle_Liste_name("cocktail");
 			}	
+		break;
+		
+		case ZURUECK9:
+/*		0x0B = 0b11
+			- Obere Blockierung aufheben
+			- Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
+			- Schreibe Cocktailnamen in die Liste
+*/
+			block_list_hoch = 0;
+			block_list_runter = 0;
+			i_Liste = 0;
+			nextion_change_page(RFIDANZEIGE1);
 		break;
 	}
 }
@@ -2152,12 +2386,12 @@ void check_ESP32(uint8_t button)
 		case XXX:
 			ESP_Getraenk();
 		break;
-
 	}
 }
 
 void check_LED(uint8_t button)
 {
+	asm("nop");
 	switch (button)
 	{
 	case WEISS:
@@ -2165,11 +2399,36 @@ void check_LED(uint8_t button)
 	break;
 	
 	case RAINBOW:
-	light = RAINBOW_LED;
+		light = RAINBOW_LED;
 	break;
 	
-	case USER:
-	light = USER_LED;
+	case CUSTOM:
+		light = USER_LED;
+		char val[20] = {'\0'};
+		itoa(OCR3B / 7, (char *) val, 10);
+		nextion_setValue("slider1", (char *)val);
+		itoa(OCR4B / 7, (char *) val, 10);
+		nextion_setValue("slider2", (char *)val);
+		itoa(OCR5B / 7, (char *) val, 10);
+		nextion_setValue("slider3", (char *)val);
+		itoa(OCR1B / 7, (char *) val, 10);
+		nextion_setValue("slider4", (char *)val);
+	break;
+	
+	case SLIDER11:
+		OCR3B = 7 * nextion_getSliderValue("slider1", (unsigned char *)INPUT_UART_1);
+	break;
+	
+	case SLIDER12:
+		OCR4B = 7 * nextion_getSliderValue("slider2", (unsigned char *)INPUT_UART_1);
+	break;
+	
+	case SLIDER13:
+		OCR5B = 7 * nextion_getSliderValue("slider3", (unsigned char *)INPUT_UART_1);
+	break;
+	
+	case SLIDER14:
+		OCR1B = 7 * nextion_getSliderValue("slider4", (unsigned char *)INPUT_UART_1);	
 	break;
 	
 	case ZURUECK8:

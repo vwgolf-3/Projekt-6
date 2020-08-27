@@ -11,7 +11,11 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  .././pin_defs.h .././main_variables.h .././libraries/SPI/SPI.h \
- .././libraries/SPI/../../pin_defs.h .././libraries/UART/UART.h \
+ .././libraries/SPI/../../pin_defs.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ .././libraries/UART/UART.h \
  .././libraries/UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
@@ -19,10 +23,8 @@ main.d main.o: .././main.c \
  .././libraries/Main_functions/Main_Func.h \
  .././libraries/Main_functions/../UART/UART.h \
  .././libraries/Main_functions/../../pin_defs.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././libraries/TMC6200/TMC6200.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  .././libraries/TMC6200/TMC6200_Register.h \
  .././libraries/TMC6200/../SPI/SPI.h \
  .././libraries/TMC6200/../UART/UART.h .././libraries/TMC4671/TMC4671.h \
@@ -35,12 +37,12 @@ main.d main.o: .././main.c \
  .././libraries/TMC4671/../TMC-API/tmc/helpers/Bits.h \
  .././libraries/TMC4671/../TMC-API/tmc/helpers/CRC.h \
  .././libraries/TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  .././libraries/TMC4671/TMC4671_Register.h \
  .././libraries/TMC4671/TMC4671_Constants.h \
  .././libraries/TMC4671/../TMC-API/tmc/helpers/Constants.h \
  .././libraries/TMC4671/TMC4671_Fields.h \
- .././libraries/TMC4671/../SPI/SPI.h
+ .././libraries/TMC4671/../SPI/SPI.h \
+ .././libraries/TMC4671/../UART/UART.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -72,6 +74,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././libraries/SPI/../../pin_defs.h:
 
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
 .././libraries/UART/UART.h:
 
 .././libraries/UART/../RingBuffer/ring_buffer.h:
@@ -88,13 +96,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././libraries/Main_functions/../../pin_defs.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
 .././libraries/TMC6200/TMC6200.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
 .././libraries/TMC6200/TMC6200_Register.h:
 
@@ -122,8 +126,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././libraries/TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
-
 .././libraries/TMC4671/TMC4671_Register.h:
 
 .././libraries/TMC4671/TMC4671_Constants.h:
@@ -133,3 +135,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././libraries/TMC4671/TMC4671_Fields.h:
 
 .././libraries/TMC4671/../SPI/SPI.h:
+
+.././libraries/TMC4671/../UART/UART.h:

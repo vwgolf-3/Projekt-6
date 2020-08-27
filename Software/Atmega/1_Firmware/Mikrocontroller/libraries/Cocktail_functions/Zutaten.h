@@ -26,6 +26,7 @@ uint8_t * address_Standardwiederherstellung;				// EEprom address-Pointer für di
 struct zutat{												// Struckt für die aktuelle Zutat (wird nur 1 Mal initialisiert)
 	char * name;											// Pointer auf den Speicher für den Namen der aktuellen Zutat
 	uint8_t alkohol;										// Speicher für Alkohol Ja/Nein
+	uint8_t kohlensaeure;									// Speicher für Alkohol Ja/Nein
 };
 typedef struct zutat zutat_t;								// Typedef für Struct zutat_t
 
@@ -38,6 +39,7 @@ struct zutat_Maschine{										// Struckt für Zutaten in Maschine (wird 12 Mal 
 	char * name;											// Pointer auf den Speicher für den Namen der Zutat in Maschine
 	uint8_t status;											// Speicher für den Status (KEINGETRAENK=0, VOLL=1, LEER=2)
 	uint8_t alkohol;										// Speicher für Alkohol Ja/Nein
+	uint8_t kohlensaeure;										// Speicher für Alkohol Ja/Nein
 	uint8_t position;										// Speicher für Position der Zutat in der Maschine
 	struct zutat_Maschine* next;							// Pointer auf das zuvor eingefügte Getränk
 	struct zutat_Maschine* prev;							// Pointer auf das danach eingefügte Getränk
@@ -79,7 +81,7 @@ zutat_t *create_zutat();									// Funktion zur Alloziierung des Speicherplatze
 zutatMaschine_t *insert_zutat_Maschine_at_head(zutatMaschine_t **head_zutat, zutatMaschine_t **tail_zutat, zutatMaschine_t *zutat_to_insert);
 
 // Funktion zur Alloziierung des Speicherplatzes für zutatMaschine_t
-zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t k);
+zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t kohlensaeure, uint8_t k);
 /******************************************************************************************************************************/
 
 

@@ -7,11 +7,11 @@
 
 #ifndef TMC_IC_TMC6200_H_
 #define TMC_IC_TMC6200_H_
+#include <stdlib.h>
 
 #include "TMC6200_Register.h"
 #include "../SPI/SPI.h"
 #include "../UART/UART.h"
-#define F_CPU 16000000UL
 
 int tmc6200_readInt(uint8_t motor, uint8_t address);
 void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value);

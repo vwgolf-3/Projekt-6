@@ -38,6 +38,7 @@ uint8_t counter;
 
 char buff_name[21];
 char stop;
+uint8_t externes_Getraenk_flag;
 
 enum Liste_Startbildschirm {ALLE, ALKOHOL, ALKOHOLFREI};
 uint8_t Liste;
@@ -59,10 +60,8 @@ uint8_t lese_sensor(uint8_t Sensor);
 
 // SD-Karte
 void SD_startup(void);
-uint8_t compare_string(char *first, char *second);
-uint8_t pruefe_kopf(char * beginn, char string[]);
 void lese_textfile_in_getraenk(uint8_t file);
-void erstelle_File(uint8_t filename, char * name, uint8_t alkohol);
+void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohlensaeure);
 void loesche_FIle(uint8_t filename);
 void schreibe_Menge_in_Getraenk(uint8_t zutat);
 
