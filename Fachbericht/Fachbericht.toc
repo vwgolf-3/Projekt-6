@@ -125,41 +125,41 @@
 \contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{66}{subsubsection.7.2.1}
 \contentsline {subsection}{\numberline {7.3}Displaysoftware}{66}{subsection.7.3}
 \contentsline {subsubsection}{\numberline {7.3.1}Displaymenu}{67}{subsubsection.7.3.1}
-\contentsline {subsection}{\numberline {7.4}Android App}{70}{subsection.7.4}
-\contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{73}{subsubsection.7.4.1}
-\contentsline {section}{\numberline {8}Mechanik}{78}{section.8}
-\contentsline {subsection}{\numberline {8.1}Rahmen}{79}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Getr\IeC {\"a}nkeschlitten}{79}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Verkleidung}{79}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Unterbringung der Elektronik}{79}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}K\IeC {\"u}hlbox}{79}{subsection.8.5}
-\contentsline {section}{\numberline {9}Evaluation}{79}{section.9}
-\contentsline {section}{\numberline {10}Fazit}{79}{section.10}
-\contentsline {subsection}{\numberline {10.1}Zielerreichung}{79}{subsection.10.1}
-\contentsline {subsection}{\numberline {10.2}Kosten}{79}{subsection.10.2}
-\contentsline {section}{\numberline {11}Schlusswort}{79}{section.11}
-\contentsline {section}{\numberline {12}Ehrlichkeitserkl\IeC {\"a}rung}{79}{section.12}
-\contentsline {section}{\numberline {A}TMC4671}{80}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Standard-Schaltkreis TMC4671}{80}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Blockdiagramm TMC4671}{80}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Inbetriebnahme Gate-Control}{81}{subsection.A.3}
-\contentsline {section}{\numberline {B}TMC6200}{86}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}Standard-Schaltkreis TMC6200}{86}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}Blockdiagramm TMC6200}{86}{subsection.B.2}
-\contentsline {subsection}{\numberline {B.3}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{87}{subsection.B.3}
-\contentsline {subsection}{\numberline {B.4}Gate-Vorwiderstand}{87}{subsection.B.4}
-\contentsline {subsection}{\numberline {B.5}Externe Gate-Spannungsversorgung}{87}{subsection.B.5}
-\contentsline {section}{\numberline {C}H-Br\IeC {\"u}cke}{88}{appendix.C}
-\contentsline {subsection}{\numberline {C.1}Referenzschema}{88}{subsection.C.1}
-\contentsline {section}{\numberline {D}Mikrocontroller}{88}{appendix.D}
-\contentsline {subsection}{\numberline {D.1}Brown-out-Detection}{88}{subsection.D.1}
-\contentsline {subsection}{\numberline {D.2}Full Swing Crystal Oscillator}{88}{subsection.D.2}
-\contentsline {subsection}{\numberline {D.3}Bootloader-Speicherplatz}{89}{subsection.D.3}
-\contentsline {subsection}{\numberline {D.4}Memory-Lock Bootloader}{89}{subsection.D.4}
-\contentsline {section}{\numberline {E}USB-B}{90}{appendix.E}
-\contentsline {subsection}{\numberline {E.1}Ger\IeC {\"a}te-Manager}{90}{subsection.E.1}
-\contentsline {section}{\numberline {F}Atmel Studio}{90}{appendix.F}
-\contentsline {subsection}{\numberline {F.1}Fuse Bits}{90}{subsection.F.1}
-\contentsline {subsection}{\numberline {F.2}Lock Bits}{90}{subsection.F.2}
-\contentsline {subsection}{\numberline {F.3}Einbinden AVRdude und stk500v2 (wiring)}{91}{subsection.F.3}
-\contentsline {subsection}{\numberline {F.4}Bootloader ''Brennen''}{91}{subsection.F.4}
+\contentsline {subsection}{\numberline {7.4}Android App}{76}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{78}{subsubsection.7.4.1}
+\contentsline {section}{\numberline {8}Mechanik}{80}{section.8}
+\contentsline {subsection}{\numberline {8.1}Rahmen}{81}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Getr\IeC {\"a}nkeschlitten}{81}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Verkleidung}{81}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Unterbringung der Elektronik}{81}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}K\IeC {\"u}hlbox}{81}{subsection.8.5}
+\contentsline {section}{\numberline {9}Evaluation}{81}{section.9}
+\contentsline {section}{\numberline {10}Fazit}{81}{section.10}
+\contentsline {subsection}{\numberline {10.1}Zielerreichung}{81}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Kosten}{81}{subsection.10.2}
+\contentsline {section}{\numberline {11}Schlusswort}{81}{section.11}
+\contentsline {section}{\numberline {12}Ehrlichkeitserkl\IeC {\"a}rung}{81}{section.12}
+\contentsline {section}{\numberline {A}TMC4671}{82}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Standard-Schaltkreis TMC4671}{82}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}Blockdiagramm TMC4671}{82}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.3}Inbetriebnahme Gate-Control}{83}{subsection.A.3}
+\contentsline {section}{\numberline {B}TMC6200}{88}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}Standard-Schaltkreis TMC6200}{88}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}Blockdiagramm TMC6200}{88}{subsection.B.2}
+\contentsline {subsection}{\numberline {B.3}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{89}{subsection.B.3}
+\contentsline {subsection}{\numberline {B.4}Gate-Vorwiderstand}{89}{subsection.B.4}
+\contentsline {subsection}{\numberline {B.5}Externe Gate-Spannungsversorgung}{89}{subsection.B.5}
+\contentsline {section}{\numberline {C}H-Br\IeC {\"u}cke}{90}{appendix.C}
+\contentsline {subsection}{\numberline {C.1}Referenzschema}{90}{subsection.C.1}
+\contentsline {section}{\numberline {D}Mikrocontroller}{90}{appendix.D}
+\contentsline {subsection}{\numberline {D.1}Brown-out-Detection}{90}{subsection.D.1}
+\contentsline {subsection}{\numberline {D.2}Full Swing Crystal Oscillator}{90}{subsection.D.2}
+\contentsline {subsection}{\numberline {D.3}Bootloader-Speicherplatz}{91}{subsection.D.3}
+\contentsline {subsection}{\numberline {D.4}Memory-Lock Bootloader}{91}{subsection.D.4}
+\contentsline {section}{\numberline {E}USB-B}{92}{appendix.E}
+\contentsline {subsection}{\numberline {E.1}Ger\IeC {\"a}te-Manager}{92}{subsection.E.1}
+\contentsline {section}{\numberline {F}Atmel Studio}{92}{appendix.F}
+\contentsline {subsection}{\numberline {F.1}Fuse Bits}{92}{subsection.F.1}
+\contentsline {subsection}{\numberline {F.2}Lock Bits}{92}{subsection.F.2}
+\contentsline {subsection}{\numberline {F.3}Einbinden AVRdude und stk500v2 (wiring)}{93}{subsection.F.3}
+\contentsline {subsection}{\numberline {F.4}Bootloader ''Brennen''}{93}{subsection.F.4}
