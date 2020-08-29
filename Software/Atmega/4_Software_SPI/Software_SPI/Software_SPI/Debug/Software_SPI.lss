@@ -204,7 +204,7 @@ int main(void)
 void mfrc522_write(uint8_t reg, uint8_t gulu)
 {
  11a:	c6 2f       	mov	r28, r22
-		SOFTSPI_CS_PORT &= ~SOFTSPI_CS_MASK;
+	SOFTSPI_CS_PORT &= ~SOFTSPI_CS_MASK;
  11c:	41 98       	cbi	0x08, 1	; 8
 	softspi_write_uint8((reg<<1)&0x7E);
  11e:	88 0f       	add	r24, r24
@@ -213,7 +213,7 @@ void mfrc522_write(uint8_t reg, uint8_t gulu)
 	softspi_write_uint8(gulu);
  124:	8c 2f       	mov	r24, r28
  126:	70 d0       	rcall	.+224    	; 0x208 <softspi_write_uint8>
-		SOFTSPI_CS_PORT |= SOFTSPI_CS_MASK;
+	SOFTSPI_CS_PORT |= SOFTSPI_CS_MASK;
  128:	41 9a       	sbi	0x08, 1	; 8
 }
  12a:	cf 91       	pop	r28

@@ -67,10 +67,10 @@ mfrc522_init()
 
 void mfrc522_write(uint8_t reg, uint8_t gulu)
 {
-		SOFTSPI_CS_PORT &= ~SOFTSPI_CS_MASK;
+	SOFTSPI_CS_PORT &= ~SOFTSPI_CS_MASK;
 	softspi_write_uint8((reg<<1)&0x7E);
 	softspi_write_uint8(gulu);
-		SOFTSPI_CS_PORT |= SOFTSPI_CS_MASK;
+	SOFTSPI_CS_PORT |= SOFTSPI_CS_MASK;
 }
 
 uint8_t mfrc522_read(uint8_t reg)
