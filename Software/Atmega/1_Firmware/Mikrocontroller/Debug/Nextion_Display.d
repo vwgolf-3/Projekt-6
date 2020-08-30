@@ -39,6 +39,16 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h \
  ../libraries/Nextion_Display/../Main_functions/../TMC4671/../SPI/SPI.h \
  ../libraries/Nextion_Display/../Main_functions/../TMC4671/../SPI/../../utils/pin_defs.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_SPI/Software_SPI.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_SPI/../../utils/pin_defs.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC4671/../UART/UART.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC6200/../SPI/SPI.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC6200/../Software_SPI/Software_SPI.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC6200/../UART/UART.h \
+ ../libraries/Nextion_Display/../Main_functions/../LED/LED.h \
+ ../libraries/Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h \
  ../libraries/Nextion_Display/../../libraries/UART/UART.h
 
 ../libraries/Nextion_Display/Nextion_Display.h:
@@ -118,5 +128,25 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Nextion_Display/../Main_functions/../TMC4671/../SPI/SPI.h:
 
 ../libraries/Nextion_Display/../Main_functions/../TMC4671/../SPI/../../utils/pin_defs.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_SPI/Software_SPI.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_SPI/../../utils/pin_defs.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC4671/../UART/UART.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC6200/../SPI/SPI.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC6200/../Software_SPI/Software_SPI.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC6200/../UART/UART.h:
+
+../libraries/Nextion_Display/../Main_functions/../LED/LED.h:
+
+../libraries/Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h:
 
 ../libraries/Nextion_Display/../../libraries/UART/UART.h:

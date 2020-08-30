@@ -46,14 +46,21 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../LED/LED.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../../LED.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../../utils/pin_defs.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../LED/LED.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Zutaten.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/TAGS.h
@@ -152,21 +159,35 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
 
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../LED/LED.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200_Register.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/../SPI/SPI.h:
-
 ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../../LED.h:
-
-../libraries/Cocktail_functions/../Cocktail_functions/../../utils/pin_defs.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../LED/LED.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/Zutaten.h:
 

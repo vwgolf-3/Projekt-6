@@ -41,17 +41,24 @@ Cocktail_Statemachine.d Cocktail_Statemachine.o: \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/../SPI/SPI.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/../Software_SPI/Software_SPI.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/../UART/UART.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/../SPI/SPI.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/../Software_SPI/Software_SPI.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/../UART/UART.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../LED/LED.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
- ../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h \
- ../libraries/Cocktail_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../SD-Karte/FAT32.h \
  ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
- ../libraries/Cocktail_functions/../../LED.h \
- ../libraries/Cocktail_functions/../../utils/pin_defs.h \
+ ../libraries/Cocktail_functions/../LED/LED.h \
  ../libraries/Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  ../libraries/Cocktail_functions/Getraenk.h \
@@ -140,15 +147,31 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
 
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/../Software_SPI/Software_SPI.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/../UART/UART.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/../SPI/SPI.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/../Software_SPI/Software_SPI.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/../UART/UART.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../LED/LED.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h:
+
 ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 
 ../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
 
 ../libraries/Cocktail_functions/../TMC6200/TMC6200.h:
-
-../libraries/Cocktail_functions/../TMC6200/TMC6200_Register.h:
-
-../libraries/Cocktail_functions/../TMC6200/../SPI/SPI.h:
 
 ../libraries/Cocktail_functions/../SD-Karte/FAT32.h:
 
@@ -158,9 +181,7 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 
 ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
 
-../libraries/Cocktail_functions/../../LED.h:
-
-../libraries/Cocktail_functions/../../utils/pin_defs.h:
+../libraries/Cocktail_functions/../LED/LED.h:
 
 ../libraries/Cocktail_functions/Zutaten.h:
 

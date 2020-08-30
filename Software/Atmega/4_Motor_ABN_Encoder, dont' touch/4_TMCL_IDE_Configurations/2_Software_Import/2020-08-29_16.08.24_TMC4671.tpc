@@ -1,0 +1,170 @@
+WMC CHIPINFO_ADDR                    , 0, $00000000, MOD_ID //0x01: 
+
+WMC ADC_RAW_ADDR                     , 0, $00000000, MOD_ID //0x03: 
+
+WMC dsADC_MCFG_B_MCFG_A              , 0, $00100010, MOD_ID //0x04: 
+
+WMC dsADC_MCLK_A                     , 0, $20000000, MOD_ID //0x05: 
+
+WMC dsADC_MCLK_B                     , 0, $00000000, MOD_ID //0x06: 
+
+WMC dsADC_MDEC_B_MDEC_A              , 0, $014E014E, MOD_ID //0x07: 
+
+WMC ADC_I1_SCALE_OFFSET              , 0, $FF00890A, MOD_ID //0x08: 
+
+WMC ADC_I0_SCALE_OFFSET              , 0, $FF008234, MOD_ID //0x09: 
+
+WMC ADC_I_SELECT                     , 0, $24000100, MOD_ID //0x0A: 
+
+WMC ADC_I1_I0_EXT                    , 0, $00000000, MOD_ID //0x0B: 
+
+WMC DS_ANALOG_INPUT_STAGE_CFG        , 0, $00044400, MOD_ID //0x0C: 
+
+WMC AENC_0_SCALE_OFFSET              , 0, $01000000, MOD_ID //0x0D: 
+
+WMC AENC_1_SCALE_OFFSET              , 0, $01000000, MOD_ID //0x0E: 
+
+WMC AENC_2_SCALE_OFFSET              , 0, $01000000, MOD_ID //0x0F: 
+
+WMC AENC_SELECT                      , 0, $03020100, MOD_ID //0x11: 
+
+WMC PWM_POLARITIES                   , 0, $00000000, MOD_ID //0x17: 
+
+WMC PWM_MAXCNT                       , 0, $00000F9F, MOD_ID //0x18: 
+
+WMC PWM_BBM_H_BBM_L                  , 0, $00001919, MOD_ID //0x19: 
+
+WMC PWM_SV_CHOP                      , 0, $00000007, MOD_ID //0x1A: 
+
+WMC MOTOR_TYPE_N_POLE_PAIRS          , 0, $00030003, MOD_ID //0x1B: 
+
+WMC PHI_E_EXT                        , 0, $00000000, MOD_ID //0x1C: 
+
+WMC PHI_M_EXT                        , 0, $00000000, MOD_ID //0x1D: 
+
+WMC POSITION_EXT                     , 0, $00000000, MOD_ID //0x1E: 
+
+WMC OPENLOOP_MODE                    , 0, $00000000, MOD_ID //0x1F: 
+
+WMC OPENLOOP_ACCELERATION            , 0, $0000003C, MOD_ID //0x20: 
+
+WMC OPENLOOP_VELOCITY_TARGET         , 0, $FFFFFFF6, MOD_ID //0x21: 
+
+WMC OPENLOOP_VELOCITY_ACTUAL         , 0, $FFFFFFF6, MOD_ID //0x22: 
+
+WMC OPENLOOP_PHI                     , 0, $000087D6, MOD_ID //0x23: 
+
+WMC UQ_UD_EXT                        , 0, $00000FA0, MOD_ID //0x24: 
+
+WMC ABN_DECODER_MODE                 , 0, $00001000, MOD_ID //0x25: 
+
+WMC ABN_DECODER_PPR                  , 0, $00002000, MOD_ID //0x26: 
+
+WMC ABN_DECODER_COUNT                , 0, $000013A8, MOD_ID //0x27: 
+
+WMC ABN_DECODER_COUNT_N              , 0, $00001FE7, MOD_ID //0x28: 
+
+WMC ABN_DECODER_PHI_E_PHI_M_OFFSET   , 0, $00000000, MOD_ID //0x29: 
+
+WMC ABN_2_DECODER_MODE               , 0, $00000000, MOD_ID //0x2C: 
+
+WMC ABN_2_DECODER_PPR                , 0, $00010000, MOD_ID //0x2D: 
+
+WMC ABN_2_DECODER_COUNT              , 0, $00000000, MOD_ID //0x2E: 
+
+WMC ABN_2_DECODER_COUNT_N            , 0, $00000000, MOD_ID //0x2F: 
+
+WMC ABN_2_DECODER_PHI_M_OFFSET       , 0, $00000000, MOD_ID //0x30: 
+
+WMC HALL_MODE                        , 0, $00000000, MOD_ID //0x33: 
+
+WMC HALL_POSITION_060_000            , 0, $2AAA0000, MOD_ID //0x34: 
+
+WMC HALL_POSITION_180_120            , 0, $80005555, MOD_ID //0x35: 
+
+WMC HALL_POSITION_300_240            , 0, $D555AAAA, MOD_ID //0x36: 
+
+WMC HALL_PHI_E_PHI_M_OFFSET          , 0, $00000000, MOD_ID //0x37: 
+
+WMC HALL_DPHI_MAX                    , 0, $00002AAA, MOD_ID //0x38: 
+
+WMC AENC_DECODER_MODE                , 0, $00000000, MOD_ID //0x3B: 
+
+WMC AENC_DECODER_N_THRESHOLD         , 0, $00000000, MOD_ID //0x3C: 
+
+WMC AENC_DECODER_PHI_A_OFFSET        , 0, $00000000, MOD_ID //0x3E: 
+
+WMC AENC_DECODER_PPR                 , 0, $00000001, MOD_ID //0x40: 
+
+WMC AENC_DECODER_COUNT_N             , 0, $00000000, MOD_ID //0x42: 
+
+WMC AENC_DECODER_PHI_E_PHI_M_OFFSET  , 0, $00000000, MOD_ID //0x45: 
+
+WMC CONFIG_DATA                      , 0, $00000000, MOD_ID //0x4D: 
+
+WMC CONFIG_ADDR                      , 0, $00000000, MOD_ID //0x4E: 
+
+WMC VELOCITY_SELECTION               , 0, $00000000, MOD_ID //0x50: 
+
+WMC POSITION_SELECTION               , 0, $00000000, MOD_ID //0x51: 
+
+WMC PHI_E_SELECTION                  , 0, $00000003, MOD_ID //0x52: 
+
+WMC PID_FLUX_P_FLUX_I                , 0, $01F403E8, MOD_ID //0x54: 
+
+WMC PID_TORQUE_P_TORQUE_I            , 0, $01F403E8, MOD_ID //0x56: 
+
+WMC PID_VELOCITY_P_VELOCITY_I        , 0, $05DC01F4, MOD_ID //0x58: 
+
+WMC PID_POSITION_P_POSITION_I        , 0, $01F40000, MOD_ID //0x5A: 
+
+WMC PID_TORQUE_FLUX_TARGET_DDT_LIMITS, 0, $00007FFF, MOD_ID //0x5C: 
+
+WMC PIDOUT_UQ_UD_LIMITS              , 0, $00005A81, MOD_ID //0x5D: 
+
+WMC PID_TORQUE_FLUX_LIMITS           , 0, $000007D0, MOD_ID //0x5E: 
+
+WMC PID_ACCELERATION_LIMIT           , 0, $0000001E, MOD_ID //0x5F: 
+
+WMC PID_VELOCITY_LIMIT               , 0, $0000003C, MOD_ID //0x60: 
+
+WMC PID_POSITION_LIMIT_LOW           , 0, $80000001, MOD_ID //0x61: 
+
+WMC PID_POSITION_LIMIT_HIGH          , 0, $7FFFFFFF, MOD_ID //0x62: 
+
+WMC MODE_RAMP_MODE_MOTION            , 0, $00000001, MOD_ID //0x63: 
+
+WMC PID_TORQUE_FLUX_TARGET           , 0, $00000000, MOD_ID //0x64: 
+
+WMC PID_TORQUE_FLUX_OFFSET           , 0, $00000000, MOD_ID //0x65: 
+
+WMC PID_VELOCITY_TARGET              , 0, $00000000, MOD_ID //0x66: 
+
+WMC PID_VELOCITY_OFFSET              , 0, $00000000, MOD_ID //0x67: 
+
+WMC PID_POSITION_TARGET              , 0, $0111D7CA, MOD_ID //0x68: 
+
+WMC PID_POSITION_ACTUAL              , 0, $0111D7C0, MOD_ID //0x6B: 
+
+WMC PID_ERROR_ADDR                   , 0, $00000000, MOD_ID //0x6D: 
+
+WMC INTERIM_DATA                     , 0, $FF4C006A, MOD_ID //0x6E: 
+
+WMC INTERIM_ADDR                     , 0, $00000011, MOD_ID //0x6F: 
+
+WMC WATCHDOG_CFG                     , 0, $00000000, MOD_ID //0x74: 
+
+WMC ADC_VM_LIMITS                    , 0, $FFFFFFFF, MOD_ID //0x75: 
+
+WMC STEP_WIDTH                       , 0, $00000000, MOD_ID //0x78: 
+
+WMC UART_BPS                         , 0, $00009600, MOD_ID //0x79: 
+
+WMC UART_ADDRS                       , 0, $00000000, MOD_ID //0x7A: 
+
+WMC GPIO_dsADCI_CONFIG               , 0, $00000000, MOD_ID //0x7B: 
+
+WMC STATUS_FLAGS                     , 0, $C0788088, MOD_ID //0x7C: 
+
+WMC STATUS_MASK                      , 0, $00000000, MOD_ID //0x7D: 
+

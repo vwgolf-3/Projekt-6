@@ -148,12 +148,6 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="LED.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="LED.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="libraries\Cocktail_functions\Cocktail_functions.c">
       <SubType>compile</SubType>
       <Link>Cocktail_functions.c</Link>
@@ -174,6 +168,10 @@
       <SubType>compile</SubType>
       <Link>Zutaten.c</Link>
     </Compile>
+    <Compile Include="libraries\LED\LED.c">
+      <SubType>compile</SubType>
+      <Link>LED.c</Link>
+    </Compile>
     <Compile Include="libraries\Main_functions\Main_Func.c">
       <SubType>compile</SubType>
       <Link>Main_Func.c</Link>
@@ -181,10 +179,6 @@
     <Compile Include="libraries\Nextion_Display\Nextion_Display.c">
       <SubType>compile</SubType>
       <Link>Nextion_Display.c</Link>
-    </Compile>
-    <Compile Include="libraries\RC522\mfrc522.c">
-      <SubType>compile</SubType>
-      <Link>mfrc522.c</Link>
     </Compile>
     <Compile Include="libraries\RingBuffer\ring_buffer.c">
       <SubType>compile</SubType>
@@ -197,6 +191,10 @@
     <Compile Include="libraries\SD-Karte\SD_routines.c">
       <SubType>compile</SubType>
       <Link>SD_routines.c</Link>
+    </Compile>
+    <Compile Include="libraries\Software_SPI\Software_SPI.c">
+      <SubType>compile</SubType>
+      <Link>Software_SPI.c</Link>
     </Compile>
     <Compile Include="libraries\SPI\SPI.c">
       <SubType>compile</SubType>

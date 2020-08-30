@@ -1,4 +1,9 @@
-Name:Silver Bullet
-Mengen:0,0,0,0,0,10,0,0,60,0,30,0
+Name:Firework
+Mengen:
+Zitronensaft:30
+Wodka:30
+Eistee:40
+;
 Alkohol:1
+Kohlensaeure:0
 Bild:15

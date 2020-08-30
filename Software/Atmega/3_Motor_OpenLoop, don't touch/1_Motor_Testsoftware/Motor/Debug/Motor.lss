@@ -1,0 +1,2377 @@
+
+Motor.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000005a  00800200  00000ca6  00000d3a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000ca6  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000e09  0080025a  0080025a  00000d94  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000d94  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000dc4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000003d0  00000000  00000000  00000e04  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00005f02  00000000  00000000  000011d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000198c  00000000  00000000  000070d6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00001fe9  00000000  00000000  00008a62  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000cac  00000000  00000000  0000aa4c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00001398  00000000  00000000  0000b6f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00004dbf  00000000  00000000  0000ca90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000368  00000000  00000000  0001184f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	71 c0       	rjmp	.+226    	; 0xe4 <__ctors_end>
+   2:	00 00       	nop
+   4:	8e c0       	rjmp	.+284    	; 0x122 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	8c c0       	rjmp	.+280    	; 0x122 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	8a c0       	rjmp	.+276    	; 0x122 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	88 c0       	rjmp	.+272    	; 0x122 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	86 c0       	rjmp	.+268    	; 0x122 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	84 c0       	rjmp	.+264    	; 0x122 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	82 c0       	rjmp	.+260    	; 0x122 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	80 c0       	rjmp	.+256    	; 0x122 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	7e c0       	rjmp	.+252    	; 0x122 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	7c c0       	rjmp	.+248    	; 0x122 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	7a c0       	rjmp	.+244    	; 0x122 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	78 c0       	rjmp	.+240    	; 0x122 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	76 c0       	rjmp	.+236    	; 0x122 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	74 c0       	rjmp	.+232    	; 0x122 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	72 c0       	rjmp	.+228    	; 0x122 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	70 c0       	rjmp	.+224    	; 0x122 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	6e c0       	rjmp	.+220    	; 0x122 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	6c c0       	rjmp	.+216    	; 0x122 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	6a c0       	rjmp	.+212    	; 0x122 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	68 c0       	rjmp	.+208    	; 0x122 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	66 c0       	rjmp	.+204    	; 0x122 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	64 c0       	rjmp	.+200    	; 0x122 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	62 c0       	rjmp	.+196    	; 0x122 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	60 c0       	rjmp	.+192    	; 0x122 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	a6 c5       	rjmp	.+2892   	; 0xbb2 <__vector_25>
+  66:	00 00       	nop
+  68:	67 c5       	rjmp	.+2766   	; 0xb38 <__vector_26>
+  6a:	00 00       	nop
+  6c:	5a c0       	rjmp	.+180    	; 0x122 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	58 c0       	rjmp	.+176    	; 0x122 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	56 c0       	rjmp	.+172    	; 0x122 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	54 c0       	rjmp	.+168    	; 0x122 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	52 c0       	rjmp	.+164    	; 0x122 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	50 c0       	rjmp	.+160    	; 0x122 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	4e c0       	rjmp	.+156    	; 0x122 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	4c c0       	rjmp	.+152    	; 0x122 <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	4a c0       	rjmp	.+148    	; 0x122 <__bad_interrupt>
+  8e:	00 00       	nop
+  90:	48 c0       	rjmp	.+144    	; 0x122 <__bad_interrupt>
+  92:	00 00       	nop
+  94:	46 c0       	rjmp	.+140    	; 0x122 <__bad_interrupt>
+  96:	00 00       	nop
+  98:	44 c0       	rjmp	.+136    	; 0x122 <__bad_interrupt>
+  9a:	00 00       	nop
+  9c:	42 c0       	rjmp	.+132    	; 0x122 <__bad_interrupt>
+  9e:	00 00       	nop
+  a0:	40 c0       	rjmp	.+128    	; 0x122 <__bad_interrupt>
+  a2:	00 00       	nop
+  a4:	3e c0       	rjmp	.+124    	; 0x122 <__bad_interrupt>
+  a6:	00 00       	nop
+  a8:	3c c0       	rjmp	.+120    	; 0x122 <__bad_interrupt>
+  aa:	00 00       	nop
+  ac:	3a c0       	rjmp	.+116    	; 0x122 <__bad_interrupt>
+  ae:	00 00       	nop
+  b0:	38 c0       	rjmp	.+112    	; 0x122 <__bad_interrupt>
+  b2:	00 00       	nop
+  b4:	36 c0       	rjmp	.+108    	; 0x122 <__bad_interrupt>
+  b6:	00 00       	nop
+  b8:	34 c0       	rjmp	.+104    	; 0x122 <__bad_interrupt>
+  ba:	00 00       	nop
+  bc:	32 c0       	rjmp	.+100    	; 0x122 <__bad_interrupt>
+  be:	00 00       	nop
+  c0:	30 c0       	rjmp	.+96     	; 0x122 <__bad_interrupt>
+  c2:	00 00       	nop
+  c4:	2e c0       	rjmp	.+92     	; 0x122 <__bad_interrupt>
+  c6:	00 00       	nop
+  c8:	2c c0       	rjmp	.+88     	; 0x122 <__bad_interrupt>
+  ca:	00 00       	nop
+  cc:	2a c0       	rjmp	.+84     	; 0x122 <__bad_interrupt>
+  ce:	00 00       	nop
+  d0:	28 c0       	rjmp	.+80     	; 0x122 <__bad_interrupt>
+  d2:	00 00       	nop
+  d4:	26 c0       	rjmp	.+76     	; 0x122 <__bad_interrupt>
+  d6:	00 00       	nop
+  d8:	24 c0       	rjmp	.+72     	; 0x122 <__bad_interrupt>
+  da:	00 00       	nop
+  dc:	22 c0       	rjmp	.+68     	; 0x122 <__bad_interrupt>
+  de:	00 00       	nop
+  e0:	20 c0       	rjmp	.+64     	; 0x122 <__bad_interrupt>
+	...
+
+000000e4 <__ctors_end>:
+  e4:	11 24       	eor	r1, r1
+  e6:	1f be       	out	0x3f, r1	; 63
+  e8:	cf ef       	ldi	r28, 0xFF	; 255
+  ea:	d1 e2       	ldi	r29, 0x21	; 33
+  ec:	de bf       	out	0x3e, r29	; 62
+  ee:	cd bf       	out	0x3d, r28	; 61
+  f0:	00 e0       	ldi	r16, 0x00	; 0
+  f2:	0c bf       	out	0x3c, r16	; 60
+
+000000f4 <__do_copy_data>:
+  f4:	12 e0       	ldi	r17, 0x02	; 2
+  f6:	a0 e0       	ldi	r26, 0x00	; 0
+  f8:	b2 e0       	ldi	r27, 0x02	; 2
+  fa:	e6 ea       	ldi	r30, 0xA6	; 166
+  fc:	fc e0       	ldi	r31, 0x0C	; 12
+  fe:	00 e0       	ldi	r16, 0x00	; 0
+ 100:	0b bf       	out	0x3b, r16	; 59
+ 102:	02 c0       	rjmp	.+4      	; 0x108 <__do_copy_data+0x14>
+ 104:	07 90       	elpm	r0, Z+
+ 106:	0d 92       	st	X+, r0
+ 108:	aa 35       	cpi	r26, 0x5A	; 90
+ 10a:	b1 07       	cpc	r27, r17
+ 10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
+
+0000010e <__do_clear_bss>:
+ 10e:	20 e1       	ldi	r18, 0x10	; 16
+ 110:	aa e5       	ldi	r26, 0x5A	; 90
+ 112:	b2 e0       	ldi	r27, 0x02	; 2
+ 114:	01 c0       	rjmp	.+2      	; 0x118 <.do_clear_bss_start>
+
+00000116 <.do_clear_bss_loop>:
+ 116:	1d 92       	st	X+, r1
+
+00000118 <.do_clear_bss_start>:
+ 118:	a3 36       	cpi	r26, 0x63	; 99
+ 11a:	b2 07       	cpc	r27, r18
+ 11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
+ 11e:	74 d5       	rcall	.+2792   	; 0xc08 <main>
+ 120:	c0 c5       	rjmp	.+2944   	; 0xca2 <_exit>
+
+00000122 <__bad_interrupt>:
+ 122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
+
+00000124 <IO_init>:
+
+//Init_IO
+
+void IO_init(void)
+{
+	LED_DDR = LED_OUTPUT_MASK;
+ 124:	88 e7       	ldi	r24, 0x78	; 120
+ 126:	80 bb       	out	0x10, r24	; 16
+	SPI_DDR = SPI_OUTPUT_MASK;
+ 128:	87 e8       	ldi	r24, 0x87	; 135
+ 12a:	84 b9       	out	0x04, r24	; 4
+	SPI2_DDR = SPI2_OUTPUT_MASK;
+ 12c:	88 e4       	ldi	r24, 0x48	; 72
+ 12e:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <__TEXT_REGION_LENGTH__+0x700101>
+	PUMPE_DDR = PUMPE_OUTPUT_MASK;
+ 132:	8c ef       	ldi	r24, 0xFC	; 252
+ 134:	81 b9       	out	0x01, r24	; 1
+	PUMPE_DDR2 = PUMPE2_OUTPUT_MASK;
+ 136:	84 e2       	ldi	r24, 0x24	; 36
+ 138:	83 bb       	out	0x13, r24	; 19
+	PUMPE_DDR3 = PUMPE3_OUTPUT_MASK;
+ 13a:	8c e7       	ldi	r24, 0x7C	; 124
+ 13c:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <__TEXT_REGION_LENGTH__+0x700104>
+	RFID_DDR = RFID_OUTPUT_MASK;
+ 140:	81 e0       	ldi	r24, 0x01	; 1
+ 142:	87 b9       	out	0x07, r24	; 7
+	SOFTSPI_DDR = SOFTSPI_OUTPUT_MASK;
+ 144:	8b e0       	ldi	r24, 0x0B	; 11
+ 146:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <__TEXT_REGION_LENGTH__+0x70010a>
+	FLUSS_DDR = 0b00000000;
+ 14a:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <__TEXT_REGION_LENGTH__+0x700107>
+	SOFTSPI_CLK_PORT |= SOFTSPI_CLK_BIT;
+ 14e:	eb e0       	ldi	r30, 0x0B	; 11
+ 150:	f1 e0       	ldi	r31, 0x01	; 1
+ 152:	80 81       	ld	r24, Z
+ 154:	88 60       	ori	r24, 0x08	; 8
+ 156:	80 83       	st	Z, r24
+ 158:	08 95       	ret
+
+0000015a <RB_init>:
+		}
+	}
+	rb->tail = tail;
+	
+	return 1;
+}
+ 15a:	fc 01       	movw	r30, r24
+ 15c:	11 82       	std	Z+1, r1	; 0x01
+ 15e:	10 82       	st	Z, r1
+ 160:	08 95       	ret
+
+00000162 <RB_free>:
+ 162:	fc 01       	movw	r30, r24
+ 164:	90 81       	ld	r25, Z
+ 166:	81 81       	ldd	r24, Z+1	; 0x01
+ 168:	98 17       	cp	r25, r24
+ 16a:	20 f0       	brcs	.+8      	; 0x174 <RB_free+0x12>
+ 16c:	98 1b       	sub	r25, r24
+ 16e:	89 2f       	mov	r24, r25
+ 170:	80 95       	com	r24
+ 172:	08 95       	ret
+ 174:	89 1b       	sub	r24, r25
+ 176:	08 95       	ret
+
+00000178 <RB_length>:
+ 178:	fc 01       	movw	r30, r24
+ 17a:	20 81       	ld	r18, Z
+ 17c:	91 81       	ldd	r25, Z+1	; 0x01
+ 17e:	29 17       	cp	r18, r25
+ 180:	18 f0       	brcs	.+6      	; 0x188 <RB_length+0x10>
+ 182:	82 2f       	mov	r24, r18
+ 184:	89 1b       	sub	r24, r25
+ 186:	08 95       	ret
+ 188:	89 2f       	mov	r24, r25
+ 18a:	82 1b       	sub	r24, r18
+ 18c:	80 95       	com	r24
+ 18e:	08 95       	ret
+
+00000190 <RB_readByte>:
+ 190:	cf 93       	push	r28
+ 192:	df 93       	push	r29
+ 194:	ec 01       	movw	r28, r24
+ 196:	f0 df       	rcall	.-32     	; 0x178 <RB_length>
+ 198:	88 23       	and	r24, r24
+ 19a:	39 f0       	breq	.+14     	; 0x1aa <RB_readByte+0x1a>
+ 19c:	99 81       	ldd	r25, Y+1	; 0x01
+ 19e:	fe 01       	movw	r30, r28
+ 1a0:	e9 0f       	add	r30, r25
+ 1a2:	f1 1d       	adc	r31, r1
+ 1a4:	82 81       	ldd	r24, Z+2	; 0x02
+ 1a6:	9f 5f       	subi	r25, 0xFF	; 255
+ 1a8:	99 83       	std	Y+1, r25	; 0x01
+ 1aa:	df 91       	pop	r29
+ 1ac:	cf 91       	pop	r28
+ 1ae:	08 95       	ret
+
+000001b0 <RB_writeByte>:
+ 1b0:	0f 93       	push	r16
+ 1b2:	1f 93       	push	r17
+ 1b4:	cf 93       	push	r28
+ 1b6:	df 93       	push	r29
+ 1b8:	ec 01       	movw	r28, r24
+ 1ba:	06 2f       	mov	r16, r22
+ 1bc:	18 81       	ld	r17, Y
+ 1be:	d1 df       	rcall	.-94     	; 0x162 <RB_free>
+ 1c0:	88 23       	and	r24, r24
+ 1c2:	f1 f3       	breq	.-4      	; 0x1c0 <RB_writeByte+0x10>
+ 1c4:	01 11       	cpse	r16, r1
+ 1c6:	01 c0       	rjmp	.+2      	; 0x1ca <RB_writeByte+0x1a>
+ 1c8:	0f ef       	ldi	r16, 0xFF	; 255
+ 1ca:	fe 01       	movw	r30, r28
+ 1cc:	e1 0f       	add	r30, r17
+ 1ce:	f1 1d       	adc	r31, r1
+ 1d0:	02 83       	std	Z+2, r16	; 0x02
+ 1d2:	1f 5f       	subi	r17, 0xFF	; 255
+ 1d4:	18 83       	st	Y, r17
+ 1d6:	81 e0       	ldi	r24, 0x01	; 1
+ 1d8:	df 91       	pop	r29
+ 1da:	cf 91       	pop	r28
+ 1dc:	1f 91       	pop	r17
+ 1de:	0f 91       	pop	r16
+ 1e0:	08 95       	ret
+
+000001e2 <RB_write>:
+
+unsigned char RB_write( ring_buffer_t *rb, char *data, unsigned char datal )
+{
+ 1e2:	ff 92       	push	r15
+ 1e4:	0f 93       	push	r16
+ 1e6:	1f 93       	push	r17
+ 1e8:	cf 93       	push	r28
+ 1ea:	df 93       	push	r29
+	unsigned char head;
+	
+	head = rb->head;
+	
+	if (datal == 0)
+ 1ec:	44 23       	and	r20, r20
+ 1ee:	c9 f0       	breq	.+50     	; 0x222 <RB_write+0x40>
+ 1f0:	c4 2f       	mov	r28, r20
+ 1f2:	d7 2f       	mov	r29, r23
+ 1f4:	f6 2e       	mov	r15, r22
+ 1f6:	8c 01       	movw	r16, r24
+	{
+		return  0;
+	}
+	
+	while(RB_free(rb) < datal);
+ 1f8:	b4 df       	rcall	.-152    	; 0x162 <RB_free>
+ 1fa:	8c 17       	cp	r24, r28
+ 1fc:	f0 f3       	brcs	.-4      	; 0x1fa <RB_write+0x18>
+
+unsigned char RB_write( ring_buffer_t *rb, char *data, unsigned char datal )
+{
+	unsigned char head;
+	
+	head = rb->head;
+ 1fe:	f8 01       	movw	r30, r16
+ 200:	90 81       	ld	r25, Z
+ 202:	ef 2d       	mov	r30, r15
+ 204:	fd 2f       	mov	r31, r29
+ 206:	c9 0f       	add	r28, r25
+	
+	while(RB_free(rb) < datal);
+	
+	while(datal--)
+	{
+		rb->data[head++] = *data++;
+ 208:	21 91       	ld	r18, Z+
+ 20a:	d8 01       	movw	r26, r16
+ 20c:	a9 0f       	add	r26, r25
+ 20e:	b1 1d       	adc	r27, r1
+ 210:	12 96       	adiw	r26, 0x02	; 2
+ 212:	2c 93       	st	X, r18
+ 214:	9f 5f       	subi	r25, 0xFF	; 255
+		return  0;
+	}
+	
+	while(RB_free(rb) < datal);
+	
+	while(datal--)
+ 216:	9c 13       	cpse	r25, r28
+ 218:	f7 cf       	rjmp	.-18     	; 0x208 <RB_write+0x26>
+		{
+			head = 0;
+		}
+	}
+	
+	rb->head = head;
+ 21a:	f8 01       	movw	r30, r16
+ 21c:	c0 83       	st	Z, r28
+	
+	return 1;
+ 21e:	81 e0       	ldi	r24, 0x01	; 1
+ 220:	01 c0       	rjmp	.+2      	; 0x224 <RB_write+0x42>
+	
+	head = rb->head;
+	
+	if (datal == 0)
+	{
+		return  0;
+ 222:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	
+	rb->head = head;
+	
+	return 1;
+}
+ 224:	df 91       	pop	r29
+ 226:	cf 91       	pop	r28
+ 228:	1f 91       	pop	r17
+ 22a:	0f 91       	pop	r16
+ 22c:	ff 90       	pop	r15
+ 22e:	08 95       	ret
+
+00000230 <softspi_clk_low>:
+}
+void softspi_write_uint16(uint16_t x)
+{
+	softspi_write_uint8((uint8_t)(x >> 8));
+	softspi_write_uint8((uint8_t)(x & 0xff));
+}
+ 230:	eb e0       	ldi	r30, 0x0B	; 11
+ 232:	f1 e0       	ldi	r31, 0x01	; 1
+ 234:	80 81       	ld	r24, Z
+ 236:	87 7f       	andi	r24, 0xF7	; 247
+ 238:	80 83       	st	Z, r24
+ 23a:	08 95       	ret
+
+0000023c <softspi_clk_high>:
+ 23c:	eb e0       	ldi	r30, 0x0B	; 11
+ 23e:	f1 e0       	ldi	r31, 0x01	; 1
+ 240:	80 81       	ld	r24, Z
+ 242:	88 60       	ori	r24, 0x08	; 8
+ 244:	80 83       	st	Z, r24
+ 246:	08 95       	ret
+
+00000248 <softspi_mosi_low>:
+ 248:	eb e0       	ldi	r30, 0x0B	; 11
+ 24a:	f1 e0       	ldi	r31, 0x01	; 1
+ 24c:	80 81       	ld	r24, Z
+ 24e:	8d 7f       	andi	r24, 0xFD	; 253
+ 250:	80 83       	st	Z, r24
+ 252:	08 95       	ret
+
+00000254 <softspi_mosi_high>:
+ 254:	eb e0       	ldi	r30, 0x0B	; 11
+ 256:	f1 e0       	ldi	r31, 0x01	; 1
+ 258:	80 81       	ld	r24, Z
+ 25a:	82 60       	ori	r24, 0x02	; 2
+ 25c:	80 83       	st	Z, r24
+ 25e:	08 95       	ret
+
+00000260 <softspi_write_bit>:
+ 260:	cf 93       	push	r28
+ 262:	df 93       	push	r29
+ 264:	d8 2f       	mov	r29, r24
+ 266:	c6 2f       	mov	r28, r22
+ 268:	e3 df       	rcall	.-58     	; 0x230 <softspi_clk_low>
+ 26a:	cd 23       	and	r28, r29
+ 26c:	11 f0       	breq	.+4      	; 0x272 <softspi_write_bit+0x12>
+ 26e:	f2 df       	rcall	.-28     	; 0x254 <softspi_mosi_high>
+ 270:	01 c0       	rjmp	.+2      	; 0x274 <softspi_write_bit+0x14>
+ 272:	ea df       	rcall	.-44     	; 0x248 <softspi_mosi_low>
+ 274:	8a e1       	ldi	r24, 0x1A	; 26
+ 276:	8a 95       	dec	r24
+ 278:	f1 f7       	brne	.-4      	; 0x276 <softspi_write_bit+0x16>
+ 27a:	00 c0       	rjmp	.+0      	; 0x27c <softspi_write_bit+0x1c>
+ 27c:	df df       	rcall	.-66     	; 0x23c <softspi_clk_high>
+ 27e:	8a e1       	ldi	r24, 0x1A	; 26
+ 280:	8a 95       	dec	r24
+ 282:	f1 f7       	brne	.-4      	; 0x280 <softspi_write_bit+0x20>
+ 284:	00 c0       	rjmp	.+0      	; 0x286 <softspi_write_bit+0x26>
+ 286:	df 91       	pop	r29
+ 288:	cf 91       	pop	r28
+ 28a:	08 95       	ret
+
+0000028c <softspi_write_uint8>:
+ 28c:	cf 93       	push	r28
+ 28e:	c8 2f       	mov	r28, r24
+ 290:	f8 94       	cli
+ 292:	60 e8       	ldi	r22, 0x80	; 128
+ 294:	e5 df       	rcall	.-54     	; 0x260 <softspi_write_bit>
+ 296:	60 e4       	ldi	r22, 0x40	; 64
+ 298:	8c 2f       	mov	r24, r28
+ 29a:	e2 df       	rcall	.-60     	; 0x260 <softspi_write_bit>
+ 29c:	60 e2       	ldi	r22, 0x20	; 32
+ 29e:	8c 2f       	mov	r24, r28
+ 2a0:	df df       	rcall	.-66     	; 0x260 <softspi_write_bit>
+ 2a2:	60 e1       	ldi	r22, 0x10	; 16
+ 2a4:	8c 2f       	mov	r24, r28
+ 2a6:	dc df       	rcall	.-72     	; 0x260 <softspi_write_bit>
+ 2a8:	68 e0       	ldi	r22, 0x08	; 8
+ 2aa:	8c 2f       	mov	r24, r28
+ 2ac:	d9 df       	rcall	.-78     	; 0x260 <softspi_write_bit>
+ 2ae:	64 e0       	ldi	r22, 0x04	; 4
+ 2b0:	8c 2f       	mov	r24, r28
+ 2b2:	d6 df       	rcall	.-84     	; 0x260 <softspi_write_bit>
+ 2b4:	62 e0       	ldi	r22, 0x02	; 2
+ 2b6:	8c 2f       	mov	r24, r28
+ 2b8:	d3 df       	rcall	.-90     	; 0x260 <softspi_write_bit>
+ 2ba:	61 e0       	ldi	r22, 0x01	; 1
+ 2bc:	8c 2f       	mov	r24, r28
+ 2be:	d0 df       	rcall	.-96     	; 0x260 <softspi_write_bit>
+ 2c0:	78 94       	sei
+ 2c2:	cf 91       	pop	r28
+ 2c4:	08 95       	ret
+
+000002c6 <softspi_read_bit>:
+
+#if (SOFTSPI_DONT_USE_MISO == 0)
+
+void softspi_read_bit(uint8_t* x, uint8_t i)
+{
+ 2c6:	1f 93       	push	r17
+ 2c8:	cf 93       	push	r28
+ 2ca:	df 93       	push	r29
+ 2cc:	ec 01       	movw	r28, r24
+ 2ce:	16 2f       	mov	r17, r22
+	
+	/* read at falling edge */
+	softspi_clk_low();
+ 2d0:	af df       	rcall	.-162    	; 0x230 <softspi_clk_low>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2d2:	8a e1       	ldi	r24, 0x1A	; 26
+ 2d4:	8a 95       	dec	r24
+ 2d6:	f1 f7       	brne	.-4      	; 0x2d4 <softspi_read_bit+0xe>
+	_delay_us(5);
+	#if 0
+	/* no need, atmega328p clock below 50mhz */
+	/* softspi_wait_clk(); */
+	#endif
+	softspi_clk_high();
+ 2d8:	00 c0       	rjmp	.+0      	; 0x2da <softspi_read_bit+0x14>
+ 2da:	b0 df       	rcall	.-160    	; 0x23c <softspi_clk_high>
+
+	if (SOFTSPI_MISO_PIN & SOFTSPI_MISO_BIT) *x |= 1 << i;
+ 2dc:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <__TEXT_REGION_LENGTH__+0x700109>
+ 2e0:	82 ff       	sbrs	r24, 2
+ 2e2:	0a c0       	rjmp	.+20     	; 0x2f8 <softspi_read_bit+0x32>
+ 2e4:	81 e0       	ldi	r24, 0x01	; 1
+ 2e6:	90 e0       	ldi	r25, 0x00	; 0
+ 2e8:	02 c0       	rjmp	.+4      	; 0x2ee <softspi_read_bit+0x28>
+ 2ea:	88 0f       	add	r24, r24
+ 2ec:	99 1f       	adc	r25, r25
+ 2ee:	1a 95       	dec	r17
+ 2f0:	e2 f7       	brpl	.-8      	; 0x2ea <softspi_read_bit+0x24>
+ 2f2:	98 81       	ld	r25, Y
+ 2f4:	89 2b       	or	r24, r25
+ 2f6:	88 83       	st	Y, r24
+ 2f8:	8a e1       	ldi	r24, 0x1A	; 26
+ 2fa:	8a 95       	dec	r24
+ 2fc:	f1 f7       	brne	.-4      	; 0x2fa <softspi_read_bit+0x34>
+ 2fe:	00 c0       	rjmp	.+0      	; 0x300 <softspi_read_bit+0x3a>
+	_delay_us(5);
+
+}
+ 300:	df 91       	pop	r29
+ 302:	cf 91       	pop	r28
+ 304:	1f 91       	pop	r17
+ 306:	08 95       	ret
+
+00000308 <softspi_read_uint8>:
+
+uint8_t softspi_read_uint8(void)
+{
+ 308:	cf 93       	push	r28
+ 30a:	df 93       	push	r29
+ 30c:	1f 92       	push	r1
+ 30e:	cd b7       	in	r28, 0x3d	; 61
+ 310:	de b7       	in	r29, 0x3e	; 62
+	/* receive msb first, sample at clock falling edge */
+
+	/* must be initialized to 0 */
+	uint8_t x = 0;
+ 312:	19 82       	std	Y+1, r1	; 0x01
+
+	SOFTSPI_MISO_PORT &= ~SOFTSPI_MOSI_BIT;
+ 314:	eb e0       	ldi	r30, 0x0B	; 11
+ 316:	f1 e0       	ldi	r31, 0x01	; 1
+ 318:	80 81       	ld	r24, Z
+ 31a:	8d 7f       	andi	r24, 0xFD	; 253
+ 31c:	80 83       	st	Z, r24
+	softspi_read_bit(&x, 7);
+ 31e:	67 e0       	ldi	r22, 0x07	; 7
+ 320:	ce 01       	movw	r24, r28
+ 322:	01 96       	adiw	r24, 0x01	; 1
+ 324:	d0 df       	rcall	.-96     	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 6);
+ 326:	66 e0       	ldi	r22, 0x06	; 6
+ 328:	ce 01       	movw	r24, r28
+ 32a:	01 96       	adiw	r24, 0x01	; 1
+ 32c:	cc df       	rcall	.-104    	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 5);
+ 32e:	65 e0       	ldi	r22, 0x05	; 5
+ 330:	ce 01       	movw	r24, r28
+ 332:	01 96       	adiw	r24, 0x01	; 1
+ 334:	c8 df       	rcall	.-112    	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 4);
+ 336:	64 e0       	ldi	r22, 0x04	; 4
+ 338:	ce 01       	movw	r24, r28
+ 33a:	01 96       	adiw	r24, 0x01	; 1
+ 33c:	c4 df       	rcall	.-120    	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 3);
+ 33e:	63 e0       	ldi	r22, 0x03	; 3
+ 340:	ce 01       	movw	r24, r28
+ 342:	01 96       	adiw	r24, 0x01	; 1
+ 344:	c0 df       	rcall	.-128    	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 2);
+ 346:	62 e0       	ldi	r22, 0x02	; 2
+ 348:	ce 01       	movw	r24, r28
+ 34a:	01 96       	adiw	r24, 0x01	; 1
+ 34c:	bc df       	rcall	.-136    	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 1);
+ 34e:	61 e0       	ldi	r22, 0x01	; 1
+ 350:	ce 01       	movw	r24, r28
+ 352:	01 96       	adiw	r24, 0x01	; 1
+ 354:	b8 df       	rcall	.-144    	; 0x2c6 <softspi_read_bit>
+	softspi_read_bit(&x, 0);
+ 356:	60 e0       	ldi	r22, 0x00	; 0
+ 358:	ce 01       	movw	r24, r28
+ 35a:	01 96       	adiw	r24, 0x01	; 1
+ 35c:	b4 df       	rcall	.-152    	; 0x2c6 <softspi_read_bit>
+ 35e:	89 81       	ldd	r24, Y+1	; 0x01
+
+	return x;
+}
+ 360:	0f 90       	pop	r0
+ 362:	df 91       	pop	r29
+ 364:	cf 91       	pop	r28
+ 366:	08 95       	ret
+
+00000368 <spi_transmit_IT>:
+	
+}
+
+void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)
+{
+	for (int i = 0 ; i < nbytes ; i++)
+ 368:	66 23       	and	r22, r22
+ 36a:	61 f0       	breq	.+24     	; 0x384 <spi_transmit_IT+0x1c>
+ 36c:	fc 01       	movw	r30, r24
+ 36e:	9c 01       	movw	r18, r24
+ 370:	26 0f       	add	r18, r22
+ 372:	31 1d       	adc	r19, r1
+	{
+		SPDR = *(uint8_t *)(data + i);
+ 374:	91 91       	ld	r25, Z+
+ 376:	9e bd       	out	0x2e, r25	; 46
+		while(!(SPSR & (1<<SPIF)));
+ 378:	0d b4       	in	r0, 0x2d	; 45
+ 37a:	07 fe       	sbrs	r0, 7
+ 37c:	fd cf       	rjmp	.-6      	; 0x378 <spi_transmit_IT+0x10>
+	
+}
+
+void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)
+{
+	for (int i = 0 ; i < nbytes ; i++)
+ 37e:	e2 17       	cp	r30, r18
+ 380:	f3 07       	cpc	r31, r19
+ 382:	c1 f7       	brne	.-16     	; 0x374 <spi_transmit_IT+0xc>
+ 384:	08 95       	ret
+
+00000386 <spi_transmit>:
+	}
+}
+
+uint8_t spi_transmit(uint8_t data)
+{
+	SPDR = data;
+ 386:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 388:	0d b4       	in	r0, 0x2d	; 45
+ 38a:	07 fe       	sbrs	r0, 7
+ 38c:	fd cf       	rjmp	.-6      	; 0x388 <spi_transmit+0x2>
+	return data;
+}
+ 38e:	08 95       	ret
+
+00000390 <spi_receive>:
+
+char spi_receive(void)
+{
+	char data;
+	// Wait for reception complete
+	SPDR = 0x00;
+ 390:	1e bc       	out	0x2e, r1	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 392:	0d b4       	in	r0, 0x2d	; 45
+ 394:	07 fe       	sbrs	r0, 7
+ 396:	fd cf       	rjmp	.-6      	; 0x392 <spi_receive+0x2>
+	data = SPDR;
+ 398:	8e b5       	in	r24, 0x2e	; 46
+	// Return data register
+	return data;
+}
+ 39a:	08 95       	ret
+
+0000039c <enable_Slave>:
+
+void enable_Slave(uint8_t Slave)
+{
+	switch (Slave)
+ 39c:	81 30       	cpi	r24, 0x01	; 1
+ 39e:	41 f0       	breq	.+16     	; 0x3b0 <enable_Slave+0x14>
+ 3a0:	28 f0       	brcs	.+10     	; 0x3ac <enable_Slave+0x10>
+ 3a2:	82 30       	cpi	r24, 0x02	; 2
+ 3a4:	59 f0       	breq	.+22     	; 0x3bc <enable_Slave+0x20>
+ 3a6:	83 30       	cpi	r24, 0x03	; 3
+ 3a8:	59 f0       	breq	.+22     	; 0x3c0 <enable_Slave+0x24>
+ 3aa:	08 95       	ret
+	{
+		case TMC4671:
+		SPI_CS_TMC4671_PORT &= ~SPI_CS_TMC4671_BIT;
+ 3ac:	28 98       	cbi	0x05, 0	; 5
+		break;
+ 3ae:	08 95       	ret
+		
+		case TMC6200:
+		SPI_CS_TMC6200_PORT &= ~SPI_CS_TMC6200_BIT;
+ 3b0:	e2 e0       	ldi	r30, 0x02	; 2
+ 3b2:	f1 e0       	ldi	r31, 0x01	; 1
+ 3b4:	80 81       	ld	r24, Z
+ 3b6:	8f 7b       	andi	r24, 0xBF	; 191
+ 3b8:	80 83       	st	Z, r24
+		break;
+ 3ba:	08 95       	ret
+		
+		case MFRC522:
+		SPI_CS_RC522_PORT &= ~SPI_CS_RC522_BIT;
+ 3bc:	40 98       	cbi	0x08, 0	; 8
+		break;
+ 3be:	08 95       	ret
+		
+		case SDCARD:
+		SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT;
+ 3c0:	a5 98       	cbi	0x14, 5	; 20
+ 3c2:	08 95       	ret
+
+000003c4 <disable_Slave>:
+	}
+}
+
+void disable_Slave(uint8_t Slave)
+{
+	switch (Slave)
+ 3c4:	81 30       	cpi	r24, 0x01	; 1
+ 3c6:	41 f0       	breq	.+16     	; 0x3d8 <disable_Slave+0x14>
+ 3c8:	28 f0       	brcs	.+10     	; 0x3d4 <disable_Slave+0x10>
+ 3ca:	82 30       	cpi	r24, 0x02	; 2
+ 3cc:	59 f0       	breq	.+22     	; 0x3e4 <disable_Slave+0x20>
+ 3ce:	83 30       	cpi	r24, 0x03	; 3
+ 3d0:	59 f0       	breq	.+22     	; 0x3e8 <disable_Slave+0x24>
+ 3d2:	08 95       	ret
+	{
+		case TMC4671:
+		SPI_CS_TMC4671_PORT |= SPI_CS_TMC4671_BIT;
+ 3d4:	28 9a       	sbi	0x05, 0	; 5
+		break;
+ 3d6:	08 95       	ret
+		
+		case TMC6200:
+		SPI_CS_TMC6200_PORT |= SPI_CS_TMC6200_BIT;
+ 3d8:	e2 e0       	ldi	r30, 0x02	; 2
+ 3da:	f1 e0       	ldi	r31, 0x01	; 1
+ 3dc:	80 81       	ld	r24, Z
+ 3de:	80 64       	ori	r24, 0x40	; 64
+ 3e0:	80 83       	st	Z, r24
+		break;
+ 3e2:	08 95       	ret
+		
+		case MFRC522:
+		SPI_CS_RC522_PORT |= SPI_CS_RC522_BIT;
+ 3e4:	40 9a       	sbi	0x08, 0	; 8
+		break;
+ 3e6:	08 95       	ret
+		
+		case SDCARD:
+		SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT;
+ 3e8:	a5 9a       	sbi	0x14, 5	; 20
+ 3ea:	08 95       	ret
+
+000003ec <SPI_init>:
+
+void SPI_init(void)
+{
+	// Einstellungen für TMC4671: CLK = 1MHz, SPI-Mode = 3, MSB first)
+
+	SPCR = ((1<<SPE)|       // SPI Enable					(1 = Enable, 0 = Disable)					Datasheet S. 197 (Kapitel 21.2.1)
+ 3ec:	8f e5       	ldi	r24, 0x5F	; 95
+ 3ee:	8c bd       	out	0x2c, r24	; 44
+	(1<<MSTR)|              // Master/Slave select			(0 = Slave, 1 = Master)						Datasheet S. 197 (Kapitel 21.2.1)
+	(1<<SPR1)|(1<<SPR0)|    // SPI Clock Rate				(Divider Systemclock 16MHz)					Datasheet S. 198 (Kapitel 21.2.1)
+	(1<<CPOL)|              // Clock Polarity when idle		(0 = low, 1 = SCK high)						Datasheet S. 197 (Kapitel 21.2.1)
+	(1<<CPHA));             // Clock Phase edge sampling	(0 = leading, 1 = trailing edge sampling)	Datasheet S. 197 (Kapitel 21.2.1)
+
+	SPSR = (0<<SPI2X);      // Double Clock Rate			(0 = Disable, 1 = Enable)					Datasheet S. 198 (Kapitel 21.2.1)
+ 3f0:	1d bc       	out	0x2d, r1	; 45
+
+	disable_Slave(SDCARD);
+ 3f2:	83 e0       	ldi	r24, 0x03	; 3
+ 3f4:	e7 df       	rcall	.-50     	; 0x3c4 <disable_Slave>
+	disable_Slave(TMC4671);
+ 3f6:	80 e0       	ldi	r24, 0x00	; 0
+ 3f8:	e5 df       	rcall	.-54     	; 0x3c4 <disable_Slave>
+	disable_Slave(TMC6200);
+ 3fa:	81 e0       	ldi	r24, 0x01	; 1
+ 3fc:	e3 df       	rcall	.-58     	; 0x3c4 <disable_Slave>
+	disable_Slave(MFRC522);
+ 3fe:	82 e0       	ldi	r24, 0x02	; 2
+ 400:	e1 cf       	rjmp	.-62     	; 0x3c4 <disable_Slave>
+ 402:	08 95       	ret
+
+00000404 <tmc40bit_writeInt>:
+ 404:	cf 92       	push	r12
+	tmc40bit_writeInt(motor, address, value);
+}
+
+void tmc4671_writeInt(unsigned int motor, unsigned char address, unsigned long value)
+{
+	tmc40bit_writeInt(motor, address, value);
+ 406:	df 92       	push	r13
+ 408:	ef 92       	push	r14
+ 40a:	ff 92       	push	r15
+ 40c:	0f 93       	push	r16
+ 40e:	1f 93       	push	r17
+ 410:	cf 93       	push	r28
+ 412:	df 93       	push	r29
+ 414:	cd b7       	in	r28, 0x3d	; 61
+ 416:	de b7       	in	r29, 0x3e	; 62
+ 418:	2b 97       	sbiw	r28, 0x0b	; 11
+ 41a:	0f b6       	in	r0, 0x3f	; 63
+ 41c:	f8 94       	cli
+ 41e:	de bf       	out	0x3e, r29	; 62
+ 420:	0f be       	out	0x3f, r0	; 63
+ 422:	cd bf       	out	0x3d, r28	; 61
+ 424:	fe 01       	movw	r30, r28
+ 426:	31 96       	adiw	r30, 0x01	; 1
+ 428:	76 e0       	ldi	r23, 0x06	; 6
+ 42a:	df 01       	movw	r26, r30
+ 42c:	1d 92       	st	X+, r1
+ 42e:	7a 95       	dec	r23
+ 430:	e9 f7       	brne	.-6      	; 0x42c <tmc40bit_writeInt+0x28>
+ 432:	60 68       	ori	r22, 0x80	; 128
+ 434:	69 83       	std	Y+1, r22	; 0x01
+ 436:	5a 83       	std	Y+2, r21	; 0x02
+ 438:	4b 83       	std	Y+3, r20	; 0x03
+ 43a:	3c 83       	std	Y+4, r19	; 0x04
+ 43c:	2d 83       	std	Y+5, r18	; 0x05
+ 43e:	01 97       	sbiw	r24, 0x01	; 1
+ 440:	09 f0       	breq	.+2      	; 0x444 <tmc40bit_writeInt+0x40>
+ 442:	46 c0       	rjmp	.+140    	; 0x4d0 <tmc40bit_writeInt+0xcc>
+ 444:	36 96       	adiw	r30, 0x06	; 6
+ 446:	85 e0       	ldi	r24, 0x05	; 5
+ 448:	df 01       	movw	r26, r30
+ 44a:	1d 92       	st	X+, r1
+ 44c:	8a 95       	dec	r24
+ 44e:	e9 f7       	brne	.-6      	; 0x44a <tmc40bit_writeInt+0x46>
+ 450:	80 e0       	ldi	r24, 0x00	; 0
+ 452:	92 e0       	ldi	r25, 0x02	; 2
+ 454:	5f d3       	rcall	.+1726   	; 0xb14 <Uart_Transmit_IT_PC>
+ 456:	fe 01       	movw	r30, r28
+ 458:	31 96       	adiw	r30, 0x01	; 1
+ 45a:	6f 01       	movw	r12, r30
+ 45c:	00 e0       	ldi	r16, 0x00	; 0
+ 45e:	10 e0       	ldi	r17, 0x00	; 0
+ 460:	d6 01       	movw	r26, r12
+ 462:	fd 90       	ld	r15, X+
+ 464:	6d 01       	movw	r12, r26
+ 466:	f1 10       	cpse	r15, r1
+ 468:	04 c0       	rjmp	.+8      	; 0x472 <tmc40bit_writeInt+0x6e>
+ 46a:	85 e1       	ldi	r24, 0x15	; 21
+ 46c:	92 e0       	ldi	r25, 0x02	; 2
+ 46e:	52 d3       	rcall	.+1700   	; 0xb14 <Uart_Transmit_IT_PC>
+ 470:	1b c0       	rjmp	.+54     	; 0x4a8 <tmc40bit_writeInt+0xa4>
+ 472:	bf e0       	ldi	r27, 0x0F	; 15
+ 474:	bf 15       	cp	r27, r15
+ 476:	70 f0       	brcs	.+28     	; 0x494 <tmc40bit_writeInt+0x90>
+ 478:	86 e1       	ldi	r24, 0x16	; 22
+ 47a:	92 e0       	ldi	r25, 0x02	; 2
+ 47c:	4b d3       	rcall	.+1686   	; 0xb14 <Uart_Transmit_IT_PC>
+ 47e:	40 e1       	ldi	r20, 0x10	; 16
+ 480:	be 01       	movw	r22, r28
+ 482:	69 5f       	subi	r22, 0xF9	; 249
+ 484:	7f 4f       	sbci	r23, 0xFF	; 255
+ 486:	8f 2d       	mov	r24, r15
+ 488:	90 e0       	ldi	r25, 0x00	; 0
+ 48a:	d8 d3       	rcall	.+1968   	; 0xc3c <__itoa_ncheck>
+ 48c:	ce 01       	movw	r24, r28
+ 48e:	07 96       	adiw	r24, 0x07	; 7
+ 490:	41 d3       	rcall	.+1666   	; 0xb14 <Uart_Transmit_IT_PC>
+ 492:	0a c0       	rjmp	.+20     	; 0x4a8 <tmc40bit_writeInt+0xa4>
+ 494:	40 e1       	ldi	r20, 0x10	; 16
+ 496:	be 01       	movw	r22, r28
+ 498:	69 5f       	subi	r22, 0xF9	; 249
+ 49a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 49c:	8f 2d       	mov	r24, r15
+ 49e:	90 e0       	ldi	r25, 0x00	; 0
+ 4a0:	cd d3       	rcall	.+1946   	; 0xc3c <__itoa_ncheck>
+ 4a2:	ce 01       	movw	r24, r28
+ 4a4:	07 96       	adiw	r24, 0x07	; 7
+ 4a6:	36 d3       	rcall	.+1644   	; 0xb14 <Uart_Transmit_IT_PC>
+ 4a8:	04 30       	cpi	r16, 0x04	; 4
+ 4aa:	11 05       	cpc	r17, r1
+ 4ac:	1c f4       	brge	.+6      	; 0x4b4 <tmc40bit_writeInt+0xb0>
+ 4ae:	88 e1       	ldi	r24, 0x18	; 24
+ 4b0:	92 e0       	ldi	r25, 0x02	; 2
+ 4b2:	30 d3       	rcall	.+1632   	; 0xb14 <Uart_Transmit_IT_PC>
+ 4b4:	0f 5f       	subi	r16, 0xFF	; 255
+ 4b6:	1f 4f       	sbci	r17, 0xFF	; 255
+ 4b8:	05 30       	cpi	r16, 0x05	; 5
+ 4ba:	11 05       	cpc	r17, r1
+ 4bc:	89 f6       	brne	.-94     	; 0x460 <tmc40bit_writeInt+0x5c>
+ 4be:	ef e3       	ldi	r30, 0x3F	; 63
+ 4c0:	fc e9       	ldi	r31, 0x9C	; 156
+ 4c2:	31 97       	sbiw	r30, 0x01	; 1
+ 4c4:	f1 f7       	brne	.-4      	; 0x4c2 <tmc40bit_writeInt+0xbe>
+ 4c6:	00 c0       	rjmp	.+0      	; 0x4c8 <tmc40bit_writeInt+0xc4>
+ 4c8:	00 00       	nop
+ 4ca:	8a e1       	ldi	r24, 0x1A	; 26
+ 4cc:	92 e0       	ldi	r25, 0x02	; 2
+ 4ce:	22 d3       	rcall	.+1604   	; 0xb14 <Uart_Transmit_IT_PC>
+ 4d0:	80 e0       	ldi	r24, 0x00	; 0
+ 4d2:	64 df       	rcall	.-312    	; 0x39c <enable_Slave>
+ 4d4:	8e 01       	movw	r16, r28
+ 4d6:	0f 5f       	subi	r16, 0xFF	; 255
+ 4d8:	1f 4f       	sbci	r17, 0xFF	; 255
+ 4da:	7e 01       	movw	r14, r28
+ 4dc:	f6 e0       	ldi	r31, 0x06	; 6
+ 4de:	ef 0e       	add	r14, r31
+ 4e0:	f1 1c       	adc	r15, r1
+ 4e2:	d8 01       	movw	r26, r16
+ 4e4:	8d 91       	ld	r24, X+
+ 4e6:	8d 01       	movw	r16, r26
+ 4e8:	d1 de       	rcall	.-606    	; 0x28c <softspi_write_uint8>
+ 4ea:	0e 15       	cp	r16, r14
+ 4ec:	1f 05       	cpc	r17, r15
+ 4ee:	c9 f7       	brne	.-14     	; 0x4e2 <tmc40bit_writeInt+0xde>
+ 4f0:	80 e0       	ldi	r24, 0x00	; 0
+ 4f2:	68 df       	rcall	.-304    	; 0x3c4 <disable_Slave>
+ 4f4:	2b 96       	adiw	r28, 0x0b	; 11
+ 4f6:	0f b6       	in	r0, 0x3f	; 63
+ 4f8:	f8 94       	cli
+ 4fa:	de bf       	out	0x3e, r29	; 62
+ 4fc:	0f be       	out	0x3f, r0	; 63
+ 4fe:	cd bf       	out	0x3d, r28	; 61
+ 500:	df 91       	pop	r29
+ 502:	cf 91       	pop	r28
+ 504:	1f 91       	pop	r17
+ 506:	0f 91       	pop	r16
+ 508:	ff 90       	pop	r15
+ 50a:	ef 90       	pop	r14
+ 50c:	df 90       	pop	r13
+ 50e:	cf 90       	pop	r12
+ 510:	08 95       	ret
+
+00000512 <tmc40bit_readInt>:
+	// CS TMC6200 HIGH
+	disable_Slave(TMC4671);
+}
+
+int tmc40bit_readInt(unsigned int debug_message, unsigned char address)
+{
+ 512:	7f 92       	push	r7
+ 514:	8f 92       	push	r8
+ 516:	9f 92       	push	r9
+ 518:	af 92       	push	r10
+ 51a:	bf 92       	push	r11
+ 51c:	cf 92       	push	r12
+ 51e:	df 92       	push	r13
+ 520:	ef 92       	push	r14
+ 522:	ff 92       	push	r15
+ 524:	0f 93       	push	r16
+ 526:	1f 93       	push	r17
+ 528:	cf 93       	push	r28
+ 52a:	df 93       	push	r29
+ 52c:	cd b7       	in	r28, 0x3d	; 61
+ 52e:	de b7       	in	r29, 0x3e	; 62
+ 530:	2b 97       	sbiw	r28, 0x0b	; 11
+ 532:	0f b6       	in	r0, 0x3f	; 63
+ 534:	f8 94       	cli
+ 536:	de bf       	out	0x3e, r29	; 62
+ 538:	0f be       	out	0x3f, r0	; 63
+ 53a:	cd bf       	out	0x3d, r28	; 61
+ 53c:	7c 01       	movw	r14, r24
+	// Read-Buffer (Array uint8_t)
+	char rbuf[6] = {'\0'};
+ 53e:	fe 01       	movw	r30, r28
+ 540:	31 96       	adiw	r30, 0x01	; 1
+ 542:	86 e0       	ldi	r24, 0x06	; 6
+ 544:	df 01       	movw	r26, r30
+ 546:	1d 92       	st	X+, r1
+ 548:	8a 95       	dec	r24
+ 54a:	e9 f7       	brne	.-6      	; 0x546 <tmc40bit_readInt+0x34>
+	
+	// Return-Value (uint32_t)
+	int value;
+	
+	// Read-Mode (First Bit = 0)
+	address &= 0x7F;
+ 54c:	16 2f       	mov	r17, r22
+ 54e:	1f 77       	andi	r17, 0x7F	; 127
+	
+	rbuf[0] = address;
+ 550:	19 83       	std	Y+1, r17	; 0x01
+	
+	// CS TMC6200 LOW
+	enable_Slave(TMC4671);
+ 552:	80 e0       	ldi	r24, 0x00	; 0
+ 554:	23 df       	rcall	.-442    	; 0x39c <enable_Slave>
+
+	// write address
+	softspi_write_uint8(address);
+ 556:	81 2f       	mov	r24, r17
+ 558:	99 de       	rcall	.-718    	; 0x28c <softspi_write_uint8>
+ 55a:	8e 01       	movw	r16, r28
+ 55c:	0e 5f       	subi	r16, 0xFE	; 254
+ 55e:	1f 4f       	sbci	r17, 0xFF	; 255
+ 560:	6e 01       	movw	r12, r28
+ 562:	b6 e0       	ldi	r27, 0x06	; 6
+ 564:	cb 0e       	add	r12, r27
+// 	spi_transmit(address);
+
+	// read 4 Bytes data
+	for(int k = 1 ; k<5 ; k++)
+	{
+		rbuf[k] = softspi_read_uint8();
+ 566:	d1 1c       	adc	r13, r1
+ 568:	cf de       	rcall	.-610    	; 0x308 <softspi_read_uint8>
+ 56a:	f8 01       	movw	r30, r16
+ 56c:	81 93       	st	Z+, r24
+ 56e:	8f 01       	movw	r16, r30
+	// write address
+	softspi_write_uint8(address);
+// 	spi_transmit(address);
+
+	// read 4 Bytes data
+	for(int k = 1 ; k<5 ; k++)
+ 570:	ec 15       	cp	r30, r12
+ 572:	fd 05       	cpc	r31, r13
+		rbuf[k] = softspi_read_uint8();
+// 		rbuf[k] = spi_receive();
+	}
+	
+	// CS TMC600 HIGH
+	disable_Slave(TMC4671);
+ 574:	c9 f7       	brne	.-14     	; 0x568 <tmc40bit_readInt+0x56>
+ 576:	80 e0       	ldi	r24, 0x00	; 0
+ 578:	25 df       	rcall	.-438    	; 0x3c4 <disable_Slave>
+	// Generate uint32_t return value
+	value = rbuf[1];
+	value <<= 8;
+	value |= rbuf[2];
+	value <<= 8;
+	value |= rbuf[3];
+ 57a:	0c 81       	ldd	r16, Y+4	; 0x04
+ 57c:	10 e0       	ldi	r17, 0x00	; 0
+	value <<= 8;
+ 57e:	10 2f       	mov	r17, r16
+ 580:	00 27       	eor	r16, r16
+	value |= rbuf[4];
+ 582:	8d 81       	ldd	r24, Y+5	; 0x05
+ 584:	08 2b       	or	r16, r24
+	
+	if (debug_message == 1)
+ 586:	ea 94       	dec	r14
+ 588:	ef 28       	or	r14, r15
+ 58a:	09 f0       	breq	.+2      	; 0x58e <tmc40bit_readInt+0x7c>
+	{
+		// Show received data via serial port
+		Uart_Transmit_IT_PC("Read TMC4671 data: ");
+ 58c:	4f c0       	rjmp	.+158    	; 0x62c <tmc40bit_readInt+0x11a>
+ 58e:	8c e1       	ldi	r24, 0x1C	; 28
+ 590:	92 e0       	ldi	r25, 0x02	; 2
+ 592:	c0 d2       	rcall	.+1408   	; 0xb14 <Uart_Transmit_IT_PC>
+ 594:	ce 01       	movw	r24, r28
+ 596:	01 96       	adiw	r24, 0x01	; 1
+ 598:	4c 01       	movw	r8, r24
+		for (int count = 0 ; count < 5 ; count++)
+ 59a:	e1 2c       	mov	r14, r1
+ 59c:	f1 2c       	mov	r15, r1
+		{
+			// itoa-Buffer (Debug)
+			char buff[5] = {'0'};
+ 59e:	0f 2e       	mov	r0, r31
+ 5a0:	f5 e0       	ldi	r31, 0x05	; 5
+ 5a2:	7f 2e       	mov	r7, r31
+ 5a4:	f0 2d       	mov	r31, r0
+ 5a6:	5e 01       	movw	r10, r28
+ 5a8:	97 e0       	ldi	r25, 0x07	; 7
+ 5aa:	a9 0e       	add	r10, r25
+ 5ac:	b1 1c       	adc	r11, r1
+ 5ae:	0f 2e       	mov	r0, r31
+ 5b0:	f0 e3       	ldi	r31, 0x30	; 48
+ 5b2:	cf 2e       	mov	r12, r31
+ 5b4:	f0 2d       	mov	r31, r0
+ 5b6:	d5 01       	movw	r26, r10
+ 5b8:	e7 2d       	mov	r30, r7
+ 5ba:	1d 92       	st	X+, r1
+ 5bc:	ea 95       	dec	r30
+ 5be:	e9 f7       	brne	.-6      	; 0x5ba <tmc40bit_readInt+0xa8>
+ 5c0:	cf 82       	std	Y+7, r12	; 0x07
+		
+			if (rbuf[count] == 0)
+ 5c2:	d4 01       	movw	r26, r8
+ 5c4:	dd 90       	ld	r13, X+
+ 5c6:	4d 01       	movw	r8, r26
+ 5c8:	d1 10       	cpse	r13, r1
+			{
+				Uart_Transmit_IT_PC("00");
+ 5ca:	04 c0       	rjmp	.+8      	; 0x5d4 <tmc40bit_readInt+0xc2>
+ 5cc:	85 e1       	ldi	r24, 0x15	; 21
+ 5ce:	92 e0       	ldi	r25, 0x02	; 2
+ 5d0:	a1 d2       	rcall	.+1346   	; 0xb14 <Uart_Transmit_IT_PC>
+			}
+			else if (rbuf[count] < 0x10)
+ 5d2:	15 c0       	rjmp	.+42     	; 0x5fe <tmc40bit_readInt+0xec>
+ 5d4:	bf e0       	ldi	r27, 0x0F	; 15
+ 5d6:	bd 15       	cp	r27, r13
+			{
+				Uart_Transmit_IT_PC("0");
+ 5d8:	58 f0       	brcs	.+22     	; 0x5f0 <tmc40bit_readInt+0xde>
+ 5da:	86 e1       	ldi	r24, 0x16	; 22
+ 5dc:	92 e0       	ldi	r25, 0x02	; 2
+    } else if (__radix < 2 || __radix > 36) {
+	*__s = 0;
+	return __s;
+    } else {
+	extern char *__itoa_ncheck (int, char *, unsigned char);
+	return __itoa_ncheck (__val, __s, __radix);
+ 5de:	9a d2       	rcall	.+1332   	; 0xb14 <Uart_Transmit_IT_PC>
+ 5e0:	40 e1       	ldi	r20, 0x10	; 16
+ 5e2:	b5 01       	movw	r22, r10
+ 5e4:	8d 2d       	mov	r24, r13
+ 5e6:	90 e0       	ldi	r25, 0x00	; 0
+				itoa(rbuf[count],(char *)buff, 16);
+				Uart_Transmit_IT_PC((char *)buff);
+ 5e8:	29 d3       	rcall	.+1618   	; 0xc3c <__itoa_ncheck>
+ 5ea:	c5 01       	movw	r24, r10
+ 5ec:	93 d2       	rcall	.+1318   	; 0xb14 <Uart_Transmit_IT_PC>
+ 5ee:	07 c0       	rjmp	.+14     	; 0x5fe <tmc40bit_readInt+0xec>
+ 5f0:	40 e1       	ldi	r20, 0x10	; 16
+ 5f2:	b5 01       	movw	r22, r10
+ 5f4:	8d 2d       	mov	r24, r13
+ 5f6:	90 e0       	ldi	r25, 0x00	; 0
+			}
+			else
+			{
+				itoa(rbuf[count],(char *)buff, 16);
+				Uart_Transmit_IT_PC((char *)buff);
+ 5f8:	21 d3       	rcall	.+1602   	; 0xc3c <__itoa_ncheck>
+ 5fa:	c5 01       	movw	r24, r10
+ 5fc:	8b d2       	rcall	.+1302   	; 0xb14 <Uart_Transmit_IT_PC>
+			}
+			if (count <4)
+ 5fe:	e4 e0       	ldi	r30, 0x04	; 4
+ 600:	ee 16       	cp	r14, r30
+ 602:	f1 04       	cpc	r15, r1
+ 604:	1c f4       	brge	.+6      	; 0x60c <tmc40bit_readInt+0xfa>
+			{
+				Uart_Transmit_IT_PC(",");
+ 606:	88 e1       	ldi	r24, 0x18	; 24
+ 608:	92 e0       	ldi	r25, 0x02	; 2
+ 60a:	84 d2       	rcall	.+1288   	; 0xb14 <Uart_Transmit_IT_PC>
+ 60c:	ff ef       	ldi	r31, 0xFF	; 255
+	
+	if (debug_message == 1)
+	{
+		// Show received data via serial port
+		Uart_Transmit_IT_PC("Read TMC4671 data: ");
+		for (int count = 0 ; count < 5 ; count++)
+ 60e:	ef 1a       	sub	r14, r31
+ 610:	ff 0a       	sbc	r15, r31
+ 612:	85 e0       	ldi	r24, 0x05	; 5
+ 614:	e8 16       	cp	r14, r24
+ 616:	f1 04       	cpc	r15, r1
+ 618:	71 f6       	brne	.-100    	; 0x5b6 <tmc40bit_readInt+0xa4>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 61a:	af e3       	ldi	r26, 0x3F	; 63
+ 61c:	bc e9       	ldi	r27, 0x9C	; 156
+ 61e:	11 97       	sbiw	r26, 0x01	; 1
+ 620:	f1 f7       	brne	.-4      	; 0x61e <tmc40bit_readInt+0x10c>
+ 622:	00 c0       	rjmp	.+0      	; 0x624 <tmc40bit_readInt+0x112>
+ 624:	00 00       	nop
+			{
+				Uart_Transmit_IT_PC(",");
+			}
+		}
+		_delay_ms(10);
+		Uart_Transmit_IT_PC("\r");
+ 626:	8a e1       	ldi	r24, 0x1A	; 26
+ 628:	92 e0       	ldi	r25, 0x02	; 2
+ 62a:	74 d2       	rcall	.+1256   	; 0xb14 <Uart_Transmit_IT_PC>
+ 62c:	c8 01       	movw	r24, r16
+	}
+	// Return uint32_t value
+	return value;
+}
+ 62e:	2b 96       	adiw	r28, 0x0b	; 11
+ 630:	0f b6       	in	r0, 0x3f	; 63
+ 632:	f8 94       	cli
+ 634:	de bf       	out	0x3e, r29	; 62
+ 636:	0f be       	out	0x3f, r0	; 63
+ 638:	cd bf       	out	0x3d, r28	; 61
+ 63a:	df 91       	pop	r29
+ 63c:	cf 91       	pop	r28
+ 63e:	1f 91       	pop	r17
+ 640:	0f 91       	pop	r16
+ 642:	ff 90       	pop	r15
+ 644:	ef 90       	pop	r14
+ 646:	df 90       	pop	r13
+ 648:	cf 90       	pop	r12
+ 64a:	bf 90       	pop	r11
+ 64c:	af 90       	pop	r10
+ 64e:	9f 90       	pop	r9
+ 650:	8f 90       	pop	r8
+ 652:	7f 90       	pop	r7
+ 654:	08 95       	ret
+
+00000656 <tmc4671_readInt>:
+ 656:	5d cf       	rjmp	.-326    	; 0x512 <tmc40bit_readInt>
+}
+
+int tmc4671_readInt(unsigned int motor, unsigned char address)
+{
+	return tmc40bit_readInt(motor, address);
+}
+ 658:	08 95       	ret
+
+0000065a <read_registers_TMC4671>:
+	return value;
+}
+
+void read_registers_TMC4671(void)
+{
+	tmc4671_readInt(1, TMC4671_MOTOR_TYPE_N_POLE_PAIRS);
+ 65a:	6b e1       	ldi	r22, 0x1B	; 27
+ 65c:	81 e0       	ldi	r24, 0x01	; 1
+ 65e:	90 e0       	ldi	r25, 0x00	; 0
+ 660:	fa df       	rcall	.-12     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_PWM_POLARITIES);
+ 662:	67 e1       	ldi	r22, 0x17	; 23
+ 664:	81 e0       	ldi	r24, 0x01	; 1
+ 666:	90 e0       	ldi	r25, 0x00	; 0
+ 668:	f6 df       	rcall	.-20     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_PWM_MAXCNT);
+ 66a:	68 e1       	ldi	r22, 0x18	; 24
+ 66c:	81 e0       	ldi	r24, 0x01	; 1
+ 66e:	90 e0       	ldi	r25, 0x00	; 0
+ 670:	f2 df       	rcall	.-28     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_PWM_BBM_H_BBM_L);
+ 672:	69 e1       	ldi	r22, 0x19	; 25
+ 674:	81 e0       	ldi	r24, 0x01	; 1
+ 676:	90 e0       	ldi	r25, 0x00	; 0
+ 678:	ee df       	rcall	.-36     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_PWM_SV_CHOP);
+ 67a:	6a e1       	ldi	r22, 0x1A	; 26
+ 67c:	81 e0       	ldi	r24, 0x01	; 1
+ 67e:	90 e0       	ldi	r25, 0x00	; 0
+ 680:	ea df       	rcall	.-44     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_OPENLOOP_MODE);
+ 682:	6f e1       	ldi	r22, 0x1F	; 31
+ 684:	81 e0       	ldi	r24, 0x01	; 1
+ 686:	90 e0       	ldi	r25, 0x00	; 0
+ 688:	e6 df       	rcall	.-52     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_OPENLOOP_ACCELERATION);
+ 68a:	60 e2       	ldi	r22, 0x20	; 32
+ 68c:	81 e0       	ldi	r24, 0x01	; 1
+ 68e:	90 e0       	ldi	r25, 0x00	; 0
+ 690:	e2 df       	rcall	.-60     	; 0x656 <tmc4671_readInt>
+	tmc4671_readInt(1, TMC4671_OPENLOOP_VELOCITY_TARGET);
+ 692:	61 e2       	ldi	r22, 0x21	; 33
+ 694:	81 e0       	ldi	r24, 0x01	; 1
+ 696:	90 e0       	ldi	r25, 0x00	; 0
+ 698:	de cf       	rjmp	.-68     	; 0x656 <tmc4671_readInt>
+ 69a:	08 95       	ret
+
+0000069c <initTMC4671_Openloop>:
+ 69c:	20 e0       	ldi	r18, 0x00	; 0
+	tmc40bit_writeInt(motor, address, value);
+}
+
+void tmc4671_writeInt(unsigned int motor, unsigned char address, unsigned long value)
+{
+	tmc40bit_writeInt(motor, address, value);
+ 69e:	30 e0       	ldi	r19, 0x00	; 0
+ 6a0:	a9 01       	movw	r20, r18
+ 6a2:	67 e1       	ldi	r22, 0x17	; 23
+ 6a4:	80 e0       	ldi	r24, 0x00	; 0
+ 6a6:	90 e0       	ldi	r25, 0x00	; 0
+ 6a8:	ad de       	rcall	.-678    	; 0x404 <tmc40bit_writeInt>
+ 6aa:	21 e0       	ldi	r18, 0x01	; 1
+ 6ac:	30 e0       	ldi	r19, 0x00	; 0
+ 6ae:	43 e0       	ldi	r20, 0x03	; 3
+ 6b0:	50 e0       	ldi	r21, 0x00	; 0
+ 6b2:	6b e1       	ldi	r22, 0x1B	; 27
+ 6b4:	80 e0       	ldi	r24, 0x00	; 0
+ 6b6:	90 e0       	ldi	r25, 0x00	; 0
+ 6b8:	a5 de       	rcall	.-694    	; 0x404 <tmc40bit_writeInt>
+ 6ba:	2f e9       	ldi	r18, 0x9F	; 159
+ 6bc:	3f e0       	ldi	r19, 0x0F	; 15
+ 6be:	40 e0       	ldi	r20, 0x00	; 0
+ 6c0:	50 e0       	ldi	r21, 0x00	; 0
+ 6c2:	68 e1       	ldi	r22, 0x18	; 24
+ 6c4:	80 e0       	ldi	r24, 0x00	; 0
+ 6c6:	90 e0       	ldi	r25, 0x00	; 0
+ 6c8:	9d de       	rcall	.-710    	; 0x404 <tmc40bit_writeInt>
+ 6ca:	29 e1       	ldi	r18, 0x19	; 25
+ 6cc:	39 e1       	ldi	r19, 0x19	; 25
+ 6ce:	40 e0       	ldi	r20, 0x00	; 0
+ 6d0:	50 e0       	ldi	r21, 0x00	; 0
+ 6d2:	69 e1       	ldi	r22, 0x19	; 25
+ 6d4:	80 e0       	ldi	r24, 0x00	; 0
+ 6d6:	90 e0       	ldi	r25, 0x00	; 0
+ 6d8:	95 de       	rcall	.-726    	; 0x404 <tmc40bit_writeInt>
+ 6da:	27 e0       	ldi	r18, 0x07	; 7
+ 6dc:	30 e0       	ldi	r19, 0x00	; 0
+ 6de:	40 e0       	ldi	r20, 0x00	; 0
+ 6e0:	50 e0       	ldi	r21, 0x00	; 0
+ 6e2:	6a e1       	ldi	r22, 0x1A	; 26
+ 6e4:	80 e0       	ldi	r24, 0x00	; 0
+ 6e6:	90 e0       	ldi	r25, 0x00	; 0
+ 6e8:	8d de       	rcall	.-742    	; 0x404 <tmc40bit_writeInt>
+ 6ea:	20 e0       	ldi	r18, 0x00	; 0
+ 6ec:	30 e0       	ldi	r19, 0x00	; 0
+ 6ee:	a9 01       	movw	r20, r18
+ 6f0:	6f e1       	ldi	r22, 0x1F	; 31
+ 6f2:	80 e0       	ldi	r24, 0x00	; 0
+ 6f4:	90 e0       	ldi	r25, 0x00	; 0
+ 6f6:	86 de       	rcall	.-756    	; 0x404 <tmc40bit_writeInt>
+ 6f8:	2c e3       	ldi	r18, 0x3C	; 60
+ 6fa:	30 e0       	ldi	r19, 0x00	; 0
+ 6fc:	40 e0       	ldi	r20, 0x00	; 0
+ 6fe:	50 e0       	ldi	r21, 0x00	; 0
+ 700:	60 e2       	ldi	r22, 0x20	; 32
+ 702:	80 e0       	ldi	r24, 0x00	; 0
+ 704:	90 e0       	ldi	r25, 0x00	; 0
+ 706:	7e de       	rcall	.-772    	; 0x404 <tmc40bit_writeInt>
+ 708:	26 ef       	ldi	r18, 0xF6	; 246
+ 70a:	3f ef       	ldi	r19, 0xFF	; 255
+ 70c:	4f ef       	ldi	r20, 0xFF	; 255
+ 70e:	5f ef       	ldi	r21, 0xFF	; 255
+ 710:	61 e2       	ldi	r22, 0x21	; 33
+ 712:	80 e0       	ldi	r24, 0x00	; 0
+ 714:	90 e0       	ldi	r25, 0x00	; 0
+ 716:	76 de       	rcall	.-788    	; 0x404 <tmc40bit_writeInt>
+ 718:	22 e0       	ldi	r18, 0x02	; 2
+ 71a:	30 e0       	ldi	r19, 0x00	; 0
+ 71c:	40 e0       	ldi	r20, 0x00	; 0
+ 71e:	50 e0       	ldi	r21, 0x00	; 0
+ 720:	62 e5       	ldi	r22, 0x52	; 82
+ 722:	80 e0       	ldi	r24, 0x00	; 0
+ 724:	90 e0       	ldi	r25, 0x00	; 0
+ 726:	6e de       	rcall	.-804    	; 0x404 <tmc40bit_writeInt>
+ 728:	20 ea       	ldi	r18, 0xA0	; 160
+ 72a:	3f e0       	ldi	r19, 0x0F	; 15
+ 72c:	40 e0       	ldi	r20, 0x00	; 0
+ 72e:	50 e0       	ldi	r21, 0x00	; 0
+ 730:	64 e2       	ldi	r22, 0x24	; 36
+ 732:	80 e0       	ldi	r24, 0x00	; 0
+ 734:	90 e0       	ldi	r25, 0x00	; 0
+ 736:	66 de       	rcall	.-820    	; 0x404 <tmc40bit_writeInt>
+ 738:	28 e0       	ldi	r18, 0x08	; 8
+ 73a:	30 e0       	ldi	r19, 0x00	; 0
+ 73c:	40 e0       	ldi	r20, 0x00	; 0
+ 73e:	50 e0       	ldi	r21, 0x00	; 0
+ 740:	63 e6       	ldi	r22, 0x63	; 99
+ 742:	80 e0       	ldi	r24, 0x00	; 0
+ 744:	90 e0       	ldi	r25, 0x00	; 0
+ 746:	5e de       	rcall	.-836    	; 0x404 <tmc40bit_writeInt>
+ 748:	2c e3       	ldi	r18, 0x3C	; 60
+ 74a:	30 e0       	ldi	r19, 0x00	; 0
+ 74c:	40 e0       	ldi	r20, 0x00	; 0
+ 74e:	50 e0       	ldi	r21, 0x00	; 0
+ 750:	61 e2       	ldi	r22, 0x21	; 33
+ 752:	80 e0       	ldi	r24, 0x00	; 0
+ 754:	90 e0       	ldi	r25, 0x00	; 0
+ 756:	56 de       	rcall	.-852    	; 0x404 <tmc40bit_writeInt>
+ 758:	2f ef       	ldi	r18, 0xFF	; 255
+ 75a:	8f e4       	ldi	r24, 0x4F	; 79
+ 75c:	93 ec       	ldi	r25, 0xC3	; 195
+ 75e:	21 50       	subi	r18, 0x01	; 1
+ 760:	80 40       	sbci	r24, 0x00	; 0
+ 762:	90 40       	sbci	r25, 0x00	; 0
+ 764:	e1 f7       	brne	.-8      	; 0x75e <initTMC4671_Openloop+0xc2>
+ 766:	00 c0       	rjmp	.+0      	; 0x768 <initTMC4671_Openloop+0xcc>
+ 768:	00 00       	nop
+ 76a:	24 ec       	ldi	r18, 0xC4	; 196
+ 76c:	3f ef       	ldi	r19, 0xFF	; 255
+ 76e:	4f ef       	ldi	r20, 0xFF	; 255
+ 770:	5f ef       	ldi	r21, 0xFF	; 255
+ 772:	61 e2       	ldi	r22, 0x21	; 33
+ 774:	80 e0       	ldi	r24, 0x00	; 0
+ 776:	90 e0       	ldi	r25, 0x00	; 0
+ 778:	45 de       	rcall	.-886    	; 0x404 <tmc40bit_writeInt>
+ 77a:	2f ef       	ldi	r18, 0xFF	; 255
+ 77c:	8f e4       	ldi	r24, 0x4F	; 79
+ 77e:	93 ec       	ldi	r25, 0xC3	; 195
+ 780:	21 50       	subi	r18, 0x01	; 1
+ 782:	80 40       	sbci	r24, 0x00	; 0
+ 784:	90 40       	sbci	r25, 0x00	; 0
+ 786:	e1 f7       	brne	.-8      	; 0x780 <initTMC4671_Openloop+0xe4>
+ 788:	00 c0       	rjmp	.+0      	; 0x78a <initTMC4671_Openloop+0xee>
+ 78a:	00 00       	nop
+ 78c:	20 e0       	ldi	r18, 0x00	; 0
+ 78e:	30 e0       	ldi	r19, 0x00	; 0
+ 790:	a9 01       	movw	r20, r18
+ 792:	61 e2       	ldi	r22, 0x21	; 33
+ 794:	80 e0       	ldi	r24, 0x00	; 0
+ 796:	90 e0       	ldi	r25, 0x00	; 0
+ 798:	35 de       	rcall	.-918    	; 0x404 <tmc40bit_writeInt>
+ 79a:	2f ef       	ldi	r18, 0xFF	; 255
+ 79c:	87 ea       	ldi	r24, 0xA7	; 167
+ 79e:	91 e6       	ldi	r25, 0x61	; 97
+ 7a0:	21 50       	subi	r18, 0x01	; 1
+ 7a2:	80 40       	sbci	r24, 0x00	; 0
+ 7a4:	90 40       	sbci	r25, 0x00	; 0
+ 7a6:	e1 f7       	brne	.-8      	; 0x7a0 <initTMC4671_Openloop+0x104>
+ 7a8:	00 c0       	rjmp	.+0      	; 0x7aa <initTMC4671_Openloop+0x10e>
+ 7aa:	00 00       	nop
+ 7ac:	20 e0       	ldi	r18, 0x00	; 0
+ 7ae:	30 e0       	ldi	r19, 0x00	; 0
+ 7b0:	a9 01       	movw	r20, r18
+ 7b2:	64 e2       	ldi	r22, 0x24	; 36
+ 7b4:	80 e0       	ldi	r24, 0x00	; 0
+ 7b6:	90 e0       	ldi	r25, 0x00	; 0
+ 7b8:	25 ce       	rjmp	.-950    	; 0x404 <tmc40bit_writeInt>
+ 7ba:	08 95       	ret
+
+000007bc <tmc6200_readInt>:
+#include "TMC6200.h"
+#include <util/delay.h>
+
+// spi access
+int tmc6200_readInt(uint8_t debug_message, uint8_t address)
+{	
+ 7bc:	7f 92       	push	r7
+ 7be:	8f 92       	push	r8
+ 7c0:	9f 92       	push	r9
+ 7c2:	af 92       	push	r10
+ 7c4:	bf 92       	push	r11
+ 7c6:	cf 92       	push	r12
+ 7c8:	df 92       	push	r13
+ 7ca:	ef 92       	push	r14
+ 7cc:	ff 92       	push	r15
+ 7ce:	0f 93       	push	r16
+ 7d0:	1f 93       	push	r17
+ 7d2:	cf 93       	push	r28
+ 7d4:	df 93       	push	r29
+ 7d6:	cd b7       	in	r28, 0x3d	; 61
+ 7d8:	de b7       	in	r29, 0x3e	; 62
+ 7da:	2b 97       	sbiw	r28, 0x0b	; 11
+ 7dc:	0f b6       	in	r0, 0x3f	; 63
+ 7de:	f8 94       	cli
+ 7e0:	de bf       	out	0x3e, r29	; 62
+ 7e2:	0f be       	out	0x3f, r0	; 63
+ 7e4:	cd bf       	out	0x3d, r28	; 61
+ 7e6:	d8 2e       	mov	r13, r24
+	// Read-Buffer (Array uint8_t)
+	char rbuf[6] = {'\0'};
+ 7e8:	fe 01       	movw	r30, r28
+ 7ea:	31 96       	adiw	r30, 0x01	; 1
+ 7ec:	86 e0       	ldi	r24, 0x06	; 6
+ 7ee:	df 01       	movw	r26, r30
+ 7f0:	1d 92       	st	X+, r1
+ 7f2:	8a 95       	dec	r24
+ 7f4:	e9 f7       	brne	.-6      	; 0x7f0 <tmc6200_readInt+0x34>
+	
+	// Return-Value (uint32_t)
+	int value;
+	
+	// Read-Mode (First Bit = 0)
+	address &= 0x7F;
+ 7f6:	16 2f       	mov	r17, r22
+ 7f8:	1f 77       	andi	r17, 0x7F	; 127
+	
+	rbuf[0] = address;
+ 7fa:	19 83       	std	Y+1, r17	; 0x01
+	
+	// CS TMC6200 LOW
+	enable_Slave(TMC6200);
+ 7fc:	81 e0       	ldi	r24, 0x01	; 1
+ 7fe:	ce dd       	rcall	.-1124   	; 0x39c <enable_Slave>
+
+	// write address
+	spi_transmit(address);
+ 800:	81 2f       	mov	r24, r17
+ 802:	c1 dd       	rcall	.-1150   	; 0x386 <spi_transmit>
+ 804:	8e 01       	movw	r16, r28
+ 806:	0e 5f       	subi	r16, 0xFE	; 254
+ 808:	1f 4f       	sbci	r17, 0xFF	; 255
+ 80a:	7e 01       	movw	r14, r28
+ 80c:	b6 e0       	ldi	r27, 0x06	; 6
+ 80e:	eb 0e       	add	r14, r27
+	
+	// read 4 Bytes data
+	for(int k = 1 ; k<5 ; k++)
+	{
+		rbuf[k] = spi_receive();
+ 810:	f1 1c       	adc	r15, r1
+ 812:	be dd       	rcall	.-1156   	; 0x390 <spi_receive>
+ 814:	f8 01       	movw	r30, r16
+ 816:	81 93       	st	Z+, r24
+ 818:	8f 01       	movw	r16, r30
+
+	// write address
+	spi_transmit(address);
+	
+	// read 4 Bytes data
+	for(int k = 1 ; k<5 ; k++)
+ 81a:	ee 15       	cp	r30, r14
+ 81c:	ff 05       	cpc	r31, r15
+	{
+		rbuf[k] = spi_receive();
+	}
+	
+	// CS TMC600 HIGH
+	disable_Slave(TMC6200);
+ 81e:	c9 f7       	brne	.-14     	; 0x812 <tmc6200_readInt+0x56>
+ 820:	81 e0       	ldi	r24, 0x01	; 1
+ 822:	d0 dd       	rcall	.-1120   	; 0x3c4 <disable_Slave>
+	// Generate uint32_t return value
+	value = rbuf[1];
+	value <<= 8;
+	value |= rbuf[2];
+	value <<= 8;
+	value |= rbuf[3];
+ 824:	0c 81       	ldd	r16, Y+4	; 0x04
+ 826:	10 e0       	ldi	r17, 0x00	; 0
+	value <<= 8;
+ 828:	10 2f       	mov	r17, r16
+ 82a:	00 27       	eor	r16, r16
+	value |= rbuf[4];
+ 82c:	8d 81       	ldd	r24, Y+5	; 0x05
+ 82e:	08 2b       	or	r16, r24
+		
+	if (debug_message == 1)
+ 830:	f1 e0       	ldi	r31, 0x01	; 1
+ 832:	df 12       	cpse	r13, r31
+	{
+		// Show received data via serial port
+		Uart_Transmit_IT_PC("Read TMC6200 data: ");
+ 834:	4f c0       	rjmp	.+158    	; 0x8d4 <tmc6200_readInt+0x118>
+ 836:	80 e3       	ldi	r24, 0x30	; 48
+ 838:	92 e0       	ldi	r25, 0x02	; 2
+ 83a:	6c d1       	rcall	.+728    	; 0xb14 <Uart_Transmit_IT_PC>
+ 83c:	ce 01       	movw	r24, r28
+ 83e:	01 96       	adiw	r24, 0x01	; 1
+ 840:	4c 01       	movw	r8, r24
+		for (int count = 0 ; count < 5 ; count++)
+ 842:	e1 2c       	mov	r14, r1
+ 844:	f1 2c       	mov	r15, r1
+		{
+			// itoa-Buffer (Debug)
+			char buff[5] = {'0'};
+ 846:	0f 2e       	mov	r0, r31
+ 848:	f5 e0       	ldi	r31, 0x05	; 5
+ 84a:	7f 2e       	mov	r7, r31
+ 84c:	f0 2d       	mov	r31, r0
+ 84e:	5e 01       	movw	r10, r28
+ 850:	97 e0       	ldi	r25, 0x07	; 7
+ 852:	a9 0e       	add	r10, r25
+ 854:	b1 1c       	adc	r11, r1
+ 856:	0f 2e       	mov	r0, r31
+ 858:	f0 e3       	ldi	r31, 0x30	; 48
+ 85a:	cf 2e       	mov	r12, r31
+ 85c:	f0 2d       	mov	r31, r0
+ 85e:	d5 01       	movw	r26, r10
+ 860:	e7 2d       	mov	r30, r7
+ 862:	1d 92       	st	X+, r1
+ 864:	ea 95       	dec	r30
+ 866:	e9 f7       	brne	.-6      	; 0x862 <tmc6200_readInt+0xa6>
+ 868:	cf 82       	std	Y+7, r12	; 0x07
+			
+			if (rbuf[count] == 0)
+ 86a:	d4 01       	movw	r26, r8
+ 86c:	dd 90       	ld	r13, X+
+ 86e:	4d 01       	movw	r8, r26
+ 870:	d1 10       	cpse	r13, r1
+			{
+				Uart_Transmit_IT_PC("00");
+ 872:	04 c0       	rjmp	.+8      	; 0x87c <tmc6200_readInt+0xc0>
+ 874:	85 e1       	ldi	r24, 0x15	; 21
+ 876:	92 e0       	ldi	r25, 0x02	; 2
+ 878:	4d d1       	rcall	.+666    	; 0xb14 <Uart_Transmit_IT_PC>
+			}
+			else if (rbuf[count] < 0x10)
+ 87a:	15 c0       	rjmp	.+42     	; 0x8a6 <tmc6200_readInt+0xea>
+ 87c:	bf e0       	ldi	r27, 0x0F	; 15
+ 87e:	bd 15       	cp	r27, r13
+			{
+				Uart_Transmit_IT_PC("0");
+ 880:	58 f0       	brcs	.+22     	; 0x898 <tmc6200_readInt+0xdc>
+ 882:	86 e1       	ldi	r24, 0x16	; 22
+ 884:	92 e0       	ldi	r25, 0x02	; 2
+ 886:	46 d1       	rcall	.+652    	; 0xb14 <Uart_Transmit_IT_PC>
+ 888:	40 e1       	ldi	r20, 0x10	; 16
+ 88a:	b5 01       	movw	r22, r10
+ 88c:	8d 2d       	mov	r24, r13
+ 88e:	90 e0       	ldi	r25, 0x00	; 0
+				itoa(rbuf[count],(char *)buff, 16);
+				Uart_Transmit_IT_PC((char *)buff);
+ 890:	d5 d1       	rcall	.+938    	; 0xc3c <__itoa_ncheck>
+ 892:	c5 01       	movw	r24, r10
+ 894:	3f d1       	rcall	.+638    	; 0xb14 <Uart_Transmit_IT_PC>
+ 896:	07 c0       	rjmp	.+14     	; 0x8a6 <tmc6200_readInt+0xea>
+ 898:	40 e1       	ldi	r20, 0x10	; 16
+ 89a:	b5 01       	movw	r22, r10
+ 89c:	8d 2d       	mov	r24, r13
+ 89e:	90 e0       	ldi	r25, 0x00	; 0
+			}
+			else
+			{
+				itoa(rbuf[count],(char *)buff, 16);
+				Uart_Transmit_IT_PC((char *)buff);
+ 8a0:	cd d1       	rcall	.+922    	; 0xc3c <__itoa_ncheck>
+ 8a2:	c5 01       	movw	r24, r10
+ 8a4:	37 d1       	rcall	.+622    	; 0xb14 <Uart_Transmit_IT_PC>
+			}
+			if (count <4)
+ 8a6:	e4 e0       	ldi	r30, 0x04	; 4
+ 8a8:	ee 16       	cp	r14, r30
+ 8aa:	f1 04       	cpc	r15, r1
+ 8ac:	1c f4       	brge	.+6      	; 0x8b4 <tmc6200_readInt+0xf8>
+			{
+				Uart_Transmit_IT_PC(",");
+ 8ae:	88 e1       	ldi	r24, 0x18	; 24
+ 8b0:	92 e0       	ldi	r25, 0x02	; 2
+ 8b2:	30 d1       	rcall	.+608    	; 0xb14 <Uart_Transmit_IT_PC>
+ 8b4:	ff ef       	ldi	r31, 0xFF	; 255
+		
+	if (debug_message == 1)
+	{
+		// Show received data via serial port
+		Uart_Transmit_IT_PC("Read TMC6200 data: ");
+		for (int count = 0 ; count < 5 ; count++)
+ 8b6:	ef 1a       	sub	r14, r31
+ 8b8:	ff 0a       	sbc	r15, r31
+ 8ba:	85 e0       	ldi	r24, 0x05	; 5
+ 8bc:	e8 16       	cp	r14, r24
+ 8be:	f1 04       	cpc	r15, r1
+ 8c0:	71 f6       	brne	.-100    	; 0x85e <tmc6200_readInt+0xa2>
+ 8c2:	af e3       	ldi	r26, 0x3F	; 63
+ 8c4:	bc e9       	ldi	r27, 0x9C	; 156
+ 8c6:	11 97       	sbiw	r26, 0x01	; 1
+ 8c8:	f1 f7       	brne	.-4      	; 0x8c6 <tmc6200_readInt+0x10a>
+ 8ca:	00 c0       	rjmp	.+0      	; 0x8cc <tmc6200_readInt+0x110>
+ 8cc:	00 00       	nop
+			{
+				Uart_Transmit_IT_PC(",");
+			}
+		}
+		_delay_ms(10);
+		Uart_Transmit_IT_PC("\r");
+ 8ce:	8a e1       	ldi	r24, 0x1A	; 26
+ 8d0:	92 e0       	ldi	r25, 0x02	; 2
+ 8d2:	20 d1       	rcall	.+576    	; 0xb14 <Uart_Transmit_IT_PC>
+ 8d4:	c8 01       	movw	r24, r16
+	}
+
+	// Return uint32_t value
+	return value;
+}
+ 8d6:	2b 96       	adiw	r28, 0x0b	; 11
+ 8d8:	0f b6       	in	r0, 0x3f	; 63
+ 8da:	f8 94       	cli
+ 8dc:	de bf       	out	0x3e, r29	; 62
+ 8de:	0f be       	out	0x3f, r0	; 63
+ 8e0:	cd bf       	out	0x3d, r28	; 61
+ 8e2:	df 91       	pop	r29
+ 8e4:	cf 91       	pop	r28
+ 8e6:	1f 91       	pop	r17
+ 8e8:	0f 91       	pop	r16
+ 8ea:	ff 90       	pop	r15
+ 8ec:	ef 90       	pop	r14
+ 8ee:	df 90       	pop	r13
+ 8f0:	cf 90       	pop	r12
+ 8f2:	bf 90       	pop	r11
+ 8f4:	af 90       	pop	r10
+ 8f6:	9f 90       	pop	r9
+ 8f8:	8f 90       	pop	r8
+ 8fa:	7f 90       	pop	r7
+ 8fc:	08 95       	ret
+
+000008fe <tmc6200_writeInt>:
+ 8fe:	cf 92       	push	r12
+
+void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value)
+{
+ 900:	df 92       	push	r13
+ 902:	ef 92       	push	r14
+ 904:	ff 92       	push	r15
+ 906:	0f 93       	push	r16
+ 908:	1f 93       	push	r17
+ 90a:	cf 93       	push	r28
+ 90c:	df 93       	push	r29
+ 90e:	cd b7       	in	r28, 0x3d	; 61
+ 910:	de b7       	in	r29, 0x3e	; 62
+ 912:	2b 97       	sbiw	r28, 0x0b	; 11
+ 914:	0f b6       	in	r0, 0x3f	; 63
+ 916:	f8 94       	cli
+ 918:	de bf       	out	0x3e, r29	; 62
+ 91a:	0f be       	out	0x3f, r0	; 63
+ 91c:	cd bf       	out	0x3d, r28	; 61
+	// Buffer transmit Data
+	char tbuf[6] = {'\0'};
+ 91e:	fe 01       	movw	r30, r28
+ 920:	31 96       	adiw	r30, 0x01	; 1
+ 922:	96 e0       	ldi	r25, 0x06	; 6
+ 924:	df 01       	movw	r26, r30
+ 926:	1d 92       	st	X+, r1
+ 928:	9a 95       	dec	r25
+ 92a:	e9 f7       	brne	.-6      	; 0x926 <tmc6200_writeInt+0x28>
+
+	// Write-mode (first Bit = 1)
+	address |= 0x80;
+	
+	// Write address at first place
+	tbuf[0] = address;
+ 92c:	60 68       	ori	r22, 0x80	; 128
+ 92e:	69 83       	std	Y+1, r22	; 0x01
+	
+	// Generate Array out of data
+	tbuf[1] = 0xFF & (value>>24);
+ 930:	5a 83       	std	Y+2, r21	; 0x02
+	tbuf[2] = 0xFF & (value>>16);
+ 932:	4b 83       	std	Y+3, r20	; 0x03
+	tbuf[3] = 0xFF & (value>>8);
+ 934:	3c 83       	std	Y+4, r19	; 0x04
+	tbuf[4] = 0xFF & value;
+ 936:	2d 83       	std	Y+5, r18	; 0x05
+
+	// Show transmitted data via serial port
+
+	if (debug_message==1)
+ 938:	81 30       	cpi	r24, 0x01	; 1
+ 93a:	09 f0       	breq	.+2      	; 0x93e <tmc6200_writeInt+0x40>
+ 93c:	47 c0       	rjmp	.+142    	; 0x9cc <tmc6200_writeInt+0xce>
+	{
+		// itoa-Buffer (Debug)
+		char buff[5] = {'\0'};
+ 93e:	36 96       	adiw	r30, 0x06	; 6
+ 940:	85 e0       	ldi	r24, 0x05	; 5
+ 942:	df 01       	movw	r26, r30
+ 944:	1d 92       	st	X+, r1
+ 946:	8a 95       	dec	r24
+ 948:	e9 f7       	brne	.-6      	; 0x944 <tmc6200_writeInt+0x46>
+	
+		Uart_Transmit_IT_PC("Write TMC6200 data: ");
+ 94a:	84 e4       	ldi	r24, 0x44	; 68
+ 94c:	92 e0       	ldi	r25, 0x02	; 2
+ 94e:	e2 d0       	rcall	.+452    	; 0xb14 <Uart_Transmit_IT_PC>
+ 950:	fe 01       	movw	r30, r28
+ 952:	31 96       	adiw	r30, 0x01	; 1
+ 954:	7f 01       	movw	r14, r30
+		for (int count = 0 ; count < 5 ; count++)
+ 956:	00 e0       	ldi	r16, 0x00	; 0
+ 958:	10 e0       	ldi	r17, 0x00	; 0
+		{
+			if (tbuf[count] == 0)
+ 95a:	d7 01       	movw	r26, r14
+ 95c:	8c 91       	ld	r24, X
+ 95e:	81 11       	cpse	r24, r1
+ 960:	04 c0       	rjmp	.+8      	; 0x96a <tmc6200_writeInt+0x6c>
+			{
+				Uart_Transmit_IT_PC("00");
+ 962:	85 e1       	ldi	r24, 0x15	; 21
+ 964:	92 e0       	ldi	r25, 0x02	; 2
+ 966:	d6 d0       	rcall	.+428    	; 0xb14 <Uart_Transmit_IT_PC>
+ 968:	1a c0       	rjmp	.+52     	; 0x99e <tmc6200_writeInt+0xa0>
+			}
+			else if (tbuf[count] < 0x10)
+ 96a:	80 31       	cpi	r24, 0x10	; 16
+ 96c:	78 f4       	brcc	.+30     	; 0x98c <tmc6200_writeInt+0x8e>
+			{
+				Uart_Transmit_IT_PC("0");
+ 96e:	86 e1       	ldi	r24, 0x16	; 22
+ 970:	92 e0       	ldi	r25, 0x02	; 2
+ 972:	d0 d0       	rcall	.+416    	; 0xb14 <Uart_Transmit_IT_PC>
+ 974:	f7 01       	movw	r30, r14
+ 976:	80 81       	ld	r24, Z
+ 978:	40 e1       	ldi	r20, 0x10	; 16
+ 97a:	be 01       	movw	r22, r28
+ 97c:	69 5f       	subi	r22, 0xF9	; 249
+ 97e:	7f 4f       	sbci	r23, 0xFF	; 255
+ 980:	90 e0       	ldi	r25, 0x00	; 0
+				itoa(tbuf[count],(char *)buff, 16);
+				Uart_Transmit_IT_PC((char *)buff);
+ 982:	5c d1       	rcall	.+696    	; 0xc3c <__itoa_ncheck>
+ 984:	ce 01       	movw	r24, r28
+ 986:	07 96       	adiw	r24, 0x07	; 7
+ 988:	c5 d0       	rcall	.+394    	; 0xb14 <Uart_Transmit_IT_PC>
+ 98a:	09 c0       	rjmp	.+18     	; 0x99e <tmc6200_writeInt+0xa0>
+ 98c:	40 e1       	ldi	r20, 0x10	; 16
+ 98e:	be 01       	movw	r22, r28
+ 990:	69 5f       	subi	r22, 0xF9	; 249
+ 992:	7f 4f       	sbci	r23, 0xFF	; 255
+ 994:	90 e0       	ldi	r25, 0x00	; 0
+			}
+			else
+			{
+				itoa(tbuf[count],(char *)buff, 16);
+				Uart_Transmit_IT_PC((char *)buff);
+ 996:	52 d1       	rcall	.+676    	; 0xc3c <__itoa_ncheck>
+ 998:	ce 01       	movw	r24, r28
+ 99a:	07 96       	adiw	r24, 0x07	; 7
+			}
+			if (count <4)
+ 99c:	bb d0       	rcall	.+374    	; 0xb14 <Uart_Transmit_IT_PC>
+ 99e:	04 30       	cpi	r16, 0x04	; 4
+ 9a0:	11 05       	cpc	r17, r1
+			{
+				Uart_Transmit_IT_PC(",");
+ 9a2:	1c f4       	brge	.+6      	; 0x9aa <tmc6200_writeInt+0xac>
+ 9a4:	88 e1       	ldi	r24, 0x18	; 24
+ 9a6:	92 e0       	ldi	r25, 0x02	; 2
+ 9a8:	b5 d0       	rcall	.+362    	; 0xb14 <Uart_Transmit_IT_PC>
+	{
+		// itoa-Buffer (Debug)
+		char buff[5] = {'\0'};
+	
+		Uart_Transmit_IT_PC("Write TMC6200 data: ");
+		for (int count = 0 ; count < 5 ; count++)
+ 9aa:	0f 5f       	subi	r16, 0xFF	; 255
+ 9ac:	1f 4f       	sbci	r17, 0xFF	; 255
+ 9ae:	ff ef       	ldi	r31, 0xFF	; 255
+ 9b0:	ef 1a       	sub	r14, r31
+ 9b2:	ff 0a       	sbc	r15, r31
+ 9b4:	05 30       	cpi	r16, 0x05	; 5
+ 9b6:	11 05       	cpc	r17, r1
+ 9b8:	81 f6       	brne	.-96     	; 0x95a <tmc6200_writeInt+0x5c>
+ 9ba:	8f e3       	ldi	r24, 0x3F	; 63
+ 9bc:	9c e9       	ldi	r25, 0x9C	; 156
+ 9be:	01 97       	sbiw	r24, 0x01	; 1
+ 9c0:	f1 f7       	brne	.-4      	; 0x9be <tmc6200_writeInt+0xc0>
+			{
+				Uart_Transmit_IT_PC(",");
+			}
+		}
+		_delay_ms(10);
+		Uart_Transmit_IT_PC("\r");
+ 9c2:	00 c0       	rjmp	.+0      	; 0x9c4 <tmc6200_writeInt+0xc6>
+ 9c4:	00 00       	nop
+ 9c6:	8a e1       	ldi	r24, 0x1A	; 26
+	}
+	
+	// CS TMC6200 LOW
+	enable_Slave(TMC6200);
+ 9c8:	92 e0       	ldi	r25, 0x02	; 2
+ 9ca:	a4 d0       	rcall	.+328    	; 0xb14 <Uart_Transmit_IT_PC>
+ 9cc:	81 e0       	ldi	r24, 0x01	; 1
+	
+	// Transmit address and data
+	spi_transmit_IT((unsigned char *)tbuf, 5, TMC6200);
+ 9ce:	e6 dc       	rcall	.-1588   	; 0x39c <enable_Slave>
+ 9d0:	41 e0       	ldi	r20, 0x01	; 1
+ 9d2:	65 e0       	ldi	r22, 0x05	; 5
+ 9d4:	ce 01       	movw	r24, r28
+ 9d6:	01 96       	adiw	r24, 0x01	; 1
+ 9d8:	c7 dc       	rcall	.-1650   	; 0x368 <spi_transmit_IT>
+	
+	// CS TMC6200 HIGH
+	disable_Slave(TMC6200);
+ 9da:	81 e0       	ldi	r24, 0x01	; 1
+ 9dc:	f3 dc       	rcall	.-1562   	; 0x3c4 <disable_Slave>
+ 9de:	2b 96       	adiw	r28, 0x0b	; 11
+}
+ 9e0:	0f b6       	in	r0, 0x3f	; 63
+ 9e2:	f8 94       	cli
+ 9e4:	de bf       	out	0x3e, r29	; 62
+ 9e6:	0f be       	out	0x3f, r0	; 63
+ 9e8:	cd bf       	out	0x3d, r28	; 61
+ 9ea:	df 91       	pop	r29
+ 9ec:	cf 91       	pop	r28
+ 9ee:	1f 91       	pop	r17
+ 9f0:	0f 91       	pop	r16
+ 9f2:	ff 90       	pop	r15
+ 9f4:	ef 90       	pop	r14
+ 9f6:	df 90       	pop	r13
+ 9f8:	cf 90       	pop	r12
+ 9fa:	08 95       	ret
+
+000009fc <initTMC6200>:
+ 9fc:	e2 e0       	ldi	r30, 0x02	; 2
+
+void initTMC6200(void)
+{
+
+	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+ 9fe:	f1 e0       	ldi	r31, 0x01	; 1
+ a00:	80 81       	ld	r24, Z
+ a02:	88 60       	ori	r24, 0x08	; 8
+ a04:	80 83       	st	Z, r24
+ a06:	2f ef       	ldi	r18, 0xFF	; 255
+ a08:	81 ee       	ldi	r24, 0xE1	; 225
+ a0a:	94 e0       	ldi	r25, 0x04	; 4
+ a0c:	21 50       	subi	r18, 0x01	; 1
+ a0e:	80 40       	sbci	r24, 0x00	; 0
+ a10:	90 40       	sbci	r25, 0x00	; 0
+ a12:	e1 f7       	brne	.-8      	; 0xa0c <initTMC6200+0x10>
+ a14:	00 c0       	rjmp	.+0      	; 0xa16 <initTMC6200+0x1a>
+ a16:	00 00       	nop
+	_delay_ms(100);
+	EN_TMC6200_PORT &= ~EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+ a18:	80 81       	ld	r24, Z
+ a1a:	87 7f       	andi	r24, 0xF7	; 247
+ a1c:	80 83       	st	Z, r24
+ a1e:	2f ef       	ldi	r18, 0xFF	; 255
+ a20:	81 ee       	ldi	r24, 0xE1	; 225
+ a22:	94 e0       	ldi	r25, 0x04	; 4
+ a24:	21 50       	subi	r18, 0x01	; 1
+ a26:	80 40       	sbci	r24, 0x00	; 0
+ a28:	90 40       	sbci	r25, 0x00	; 0
+ a2a:	e1 f7       	brne	.-8      	; 0xa24 <initTMC6200+0x28>
+ a2c:	00 c0       	rjmp	.+0      	; 0xa2e <initTMC6200+0x32>
+ a2e:	00 00       	nop
+	_delay_ms(100);
+	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+ a30:	80 81       	ld	r24, Z
+ a32:	88 60       	ori	r24, 0x08	; 8
+ a34:	80 83       	st	Z, r24
+ a36:	2f ef       	ldi	r18, 0xFF	; 255
+ a38:	83 ed       	ldi	r24, 0xD3	; 211
+ a3a:	90 e3       	ldi	r25, 0x30	; 48
+ a3c:	21 50       	subi	r18, 0x01	; 1
+ a3e:	80 40       	sbci	r24, 0x00	; 0
+ a40:	90 40       	sbci	r25, 0x00	; 0
+ a42:	e1 f7       	brne	.-8      	; 0xa3c <initTMC6200+0x40>
+ a44:	00 c0       	rjmp	.+0      	; 0xa46 <initTMC6200+0x4a>
+ a46:	00 00       	nop
+	_delay_ms(1000);
+	
+	tmc6200_writeInt(0, TMC6200_GCONF, 0x00000010);		// current amplification: 20
+ a48:	20 e1       	ldi	r18, 0x10	; 16
+ a4a:	30 e0       	ldi	r19, 0x00	; 0
+ a4c:	40 e0       	ldi	r20, 0x00	; 0
+ a4e:	50 e0       	ldi	r21, 0x00	; 0
+ a50:	60 e0       	ldi	r22, 0x00	; 0
+ a52:	80 e0       	ldi	r24, 0x00	; 0
+ a54:	54 df       	rcall	.-344    	; 0x8fe <tmc6200_writeInt>
+	tmc6200_writeInt(0, TMC6200_GSTAT, 0x00000000);		// current amplification: 20
+ a56:	20 e0       	ldi	r18, 0x00	; 0
+ a58:	30 e0       	ldi	r19, 0x00	; 0
+ a5a:	a9 01       	movw	r20, r18
+ a5c:	61 e0       	ldi	r22, 0x01	; 1
+ a5e:	80 e0       	ldi	r24, 0x00	; 0
+ a60:	4e df       	rcall	.-356    	; 0x8fe <tmc6200_writeInt>
+	tmc6200_writeInt(0, TMC6200_OTP_PROG, 0x00000000);     //
+ a62:	20 e0       	ldi	r18, 0x00	; 0
+ a64:	30 e0       	ldi	r19, 0x00	; 0
+ a66:	a9 01       	movw	r20, r18
+ a68:	66 e0       	ldi	r22, 0x06	; 6
+ a6a:	80 e0       	ldi	r24, 0x00	; 0
+ a6c:	48 df       	rcall	.-368    	; 0x8fe <tmc6200_writeInt>
+	tmc6200_writeInt(0, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
+ a6e:	2f e0       	ldi	r18, 0x0F	; 15
+ a70:	30 e0       	ldi	r19, 0x00	; 0
+ a72:	40 e0       	ldi	r20, 0x00	; 0
+ a74:	50 e0       	ldi	r21, 0x00	; 0
+ a76:	68 e0       	ldi	r22, 0x08	; 8
+ a78:	80 e0       	ldi	r24, 0x00	; 0
+ a7a:	41 df       	rcall	.-382    	; 0x8fe <tmc6200_writeInt>
+	tmc6200_writeInt(0, TMC6200_SHORT_CONF, 0x13010606);	// default
+ a7c:	26 e0       	ldi	r18, 0x06	; 6
+ a7e:	36 e0       	ldi	r19, 0x06	; 6
+ a80:	41 e0       	ldi	r20, 0x01	; 1
+ a82:	53 e1       	ldi	r21, 0x13	; 19
+ a84:	69 e0       	ldi	r22, 0x09	; 9
+ a86:	80 e0       	ldi	r24, 0x00	; 0
+ a88:	3a df       	rcall	.-396    	; 0x8fe <tmc6200_writeInt>
+	tmc6200_writeInt(0, TMC6200_DRV_CONF, 0x00080004);		// DRVSTRENGTH = 2 (medium), BBMCLKS: 4
+ a8a:	24 e0       	ldi	r18, 0x04	; 4
+ a8c:	30 e0       	ldi	r19, 0x00	; 0
+ a8e:	48 e0       	ldi	r20, 0x08	; 8
+ a90:	50 e0       	ldi	r21, 0x00	; 0
+ a92:	6a e0       	ldi	r22, 0x0A	; 10
+ a94:	80 e0       	ldi	r24, 0x00	; 0
+ a96:	33 cf       	rjmp	.-410    	; 0x8fe <tmc6200_writeInt>
+ a98:	08 95       	ret
+
+00000a9a <read_registers_TMC6200>:
+	
+}
+
+void read_registers_TMC6200(void)
+{	
+	tmc6200_readInt(1, TMC6200_GCONF);
+ a9a:	60 e0       	ldi	r22, 0x00	; 0
+ a9c:	81 e0       	ldi	r24, 0x01	; 1
+ a9e:	8e de       	rcall	.-740    	; 0x7bc <tmc6200_readInt>
+	tmc6200_readInt(1, TMC6200_GSTAT);
+ aa0:	61 e0       	ldi	r22, 0x01	; 1
+ aa2:	81 e0       	ldi	r24, 0x01	; 1
+ aa4:	8b de       	rcall	.-746    	; 0x7bc <tmc6200_readInt>
+	tmc6200_readInt(1, TMC6200_IOIN_OUTPUT);
+ aa6:	64 e0       	ldi	r22, 0x04	; 4
+ aa8:	81 e0       	ldi	r24, 0x01	; 1
+ aaa:	88 de       	rcall	.-752    	; 0x7bc <tmc6200_readInt>
+	tmc6200_readInt(1, TMC6200_OTP_PROG);
+ aac:	66 e0       	ldi	r22, 0x06	; 6
+ aae:	81 e0       	ldi	r24, 0x01	; 1
+ ab0:	85 de       	rcall	.-758    	; 0x7bc <tmc6200_readInt>
+	tmc6200_readInt(1, TMC6200_OTP_READ);
+ ab2:	67 e0       	ldi	r22, 0x07	; 7
+ ab4:	81 e0       	ldi	r24, 0x01	; 1
+ ab6:	82 de       	rcall	.-764    	; 0x7bc <tmc6200_readInt>
+	tmc6200_readInt(1, TMC6200_FACTORY_CONF);
+ ab8:	68 e0       	ldi	r22, 0x08	; 8
+ aba:	81 e0       	ldi	r24, 0x01	; 1
+ abc:	7f de       	rcall	.-770    	; 0x7bc <tmc6200_readInt>
+	tmc6200_readInt(1, TMC6200_SHORT_CONF);
+ abe:	69 e0       	ldi	r22, 0x09	; 9
+ ac0:	81 e0       	ldi	r24, 0x01	; 1
+ ac2:	7c de       	rcall	.-776    	; 0x7bc <tmc6200_readInt>
+ ac4:	6a e0       	ldi	r22, 0x0A	; 10
+	tmc6200_readInt(1, TMC6200_DRV_CONF);
+ ac6:	81 e0       	ldi	r24, 0x01	; 1
+ ac8:	79 ce       	rjmp	.-782    	; 0x7bc <tmc6200_readInt>
+ aca:	08 95       	ret
+
+00000acc <tx_completed>:
+void tx_completed()
+{
+/*
+	- Warte zwei Arbeitsschritte (Nulloperation) wenn Übertragung zu Ende
+*/
+	asm("nop");
+ acc:	00 00       	nop
+	asm("nop");
+ ace:	00 00       	nop
+ ad0:	08 95       	ret
+
+00000ad2 <UART_init>:
+#define F_CPU 16000000UL
+
+
+
+void UART_init()
+{
+ ad2:	cf 93       	push	r28
+ ad4:	df 93       	push	r29
+#define BRC9600 ((F_CPU/16/BAUD9600) -1)				// Define für Baudrate-Register
+/******************************************************************************************************************************/
+
+
+/******************************************************************************************************************************/
+	UBRR0H = (BRC9600>>8);										// Baudrate Register1 (9600) UART0
+ ad6:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7000c5>
+	UBRR0L = (BRC9600);											// Baudrate Register2 (9600) UART0
+ ada:	80 e1       	ldi	r24, 0x10	; 16
+ adc:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7000c4>
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);								// Enable RX und TX UART 0
+ ae0:	c1 ec       	ldi	r28, 0xC1	; 193
+ ae2:	d0 e0       	ldi	r29, 0x00	; 0
+ ae4:	88 e1       	ldi	r24, 0x18	; 24
+ ae6:	88 83       	st	Y, r24
+	UCSR0C = (1<<UCSZ00)|(1<<UCSZ01);							// Übertragene Bits: 8 und parity disabled UART0
+ ae8:	86 e0       	ldi	r24, 0x06	; 6
+ aea:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7000c2>
+/******************************************************************************************************************************/
+
+
+/******************************************************************************************************************************/
+	RB_init(&rb_tx_PC);											// Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART0
+ aee:	8a e5       	ldi	r24, 0x5A	; 90
+ af0:	92 e0       	ldi	r25, 0x02	; 2
+ af2:	33 db       	rcall	.-2458   	; 0x15a <RB_init>
+	RB_init(&rb_rx_PC);											// Initialisiere Ring-Buffer (head = 0, tail = 0) RX UART0
+ af4:	8e e5       	ldi	r24, 0x5E	; 94
+ af6:	9a e0       	ldi	r25, 0x0A	; 10
+ af8:	30 db       	rcall	.-2464   	; 0x15a <RB_init>
+	
+/******************************************************************************************************************************/
+
+	
+/******************************************************************************************************************************/
+	Uart_EnableRxIT_0();										// Enable RX-Interrupt: Receive Complete UART 0
+ afa:	88 81       	ld	r24, Y
+ afc:	80 68       	ori	r24, 0x80	; 128
+ afe:	88 83       	st	Y, r24
+
+/******************************************************************************************************************************/
+	sei();														// Enable globale Interrupts
+ b00:	78 94       	sei
+/******************************************************************************************************************************/
+
+	
+/******************************************************************************************************************************/
+	ptr_tx_completed_0=tx_completed;							// Pointer tx Completed UART0 auf Funktion (Kurz warten) setzen
+ b02:	86 e6       	ldi	r24, 0x66	; 102
+ b04:	95 e0       	ldi	r25, 0x05	; 5
+ b06:	90 93 62 10 	sts	0x1062, r25	; 0x801062 <ptr_tx_completed_0+0x1>
+ b0a:	80 93 61 10 	sts	0x1061, r24	; 0x801061 <ptr_tx_completed_0>
+/******************************************************************************************************************************/
+
+}
+ b0e:	df 91       	pop	r29
+ b10:	cf 91       	pop	r28
+ b12:	08 95       	ret
+
+00000b14 <Uart_Transmit_IT_PC>:
+	- Schreibe n Bytes in den Buffer für PC
+	- Enable Interrupt wenn Datenregister leer ist
+	
+	PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
+*/
+	uint8_t nbytes = strlen((const char *)data);
+ b14:	fc 01       	movw	r30, r24
+ b16:	01 90       	ld	r0, Z+
+ b18:	00 20       	and	r0, r0
+ b1a:	e9 f7       	brne	.-6      	; 0xb16 <Uart_Transmit_IT_PC+0x2>
+ b1c:	31 97       	sbiw	r30, 0x01	; 1
+ b1e:	af 01       	movw	r20, r30
+ b20:	48 1b       	sub	r20, r24
+ b22:	59 0b       	sbc	r21, r25
+	RB_write(&rb_tx_PC, data, nbytes);
+ b24:	bc 01       	movw	r22, r24
+ b26:	8a e5       	ldi	r24, 0x5A	; 90
+ b28:	92 e0       	ldi	r25, 0x02	; 2
+ b2a:	5b db       	rcall	.-2378   	; 0x1e2 <RB_write>
+	Uart_EnableTransmitIT_0();
+ b2c:	e1 ec       	ldi	r30, 0xC1	; 193
+ b2e:	f0 e0       	ldi	r31, 0x00	; 0
+ b30:	80 81       	ld	r24, Z
+ b32:	80 62       	ori	r24, 0x20	; 32
+ b34:	80 83       	st	Z, r24
+ b36:	08 95       	ret
+
+00000b38 <__vector_26>:
+	asm("nop");
+	asm("nop");
+}
+
+ISR(USART0_UDRE_vect)
+{
+ b38:	1f 92       	push	r1
+ b3a:	0f 92       	push	r0
+ b3c:	0f b6       	in	r0, 0x3f	; 63
+ b3e:	0f 92       	push	r0
+ b40:	11 24       	eor	r1, r1
+ b42:	0b b6       	in	r0, 0x3b	; 59
+ b44:	0f 92       	push	r0
+ b46:	2f 93       	push	r18
+ b48:	3f 93       	push	r19
+ b4a:	4f 93       	push	r20
+ b4c:	5f 93       	push	r21
+ b4e:	6f 93       	push	r22
+ b50:	7f 93       	push	r23
+ b52:	8f 93       	push	r24
+ b54:	9f 93       	push	r25
+ b56:	af 93       	push	r26
+ b58:	bf 93       	push	r27
+ b5a:	ef 93       	push	r30
+ b5c:	ff 93       	push	r31
+/*
+	- Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
+	- Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet	
+*/
+	if (RB_length(&rb_tx_PC) > 0)
+ b5e:	8a e5       	ldi	r24, 0x5A	; 90
+ b60:	92 e0       	ldi	r25, 0x02	; 2
+ b62:	0a db       	rcall	.-2540   	; 0x178 <RB_length>
+ b64:	88 23       	and	r24, r24
+ b66:	31 f0       	breq	.+12     	; 0xb74 <__vector_26+0x3c>
+	{
+		UDR0 = RB_readByte(&rb_tx_PC);
+ b68:	8a e5       	ldi	r24, 0x5A	; 90
+ b6a:	92 e0       	ldi	r25, 0x02	; 2
+ b6c:	11 db       	rcall	.-2526   	; 0x190 <RB_readByte>
+ b6e:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7000c6>
+ b72:	0c c0       	rjmp	.+24     	; 0xb8c <__vector_26+0x54>
+	}
+	else
+	{
+		Uart_DisableTransmitIT_0();
+ b74:	e1 ec       	ldi	r30, 0xC1	; 193
+ b76:	f0 e0       	ldi	r31, 0x00	; 0
+ b78:	80 81       	ld	r24, Z
+ b7a:	8f 7d       	andi	r24, 0xDF	; 223
+ b7c:	80 83       	st	Z, r24
+		if(ptr_tx_completed_0 != 0)
+ b7e:	e0 91 61 10 	lds	r30, 0x1061	; 0x801061 <ptr_tx_completed_0>
+ b82:	f0 91 62 10 	lds	r31, 0x1062	; 0x801062 <ptr_tx_completed_0+0x1>
+ b86:	30 97       	sbiw	r30, 0x00	; 0
+ b88:	09 f0       	breq	.+2      	; 0xb8c <__vector_26+0x54>
+			ptr_tx_completed_0();
+ b8a:	19 95       	eicall
+	}
+}
+ b8c:	ff 91       	pop	r31
+ b8e:	ef 91       	pop	r30
+ b90:	bf 91       	pop	r27
+ b92:	af 91       	pop	r26
+ b94:	9f 91       	pop	r25
+ b96:	8f 91       	pop	r24
+ b98:	7f 91       	pop	r23
+ b9a:	6f 91       	pop	r22
+ b9c:	5f 91       	pop	r21
+ b9e:	4f 91       	pop	r20
+ ba0:	3f 91       	pop	r19
+ ba2:	2f 91       	pop	r18
+ ba4:	0f 90       	pop	r0
+ ba6:	0b be       	out	0x3b, r0	; 59
+ ba8:	0f 90       	pop	r0
+ baa:	0f be       	out	0x3f, r0	; 63
+ bac:	0f 90       	pop	r0
+ bae:	1f 90       	pop	r1
+ bb0:	18 95       	reti
+
+00000bb2 <__vector_25>:
+
+ISR(USART0_RX_vect)
+{	
+ bb2:	1f 92       	push	r1
+ bb4:	0f 92       	push	r0
+ bb6:	0f b6       	in	r0, 0x3f	; 63
+ bb8:	0f 92       	push	r0
+ bba:	11 24       	eor	r1, r1
+ bbc:	0b b6       	in	r0, 0x3b	; 59
+ bbe:	0f 92       	push	r0
+ bc0:	2f 93       	push	r18
+ bc2:	3f 93       	push	r19
+ bc4:	4f 93       	push	r20
+ bc6:	5f 93       	push	r21
+ bc8:	6f 93       	push	r22
+ bca:	7f 93       	push	r23
+ bcc:	8f 93       	push	r24
+ bce:	9f 93       	push	r25
+ bd0:	af 93       	push	r26
+ bd2:	bf 93       	push	r27
+ bd4:	ef 93       	push	r30
+ bd6:	ff 93       	push	r31
+/*
+	- Wird ein Empfangs-Interrupt seitens PC ausgelöst, wird das empfangene Byte in den PC-Buffer geschrieben
+*/
+	char ch = UDR0;
+ bd8:	60 91 c6 00 	lds	r22, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7000c6>
+	RB_writeByte(&rb_rx_PC,ch);
+ bdc:	8e e5       	ldi	r24, 0x5E	; 94
+ bde:	9a e0       	ldi	r25, 0x0A	; 10
+ be0:	e7 da       	rcall	.-2610   	; 0x1b0 <RB_writeByte>
+ be2:	ff 91       	pop	r31
+ be4:	ef 91       	pop	r30
+ be6:	bf 91       	pop	r27
+ be8:	af 91       	pop	r26
+ bea:	9f 91       	pop	r25
+ bec:	8f 91       	pop	r24
+ bee:	7f 91       	pop	r23
+ bf0:	6f 91       	pop	r22
+ bf2:	5f 91       	pop	r21
+ bf4:	4f 91       	pop	r20
+ bf6:	3f 91       	pop	r19
+ bf8:	2f 91       	pop	r18
+ bfa:	0f 90       	pop	r0
+ bfc:	0b be       	out	0x3b, r0	; 59
+ bfe:	0f 90       	pop	r0
+ c00:	0f be       	out	0x3f, r0	; 63
+ c02:	0f 90       	pop	r0
+ c04:	1f 90       	pop	r1
+ c06:	18 95       	reti
+
+00000c08 <main>:
+#include "libraries/TMC6200/TMC6200.h"
+#include "libraries/TMC4671/TMC4671.h"
+
+int main(void)
+{
+	IO_init();												// Ein-/Ausgangspins initialisieren
+ c08:	8d da       	rcall	.-2790   	; 0x124 <IO_init>
+	SPI_init();												// SPI-Schnittstelle initialisieren
+ c0a:	f0 db       	rcall	.-2080   	; 0x3ec <SPI_init>
+	UART_init();											// UART-Schnittstelle initialisieren
+ c0c:	62 df       	rcall	.-316    	; 0xad2 <UART_init>
+	initTMC6200();											// Gate-Treiber initialisieren
+ c0e:	f6 de       	rcall	.-532    	; 0x9fc <initTMC6200>
+ c10:	45 dd       	rcall	.-1398   	; 0x69c <initTMC4671_Openloop>
+	initTMC4671_Openloop();									// FOC-Treiber initialisieren
+ c12:	2f ef       	ldi	r18, 0xFF	; 255
+ c14:	83 e2       	ldi	r24, 0x23	; 35
+ c16:	94 ef       	ldi	r25, 0xF4	; 244
+ c18:	21 50       	subi	r18, 0x01	; 1
+ c1a:	80 40       	sbci	r24, 0x00	; 0
+ c1c:	90 40       	sbci	r25, 0x00	; 0
+ c1e:	e1 f7       	brne	.-8      	; 0xc18 <main+0x10>
+ c20:	00 c0       	rjmp	.+0      	; 0xc22 <main+0x1a>
+ c22:	00 00       	nop
+ c24:	3a df       	rcall	.-396    	; 0xa9a <read_registers_TMC6200>
+
+    /* Replace with your application code */
+    while (1) 
+    {
+		_delay_ms(5000);
+		read_registers_TMC6200();
+ c26:	2f ef       	ldi	r18, 0xFF	; 255
+ c28:	83 e2       	ldi	r24, 0x23	; 35
+ c2a:	94 ef       	ldi	r25, 0xF4	; 244
+ c2c:	21 50       	subi	r18, 0x01	; 1
+ c2e:	80 40       	sbci	r24, 0x00	; 0
+ c30:	90 40       	sbci	r25, 0x00	; 0
+ c32:	e1 f7       	brne	.-8      	; 0xc2c <main+0x24>
+ c34:	00 c0       	rjmp	.+0      	; 0xc36 <main+0x2e>
+ c36:	00 00       	nop
+ c38:	10 dd       	rcall	.-1504   	; 0x65a <read_registers_TMC4671>
+		_delay_ms(5000);
+		read_registers_TMC4671();
+ c3a:	eb cf       	rjmp	.-42     	; 0xc12 <main+0xa>
+
+00000c3c <__itoa_ncheck>:
+ c3c:	bb 27       	eor	r27, r27
+ c3e:	4a 30       	cpi	r20, 0x0A	; 10
+ c40:	31 f4       	brne	.+12     	; 0xc4e <__itoa_ncheck+0x12>
+ c42:	99 23       	and	r25, r25
+ c44:	22 f4       	brpl	.+8      	; 0xc4e <__itoa_ncheck+0x12>
+ c46:	bd e2       	ldi	r27, 0x2D	; 45
+ c48:	90 95       	com	r25
+ c4a:	81 95       	neg	r24
+ c4c:	9f 4f       	sbci	r25, 0xFF	; 255
+ c4e:	01 c0       	rjmp	.+2      	; 0xc52 <__utoa_common>
+
+00000c50 <__utoa_ncheck>:
+ c50:	bb 27       	eor	r27, r27
+
+00000c52 <__utoa_common>:
+ c52:	fb 01       	movw	r30, r22
+ c54:	55 27       	eor	r21, r21
+ c56:	aa 27       	eor	r26, r26
+ c58:	88 0f       	add	r24, r24
+ c5a:	99 1f       	adc	r25, r25
+ c5c:	aa 1f       	adc	r26, r26
+ c5e:	a4 17       	cp	r26, r20
+ c60:	10 f0       	brcs	.+4      	; 0xc66 <__utoa_common+0x14>
+ c62:	a4 1b       	sub	r26, r20
+ c64:	83 95       	inc	r24
+ c66:	50 51       	subi	r21, 0x10	; 16
+ c68:	b9 f7       	brne	.-18     	; 0xc58 <__utoa_common+0x6>
+ c6a:	a0 5d       	subi	r26, 0xD0	; 208
+ c6c:	aa 33       	cpi	r26, 0x3A	; 58
+ c6e:	08 f0       	brcs	.+2      	; 0xc72 <__utoa_common+0x20>
+ c70:	a9 5d       	subi	r26, 0xD9	; 217
+ c72:	a1 93       	st	Z+, r26
+ c74:	00 97       	sbiw	r24, 0x00	; 0
+ c76:	79 f7       	brne	.-34     	; 0xc56 <__utoa_common+0x4>
+ c78:	b1 11       	cpse	r27, r1
+ c7a:	b1 93       	st	Z+, r27
+ c7c:	11 92       	st	Z+, r1
+ c7e:	cb 01       	movw	r24, r22
+ c80:	00 c0       	rjmp	.+0      	; 0xc82 <strrev>
+
+00000c82 <strrev>:
+ c82:	dc 01       	movw	r26, r24
+ c84:	fc 01       	movw	r30, r24
+ c86:	67 2f       	mov	r22, r23
+ c88:	71 91       	ld	r23, Z+
+ c8a:	77 23       	and	r23, r23
+ c8c:	e1 f7       	brne	.-8      	; 0xc86 <strrev+0x4>
+ c8e:	32 97       	sbiw	r30, 0x02	; 2
+ c90:	04 c0       	rjmp	.+8      	; 0xc9a <strrev+0x18>
+ c92:	7c 91       	ld	r23, X
+ c94:	6d 93       	st	X+, r22
+ c96:	70 83       	st	Z, r23
+ c98:	62 91       	ld	r22, -Z
+ c9a:	ae 17       	cp	r26, r30
+ c9c:	bf 07       	cpc	r27, r31
+ c9e:	c8 f3       	brcs	.-14     	; 0xc92 <strrev+0x10>
+ ca0:	08 95       	ret
+
+00000ca2 <_exit>:
+ ca2:	f8 94       	cli
+
+00000ca4 <__stop_program>:
+ ca4:	ff cf       	rjmp	.-2      	; 0xca4 <__stop_program>

@@ -1,4 +1,9 @@
-Name:Buck Cocktails
-Mengen:0,0,60,0,7,0,0,0,0,0,0,33
+Name:Bacardi Cocktail
+Mengen:
+Zitronensaft:25
+Grenadinensirup:15
+Weisser Rum:60
+;
 Alkohol:1
+Kohlensaeure:0
 Bild:6

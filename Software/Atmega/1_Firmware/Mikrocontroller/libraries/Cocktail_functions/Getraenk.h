@@ -3,7 +3,7 @@
  *
  * Created: 05.04.2020 22:46:11
  *  Author: kimsc
- */ 
+ */
 
 
 #ifndef GETRAENK_H_
@@ -15,26 +15,26 @@
 #include "../UART/UART.h"
 #include "../SD-Karte/FAT32.h"
 
-struct getraenk{
-	char * name;
-	uint8_t alkohol;
-	uint8_t kohlensaeure;
-	uint8_t * mengen;
-	uint8_t picture;
+struct getraenk {
+    char * name;
+    uint8_t alkohol;
+    uint8_t kohlensaeure;
+    uint8_t * mengen;
+    uint8_t picture;
 };
 typedef struct getraenk getraenk_t;
 
-struct getraenk_file{
-	uint8_t file;
-	struct getraenk_file * next;
-	struct getraenk_file * prev;
+struct getraenk_file {
+    uint8_t file;
+    struct getraenk_file * next;
+    struct getraenk_file * prev;
 };
 typedef struct getraenk_file getraenk_file_t;
 
-struct getraenk_file_2{
-	uint8_t file;
-	struct getraenk_file_2 * next;
-	struct getraenk_file_2 * prev;
+struct getraenk_file_2 {
+    uint8_t file;
+    struct getraenk_file_2 * next;
+    struct getraenk_file_2 * prev;
 };
 typedef struct getraenk_file_2 getraenk_file_2_t;
 
@@ -47,10 +47,10 @@ getraenk_file_2_t * head_getraenk_file_2;
 getraenk_file_2_t * tail_getraenk_file_2;
 
 getraenk_t *aktuellesGetraenk;
-getraenk_t *head_getraenk;	// Getränk-Pointer
+getraenk_t *head_getraenk;  // Getränk-Pointer
 getraenk_t *tail_getraenk;
 
-uint8_t * address_getraenk;	// EEprom address-Pointer
+uint8_t * address_getraenk; // EEprom address-Pointer
 
 uint8_t check_existence(uint8_t file);
 void cocktails_init(void);

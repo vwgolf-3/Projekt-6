@@ -1,4 +1,9 @@
-Name:Orangensaft
-Mengen:0,0,0,100,0,0,0,0,0,0,0,0
-Alkohol:0
+Name:Martini Lemon Drop
+Mengen:
+Zitronensaft:25
+Triple Sec:35
+Wodka:40
+;
+Alkohol:1
+Kohlensaeure:0
 Bild:20

@@ -1,4 +1,8 @@
-Name:Blue Lagoon
-Mengen:66,0,0,0,0,0,0,17,0,0,0,17
-Alkohol:1
+Name:Arnold Palmer
+Mengen:
+Zitronensaft:30
+Eistee:70
+;
+Alkohol:0
+Kohlensaeure:1
 Bild:5

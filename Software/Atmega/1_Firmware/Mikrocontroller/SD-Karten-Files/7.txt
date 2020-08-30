@@ -1,4 +1,9 @@
-Name:Highball
-Mengen:0,0,70,0,0,0,0,0,0,0,30,0
+Name:Buck Cocktail
+Mengen:
+Ginger Ale:60
+Limettensaft:10
+Wodka:30
+;
 Alkohol:1
+Kohlensaeure:1
 Bild:9

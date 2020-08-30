@@ -1,0 +1,9 @@
+Name:Whisky Sour
+Mengen:
+Zitronensaft:35
+Whisky:45
+Zuckersirup:20
+;
+Alkohol:1
+Kohlensaeure:0
+Bild:30

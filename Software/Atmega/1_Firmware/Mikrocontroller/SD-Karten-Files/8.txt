@@ -1,4 +1,9 @@
-Name:Whisky Cola
-Mengen:0,70,0,0,0,0,0,0,0,0,30,0
+Name:Caipirinha
+Mengen:
+Limettensaft:20
+Weisser Rum:70
+Zuckersirup:10
+;
 Alkohol:1
+Kohlensaeure:0
 Bild:10

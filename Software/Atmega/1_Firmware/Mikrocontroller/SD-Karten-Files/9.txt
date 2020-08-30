@@ -1,4 +1,9 @@
-Name:Kamikaze
-Mengen:0,0,0,0,35,0,0,0,0,35,0,30
+Name:Caipiroska
+Mengen:
+Limettensaft:20
+Wodka:70
+Zuckersirup:10
+;
 Alkohol:1
+Kohlensaeure:0
 Bild:11

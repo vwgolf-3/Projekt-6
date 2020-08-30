@@ -1,4 +1,8 @@
-Name:7-Up
-Mengen:100,0,0,0,0,0,0,0,0,0,0,0
-Alkohol:0
+Name:Highball
+Mengen:
+Ginger Ale:70
+Whisky:30
+;
+Alkohol:1
+Kohlensaeure:1
 Bild:18

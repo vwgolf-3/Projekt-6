@@ -13,14 +13,18 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
+#define F_CPU 16000000UL
 // Testfunktion 3s links / 3s rechts
 #include <util/delay.h>
+#include <stdlib.h>
 
 #include "../TMC-API/tmc/helpers/API_Header.h"
 #include "TMC4671_Register.h"
 #include "TMC4671_Constants.h"
 #include "TMC4671_Fields.h"
 #include "../SPI/SPI.h"
+#include "../Software_SPI/Software_SPI.h"
+#include "../UART/UART.h"
 
 // SPI-Wrapper
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4);
@@ -32,6 +36,9 @@ void TMC4671_init(void);
 void initTMC4671_Encoder(void);
 void initTMC4671_Openloop(void);
 // SPI
+
+void read_registers_TMC4671(void);
+
 
 
 // TMC4671 Direktbefehle

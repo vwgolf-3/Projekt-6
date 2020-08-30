@@ -2,11 +2,11 @@
 // ****** FUNCTIONS FOR SD RAW DATA TRANSFER *******
 //**************************************************************
 //Controller: ATmega32 (Clock: 8 Mhz-internal)
-//Compiler	: AVR-GCC (winAVR with AVRStudio)
-//Version 	: 2.3
-//Author	: CC Dharmani, Chennai (India)
-//			  www.dharmanitech.com
-//Date		: 08 May 2010
+//Compiler  : AVR-GCC (winAVR with AVRStudio)
+//Version   : 2.3
+//Author    : CC Dharmani, Chennai (India)
+//            www.dharmanitech.com
+//Date      : 08 May 2010
 //**************************************************************
 
 //**************************************************
@@ -21,7 +21,7 @@
 //Use following macro if you don't want to activate the multiple block access functions
 //those functions are not required for FAT32
 
-#define FAT_TESTING_ONLY         
+#define FAT_TESTING_ONLY
 
 //use following macros is used for Chip Select of SD
 #define SD_CS_ASSERT     SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT
@@ -34,7 +34,7 @@
 //SD commands, many of these are not used here
 #define GO_IDLE_STATE            0
 #define SEND_OP_COND             1
-#define SEND_IF_COND			 8
+#define SEND_IF_COND             8
 #define SEND_CSD                 9
 #define STOP_TRANSMISSION        12
 #define SEND_STATUS              13
@@ -46,16 +46,16 @@
 #define ERASE_BLOCK_START_ADDR   32
 #define ERASE_BLOCK_END_ADDR     33
 #define ERASE_SELECTED_BLOCKS    38
-#define SD_SEND_OP_COND			 41   //ACMD
-#define APP_CMD					 55
-#define READ_OCR				 58
+#define SD_SEND_OP_COND          41   //ACMD
+#define APP_CMD                  55
+#define READ_OCR                 58
 #define CRC_ON_OFF               59
 
 
 #define ON     1
 #define OFF    0
 
-volatile unsigned long startBlock, totalBlocks; 
+volatile unsigned long startBlock, totalBlocks;
 volatile unsigned char SDHC_flag, cardType, buffer[512];
 unsigned char SD_init(void);
 unsigned char SD_sendCommand(unsigned char cmd, unsigned long arg);

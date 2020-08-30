@@ -21,6 +21,7 @@ Main_Func.d Main_Func.o: ../libraries/Main_functions/Main_Func.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/API_Header.h \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/Config.h \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
@@ -30,13 +31,22 @@ Main_Func.d Main_Func.o: ../libraries/Main_functions/Main_Func.c \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/Bits.h \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/CRC.h \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  ../libraries/Main_functions/../TMC4671/TMC4671_Register.h \
  ../libraries/Main_functions/../TMC4671/TMC4671_Constants.h \
  ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
  ../libraries/Main_functions/../TMC4671/TMC4671_Fields.h \
  ../libraries/Main_functions/../TMC4671/../SPI/SPI.h \
  ../libraries/Main_functions/../TMC4671/../SPI/../../utils/pin_defs.h \
+ ../libraries/Main_functions/../TMC4671/../Software_SPI/Software_SPI.h \
+ ../libraries/Main_functions/../TMC4671/../Software_SPI/../../utils/pin_defs.h \
+ ../libraries/Main_functions/../TMC4671/../UART/UART.h \
+ ../libraries/Main_functions/../TMC6200/TMC6200.h \
+ ../libraries/Main_functions/../TMC6200/TMC6200_Register.h \
+ ../libraries/Main_functions/../TMC6200/../SPI/SPI.h \
+ ../libraries/Main_functions/../TMC6200/../Software_SPI/Software_SPI.h \
+ ../libraries/Main_functions/../TMC6200/../UART/UART.h \
+ ../libraries/Main_functions/../LED/LED.h \
+ ../libraries/Main_functions/../LED/../../utils/pin_defs.h \
  ../libraries/Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Main_functions/../Nextion_Display/../Main_functions/Main_Func.h \
  ../libraries/Main_functions/../Nextion_Display/../../libraries/UART/UART.h
@@ -85,6 +95,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+
 ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/API_Header.h:
 
 ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/Config.h:
@@ -103,8 +115,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Main_functions/../TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
-
 ../libraries/Main_functions/../TMC4671/TMC4671_Register.h:
 
 ../libraries/Main_functions/../TMC4671/TMC4671_Constants.h:
@@ -116,6 +126,26 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Main_functions/../TMC4671/../SPI/SPI.h:
 
 ../libraries/Main_functions/../TMC4671/../SPI/../../utils/pin_defs.h:
+
+../libraries/Main_functions/../TMC4671/../Software_SPI/Software_SPI.h:
+
+../libraries/Main_functions/../TMC4671/../Software_SPI/../../utils/pin_defs.h:
+
+../libraries/Main_functions/../TMC4671/../UART/UART.h:
+
+../libraries/Main_functions/../TMC6200/TMC6200.h:
+
+../libraries/Main_functions/../TMC6200/TMC6200_Register.h:
+
+../libraries/Main_functions/../TMC6200/../SPI/SPI.h:
+
+../libraries/Main_functions/../TMC6200/../Software_SPI/Software_SPI.h:
+
+../libraries/Main_functions/../TMC6200/../UART/UART.h:
+
+../libraries/Main_functions/../LED/LED.h:
+
+../libraries/Main_functions/../LED/../../utils/pin_defs.h:
 
 ../libraries/Main_functions/../Nextion_Display/Nextion_Display.h:
 

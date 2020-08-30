@@ -3,7 +3,7 @@
  *
  * Created: 02.12.2019 01:14:58
  *  Author: kimsc
- */ 
+ */
 
 
 #ifndef SPI_H_
@@ -19,8 +19,8 @@ void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave);
 uint8_t spi_transmit(uint8_t data);
 unsigned char spi_receive(void);
 
-enum SPI_Slaves{TMC4671, TMC6200, MFRC522, SDCARD}SPI_Slave;
-enum SPI_States{ON, OFF}SPI_State;
+enum SPI_Slaves {TMC4671, TMC6200, MFRC522, SDCARD} SPI_Slave;
+enum SPI_States {ON, OFF} SPI_State;
 
 void enable_Slave(uint8_t Slave);
 void disable_Slave(uint8_t Slave);

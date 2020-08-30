@@ -1,4 +1,7 @@
-Name:Shirley Temple
-Mengen:45,0,45,0,0,0,10,0,0,0,0,0
+Name:Orangensaft
+Mengen:
+Orangensaft:100
+;
 Alkohol:0
+Kohlensaeure:0
 Bild:23

@@ -1,4 +1,9 @@
-Name:Monkey Gland
-Mengen:0,0,0,35,0,0,5,0,60,0,0,0
+Name:Delta Sunset
+Mengen:
+Zitronensaft:40
+Triple Sec:30
+Sambuca:30
+;
 Alkohol:1
+Kohlensaeure:0
 Bild:13

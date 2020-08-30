@@ -1,4 +1,10 @@
-Name:White Lady
-Mengen:0,0,0,0,0,15,0,0,50,35,0,0
+Name:Gin & Sin
+Mengen:
+Orangensaft:30
+Zitronensaft:30
+Grenadinesirup:10
+Gin:30
+;
 Alkohol:1
+Kohlensaeure:0
 Bild:17

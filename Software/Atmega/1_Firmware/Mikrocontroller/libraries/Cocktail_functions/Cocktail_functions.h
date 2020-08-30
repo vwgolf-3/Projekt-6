@@ -3,7 +3,7 @@
  *
  * Created: 07.03.2020 13:45:25
  *  Author: kimsc
- */ 
+ */
 
 
 #ifndef COCKTAIL_FUNCTIONS_H_
@@ -16,7 +16,7 @@
 #include "../TMC4671/TMC4671.h"
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/FAT32.h"
-#include "../../LED.h"
+#include "../LED/LED.h"
 
 // Speicherstrukturen
 #include "Zutaten.h"
@@ -88,6 +88,6 @@ void ESP_Getraenk(void);
 void Getraenk_erstellt();
 void Maschineninfo_senden();
 
-enum Zutat_in_Maschine_Status{KEINGETRAENK, VOLL, LEER};
+enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
 
 #endif /* COCKTAIL_FUNCTIONS_H_ */

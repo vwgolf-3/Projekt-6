@@ -3,15 +3,18 @@
  *
  * Created: 19.01.2020 14:02:13
  *  Author: kimsc
- */ 
+ */
 
 
 #ifndef MAIN_FUNC_H_
 #define MAIN_FUNC_H_
 // Projektspezifische Pindefinitionen Cocktailmaschine<==>AVR uC
-#include "../UART/UART.h"											// Wird benötigt für UART und Ring-Buffer
+#include "../UART/UART.h"                                           // Wird benötigt für UART und Ring-Buffer
 #include "../../utils/pin_defs.h"
 #include "../TMC4671/TMC4671.h"
+#include "../TMC6200/TMC6200.h"
+#include "../LED/LED.h"
+
 #include <util/delay.h>
 
 void TIMER_init(void);
@@ -87,5 +90,7 @@ extern uint8_t block_list_hoch;
 extern uint8_t block_list_runter;
 extern uint8_t Grossschreib;
 extern uint8_t counter;
+
+uint32_t Position;
 
 #endif /* MAIN_FUNC_H_ */

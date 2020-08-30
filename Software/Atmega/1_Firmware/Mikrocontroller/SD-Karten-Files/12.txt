@@ -1,4 +1,7 @@
-Name:Screwdriver
-Mengen:0,0,0,65,0,0,0,0,0,0,0,35
-Alkohol:1
+Name:Eistee
+Mengen:
+Eistee:100
+;
+Alkohol:0
+Kohlensaeure:0
 Bild:14

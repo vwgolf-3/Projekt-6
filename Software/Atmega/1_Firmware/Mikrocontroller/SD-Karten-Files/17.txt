@@ -1,4 +1,9 @@
-Name:Coca Cola
-Mengen:0,100,0,0,0,0,0,0,0,0,0,0
-Alkohol:0
+Name:Kamikaze
+Mengen:
+Limettensaft:35
+Triple Sec:35
+Wodka:30
+;
+Alkohol:1
+Kohlensaeure:0
 Bild:19

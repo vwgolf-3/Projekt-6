@@ -1,0 +1,3 @@
+Name:Eistee
+Alkohol:1
+Kohlensaeure:0
