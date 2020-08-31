@@ -45,9 +45,17 @@ void read_Position_TMC4671(void)
     // +/- alle 10sek. Position abfragen und über Seiriellen Port ausgeben
     cntrr++;
     _delay_ms(1);
-    if (cntrr == 10000)
+    if (cntrr == 100)
     {
         cntrr = 0;
-        tmc4671_getActualPosition(show_serial_port);
+//         if(tmc4671_getActualPosition(show_serial_port)>0x00010000)
+// 		{
+// 			tmc4671_setAbsolutTargetPosition(0,0);
+// 		}
+	int64_t val = (int64_t) tmc4671_getActualPosition(1);
+	char testarray[100] = {'\0'};
+	my_itoa(val, (char *)testarray);
+	Uart_Transmit_IT_PC((char *)testarray);
+	Uart_Transmit_IT_PC("\r");
     }
 }

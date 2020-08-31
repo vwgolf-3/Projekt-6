@@ -1,24 +1,30 @@
 \subsubsection{FOC-Treiber}
 \label{subsubsec:Inbetriebnahme_FOC_Treiber}
 
-Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor \todo{Kurz beschreiben, was die Register beinhalten}, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop.
+Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor \todo{Kurz beschreiben, was die Register beinhalten}, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich.
 
-Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{Motor}'' möglich. Auch die Initialisierung und Kommunikation mit den Gate-Treiber TMC6200 kann mit diesem getestet werden.
+Das Setup, mit dem der Treiber softwareseitig in Betrieb genommen wurde, ist im Anhang Kapitel \ref{Appendix:TMC4671_Setup} gezeigt.
 
 Vorgehen:
 \begin{enumerate}
 \item Benötigte Applikation aus dem Software-Ordner auf dem USB-Stick in Atmel Studio öffnen.\\
-\textcolor{magenta}{Software\textrightarrow Atmega\textrightarrow 5\_Motor\textrightarrow Motor}\\
+\textcolor{magenta}{Software\textrightarrow Atmega\textrightarrow 3\underline{ }Motor\underline{ }Openloop\textrightarrow 1\underline{ }Motor\underline{ }Testsoftware\textrightarrow Motor}\\
 
-\item Software anpassen:\\
+\item Software anpassen: Zeile 23 bis 32\\
 \textcolor{green}{
-TMC4671\_init();\\
-ggf. Pins, UART- und SPI-Schnittstelle\\
-}
+	initTMC4671\underline{ }Openloop();\\
+\\
+    while (1) \\
+    \{\\
+		\underline{ }delay\underline{ }ms(10000);\\
+		read\underline{ }registers\underline{ }TMC4671();\\
+    \}
+}\\
+
 \item Software hochladen:\\
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow Cocktailmixer}\\
 
-\item Ausgehende Gate-Signale zum Gate-Treiebr mit Oszilloskop überprüfen. Da das Resultat mit dem aus dem P5 übereinstimmt, gilt der FOC-Teil als in Betrieb genommen. Im Anhang Kapitel \ref{Appendix:TMC4671} sind die Messbilder eingefügt (Abbildungen \ref{fig:PWM_UX1_H} bis \ref{fig:PWM_UX3_L})
+\item SPI-Kommunikation und ausgehende Gate-Signale vom FOC-Treiber zum Gate-Treiebr mit Oszilloskop überprüfen. Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind die Messbilder zur SPI-Kommunikation zu finden und in Anhang \ref{Appendix:TMC4671_Gate_Ctrl} die Messbilder zur Gate-Control vom TMC4671 zum TMC6200.
 
 \todo{Bilder machen und einfügen mit Oszi.}
 \end{enumerate}

@@ -32,6 +32,8 @@ void check_Communication_Input_UART(void);
 void check_Communication_Input_MFRC522(void);
 
 void testFunc(void);
+void my_itoa( int64_t z, char* buffer );
+int hexadecimalToDecimal(char hexVal[]);
 
 
 //Variabeln UART_0

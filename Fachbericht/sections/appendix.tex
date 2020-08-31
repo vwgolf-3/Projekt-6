@@ -1,5 +1,5 @@
 \begin{appendix} 
-
+\newpage
 \section{TMC4671}\label{Appendix:TMC4671}
 
 \subsection{Standard-Schaltkreis TMC4671}
@@ -25,81 +25,99 @@
 
 \newpage
 
-\subsection{Inbetriebnahme Gate-Control}
+\subsection{Inbetriebnahme TMC4671}
+
+\subsubsection{Setup}\label{Appendix:TMC4671_Setup}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=270,width=\textwidth]{graphics/2_komplett1}
+	\caption{Gesamtansicht Setup.}
+	\label{fig:2_komplett1}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=180,width=\textwidth]{graphics/2_komplett2}
+	\caption{Gesamtansicht Setup Wiring.}
+	\label{fig:1_komplett}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle = 270,width=\textwidth]{graphics/2_Arduino}
+	\caption{Setup mit Fokus auf Arduino.}
+	\label{fig:2_Arduino}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle = 180,width=\textwidth]{graphics/2_EVAL}
+	\caption{Setup mit Fokus auf TMC4674-EVAL.}
+	\label{fig:2_EVAL}
+\end{figure}
+
+\newpage
+
+\subsubsection{Inbetriebnahme SPI-Kommunikation}\label{Appendix:TMC4671_SPI}
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/PWM_UX1_H}
-\caption{Steuersignal PWM\_UX1\_H}
-\label{fig:PWM_UX1_H}
+\includegraphics[width = \textwidth]{graphics/TMC4671_Beschreiben_1}
+\caption{SPI-Übertragung Write (Hier Motor Pole Pairs).}
+\label{fig:TMC4671_Lesen_1}
 \end{figure}
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/PWM_UX1_L}
-\caption{Steuersignal PWM\_UX1\_L}
-\label{fig:PWM_UX1_L}
+\includegraphics[width = \textwidth]{graphics/TMC4671_Lesen_1}
+\caption{SPI-Übertragung Read (Hier Motor Pole Pairs).}
+\label{fig:TMC4671_Lesen_1}
+\end{figure}
+
+\newpage
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC4671_TestDrive4}
+\caption{Übertragung mit Zoom (Testdrive).}
+\label{fig:TMC4671_TestDrive4}
 \end{figure}
 
 \newpage
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/PWM_UX2_H}
-\caption{Steuersignal PWM\_UX2\_H}
-\label{fig:PWM_UX2_H}
+\includegraphics[width = \textwidth]{graphics/TMC4671_TimeTable_Beschreiben1_Bild}
+\caption{Event-Table Inbetriebnahme TMC4671.}
+\label{fig:TMC4671_TimeTable_Beschreiben1_Bild}
 \end{figure}
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/PWM_UX2_L}
-\caption{Steuersignal PWM\_UX2\_L}
-\label{fig:PWM_UX2_L}
+\includegraphics[width = \textwidth]{graphics/TMC4671_TimeTable_Lesen_Bild}
+\caption{Event-Table Inbetriebnahme TMC4671.}
+\label{fig:TMC4671_TimeTable_Lesen_Bild}
 \end{figure}
 
 \newpage
 
+\subsubsection{Inbetriebnahme Gate-Ctrl}\label{Appendix:TMC4671_Gate_Ctrl}
+
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/PWM_UX3_H}
-\caption{Steuersignal PWM\_UX3\_H}
-\label{fig:PWM_UX3_H}
+\includegraphics[width = \textwidth]{graphics/TMC4671_Gate_Signal_H}
+\caption{Steuersignale PWM 48V. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC4671_Gate_Signal_H}
 \end{figure}
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/PWM_UX3_L}
-\caption{Steuersignal PWM\_UX3\_L}
-\label{fig:PWM_UX3_L}
+\includegraphics[width = \textwidth]{graphics/TMC4671_Gate_Signal_L}
+\caption{Steuersignale PWM 0V. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC4671_Gate_Signal_L}
 \end{figure}
-
-\newpage
-
-
-\begin{figure}[h!]
-\center
-\includegraphics[width = 0.8\textwidth]{graphics/Motor_U}
-\caption{Motorsignal U nach H-Brücke}
-\label{fig:Motor_U}
-\end{figure}
-
-\begin{figure}[h!]
-\center
-\includegraphics[width = 0.8\textwidth]{graphics/Motor_V}
-\caption{Motorsignal V nach H-Brücke}
-\label{fig:Motor_V}
-\end{figure}
-
-\newpage
-
-
-\begin{figure}[h!]
-\center
-\includegraphics[width = 0.8\textwidth]{graphics/Motor_W}
-\caption{Motorsignal W nach H-Brücke}
-\label{fig:Motor_W}
-\end{figure}
-
 
 \newpage
 
@@ -147,9 +165,97 @@
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Schema_Gate_Treiber_Gatespannung}
+	\includegraphics[width=0.4\textwidth]{graphics/Schema_Gate_Treiber_Gatespannung}
 	\caption{Schema externe Gate-Spannungsversorgung.}
 	\label{fig:Schema_Gate_Treiber_Gatespannung}
+\end{figure}
+
+\newpage
+
+\subsection{Inbetriebnahme}
+
+\subsubsection{Inbetriebnahme Setup}\label{Appendix:TMC6200_Setup}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=270,width=\textwidth]{graphics/1_komplett}
+	\caption{Gesamtansicht Setup.}
+	\label{fig:1_komplett}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/1_Arduino}
+	\caption{Setup mit Fokus auf Arduino.}
+	\label{fig:1_Arduino}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle=180,width=\textwidth]{graphics/1_EVAL}
+	\caption{Setup mit Fokus auf TMC4674-EVAL.}
+	\label{fig:1_EVAL}
+\end{figure}
+
+\subsubsection{Inbetriebnahme SPI-Kommunikation}\label{Appendix:TMC6200_SPI}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_Beschreiben2}
+\caption{SPI-Übertragung Write 1.}
+\label{fig:TMC6200_Beschreiben2}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_Beschreiben}
+\caption{SPI-Übertragung Write 2.}
+\label{fig:TMC6200_Beschreiben}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_Lesen}
+\caption{SPI-Übertragung Read.}
+\label{fig:TMC6200_Lesen}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_EventTable_Beschreiben_Bild}
+\caption{Event-Table Inbetriebnahme TMC6200.}
+\label{fig:TMC6200_EventTable_Beschreiben_Bild}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_EventTable_Lesen_Bild}
+\caption{Event-Table Inbetriebnahme TMC6200.}
+\label{fig:TMC6200_EventTable_Lesen_Bild}
+\end{figure}
+
+\newpage
+
+\subsubsection{Inbetriebnahme Gate-Ctrl}\label{Appendix:TMC6200_Gate_Ctrl}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_Gate_Signal_H}
+\caption{Steuersignale PWM 48V von TMC6200 auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC6200_Gate_Signal_H}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC6200_Gate_Signal_L}
+\caption{Steuersignale PWM 0V von TMC6200 auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC6200_Gate_Signal_L}
 \end{figure}
 
 \newpage
@@ -160,12 +266,96 @@
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{graphics/Referenzschema_10A70V}
+	\includegraphics[width=0.9\textwidth]{graphics/Referenzschema_10A70V}
 	\caption{H-Brücke.}
 	\label{fig:Schema_H_Bruecke_und_BLDC_Ref}
 \end{figure}
 
-\todo{cite: Datenblatt UPS 10A70V Schema}
+%\todo{cite: Datenblatt UPS 10A70V Schema}
+
+\subsection{Inbetriebnahme}
+
+\subsubsection{Inbetriebnahme Setup}\label{Appendix:H_Bruecke_Setup}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle =270, width=0.9\textwidth]{graphics/3_normal}
+	\caption{Setup Inbetriebnahme H-Brücke und Motor.}
+	\label{fig:3_normal}
+\end{figure}
+
+\newpage
+
+\subsubsection{Inbetriebnahme Schaltsignale}\label{Appendix:H_Bruecke_Schaltsignale}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/OpenLoop_TestDrive2}
+	\caption{Schaltsignale während dem Openloop Testdrive. Gelb = U, Blau = V, Magenta = W}
+	\label{fig:OpenLoop_TestDrive2}
+\end{figure}
+
+\newpage
+
+\section{CUI AMT332S-V ABN-Encoder}\label{Appendix:ABC_Ecoder}
+
+\subsection{Pinout and Interface}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/Encoder_Interface}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:Encoder_Interface}
+\end{figure}
+
+\newpage
+
+\subsection{Inbetriebnahme}
+
+\subsubsection{Inbetriebnahme Setup}\label{Appendix:ABN_Setup}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Encoder_Motor}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_Encoder_Motor}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Antriebskette}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_Antriebskette}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_komplett}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_komplett}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Elektronik}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_Elektronik}
+\end{figure}
+
+\newpage
+
+\subsubsection{Encoder-Signale}\label{Appendix:ABN_Signale}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/AMT322S-V_Signal}
+	\caption{Encoder-Interface Pinout-Table. Gelb = A, Blau = B, N = Magenta}
+	\label{fig:AMT322S-V_Signal}
+\end{figure}
+
+\newpage
 
 \section{Mikrocontroller}\label{Appendix:Mikrocontroller}
 
@@ -190,8 +380,6 @@
 \end{figure}
 
 \todo{cite: Datenblatt Atmega 2560, Seite 43}
-
-\newpage
 
 \begin{figure}[h!]
 	\centering

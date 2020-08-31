@@ -1199,6 +1199,7 @@ int tmc40bit_readInt(unsigned int debug_message, unsigned char address)
  62a:	74 d2       	rcall	.+1256   	; 0xb14 <Uart_Transmit_IT_PC>
  62c:	c8 01       	movw	r24, r16
 	}
+	
 	// Return uint32_t value
 	return value;
 }
@@ -2292,7 +2293,6 @@ int main(void)
  c22:	00 00       	nop
  c24:	3a df       	rcall	.-396    	; 0xa9a <read_registers_TMC6200>
 
-    /* Replace with your application code */
     while (1) 
     {
 		_delay_ms(5000);

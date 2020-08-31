@@ -23,7 +23,6 @@ int main(void)
 	initTMC6200();											// Gate-Treiber initialisieren
 	initTMC4671_Openloop();									// FOC-Treiber initialisieren
 
-    /* Replace with your application code */
     while (1) 
     {
 		_delay_ms(5000);
