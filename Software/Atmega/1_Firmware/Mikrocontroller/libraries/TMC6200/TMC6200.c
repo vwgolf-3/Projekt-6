@@ -15,7 +15,7 @@ int tmc6200_readInt(uint8_t debug_message, uint8_t address)
 	char rbuf[6] = {'\0'};
 	
 	// Return-Value (uint32_t)
-	int value;
+	int32_t value;
 	
 	// Read-Mode (First Bit = 0)
 	address &= 0x7F;
@@ -45,7 +45,7 @@ int tmc6200_readInt(uint8_t debug_message, uint8_t address)
 	value |= rbuf[3];
 	value <<= 8;
 	value |= rbuf[4];
-	
+
 	if (debug_message == 1)
 	{
 		// Show received data via serial port
@@ -79,7 +79,7 @@ int tmc6200_readInt(uint8_t debug_message, uint8_t address)
 		Uart_Transmit_IT_PC("\r");
 	}
 	
-	// Return uint32_t value
+	// Return int32_t value
 	return value;
 }
 
@@ -87,7 +87,7 @@ void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value)
 {
 	// Buffer transmit Data
 	char tbuf[6] = {'\0'};
-
+		
 	// Write-mode (first Bit = 1)
 	address |= 0x80;
 	
@@ -99,7 +99,7 @@ void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value)
 	tbuf[2] = 0xFF & (value>>16);
 	tbuf[3] = 0xFF & (value>>8);
 	tbuf[4] = 0xFF & value;
-	
+		
 	// Show transmitted data via serial port
 
 	if (debug_message==1)

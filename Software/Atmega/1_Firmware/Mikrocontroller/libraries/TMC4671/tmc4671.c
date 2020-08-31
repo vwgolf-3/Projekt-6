@@ -27,7 +27,7 @@ void tmc4671_writeInt(unsigned int motor, unsigned char address, unsigned long v
     tmc40bit_writeInt(motor, address, value);
 }
 
-int tmc4671_readInt(unsigned int motor, unsigned char address)
+int32_t tmc4671_readInt(unsigned int motor, unsigned char address)
 {
     return tmc40bit_readInt(motor, address);
 }
@@ -101,13 +101,13 @@ void tmc40bit_writeInt(unsigned int debug_message, unsigned char address, unsign
     disable_Slave(TMC4671);
 }
 
-int tmc40bit_readInt(unsigned int debug_message, unsigned char address)
+int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
 {
     // Read-Buffer (Array uint8_t)
     char rbuf[6] = {'\0'};
 
     // Return-Value (uint32_t)
-    int value;
+    int32_t value = 0;
 
     // Read-Mode (First Bit = 0)
     address &= 0x7F;
@@ -132,7 +132,7 @@ int tmc40bit_readInt(unsigned int debug_message, unsigned char address)
     disable_Slave(TMC4671);
 
     // Generate uint32_t return value
-    value = rbuf[1];
+    value |= rbuf[1];
     value <<= 8;
     value |= rbuf[2];
     value <<= 8;
@@ -173,7 +173,7 @@ int tmc40bit_readInt(unsigned int debug_message, unsigned char address)
         Uart_Transmit_IT_PC("\r");
     }
 
-    // Return uint32_t value
+    // Return int32_t value
     return value;
 }
 
@@ -243,7 +243,7 @@ void encoder_testdrive(void)
 
 void initTMC4671_Encoder(void)
 {
-    uint8_t deb = 1;
+    uint8_t deb = 0;
 
 //====================================================================================================//
 // Status Information
@@ -637,7 +637,7 @@ void tmc4671_setActualPosition(uint8_t motor, int32_t actualPosition)
 
 int32_t tmc4671_getActualPosition(uint8_t motor)
 {
-    return (int32_t) tmc4671_readInt(motor, TMC4671_PID_POSITION_ACTUAL);
+    return tmc4671_readInt(motor, TMC4671_PID_POSITION_ACTUAL);
 }
 
 int32_t tmc4671_getActualRampPosition(uint8_t motor)

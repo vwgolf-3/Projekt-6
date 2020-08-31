@@ -86,6 +86,61 @@ void toggle_LED(void)
     LED_PORT = LED_PORT ^ (LEDW_BIT);
 }
 
+void my_itoa( int64_t z, char* buffer )
+{
+	// Reference to: https://www.mikrocontroller.net/attachment/highlight/305548
+
+	int      i = 0;
+	int      j;
+	char     tmp;
+	int64_t  u;    // In u bearbeiten wir den Absolutbetrag von z.
+	char     sflag= 0;
+
+	u= z;
+	// ist die Zahl negativ?
+	// gleich mal ein - hinterlassen und die Zahl positiv machen
+	// die einzelnen Stellen der Zahl berechnen
+	if (u< 0)
+	{
+		u= u*(-1);
+		sflag= 1;
+	}
+	do
+	{
+		buffer[i++] = '0' + (u % 10);
+		u /= 10;
+	}
+	while( u > 0 );
+	if (sflag)  { buffer[i++]= '-'; }
+
+	// den String in sich spiegeln
+	for( j = 0; j < i / 2; ++j )
+	{
+		tmp = buffer[j];
+		buffer[j] = buffer[i-j-1];
+		buffer[i-j-1] = tmp;
+	}
+
+	buffer[i] = '\0';
+}
+
+void read_Position_TMC4671(void)
+{
+	// +/- alle 100ms Position abfragen und über Seiriellen Port ausgeben
+	static uint8_t cntrr = 0;
+	if (cntrr == 100)
+	{
+		cntrr = 0;
+		int64_t val = tmc4671_getActualPosition(0);
+		char testarray[100] = {'\0'};
+		my_itoa(val, (char *)testarray);
+		Uart_Transmit_IT_PC((char *)testarray);
+		Uart_Transmit_IT_PC("\r");
+	}
+	cntrr++;
+	_delay_ms(1);
+}
+
 char check_Communication_Input_UART_0(void)
 {
     char ret = 0;
@@ -116,38 +171,21 @@ void proceed_Communication_Input_UART_0(void)
 {
     char * ch = "Proceed UART 0: \n\r";
     Uart_Transmit_IT_PC(ch);
-    uint16_t cnt = 0;
-
-    char itoa_buff[20] = {'\0'};
-    for (int32_t haha = 1 ; haha <= 12 ; haha++)
-    {
-        tmc4671_setAbsolutTargetPosition(0,haha*1000000);
-        while (cnt <= 1000)
-        {
-            cnt++;
-            _delay_ms(1);
-        }
-        cnt = 0;
-    }
-
-    tmc4671_setAbsolutTargetPosition(0,0);
-    uint32_t pos;
-    while (cnt <= 1000)
-    {
-        pos = tmc4671_getActualPosition(1);
-        itoa(0xFF && (pos>>16), (char *)itoa_buff, 16);
-        Uart_Transmit_IT_PC((char *)itoa_buff);
-        itoa(pos, (char *)itoa_buff, 16);
-        Uart_Transmit_IT_PC((char *)itoa_buff);
-        if (pos < 0)
-        {
-            Uart_Transmit_IT_PC("Yes\r");
-        }
-        cnt++;
-        _delay_ms(1);
-    }
-    Uart_Transmit_IT_PC("\r");
-
+	if (INPUT_UART_0[0]=='0')
+	{
+		tmc4671_setAbsolutTargetPosition(0,0);
+		Position = 0;
+	}
+	else if (INPUT_UART_0[0]=='1')
+	{
+		fuelle_getraenk(50000);
+		Position = 0;
+	}
+	else
+	{
+		Position += 10000000;
+		tmc4671_setAbsolutTargetPosition(0,Position);
+	}
 }
 
 char check_Communication_Input_UART_1(void)

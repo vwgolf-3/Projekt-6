@@ -30,32 +30,11 @@ int main(void)
 
     while (1)
     {
-        // Über den seriellen Port ist eine Eingabe mit abschliessendem CR einzugeben.
-        // So wird die Position inkrementiert
+        // Wird ein CR eingegeben durch dücken der Enter-Taste, inkrementiert die Position
         // Wird '0' eingegeben, so Springt der Motor auf Position 0 wie zu Beginn.
+		// WIrd '1' eingegeben, so läuft ein Testskript durch 12 Positionen und dann wieder an die Startposition.
 
         check_Communication_Input_UART();
-		
-        read_Position_TMC4671();
     }
 }
 
-void read_Position_TMC4671(void)
-{
-    // +/- alle 10sek. Position abfragen und über Seiriellen Port ausgeben
-    cntrr++;
-    _delay_ms(1);
-    if (cntrr == 100)
-    {
-        cntrr = 0;
-//         if(tmc4671_getActualPosition(show_serial_port)>0x00010000)
-// 		{
-// 			tmc4671_setAbsolutTargetPosition(0,0);
-// 		}
-	int64_t val = (int64_t) tmc4671_getActualPosition(1);
-	char testarray[100] = {'\0'};
-	my_itoa(val, (char *)testarray);
-	Uart_Transmit_IT_PC((char *)testarray);
-	Uart_Transmit_IT_PC("\r");
-    }
-}

@@ -13,24 +13,25 @@
 // MainLoop
 int main(void)
 {
-//     init_LED();
-// 
-//     PWM_init();
+    init_LED();
+
+    PWM_init();
 
     interfaces_init();
 
     devices_init();
 
-//     speicher_init();
+    speicher_init();
 
-//     nextion_change_page(STARTANZEIGE);
+    nextion_change_page(STARTANZEIGE);
 
-//     setze_startanzeige(aktuellesGetraenk);                  // Startanzeige des Displays setzen
+    setze_startanzeige(aktuellesGetraenk);                  // Startanzeige des Displays setzen
 
     // Mainroutine
     while (1)
     {
         check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
+		read_Position_TMC4671();
     }
     return 0;                                               // Loop erneut beginnen
 }

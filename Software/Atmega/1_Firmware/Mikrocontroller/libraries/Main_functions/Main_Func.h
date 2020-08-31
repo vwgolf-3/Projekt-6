@@ -24,6 +24,8 @@ void devices_init(void);
 void interfaces_init(void);
 void heartbeat_LED(void);
 void toggle_LED(void);
+void my_itoa( int64_t z, char* buffer );
+void read_Position_TMC4671(void);
 char check_Communication_Input_UART_0(void);
 void proceed_Communication_Input_UART_0(void);
 char check_Communication_Input_UART_1(void);

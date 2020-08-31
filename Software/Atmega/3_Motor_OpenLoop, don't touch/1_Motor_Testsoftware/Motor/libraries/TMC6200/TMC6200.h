@@ -14,8 +14,8 @@
 #include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
 
-int tmc6200_readInt(uint8_t debug_message, uint8_t address);
-void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value);
+int tmc6200_readInt(uint8_t motor, uint8_t address);
+void tmc6200_writeInt(uint8_t motor, uint8_t address, uint32_t value);
 void initTMC6200(void);
 void read_registers_TMC6200(void);
 

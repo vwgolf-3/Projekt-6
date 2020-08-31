@@ -31,10 +31,8 @@ void proceed_Communication_Input_UART_2(void);
 void check_Communication_Input_UART(void);
 void check_Communication_Input_MFRC522(void);
 
-void testFunc(void);
 void my_itoa( int64_t z, char* buffer );
-int hexadecimalToDecimal(char hexVal[]);
-
+void read_Position_TMC4671(void);
 
 //Variabeln UART_0
 extern unsigned char cntr_UART_0;
