@@ -229,13 +229,13 @@ void encoder_testdrive(void)
         // Switch to torque mode
         tmc4671_writeInt(deb, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
 
-//         // Rotate right
-//         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0x03E80000);
-//         _delay_ms(3000);
-// 
-//         // Rotate left
-//         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0xFC180000);
-//         _delay_ms(3000);
+        // Rotate right
+        tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0x03E80000);
+        _delay_ms(3000);
+
+        // Rotate left
+        tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0xFC180000);
+        _delay_ms(3000);
 
         // Stop
         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
@@ -243,7 +243,7 @@ void encoder_testdrive(void)
 
 void initTMC4671_Encoder(void)
 {
-    uint8_t deb = 0;
+    uint8_t deb = 1;
 
 //====================================================================================================//
 // Status Information
@@ -286,8 +286,8 @@ void initTMC4671_Encoder(void)
         tmc4671_writeInt(deb, TMC4671_dsADC_MCLK_A,                       0x20000000);        // writing value 0x20000000 = 536870912 = 0.0 to address 3 = 0x05(dsADC_MCLK_A)
         tmc4671_writeInt(deb, TMC4671_dsADC_MCLK_B,                       0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 4 = 0x06(dsADC_MCLK_B)
         tmc4671_writeInt(deb, TMC4671_dsADC_MDEC_B_MDEC_A,                0x014E014E);        // writing value 0x014E014E = 21889358 = 0.0 to address 5 = 0x07(dsADC_MDEC_B_MDEC_A)
-        tmc4671_writeInt(deb, TMC4671_ADC_I0_SCALE_OFFSET,                0xFF008234);        // writing value 0xFF008234 = 0 = 0.0 to address 7 = 0x09(ADC_I0_SCALE_OFFSET)
-        tmc4671_writeInt(deb, TMC4671_ADC_I1_SCALE_OFFSET,                0xFF00890A);        // writing value 0xFF00890A = 0 = 0.0 to address 6 = 0x08(ADC_I1_SCALE_OFFSET)
+        tmc4671_writeInt(deb, TMC4671_ADC_I0_SCALE_OFFSET,                0xFF00812E);        // writing value 0xFF008234 = 0 = 0.0 to address 7 = 0x09(ADC_I0_SCALE_OFFSET)
+        tmc4671_writeInt(deb, TMC4671_ADC_I1_SCALE_OFFSET,                0xFF008EF3);        // writing value 0xFF00890A = 0 = 0.0 to address 6 = 0x08(ADC_I1_SCALE_OFFSET)
         _delay_ms(100);
 		
 //  tmc4671_writeInt(deb, TMC4671_ADC_RAW_ADDR,                       0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 1 = 0x03(ADC_RAW_ADDR)
@@ -315,7 +315,7 @@ void initTMC4671_Encoder(void)
 // ABN encoder settings
 //====================================================================================================//
 
-        tmc4671_writeInt(deb, TMC4671_ABN_DECODER_MODE,                   0x00001000);        // writing value 0x00001000 = 4096 = 0.0 to address 29 = 0x25(ABN_DECODER_MODE)
+        tmc4671_writeInt(deb, TMC4671_ABN_DECODER_MODE,                   0x0000100A);        // writing value 0x00001000 = 4096 = 0.0 to address 29 = 0x25(ABN_DECODER_MODE)
         tmc4671_writeInt(deb, TMC4671_ABN_DECODER_PPR,                    0x00002000);        // writing value 0x00002000 = 8192 = 0.0 to address 30 = 0x26(ABN_DECODER_PPR)
         tmc4671_writeInt(deb, TMC4671_ABN_DECODER_COUNT,                  0x00000000);        // writing value 0x000013A9 = 5033 = 0.0 to address 31 = 0x27(ABN_DECODER_COUNT)
         tmc4671_writeInt(deb, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET,     0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 33 = 0x29(ABN_DECODER_PHI_E_PHI_M_OFFSET)

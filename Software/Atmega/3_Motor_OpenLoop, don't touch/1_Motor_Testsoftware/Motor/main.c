@@ -21,7 +21,7 @@ int main(void)
 	SPI_init();												// SPI-Schnittstelle initialisieren
 	UART_init();											// UART-Schnittstelle initialisieren
 	initTMC6200();											// Gate-Treiber initialisieren
-	initTMC4671_Openloop();									// FOC-Treiber initialisieren
+	TMC4671_init();									// FOC-Treiber initialisieren
 
     while (1) 
     {

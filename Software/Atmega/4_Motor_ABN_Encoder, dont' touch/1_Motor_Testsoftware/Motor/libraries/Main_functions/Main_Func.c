@@ -54,6 +54,7 @@ void proceed_Communication_Input_UART_0(void)
 		Position = 0;
 	}
 	else if (INPUT_UART_0[0]=='1')
+
 	{
 		uint32_t Position = 1000000;
 		for (int i = 1 ; i <= 12 ; i++)

@@ -52,15 +52,15 @@ void speicher_init()
     Uart_Transmit_IT_PC("Zutaten einkaufen...");
     nextion_change_page(25);
     nextion_setText("fehlertxt", "Zutaten einkaufen...");
-    zutaten_init();                                         // Zutaten initialisieren
+//     zutaten_init();                                         // Zutaten initialisieren
 
     Uart_Transmit_IT_PC("Cocktailbuch lesen...");
     nextion_setText("fehlertxt", "Cocktailbuch lesen...");
-    cocktails_init();                                       // Cocktails initialisieren
+//     cocktails_init();                                       // Cocktails initialisieren
 
     Uart_Transmit_IT_PC("RFID-Tags sammeln...");
     nextion_setText("fehlertxt", "RFID-Tags sammeln...");
-    RFID_init();                                            // Tags initialisieren
+//     RFID_init();                                            // Tags initialisieren
 }
 
 void display_init()
@@ -169,19 +169,46 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
-    char * ch = "Proceed UART 0: \n\r";
-    Uart_Transmit_IT_PC(ch);
+	char * ch = "Proceed UART 0: \n\r";
+	Uart_Transmit_IT_PC(ch);
+	
+	
 	if (INPUT_UART_0[0]=='0')
 	{
 		tmc4671_setAbsolutTargetPosition(0,0);
 		Position = 0;
 	}
 	else if (INPUT_UART_0[0]=='1')
+
 	{
-		fuelle_getraenk(50000);
-		Position = 0;
+		uint32_t Position = 1000000;
+		for (int i = 1 ; i <= 12 ; i++)
+		{
+			tmc4671_setAbsolutTargetPosition(0, i * Position);
+			while(((tmc4671_getActualPosition(0) <= (i* Position-200))||(tmc4671_getActualPosition(0)>= (i*Position+200))))
+			{
+				read_Position_TMC4671();
+			}
+			
+			Uart_Transmit_IT_PC("Position ");
+			char buff[5] = {'\0'};
+			itoa(i, (char *)buff, 10);
+			Uart_Transmit_IT_PC((char *)buff);
+			Uart_Transmit_IT_PC(" erreicht\r");
+			_delay_ms(1000);
+		}
+		tmc4671_setAbsolutTargetPosition(0,0);
+		while((tmc4671_getActualPosition(0) >= (200)))
+		{
+			read_Position_TMC4671();
+		}
+		Uart_Transmit_IT_PC("Ausgangspunkt erreicht.");
 	}
-	else
+	else if (INPUT_UART_0[0] == '2')
+	{
+		Position = 1;
+	}
+	else if (INPUT_UART_0[0] == 0)
 	{
 		Position += 10000000;
 		tmc4671_setAbsolutTargetPosition(0,Position);

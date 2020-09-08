@@ -154,12 +154,12 @@ void initTMC6200(void)
 	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
 	_delay_ms(1000);
 	
-	tmc6200_writeInt(0, TMC6200_GCONF, 0x00000000);		// current amplification: 20
-	tmc6200_writeInt(0, TMC6200_GSTAT, 0x00000000);		// current amplification: 20
-	tmc6200_writeInt(0, TMC6200_OTP_PROG, 0x00000000);     //
-	tmc6200_writeInt(0, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
-	tmc6200_writeInt(0, TMC6200_SHORT_CONF, 0x13010606);	// default
-	tmc6200_writeInt(0, TMC6200_DRV_CONF, 0x00080004);		// DRVSTRENGTH = 2 (medium), BBMCLKS: 4
+	tmc6200_writeInt(1, TMC6200_GCONF, 0x00000000);		// current amplification: 20
+	tmc6200_writeInt(1, TMC6200_GSTAT, 0x00000000);		// current amplification: 20
+	tmc6200_writeInt(1, TMC6200_OTP_PROG, 0x00000000);     //
+	tmc6200_writeInt(1, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
+	tmc6200_writeInt(1, TMC6200_SHORT_CONF, 0x13010606);	// default
+	tmc6200_writeInt(1, TMC6200_DRV_CONF, 0x00080004);		// DRVSTRENGTH = 2 (medium), BBMCLKS: 4
 
 // 		tmc6200_writeInt(MOTOR0, TMC6200_GCONF, 0x00000010);// current amplification: 10
 // 		tmc6200_writeInt(0, TMC6200_OTP_PROG, 0x00000000);

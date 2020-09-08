@@ -39,6 +39,7 @@ struct getraenk_file_2 {
 typedef struct getraenk_file_2 getraenk_file_2_t;
 
 getraenk_file_t *aktuellesGetraenk_file;
+getraenk_file_t *bufferGetraenk_file;
 getraenk_file_t * head_getraenk_file;
 getraenk_file_t * tail_getraenk_file;
 

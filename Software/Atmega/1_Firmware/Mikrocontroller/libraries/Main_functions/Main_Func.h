@@ -14,6 +14,7 @@
 #include "../TMC4671/TMC4671.h"
 #include "../TMC6200/TMC6200.h"
 #include "../LED/LED.h"
+#include "../Software_Ramp/ramp1.h"
 
 #include <util/delay.h>
 

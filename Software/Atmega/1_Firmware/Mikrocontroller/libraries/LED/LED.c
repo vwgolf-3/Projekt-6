@@ -14,7 +14,7 @@ void init_LED(void)
     state = 0;
     rainbow_i = 0;
     light = RAINBOW_LED;
-    sei();
+	PWM_init();
 }
 
 void PWM_init(void)

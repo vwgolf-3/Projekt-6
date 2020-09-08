@@ -48,6 +48,7 @@ C_SRCS +=  \
 ../libraries/RingBuffer/ring_buffer.c \
 ../libraries/SD-Karte/FAT32.c \
 ../libraries/SD-Karte/SD_routines.c \
+../libraries/Software_Ramp/ramp1.c \
 ../libraries/Software_SPI/Software_SPI.c \
 ../libraries/SPI/SPI.c \
 ../libraries/TMC4671/tmc4671.c \
@@ -74,6 +75,7 @@ Nextion_Display.o \
 ring_buffer.o \
 FAT32.o \
 SD_routines.o \
+ramp1.o \
 Software_SPI.o \
 SPI.o \
 tmc4671.o \
@@ -93,6 +95,7 @@ Nextion_Display.o \
 ring_buffer.o \
 FAT32.o \
 SD_routines.o \
+ramp1.o \
 Software_SPI.o \
 SPI.o \
 tmc4671.o \
@@ -112,6 +115,7 @@ Nextion_Display.d \
 ring_buffer.d \
 FAT32.d \
 SD_routines.d \
+ramp1.d \
 Software_SPI.d \
 SPI.d \
 tmc4671.d \
@@ -131,6 +135,7 @@ Nextion_Display.d \
 ring_buffer.d \
 FAT32.d \
 SD_routines.d \
+ramp1.d \
 Software_SPI.d \
 SPI.d \
 tmc4671.d \
@@ -223,6 +228,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./SD_routines.o: ../libraries/SD-Karte/SD_routines.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./ramp1.o: ../libraries/Software_Ramp/ramp1.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

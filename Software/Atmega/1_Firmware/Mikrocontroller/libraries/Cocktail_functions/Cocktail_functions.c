@@ -123,9 +123,14 @@ void fuelle_getraenk(uint32_t fuellmenge)
     // Switche durch alle Getränke
     do
     {
-        // Falls das Getränk vorkommt
+ 			Uart_Transmit_IT_PC(aktuelleZutatInMaschine->name);
+ 			Uart_Transmit_IT_PC("\r");
+       // Falls das Getränk vorkommt
         if ((*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->stelle) > 0) && (stop == 0))
         {
+			Uart_Transmit_IT_PC(aktuelleZutatInMaschine->name);
+			Uart_Transmit_IT_PC("\r");
+			
             if (aktuelleZutatInMaschine->kohlensaeure == 0)
             {
                 // Bewege Motor an stelle XY
@@ -146,12 +151,11 @@ void fuelle_getraenk(uint32_t fuellmenge)
                 uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp_5dl[i]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
 
                 uint8_t fuellen = 1;
-                uint8_t newval = lese_sensor(i);
+                uint8_t newval = lese_sensor(aktuelleZutatInMaschine->stelle);
 
-                schalte_pumpe_ein(i);
+                schalte_pumpe_ein(aktuelleZutatInMaschine->stelle);
                 while (fuellen)
                 {
-                    asm("nop");
                     // Polle PWM-Signal des Durchflusssensor
                     static uint8_t oldval=0;
                     static uint32_t count=0;
@@ -166,7 +170,7 @@ void fuelle_getraenk(uint32_t fuellmenge)
                         // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
                         if(count++ > Menge)
                         {
-                            schalte_pumpe_aus(i);
+                            schalte_pumpe_aus(aktuelleZutatInMaschine->stelle);
                             count = 0;
                             fuellen = 0;
                         }
@@ -184,6 +188,7 @@ void fuelle_getraenk(uint32_t fuellmenge)
                                 }
                                 nextion_change_page(ABBRUCHANZEIGE);
                                 _delay_ms(2000);
+
                                 setze_startanzeige(aktuellesGetraenk);
                                 count = 0;
                                 fuellen = 0;
@@ -670,6 +675,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 
                         // Und schreibe Wert in die richtige Position
                         *(uint8_t *)(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->stelle) = atoi(ptr);
+						aktuelleZutatInMaschine = tail_zut_in_Maschine;
                     }
 
                     aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
@@ -1142,45 +1148,68 @@ void send_List_Getraenke (void)
 void send_List_Zutaten (void)
 {
     char buff[512] = {'\0'};
+    char buff2[512] = {'\0'};
+    char itoa_buff[10] = {'\0'};
+	uint8_t counter = 0;
     char * ptr = buff;
+    char * ptr2 = buff2;
+	
+
 
     aktuelleZutatInMaschine = tail_zut_in_Maschine;
 
-    strcat(ptr, "zutaten:");
-    strcat(ptr, aktuelleZutatInMaschine->name);
-    aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+    strcpy(ptr2, "zutaten:");
+	uint8_t first = 1;
     do
     {
         if (strcmp("(keine)", aktuelleZutatInMaschine->name)!=0)
         {
-            strcat(ptr, ",");
-            strcat(ptr, aktuelleZutatInMaschine->name);
+			if (first == 1)
+			{
+	            strcat(ptr, aktuelleZutatInMaschine->name);		
+				first = 0;	
+			}
+			else
+			{
+				strcat(ptr, ",");
+				strcat(ptr, aktuelleZutatInMaschine->name);
+
+			}
+			counter ++;
         }
         aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
     } while (aktuelleZutatInMaschine != tail_zut_in_Maschine);
-
+	itoa(counter, (char *)itoa_buff, 10);
+	strcat(ptr2, (char*)itoa_buff);
+    strcat(ptr2,":");
+	strcat(ptr2, ptr);
     strcat(ptr,":");
-    strcat(ptr,";");
-    Uart_Transmit_IT_ESP(ptr);
-    Uart_Transmit_IT_PC(ptr);
+    Uart_Transmit_IT_ESP(ptr2);
+    Uart_Transmit_IT_PC(ptr2);
 }
 
 void ESP_Getraenk(void)
 {
-    char buff[21] = {'\0'};
     while (check_Communication_Input_UART_2()==0)
         ;
-    Uart_Transmit_IT_PC((char *)INPUT_UART_2);
-    strcpy((char *)buff, (char *)INPUT_UART_2);
-    // Altes aktuelles Getraenk speichern, neues aktuelles Getraenk laden, Auf Zubereitungsseite wechseln, Zubereiten oder nicht, altes aktuelles Getraenk wieder laden.
+     char buff[256] = {'\0'};
+     char * ptr = buff;
+     char delimiter[] = ",:\r";
+
+     strcpy(ptr, (const char *)INPUT_UART_2);
+     //Name
+     ptr = strtok(ptr, delimiter);
+     Uart_Transmit_IT_PC("\rCocktail: ");
+     Uart_Transmit_IT_PC(ptr);
 
     aktuellesGetraenk_file = tail_getraenk_file;
     lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
 
-    while (strcmp(aktuellesGetraenk->name, buff)!=0)
+    while (strcmp(aktuellesGetraenk->name, ptr)!=0)
     {
         aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
         lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+		Uart_Transmit_IT_PC("While\r");
     }
     nextion_change_page(ZUBABFRAGE);
 }
@@ -1201,8 +1230,8 @@ void Getraenk_erstellt()
     strcpy(buff, (char *)INPUT_UART_2);
     //Name
     ptr = strtok(ptr, delimiter);
-//  Uart_Transmit_IT_PC("\rName: ");
-//  Uart_Transmit_IT_PC(ptr);
+ Uart_Transmit_IT_PC("\rName: ");
+ Uart_Transmit_IT_PC(ptr);
     strcat(ptr2, "Name:");
     strcat(ptr2, ptr);
     strcat(ptr2, "\rMengen:\r");
@@ -1213,19 +1242,19 @@ void Getraenk_erstellt()
     for (int count = 0 ; count < 12 ; count++)
     {
         // Zutat 1 Name
-//  Uart_Transmit_IT_PC("\rZutat");
-//  itoa((count + 1), (char *)buff2, 10);
-//  Uart_Transmit_IT_PC(buff2);
-//  Uart_Transmit_IT_PC(": ");
+ Uart_Transmit_IT_PC("\rZutat");
+ itoa((count + 1), (char *)buff2, 10);
+ Uart_Transmit_IT_PC(buff2);
+ Uart_Transmit_IT_PC(": ");
         ptr = strtok(NULL, delimiter);
-//  Uart_Transmit_IT_PC(ptr);
+ Uart_Transmit_IT_PC(ptr);
         strcpy((char *)temp2, ptr);
 
         // Zutat 1 Menge
-//  Uart_Transmit_IT_PC("\rMenge");
-//  itoa((count + 1), (char *)buff2, 10);
-//  Uart_Transmit_IT_PC(buff2);
-//  Uart_Transmit_IT_PC(": ");
+ Uart_Transmit_IT_PC("\rMenge");
+ itoa((count + 1), (char *)buff2, 10);
+ Uart_Transmit_IT_PC(buff2);
+ Uart_Transmit_IT_PC(": ");
         ptr = strtok(NULL, delimiter);
         if (atoi(ptr)>0)
         {
@@ -1246,17 +1275,17 @@ void Getraenk_erstellt()
             strcat(ptr2, ptr);
             strcat(ptr2, "\r");
         }
-//  Uart_Transmit_IT_PC(ptr);
+ Uart_Transmit_IT_PC(ptr);
         _delay_ms(200);
     }
     strcat(ptr2, ";\r");
     strcat(ptr2, "Alkohol:");
     itoa(alkohol, (char *)buff2, 10);
     strcat(ptr2, (char *)buff2);
-    strcat(ptr2, "\rBild:24");
+    strcat(ptr2, "\rBild:32");
     strcat(ptr2, "~");
 
-//  Uart_Transmit_IT_PC(ptr2);
+ Uart_Transmit_IT_PC(ptr2);
 
     // Filename erstellen
     char buff97[20] = {'\0'};
@@ -1268,6 +1297,6 @@ void Getraenk_erstellt()
 
     // An dynamic linked list anhängen
     getraenk_file_t * tmp2;
-    tmp2 = create_new_getraenk_file((head_getraenk_file->file)+1);
+    tmp2 = create_new_getraenk_file((head_getraenk_file_2->file)+1);
     head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
 }

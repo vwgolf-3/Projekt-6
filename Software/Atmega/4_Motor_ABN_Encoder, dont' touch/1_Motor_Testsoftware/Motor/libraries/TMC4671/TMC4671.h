@@ -13,11 +13,6 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
-#define F_CPU 16000000UL
-// Testfunktion 3s links / 3s rechts
-#include <util/delay.h>
-#include <stdlib.h>
-
 #include "../TMC-API/tmc/helpers/API_Header.h"
 #include "TMC4671_Register.h"
 #include "TMC4671_Constants.h"

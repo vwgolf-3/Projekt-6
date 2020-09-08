@@ -259,6 +259,7 @@ void check_startseite(uint8_t button)
                     - Variable für Listenseite auf 0 setzen
                     - Erstelle ersten Listenabschnitt mit Cocktailnamen
         */
+        bufferGetraenk_file = aktuellesGetraenk_file;
         nextion_change_page(LISTENANZEIGE);
         i_Liste = 0;
         erstelle_Liste_name("cocktail");
@@ -418,6 +419,8 @@ void check_listenanzeige(uint8_t button)
         block_list_hoch = 0;
         block_list_runter = 0;
         i_Liste = 0;
+        aktuellesGetraenk_file = bufferGetraenk_file;
+        lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
         nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
         break;
@@ -461,7 +464,7 @@ void check_zubbildschirm(uint8_t button)
     */
     case ABBRUCHZUB:
         stop = 1;
-        break;
+    break;
     }
 }
 
@@ -1338,14 +1341,22 @@ void check_erstanzeige1(uint8_t button)
                     - Listenabschnitt auf den Ersten setzen
                     - Zutaten in Liste schreiben
         */
-        nextion_change_page(ERSTANZEIGE2);
-        for (int i = 0 ; i < 12 ; i++)
+
+        if (strlen(buff_name) == 0)
         {
-            *(aktuellesGetraenk->mengen + i) = 0;
+            nextion_setText("nameeingtxt", "Bitte mindestens ein Zeichen eingeben.");
         }
-        counter = 0;
-        i_Liste = 0;
-        erstelle_Liste_zutat("zutat");
+        else
+        {
+            nextion_change_page(ERSTANZEIGE2);
+            for (int i = 0 ; i < 12 ; i++)
+            {
+                *(aktuellesGetraenk->mengen + i) = 0;
+            }
+            counter = 0;
+            i_Liste = 0;
+            erstelle_Liste_zutat("zutat");
+        }
         break;
     }
 
@@ -1394,6 +1405,7 @@ void check_erstanzeige2(uint8_t button)
         Funktionen. Der Speichern-Button wird im folgenden aufgeführt.
     */
 
+		uint8_t val = 0;
 
     // Initialisierung für Erstellung eines neuen Getränkefiles
     getraenk_file_t * tmp2;
@@ -1423,6 +1435,16 @@ void check_erstanzeige2(uint8_t button)
                     - i_Liste für Listenabschnitt auf 0 setzen
                     - buff_name auf '\0' initialisieren für nächstes Getränk
         */
+		
+		
+        for (int count = 0 ; count <12; count++)
+        {
+	        val += *(aktuellesGetraenk->mengen+count);
+        }
+
+        if (val == 100)
+        {
+			
         nextion_change_page(RFIDFEHLER);
         nextion_setText("fehlertxt", "Wird gespeichert...");
         strcpy(aktuellesGetraenk->name, (const char *)buff_name);
@@ -1434,41 +1456,41 @@ void check_erstanzeige2(uint8_t button)
         aktuelleZutatInMaschine = tail_zut_in_Maschine;
         do
         {
-            if (*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->stelle) > 0)
-            {
-                if (aktuelleZutatInMaschine->alkohol == 1)
-                {
-                    alkohol = 1;
-                }
+	        if (*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->stelle) > 0)
+	        {
+		        if (aktuelleZutatInMaschine->alkohol == 1)
+		        {
+			        alkohol = 1;
+		        }
 
-                if (aktuelleZutatInMaschine->kohlensaeure == 1)
-                {
-                    kohlensaeure = 1;
-                }
-            }
-            aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+		        if (aktuelleZutatInMaschine->kohlensaeure == 1)
+		        {
+			        kohlensaeure = 1;
+		        }
+	        }
+	        aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
         } while (aktuelleZutatInMaschine!= tail_zut_in_Maschine);
         aktuellesGetraenk->alkohol = alkohol;
 
         // Suche von 1 bis 100 durch die Files
         for (int8_t count = 1 ; count <= 100; count++) {
 
-            // Text erstellen, um File-Nr. zu suchen.
-            char buff[15] = {'\0'};
-            itoa(count, (char *)buff,10);
-            strcat((char *)buff, (const char *)".txt");
+	        // Text erstellen, um File-Nr. zu suchen.
+	        char buff[15] = {'\0'};
+	        itoa(count, (char *)buff,10);
+	        strcat((char *)buff, (const char *)".txt");
 
-            // Erstes nicht existierendes File suchen
-            if(readFile(VERIFY, (unsigned char *)buff)!=1)
-            {
-                // File speichern
-                erstelle_File(count, buff_name, alkohol, kohlensaeure);
-                tmp2 = create_new_getraenk_file(count);
-                head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
-                count = 100;
-                aktuellesGetraenk_file = head_getraenk_file;
-                lese_textfile_in_getraenk(head_getraenk_file->file);
-            }
+	        // Erstes nicht existierendes File suchen
+	        if(readFile(VERIFY, (unsigned char *)buff)!=1)
+	        {
+		        // File speichern
+		        erstelle_File(count, buff_name, alkohol, kohlensaeure);
+		        tmp2 = create_new_getraenk_file(count);
+		        head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+		        count = 100;
+		        aktuellesGetraenk_file = head_getraenk_file;
+		        lese_textfile_in_getraenk(head_getraenk_file->file);
+	        }
         }
         nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
@@ -1476,7 +1498,12 @@ void check_erstanzeige2(uint8_t button)
         i_Liste = 0;
         for (int i = 0 ; i <20 ; i ++)
         {
-            buff_name[i] = '\0';
+	        buff_name[i] = '\0';
+        }
+        }
+        else
+        {
+	        nextion_setText("t0", "Noch nicht 100% ausgewählt.");
         }
         break;
     }
@@ -1834,12 +1861,19 @@ void check_fluessanzeige2(uint8_t button)
                     - Name in aktuellesGetraenk schreiben
                     - i_Liste für Listenabschnitt auf 0 setzen
         */
-        nextion_change_page(FLUESSANZEIGE4-1);
-        uint8_t len = strlen((const char *)buff_name);
-        for (int count = 0 ; count < len + 1; count++)
+        if (strlen(buff_name) == 0)
         {
-            *(aktuelle_zutat->name + count) = *(buff_name + count);
+	        nextion_setText("neuefluesstxt", "Bitte mindestens ein Zeichen eigeben.");
         }
+        else
+        {
+	        nextion_change_page(FLUESSANZEIGE4-1);
+	        uint8_t len = strlen((const char *)buff_name);
+	        for (int count = 0 ; count < len + 1; count++)
+	        {
+	            *(aktuelle_zutat->name + count) = *(buff_name + count);
+	        }
+		}
         break;
     }
 }
@@ -2268,9 +2302,9 @@ void schreibe_Getraenk_in_tag(uint8_t nr)
     char * ptr = buffer;
 
     strcat(ptr, "tagzuweisungup:");
-    char buff[5] = {'\0'};
-    itoa(aktueller_tag->tag_nummer+1, buff, 10);
-    strcat(ptr, buff);
+    char itoa_buff[5] = {'\0'};
+    itoa(aktueller_tag->tag_nummer+1, itoa_buff, 10);
+    strcat(ptr, itoa_buff);
     strcat(ptr, ":");
     strcat(ptr, aktuellesGetraenk->name);
 
@@ -2278,6 +2312,21 @@ void schreibe_Getraenk_in_tag(uint8_t nr)
     Uart_Transmit_IT_ESP(ptr);
     Uart_Transmit_IT_PC(ptr);
     strcpy((char *)aktueller_tag->cocktail_name, (const char *)aktuellesGetraenk->name);
+	
+	nextion_change_page(RFIDFEHLER);
+	char * itoa_ptr = itoa_buff;
+	
+	strcpy(ptr, "Tag-Nr.");
+	itoa(aktueller_tag->tag_nummer, itoa_ptr, 10);
+	strcat(ptr, itoa_ptr);
+	strcat(ptr, " wurde ");
+	strcat(ptr, aktueller_tag->cocktail_name);
+	strcat(ptr, " zugeordnet. :)");
+
+	
+	nextion_setText("fehlertxt",ptr);
+	_delay_ms(2000);
+	
     nextion_change_page(STARTANZEIGE);
     setze_startanzeige(aktuellesGetraenk);
 }
