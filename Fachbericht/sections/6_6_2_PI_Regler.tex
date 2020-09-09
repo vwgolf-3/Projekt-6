@@ -3,17 +3,45 @@
 
 \todo{cite: https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit\_Patrick\_Stahl.pdf}
 
-Das Verhalten des Motors wird durch den Stromfluss bestimmt. Je Grösser der Strom, desto grösser das Drehmoment. Der PI-Regler des Stromregelkreises ist
+Die Regler, welche im FOC-Treiber integriert sind, werden verwendet, um einen Motor an eine bestimmte Position zu fahren, mit einer bestimmte Geschwindigkeit drehen oder ein bestimmtes Drehmoment anzulegen. Im Gegensatz zu einem Motor, dem nur eine Spannung vorgegeben wird, kann bei einer Abweichung des vorgegebenen Parameters nachgeregelt werden. So kann beispielsweise bei grösserer Belastung die angelegte Spannung erhöht werden, sodass die vorgegebene Geschwindigkeit gehalten werden kann.
 
+Für die Regelung eines Motors können verschieden aufgebaut sein. Die Regelstruktur, wie sie im FOC-Treiber TMC4671 integriert ist, ist eine Kaskadenregelung. Eine Kaskadenregelung besteht in der Regel aus drei überlagerten Regelkreisen. Der innerste Regelkreis ist der Stromregelkreis. Dieser ist dem Geschwindigkeitsregelkreis unterlagert. Der Geschwindigkeitsregelkreis ist wiederum den Positionsregelkreis unterlagert. Bei einer Kaskadenregelung ist die Ausgangsgrösse des überlagerten Regelkreises die Eingangsgrösse des unterlagerten Regelkreises. Aus stabilitätsgründen ist darauf zu achten, dass die Nachstellzeit der äusseren Regelkreise grösser ist, alsi die der Inneren.
 
-Berechnungen:
+Die Regelung im TMC4671 besteht aus einem innersten, schnellen Stromregelkreis. Dieser soll in der Lage sein, schnellst möglich mit einer Erhöhung des Drehmomentes auf eine Abweichung zu reagieren. Ausserdem gibt der Stromregelkreis die Kommutierung des Motors vor.
 
-Gegeben:
+Der Geschwindigkeitsregelkreis ist dem Stromregelkreis überlagert. Weicht die aktuelle Geschwindigkeit von der vorgegebenen Geschwindigkeit ab, so gibt der Geschwindigkeitsregelkreis dem Stromregelkreis eine Abweichung vor, wodurch der Strom durch die Spulen und somit das Drehmoment erhöht oder gesenkt wird.
 
-Zeitkonstante Motor:\\
+Der Positionsregelkreis ist dem Geschwindigkeitskreis überlagert. Weicht die aktuelle Position von der vorgegebenen Position ab, so gibt der Positionsregelkreis dem Geschwindigkeitsregelkreis eine Abweichung vor, wodurch der Geschwindigkeitsregelkreis in die erforderliche Richtung korrigiert.
 
-\begin{tabular}{|l|c|c|c|}
-Wicklungswiderstad & = & 1.4 & R $[\Omega]$ \\
-Wicklungsinduktivität & = & 2.57 & L $[mH]$ \\
-\end{tabular}
+All diese Parameter werden mit Limits geschützt. So kann der Strom durch die Spulen begrenzt werden, eine Maximalgeschwindigkeit definiert werden und die Enden der Positionen vorgegeben werden.
+
+Die Werte der PI-Regler wurden Experimentell bestimmt und an den Partymixer angepasst. Dabei wurden die Register mit folgenden Werten beschrieben:
+
+\begin{tabularx}{\linewidth}{|l|X|X|l|}
+\hline
+\textbf{Regelkreis} & \textbf{P-Anteil} & \textbf{I-Anteil} & \textbf{Nachstellzeit}\\
+\hline
+Drehmoment & 100 & 1200 & \\
+\hline
+Fluss & 100 & 1200 & \\
+\hline
+Geschwindigkeit & 2000 & 300 & \\
+\hline
+Position & 100 & 0 & \\
+\hline
+\end{tabularx}
+
+Die Limits wurden folgendermassen gesetzt:
+
+\begin{tabularx}{\linewidth}{|l|X||l|X|}
+\hline
+\textbf{Limit} & \textbf{Wert} & \textbf{Limit} & \textbf{Wert}\\
+\hline
+Drehmoment & 2500 & Fluss & 2500\\
+\hline
+Geschwindigkeit & 1500 &  & \\
+\hline
+\end{tabularx}
+
+Die Regler wurden so bestimmt, dass die Regelkreise in unbelasteten Zustand ihre Sollwerte schnellst möglich erreichen. Um ein langsames Ansteigen der Geschwindigkeit zu erreichen wurde eine Software-Ramp geschrieben. Diese berechnet den gewünschten Weg unter Berücksichtigung der maximalen Beschleunigung und der maximalen Geschwindigkeit. Durch eine periodische Iteration in Millisekunden-Schritten über die Zeit gibt die Ramp dem FOC-Treiber schrittweise die berechnete Position vor. Die Positionen und vorgegebenen Geschwindigkeit und Beschleunigung der Ramp sind sehr einfach skallierbar und somit gut an den Partymixer anpassbar.
 

@@ -1,9 +1,16 @@
 \subsubsection{RFID}
 \label{subsubsec:RFID}
 
-Ein Bestandteil der Cocktailmaschine ist, mittles einem persönlichen kontaktlosen Chip oder Badge das Lieblingsgetränk auswählen zu können. Dazu wird auf die RFID\footnote{Radio-Frequency Identification}-Technologie gesetzt. Sie ermöglicht es mittels RFID-Tags oder auch mit NFC \footnote{Nead-Field-Communication} des Handys Daten zwischen Tag und Maschine auszutauschen. So kann der User identifiziert werden.
+Eine vorgesehene Funktion der Maschine ist, dass der User ohne Suchen sein Lieblingsgetränk zubereiten lassen kann. Dafür wird auf ein System zurückgegriffen, welches öfters für Zutrittskontrollen oder Ähnliches verwendet wird. Die Rede ist von RFID \footnote{Radio Frequency IDentification}.
 
-Damit die Datenübertragung stattfinden kann, wird an der Antenne ein Wechselfeld angelegt, welches im Folgenden Energiesignal genannt wird. Dieses induziert beim Empfänger eine Spannung, welche als Energieversorgung dient. Der Sender moduliert ein Datensignal über das Energiesignal. Die Informationen werden im Tag demoduliert und verwertet. Bei den Befehlen für den Tag geht es hauptsächlich um Lese- und Schreibmethoden. Bei einer Lesemethode des RFID wird ein Teil des Speichers abgefragt, bei Schreibmethoden wird der Speicher beschrieben.
+Um schnell ein funktionierendes Teilsystem testen zu können, soll ein Breakout-Board verwendet werden. Eine Recherche hat ergeben, dass es für unseren Anwendungszweck nicht allzu viele Produkte gibt. Ein Eingrenzungskriterium war, dass es es für den Ausgewählten IC eine bestehende Library gibt, welche mit Arduino oder besser C kompatibel ist. Der Chip, welcher diese Anforderungen erfüllt, ist der \textbf{Mifare MFRC522}. Dieses Brakeout-Board kann ausserdem an der Verschalung der Maschine angeschraubt werden. Somit kann er sich an einer Stelle befinden, welche weiter weg von der Hauptsplatine ist.
+Das Modul arbeitet auf 13.56MHz und gilt somit als kurzwelliges System (HF).
+
+Der MFRC522 ist der Reader im RFID-System. Er kann Daten lesen und ggf. auch schreiben. Er erzeugt ein hochfrequentes, elektromagnetisches Wechselsignal mit einer Frequenz von 13.56MHz. Das Wechselfeld induziert beim Empfänger eine Spannung, welche als Energieversorgung dient. Durch Kurzschliessen der Tag-Antenne wird ein Teil der Energie des vom Reader ausgehenden Wechselfeldes verbraucht. Diese Energiedifferenz kann ein Reader detektieren.
+
+Der Sender kann jedoch auch ein Datensignal über das Energiesignal modulieren. Die Informationen werden im Tag demoduliert und verwertet. Bei den Befehlen für den Tag geht es hauptsächlich um Lese- und Schreibmethoden. Bei einer Lesemethode des RFID wird ein Teil des Speichers abgefragt, bei Schreibmethoden wird der Speicher beschrieben. Die Reichweite für ein solches System, welches als Passivsystem deklariert ist, beträgt maximal 5cm.
+
+Alternativ könnte ein Tag mit einer Batterie gespiesen werden. Somit erhöht sich die Reichweite des Readers, die Latenzzeiten werden kürzer und der Anwendungsbereich würde grösser. Solch ein System wird als Aktivsystem deklariert.
 
 \paragraph{Schema}\mbox{}\\
 

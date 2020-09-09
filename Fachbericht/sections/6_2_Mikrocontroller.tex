@@ -192,7 +192,7 @@ Daraus folgt für die Fuse- und Lock-Bits die Einstellungen gemäss Tabelle \ref
 
 \subsubsection{AVRdude in Atmel Studio einbinden}\label{subsubsec:avrdude_in_atmelstudio_einbinden}
 
-AVRdude ist eine Software, mit der Atmel AVR Controller programmiert werden können. Sie schreibt den bereits kompilierten HEX-Code der Programmierumgebung über den Bootloader in den Flash-Speicher des Controllers. Hier gäbe es auch eine Methode, die Fuse- und Lock-Bits des \textmu C zu setzen.
+AVRdude ist eine Software, mit der Atmel AVR Controller programmiert werden können. Sie schreibt den bereits kompilierten HEX-Code, welcher in AtmelStudio anhand des C-Codes generiert wurde, über den Bootloader in den Flash-Speicher des Mikrocontrollers.
 
 \todo{https://www.mikrocontroller.net/articles/AVRDUDE}
 
@@ -246,13 +246,4 @@ Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. D
 
 Wird der Mikrocontroller per Reset-Button neu gestartet, dauert es aufgrund des Bootloaders 2s, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Danach startet das Programm, sollten keine Daten kommen.
 
-\subsubsection{Messungen}
-
 Die Messung des Oszillator-Eingangs ergab eine saubere harmonische Schwingung mit 16MHz, abgebildet in Abbildung \ref{fig:Crystal_Swing}. 
-
-\begin{figure}[h!]
-\center
-\includegraphics[width = 0.8\textwidth]{graphics/Crystal_Swing}
-\caption{Schwingung des Oszillators}
-\label{fig:Crystal_Swing}
-\end{figure}

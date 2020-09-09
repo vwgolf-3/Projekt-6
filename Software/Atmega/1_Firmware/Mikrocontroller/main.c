@@ -19,7 +19,7 @@ int main(void)
 
     devices_init();
 
-    speicher_init();
+//     speicher_init();
 	
     Position = 0;
 

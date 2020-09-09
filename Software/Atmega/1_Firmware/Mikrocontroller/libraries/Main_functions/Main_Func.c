@@ -37,8 +37,8 @@ void interfaces_init(void)
 
 void devices_init(void)
 {
-    nextion_change_page(25);
-    nextion_setText("fehlertxt", "SD-Initialisieren");
+//     nextion_change_page(25);
+//     nextion_setText("fehlertxt", "SD-Initialisieren");
 //     SD_startup();                                           // SD-Karte initialisieren
     _delay_ms(100);
 
