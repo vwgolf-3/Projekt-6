@@ -1,6 +1,6 @@
 \section{TMC4671}\label{Appendix:TMC4671}
 
-\subsection{Standard-Schaltkreis}
+\subsection{Standard-Schaltkreis}\label{Appendix:Schaltung_TMC4671}
 
 \begin{figure}[H]
 	\centering
@@ -10,18 +10,42 @@
 \end{figure}
 \todo{cite{TMC4671 Datenblatt}}
 
-\subsection{Blockdiagramm}
+\subsection{BOB}\label{Appendix:BOB}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{graphics/Blockdiagramm_TMC4671}
-	\caption{Blockdiagramm TMC4671.}
-	\label{fig:Blockdiagramm_TMC4671}
-\end{figure}
+	\includegraphics[width=\textwidth]{graphics/TMC4671_SPI_BOB_Schematic}
+	\caption{SPI-Input des TMC4671-BOB.}
+	\label{fig:Schema_SPI_FOC_Treiber}
+\end{figure} 
 
-\todo{cite{TMC4671 Datenblatt}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graphics/TMC4671_Phasenstroeme_BOB_Schematic}
+	\caption{Phasenstroeme-Input des TMC4671-BOB.}
+	\label{fig:Schema_Phasenstroeme_FOC_Treiber}
+\end{figure} 
 
-\newpage
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{graphics/TMC4671_ABN_Encoder_BOB_Schematic}
+	\caption{ABN-Encoder-Input des TMC4671-BOB.}
+	\label{fig:Schema_ABN_Encoder_FOC_Treiber}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{graphics/TMC4671_Motorspannung_BOB_Schematic}
+	\caption{Motorspannung-Input des TMC4671-BOB.}
+	\label{fig:Schema_Motorspannung_FOC_Treiber}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{graphics/TMC4671_PWM_BOB_Schematic}
+	\caption{PWM-Output des TMC4671-BOB.}
+	\label{fig:Schema_PWM_FOC_Treiber}
+\end{figure} 
 
 \subsection{Inbetriebnahme}
 
@@ -41,8 +65,6 @@
 	\label{fig:1_komplett}
 \end{figure}
 
-\newpage
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[angle = 270,width=\textwidth]{graphics/2_Arduino}
@@ -57,7 +79,6 @@
 	\label{fig:2_EVAL}
 \end{figure}
 
-\newpage
 
 \subsubsection{Inbetriebnahme SPI-Kommunikation}\label{Appendix:TMC4671_SPI}
 
@@ -82,8 +103,6 @@
 \caption{Übertragung mit Zoom (Testdrive).}
 \label{fig:TMC4671_TestDrive4}
 \end{figure}
-
-\newpage
 
 \begin{figure}[H]
 \center

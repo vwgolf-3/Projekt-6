@@ -48,18 +48,21 @@
 \BOOKMARK [2][-]{subsection.C.1}{C.1 Fuse Bits}{appendix.C}% 48
 \BOOKMARK [2][-]{subsection.C.2}{C.2 Atmel Studio}{appendix.C}% 49
 \BOOKMARK [2][-]{subsection.C.3}{C.3 Inbetriebnahme Mikrocontroller}{appendix.C}% 50
-\BOOKMARK [1][-]{appendix.D}{D TMC4671}{}% 51
-\BOOKMARK [2][-]{subsection.D.1}{D.1 Standard-Schaltkreis}{appendix.D}% 52
-\BOOKMARK [2][-]{subsection.D.2}{D.2 Blockdiagramm}{appendix.D}% 53
-\BOOKMARK [2][-]{subsection.D.3}{D.3 Inbetriebnahme}{appendix.D}% 54
-\BOOKMARK [1][-]{appendix.E}{E TMC6200}{}% 55
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Standard-Schaltkreis}{appendix.E}% 56
-\BOOKMARK [2][-]{subsection.E.2}{E.2 Blockdiagramm}{appendix.E}% 57
-\BOOKMARK [2][-]{subsection.E.3}{E.3 Externe Gate-Spannungsversorgung}{appendix.E}% 58
-\BOOKMARK [2][-]{subsection.E.4}{E.4 Inbetriebnahme}{appendix.E}% 59
-\BOOKMARK [1][-]{appendix.F}{F H-Br\374cke}{}% 60
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Referenzschema}{appendix.F}% 61
-\BOOKMARK [2][-]{subsection.F.2}{F.2 Inbetriebnahme}{appendix.F}% 62
-\BOOKMARK [1][-]{appendix.G}{G CUI AMT332S-V ABN-Encoder}{}% 63
-\BOOKMARK [2][-]{subsection.G.1}{G.1 Pinout and Interface}{appendix.G}% 64
-\BOOKMARK [2][-]{subsection.G.2}{G.2 Inbetriebnahme}{appendix.G}% 65
+\BOOKMARK [2][-]{subsection.C.4}{C.4 Speicherorganisation}{appendix.C}% 51
+\BOOKMARK [1][-]{appendix.D}{D TMC4671}{}% 52
+\BOOKMARK [2][-]{subsection.D.1}{D.1 Standard-Schaltkreis}{appendix.D}% 53
+\BOOKMARK [2][-]{subsection.D.2}{D.2 BOB}{appendix.D}% 54
+\BOOKMARK [2][-]{subsection.D.3}{D.3 Inbetriebnahme}{appendix.D}% 55
+\BOOKMARK [1][-]{appendix.E}{E TMC6200}{}% 56
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Standard-Schaltkreis}{appendix.E}% 57
+\BOOKMARK [2][-]{subsection.E.2}{E.2 Blockdiagramm}{appendix.E}% 58
+\BOOKMARK [2][-]{subsection.E.3}{E.3 Externe Gate-Spannungsversorgung}{appendix.E}% 59
+\BOOKMARK [2][-]{subsection.E.4}{E.4 Inbetriebnahme}{appendix.E}% 60
+\BOOKMARK [1][-]{appendix.F}{F H-Br\374cke}{}% 61
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Referenzschema}{appendix.F}% 62
+\BOOKMARK [2][-]{subsection.F.2}{F.2 Inbetriebnahme}{appendix.F}% 63
+\BOOKMARK [1][-]{appendix.G}{G CUI AMT332S-V ABN-Encoder}{}% 64
+\BOOKMARK [2][-]{subsection.G.1}{G.1 Pinout and Interface}{appendix.G}% 65
+\BOOKMARK [2][-]{subsection.G.2}{G.2 Inbetriebnahme}{appendix.G}% 66
+\BOOKMARK [1][-]{appendix.H}{H PI-Regler}{}% 67
+\BOOKMARK [2][-]{subsection.H.1}{H.1 TMCL-IDE}{appendix.H}% 68

@@ -21,13 +21,14 @@ Da die Maschine nur auf Inputs reagieren muss, werden im Main-Loop nur die Buffe
 \newpage
 
 
-\subsubsection{Doubly Dynamic Linked Lists Allgemein}\label{subsubsec:Dynamic_Linked_Lists}
+\subsubsection{Speicherorganisation}\label{subsubsec:Speicherorganisation}
 
-Eine Doppelt verkettete Liste ist eine gängige Datenstruktur, welche verwendet wird, sobald es in der Anwendung wichtig ist, in einer Liste hoch und runter zu bewegen und effizient und ohne grossen Aufwand sogenannte Nodes\footnote{Nodes = Knoten} hinzugefügt werden müssen. Im Folgenden wird von Elementen statt Nodes gesprochen. Die Idee dabei ist, dass für jedes Element zwei Pointer zu initialisieren, welche auf das nächste oder vorhergehende Element zeigen. Nebst den Zeigern auf die umliegenden Elemente enthält das Element die gewünschten Daten. Um zu wissen, ob das Ende oder der Beginn erreicht wurde, werden zwei zusätzliche Zeiger initialisiert, welche auf das erste und/oder letzte Element zeigen (Head und Tail). Um zu wissen, auf welches Element zurzeit gezeigt wird, gibt es einen Zeiger auf dieses Element (actual).
+Da im Programmfluss viel mit Listen gearbeitet wird, wird auf \textit{Doubly Dynamic Linked Lists} zurückgegriffen.
+Eine Doppelt verkettete Liste ist eine gängige Datenstruktur, um sich einfach und effizient in einer Liste hoch und runter zu bewegen. Weiter können der Liste ohne grossen Aufwand sogenannte Nodes\footnote{Nodes = Knoten} hinzugefügt werden. Im Folgenden wird von Elementen statt von Nodes gesprochen. Für jedes Element werden zwei Pointer initialisiert, welche auf das nächste (next) oder auf das vorherige (prev) Element zeigen. Nebst den Zeigern auf die umliegenden Elemente enthält das Element die gewünschten Daten. Um zu wissen, ob das Ende oder der Beginn erreicht wurde, werden zwei zusätzliche Zeiger initialisiert, welche auf das erste und/oder letzte Element zeigen (Head und Tail). Im Anhang Kapitel \ref{Appendix:Lists} können weitere Details zu Dynamic Linked Lists entnommen werden.
 
 \todo{cite Text: https://perlgeek.de/de/artikel/doppelt-verkettete-listen}
 
-Abbildung \ref{fig:Doubly_Linked_List_2_00} zeigt eine Grundsätzliche Struktur der beschriebenen Liste mit head, tail und Elementen.
+Abbildung \ref{fig:Doubly_Linked_List_2_00} zeigt eine Struktur der beschriebenen Liste mit next, prev, head, tail und Elementen.
 
 \begin{figure}[h!]
 	\centering
@@ -38,61 +39,15 @@ Abbildung \ref{fig:Doubly_Linked_List_2_00} zeigt eine Grundsätzliche Struktur 
 
 \todo{cite Bild: https://learnersbucket.com/tutorials/data-structures/circular-doubly-linked-list-in-javascript/}
 
-In Abbildung \ref{fig:Doubly_Linked_List_2_0} wird nur der start-Pointer (head) initialisiert, ohne auf ein Element zu zeigen (NULL). Sobald der benötigte Speicherplatz des Elementes alloziiert wurde, wird der Zeiger auf die angelegte Struktur (Element) gelegt. Dem Head-Zeiger wurde nun ein Element zugewiesen und der Beginn der Liste wurde definiert.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_0}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
-	\label{fig:Doubly_Linked_List_2_0}
-\end{figure}
-
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
-
-Abbildung \ref{fig:Doubly_Linked_List_2_1} zeigt eine bestehende Liste mit zwei Elementen. Ein drittes Element soll am Schluss eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente (in diesem Falle noch head und tail) umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden. Auch der tail-Zeiger muss nun auf das neue Element gelegt werden.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_1}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
-	\label{fig:Doubly_Linked_List_2_1}
-\end{figure}
-
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
-
-Abbildung \ref{fig:Doubly_Linked_List_2_2} zeigt ebenfalls eine bestehende Liste mit zwei Elementen. Ein drittes Element soll am Beginn eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente (in diesem Falle noch head und tail) umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden. Auch der head-Zeiger muss nun auf das neue Element gelegt werden.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_2}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
-	\label{fig:Doubly_Linked_List_2_2}
-\end{figure}
-
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
-
-Abbildung \ref{fig:Doubly_Linked_List_2_3} zeigt eine bestehende Liste mit vier Elementen. Ein fünftes Element soll in der Mitte eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_3}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
-	\label{fig:Doubly_Linked_List_2_3}
-\end{figure}
-
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
-
-\subsubsection{Doubly Dynamic Linked Lists Cocktailmixer}
-
-Im Falle des Cocktailmixers werden verschiedene Listen verwendet. Dazu gehören die folgenden Elemente:
+Die Elemente sind in Structs organisiert, welche die Zeiger und die Daten enthalten. In der Software werden verschiendene Struct-Typen verwendet. Für jeden Struct-Typ lässt sich eine Liste mit mehreren Structs erstellen. Es werden für die folgenden vier Elemente Listen angelegt:
 
 \begin{itemize}
-\item Cocktail-Liste (Files)
-\item Zutaten-Liste (Files)
+\item Cocktail-Liste (SD-Files)
+\item Zutaten-Liste (SD-Files)
 \item Tag-Liste (Maschine)
 \item Zutaten-in-Maschine-Liste (Maschine)
 \end{itemize}
 
-Die Cocktail- und die Zutaten-Liste beinhalten nur die Nummer des Files, welches sich auf der SD-Karte befindet. Wird ein Cocktail oder eine Zutat benötigt, so werden die Daten temporär von der SD-Karte in einen Struct im Programmspeicher geladen. Dies wird gemacht, da während der Entwicklung der Programmspeicher mit zu vielen Daten gefüllt wurde, was zur Folge hatte, dass der Mikrocontroller abstürzte. Im Vergleich zum kompletten Cocktail, welcher ca. 80 Bytes Speicher braucht, benötigt das File nur eines. Ein einziger Struct, welcher immer neu geladen wird, reicht aus, um die benötigten Informationen zu extrahieren und verwenden. Jeder Cocktail und jede Zutat wird separat auf der SD-Karte gespeichert.
+Da während der Entwicklung der Programmspeicher mit zu vielen Daten gefüllt wurde, stürzte der Mikrocontroller ab. Die Cocktail- und die Zutaten-Liste beinhalten deshalb nur die Nummer ein zugehöriges Files, welches sich auf der SD-Karte befindet. Wird ein Cocktail oder eine Zutat benötigt, so werden die Daten temporär von der SD-Karte in einen Struct im Programmspeicher geladen und verschwinden wieder, sobald ein neues Element geladen wird.
 
 Die Tag-Liste sowie die Liste der Zutaten in der Maschine werden komplett in den Programmspeicher geladen. Die beiden Listen werden bei einer Veränderung als Backup jeweils in einem File gespeichert, damit diese bei einem Neustart der Maschine wieder in den Programmspeicher geladen werden können.

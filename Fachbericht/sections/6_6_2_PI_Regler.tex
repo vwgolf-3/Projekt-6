@@ -13,9 +13,9 @@ Der Geschwindigkeitsregelkreis ist dem Stromregelkreis überlagert. Weicht die a
 
 Der Positionsregelkreis ist dem Geschwindigkeitskreis überlagert. Weicht die aktuelle Position von der vorgegebenen Position ab, so gibt der Positionsregelkreis dem Geschwindigkeitsregelkreis eine Abweichung vor, wodurch der Geschwindigkeitsregelkreis in die erforderliche Richtung korrigiert.
 
-All diese Parameter werden mit Limits geschützt. So kann der Strom durch die Spulen begrenzt werden, eine Maximalgeschwindigkeit definiert werden und die Enden der Positionen vorgegeben werden.
+Mit der Begrenzung der Eingangsgrössen wird die Mechanik geschont und der Motor vor Überlast geschützt. Dies wird erreicht, indem die Ausgangsgrössen der PI-Regler mit einem Limit versehen werden. So kann der Strom durch die Spulen begrenzt werden, eine Maximalgeschwindigkeit definiert werden und die Enden der Positionen vorgegeben werden. Die Limits sind auf den Motor abgestimmt.
 
-Die Werte der PI-Regler wurden Experimentell bestimmt und an den Partymixer angepasst. Dabei wurden die Register mit folgenden Werten beschrieben:
+Die Werte der PI-Regler wurden Experimentell bestimmt. Folgende Werte wurden dabei ermittelt:
 
 \begin{tabularx}{\linewidth}{|l|X|X|l|}
 \hline
@@ -43,5 +43,6 @@ Geschwindigkeit & 1500 &  & \\
 \hline
 \end{tabularx}
 
-Die Regler wurden so bestimmt, dass die Regelkreise in unbelasteten Zustand ihre Sollwerte schnellst möglich erreichen. Um ein langsames Ansteigen der Geschwindigkeit zu erreichen wurde eine Software-Ramp geschrieben. Diese berechnet den gewünschten Weg unter Berücksichtigung der maximalen Beschleunigung und der maximalen Geschwindigkeit. Durch eine periodische Iteration in Millisekunden-Schritten über die Zeit gibt die Ramp dem FOC-Treiber schrittweise die berechnete Position vor. Die Positionen und vorgegebenen Geschwindigkeit und Beschleunigung der Ramp sind sehr einfach skallierbar und somit gut an den Partymixer anpassbar.
+Die Regler wurden so bestimmt, dass die Regelkreise in unbelasteten Zustand ihre Sollwerte schnellst möglich erreichen, ohne überzuschiessen. Dies Betrifft den Regler für den Stromregelkreis und den Regler für den Geschwindigkeitsregelkreis. Die zugehörigen Parameter wurden in der TMCL-IDE ermittelt. 
 
+Mit diesen Werte ist es nur schwierig realisierbar, den Schlitten mit einer kontrollierten Bewegung fortzubewegen. Um dennoch gezielt Positionen anzufahren, wurde eine Software-Ramp geschrieben. Diese berechnet den gewünschten Weg unter Berücksichtigung der maximalen Beschleunigung und der maximalen Geschwindigkeit. Durch eine periodische Iteration in Millisekunden-Schritten über die Zeit gibt die Ramp dem FOC-Treiber schrittweise die berechnete Position vor. Die Endposition, die Geschwindigkeit und die Beschleunigung der Ramp sind einfach skallierbar, was eine schnellere Einbettung in das Gesamtsystem ermöglicht.

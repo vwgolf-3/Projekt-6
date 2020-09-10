@@ -10,7 +10,6 @@
 \label{fig:USB_Devices_Ger_Man}
 \end{figure}
 
-
 \subsection{Atmega2560}\label{Appendix:Handshake_uC}
 
 \subsubsection{Wiring}\label{Appendix:Handshake_uC_wiring}
@@ -65,8 +64,6 @@ IO\_15 & <== & über Widerstand & === & CTS \\
 \label{tab:USB_ESP}
 \end{table}
 
-\newpage
-
 \subsubsection{Handshake}\label{Appendix:Handshake_ESP_Messung}
 
 \begin{figure}[H]
@@ -95,8 +92,6 @@ Schritt & Beschreibung & DTR & RTS & EN & IO0\\
 \label{tab:Abfolge_Download_Boot_Modus}
 \end{table}
 
-\newpage
-
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_gesamt}
@@ -106,27 +101,24 @@ Schritt & Beschreibung & DTR & RTS & EN & IO0\\
 
 \begin{figure}[H]
 \center
-\includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
+\includegraphics[width = 0.8\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
 \caption{Handshake zum Hochladen des Programmcodes auf das ESP32. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_2}
 \end{figure}
 
-\newpage
-
 \begin{figure}[H]
 \center
-\includegraphics[width = \textwidth]{graphics/ESP32_Handshake_Forum}
+\includegraphics[width = 0.8\textwidth]{graphics/ESP32_Handshake_Forum}
 \caption{Handshake zum Hochladen des Programmcodes auf das ESP32. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.}
 \label{fig:ESP32_Handshake_Forum}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
+\includegraphics[width = 0.8\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
 \caption{Handshake zum Hochladen des Programmcodes auf das ESP32. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.}
 \label{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
 \end{figure}
-
 
 In einem Forum\footnote{https://forum.micropython.org/viewtopic.php?t=4607} wurde diese Auffälligkeit, welche in Kapitel \ref{subsubsec:Inbetriebnahme_USB-B} erwähnt wurde, auch schon besprochen. Die Diskussion führte zum selben Ergebnis wie bei Inbetriebnahme. Nämlich, dass es nach dem Reset eine Zeit dauert, bis im Startprozess die Pins geprüft werden. Dazu gehört auch der Pin IO0. Somit ist es möglich, den Pin IO0 kurz nach dem Reset auf 0 zu ziehen.
 Im selben Forum wurde auch die in Abbildung \ref{fig:ESP32_Handshake_Forum} gezeigte Darstellung gefunden. Ein Kommentar weist darauf hin, das mit dem esptool.py der EN-Pin des ESP32 direkt auf RTS gehängt werden kann. So lassen sich die Zeitpunkte, zu der die Pins auf 0 sind, näher zusammenschieben.
