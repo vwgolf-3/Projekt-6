@@ -4,7 +4,7 @@
 
 Um das Anwenderprogramm auf dem Mikrocontroller (\textmu C) speichern zu können, ist es am angenehmsten, wenn dies direkt aus der Programmierumgebung geschehen kann. Als Programmierumgebung wird aufgrund des AVR-Chips die Software Atmel Studio 7.0 ausgewählt.
 
-\subsubsection{Bootloader}
+\subsubsection{Bootloader}\label{subsubsec:Inbetriebnahme Bootloader}
 
 Ein Bootloader (BL) ermöglicht seitens \textmu C den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des \textmu C gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
 %Wenn innerhalb von ca. zwei Sekunden keine Daten ankommen, wird das Anwenderprogramm gestartet. 

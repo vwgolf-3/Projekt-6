@@ -2183,12 +2183,34 @@
     <bcf:datasource type="file" datatype="bibtex">literature/bibliography.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">trinamic_tmc6200_datasheet_2013</bcf:citekey>
-    <bcf:citekey order="2">trinamic_tmc6200_datasheet_2013</bcf:citekey>
-    <bcf:citekey order="3">trinamic_tmc6200_datasheet_2013</bcf:citekey>
-    <bcf:citekey order="4">trinamic_tmc6200_datasheet_2013</bcf:citekey>
-    <bcf:citekey order="5">trinamic_tmc6200_datasheet_2013</bcf:citekey>
-    <bcf:citekey order="6">nxp_bv_2010_antenna_2010</bcf:citekey>
+    <bcf:citekey order="1">jlcpcb_jlcpcb_2020</bcf:citekey>
+    <bcf:citekey order="2">jlcpcb_jlcpcb_2020</bcf:citekey>
+    <bcf:citekey order="3">jlcpcb_jlcpcb_2020</bcf:citekey>
+    <bcf:citekey order="4">jlcpcb_jlcpcb_2020</bcf:citekey>
+    <bcf:citekey order="5">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="6">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="7">trinamicmotion_control_gmbh__co_kg_tmc4671_2019</bcf:citekey>
+    <bcf:citekey order="8">trinamicmotion_control_gmbh__co_kg_tmc4671_2019</bcf:citekey>
+    <bcf:citekey order="9">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="10">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="11">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="12">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="13">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="14">trinamicmotion_control_gmbh__co_kg_tmc6200_2019</bcf:citekey>
+    <bcf:citekey order="15">akm_servomotoren_2020</bcf:citekey>
+    <bcf:citekey order="16">cui_devices_cui_2019</bcf:citekey>
+    <bcf:citekey order="17">zenkner_usb_2014</bcf:citekey>
+    <bcf:citekey order="18">nxp_bv_2010_antenna_2010</bcf:citekey>
+    <bcf:citekey order="19">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="20">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="21">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="22">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="23">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="24">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="25">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="26">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="27">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
+    <bcf:citekey order="28">trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

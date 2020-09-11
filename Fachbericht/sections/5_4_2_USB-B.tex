@@ -12,7 +12,7 @@ Auf dem Schema ist die USB-Buchse mit J2 gekennzeichnet. Der dazugehörige ESD-S
 	\caption{Schema USB-B.}
 	\label{fig:Schema_USB_B}
 \end{figure}
-\newpage
+
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
 Sobald ein USB-Kabel vom PC zum Converter angeschlossen wird, liegt 5V am Spannungsteiler, was vom IC als bestehende Netzwerk-Verbindung interpretiert wird. Die USB-Kommunikation zwischen PC und Converter findet über die Leitungsn D+ und D- statt. Aufgrund des differentielen Verfahrens und Verwendung von verdrillten Drähten werden Störungen von ausserhalb zu einem grossen Teil eliminiert. Der Vorteil der asynchronen serielle Schnittstelle (UART) zeigt sich im Falle der Cocktailmaschine vor allem im flexiblem Protokoll und dem einfach zu implementierenden Handshake, welcher benutzt wird, um in den Boot-Modus der Empfänger (ATMega2560 und ESP32) zu gelangen. Die LED's zeigen an, wenn eine Kommunikation stattfindet. Die Widerstände in den Kommunikations- und Steuerleitungen schützen die Pins vor hohen Strömen im Falle von Spannungsunterschieden.
