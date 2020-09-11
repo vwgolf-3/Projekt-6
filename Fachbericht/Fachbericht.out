@@ -37,33 +37,35 @@
 \BOOKMARK [2][-]{subsection.9.2}{9.2 Kosten}{section.9}% 37
 \BOOKMARK [1][-]{section.10}{10 Schlusswort}{}% 38
 \BOOKMARK [1][-]{section.11}{11 Ehrlichkeitserkl\344rung}{}% 39
-\BOOKMARK [1][-]{section*.130}{Literatur}{}% 40
+\BOOKMARK [1][-]{section*.121}{Literatur}{}% 40
 \BOOKMARK [1][-]{appendix.A}{A Programmierschnittstellen}{}% 41
 \BOOKMARK [2][-]{subsection.A.1}{A.1 Ger\344te-Manager}{appendix.A}% 42
 \BOOKMARK [2][-]{subsection.A.2}{A.2 Atmega2560}{appendix.A}% 43
 \BOOKMARK [2][-]{subsection.A.3}{A.3 ESP32}{appendix.A}% 44
-\BOOKMARK [1][-]{appendix.B}{B ESP32}{}% 45
-\BOOKMARK [2][-]{subsection.B.1}{B.1 Tabellarischer Vergleich zwischen ESP32 und ESP8266}{appendix.B}% 46
-\BOOKMARK [2][-]{subsection.B.2}{B.2 Strapping-Pins}{appendix.B}% 47
-\BOOKMARK [1][-]{appendix.C}{C Mikrocontroller}{}% 48
-\BOOKMARK [2][-]{subsection.C.1}{C.1 Fuse Bits}{appendix.C}% 49
-\BOOKMARK [2][-]{subsection.C.2}{C.2 Atmel Studio}{appendix.C}% 50
-\BOOKMARK [2][-]{subsection.C.3}{C.3 Inbetriebnahme Mikrocontroller}{appendix.C}% 51
-\BOOKMARK [2][-]{subsection.C.4}{C.4 Speicherorganisation}{appendix.C}% 52
-\BOOKMARK [1][-]{appendix.D}{D TMC4671}{}% 53
-\BOOKMARK [2][-]{subsection.D.1}{D.1 Standard-Schaltkreis}{appendix.D}% 54
-\BOOKMARK [2][-]{subsection.D.2}{D.2 BOB}{appendix.D}% 55
-\BOOKMARK [2][-]{subsection.D.3}{D.3 Inbetriebnahme}{appendix.D}% 56
-\BOOKMARK [1][-]{appendix.E}{E TMC6200}{}% 57
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Standard-Schaltkreis}{appendix.E}% 58
-\BOOKMARK [2][-]{subsection.E.2}{E.2 Blockdiagramm}{appendix.E}% 59
-\BOOKMARK [2][-]{subsection.E.3}{E.3 Externe Gate-Spannungsversorgung}{appendix.E}% 60
-\BOOKMARK [2][-]{subsection.E.4}{E.4 Inbetriebnahme}{appendix.E}% 61
-\BOOKMARK [1][-]{appendix.F}{F H-Br\374cke}{}% 62
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Referenzschema}{appendix.F}% 63
-\BOOKMARK [2][-]{subsection.F.2}{F.2 Inbetriebnahme}{appendix.F}% 64
-\BOOKMARK [1][-]{appendix.G}{G CUI AMT332S-V ABN-Encoder}{}% 65
-\BOOKMARK [2][-]{subsection.G.1}{G.1 Pinout and Interface}{appendix.G}% 66
-\BOOKMARK [2][-]{subsection.G.2}{G.2 Inbetriebnahme}{appendix.G}% 67
-\BOOKMARK [1][-]{appendix.H}{H PI-Regler}{}% 68
-\BOOKMARK [2][-]{subsection.H.1}{H.1 TMCL-IDE}{appendix.H}% 69
+\BOOKMARK [1][-]{appendix.B}{B SD-Karte}{}% 45
+\BOOKMARK [2][-]{subsection.B.1}{B.1 FAT32}{appendix.B}% 46
+\BOOKMARK [1][-]{appendix.C}{C ESP32}{}% 47
+\BOOKMARK [2][-]{subsection.C.1}{C.1 Tabellarischer Vergleich zwischen ESP32 und ESP8266}{appendix.C}% 48
+\BOOKMARK [2][-]{subsection.C.2}{C.2 Strapping-Pins}{appendix.C}% 49
+\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 50
+\BOOKMARK [2][-]{subsection.D.1}{D.1 Fuse Bits}{appendix.D}% 51
+\BOOKMARK [2][-]{subsection.D.2}{D.2 Atmel Studio}{appendix.D}% 52
+\BOOKMARK [2][-]{subsection.D.3}{D.3 Inbetriebnahme Mikrocontroller}{appendix.D}% 53
+\BOOKMARK [2][-]{subsection.D.4}{D.4 Speicherorganisation}{appendix.D}% 54
+\BOOKMARK [1][-]{appendix.E}{E TMC4671}{}% 55
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Standard-Schaltkreis}{appendix.E}% 56
+\BOOKMARK [2][-]{subsection.E.2}{E.2 BOB}{appendix.E}% 57
+\BOOKMARK [2][-]{subsection.E.3}{E.3 Inbetriebnahme}{appendix.E}% 58
+\BOOKMARK [1][-]{appendix.F}{F TMC6200}{}% 59
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Standard-Schaltkreis}{appendix.F}% 60
+\BOOKMARK [2][-]{subsection.F.2}{F.2 Blockdiagramm}{appendix.F}% 61
+\BOOKMARK [2][-]{subsection.F.3}{F.3 Externe Gate-Spannungsversorgung}{appendix.F}% 62
+\BOOKMARK [2][-]{subsection.F.4}{F.4 Inbetriebnahme}{appendix.F}% 63
+\BOOKMARK [1][-]{appendix.G}{G H-Br\374cke}{}% 64
+\BOOKMARK [2][-]{subsection.G.1}{G.1 Referenzschema}{appendix.G}% 65
+\BOOKMARK [2][-]{subsection.G.2}{G.2 Inbetriebnahme}{appendix.G}% 66
+\BOOKMARK [1][-]{appendix.H}{H CUI AMT332S-V ABN-Encoder}{}% 67
+\BOOKMARK [2][-]{subsection.H.1}{H.1 Pinout and Interface}{appendix.H}% 68
+\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 69
+\BOOKMARK [1][-]{appendix.I}{I PI-Regler}{}% 70
+\BOOKMARK [2][-]{subsection.I.1}{I.1 TMCL-IDE}{appendix.I}% 71

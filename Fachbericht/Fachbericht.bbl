@@ -165,6 +165,45 @@
       \verb https://www.trinamic.com/fileadmin/assets/Products/Eval_Documents/TMC4671-BOB_datasheet_Rev1.2_HW1.4.pdf
       \endverb
     \endentry
+    \entry{trinamicmotion_control_gmbh__co_kg_tmc-ups-xaxv-eval_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=8f41c44084716c1ae574e6083aee0c61}{%
+           family={{TRINAMICMotion Control GmbH \& Co. KG}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{fullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{bibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorbibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authornamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorfullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{TMC}-{UPS}-{xAxV}-{EVAL}}
+      \field{day}{18}
+      \field{langid}{american}
+      \field{month}{10}
+      \field{title}{{TMC}-{UPS}-{xAxV}-{EVAL}}
+      \field{titleaddon}{Trinamic}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\VERX8QMK\\tmc-ups-xaxv-eval.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.trinamic.com/support/eval-kits/details/tmc-ups-xaxv-eval/
+      \endverb
+      \verb{url}
+      \verb https://www.trinamic.com/support/eval-kits/details/tmc-ups-xaxv-eval/
+      \endverb
+    \endentry
     \entry{akm_servomotoren_2020}{article}{}
       \name{author}{1}{}{%
         {{hash=fdf4e3e8e8b4e4ae3988278f12c7fe23}{%
@@ -280,25 +319,128 @@
       \verb https://www.all-electronics.de/wp-content/uploads/2015/11/ANP024-DE-Das-USB-Interface-aus-EMV-Sicht-35k-37images.pdf
       \endverb
     \endentry
-    \entry{nxp_bv_2010_antenna_2010}{online}{}
+    \entry{espressif_systems_esp32_2016}{online}{}
       \name{author}{1}{}{%
-        {{hash=f67bdc469906b69c0d42f285714d8fd4}{%
-           family={2010},
-           familyi={2\bibinitperiod},
-           given={{NXP}\bibnamedelima B.V.},
-           giveni={N\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=66589871a3c3f27bcbf3891133af42b1}{%
+           family={{Espressif Systems}},
+           familyi={E\bibinitperiod}}}%
       }
-      \strng{namehash}{f67bdc469906b69c0d42f285714d8fd4}
-      \strng{fullhash}{f67bdc469906b69c0d42f285714d8fd4}
-      \strng{bibnamehash}{f67bdc469906b69c0d42f285714d8fd4}
-      \strng{authorbibnamehash}{f67bdc469906b69c0d42f285714d8fd4}
-      \strng{authornamehash}{f67bdc469906b69c0d42f285714d8fd4}
-      \strng{authorfullhash}{f67bdc469906b69c0d42f285714d8fd4}
+      \strng{namehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{fullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{bibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorbibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authornamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorfullhash}{66589871a3c3f27bcbf3891133af42b1}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Das Dokument zeigt, wie Antennen für den {RFID}-Chip dimensioniert werden müssen.}
+      \field{abstract}{Schematic {ESP} 32}
+      \field{day}{17}
+      \field{month}{10}
+      \field{title}{{ESP}32 Schematic}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb ESP32-Core-Board-V2_sch.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\JY67XZDQ\\ESP32-Core-Board-V2_sch.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
+      \endverb
+      \verb{url}
+      \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
+      \endverb
+    \endentry
+    \entry{nxp_semiconductors_nv_mfrc522_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9811a8e6bb4eac5b232a7b0d721d8b4b}{%
+           family={{NXP Semiconductors N.V.}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{fullhash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{bibnamehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{authorbibnamehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{authornamehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{authorfullhash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{MFRC}522 Datasheet}
+      \field{day}{27}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{{MFRC}522 Datasheet Rev. 3.9}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb 2016 - MFRC522 Standard performance MIFARE and NTAG front.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\YMQDADDF\\2016 - MFRC522 Standard performance MIFARE and NTAG front.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf
+      \endverb
+    \endentry
+    \entry{rfid-basisde_aufbau_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=566eae87872d05ee5912ecc29ce36b56}{%
+           family={{RFID-basis.de}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{fullhash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{bibnamehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{authorbibnamehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{authornamehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{authorfullhash}{566eae87872d05ee5912ecc29ce36b56}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{15}
+      \field{langid}{german}
+      \field{month}{9}
+      \field{title}{Aufbau und Funktionsweise von {RFID}-Systemen - {RFID} Technik}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Aufbau und Funktionsweise von RFID-Systemen - RFID Technik:C\:\\Users\\kimsc\\Zotero\\storage\\LJEF2E95\\rfid-technik.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rfid-basis.de/rfid-technik.html
+      \endverb
+      \verb{url}
+      \verb https://www.rfid-basis.de/rfid-technik.html
+      \endverb
+    \endentry
+    \entry{nxp_bv_2010_antenna_2010}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e0170dfc536666238868cf8d0753deb5}{%
+           family={{NXP B.V. 2010}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{fullhash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{bibnamehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{authorbibnamehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{authornamehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{authorfullhash}{e0170dfc536666238868cf8d0753deb5}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Antenna design guide for {MFRC}52x, {PN}51x and {PN}53x}
       \field{day}{11}
       \field{month}{10}
       \field{title}{Antenna design guide for {MFRC}52x, {PN}51x and {PN}53x}
@@ -312,6 +454,190 @@
       \endverb
       \verb{url}
       \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+    \endentry
+    \entry{behindthesciences_rgb_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a50d8f32862dce43c344695b522ee2a1}{%
+           family={{behindthesciences}},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{fullhash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{bibnamehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{authorbibnamehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{authornamehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{authorfullhash}{a50d8f32862dce43c344695b522ee2a1}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This post presents an {RGB} {LED} strip tutorial including how to power it and how to create color from the full {RGB} color spectrum.}
+      \field{day}{27}
+      \field{langid}{american}
+      \field{month}{1}
+      \field{title}{{RGB} {LED} {STRIP} Tutorial}
+      \field{titleaddon}{Behind The Sciences}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\3A78Z6SG\\rgb-led-strip-tutorial.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://behindthesciences.com/electronics/rgb-led-strip-tutorial/
+      \endverb
+      \verb{url}
+      \verb https://behindthesciences.com/electronics/rgb-led-strip-tutorial/
+      \endverb
+    \endentry
+    \entry{theorycircuitcom_arduino_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f436a56c4a9eac2506f449956a85a425}{%
+           family={{theorycircuit.com}},
+           familyi={t\bibinitperiod}}}%
+      }
+      \strng{namehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{fullhash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{bibnamehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{authorbibnamehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{authornamehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{authorfullhash}{f436a56c4a9eac2506f449956a85a425}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{If you want to track or monitor the sensor output value then it is important to log the data, Here temperature sensor {LM}35 output data is stored in a Micro {SD} card with the help of arduino and Micro {SD} card adapter, You can use this setup as Arduino {SD} card data logger and it can be exported to excel sheet for data analysis. You can define the time interval of data reading and storing in {SD} card by the Arduino Code, Any types of sensors can be used as a data input source and the following setup will capture the sensor data and writes into {SD} as text file. micro {SD} Card Pinout Micro {SD} memory card available in different}
+      \field{day}{8}
+      \field{langid}{american}
+      \field{month}{1}
+      \field{title}{Arduino micro {SD} Card Data Logger}
+      \field{titleaddon}{{theoryCIRCUIT} - Do It Yourself Electronics Projects}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\A6SCBX8C\\arduino-micro-sd-card-data-logger.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://theorycircuit.com/arduino-micro-sd-card-data-logger/
+      \endverb
+      \verb{url}
+      \verb https://theorycircuit.com/arduino-micro-sd-card-data-logger/
+      \endverb
+    \endentry
+    \entry{ionosde_fat32_2020}{online}{}
+      \name{author}{1}{}{%
+        {{hash=69e2f7969761339cdbeddb36b0e35d30}{%
+           family={{ionos.de}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{fullhash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{bibnamehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{authorbibnamehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{authornamehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{authorfullhash}{69e2f7969761339cdbeddb36b0e35d30}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Microsoft hatte mit dem File Allocation Table und vor allem {FAT}32 lange Zeit den De-facto-Standard für Dateiformate inne. Aber ist das System noch zeitgemäß?}
+      \field{day}{15}
+      \field{langid}{german}
+      \field{month}{4}
+      \field{title}{{FAT}32}
+      \field{titleaddon}{{IONOS} Digitalguide}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\VUSFVCAM\\fat32.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ionos.de/digitalguide/server/knowhow/fat32/
+      \endverb
+      \verb{url}
+      \verb https://www.ionos.de/digitalguide/server/knowhow/fat32/
+      \endverb
+    \endentry
+    \entry{milsch_aufbau_2009}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d66d1c107aacf5ecfc0cf5e400159a35}{%
+           family={Milsch},
+           familyi={M\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{fullhash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{bibnamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{authorbibnamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{authornamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{authorfullhash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Aufbau des {FAT}32 Dateisystems {ERIK} {MILSCH}, Würzburg, Germany, Februar Historie und Grundlagen Das {FAT}32 Dateisystem wurden von Microsoft im Jahre 1997 als Nachfolger des {FAT}16 Dateisystem eingeführt.}
+      \field{month}{2}
+      \field{title}{Aufbau des {FAT}32 Dateisystems}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\PLISBZ5S\\78333139-Aufbau-des-fat32-dateisystems.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://docplayer.org/78333139-Aufbau-des-fat32-dateisystems.html
+      \endverb
+      \verb{url}
+      \verb https://docplayer.org/78333139-Aufbau-des-fat32-dateisystems.html
+      \endverb
+    \endentry
+    \entry{kleitz_sec_2011}{video}{}
+      \name{author}{1}{}{%
+        {{hash=77b321ce0ccefbced546780de84ebf8f}{%
+           family={Kleitz},
+           familyi={K\bibinitperiod},
+           given={Bill},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{fullhash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{bibnamehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{authorbibnamehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{authornamehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{authorfullhash}{77b321ce0ccefbced546780de84ebf8f}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{switch debouncing techniques}
+      \field{title}{sec 11 4 Switch Debouncing}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=uQTPZoDbfUs
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=uQTPZoDbfUs
       \endverb
     \endentry
   \enddatalist

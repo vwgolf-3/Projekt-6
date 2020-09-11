@@ -18,7 +18,7 @@ Der Handshake zwischen Computer und ATMega2560 ist einfacher zu verstehen als de
 
 \subsubsection{Handshake ESP32}\label{subsubsec:Handshake_ESP32}
 Nach einem Neustart des ESP32 werden die Zustände der Strapping-Pins gelesen. Anhand dieser Zustände werden die Grundzustände des ESP32 gesetzt, bevor der Programmcode gestartet wird. Anhand der Strapping-Pins wird auch der Download-Boot-Modus gestartet. Mit einem Handshake zwischen Computer und ESP32 wird genau dies erreicht. Das ESP32 wird neu gestartet und der Download-Boot-Modus gesetzt.
-Um den Handshake zwischen Computer und ESP32 zu verstehen, muss zuerst Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} betrachtet werden, worin die Strapping-Pins aufgelistet sind und welchen Einfluss diese auf denn Boot- oder Download-Modus haben. Aufgrund der defaultmässigen Pull-up und -down Widerstände kann aus dieser interpretiert werden, dass wenn U0TXD, IO2 und IO5 ''floating'' sind, IO0 den Boot-Modus bestimmt.
+Um den Handshake zwischen Computer und ESP32 zu verstehen, muss zuerst Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} betrachtet werden, worin die Strapping-Pins aufgelistet sind und welchen Einfluss diese auf denn Boot- oder Download-Modus haben. Aufgrund der defaultmässigen Pull-up und -down Widerstände kann aus dieser interpretiert werden, dass wenn U0TXD, IO2 und IO5 ''floating'' sind, IO0 den Boot-Modus bestimmt. \cite[S.12-S.14]{espressif_systems_esp32_2016}
 
 \begin{table}[H]
 \center
