@@ -29,13 +29,13 @@ Dort sind die Devices sichtbar unter dem Name: \textit{Silicon Labs CP210x USB t
 \begin{enumerate}
 \item ATMega2560\\
 
-Um zu evaluieren, wie der Handshake durchgeführt wird, wurde beim Hochladen eines Programms an den markierten Punkten auf der unteren Seite in Abbildung \ref{USB_B_Print} gemessen.\\
+Um zu evaluieren, wie der Handshake durchgeführt wird, wurde beim Hochladen eines Programms an den markierten Punkten auf der unteren Seite in Abbildung \ref{fig:USB_B_Print} gemessen.\\
 
 Im Anhang Kapitel \ref{Appendix:Handshake_uC} ist der Handshake und die Übertragung der ersten Bytes zu sehen. Der Handshake wird in einer weiteren Abbildung des selben Kapitels genauer aufgezeigt. Darin ist erkennbar, dass sobald die DTR-Leitung auf GND gezogen wird, die Spannung über dem Reset-Pin aufgrund des Kondensators zwischen DTR und Reset nur kurzzeitig auf 0V fällt. Dies reicht jedoch aus, dass der Mikrocontroller in den Boot-Modus fällt. Nach ca. 50ms beginnt die Datenübertragung vom Computer in den Flash-Speicher des uC.\\
 
 \item ESP32\\
 
-Um zu evaluieren, wie der Handshake durchgeführt wird, wurde beim Hochladen eines Programms an den markierten Punkten auf der oberen Seite in Abbildung \ref{USB_B_Print} gemessen.\\
+Um zu evaluieren, wie der Handshake durchgeführt wird, wurde beim Hochladen eines Programms an den markierten Punkten auf der oberen Seite in Abbildung \ref{fig:USB_B_Print} gemessen.\\
 
 Im Anhang Kapitel \ref{Appendix:Handshake_ESP_Messung} wurden die ersten 100ms des Hochladen eines Programms auf das ESP32 gemessen. Gesucht wird nach einem gleichzeitigen Flankenwechsel der RTS-Leitung von 0 auf 1 und der DTR-Leitung von 1 nach 0. Eine weitere Abbildung im selben Kapitel zeigt eine genauere Aufnahme zum Zeitpunkt des Flankenwechsels.
 

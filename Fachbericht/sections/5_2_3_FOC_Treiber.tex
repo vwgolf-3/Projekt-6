@@ -1,13 +1,15 @@
 \subsubsection{FOC-Treiber TMC4671}
 \label{subsubsec:FOC-Treiber_TMC4671}
 
-Wie dem Grobkonzept in Kapitel \ref{subsec:Blockschaldbild} entnommen werden kann, wird für die Ansteuerung des BLDC-Motors eine Steuerlogik (Motor Control Unit) benötigt, welche die Gate-Ctrl-Signale erzeugt. Dabei handelt es sich um den TMC4671.
-Der FOC-Treiber berechnet den Modulationsindex für die H-Brücke anhand des Drehmoments, der Geschwindigkeit oder der Position, welche der Mikrocontroller dem FOC-Treiber vorgibt. Die vom FOC-Treiber ausgehenden PWM-Leitungen gehen direkt auf den Gate-Treiber, welcher dann wiederum die MOSFETs ansteuert. Als Feedback benötigt der FOC-Treiber zwei Phasenströme. Der dritte Strom wird mit dem Knotengesetz berechnet. Da der BLDC in Stern geschaltet ist gilt:
-\begin{equation}
-I_U + I_V + I_W = 0
-\end{equation}
+%Wie dem Grobkonzept in Kapitel \ref{subsec:Blockschaldbild} entnommen werden kann, wird für die Ansteuerung des BLDC-Motors eine Steuerlogik (Motor Control Unit) benötigt, welche die Gate-Ctrl-Signale erzeugt. Dabei handelt es sich um den TMC4671.
+Der FOC-Treiber berechnet den Modulationsindex für die H-Brücke anhand des Drehmoments, der Geschwindigkeit oder der Position, welche der Mikrocontroller dem FOC-Treiber vorgibt. Als Feedback benötigt der FOC-Treiber den momentanen Strom durch zwei der drei Spulen und eine Information über die momentane Lage des Rotors. Die vom FOC-Treiber ausgehenden PWM-Leitungen gehen direkt auf den Gate-Treiber, welcher dann wiederum die MOSFETs ansteuert.
+%Der dritte Strom wird mit dem Knotengesetz berechnet. Da der BLDC in Stern geschaltet ist gilt:
+%\begin{equation}
+%I_U + I_V + I_W = 0
+%\end{equation}
+
 Da das Gehäuse des IC's nur schwierig lötbar ist, wird ein Breakout-Board (BOB) verwendet.
-Auf das Board wird im Folgenden kurz eingegangen.
+Auf das Board und die darauf vorhandenen Schaltungen wird im Funktionsbeschrieb eingegangen.
 \newpage
 \paragraph{Schema}\label{par:Schaltungsaufbau_TMC4671}\mbox{}
 
@@ -23,26 +25,24 @@ Auf dem Breakout-Board sind diverse Anschlussmöglichkeiten vorhanden. Für den 
 
 In der schon gezeigten Abbildung \ref{fig:Blockdiagramm_Motorengruppe} ist zu erkennen, welche Funktionen im Treiber vorhanden sind und wie diese zusammenhängen. Im wesentlichen kann daraus entnommen werden, dass der TMC4671 aus einer FOC-Logik\footnote{FOC= \textbf{F}ield \textbf{O}riented \textbf{C}ontrol}, einer Servo-Logik, einem SPI-Interface und diversen Engines (PWM, ADC, Encoder) besteht. Im Anhang Kapitel \ref{Appendix:Schaltung_TMC4671} wird eine Standard-Anwendungsschaltung gezeigt, worin erkennbar ist, dass der Treiber sehr universell aufgebaut ist und für mehrere Motorentypen verwendet werden können. Die für den Partymixer essentiellen Ein- und Ausgänge wurden schon genannt.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Schema_FOC_Treiber}
+	\includegraphics[width=0.7\textwidth]{graphics/Schema_FOC_Treiber}
 	\caption{Schema FOC-Treiber.}
 	\label{fig:Schema_FOC_Treiber}
 \end{figure} 
 
-In Abbildung \ref{fig:Schema_FOC_Treiber} ist erkennbar, welche Pins für den Cocktailmixer verwendet werden und welche Verbindungsleitungen zum Treiber führen. Es handelt sich dabei um die schon aufgelisteten Komponenten, nämlich Kommunikationsleitung zwischen Treiber und Mikrocontroller (SPI), Phasenströme (ADC), Encoder Input (ENC), Motorspannung (48V) und das PWM-Signal (PWM). Bei den SPI-Leitungen ist zu sehen, dass die Leitungen zuerst über einen Level-Shifter müssen, da der Treiber nur 3.3V verarbeiten kann ohne dabei kaputt zu gehen. Zu erkennen an der zusätlichen Leitungsbezeichnung LV (Lower Voltage). Die Leitung SPI1 geht vom Treiber zum Mikrocontroller und muss deshalb nicht geshiftet werden.
-
-\newpage
+In Abbildung \ref{fig:Schema_FOC_Treiber} ist erkennbar, welche Pins für den Cocktailmixer verwendet werden und welche Verbindungsleitungen zum Treiber führen. Es handelt sich dabei um die schon aufgelisteten Komponenten, nämlich Kommunikationsleitung zwischen Treiber und Mikrocontroller (SPI), Phasenströme (ADC), Encoder Input (ENC), Motorspannung (48V) und das Gate-Ctrl-Signal (PWM).
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
 Im Folgenden werden kurz die Teilsysteme auf dem TMC4671-BOB beschrieben, welche für den Cocktailmixer gebraucht werden. Dazu wird auf das Datenblatt von Trinamic TMC4671 zurückgegriffen. Sämtliche Teilschemas sind im Anhang Kapitel \ref{Appendix:BOB} aufgezeigt.
 
-\subparagraph{Kommunikation Input (SPI)}
+%\subparagraph{Kommunikation Input (SPI)}
 
-Der Kommunikationseingang ist nicht speziell geschützt. Hier ist für das eigene Layout darauf zu achten, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4671 gewährleistet.
+Der SPI-Kommunikationseingang ist nicht speziell geschützt. Hier ist für das eigene Layout darauf zu achten, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4671 gewährleistet.
 
-\subparagraph{Ströme Input (ADC)}
+%\subparagraph{Ströme Input (ADC)}
 
 Der Eingang zur Strommessung ist mit einem Tiefpass geschützt. Dieser hat die Zeitkonstante:
 
@@ -50,35 +50,33 @@ Der Eingang zur Strommessung ist mit einem Tiefpass geschützt. Dieser hat die Z
 \tau = R308 \cdot C300 = 100\Omega \cdot 100pF = 10ns
 \end{equation}
 
-\subparagraph{Encoder Input (ENC)}
+%\subparagraph{Encoder Input (ENC)}
 
-Um den Eingang zu Schützen, wird ein Schmitt-Trigger mit eingebautem Level-Shifter verwendet. Zudem wird mit dem Widerstandsnetzwerk ein entprellen der Encoder-Signale erreicht. Wird der Input auf 0V gezogen, so entlädt sich der Kondensator über die Widerstände R200-R202 mit der Zeitkonstante:
+Um den Eingang der Encoder-Pins zu schützen, wird ein Schmitt-Trigger mit eingebautem Level-Shifter verwendet. Zudem wird mit dem Widerstandsnetzwerk ein entprellen der Encoder-Signale erreicht. Wird der Input auf 0V gezogen, so entlädt sich der Kondensator über die Widerstände R200-R202 mit der Zeitkonstante:
 
 \begin{equation}
 \tau = R200 \cdot C204 = 1k\Omega \cdot 100pF = 100ns
 \end{equation}
 
-Fällt die Spannung über dem Kondensator während dem Entladen under einen bestimmten Wert, so wird auch der Schmitt-Trigger aktiv und springt auf 0V. Sobald der Eingang nicht mehr vom Encoder auf 0V gezogen wird, so lädt sich der Kondensator über die Widerstände R200-R202 sowie R206,R208,R210. Somit ergibt sich eine längere Zeitkonstante:
+Sobald der Eingang vom Encoder nicht mehr auf 0V gezogen wird, so lädt sich der Kondensator über die Widerstände R200-R202 sowie R206,R208,R210. Somit ergibt sich eine längere Zeitkonstante:
 
 \begin{equation}
 \tau = (R200 + R210) \cdot C204 = (1k\Omega + 4.7k\Omega) \cdot 100pF = 570ns
 \end{equation}
 
-Jetzt geht es bedeutend länger, bis der Kondensator wieder geladen wird. Sobald die Spannung wieder einen bestimmten Wert erreicht, wird der Schmitt-Trigger aktiv und springt auf Versorgungsspannung (3.3V).
+Jetzt geht es bedeutend länger, bis der Kondensator wieder geladen wird. Sobald die Spannung wieder einen bestimmten Wert erreicht, wird der Schmitt-Trigger aktiv und springt auf Versorgungsspannung (3.3V). Im Anhang Abbildung \ref{fig:Schmitt_Trigger_Debounce} ist die Funktion verdeutlicht.
 
-\subparagraph{Motorspannung Input (48V)}
+%\subparagraph{Motorspannung Input (48V)}
 
-Die Motorspannung ist wichtig, um einen Kommuntierungsvorgang zu berechnen. Wichtiger als die Zeitkonstante ist hier ein Spannungsteiler, welcher die Motorspannung auf unter 3.3V bringt. Dazu wird folgende Formel angewendet:
+Die Motorspannung ist wichtig, um den Kommuntierungsvorgang zu berechnen. Wichtiger als die Zeitkonstante ist hier ein Spannungsteiler, welcher die Motorspannung auf unter 3.3V bringt. Dazu wird folgende Formel angewendet:
 
 \begin{equation}
 U_{TMC} = U_M \cdot \frac{R310}{R310 + R311} = 48V \cdot \frac{1k\Omega}{1k\Omega + 100k\Omega} = 0.7V
 \end{equation}
 
+%\subparagraph{Gate-Ctrl-Signale Output (PWM)}
 
-\subparagraph{Steuersignale Output (PWM)}
-
-Die Ausgangssignale für den Gate-Treiber gehen direkt auf die Header-Pins des MC4671-BOB. Sie werden nicht geschützt.
-
+Die Ausgangssignale für den Gate-Treiber gehen direkt auf die Header-Pins des TMC4671-BOB.
 
 %\subsubsection{Encoder-Input}\label{subsubsec:Encoder_Input}
 %
