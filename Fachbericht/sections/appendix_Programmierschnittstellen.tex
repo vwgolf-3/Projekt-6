@@ -66,6 +66,47 @@ IO\_15 & <== & über Widerstand & === & CTS \\
 
 \subsubsection{Handshake}\label{Appendix:Handshake_ESP_Messung}
 
+Im Getting Started Guide vom ESP32 steht geschrieben, dass wenn während die beiden Pins IO0 und EN GND gezogen werden, das Modul in den Download-Modus versetzt wird, die Firmware über den UART-Port herunterlädt und diese in den Flash-Speicher schreibt. Um dies über die DTR- und RTS-Leitung machen zu können, braucht es eine zusätzliche Programmierlogik.
+
+Mit der Schaltung, wie sie in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} ersichtlich ist, kann das ESP32-Modul mit einer bestimmten Signalabfolge an den Leitungen DTR und RTS in diesen Download-Boot-Modus gesetzt werden. Die Auswirkung der Schaltung auf IO0 und den EN-Pin kann in Tabelle \ref{tab:Einfluss_Boot_Schaltung} entnommen werden.
+
+\begin{table}[H]
+\center
+\begin{tabular}{|c|c||c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Auto Program Cirquit}}\\
+\hline
+\textbf{DTR} & \textbf{RTS} & \textbf{EN} & \textbf{IO0} \\
+\hline
+1 & 1 & 1 & 1 \\
+\hline
+0 & 0 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 1 \\
+\hline
+0 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+
+\caption{Strapping pins des ESP32 und deren Auswirkung auf den Boot- und Download-Modus beim aufstarten.}
+\label{tab:Einfluss_Boot_Schaltung}
+\end{table}
+
+Die Programmierlogik wird aus dem Programmiertool angesteuert. Es befindet sich in der ESP-Bibliothek, welche verwendet wird, um Code aus der Arduino-Umgebung hochzuladen. Aus dem Python-Skript kann entnommen werden, wie die Pins angesteuert werden. Der Code ist in Abbildung \ref{fig:ESP32_Boot_Code} dargestellt.\\
+Bei der Interpretation des Codes ist darauf zu achten, dass die beiden Pins DTR und RTS Active-Low sind. (True = 0V = 0 = LOW und False = VCC = 1 = HIGH). Der Bezug zwischen dem Upload des Programms, den Pins des ESP32 und dessen Download-Boot-Modus sowie den Leitungen DTR und RST wird in Tabelle \ref{tab:Abfolge_Download_Boot_Modus} aufgezeigt.
+%Daraus erkennbar ist, dass:
+%\begin{table}
+%\begin{tabular}{lll}
+%DTR & RTS & Status\\
+%1 & 0 & Reset\\
+%1 & 1 & Starte Run-Modus\\
+%1 & 0 & IO0 = 0\\
+%0 & 0 & Starte Run-Modus\\
+%\hline
+%\end{tabular}
+%\end{table}
+\todo{Referenz einfügen: http://loboris.eu/ESP32/ESP32\_AutoReset.jpg}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/ESP32_Boot_Code}

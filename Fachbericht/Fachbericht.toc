@@ -45,29 +45,29 @@
 \contentsline {subsubsection}{\numberline {4.4.1}Handshake ATMega2560}{20}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Handshake ESP32}{20}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}USB-B}{21}{subsubsection.4.4.3}%
-\contentsline {paragraph}{Schema}{21}{section*.44}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.46}%
+\contentsline {paragraph}{Schema}{21}{section*.42}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.44}%
 \contentsline {subsection}{\numberline {4.5}Benutzerschnittstellen}{23}{subsection.4.5}%
 \contentsline {subsubsection}{\numberline {4.5.1}Display}{23}{subsubsection.4.5.1}%
-\contentsline {paragraph}{Schema}{23}{section*.47}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.49}%
+\contentsline {paragraph}{Schema}{23}{section*.45}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.47}%
 \contentsline {subsubsection}{\numberline {4.5.2}ESP}{24}{subsubsection.4.5.2}%
-\contentsline {paragraph}{Schema (WiFi-Modul)}{24}{section*.50}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (WiFi-Modul)}{24}{section*.52}%
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{24}{section*.53}%
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{26}{section*.55}%
+\contentsline {paragraph}{Schema (WiFi-Modul)}{24}{section*.48}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (WiFi-Modul)}{24}{section*.50}%
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{24}{section*.51}%
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{26}{section*.53}%
 \contentsline {subsubsection}{\numberline {4.5.3}RFID}{26}{subsubsection.4.5.3}%
-\contentsline {paragraph}{Schema}{27}{section*.56}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.58}%
+\contentsline {paragraph}{Schema}{27}{section*.54}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.56}%
 \contentsline {subsection}{\numberline {4.6}Beleuchtung}{28}{subsection.4.6}%
-\contentsline {paragraph}{Schema}{28}{section*.60}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.62}%
+\contentsline {paragraph}{Schema}{28}{section*.58}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.60}%
 \contentsline {subsection}{\numberline {4.7}Mikrocontroller}{29}{subsection.4.7}%
-\contentsline {paragraph}{Schema}{29}{section*.63}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.65}%
+\contentsline {paragraph}{Schema}{29}{section*.61}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.63}%
 \contentsline {subsection}{\numberline {4.8}SD-Karte}{30}{subsection.4.8}%
-\contentsline {paragraph}{Schema}{32}{section*.76}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.78}%
+\contentsline {paragraph}{Schema}{32}{section*.74}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.76}%
 \contentsline {section}{\numberline {5}Inbetriebnahme}{33}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Speisungen}{33}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}12V Speisung}{33}{subsubsection.5.1.1}%
@@ -99,9 +99,9 @@
 \contentsline {subsection}{\numberline {6.1}Atmega2560}{48}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{49}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{50}{subsubsection.6.1.2}%
-\contentsline {paragraph}{Bootloader-Section}{50}{section*.99}%
-\contentsline {paragraph}{Init-Section}{50}{section*.100}%
-\contentsline {paragraph}{Main-Loop}{50}{section*.101}%
+\contentsline {paragraph}{Bootloader-Section}{50}{section*.97}%
+\contentsline {paragraph}{Init-Section}{50}{section*.98}%
+\contentsline {paragraph}{Main-Loop}{50}{section*.99}%
 \contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{52}{subsubsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.2}ESP32}{52}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{53}{subsubsection.6.2.1}%
