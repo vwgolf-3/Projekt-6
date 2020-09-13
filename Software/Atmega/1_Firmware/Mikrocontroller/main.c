@@ -19,11 +19,7 @@ int main(void)
 
     devices_init();
 
-<<<<<<< Updated upstream
-//     speicher_init();
-=======
     speicher_init();
->>>>>>> Stashed changes
 	
     Position = 0;
 

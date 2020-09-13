@@ -63,7 +63,7 @@ Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Widerstandsw
 
 %\paragraph{Bootstrap Kondensatoren $\mathrm{\mathbf{C_{Bootstrap}}}$}
 
-Die Bootstrap-Kondensator werden benutzt, um die Gate-Spannung am High-Side-MOSFET hoch auf die Schaltspannung plus die Gatespannung anzuheben. Die Kondensatoren C76 - C78 in Abb. \ref{fig:Schema_Gate_Treiber} unterstützen diesen Effekt.
+Die Bootstrap-Kondensator werden benutzt, um die Gate-Spannung am High-Side-MOSFET auf die Schaltspannung (48V) plus die Gatespannung anzuheben. Die Kondensatoren C76 - C78 in Abb. \ref{fig:Schema_Gate_Treiber} unterstützen diesen Effekt.
 Die Dimensionierung dieser Kondensatoren wird im Datenblatt mit einem Kapazitätswert zwischen 470nF und 1\textmugreek F angegeben, bei einer Nennspannung von 16V oder 25V. Weiter gilt gemäss Datenblatt, dass bei MOSFET's mit einem $\mathrm{Q_G \geq 40nC}$ die Gatekapazität 1\textmugreek F sein soll. Da die Kapazität 61nF beträgt, ist dies der Fall. Die Bootstrap-Kondensatoren werden deswegen mit 1\textmugreek F dimensioniert. \cite[S.10]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
 
 %\begin{tabular}{lll}

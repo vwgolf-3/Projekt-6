@@ -1,0 +1,8 @@
+Name:Screwdriver
+Mengen:
+Orangensaft:65
+Wodka:35
+;
+Alkohol:1
+Kohlensaeure:0
+Bild:25

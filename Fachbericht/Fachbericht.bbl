@@ -607,6 +607,256 @@
       \verb https://docplayer.org/78333139-Aufbau-des-fat32-dateisystems.html
       \endverb
     \endentry
+    \entry{grokhotkov_espressifarduino-esp32_2020}{software}{}
+      \name{author}{6}{}{%
+        {{hash=2051709c6cd0fd1d657f620bc1065cbb}{%
+           family={Grokhotkov},
+           familyi={G\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=d91190f89d63aeccfea4460e6fb3c467}{%
+           family={Sovani},
+           familyi={S\bibinitperiod},
+           given={Kedar},
+           giveni={K\bibinitperiod}}}%
+        {{hash=922f9c3d117c26a7be584a39fbc8f073}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Mahavir},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a6a3bc4ae7edd3e68fae0d05b02f9f4f}{%
+           family={Dev},
+           familyi={D\bibinitperiod},
+           given={Me\bibnamedelima No},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=41bf4f6bca122d94b7564b4fd23c0335}{%
+           family={Gratton},
+           familyi={G\bibinitperiod},
+           given={Angus},
+           giveni={A\bibinitperiod}}}%
+        {{hash=90f6f127903c395bec06a53194521318}{%
+           family={Domburg},
+           familyi={D\bibinitperiod},
+           given={Jeroen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Espressif Systems}%
+      }
+      \strng{namehash}{52157facbe29909b1a88ad405706b05d}
+      \strng{fullhash}{644920c751f874e6b0f958619e767700}
+      \strng{bibnamehash}{644920c751f874e6b0f958619e767700}
+      \strng{authorbibnamehash}{644920c751f874e6b0f958619e767700}
+      \strng{authornamehash}{52157facbe29909b1a88ad405706b05d}
+      \strng{authorfullhash}{644920c751f874e6b0f958619e767700}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Arduino core for the {ESP}32. Contribute to espressif/arduino-esp32 development by creating an account on {GitHub}.}
+      \field{day}{12}
+      \field{month}{9}
+      \field{note}{original-date: 2016-10-06T06:04:20Z}
+      \field{title}{espressif/arduino-esp32}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/espressif/arduino-esp32
+      \endverb
+      \verb{url}
+      \verb https://github.com/espressif/arduino-esp32
+      \endverb
+      \keyw{arduino,esp-idf,esp32,platformio}
+    \endentry
+    \entry{santos_esp32_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d97486ef3495d0397d5aca2f0adb3565}{%
+           family={Santos},
+           familyi={S\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{fullhash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{bibnamehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{authorbibnamehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{authornamehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{authorfullhash}{d97486ef3495d0397d5aca2f0adb3565}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this project you'll create a standalone web server with an {ESP}32 that can toggle two {LEDs} using the Arduino {IDE} programming environment.}
+      \field{day}{16}
+      \field{langid}{american}
+      \field{month}{7}
+      \field{title}{{ESP}32 Web Server - Arduino {IDE} | Random Nerd Tutorials}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
+      \endverb
+      \verb{url}
+      \verb https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
+      \endverb
+    \endentry
+    \entry{vidmofollow_turn_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=56cfdc79f42e22c17a0ba7a354f111c0}{%
+           family={{VidmoFollow}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{fullhash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{bibnamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{authorbibnamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{authornamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{authorfullhash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Turn Arduino's Serial Converter Into {AVRISP} {MkII} Clone : I'll show you how to use Arduino’s {USB}-serial converter as {AVRISP} {mkII}. Process is completely reversible. You’ll need: Arduino {UNO}, or any other board with {ATmega}16U2 or 32U2 (8U2 has too small flash) {USB}-serial converter, Some wires,Optionally for…}
+      \field{day}{10}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{title}{Turn Arduino's Serial Converter Into {AVRISP} {MkII} Clone}
+      \field{titleaddon}{Instructables}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\86EU65DV\\Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.instructables.com/id/Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl/
+      \endverb
+      \verb{url}
+      \verb https://www.instructables.com/id/Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl/
+      \endverb
+    \endentry
+    \entry{savannahgnuorg_index_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=da88d0450744b3b6d243255ba46174fb}{%
+           family={{savannah.gnu.org}},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{fullhash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{bibnamehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{authorbibnamehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{authornamehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{authorfullhash}{da88d0450744b3b6d243255ba46174fb}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{title}{Index of /releases/avrdude/}
+      \field{titleaddon}{Index of /releases/avrdude/}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Index of /releases/avrdude/:C\:\\Users\\kimsc\\Zotero\\storage\\GVNGX4ZE\\avrdude.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://download.savannah.gnu.org/releases/avrdude/
+      \endverb
+      \verb{url}
+      \verb http://download.savannah.gnu.org/releases/avrdude/
+      \endverb
+    \endentry
+    \entry{dharmani_sdsdhc_2009}{online}{}
+      \name{author}{1}{}{%
+        {{hash=099defb67505dd5597d2fc46e70c9218}{%
+           family={Dharmani},
+           familyi={D\bibinitperiod},
+           given={C.\bibnamedelimi C.},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{fullhash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{bibnamehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{authorbibnamehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{authornamehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{authorfullhash}{099defb67505dd5597d2fc46e70c9218}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hi friends, Here is my project on interfacing of {SD} Card ({microSD}). {microSD} cards are available very cheap nowadays, a great option for ha...}
+      \field{day}{31}
+      \field{month}{1}
+      \field{title}{{SD}/{SDHC} Card Interfacing with {ATmega}8 /32 ({FAT}32 implementation)}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\7MWR6LLJ\\sd-card-interfacing-with-atmega8-fat32.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.dharmanitech.com/2009/01/sd-card-interfacing-with-atmega8-fat32.html
+      \endverb
+      \verb{url}
+      \verb https://www.dharmanitech.com/2009/01/sd-card-interfacing-with-atmega8-fat32.html
+      \endverb
+    \endentry
+    \entry{hammer_hterm_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7ba0e7dee17e472e6b1e8a771dc05254}{%
+           family={Hammer},
+           familyi={H\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{fullhash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{bibnamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{authorbibnamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{authornamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{authorfullhash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{HTerm} is a terminal program for Windows that allows in- and output in different number systems}
+      \field{langid}{english}
+      \field{title}{{HTerm}}
+      \field{titleaddon}{der-hammer}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\CZULSVIF\\terminal.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://www.der-hammer.info/pages/terminal.html
+      \endverb
+      \verb{url}
+      \verb http://www.der-hammer.info/pages/terminal.html
+      \endverb
+    \endentry
     \entry{kleitz_sec_2011}{video}{}
       \name{author}{1}{}{%
         {{hash=77b321ce0ccefbced546780de84ebf8f}{%
@@ -621,8 +871,8 @@
       \strng{authorbibnamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authornamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authorfullhash}{77b321ce0ccefbced546780de84ebf8f}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{switch debouncing techniques}

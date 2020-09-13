@@ -1,0 +1,9 @@
+Name:Orange IceTea
+Mengen:
+Orangensaft:20
+Eistee:70
+Zuckersirup:10
+;
+Alkohol:0
+Kohlensaeure:0
+Bild:22

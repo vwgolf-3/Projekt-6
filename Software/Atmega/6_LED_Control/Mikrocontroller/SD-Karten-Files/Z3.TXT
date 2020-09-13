@@ -1,0 +1,3 @@
+Name:Ginger Ale
+Alkohol:0
+Kohlensaeure:1

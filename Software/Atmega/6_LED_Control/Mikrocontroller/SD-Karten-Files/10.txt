@@ -1,0 +1,9 @@
+Name:Daiquiri
+Mengen:
+Limettensaft:15
+Weisser Rum:55
+Zuckersirup:30
+;
+Alkohol:1
+Kohlensaeure:0
+Bild:12

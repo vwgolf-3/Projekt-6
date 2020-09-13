@@ -2,7 +2,7 @@
 \subsection{Motor}
 \label{subsec:Motor}
 
-Um ein Glas während der Zubereitung hin- und her zu bewegen, wird eine Antriebsgruppe benötigt. Die Auswahl der Motorengruppe wurde mehr oder weniger vom Dozenten vorgegeben. Der Entscheid fiel dabei auf den Brushless DC-Motor AKM22h von Sigmatec. Auch dessen Ansteuerung ergab sich durch die schon vorhandenen EVAL-Boards mit TMC4671 und UPS 10A70V. Im Projekt 6 wird anstelle des UPS 10A70V ein TMC6200 verwendet. Das benötigte Feedback wird vom ABN-Encoder AMT33 von CUI devices verwendet. Auf die erwähnten Komponenten wird im Folgenden eingegangen. Abbildung \ref{fig:Blockdiagramm_TMC4671_und_TMC6200} zeigt, wie die ICs zusammenhängen. 
+Um ein Glas während der Zubereitung hin- und her zu bewegen, wird eine Antriebsgruppe benötigt. Die Auswahl der Motorengruppe wurde mit Dozenten ausgewählt. Der Entscheid fiel dabei auf den Brushless DC-Motor AKM22h von Sigmatec. Auch dessen Ansteuerung ergab sich durch die schon vorhandenen EVAL-Boards mit TMC4671 und UPS 10A70V. Im Projekt 6 wird anstelle des UPS 10A70V ein TMC6200 verwendet. Das benötigte Feedback über die Lage des Rotors wird vom ABN-Encoder AMT33 von CUI devices geliefert. Zwei Shunts geben Auskunft über die Bestromung der Spulen. Auf die erwähnten Komponenten wird im Folgenden eingegangen. Abbildung \ref{fig:Blockdiagramm_TMC4671_und_TMC6200} zeigt, wie die Komponenten zusammenhängen.
 
 \begin{figure}[H]
 	\centering
@@ -11,12 +11,12 @@ Um ein Glas während der Zubereitung hin- und her zu bewegen, wird eine Antriebs
 	\label{fig:Blockdiagramm_TMC4671_und_TMC6200}
 \end{figure}
 
-Es wurde darauf geachtet, dass der Aufbau des Prints so gut wie möglich dem Testaufbau entspricht. In Abbildung \ref{fig:Blockdiagramm_Motorengruppe} wird ein detailierteres Blockschaltbild gezeigt, welches den Aufbau eher nach Funktionen beschreibt. Darin eingezeichnet sind die verwendeten Refernzboards.
+Es wurde darauf geachtet, dass der Aufbau des Prints dem Testaufbau entspricht. In Abbildung \ref{fig:Blockdiagramm_Motorengruppe} wird ein detailierteres Blockschaltbild gezeigt, welches den Aufbau eher nach Funktionen beschreibt.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/Blockdiagramm_Motorengruppe}
-	\caption{Blockschaltbild Konfiguration Motorengruppe nach Funktionen. \cite[S.1]{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}}
+	\caption{Blockschaltbild Motorengruppe nach Funktionen. \cite[S.1]{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}}
 	\label{fig:Blockdiagramm_Motorengruppe}
 \end{figure}
 

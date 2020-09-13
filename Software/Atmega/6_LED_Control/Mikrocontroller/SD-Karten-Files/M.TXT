@@ -1,0 +1,12 @@
+7Up,1,0,1
+Coca-Cola,1,0,1
+Ginger Ale,1,0,1
+Orangensaft,1,0,0
+Limettensaft,1,0,0
+Zitronensaft,1,0,0
+Grenadinesirup,1,0,0
+Blue Curacao,1,1,0
+Gin,1,1,0
+Triple Sec,1,1,1
+Whisky,1,1,0
+Wodka,1,1,0

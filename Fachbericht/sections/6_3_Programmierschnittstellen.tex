@@ -23,7 +23,7 @@ Folgende Schritte wurden befolgt:
 \begin{enumerate}
 \item Platine mit Spannung versorgen und Computer mit zwei USB-Kabeln an die USB-B-Buchsen anschliessen.\\
 \textcolor{blue}{Systemeinstellungen\textrightarrow Geräte-Manager}\\
-Dort sind die Devices sichtbar unter dem Name: \textit{Silicon Labs CP210x USB to UART Bridge} (siehe Anhang Kapitel \ref{Appendix:Geraete_Manager})\newline
+Dort sind die Devices sichtbar unter dem Name: \textit{Silicon Labs CP210x USB to UART Bridge}. Die Verifizierung ist im Anhang Kapitel \ref{Appendix:Geraete_Manager} zu finden.\newline
 \item Überprüfen der Handshakes, welche definiert sind in den Tools zum Hochladen der Software.\\
 
 \begin{enumerate}
@@ -31,7 +31,7 @@ Dort sind die Devices sichtbar unter dem Name: \textit{Silicon Labs CP210x USB t
 
 Um zu evaluieren, wie der Handshake durchgeführt wird, wurde beim Hochladen eines Programms an den markierten Punkten auf der unteren Seite in Abbildung \ref{fig:USB_B_Print} gemessen.\\
 
-Im Anhang Kapitel \ref{Appendix:Handshake_uC} ist der Handshake und die Übertragung der ersten Bytes zu sehen. Der Handshake wird in einer weiteren Abbildung des selben Kapitels genauer aufgezeigt. Darin ist erkennbar, dass sobald die DTR-Leitung auf GND gezogen wird, die Spannung über dem Reset-Pin aufgrund des Kondensators zwischen DTR und Reset nur kurzzeitig auf 0V fällt. Dies reicht jedoch aus, dass der Mikrocontroller in den Boot-Modus fällt. Nach ca. 50ms beginnt die Datenübertragung vom Computer in den Flash-Speicher des uC.\\
+Im Anhang Kapitel \ref{Appendix:Handshake_uC} ist der Handshake und die Übertragung der ersten Bytes zu sehen. Der Handshake wird in einer weiteren Abbildung des selben Kapitels genauer aufgezeigt. Darin ist erkennbar, dass sobald die DTR-Leitung auf GND gezogen wird und die Spannung über dem Reset-Pin aufgrund des Kondensators zwischen DTR und Reset nur kurzzeitig auf 0V fällt. Dies reicht jedoch aus, dass der Mikrocontroller in den Boot-Modus fällt. Nach ca. 50ms beginnt die Datenübertragung vom Computer in den Flash-Speicher des uC.\\
 
 \item ESP32\\
 

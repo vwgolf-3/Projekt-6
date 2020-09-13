@@ -1,0 +1,3 @@
+Name:Weisser Rum
+Alkohol:1
+Kohlensaeure:0

@@ -1,0 +1,9 @@
+Name:Caipirinha
+Mengen:
+Limettensaft:20
+Weisser Rum:70
+Zuckersirup:10
+;
+Alkohol:1
+Kohlensaeure:0
+Bild:10

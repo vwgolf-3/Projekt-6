@@ -1,0 +1,10 @@
+Name:Gin & Sin
+Mengen:
+Orangensaft:30
+Zitronensaft:30
+Grenadinesirup:10
+Gin:30
+;
+Alkohol:1
+Kohlensaeure:0
+Bild:17

@@ -1,0 +1,3 @@
+Name:7Up
+Alkohol:0
+Kohlensaeure:1

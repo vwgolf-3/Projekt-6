@@ -1,0 +1,9 @@
+Name:Blue Lagoon
+Mengen:
+7Up:65
+Blue Curacao:20
+Wodka:15
+;
+Alkohol:1
+Kohlensaeure:1
+Bild:8

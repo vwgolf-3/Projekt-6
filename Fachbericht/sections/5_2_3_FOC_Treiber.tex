@@ -25,14 +25,14 @@ Auf dem Breakout-Board sind diverse Anschlussmöglichkeiten vorhanden. Für den 
 
 In der schon gezeigten Abbildung \ref{fig:Blockdiagramm_Motorengruppe} ist zu erkennen, welche Funktionen im Treiber vorhanden sind und wie diese zusammenhängen. Im wesentlichen kann daraus entnommen werden, dass der TMC4671 aus einer FOC-Logik\footnote{FOC= \textbf{F}ield \textbf{O}riented \textbf{C}ontrol}, einer Servo-Logik, einem SPI-Interface und diversen Engines (PWM, ADC, Encoder) besteht. Im Anhang Kapitel \ref{Appendix:Schaltung_TMC4671} wird eine Standard-Anwendungsschaltung gezeigt, worin erkennbar ist, dass der Treiber sehr universell aufgebaut ist und für mehrere Motorentypen verwendet werden können. Die für den Partymixer essentiellen Ein- und Ausgänge wurden schon genannt.
 
+In Abbildung \ref{fig:Schema_FOC_Treiber} ist erkennbar, welche Pins für den Cocktailmixer verwendet werden. Es handelt sich dabei um die schon aufgelisteten Komponenten, nämlich Kommunikationsleitung zwischen Treiber und Mikrocontroller (SPI), Phasenströme (ADC), Encoder Input (ENC), Motorspannung (48V) und das Gate-Ctrl-Signal (PWM).
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/Schema_FOC_Treiber}
 	\caption{Schema FOC-Treiber.}
 	\label{fig:Schema_FOC_Treiber}
 \end{figure} 
-
-In Abbildung \ref{fig:Schema_FOC_Treiber} ist erkennbar, welche Pins für den Cocktailmixer verwendet werden und welche Verbindungsleitungen zum Treiber führen. Es handelt sich dabei um die schon aufgelisteten Komponenten, nämlich Kommunikationsleitung zwischen Treiber und Mikrocontroller (SPI), Phasenströme (ADC), Encoder Input (ENC), Motorspannung (48V) und das Gate-Ctrl-Signal (PWM).
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
