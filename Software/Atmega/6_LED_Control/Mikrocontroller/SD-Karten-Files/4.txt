@@ -1,9 +1,0 @@
-Name:Bacardi Cocktail
-Mengen:
-Zitronensaft:25
-Grenadinensirup:15
-Weisser Rum:60
-;
-Alkohol:1
-Kohlensaeure:0
-Bild:6

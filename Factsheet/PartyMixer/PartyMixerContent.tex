@@ -6,7 +6,7 @@
 \client{Kim Schenk,
 		Robin Aebi}
 
-\projtype{P5}
+\projtype{P6}
 
 \coaches{%
 	Pascal Schleuniger}
@@ -24,26 +24,26 @@ Bei einer gelungenen Party darf eines auf keinen Fall fehlen, die Getränke. Die
 }
 
 \fscontent{
-    \section{Die Aufgabe}
-	Damit der PartyMixer ein Erfolg wird, mussten einige Dinge im Voraus abgeklärt werden. Dazu wurde eine ausführliche Recherche vorgenommen, welche den grundsätzlichen Aufbau dieser Maschine festlegte. Aufgrund dieser Entscheidungsfindung konnten im Anschluss die dazugehörigen Komponenten bestimmt und evaluiert werden.
-    \section{Aufbau}
-	Die Getränke sollen nicht an Ort und Stelle befüllt werden, was den Showeffekt erhöht. Ziel ist, dass ein Glas via Förderband zu den einzelnen Getränken gefahren wird, wo es dann befüllt wird. Die Getränkeflaschen sollen dabei nicht sichtbar verstaut sein. Eine einfach gestaltete Bedienung ist für den Benutzer wünschenswert. Aus diesem Grund soll der PartyMixer via Touchscreen Display bedient werden können.                   
-    \section{Komponenten}   
-    Das Herz des PartyMixer's bildet ein Mikrocontroller. Dieser soll die einzelnen Peripherien sauber ansteuern und auslesen. Dazu gehören ein Motor, welcher ein Förderband bewegt, die Pumpen, welche die Getränke befördern, die Durchflussmesgräte, welche den Durchfluss bestimmen sowie ein Touchscreen Display, welches als Benutzerschnittstelle fungiert.    
+    \section{Hardware}
+	Die Hardware besteht aus einer Leiterplattine, worauf alle Komponenten für die gewünschten Funtkionen enthalten sind. Dazu gehören die Speisungen, der Mikrocontroller, die Motorengruppe, das WiFi-Modul, die Ansteuerung für die Pumpen und zugehörige Sensoren und die LED-Steuerung. Ausserdem wird ein externes RFID-Modul und Display verwendet.
+    \section{Software}
+	Der grösste Software-Teil gehört zum Mikrocontroller. Dieser steuert die Maschine an sich. Ein weiterer Software-Teil steckt in der Android-Applikation. Darin wird das User-Interface bereitgestellt und bei Berührungen des Displays Aktionen ausgelöst. Die ausgelösten Aktionen werden im WiFi-Modul verarbeitet. Das WiFi-Modul kommuniziert dann mit dem Mikrocontroller.
+    \section{Mechanik}   
+    Die Mechanik ist das Skelett der Maschine. Es trägt die angesteuerten Komponenten und stellt sicher, dass die Funktion der Maschine gewährleistet ist. Zur Mechanik gehören der Rahmen, der Getränkeschlitten, die Verleidung, die Unterbringung der Elektronik und die Kühlbox. Der LED-Streifen wird auch am Rahmen befestigt.
 }
 
-\infobox{Features}{%
+\infobox{Funktionen}{%
     \footnotesize
     \setlength\tabcolsep{2pt}
     \begin{tabular}{lp{100mm}lp{0mm}}
-    \bfseries Komponenten  		&                         			& 	  &\\
-   \\
-    Speisungen:	&  \SI{48}{\volt} / \SI{12}{\volt} / \SI{5}{\volt} / \SI{3.3}{\volt}			  																												&     &\\
-    
-    Mikrokontroller:      	& ATmega2560-16AU					&     &\\
-    Pumpen:			  		& Vakuum-Membranpumpen   \SI{12}{\volt}     			&     &\\
-  	Durchflussmessgeräte:	& Mechanisch-Volumetrisch \SI{5}{\volt}    	&     &\\ 		        		
-    Motor:         			& AKM 22h \SI{48}{\volt}            &     &\\
-    Display:                & Nextion NX8048T070 \SI{5}{\volt} 	&     &\\
+    \bfseries Cocktails  		&                         			& 	  &\\
+    Cocktails können erstellt und bearbeitet werden. & hüü& & \\
+    Die Position und Art der Zutaten ist frei wählbar. & & & \\
+	Automatische Listenerstellung anhand der Zutaten. & & & \\
+	\bfseries RFID & & & \\
+	Cocktail kann einem Tag zugeordnet werden. & & & \\
+	\bfseries Reinigung & & & \\
+	Ein begleiteter Reinigungsmodus ist vorhanden. & & & \\
+	
     \end{tabular}
 }

@@ -4,8 +4,7 @@
 
 Um das Anwenderprogramm auf dem Mikrocontroller (\textmu C) speichern zu können, ist es am angenehmsten, wenn dies direkt aus der Programmierumgebung geschehen kann. Als Programmierumgebung wird aufgrund des AVR-Chips die Software Atmel Studio 7.0 ausgewählt.
 
-Atmel Studio kompiliert den geschriebenen C Code in Maschinencode und schreibt diesen in ein HEX-File. Das HEX-File wird von einem Programmiertool namens AVRdude hochgeladen.
-\todo{https://www.mikrocontroller.net/articles/AVRDUDE}
+Atmel Studio kompiliert den geschriebenen C Code in Maschinencode und schreibt diesen in ein HEX-File. Das HEX-File wird von einem Programmiertool namens AVRdude hochgeladen.\cite{verschiedene_autoren_avrdude_2019}
 
 
 Damit der Mikrocontroller sich Programmieren lässt, müssen einige Grundeinstellungen vorgenommen werden. Dazu gehört das Setzen der Fuse- und Lock-Bits sowie das Schreiben des Bootloaders. Eine detailierte Beschreibung, wie diese gesetzt wurden, wird im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} erklärt. Aus der Beschreibung folgt für die Fuse- und Lock-Bits die Einstellungen gemäss Tabelle \ref{tab:Fuse_und_Lock-Bits}.

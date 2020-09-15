@@ -708,6 +708,42 @@
       \verb https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
       \endverb
     \endentry
+    \entry{verschiedene_autoren_avrdude_2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d9135b14fa668599d004fad6fa0a6f3c}{%
+           family={{Verschiedene Autoren}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{fullhash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{bibnamehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{authorbibnamehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{authornamehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{authorfullhash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{16}
+      \field{month}{7}
+      \field{title}{{AVRDUDE} – Mikrocontroller.net}
+      \field{titleaddon}{{AVRDUDE}}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb AVRDUDE – Mikrocontroller.net:C\:\\Users\\kimsc\\Zotero\\storage\\4I99DTIK\\AVRDUDE.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mikrocontroller.net/articles/AVRDUDE
+      \endverb
+      \verb{url}
+      \verb https://www.mikrocontroller.net/articles/AVRDUDE
+      \endverb
+    \endentry
     \entry{vidmofollow_turn_2017}{online}{}
       \name{author}{1}{}{%
         {{hash=56cfdc79f42e22c17a0ba7a354f111c0}{%
@@ -857,6 +893,187 @@
       \verb http://www.der-hammer.info/pages/terminal.html
       \endverb
     \endentry
+    \entry{mikrochip_makes_getting_2015}{video}{}
+      \name{author}{1}{}{%
+        {{hash=d48c1381da800341c8865171d375ed10}{%
+           family={Makes},
+           familyi={M\bibinitperiod},
+           given={Mikrochip},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{d48c1381da800341c8865171d375ed10}
+      \strng{fullhash}{d48c1381da800341c8865171d375ed10}
+      \strng{bibnamehash}{d48c1381da800341c8865171d375ed10}
+      \strng{authorbibnamehash}{d48c1381da800341c8865171d375ed10}
+      \strng{authornamehash}{d48c1381da800341c8865171d375ed10}
+      \strng{authorfullhash}{d48c1381da800341c8865171d375ed10}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In this video, we will: - Introduce Pulse Width Modulation ({PWM}) and the importance of high frequency and resolution. - Set a prescalar of 1 to get maximum {PWM} frequency. - Set up two output compare {IRQ}’s: one to control the period, the other to control the duty cycle. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
+      \field{day}{12}
+      \field{month}{3}
+      \field{shorttitle}{Getting Started with {AVR}}
+      \field{title}{Getting Started with {AVR}: Using {PWM} to Dim an {LED} (\#9)}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=FE4KfnEHPGU&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=9
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=FE4KfnEHPGU&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=9
+      \endverb
+    \endentry
+    \entry{mikrochip_makes_getting_2015-1}{video}{}
+      \name{author}{1}{}{%
+        {{hash=1d934a41c4de87eb5bc6e75ff77905f4}{%
+           family={{Mikrochip Makes}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{fullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{bibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In this video, we will learn: - Setting up a millisecond timer to update the duty cycle - Using the 8-bit timer-counter 0 as a millisecond timer. - Incrementing the duty cycle every 2 {mS}, resetting the duty cycle to 0 when it equals the period. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
+      \field{day}{12}
+      \field{month}{3}
+      \field{shorttitle}{Getting Started with {AVR}}
+      \field{title}{Getting Started with {AVR}: Updating {PWM} Duty Cycle Using a Millisecond Timer (\#10)}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=eXwv7e1B2QI&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=10
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=eXwv7e1B2QI&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=10
+      \endverb
+    \endentry
+    \entry{mikrochip_makes_getting_2015-2}{video}{}
+      \name{author}{1}{}{%
+        {{hash=1d934a41c4de87eb5bc6e75ff77905f4}{%
+           family={{Mikrochip Makes}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{fullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{bibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In this video, we will: - Create functions: {PWM}\_Increase\_duty ( ), {PWM}\_Decrease\_duty ( ), {PWM}\_BrightDim ( ) - Use enumerators to keep track of the direction of {PWM} duty cycle change. - Declare our function prototypes. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
+      \field{day}{12}
+      \field{month}{3}
+      \field{shorttitle}{Getting Started with {AVR}}
+      \field{title}{Getting Started with {AVR}: A More Complete {PWM} Driver (\#11)}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=uA410-EC_Mo&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=11
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=uA410-EC_Mo&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=11
+      \endverb
+    \endentry
+    \entry{atmel_atmel_2014}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bed89e32bb03bc7e71ebbf7729f9d4ce}{%
+           family={{Atmel}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{fullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{bibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Atmega2560 Datasheet}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{title}{Atmel {ATmega}640/V-1280/V-1281/V-2560/V-2561/V}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\23EFVM4V\\atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf
+      \endverb
+      \verb{url}
+      \verb https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf
+      \endverb
+    \endentry
+    \entry{podkalicki_attiny13_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=fdc411710d8ecb0240584c4cbc05ead6}{%
+           family={Podkalicki},
+           familyi={P\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod}}}%
+      }
+      \strng{namehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{fullhash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{bibnamehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{authorbibnamehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{authornamehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{authorfullhash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is a simple {ATtiny}13 project that controls {LED} {RGB} using Software {PWM}. In result It gives really nice and colourful light effect.}
+      \field{day}{11}
+      \field{langid}{british}
+      \field{month}{4}
+      \field{title}{{ATtiny}13 - controlling {LED} {RGB} | Łukasz Podkalicki}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\VLWS9EBU\\attiny13-controlling-led-rgb-fancy-light-effects.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://blog.podkalicki.com/attiny13-controlling-led-rgb-fancy-light-effects/
+      \endverb
+      \verb{url}
+      \verb https://blog.podkalicki.com/attiny13-controlling-led-rgb-fancy-light-effects/
+      \endverb
+    \endentry
     \entry{kleitz_sec_2011}{video}{}
       \name{author}{1}{}{%
         {{hash=77b321ce0ccefbced546780de84ebf8f}{%
@@ -871,8 +1088,8 @@
       \strng{authorbibnamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authornamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authorfullhash}{77b321ce0ccefbced546780de84ebf8f}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{switch debouncing techniques}

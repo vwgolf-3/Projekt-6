@@ -1,3 +1,0 @@
-Name:Sambuca
-Alkohol:1
-Kohlensaeure:0
