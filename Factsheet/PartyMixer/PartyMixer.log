@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.10)  15 SEP 2020 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.10)  15 SEP 2020 10:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -937,22 +937,32 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 11.39996pt on input line 6.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.59998pt on input line 6.
-<images/P5-Blockschema.png, id=11, 1153.30875pt x 832.61063pt>
-File: images/P5-Blockschema.png Graphic file (type png)
-<use images/P5-Blockschema.png>
-Package pdftex.def Info: images/P5-Blockschema.png  used on input line 6.
-(pdftex.def)             Requested size: 394.12596pt x 284.52756pt.
+<images/Print_3D.png, id=11, 1269.99469pt x 903.375pt>
+File: images/Print_3D.png Graphic file (type png)
+<use images/Print_3D.png>
+Package pdftex.def Info: images/Print_3D.png  used on input line 6.
+(pdftex.def)             Requested size: 199.98647pt x 142.26378pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--6
-[][]
+Overfull \hbox (17.8916pt too wide) in paragraph at lines 6--6
+[][]  
  []
 
+<images/3DModell.jpg, id=12, 720.44156pt x 443.40656pt>
+File: images/3DModell.jpg Graphic file (type jpg)
+<use images/3DModell.jpg>
+Package pdftex.def Info: images/3DModell.jpg  used on input line 6.
+(pdftex.def)             Requested size: 231.15062pt x 142.26378pt.
+
+Overfull \hbox (3.52856pt too wide) in paragraph at lines 6--6
+[][]  
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 11.39996pt on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 6.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.39996pt on input line 6.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 7.59998pt on input line 6.
 
@@ -967,8 +977,8 @@ Overfull \hbox (33.51582pt too wide) in paragraph at lines 6--6
 
 [1
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./images/P5-Blo
-ckschema.png>]
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./images/Print_
+3D.png> <./images/3DModell.JPG>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 7.
  (./PartyMixer.aux)
@@ -978,20 +988,20 @@ Package rerunfilecheck Info: File `PartyMixer.out' has not changed.
 (rerunfilecheck)             Checksum: F4C377D3F33D98B4F2A96C5A41A71E40;76.
  ) 
 Here is how much of TeX's memory you used:
- 24236 strings out of 480471
- 490103 string characters out of 5903300
- 938874 words of memory out of 5000000
- 39757 multiletter control sequences out of 15000+600000
+ 24248 strings out of 480471
+ 490284 string characters out of 5903300
+ 939874 words of memory out of 5000000
+ 39767 multiletter control sequences out of 15000+600000
  556493 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,12n,79p,858b,816s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texm
 f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2020/texmf-dist/fonts/ty
 pe1/urw/helvetic/uhvr8a.pfb>
-Output written on PartyMixer.pdf (1 page, 126046 bytes).
+Output written on PartyMixer.pdf (1 page, 311628 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
+ 35 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
  6 named destinations out of 1000 (max. 500000)
- 24602 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 24607 words of extra memory for PDF output out of 24883 (max. 10000000)
 
