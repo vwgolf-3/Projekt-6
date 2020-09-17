@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  11 FEB 2020 14:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.10)  17 SEP 2020 08:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -11,11 +11,11 @@ entering extended mode
 
  
 Here is how much of TeX's memory you used:
- 3 strings out of 492639
- 115 string characters out of 6133088
- 56499 words of memory out of 5000000
- 3994 multiletter control sequences out of 15000+600000
- 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 3 strings out of 480471
+ 115 string characters out of 5903300
+ 239266 words of memory out of 5000000
+ 16138 multiletter control sequences out of 15000+600000
+ 532338 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  0i,0n,0p,1b,6s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

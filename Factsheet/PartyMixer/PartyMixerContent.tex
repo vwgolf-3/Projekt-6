@@ -12,7 +12,7 @@
 	Pascal Schleuniger}
 
 \fssummary{
-Bei einer gelungenen Party darf eines auf keinen Fall fehlen, die Getränke. Diese sicherzustellen ist jedoch meistens mit viel Aufräumarbeit und Selbstaufwand verbunden. Genau da kommt der PartyMixer ins Spiel. Mit dem PartyMixer können sich die Gäste selbstständig die gewünschten Cocktails erstellen lassen und dies ganz ohne Chaos oder verschüttete Getränke.
+Bei einer gelungenen Party darf eines auf keinen Fall fehlen, die Getränke. Diese sicherzustellen ist jedoch meistens mit viel Aufräumarbeit und Selbstaufwand verbunden. Genau da kommt der PartyMixer ins Spiel. Mit dem PartyMixer können sich die Gäste selbstständig die gewünschten Cocktails ohne Chaos oder verschüttete Getränke erstellen lassen.
 }
 
 \fsgraphics{
@@ -22,14 +22,14 @@ Bei einer gelungenen Party darf eines auf keinen Fall fehlen, die Getränke. Die
 \begin{minipage}[t]{.4\textwidth}
 \raggedright
 \includegraphics[height = 50mm]{images/Print_3D}\\
-\graphicscaption{Print 3D-Modell (Hardware)}
+\graphicscaption{Print 3D-Modell}
 \end{minipage}
 \hfill
 \noindent
 \begin{minipage}[t]{.5\textwidth}
 \raggedright
 \includegraphics[height = 50mm]{images/3DModell}\\
-\graphicscaption{Mechanik 3D-Modell (Mechanik)}
+\graphicscaption{Mechanik 3D-Modell}
 \end{minipage}
 }
 
@@ -45,15 +45,24 @@ Bei einer gelungenen Party darf eines auf keinen Fall fehlen, die Getränke. Die
 \infobox{Funktionen}{%
     \footnotesize
     \setlength\tabcolsep{2pt}
-    \begin{tabular}{lp{100mm}lp{0mm}}
-    \bfseries Cocktails  		&                         			& 	  &\\
-    Cocktails können erstellt und bearbeitet werden. & hüü& & \\
-    Die Position und Art der Zutaten ist frei wählbar. & & & \\
-	Automatische Listenerstellung anhand der Zutaten. & & & \\
-	\bfseries RFID & & & \\
-	Cocktail kann einem Tag zugeordnet werden. & & & \\
-	\bfseries Reinigung & & & \\
-	Ein begleiteter Reinigungsmodus ist vorhanden. & & & \\
-	
+    \begin{tabular}{p{0.5\textwidth}|p{0.5\textwidth}}
+    \bfseries Cocktails	& \bfseries Bluetooth	\\
+    Cocktails können erstellt und bearbeitet werden. & Über eine App können Cocktails erstellt und den RFID-Tags  \\
+    Die Position und Art der Zutaten ist frei wählbar. & zugewiesen werden.\\
+	Automatische Listenerstellung anhand der Zutaten. & \\
+	 & \bfseries Datenspeicherung\\
+	\bfseries Zutaten & Sämtliche Daten werden auf einer SD-Karte abgelegt.\\
+	Unterscheidung Kohlesäure- und Alkoholhaltige Zutaten. & Bei einem Neustart werden die Zuletzt vorhandenen Daten\\
+	Selber hinzufügen für eine breitere Cocktailauswahl. & geladen. \\
+	 & \\
+	\bfseries RFID & \bfseries Motor\\
+	Cocktail kann einem Tag zugeordnet und ohne & Eine FOC-Regelung kontrolliert die Motorbewegungen.\\
+	Suchen zubereitet werden. & \\
+	 & \bfseries Mechanik\\
+	\bfseries Reinigung & 12 Pumpen und Durchflusssensoren.\\
+	Ein begleiteter Reinigungsmodus ist vorhanden. & Kühlbox hält Stunden kalt.\\
+	 & \\
+	 \bfseries Display & \\
+	 Sämtliche cocktailspezifischen sowie maschinenspezifische Funtkionen können getätigt werden. & \\
     \end{tabular}
 }

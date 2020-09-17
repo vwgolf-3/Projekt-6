@@ -216,7 +216,7 @@
 \newcommand\fs@makeinfobox{
     \begin{tcolorbox}[
             title=\fs@infoboxtitle,
-            width=0.66\textwidth,
+            width=1\textwidth,
             arc=0mm,
             before=,
             after=\hfill]
@@ -341,6 +341,8 @@
             titlerule=0.5pt,
         }
         \fs@makeinfobox
+\newline
+\newline
         \begin{minipage}[b]{0.30\textwidth}
             \ifdef{\@team}{\@team}{}\par
             \ifdef{\@client}{\@client}{}\par

@@ -1,8 +1,6 @@
 \subsubsection{PI-Regler}
 \label{subsubsec:PI_Regler}
 
-\todo{cite: https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit\_Patrick\_Stahl.pdf}
-
 Die Regler, welche im FOC-Treiber integriert sind, werden verwendet, um einen Motor an eine bestimmte Position zu fahren, mit einer bestimmte Geschwindigkeit drehen oder ein bestimmtes Drehmoment anzulegen. Im Gegensatz zu einem Motor, dem nur eine Spannung vorgegeben wird, kann bei einer Abweichung des vorgegebenen Parameters nachgeregelt werden. So kann beispielsweise bei grösserer Belastung die angelegte Spannung erhöht werden, sodass die vorgegebene Geschwindigkeit gehalten werden kann.
 
 Für die Regelung eines Motors können verschieden aufgebaut sein. Die Regelstruktur, wie sie im FOC-Treiber TMC4671 integriert ist, ist eine Kaskadenregelung. Eine Kaskadenregelung besteht in der Regel aus drei überlagerten Regelkreisen. Der innerste Regelkreis ist der Stromregelkreis. Dieser ist dem Geschwindigkeitsregelkreis unterlagert. Der Geschwindigkeitsregelkreis ist wiederum den Positionsregelkreis unterlagert. Bei einer Kaskadenregelung ist die Ausgangsgrösse des überlagerten Regelkreises die Eingangsgrösse des unterlagerten Regelkreises. Aus stabilitätsgründen ist darauf zu achten, dass die Nachstellzeit der äusseren Regelkreise grösser ist, alsi die der Inneren.
@@ -13,7 +11,7 @@ Der Geschwindigkeitsregelkreis ist dem Stromregelkreis überlagert. Weicht die a
 
 Der Positionsregelkreis ist dem Geschwindigkeitskreis überlagert. Weicht die aktuelle Position von der vorgegebenen Position ab, so gibt der Positionsregelkreis dem Geschwindigkeitsregelkreis eine Abweichung vor, wodurch der Geschwindigkeitsregelkreis in die erforderliche Richtung korrigiert.
 
-Mit der Begrenzung der Eingangsgrössen wird die Mechanik geschont und der Motor vor Überlast geschützt. Dies wird erreicht, indem die Ausgangsgrössen der PI-Regler mit einem Limit versehen werden. So kann der Strom durch die Spulen begrenzt werden, eine Maximalgeschwindigkeit definiert werden und die Enden der Positionen vorgegeben werden. Die Limits sind auf den Motor abgestimmt.
+Mit der Begrenzung der Eingangsgrössen wird die Mechanik geschont und der Motor vor Überlast geschützt. Dies wird erreicht, indem die Ausgangsgrössen der PI-Regler mit einem Limit versehen werden. So kann der Strom durch die Spulen begrenzt werden, eine Maximalgeschwindigkeit definiert werden und die Enden der Positionen vorgegeben werden. Die Limits sind auf den Motor abgestimmt. \cite{stahl_simulation_2014}
 
 Die Werte der PI-Regler wurden Experimentell bestimmt. Folgende Werte wurden dabei ermittelt:
 

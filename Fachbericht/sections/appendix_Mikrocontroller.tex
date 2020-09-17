@@ -147,47 +147,39 @@ Die Aufstartzeit wird vorsorglich auf die längst mögliche Zeit eingestellt. Di
 %\end{tabularx}
 %\todo{cite: Siehe Cites auskommentiert in Tabelle}
 %
-Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung unter einen Wert fällt. Wenn der Mikrocontroller ausfällt, während der TMC4671 noch aktiv ist, wird der Motor weiter gefahren. Dieses Risiko soll eingeschränkt werden, indem dieser Modus ausgeschaltet wird.
-
-\todo{cite : https://www-user.tu-chemnitz.de/~heha/viewchm.php/hs/ATmegaX8.chm/28.htm}
+Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung unter einen Wert fällt. Wenn der Mikrocontroller ausfällt, während der TMC4671 noch aktiv ist, wird der Motor weiter gefahren. Dieses Risiko soll eingeschränkt werden, indem dieser Modus ausgeschaltet wird.\cite{haftmann_programmierung_nodate}
 
 %\subsubsection{Brown-out-Detection}\label{Appendix:Brown-out-Detection}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_BoD}
-	\caption{Tabelle Brown-out-Detection.}
+	\caption{Tabelle Brown-out-Detection.\cite[S.361]{atmel_atmel_2014}}
 	\label{fig:Tabelle_BoD}
 \end{figure}
-
-\todo{cite: Datenblatt Atmega 2560, Seite 361}
 
 %\subsubsection{Full Swing Crystal Oscillator}\label{Appendix:Full_Swing _Crystal_Oscillator}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_Crystal}
-	\caption{Tabelle Frequenzbereich Crystal Oszillator.}
+	\caption{Tabelle Frequenzbereich Crystal Oszillator.\cite[S.43]{atmel_atmel_2014}}
 	\label{fig:Tabelle_Crystal}
 \end{figure}
-
-\todo{cite: Datenblatt Atmega 2560, Seite 43}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_Crystal2}
-	\caption{Tabelle Aufstartzeit.}
+	\caption{Tabelle Aufstartzeit.\cite[S.43]{atmel_atmel_2014}}
 	\label{fig:Tabelle_Crystal2}
 \end{figure}
-
-\todo{cite: Datenblatt Atmega 2560, Seite 43}
 
 %\subsubsection{Bootloader-Speicherplatz}\label{Appendix:Bootloader-Speicherplatz}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_Bootloader}
-	\caption{Tabelle Bootloader Speicherplatz.}
+	\caption{Tabelle Bootloader Speicherplatz.\cite[S.320]{atmel_atmel_2014}}
 	\label{fig:Tabelle_Bootloader}
 \end{figure}
 
@@ -204,9 +196,9 @@ Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung 
 
 Ein Bootloader (BL) ermöglicht seitens \textmu C den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des \textmu C gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
 %Wenn innerhalb von ca. zwei Sekunden keine Daten ankommen, wird das Anwenderprogramm gestartet. 
-Wird innerhalb dieser zwei Sekunden ein Anwenderprogramm in Form eines HEX-Files an den Mikrocontroller gesendet, wird es gemäss stk500v2-Protokoll \todo{cite: http://ww1.microchip.com/downloads/en/Appnotes/doc2591.pdf} in den Flash-Speicher geladen.
+Wird innerhalb dieser zwei Sekunden ein Anwenderprogramm in Form eines HEX-Files an den Mikrocontroller gesendet, wird es gemäss stk500v2-Protokoll in den Flash-Speicher geladen.
 %Nach dem Laden in den Flash-Speicher wird das neu geladene Programm gestartet. 
-Aufgrund des BL geht es nach einem Reset des \textmu Cs zwei Sekunden, bis das eigentliche Programm startet.
+Aufgrund des BL geht es nach einem Reset des \textmu Cs zwei Sekunden, bis das eigentliche Programm startet. \cite{atmel_avr068_2006}
 
 Für den \textmu C des Cocktailmixers wird ein stk500v2-BL verwendet. Dieser kann über Github\footnote{https://github.com/arduino/Arduino-stk500v2-bootloader/blob/master/stk500boot.c
 } heruntergeladen werden. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Achtung, die Angaben haben im Falle des Cocktailmixers nur mit Abweichungen funktioniert (4096 words anstelle 1024). Durch Anpassen des start-Vektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern.
@@ -237,12 +229,9 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_Memory_Lock}
-	\caption{Tabelle Memory Lock.}
+	\caption{Tabelle Memory Lock.\cite[S.326]{atmel_atmel_2014}}
 	\label{fig:Tabelle_Memory_Lock}
 \end{figure}
-
-\todo{cite: Datenblatt Atmega 2560, Seite 326}
-
 
 \begin{figure}[H]
 	\centering
@@ -279,41 +268,35 @@ In Abbildung \ref{fig:Doubly_Linked_List_2_0} wird nur der start-Pointer (head) 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_0}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
+	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
 	\label{fig:Doubly_Linked_List_2_0}
 \end{figure}
-
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
 
 Abbildung \ref{fig:Doubly_Linked_List_2_1} zeigt eine bestehende Liste mit zwei Elementen. Ein drittes Element soll am Schluss eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente (in diesem Falle noch head und tail) umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden. Auch der tail-Zeiger muss nun auf das neue Element gelegt werden.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_1}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
+	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
 	\label{fig:Doubly_Linked_List_2_1}
 \end{figure}
-
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
 
 Abbildung \ref{fig:Doubly_Linked_List_2_2} zeigt ebenfalls eine bestehende Liste mit zwei Elementen. Ein drittes Element soll am Beginn eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente (in diesem Falle noch head und tail) umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden. Auch der head-Zeiger muss nun auf das neue Element gelegt werden.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_2}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
+	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
 	\label{fig:Doubly_Linked_List_2_2}
 \end{figure}
 
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}
 
 Abbildung \ref{fig:Doubly_Linked_List_2_3} zeigt eine bestehende Liste mit vier Elementen. Ein fünftes Element soll in der Mitte eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_3}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.}
+	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
 	\label{fig:Doubly_Linked_List_2_3}
 \end{figure}
 
-\todo{cite Bild:https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/}

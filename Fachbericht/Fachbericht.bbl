@@ -895,18 +895,17 @@
     \endentry
     \entry{mikrochip_makes_getting_2015}{video}{}
       \name{author}{1}{}{%
-        {{hash=d48c1381da800341c8865171d375ed10}{%
-           family={Makes},
-           familyi={M\bibinitperiod},
-           given={Mikrochip},
-           giveni={M\bibinitperiod}}}%
+        {{hash=1d934a41c4de87eb5bc6e75ff77905f4}{%
+           family={{Mikrochip Makes}},
+           familyi={M\bibinitperiod}}}%
       }
-      \strng{namehash}{d48c1381da800341c8865171d375ed10}
-      \strng{fullhash}{d48c1381da800341c8865171d375ed10}
-      \strng{bibnamehash}{d48c1381da800341c8865171d375ed10}
-      \strng{authorbibnamehash}{d48c1381da800341c8865171d375ed10}
-      \strng{authornamehash}{d48c1381da800341c8865171d375ed10}
-      \strng{authorfullhash}{d48c1381da800341c8865171d375ed10}
+      \strng{namehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{fullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{bibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \field{extraname}{1}
       \field{sortinit}{3}
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
@@ -941,7 +940,7 @@
       \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
       \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
       \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{3}
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
@@ -976,7 +975,7 @@
       \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
       \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
       \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{3}
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
@@ -999,6 +998,305 @@
       \verb https://www.youtube.com/watch?v=uA410-EC_Mo&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=11
       \endverb
     \endentry
+    \entry{stahl_simulation_2014}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5f206437030870be60da6c0706e351e7}{%
+           family={Stahl},
+           familyi={S\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f206437030870be60da6c0706e351e7}
+      \strng{fullhash}{5f206437030870be60da6c0706e351e7}
+      \strng{bibnamehash}{5f206437030870be60da6c0706e351e7}
+      \strng{authorbibnamehash}{5f206437030870be60da6c0706e351e7}
+      \strng{authornamehash}{5f206437030870be60da6c0706e351e7}
+      \strng{authorfullhash}{5f206437030870be60da6c0706e351e7}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Die Arbeit behandelt die Steuerung von {BLDC}- und {PMSM}-Motoren mit Schwer-punkt der ruckbegrenzten Beschleunigung während des Positioniervorgangs. Zu Be-ginn werden die verwendeten Arten an Motoren, Sensoren, Regelungsverfahren {undInterpolationen} vorgestellt. Darauf folgt die mathematische Gegenüberstellung {desTrapezgeschwindigkeits}- und des sinoiden Beschleunigungsprofils, die Betrachtungder Simulation mit einer Kaskadenregelung und die Implementierung auf {realerHardware}. Anschließend stellt eine ausführliche Evaluierung die Auswirkung {desRucks} beider Interpolationsarten anhand verschiedener Szenarien dar. Die Arbeit en-det mit einer Zusammenfassung der erzielten Ergebnisse und einem Ausblick aufweiterführende Arbeiten.}
+      \field{day}{4}
+      \field{langid}{german}
+      \field{month}{8}
+      \field{title}{Simulation und Implementierung einerasynchronen Point to Point Steuerung}
+      \field{titleaddon}{Simulation und Implementierung einerasynchronen Point to Point Steuerung}
+      \field{type}{Bachelorthesis}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Bachelorarbeit_Patrick_Stahl.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\TWZDTJQ9\\Bachelorarbeit_Patrick_Stahl.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit_Patrick_Stahl.pdf
+      \endverb
+      \verb{url}
+      \verb https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit_Patrick_Stahl.pdf
+      \endverb
+    \endentry
+    \entry{geisler_was_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3357c8f7b4d30351aa7226de42eb6188}{%
+           family={Geißler},
+           familyi={G\bibinitperiod},
+           given={Otto},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{fullhash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{bibnamehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{authorbibnamehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{authornamehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{authorfullhash}{3357c8f7b4d30351aa7226de42eb6188}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Eine Application-Programming-Interface (oder auch Application-Program-Interface, kurz: {API}) ist eine Schnittstelle, die es zwei Programmen ermöglicht, miteinander zu kommunizieren. Frei ins Deutsche übersetzt, kann eine {API} auch als „Schnittstelle zur Anwendungsprogrammierung“ oder „Programmierschnittstelle“ bezeichnet werden.}
+      \field{day}{31}
+      \field{langid}{german}
+      \field{month}{7}
+      \field{title}{Was ist ein Application-Programming-Interface ({API})?}
+      \field{titleaddon}{Was ist ein Application-Programming-Interface ({API})?}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\GDZSAZ97\\was-ist-ein-application-programming-interface-api-a-735797.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.datacenter-insider.de/was-ist-ein-application-programming-interface-api-a-735797/
+      \endverb
+      \verb{url}
+      \verb https://www.datacenter-insider.de/was-ist-ein-application-programming-interface-api-a-735797/
+      \endverb
+    \endentry
+    \entry{lenz_artikel_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e13d7255ad0d34f21e88f41977181b0c}{%
+           family={Lenz},
+           familyi={L\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{fullhash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{bibnamehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{authorbibnamehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{authornamehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{authorfullhash}{e13d7255ad0d34f21e88f41977181b0c}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{5}
+      \field{langid}{german}
+      \field{month}{3}
+      \field{title}{Artikel | Doppelt verkettete Listen in C}
+      \field{titleaddon}{Doppelt verkettete Listen in C}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Artikel | Doppelt verkettete Listen in C:C\:\\Users\\kimsc\\Zotero\\storage\\QGGWNZ97\\doppelt-verkettete-listen.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://perlgeek.de/de/artikel/doppelt-verkettete-listen
+      \endverb
+      \verb{url}
+      \verb https://perlgeek.de/de/artikel/doppelt-verkettete-listen
+      \endverb
+    \endentry
+    \entry{yadav_circular_2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=0bce03580874fce8a1b665df86aac80a}{%
+           family={Yadav},
+           familyi={Y\bibinitperiod},
+           given={Prashant},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{fullhash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{bibnamehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{authorbibnamehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{authornamehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{authorfullhash}{0bce03580874fce8a1b665df86aac80a}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Learn what is and how to implement a circular doubly linked list in javascript. Two different object based and es6 class based implementation.}
+      \field{day}{14}
+      \field{langid}{american}
+      \field{month}{10}
+      \field{title}{Circular Doubly linked list in javascript}
+      \field{titleaddon}{{LearnersBucket}}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\FFMZ7AIB\\circular-doubly-linked-list-in-javascript.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://learnersbucket.com/tutorials/data-structures/circular-doubly-linked-list-in-javascript/
+      \endverb
+      \verb{url}
+      \verb https://learnersbucket.com/tutorials/data-structures/circular-doubly-linked-list-in-javascript/
+      \endverb
+    \endentry
+    \entry{loboriseu_esp32_autoresetjpg_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=da93a904e07b24c643dfec3c93ee2dec}{%
+           family={{loboris.eu}},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{fullhash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{bibnamehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{authorbibnamehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{authornamehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{authorfullhash}{da93a904e07b24c643dfec3c93ee2dec}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{22}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{title}{{ESP}32\_AutoReset.jpg ({JPEG}-Grafik, 640 × 541 Pixel)}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb ESP32_AutoReset.jpg (JPEG-Grafik, 640 × 541 Pixel):C\:\\Users\\kimsc\\Zotero\\storage\\6ZESN59B\\ESP32_AutoReset.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://loboris.eu/ESP32/ESP32_AutoReset.jpg
+      \endverb
+      \verb{url}
+      \verb http://loboris.eu/ESP32/ESP32_AutoReset.jpg
+      \endverb
+    \endentry
+    \entry{liudr_trying_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7814f508cefb6f5212a5c3a3b42d64fe}{%
+           family={{liudr}},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{fullhash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{bibnamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{authorbibnamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{authornamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{authorfullhash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{month}{10}
+      \field{title}{Trying to design an {ESP}32 dev board - {MicroPython} Forum}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Trying to design an ESP32 dev board - MicroPython Forum:C\:\\Users\\kimsc\\Zotero\\storage\\PSNZLHYY\\viewtopic.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://forum.micropython.org/viewtopic.php?t=4607
+      \endverb
+      \verb{url}
+      \verb https://forum.micropython.org/viewtopic.php?t=4607
+      \endverb
+    \endentry
+    \entry{german-salescom_datenstruktur_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ce544b3d27d61dfff047d12c14b00255}{%
+           family={{german-sales.com}},
+           familyi={g\bibinitperiod}}}%
+      }
+      \strng{namehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{fullhash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{bibnamehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{authorbibnamehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{authornamehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{authorfullhash}{ce544b3d27d61dfff047d12c14b00255}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Die Datenstruktur einer Speicherkarte für die Digitalkamera lässt nachdem sie gelöscht wurde immer noch eine Datenrettung der Bilder zu.}
+      \field{langid}{german}
+      \field{title}{Datenstruktur einer Speicherkarte für die Digitalkamera › German Sales Agency}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\VJV2PAMA\\datenstruktur.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.german-sales.com/datenstruktur.htm
+      \endverb
+      \verb{url}
+      \verb https://www.german-sales.com/datenstruktur.htm
+      \endverb
+    \endentry
+    \entry{informatikuni-ulmde_fat32slide_2002}{online}{}
+      \name{author}{1}{}{%
+        {{hash=811d61330acc621b4ca342c7f9ca032f}{%
+           family={{informatik.uni-ulm.de}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{fullhash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{bibnamehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{authorbibnamehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{authornamehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{authorfullhash}{811d61330acc621b4ca342c7f9ca032f}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{28}
+      \field{month}{1}
+      \field{title}{fat32slide}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb fat32slide.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\VZIAJ9ZG\\fat32slide.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.informatik.uni-ulm.de/ni/Lehre/WS01/TI2/folienmb/fat32slide.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.informatik.uni-ulm.de/ni/Lehre/WS01/TI2/folienmb/fat32slide.pdf
+      \endverb
+    \endentry
     \entry{atmel_atmel_2014}{online}{}
       \name{author}{1}{}{%
         {{hash=bed89e32bb03bc7e71ebbf7729f9d4ce}{%
@@ -1011,8 +1309,9 @@
       \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
       \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
       \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Atmega2560 Datasheet}
@@ -1049,8 +1348,8 @@
       \strng{authorbibnamehash}{fdc411710d8ecb0240584c4cbc05ead6}
       \strng{authornamehash}{fdc411710d8ecb0240584c4cbc05ead6}
       \strng{authorfullhash}{fdc411710d8ecb0240584c4cbc05ead6}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This is a simple {ATtiny}13 project that controls {LED} {RGB} using Software {PWM}. In result It gives really nice and colourful light effect.}
@@ -1074,6 +1373,118 @@
       \verb https://blog.podkalicki.com/attiny13-controlling-led-rgb-fancy-light-effects/
       \endverb
     \endentry
+    \entry{haftmann_programmierung_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2ce78b7bcd9a7ad76d8f9988066e84a6}{%
+           family={Haftmann},
+           familyi={H\bibinitperiod},
+           given={Henrik},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{fullhash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{bibnamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{authorbibnamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{authornamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{authorfullhash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Programmierung des Speichers}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Programmierung des Speichers:C\:\\Users\\kimsc\\Zotero\\storage\\I8JXQH8J\\28.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www-user.tu-chemnitz.de/~heha/viewchm.php/hs/ATmegaX8.chm/28.htm
+      \endverb
+      \verb{url}
+      \verb https://www-user.tu-chemnitz.de/~heha/viewchm.php/hs/ATmegaX8.chm/28.htm
+      \endverb
+    \endentry
+    \entry{atmel_avr068_2006}{article}{}
+      \name{author}{1}{}{%
+        {{hash=bed89e32bb03bc7e71ebbf7729f9d4ce}{%
+           family={{Atmel}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{fullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{bibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \field{extraname}{2}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{{AVR}068: {STK}500 Communication Protocol}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{pages}{37}
+      \range{pages}{1}
+      \verb{file}
+      \verb AVR068 STK500 Communication Protocol.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\ES97W7A5\\AVR068 STK500 Communication Protocol.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ww1.microchip.com/downloads/en/Appnotes/doc2591.pdf
+      \endverb
+      \verb{url}
+      \verb http://ww1.microchip.com/downloads/en/Appnotes/doc2591.pdf
+      \endverb
+    \endentry
+    \entry{kumar_doubly_2017}{online}{}
+      \name{author}{2}{}{%
+        {{hash=de2f210a7b7e4a027f9882c7289722aa}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Gaurav},
+           giveni={G\bibinitperiod}}}%
+        {{hash=2461ac7d2934133371a55533d3dfd6e2}{%
+           family={Kundu},
+           familyi={K\bibinitperiod},
+           given={Arnab},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f55630df021579a70effd766f8c462b}
+      \strng{fullhash}{1f55630df021579a70effd766f8c462b}
+      \strng{bibnamehash}{1f55630df021579a70effd766f8c462b}
+      \strng{authorbibnamehash}{1f55630df021579a70effd766f8c462b}
+      \strng{authornamehash}{1f55630df021579a70effd766f8c462b}
+      \strng{authorfullhash}{1f55630df021579a70effd766f8c462b}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.}
+      \field{day}{14}
+      \field{langid}{american}
+      \field{month}{4}
+      \field{note}{Section: Linked List}
+      \field{title}{Doubly Circular Linked List | Set 1 (Introduction and Insertion)}
+      \field{titleaddon}{{GeeksforGeeks}}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\45YL9GIE\\doubly-circular-linked-list-set-1-introduction-and-insertion.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/
+      \endverb
+    \endentry
     \entry{kleitz_sec_2011}{video}{}
       \name{author}{1}{}{%
         {{hash=77b321ce0ccefbced546780de84ebf8f}{%
@@ -1088,8 +1499,8 @@
       \strng{authorbibnamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authornamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authorfullhash}{77b321ce0ccefbced546780de84ebf8f}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{switch debouncing techniques}
