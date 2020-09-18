@@ -175,3 +175,12 @@
 \contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{115}{subsubsection.H.2.2}%
 \contentsline {section}{\numberline {I}CUI AMT332S-V ABN-Encoder}{116}{appendix.I}%
 \contentsline {subsection}{\numberline {I.1}Pinout and Interface}{116}{subsection.I.1}%
+\contentsline {subsection}{\numberline {I.2}Inbetriebnahme}{117}{subsection.I.2}%
+\contentsline {subsubsection}{\numberline {I.2.1}Register}{117}{subsubsection.I.2.1}%
+\contentsline {subsubsection}{\numberline {I.2.2}Inbetriebnahme Setup}{118}{subsubsection.I.2.2}%
+\contentsline {subsubsection}{\numberline {I.2.3}Encoder-Signale}{120}{subsubsection.I.2.3}%
+\contentsline {section}{\numberline {J}PI-Regler}{121}{appendix.J}%
+\contentsline {subsection}{\numberline {J.1}TMCL-IDE}{121}{subsection.J.1}%
+\contentsline {subsubsection}{\numberline {J.1.1}Drehmoment}{121}{subsubsection.J.1.1}%
+\contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{122}{subsubsection.J.1.2}%
+\contentsline {subsubsection}{\numberline {J.1.3}Position}{123}{subsubsection.J.1.3}%
