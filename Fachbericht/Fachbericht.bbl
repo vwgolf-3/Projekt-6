@@ -331,6 +331,7 @@
       \strng{authorbibnamehash}{66589871a3c3f27bcbf3891133af42b1}
       \strng{authornamehash}{66589871a3c3f27bcbf3891133af42b1}
       \strng{authorfullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
@@ -819,6 +820,35 @@
       \verb http://download.savannah.gnu.org/releases/avrdude/
       \endverb
     \endentry
+    \entry{meier_mc1-skript_2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=18ef5db8814c8c1b34765f6ffdda9aa2}{%
+           family={Meier},
+           familyi={M\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{fullhash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{bibnamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{authorbibnamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{authornamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{authorfullhash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Script mc1 - Hardwarenahe Programmierung in C -}
+      \field{day}{31}
+      \field{langid}{german}
+      \field{month}{10}
+      \field{title}{mc1-Skript}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb mc1_Skript.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\JX5ZFLY2\\mc1_Skript.pdf:application/pdf
+      \endverb
+    \endentry
     \entry{dharmani_sdsdhc_2009}{online}{}
       \name{author}{1}{}{%
         {{hash=099defb67505dd5597d2fc46e70c9218}{%
@@ -1012,8 +1042,8 @@
       \strng{authorbibnamehash}{5f206437030870be60da6c0706e351e7}
       \strng{authornamehash}{5f206437030870be60da6c0706e351e7}
       \strng{authorfullhash}{5f206437030870be60da6c0706e351e7}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Die Arbeit behandelt die Steuerung von {BLDC}- und {PMSM}-Motoren mit Schwer-punkt der ruckbegrenzten Beschleunigung während des Positioniervorgangs. Zu Be-ginn werden die verwendeten Arten an Motoren, Sensoren, Regelungsverfahren {undInterpolationen} vorgestellt. Darauf folgt die mathematische Gegenüberstellung {desTrapezgeschwindigkeits}- und des sinoiden Beschleunigungsprofils, die Betrachtungder Simulation mit einer Kaskadenregelung und die Implementierung auf {realerHardware}. Anschließend stellt eine ausführliche Evaluierung die Auswirkung {desRucks} beider Interpolationsarten anhand verschiedener Szenarien dar. Die Arbeit en-det mit einer Zusammenfassung der erzielten Ergebnisse und einem Ausblick aufweiterführende Arbeiten.}
@@ -1295,6 +1325,74 @@
       \endverb
       \verb{url}
       \verb http://www.informatik.uni-ulm.de/ni/Lehre/WS01/TI2/folienmb/fat32slide.pdf
+      \endverb
+    \endentry
+    \entry{iainandrew_esp8266_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5b109c743893779f7aa41a9c78d2215c}{%
+           family={{iainandrew}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{fullhash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{bibnamehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{authorbibnamehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{authornamehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{authorfullhash}{5b109c743893779f7aa41a9c78d2215c}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{ESP}8266 vs {ESP}32: What's the difference? - Wia Community}
+      \field{month}{8}
+      \field{title}{{ESP}8266 vs {ESP}32: What's the difference? - Wia Community}
+      \field{urlday}{18}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb ESP8266 vs ESP32\: What's the difference? - Wia Community:C\:\\Users\\kimsc\\Zotero\\storage\\YNZ5PH2A\\53-esp8266-vs-esp32-what-s-the-difference.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://community.wia.io/d/53-esp8266-vs-esp32-what-s-the-difference
+      \endverb
+      \verb{url}
+      \verb https://community.wia.io/d/53-esp8266-vs-esp32-what-s-the-difference
+      \endverb
+    \endentry
+    \entry{espressif_systems_esp32_2020}{online}{}
+      \name{author}{1}{}{%
+        {{hash=66589871a3c3f27bcbf3891133af42b1}{%
+           family={{Espressif Systems}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{fullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{bibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorbibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authornamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorfullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Datasheet {ESP} 32 Version 3.4}
+      \field{day}{27}
+      \field{month}{4}
+      \field{title}{{ESP}32 Datasheet}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb esp32_datasheet_en.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\2R4Z2IA4\\esp32_datasheet_en.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
       \endverb
     \endentry
     \entry{atmel_atmel_2014}{online}{}

@@ -8,7 +8,6 @@
 	\caption{Standard-Anwendungs-Schaltung. \cite[S.138]{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}}
 	\label{fig:Schaltung_TMC4671}
 \end{figure}
-\todo{cite{TMC4671 Datenblatt}}
 
 \subsection{BOB}\label{Appendix:BOB}
 
@@ -55,6 +54,41 @@
 \end{figure} 
 
 \subsection{Inbetriebnahme}
+
+\subsubsection{Register}\label{Appendix:TMC4671_Register}
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hline
+\multicolumn{4}{|c|}{\textbf{TMC4671 Register}}               \\ \hline
+\textbf{Nr. }& \textbf{Register-Name   }   & \textbf{Wert }      & \textbf{Was} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Motor type \&  PWM configuration}}        \\ \hline
+0x17         & PWM\_POLARITIES             & 0x00000000 & MOSFETs polarity ''off''    \\ \hline
+0x1B         & MOTOR\_TYPE\_N\_POLE\_PAIRS & 0x00030003 &     \\ \hline
+0x18         & PWM\_MAXCNT                 & 0x00000F9F & PWM frequency 25kHz = 100MHz/(3999+1)   \\ \hline
+0x19         & PWM\_BBM\_H\_BBM\_L         & 0x00001919 & Break-before-Make-Time[10ns] MOSFET gate control \\ \hline
+0x1A         & PWM\_SV\_CHOP               & 0x00000007 & PWM chopper mode: centtered PWM for FOC \\ \hline
+\multicolumn{4}{|l|}{\textbf{ADC configuration}}                       \\ \hline
+0x0A         & ADC\_I\_SELECT              & 0x24000100 & ADC\_I0\_(RAW), ADC\_I1\_(RAW)    \\ \hline
+0x04         & dsADC\_MCFG\_B\_MCFG\_A     & 0x00100010 & (TMCL-IDE)    \\ \hline
+0x05         & dsADC\_MCLK\_A              & 0x20000000 & (TMCL-IDE)    \\ \hline
+0x06         & dsADC\_MCLK\_B              & 0x00000000 & (TMCL-IDE)    \\ \hline
+0x07         & dsADC\_MDEC\_B\_MDEC\_A     & 0x014E014E & (TMCL-IDE)    \\ \hline
+0x09         & ADC\_I0\_SCALE\_OFFSET      & 0xFF0080CF & (TMCL-IDE)    \\ \hline
+0x08         & ADC\_I1\_SCALE\_OFFSET      & 0xFF008E04 & (TMCL-IDE)    \\ \hline
+\multicolumn{4}{|l|}{\textbf{Open loop settings}}                      \\ \hline
+0x1F         & OPENLOOP\_MODE              & 0x00000000 & Openloop Phi Direction positive    \\ \hline
+0x20         & OPENLOOP\_ACCELERATION      & 0x0000003C & Openloop Phi Beschleunigung = 60    \\ \hline
+0x21         & OPENLOOP\_VELOCITY\_TARGET  & 0xFFFFFFFB & Openloop Phi Geschwindigkeit = 5    \\ \hline
+\multicolumn{4}{|l|}{\textbf{Feedback selection}}                      \\ \hline
+0x52         & PHI\_E\_SELECTION           & 0x00000002 & Phi-E selector = Phi-E Openloop    \\ \hline
+0x24         & UQ\_UD\_EXT                 & 0x00000FA0 & FOC q/d = 4000  \\ \hline
+\multicolumn{4}{|l|}{\textbf{Switch to open loop velocity mode}}       \\ \hline
+0x63         & MODE\_RAMP\_MODE\_MOTION    & 0x00000008 & Modulation gem. UQ/UD ext. \\ \hline
+\multicolumn{4}{|l|}{\textbf{Rotate right}}                            \\ \hline
+0x21         & OPENLOOP\_VELOCITY\_TARGET  & 0x0000003C & Openloop Phi Geschwindigkeit = 60    \\ \hline
+\end{tabularx}
+\end{table}
 
 \subsubsection{Setup}\label{Appendix:TMC4671_Setup}
 

@@ -54,6 +54,23 @@
 
 \subsubsection{Inbetriebnahme Parameter}\label{Appendix:TMC6200_SPI}
 
+
+\subsubsection{Register}\label{Appendix:TMC6200_Register}
+
+\begin{table}[H]
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{4}{|c|}{\textbf{TMC6200 Register}}          \\ \hline
+\textbf{Nr.} & \textbf{Register-Name} & \textbf{Wert}       & \textbf{Was} \\ \hline
+0x00         & GCONF         & 0x00000010 & Current Amplification *10    \\ \hline
+0x01         & GSTAT         & 0x00000000 & Resets eventual faults from restart.    \\ \hline
+0x06         & OTP\_PROG     & 0x00000000 & (TMCL-IDE)    \\ \hline
+0x08         & FACTORY\_CONF & 0x0000000F & Clock Frequency (TMCL-IDE)    \\ \hline
+0x09         & SHORT\_CONF   & 0x13010606 & Security settings (TMCL-IDE)    \\ \hline
+0x0A         & DRV\_CONF     & 0x00080004 & Treiberstärke medium (TMCL-IDE)    \\ \hline
+\end{tabular}
+\end{table}
+
 \subsubsection{Verstärkungsfaktor, Strommessung, Strommesswiderstand}\label{Appendix:Shunt}
 
 \begin{figure}[H]

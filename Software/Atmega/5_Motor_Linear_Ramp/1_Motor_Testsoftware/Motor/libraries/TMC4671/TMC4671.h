@@ -21,18 +21,30 @@
 #include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
 
-// SPI-Wrapper
+//************************************************************//
+// SPI
+//************************************************************//
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4);
 void tmc4671_writeInt(unsigned int motor, unsigned char address, unsigned long value);
 int32_t tmc4671_readInt(unsigned int motor, unsigned char address);
 void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long value);
 int32_t tmc40bit_readInt(unsigned int motor, unsigned char address);
-void TMC4671_init(void);
+//************************************************************//
+// Init
+//************************************************************//
+void initTMC4671_Openloop(void)
 void initTMC4671_Encoder(void);
-void initTMC4671_Openloop(void);
-// SPI
-
+//************************************************************//
+// Testdrive
+//************************************************************//
+void encoder_testdrive(void);
+//************************************************************//
+// Debug
+//************************************************************//
 void read_registers_TMC4671(void);
+//************************************************************//
+// TMC4671-Specific-Commands (tmc4671_eval.h)
+//************************************************************//
 
 
 

@@ -97,9 +97,9 @@
 \contentsline {subsection}{\numberline {6.1}Atmega2560}{46}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{47}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{48}{subsubsection.6.1.2}%
-\contentsline {paragraph}{Bootloader-Section}{48}{section*.81}%
-\contentsline {paragraph}{Init-Section}{48}{section*.82}%
-\contentsline {paragraph}{Main-Loop}{48}{section*.83}%
+\contentsline {paragraph}{Bootloader-Section}{48}{section*.79}%
+\contentsline {paragraph}{Init-Section}{48}{section*.80}%
+\contentsline {paragraph}{Main-Loop}{48}{section*.81}%
 \contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{50}{subsubsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.2}ESP32}{50}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{51}{subsubsection.6.2.1}%
@@ -119,7 +119,7 @@
 \contentsline {subsection}{\numberline {9.2}Kosten}{70}{subsection.9.2}%
 \contentsline {section}{\numberline {10}Schlusswort}{70}{section.10}%
 \contentsline {section}{\numberline {11}Ehrlichkeitserklärung}{70}{section.11}%
-\contentsline {section}{Literatur}{72}{section*.114}%
+\contentsline {section}{Literatur}{72}{section*.112}%
 \contentsline {section}{\numberline {A}Programmierschnittstellen}{75}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Geräte-Manager}{75}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Atmega2560}{75}{subsection.A.2}%
@@ -151,33 +151,27 @@
 \contentsline {section}{\numberline {F}TMC4671}{96}{appendix.F}%
 \contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{96}{subsection.F.1}%
 \contentsline {subsection}{\numberline {F.2}BOB}{96}{subsection.F.2}%
-\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{98}{subsection.F.3}%
-\contentsline {subsubsection}{\numberline {F.3.1}Setup}{98}{subsubsection.F.3.1}%
-\contentsline {subsubsection}{\numberline {F.3.2}Inbetriebnahme SPI-Kommunikation}{100}{subsubsection.F.3.2}%
-\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme Gate-Ctrl}{104}{subsubsection.F.3.3}%
-\contentsline {section}{\numberline {G}TMC6200}{105}{appendix.G}%
-\contentsline {subsection}{\numberline {G.1}Standard-Schaltkreis}{105}{subsection.G.1}%
-\contentsline {subsection}{\numberline {G.2}Blockdiagramm}{105}{subsection.G.2}%
-\contentsline {subsection}{\numberline {G.3}Externe Gate-Spannungsversorgung}{106}{subsection.G.3}%
-\contentsline {subsection}{\numberline {G.4}Inbetriebnahme}{106}{subsection.G.4}%
-\contentsline {subsubsection}{\numberline {G.4.1}Inbetriebnahme Setup}{106}{subsubsection.G.4.1}%
-\contentsline {subsubsection}{\numberline {G.4.2}Inbetriebnahme Parameter}{108}{subsubsection.G.4.2}%
-\contentsline {subsubsection}{\numberline {G.4.3}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{108}{subsubsection.G.4.3}%
-\contentsline {subsubsection}{\numberline {G.4.4}Gate-Vorwiderstand}{108}{subsubsection.G.4.4}%
-\contentsline {subsubsection}{\numberline {G.4.5}Inbetriebnahme SPI-Kommunikation}{109}{subsubsection.G.4.5}%
-\contentsline {subsubsection}{\numberline {G.4.6}Inbetriebnahme Gate-Ctrl}{111}{subsubsection.G.4.6}%
-\contentsline {section}{\numberline {H}H-Brücke}{113}{appendix.H}%
-\contentsline {subsection}{\numberline {H.1}Referenzschema}{113}{subsection.H.1}%
-\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{113}{subsection.H.2}%
-\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{113}{subsubsection.H.2.1}%
-\contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{114}{subsubsection.H.2.2}%
-\contentsline {section}{\numberline {I}CUI AMT332S-V ABN-Encoder}{115}{appendix.I}%
-\contentsline {subsection}{\numberline {I.1}Pinout and Interface}{115}{subsection.I.1}%
-\contentsline {subsection}{\numberline {I.2}Inbetriebnahme}{116}{subsection.I.2}%
-\contentsline {subsubsection}{\numberline {I.2.1}Inbetriebnahme Setup}{116}{subsubsection.I.2.1}%
-\contentsline {subsubsection}{\numberline {I.2.2}Encoder-Signale}{118}{subsubsection.I.2.2}%
-\contentsline {section}{\numberline {J}PI-Regler}{119}{appendix.J}%
-\contentsline {subsection}{\numberline {J.1}TMCL-IDE}{119}{subsection.J.1}%
-\contentsline {subsubsection}{\numberline {J.1.1}Drehmoment}{119}{subsubsection.J.1.1}%
-\contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{120}{subsubsection.J.1.2}%
-\contentsline {subsubsection}{\numberline {J.1.3}Position}{121}{subsubsection.J.1.3}%
+\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{99}{subsection.F.3}%
+\contentsline {subsubsection}{\numberline {F.3.1}Register}{99}{subsubsection.F.3.1}%
+\contentsline {subsubsection}{\numberline {F.3.2}Setup}{100}{subsubsection.F.3.2}%
+\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{102}{subsubsection.F.3.3}%
+\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{105}{subsubsection.F.3.4}%
+\contentsline {section}{\numberline {G}TMC6200}{106}{appendix.G}%
+\contentsline {subsection}{\numberline {G.1}Standard-Schaltkreis}{106}{subsection.G.1}%
+\contentsline {subsection}{\numberline {G.2}Blockdiagramm}{106}{subsection.G.2}%
+\contentsline {subsection}{\numberline {G.3}Externe Gate-Spannungsversorgung}{107}{subsection.G.3}%
+\contentsline {subsection}{\numberline {G.4}Inbetriebnahme}{107}{subsection.G.4}%
+\contentsline {subsubsection}{\numberline {G.4.1}Inbetriebnahme Setup}{107}{subsubsection.G.4.1}%
+\contentsline {subsubsection}{\numberline {G.4.2}Inbetriebnahme Parameter}{109}{subsubsection.G.4.2}%
+\contentsline {subsubsection}{\numberline {G.4.3}Register}{109}{subsubsection.G.4.3}%
+\contentsline {subsubsection}{\numberline {G.4.4}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{109}{subsubsection.G.4.4}%
+\contentsline {subsubsection}{\numberline {G.4.5}Gate-Vorwiderstand}{109}{subsubsection.G.4.5}%
+\contentsline {subsubsection}{\numberline {G.4.6}Inbetriebnahme SPI-Kommunikation}{110}{subsubsection.G.4.6}%
+\contentsline {subsubsection}{\numberline {G.4.7}Inbetriebnahme Gate-Ctrl}{112}{subsubsection.G.4.7}%
+\contentsline {section}{\numberline {H}H-Brücke}{114}{appendix.H}%
+\contentsline {subsection}{\numberline {H.1}Referenzschema}{114}{subsection.H.1}%
+\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{114}{subsection.H.2}%
+\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{114}{subsubsection.H.2.1}%
+\contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{115}{subsubsection.H.2.2}%
+\contentsline {section}{\numberline {I}CUI AMT332S-V ABN-Encoder}{116}{appendix.I}%
+\contentsline {subsection}{\numberline {I.1}Pinout and Interface}{116}{subsection.I.1}%
