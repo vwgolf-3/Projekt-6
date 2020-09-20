@@ -19,7 +19,42 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{aliexpress_us_nodate}{misc}{}
+    \entry{jlcpcb_jlcpcb_2020}{online}{}
+      \name{author}{1}{}{%
+        {{hash=92f306c31bed5178fb45604cfc04b454}{%
+           family={{JLCPCB}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{fullhash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{bibnamehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authorbibnamehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authornamehash}{92f306c31bed5178fb45604cfc04b454}
+      \strng{authorfullhash}{92f306c31bed5178fb45604cfc04b454}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{10}
+      \field{month}{9}
+      \field{title}{{JLCPCB} Capabilities}
+      \field{urlday}{10}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb JLCPCB:C\:\\Users\\robin\\Zotero\\storage\\3FK6H4IZ\\Capabilities.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://jlcpcb.com/capabilities/Capabilities
+      \endverb
+      \verb{url}
+      \verb https://jlcpcb.com/capabilities/Capabilities
+      \endverb
+    \endentry
+    \entry{aliexpress_us_nodate}{online}{}
       \name{author}{1}{}{%
         {{hash=5bade50dcf5384b2794f61f081cc5b91}{%
            family={Aliexpress},
@@ -36,15 +71,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Smarter Shopping, Better Living! Aliexpress.com}
-      \field{journaltitle}{aliexpress.com}
-      \field{title}{{US} \$1.94 35\% {OFF}{|}{DC12V} 13,8 {V} {15V} {18V} {24V} {27V} {28V} {30V} {32V} {36V} {42V} {48V} {60V} {360W} {600W} {1000W} {Schaltnetzteil} {Quelle} {Transformator} {AC} {DC} {SMPS}-in {Schaltnetzteil} aus {Heimwerkerbedarf} bei {AliExpress}}
+      \field{title}{{US} \$1.94 35\% {OFF}{|}{DC}12V 13,8 V 15V 18V 24V 27V 28V 30V 32V 36V 42V 48V 60V 360W 600W 1000W Schaltnetzteil Quelle Transformator {AC} {DC} {SMPS}-in Schaltnetzteil aus Heimwerkerbedarf bei {AliExpress}}
+      \field{titleaddon}{aliexpress.com}
       \field{urlday}{11}
       \field{urlmonth}{1}
       \field{urlyear}{2020}
       \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\577KVUQ6\\32905696401.html:text/html
-      \endverb
       \verb{urlraw}
       \verb //de.aliexpress.com/item/32905696401.html?src=ibdm_d03p0558e02r02&sk=&aff_platform=&aff_trace_key=&af=&cv=&cn=&dp=
       \endverb
@@ -52,33 +84,1330 @@
       \verb //de.aliexpress.com/item/32905696401.html?src=ibdm_d03p0558e02r02&sk=&aff_platform=&aff_trace_key=&af=&cv=&cn=&dp=
       \endverb
     \endentry
-    \entry{espressif_systems_esp32_2020}{misc}{}
+    \entry{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}{online}{}
       \name{author}{1}{}{%
-        {{hash=b1d5d0040be4721ebd66cd10ec68502c}{%
-           family={Systems},
-           familyi={S\bibinitperiod},
-           given={Espressif},
+        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+           family={{TRINAMICMotion Control GmbH \& Co. KG}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{TMC}6200 Datasheet}
+      \field{day}{12}
+      \field{month}{11}
+      \field{title}{{TMC}6200 Datasheet Rev. 1.05}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb TMC6200_datasheet.pdf:C\:\\Users\\robin\\Zotero\\storage\\JFJABULH\\TMC6200_datasheet.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mev-elektronik.com/files/MEV%20Elektronik%20Service/produkt-downloads/motion-control/TMC6200_datasheet.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.mev-elektronik.com/files/MEV%20Elektronik%20Service/produkt-downloads/motion-control/TMC6200_datasheet.pdf
+      \endverb
+    \endentry
+    \entry{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+           family={{TRINAMICMotion Control GmbH \& Co. KG}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{TMC}4671 Datasheet}
+      \field{day}{6}
+      \field{month}{2}
+      \field{title}{{TMC}4671 Datasheet V1.06}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb TMC4671_datasheet_v1.06.pdf:C\:\\Users\\robin\\Zotero\\storage\\BIB2SN23\\TMC4671_datasheet_v1.06.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC4671_datasheet_v1.06.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC4671_datasheet_v1.06.pdf
+      \endverb
+    \endentry
+    \entry{trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+           family={{TRINAMICMotion Control GmbH \& Co. KG}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{TMC}4671-{BOB} Datasheet}
+      \field{day}{10}
+      \field{month}{4}
+      \field{title}{{TMC}4671-{BOB} Datasheet Rev1.2 {HW}1.4}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb TMC4671-BOB_datasheet_Rev1.2_HW1.4.pdf:C\:\\Users\\robin\\Zotero\\storage\\ZYSMF8J9\\TMC4671-BOB_datasheet_Rev1.2_HW1.4.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.trinamic.com/fileadmin/assets/Products/Eval_Documents/TMC4671-BOB_datasheet_Rev1.2_HW1.4.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.trinamic.com/fileadmin/assets/Products/Eval_Documents/TMC4671-BOB_datasheet_Rev1.2_HW1.4.pdf
+      \endverb
+    \endentry
+    \entry{trinamicmotion_control_gmbh__co_kg_tmc-ups-xaxv-eval_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+           family={{TRINAMICMotion Control GmbH \& Co. KG}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{TMC}-{UPS}-{xAxV}-{EVAL}}
+      \field{day}{18}
+      \field{langid}{american}
+      \field{month}{10}
+      \field{title}{{TMC}-{UPS}-{xAxV}-{EVAL}}
+      \field{titleaddon}{Trinamic}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\VERX8QMK\\tmc-ups-xaxv-eval.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.trinamic.com/support/eval-kits/details/tmc-ups-xaxv-eval/
+      \endverb
+      \verb{url}
+      \verb https://www.trinamic.com/support/eval-kits/details/tmc-ups-xaxv-eval/
+      \endverb
+    \endentry
+    \entry{akm_servomotoren_2020}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fdf4e3e8e8b4e4ae3988278f12c7fe23}{%
+           family={Akm},
+           familyi={A\bibinitperiod},
+           given={Servomotoren},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
+      \strng{fullhash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
+      \strng{bibnamehash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
+      \strng{authorbibnamehash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
+      \strng{authornamehash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
+      \strng{authorfullhash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{23}
+      \field{month}{7}
+      \field{title}{Servomotoren {AKM}}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{258}
+      \range{pages}{1}
+      \verb{file}
+      \verb Akm - Servomotoren AKM.pdf:C\:\\Users\\robin\\Zotero\\storage\\8EH2KS9F\\Akm - Servomotoren AKM.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sigmatek-automation.com/fileadmin/user_upload/downloads/Servomotoren-AKM.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.sigmatek-automation.com/fileadmin/user_upload/downloads/Servomotoren-AKM.pdf
+      \endverb
+    \endentry
+    \entry{cui_devices_cui_2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=dea01ad0532f40f9963fdf78070989b4}{%
+           family={{CUI Devices}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{dea01ad0532f40f9963fdf78070989b4}
+      \strng{fullhash}{dea01ad0532f40f9963fdf78070989b4}
+      \strng{bibnamehash}{dea01ad0532f40f9963fdf78070989b4}
+      \strng{authorbibnamehash}{dea01ad0532f40f9963fdf78070989b4}
+      \strng{authornamehash}{dea01ad0532f40f9963fdf78070989b4}
+      \strng{authorfullhash}{dea01ad0532f40f9963fdf78070989b4}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{CUI} {AMT}33S-V Datasheet Rev 1.01}
+      \field{day}{10}
+      \field{month}{4}
+      \field{title}{{CUI} {AMT}33S-V Datasheet Rev 1.01}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb amt33.pdf:C\:\\Users\\robin\\Zotero\\storage\\AFLSTPD9\\amt33.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cuidevices.com/product/resource/amt33.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cuidevices.com/product/resource/amt33.pdf
+      \endverb
+    \endentry
+    \entry{zenkner_usb_2014}{article}{}
+      \name{author}{1}{}{%
+        {{hash=fd4d875f6261d2d063964ee1dea6a367}{%
+           family={Zenkner},
+           familyi={Z\bibinitperiod},
+           given={Von\bibnamedelima Heinz},
+           giveni={V\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd4d875f6261d2d063964ee1dea6a367}
+      \strng{fullhash}{fd4d875f6261d2d063964ee1dea6a367}
+      \strng{bibnamehash}{fd4d875f6261d2d063964ee1dea6a367}
+      \strng{authorbibnamehash}{fd4d875f6261d2d063964ee1dea6a367}
+      \strng{authornamehash}{fd4d875f6261d2d063964ee1dea6a367}
+      \strng{authorfullhash}{fd4d875f6261d2d063964ee1dea6a367}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{28}
+      \field{langid}{german}
+      \field{month}{7}
+      \field{title}{Das {USB} Interface aus {EMV} Sicht}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{15}
+      \range{pages}{1}
+      \verb{file}
+      \verb Zenkner - Das USB Interface aus EMV Sicht.pdf:C\:\\Users\\robin\\Zotero\\storage\\DDMITBFV\\Zenkner - Das USB Interface aus EMV Sicht.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.all-electronics.de/wp-content/uploads/2015/11/ANP024-DE-Das-USB-Interface-aus-EMV-Sicht-35k-37images.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.all-electronics.de/wp-content/uploads/2015/11/ANP024-DE-Das-USB-Interface-aus-EMV-Sicht-35k-37images.pdf
+      \endverb
+    \endentry
+    \entry{espressif_systems_esp32_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4c3e9d8987c42743634416815cc88543}{%
+           family={{Espressif Systems}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{fullhash}{4c3e9d8987c42743634416815cc88543}
+      \strng{bibnamehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{authorbibnamehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{authornamehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{authorfullhash}{4c3e9d8987c42743634416815cc88543}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Schematic {ESP} 32}
+      \field{day}{17}
+      \field{month}{10}
+      \field{title}{{ESP}32 Schematic}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb ESP32-Core-Board-V2_sch.pdf:C\:\\Users\\robin\\Zotero\\storage\\JY67XZDQ\\ESP32-Core-Board-V2_sch.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
+      \endverb
+      \verb{url}
+      \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
+      \endverb
+    \endentry
+    \entry{nxp_semiconductors_nv_mfrc522_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=351ec30647226ed93b9cc5621dc3ee5b}{%
+           family={{NXP Semiconductors N.V.}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \strng{fullhash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \strng{bibnamehash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \strng{authorbibnamehash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \strng{authornamehash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \strng{authorfullhash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{MFRC}522 Datasheet}
+      \field{day}{27}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{{MFRC}522 Datasheet Rev. 3.9}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb 2016 - MFRC522 Standard performance MIFARE and NTAG front.pdf:C\:\\Users\\robin\\Zotero\\storage\\YMQDADDF\\2016 - MFRC522 Standard performance MIFARE and NTAG front.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf
+      \endverb
+    \endentry
+    \entry{rfid-basisde_aufbau_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=95237511546058d1622ab825ea1d498c}{%
+           family={{RFID-basis.de}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{95237511546058d1622ab825ea1d498c}
+      \strng{fullhash}{95237511546058d1622ab825ea1d498c}
+      \strng{bibnamehash}{95237511546058d1622ab825ea1d498c}
+      \strng{authorbibnamehash}{95237511546058d1622ab825ea1d498c}
+      \strng{authornamehash}{95237511546058d1622ab825ea1d498c}
+      \strng{authorfullhash}{95237511546058d1622ab825ea1d498c}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{15}
+      \field{langid}{german}
+      \field{month}{9}
+      \field{title}{Aufbau und Funktionsweise von {RFID}-Systemen - {RFID} Technik}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Aufbau und Funktionsweise von RFID-Systemen - RFID Technik:C\:\\Users\\robin\\Zotero\\storage\\LJEF2E95\\rfid-technik.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rfid-basis.de/rfid-technik.html
+      \endverb
+      \verb{url}
+      \verb https://www.rfid-basis.de/rfid-technik.html
+      \endverb
+    \endentry
+    \entry{nxp_bv_2010_antenna_2010}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4f957dfe979c430c82384c5d473ac4a5}{%
+           family={{NXP B.V. 2010}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{4f957dfe979c430c82384c5d473ac4a5}
+      \strng{fullhash}{4f957dfe979c430c82384c5d473ac4a5}
+      \strng{bibnamehash}{4f957dfe979c430c82384c5d473ac4a5}
+      \strng{authorbibnamehash}{4f957dfe979c430c82384c5d473ac4a5}
+      \strng{authornamehash}{4f957dfe979c430c82384c5d473ac4a5}
+      \strng{authorfullhash}{4f957dfe979c430c82384c5d473ac4a5}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Antenna design guide for {MFRC}52x, {PN}51x and {PN}53x}
+      \field{day}{11}
+      \field{month}{10}
+      \field{title}{Antenna design guide for {MFRC}52x, {PN}51x and {PN}53x}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb AN1445.pdf:C\:\\Users\\robin\\Zotero\\storage\\26ZDXSLW\\AN1445.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+      \verb{url}
+      \verb https://my.eng.utah.edu/~mlewis/ref/NFC/AN1445.pdf
+      \endverb
+    \endentry
+    \entry{behindthesciences_rgb_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a50d8f32862dce43c344695b522ee2a1}{%
+           family={{behindthesciences}},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{fullhash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{bibnamehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{authorbibnamehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{authornamehash}{a50d8f32862dce43c344695b522ee2a1}
+      \strng{authorfullhash}{a50d8f32862dce43c344695b522ee2a1}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This post presents an {RGB} {LED} strip tutorial including how to power it and how to create color from the full {RGB} color spectrum.}
+      \field{day}{27}
+      \field{langid}{american}
+      \field{month}{1}
+      \field{title}{{RGB} {LED} {STRIP} Tutorial}
+      \field{titleaddon}{Behind The Sciences}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\3A78Z6SG\\rgb-led-strip-tutorial.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://behindthesciences.com/electronics/rgb-led-strip-tutorial/
+      \endverb
+      \verb{url}
+      \verb https://behindthesciences.com/electronics/rgb-led-strip-tutorial/
+      \endverb
+    \endentry
+    \entry{theorycircuitcom_arduino_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=91122a76fd9ef0cb66e1da9ebde11e3f}{%
+           family={{theorycircuit.com}},
+           familyi={t\bibinitperiod}}}%
+      }
+      \strng{namehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \strng{fullhash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \strng{bibnamehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \strng{authorbibnamehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \strng{authornamehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \strng{authorfullhash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{If you want to track or monitor the sensor output value then it is important to log the data, Here temperature sensor {LM}35 output data is stored in a Micro {SD} card with the help of arduino and Micro {SD} card adapter, You can use this setup as Arduino {SD} card data logger and it can be exported to excel sheet for data analysis. You can define the time interval of data reading and storing in {SD} card by the Arduino Code, Any types of sensors can be used as a data input source and the following setup will capture the sensor data and writes into {SD} as text file. micro {SD} Card Pinout Micro {SD} memory card available in different}
+      \field{day}{8}
+      \field{langid}{american}
+      \field{month}{1}
+      \field{title}{Arduino micro {SD} Card Data Logger}
+      \field{titleaddon}{{theoryCIRCUIT} - Do It Yourself Electronics Projects}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\A6SCBX8C\\arduino-micro-sd-card-data-logger.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://theorycircuit.com/arduino-micro-sd-card-data-logger/
+      \endverb
+      \verb{url}
+      \verb https://theorycircuit.com/arduino-micro-sd-card-data-logger/
+      \endverb
+    \endentry
+    \entry{ionosde_fat32_2020}{online}{}
+      \name{author}{1}{}{%
+        {{hash=da34f13d204cdce7cab9b7bc9cb140be}{%
+           family={{ionos.de}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \strng{fullhash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \strng{bibnamehash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \strng{authorbibnamehash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \strng{authornamehash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \strng{authorfullhash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Microsoft hatte mit dem File Allocation Table und vor allem {FAT}32 lange Zeit den De-facto-Standard für Dateiformate inne. Aber ist das System noch zeitgemäß?}
+      \field{day}{15}
+      \field{langid}{german}
+      \field{month}{4}
+      \field{title}{{FAT}32}
+      \field{titleaddon}{{IONOS} Digitalguide}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\VUSFVCAM\\fat32.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.ionos.de/digitalguide/server/knowhow/fat32/
+      \endverb
+      \verb{url}
+      \verb https://www.ionos.de/digitalguide/server/knowhow/fat32/
+      \endverb
+    \endentry
+    \entry{milsch_aufbau_2009}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d66d1c107aacf5ecfc0cf5e400159a35}{%
+           family={Milsch},
+           familyi={M\bibinitperiod},
+           given={Erik},
            giveni={E\bibinitperiod}}}%
       }
-      \strng{namehash}{b1d5d0040be4721ebd66cd10ec68502c}
-      \strng{fullhash}{b1d5d0040be4721ebd66cd10ec68502c}
-      \strng{bibnamehash}{b1d5d0040be4721ebd66cd10ec68502c}
-      \strng{authorbibnamehash}{b1d5d0040be4721ebd66cd10ec68502c}
-      \strng{authornamehash}{b1d5d0040be4721ebd66cd10ec68502c}
-      \strng{authorfullhash}{b1d5d0040be4721ebd66cd10ec68502c}
+      \strng{namehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{fullhash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{bibnamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{authorbibnamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{authornamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \strng{authorfullhash}{d66d1c107aacf5ecfc0cf5e400159a35}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Aufbau des {FAT}32 Dateisystems {ERIK} {MILSCH}, Würzburg, Germany, Februar Historie und Grundlagen Das {FAT}32 Dateisystem wurden von Microsoft im Jahre 1997 als Nachfolger des {FAT}16 Dateisystem eingeführt.}
+      \field{month}{2}
+      \field{title}{Aufbau des {FAT}32 Dateisystems}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\PLISBZ5S\\78333139-Aufbau-des-fat32-dateisystems.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://docplayer.org/78333139-Aufbau-des-fat32-dateisystems.html
+      \endverb
+      \verb{url}
+      \verb https://docplayer.org/78333139-Aufbau-des-fat32-dateisystems.html
+      \endverb
+    \endentry
+    \entry{grokhotkov_espressifarduino-esp32_2020}{software}{}
+      \name{author}{6}{}{%
+        {{hash=2051709c6cd0fd1d657f620bc1065cbb}{%
+           family={Grokhotkov},
+           familyi={G\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=d91190f89d63aeccfea4460e6fb3c467}{%
+           family={Sovani},
+           familyi={S\bibinitperiod},
+           given={Kedar},
+           giveni={K\bibinitperiod}}}%
+        {{hash=922f9c3d117c26a7be584a39fbc8f073}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Mahavir},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c8de412bb90c1cebba70a2afe3edbd74}{%
+           family={Dev},
+           familyi={D\bibinitperiod},
+           given={Me\bibnamedelima No},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=41bf4f6bca122d94b7564b4fd23c0335}{%
+           family={Gratton},
+           familyi={G\bibinitperiod},
+           given={Angus},
+           giveni={A\bibinitperiod}}}%
+        {{hash=90f6f127903c395bec06a53194521318}{%
+           family={Domburg},
+           familyi={D\bibinitperiod},
+           given={Jeroen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Espressif Systems}%
+      }
+      \strng{namehash}{52157facbe29909b1a88ad405706b05d}
+      \strng{fullhash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
+      \strng{bibnamehash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
+      \strng{authorbibnamehash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
+      \strng{authornamehash}{52157facbe29909b1a88ad405706b05d}
+      \strng{authorfullhash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Arduino core for the {ESP}32. Contribute to espressif/arduino-esp32 development by creating an account on {GitHub}.}
+      \field{day}{12}
+      \field{month}{9}
+      \field{note}{original-date: 2016-10-06T06:04:20Z}
+      \field{title}{espressif/arduino-esp32}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/espressif/arduino-esp32
+      \endverb
+      \verb{url}
+      \verb https://github.com/espressif/arduino-esp32
+      \endverb
+      \keyw{arduino,esp-idf,esp32,platformio}
+    \endentry
+    \entry{santos_esp32_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d97486ef3495d0397d5aca2f0adb3565}{%
+           family={Santos},
+           familyi={S\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{fullhash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{bibnamehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{authorbibnamehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{authornamehash}{d97486ef3495d0397d5aca2f0adb3565}
+      \strng{authorfullhash}{d97486ef3495d0397d5aca2f0adb3565}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this project you'll create a standalone web server with an {ESP}32 that can toggle two {LEDs} using the Arduino {IDE} programming environment.}
+      \field{day}{16}
+      \field{langid}{american}
+      \field{month}{7}
+      \field{title}{{ESP}32 Web Server - Arduino {IDE} {|} Random Nerd Tutorials}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
+      \endverb
+      \verb{url}
+      \verb https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
+      \endverb
+    \endentry
+    \entry{verschiedene_autoren_avrdude_2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3155dc0bc3f6f61c9990513b2ec8ea44}{%
+           family={{Verschiedene Autoren}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \strng{fullhash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \strng{bibnamehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \strng{authorbibnamehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \strng{authornamehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \strng{authorfullhash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{16}
+      \field{month}{7}
+      \field{title}{{AVRDUDE} – Mikrocontroller.net}
+      \field{titleaddon}{{AVRDUDE}}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb AVRDUDE – Mikrocontroller.net:C\:\\Users\\robin\\Zotero\\storage\\4I99DTIK\\AVRDUDE.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mikrocontroller.net/articles/AVRDUDE
+      \endverb
+      \verb{url}
+      \verb https://www.mikrocontroller.net/articles/AVRDUDE
+      \endverb
+    \endentry
+    \entry{vidmofollow_turn_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=56cfdc79f42e22c17a0ba7a354f111c0}{%
+           family={{VidmoFollow}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{fullhash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{bibnamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{authorbibnamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{authornamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \strng{authorfullhash}{56cfdc79f42e22c17a0ba7a354f111c0}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Turn Arduino's Serial Converter Into {AVRISP} {MkII} Clone : I'll show you how to use Arduino’s {USB}-serial converter as {AVRISP} {mkII}. Process is completely reversible. You’ll need: Arduino {UNO}, or any other board with {ATmega}16U2 or 32U2 (8U2 has too small flash) {USB}-serial converter, Some wires,Optionally for…}
+      \field{day}{10}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{title}{Turn Arduino's Serial Converter Into {AVRISP} {MkII} Clone}
+      \field{titleaddon}{Instructables}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\86EU65DV\\Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.instructables.com/id/Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl/
+      \endverb
+      \verb{url}
+      \verb https://www.instructables.com/id/Turn-Arduinos-Serial-Converter-Into-AVRISP-MkII-Cl/
+      \endverb
+    \endentry
+    \entry{savannahgnuorg_index_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4e66b0cd2c39f296b5477cedf6b29612}{%
+           family={{savannah.gnu.org}},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \strng{fullhash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \strng{bibnamehash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \strng{authorbibnamehash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \strng{authornamehash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \strng{authorfullhash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{title}{Index of /releases/avrdude/}
+      \field{titleaddon}{Index of /releases/avrdude/}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Index of /releases/avrdude/:C\:\\Users\\robin\\Zotero\\storage\\GVNGX4ZE\\avrdude.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://download.savannah.gnu.org/releases/avrdude/
+      \endverb
+      \verb{url}
+      \verb http://download.savannah.gnu.org/releases/avrdude/
+      \endverb
+    \endentry
+    \entry{meier_mc1-skript_2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=18ef5db8814c8c1b34765f6ffdda9aa2}{%
+           family={Meier},
+           familyi={M\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{fullhash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{bibnamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{authorbibnamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{authornamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \strng{authorfullhash}{18ef5db8814c8c1b34765f6ffdda9aa2}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Script mc1 - Hardwarenahe Programmierung in C -}
+      \field{day}{31}
+      \field{langid}{german}
+      \field{month}{10}
+      \field{title}{mc1-Skript}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb mc1_Skript.pdf:C\:\\Users\\robin\\Zotero\\storage\\JX5ZFLY2\\mc1_Skript.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{dharmani_sdsdhc_2009}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9682fbc124d5299d4b276e4d80b0b77b}{%
+           family={Dharmani},
+           familyi={D\bibinitperiod},
+           given={C.\bibnamedelimi C.},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \strng{fullhash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \strng{bibnamehash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \strng{authorbibnamehash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \strng{authornamehash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \strng{authorfullhash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hi friends, Here is my project on interfacing of {SD} Card ({microSD}). {microSD} cards are available very cheap nowadays, a great option for ha...}
+      \field{day}{31}
+      \field{month}{1}
+      \field{title}{{SD}/{SDHC} Card Interfacing with {ATmega}8 /32 ({FAT}32 implementation)}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\7MWR6LLJ\\sd-card-interfacing-with-atmega8-fat32.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.dharmanitech.com/2009/01/sd-card-interfacing-with-atmega8-fat32.html
+      \endverb
+      \verb{url}
+      \verb https://www.dharmanitech.com/2009/01/sd-card-interfacing-with-atmega8-fat32.html
+      \endverb
+    \endentry
+    \entry{hammer_hterm_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7ba0e7dee17e472e6b1e8a771dc05254}{%
+           family={Hammer},
+           familyi={H\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{fullhash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{bibnamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{authorbibnamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{authornamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \strng{authorfullhash}{7ba0e7dee17e472e6b1e8a771dc05254}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{HTerm} is a terminal program for Windows that allows in- and output in different number systems}
+      \field{langid}{english}
+      \field{title}{{HTerm}}
+      \field{titleaddon}{der-hammer}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\CZULSVIF\\terminal.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://www.der-hammer.info/pages/terminal.html
+      \endverb
+      \verb{url}
+      \verb http://www.der-hammer.info/pages/terminal.html
+      \endverb
+    \endentry
+    \entry{mikrochip_makes_getting_2015}{video}{}
+      \name{author}{1}{}{%
+        {{hash=50877bba0600848bfbd69cfa89d19eeb}{%
+           family={{Mikrochip Makes}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{fullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{bibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authorbibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authornamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authorfullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In this video, we will: - Introduce Pulse Width Modulation ({PWM}) and the importance of high frequency and resolution. - Set a prescalar of 1 to get maximum {PWM} frequency. - Set up two output compare {IRQ}’s: one to control the period, the other to control the duty cycle. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
+      \field{day}{12}
+      \field{month}{3}
+      \field{shorttitle}{Getting Started with {AVR}}
+      \field{title}{Getting Started with {AVR}: Using {PWM} to Dim an {LED} (\#9)}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=FE4KfnEHPGU&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=9
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=FE4KfnEHPGU&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=9
+      \endverb
+    \endentry
+    \entry{mikrochip_makes_getting_2015-1}{video}{}
+      \name{author}{1}{}{%
+        {{hash=50877bba0600848bfbd69cfa89d19eeb}{%
+           family={{Mikrochip Makes}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{fullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{bibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authorbibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authornamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authorfullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In this video, we will learn: - Setting up a millisecond timer to update the duty cycle - Using the 8-bit timer-counter 0 as a millisecond timer. - Incrementing the duty cycle every 2 {mS}, resetting the duty cycle to 0 when it equals the period. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
+      \field{day}{12}
+      \field{month}{3}
+      \field{shorttitle}{Getting Started with {AVR}}
+      \field{title}{Getting Started with {AVR}: Updating {PWM} Duty Cycle Using a Millisecond Timer (\#10)}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=eXwv7e1B2QI&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=10
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=eXwv7e1B2QI&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=10
+      \endverb
+    \endentry
+    \entry{mikrochip_makes_getting_2015-2}{video}{}
+      \name{author}{1}{}{%
+        {{hash=50877bba0600848bfbd69cfa89d19eeb}{%
+           family={{Mikrochip Makes}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{fullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{bibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authorbibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authornamehash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{authorfullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In this video, we will: - Create functions: {PWM}\_Increase\_duty ( ), {PWM}\_Decrease\_duty ( ), {PWM}\_BrightDim ( ) - Use enumerators to keep track of the direction of {PWM} duty cycle change. - Declare our function prototypes. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
+      \field{day}{12}
+      \field{month}{3}
+      \field{shorttitle}{Getting Started with {AVR}}
+      \field{title}{Getting Started with {AVR}: A More Complete {PWM} Driver (\#11)}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=uA410-EC_Mo&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=11
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=uA410-EC_Mo&list=PLtQdQmNK_0DRhBWYZ32BEILOykXLpJ8tP&index=11
+      \endverb
+    \endentry
+    \entry{stahl_simulation_2014}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5f206437030870be60da6c0706e351e7}{%
+           family={Stahl},
+           familyi={S\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f206437030870be60da6c0706e351e7}
+      \strng{fullhash}{5f206437030870be60da6c0706e351e7}
+      \strng{bibnamehash}{5f206437030870be60da6c0706e351e7}
+      \strng{authorbibnamehash}{5f206437030870be60da6c0706e351e7}
+      \strng{authornamehash}{5f206437030870be60da6c0706e351e7}
+      \strng{authorfullhash}{5f206437030870be60da6c0706e351e7}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Die Arbeit behandelt die Steuerung von {BLDC}- und {PMSM}-Motoren mit Schwer-punkt der ruckbegrenzten Beschleunigung während des Positioniervorgangs. Zu Be-ginn werden die verwendeten Arten an Motoren, Sensoren, Regelungsverfahren {undInterpolationen} vorgestellt. Darauf folgt die mathematische Gegenüberstellung {desTrapezgeschwindigkeits}- und des sinoiden Beschleunigungsprofils, die Betrachtungder Simulation mit einer Kaskadenregelung und die Implementierung auf {realerHardware}. Anschließend stellt eine ausführliche Evaluierung die Auswirkung {desRucks} beider Interpolationsarten anhand verschiedener Szenarien dar. Die Arbeit en-det mit einer Zusammenfassung der erzielten Ergebnisse und einem Ausblick aufweiterführende Arbeiten.}
+      \field{day}{4}
+      \field{langid}{german}
+      \field{month}{8}
+      \field{title}{Simulation und Implementierung einerasynchronen Point to Point Steuerung}
+      \field{titleaddon}{Simulation und Implementierung einerasynchronen Point to Point Steuerung}
+      \field{type}{Bachelorthesis}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Bachelorarbeit_Patrick_Stahl.pdf:C\:\\Users\\robin\\Zotero\\storage\\TWZDTJQ9\\Bachelorarbeit_Patrick_Stahl.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit_Patrick_Stahl.pdf
+      \endverb
+      \verb{url}
+      \verb https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit_Patrick_Stahl.pdf
+      \endverb
+    \endentry
+    \entry{geisler_was_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3357c8f7b4d30351aa7226de42eb6188}{%
+           family={Geißler},
+           familyi={G\bibinitperiod},
+           given={Otto},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{fullhash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{bibnamehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{authorbibnamehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{authornamehash}{3357c8f7b4d30351aa7226de42eb6188}
+      \strng{authorfullhash}{3357c8f7b4d30351aa7226de42eb6188}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Eine Application-Programming-Interface (oder auch Application-Program-Interface, kurz: {API}) ist eine Schnittstelle, die es zwei Programmen ermöglicht, miteinander zu kommunizieren. Frei ins Deutsche übersetzt, kann eine {API} auch als „Schnittstelle zur Anwendungsprogrammierung“ oder „Programmierschnittstelle“ bezeichnet werden.}
+      \field{day}{31}
+      \field{langid}{german}
+      \field{month}{7}
+      \field{title}{Was ist ein Application-Programming-Interface ({API})?}
+      \field{titleaddon}{Was ist ein Application-Programming-Interface ({API})?}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\GDZSAZ97\\was-ist-ein-application-programming-interface-api-a-735797.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.datacenter-insider.de/was-ist-ein-application-programming-interface-api-a-735797/
+      \endverb
+      \verb{url}
+      \verb https://www.datacenter-insider.de/was-ist-ein-application-programming-interface-api-a-735797/
+      \endverb
+    \endentry
+    \entry{lenz_artikel_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e13d7255ad0d34f21e88f41977181b0c}{%
+           family={Lenz},
+           familyi={L\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{fullhash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{bibnamehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{authorbibnamehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{authornamehash}{e13d7255ad0d34f21e88f41977181b0c}
+      \strng{authorfullhash}{e13d7255ad0d34f21e88f41977181b0c}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{5}
+      \field{langid}{german}
+      \field{month}{3}
+      \field{title}{Artikel {|} Doppelt verkettete Listen in C}
+      \field{titleaddon}{Doppelt verkettete Listen in C}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Artikel | Doppelt verkettete Listen in C:C\:\\Users\\robin\\Zotero\\storage\\QGGWNZ97\\doppelt-verkettete-listen.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://perlgeek.de/de/artikel/doppelt-verkettete-listen
+      \endverb
+      \verb{url}
+      \verb https://perlgeek.de/de/artikel/doppelt-verkettete-listen
+      \endverb
+    \endentry
+    \entry{yadav_circular_2019}{online}{}
+      \name{author}{1}{}{%
+        {{hash=0bce03580874fce8a1b665df86aac80a}{%
+           family={Yadav},
+           familyi={Y\bibinitperiod},
+           given={Prashant},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{fullhash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{bibnamehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{authorbibnamehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{authornamehash}{0bce03580874fce8a1b665df86aac80a}
+      \strng{authorfullhash}{0bce03580874fce8a1b665df86aac80a}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Learn what is and how to implement a circular doubly linked list in javascript. Two different object based and es6 class based implementation.}
+      \field{day}{14}
+      \field{langid}{american}
+      \field{month}{10}
+      \field{title}{Circular Doubly linked list in javascript}
+      \field{titleaddon}{{LearnersBucket}}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\FFMZ7AIB\\circular-doubly-linked-list-in-javascript.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://learnersbucket.com/tutorials/data-structures/circular-doubly-linked-list-in-javascript/
+      \endverb
+      \verb{url}
+      \verb https://learnersbucket.com/tutorials/data-structures/circular-doubly-linked-list-in-javascript/
+      \endverb
+    \endentry
+    \entry{loboriseu_esp32_autoresetjpg_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a0b811cb07a033235ba4760370ce9c4b}{%
+           family={{loboris.eu}},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0b811cb07a033235ba4760370ce9c4b}
+      \strng{fullhash}{a0b811cb07a033235ba4760370ce9c4b}
+      \strng{bibnamehash}{a0b811cb07a033235ba4760370ce9c4b}
+      \strng{authorbibnamehash}{a0b811cb07a033235ba4760370ce9c4b}
+      \strng{authornamehash}{a0b811cb07a033235ba4760370ce9c4b}
+      \strng{authorfullhash}{a0b811cb07a033235ba4760370ce9c4b}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{22}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{title}{{ESP}32\_AutoReset.jpg ({JPEG}-Grafik, 640 × 541 Pixel)}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb ESP32_AutoReset.jpg (JPEG-Grafik, 640 × 541 Pixel):C\:\\Users\\robin\\Zotero\\storage\\6ZESN59B\\ESP32_AutoReset.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://loboris.eu/ESP32/ESP32_AutoReset.jpg
+      \endverb
+      \verb{url}
+      \verb http://loboris.eu/ESP32/ESP32_AutoReset.jpg
+      \endverb
+    \endentry
+    \entry{liudr_trying_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7814f508cefb6f5212a5c3a3b42d64fe}{%
+           family={{liudr}},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{fullhash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{bibnamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{authorbibnamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{authornamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \strng{authorfullhash}{7814f508cefb6f5212a5c3a3b42d64fe}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{17}
+      \field{month}{10}
+      \field{title}{Trying to design an {ESP}32 dev board - {MicroPython} Forum}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Trying to design an ESP32 dev board - MicroPython Forum:C\:\\Users\\robin\\Zotero\\storage\\PSNZLHYY\\viewtopic.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://forum.micropython.org/viewtopic.php?t=4607
+      \endverb
+      \verb{url}
+      \verb https://forum.micropython.org/viewtopic.php?t=4607
+      \endverb
+    \endentry
+    \entry{german-salescom_datenstruktur_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=fb06bce0add3d61c30908d093286cb1b}{%
+           family={{german-sales.com}},
+           familyi={g\bibinitperiod}}}%
+      }
+      \strng{namehash}{fb06bce0add3d61c30908d093286cb1b}
+      \strng{fullhash}{fb06bce0add3d61c30908d093286cb1b}
+      \strng{bibnamehash}{fb06bce0add3d61c30908d093286cb1b}
+      \strng{authorbibnamehash}{fb06bce0add3d61c30908d093286cb1b}
+      \strng{authornamehash}{fb06bce0add3d61c30908d093286cb1b}
+      \strng{authorfullhash}{fb06bce0add3d61c30908d093286cb1b}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Die Datenstruktur einer Speicherkarte für die Digitalkamera lässt nachdem sie gelöscht wurde immer noch eine Datenrettung der Bilder zu.}
+      \field{langid}{german}
+      \field{title}{Datenstruktur einer Speicherkarte für die Digitalkamera › German Sales Agency}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\VJV2PAMA\\datenstruktur.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.german-sales.com/datenstruktur.htm
+      \endverb
+      \verb{url}
+      \verb https://www.german-sales.com/datenstruktur.htm
+      \endverb
+    \endentry
+    \entry{informatikuni-ulmde_fat32slide_2002}{online}{}
+      \name{author}{1}{}{%
+        {{hash=be473ad7072ebdf291a6206a09ada581}{%
+           family={{informatik.uni-ulm.de}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{be473ad7072ebdf291a6206a09ada581}
+      \strng{fullhash}{be473ad7072ebdf291a6206a09ada581}
+      \strng{bibnamehash}{be473ad7072ebdf291a6206a09ada581}
+      \strng{authorbibnamehash}{be473ad7072ebdf291a6206a09ada581}
+      \strng{authornamehash}{be473ad7072ebdf291a6206a09ada581}
+      \strng{authorfullhash}{be473ad7072ebdf291a6206a09ada581}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{28}
+      \field{month}{1}
+      \field{title}{fat32slide}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb fat32slide.pdf:C\:\\Users\\robin\\Zotero\\storage\\VZIAJ9ZG\\fat32slide.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.informatik.uni-ulm.de/ni/Lehre/WS01/TI2/folienmb/fat32slide.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.informatik.uni-ulm.de/ni/Lehre/WS01/TI2/folienmb/fat32slide.pdf
+      \endverb
+    \endentry
+    \entry{iainandrew_esp8266_2018}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5b109c743893779f7aa41a9c78d2215c}{%
+           family={{iainandrew}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{fullhash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{bibnamehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{authorbibnamehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{authornamehash}{5b109c743893779f7aa41a9c78d2215c}
+      \strng{authorfullhash}{5b109c743893779f7aa41a9c78d2215c}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{ESP}8266 vs {ESP}32: What's the difference? - Wia Community}
+      \field{month}{8}
+      \field{title}{{ESP}8266 vs {ESP}32: What's the difference? - Wia Community}
+      \field{urlday}{18}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb ESP8266 vs ESP32\: What's the difference? - Wia Community:C\:\\Users\\robin\\Zotero\\storage\\YNZ5PH2A\\53-esp8266-vs-esp32-what-s-the-difference.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://community.wia.io/d/53-esp8266-vs-esp32-what-s-the-difference
+      \endverb
+      \verb{url}
+      \verb https://community.wia.io/d/53-esp8266-vs-esp32-what-s-the-difference
+      \endverb
+    \endentry
+    \entry{espressif_systems_esp32_2020}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4c3e9d8987c42743634416815cc88543}{%
+           family={{Espressif Systems}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{fullhash}{4c3e9d8987c42743634416815cc88543}
+      \strng{bibnamehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{authorbibnamehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{authornamehash}{4c3e9d8987c42743634416815cc88543}
+      \strng{authorfullhash}{4c3e9d8987c42743634416815cc88543}
       \field{sortinit}{6}
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{1}
-      \field{title}{{ESP32} {Series}}
-      \field{urlday}{11}
-      \field{urlmonth}{1}
-      \field{urlyear}{2020}
+      \field{abstract}{Datasheet {ESP} 32 Version 3.4}
+      \field{day}{27}
+      \field{month}{4}
+      \field{title}{{ESP}32 Datasheet}
       \field{year}{2020}
-      \field{urldateera}{ce}
+      \field{dateera}{ce}
       \verb{file}
-      \verb esp32_datasheet_en.pdf:C\:\\Users\\robin\\Zotero\\storage\\TR8TGFUB\\esp32_datasheet_en.pdf:application/pdf
+      \verb esp32_datasheet_en.pdf:C\:\\Users\\robin\\Zotero\\storage\\2R4Z2IA4\\esp32_datasheet_en.pdf:application/pdf
       \endverb
       \verb{urlraw}
       \verb https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
@@ -87,50 +1416,227 @@
       \verb https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
       \endverb
     \endentry
+    \entry{atmel_atmel_2014}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bed89e32bb03bc7e71ebbf7729f9d4ce}{%
+           family={{Atmel}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{fullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{bibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Atmega2560 Datasheet}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{title}{Atmel {ATmega}640/V-1280/V-1281/V-2560/V-2561/V}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf:C\:\\Users\\robin\\Zotero\\storage\\23EFVM4V\\atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf
+      \endverb
+      \verb{url}
+      \verb https://ww1.microchip.com/downloads/en/devicedoc/atmel-2549-8-bit-avr-microcontroller-atmega640-1280-1281-2560-2561_datasheet.pdf
+      \endverb
+    \endentry
+    \entry{podkalicki_attiny13_2016}{online}{}
+      \name{author}{1}{}{%
+        {{hash=fdc411710d8ecb0240584c4cbc05ead6}{%
+           family={Podkalicki},
+           familyi={P\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod}}}%
+      }
+      \strng{namehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{fullhash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{bibnamehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{authorbibnamehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{authornamehash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \strng{authorfullhash}{fdc411710d8ecb0240584c4cbc05ead6}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is a simple {ATtiny}13 project that controls {LED} {RGB} using Software {PWM}. In result It gives really nice and colourful light effect.}
+      \field{day}{11}
+      \field{langid}{british}
+      \field{month}{4}
+      \field{title}{{ATtiny}13 - controlling {LED} {RGB} {|} Łukasz Podkalicki}
+      \field{urlday}{14}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\VLWS9EBU\\attiny13-controlling-led-rgb-fancy-light-effects.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://blog.podkalicki.com/attiny13-controlling-led-rgb-fancy-light-effects/
+      \endverb
+      \verb{url}
+      \verb https://blog.podkalicki.com/attiny13-controlling-led-rgb-fancy-light-effects/
+      \endverb
+    \endentry
+    \entry{haftmann_programmierung_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2ce78b7bcd9a7ad76d8f9988066e84a6}{%
+           family={Haftmann},
+           familyi={H\bibinitperiod},
+           given={Henrik},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{fullhash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{bibnamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{authorbibnamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{authornamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \strng{authorfullhash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Programmierung des Speichers}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Programmierung des Speichers:C\:\\Users\\robin\\Zotero\\storage\\I8JXQH8J\\28.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www-user.tu-chemnitz.de/~heha/viewchm.php/hs/ATmegaX8.chm/28.htm
+      \endverb
+      \verb{url}
+      \verb https://www-user.tu-chemnitz.de/~heha/viewchm.php/hs/ATmegaX8.chm/28.htm
+      \endverb
+    \endentry
+    \entry{atmel_avr068_2006}{article}{}
+      \name{author}{1}{}{%
+        {{hash=bed89e32bb03bc7e71ebbf7729f9d4ce}{%
+           family={{Atmel}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{fullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{bibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{{AVR}068: {STK}500 Communication Protocol}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{pages}{37}
+      \range{pages}{1}
+      \verb{file}
+      \verb AVR068 STK500 Communication Protocol.pdf:C\:\\Users\\robin\\Zotero\\storage\\ES97W7A5\\AVR068 STK500 Communication Protocol.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ww1.microchip.com/downloads/en/Appnotes/doc2591.pdf
+      \endverb
+      \verb{url}
+      \verb http://ww1.microchip.com/downloads/en/Appnotes/doc2591.pdf
+      \endverb
+    \endentry
+    \entry{kumar_doubly_2017}{online}{}
+      \name{author}{2}{}{%
+        {{hash=de2f210a7b7e4a027f9882c7289722aa}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Gaurav},
+           giveni={G\bibinitperiod}}}%
+        {{hash=2461ac7d2934133371a55533d3dfd6e2}{%
+           family={Kundu},
+           familyi={K\bibinitperiod},
+           given={Arnab},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1f55630df021579a70effd766f8c462b}
+      \strng{fullhash}{1f55630df021579a70effd766f8c462b}
+      \strng{bibnamehash}{1f55630df021579a70effd766f8c462b}
+      \strng{authorbibnamehash}{1f55630df021579a70effd766f8c462b}
+      \strng{authornamehash}{1f55630df021579a70effd766f8c462b}
+      \strng{authorfullhash}{1f55630df021579a70effd766f8c462b}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.}
+      \field{day}{14}
+      \field{langid}{american}
+      \field{month}{4}
+      \field{note}{Section: Linked List}
+      \field{title}{Doubly Circular Linked List {|} Set 1 (Introduction and Insertion)}
+      \field{titleaddon}{{GeeksforGeeks}}
+      \field{urlday}{17}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\45YL9GIE\\doubly-circular-linked-list-set-1-introduction-and-insertion.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/doubly-circular-linked-list-set-1-introduction-and-insertion/
+      \endverb
+    \endentry
+    \entry{kleitz_sec_2011}{video}{}
+      \name{author}{1}{}{%
+        {{hash=77b321ce0ccefbced546780de84ebf8f}{%
+           family={Kleitz},
+           familyi={K\bibinitperiod},
+           given={Bill},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{fullhash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{bibnamehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{authorbibnamehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{authornamehash}{77b321ce0ccefbced546780de84ebf8f}
+      \strng{authorfullhash}{77b321ce0ccefbced546780de84ebf8f}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{switch debouncing techniques}
+      \field{title}{sec 11 4 Switch Debouncing}
+      \field{urlday}{11}
+      \field{urlmonth}{9}
+      \field{urlyear}{2020}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=uQTPZoDbfUs
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=uQTPZoDbfUs
+      \endverb
+    \endentry
   \enddatalist
   \missing{\cite {aliexpress_us_nodate}}
-  \missing{akm_servomotoren_2020}
-  \missing{atmel_atmel_2014}
-  \missing{atmel_avr068_2006}
-  \missing{behindthesciences_rgb_2017}
-  \missing{cui_devices_cui_2019}
-  \missing{dharmani_sdsdhc_2009}
-  \missing{espressif_systems_esp32_2016}
-  \missing{geisler_was_2018}
-  \missing{german-salescom_datenstruktur_nodate}
-  \missing{grokhotkov_espressifarduino-esp32_2020}
-  \missing{haftmann_programmierung_nodate}
-  \missing{hammer_hterm_nodate}
-  \missing{iainandrew_esp8266_2018}
-  \missing{informatikuni-ulmde_fat32slide_2002}
-  \missing{ionosde_fat32_2020}
-  \missing{jlcpcb_jlcpcb_2020}
-  \missing{kleitz_sec_2011}
-  \missing{kumar_doubly_2017}
-  \missing{lenz_artikel_2016}
-  \missing{liudr_trying_2017}
-  \missing{loboriseu_esp32_autoresetjpg_2017}
-  \missing{meier_mc1-skript_2017}
-  \missing{mikrochip_makes_getting_2015}
-  \missing{mikrochip_makes_getting_2015-1}
-  \missing{mikrochip_makes_getting_2015-2}
-  \missing{milsch_aufbau_2009}
-  \missing{nxp_bv_2010_antenna_2010}
-  \missing{nxp_semiconductors_nv_mfrc522_2017}
-  \missing{podkalicki_attiny13_2016}
-  \missing{rfid-basisde_aufbau_2018}
-  \missing{santos_esp32_2018}
-  \missing{savannahgnuorg_index_2016}
-  \missing{stahl_simulation_2014}
-  \missing{theorycircuitcom_arduino_2018}
-  \missing{trinamicmotion_control_gmbh__co_kg_tmc-ups-xaxv-eval_2017}
-  \missing{trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020}
-  \missing{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}
-  \missing{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
-  \missing{verschiedene_autoren_avrdude_2019}
-  \missing{vidmofollow_turn_2017}
-  \missing{yadav_circular_2019}
-  \missing{zenkner_usb_2014}
 \endrefsection
 \endinput
 
