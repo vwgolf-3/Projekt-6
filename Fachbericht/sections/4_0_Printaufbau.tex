@@ -2,7 +2,7 @@
 \section{Printaufbau}
 \label{sec:Printaufbau}
 
-In Abbildung \ref{fig:Print_3D} ist der Aufbau des entstandenen Prints zu sehen. Auf diesem sind die in Abbildung  \ref{fig:Blockschaltbild_Cocktailmixer} gezeigte Blöcke wieder zu erkennen. 
+In Abbildung \ref{fig:Print_3D} ist der Aufbau des entstandenen Prints zu sehen. Auf diesem sind die in Abbildung  \ref{fig:Blockschaltbild_Partymixer} gezeigte Blöcke wieder zu erkennen. In Tabelle \ref{tab:table} und Abbildung \ref{fig:figure} ist zusätzlich der Aufbau der Platine und deren Spezifikationen zu sehen.
 
 \begin{figure}[H]
 	\centering
@@ -49,28 +49,28 @@ Layer 2 / 3 & 0.5oz & (17$\mu$m)\\
 \end{minipage}
 \end{table}
 
-\todo{Tabelle 3.1 wird nirgens erwähnt }
+
 
 \newpage
 
-Der Print ist grundsätzlich in zwei Gruppen unterteilt. Der rechte teil des Prints beinhaltet den Leistungsteil und auf der linken Seite des Prints ist der Logigteil zu finden. In Abbildung \ref{fig:Print_3D} sind die einzelnen Teile in Farben unterteilt. Die genauen Aufgabenbereiche und die Funktionsweise der einzelnen Teile werden in Kapitel \ref{sec:Teilsysteme} behandelt.\\
+Der Print ist grundsätzlich in zwei Gruppen unterteilt. Der rechte teil des Prints beinhaltet den Leistungsteil und auf der linken Seite des Prints ist der Logigteil zu finden. In Abbildung \ref{fig:Print_3D} sind die einzelnen Teile auf dem Print in Farben unterteilt. Die genauen Aufgabenbereiche und die Funktionsweise der einzelnen Teile werden in Kapitel \ref{sec:Teilsysteme} behandelt.\\
 
 \textcolor{red}{\textbf{\underline{Speisungen:}}}
-In den rot markierten Bereichen sind die Speisungsteile zu sehen, wobei sich auf der rechten Seite des Prints der Eingangsfilter mit Verpolschutz, die 12V-Speisung und die 5V-Speisung befinden. Das 48V-Netzteil ist gemäss Blockschaltbild \ref{subsec:Blockschaldbild} extern angebracht. Im Logikteil des Prints auf der linken Seite ist die 3.3V-Speisuung zu finden.
+In den rot markierten Bereichen sind die Speisungsteile zu sehen, wobei sich auf der rechten Seite des Prints die Eingangskondensatoren mit Verpolschutz, die 12V-Speisung und die 5V-Speisung befinden. Das 48V-Netzteil ist gemäss Blockschaltbild \ref{subsec:Blockschaldbild} extern angebracht. Im Logikteil des Prints auf der linken Seite ist die 3.3V-Speisuung zu finden.
 
 \textcolor{ProcessBlue}{\textbf{\underline{Mikrocontroller:}}}
-Im hellblau markierten Bereich auf der linken Seite des Printes befindet sich das Herzstück der Elektronik. Der Mikrocontroller mit der dazugehörigen Programmierschnittstelle, welche einen Micro-USB Anschluss beinhaltet.
+Im hellblau markierten Bereich auf der linken Seite des Prints befindet sich das Herzstück der Elektronik. Der Mikrocontroller mit der dazugehörigen Programmierschnittstelle, welche einen Micro-USB Anschluss zu Programmierzwecken beinhaltet.
 
 \textcolor{Goldenrod}{\textbf{\underline{Pumpenansteuerung:}}}
-Auf der unteren Seite des Prints sind die Anschlüsse der Pumpen zu finden, welche die Flüssigkeiten befördern. Dazu gehört jeweils eine kleine Leistungsansteuerung mittels MOSFET und Freilaufdiode. 
+Auf der unteren Seite des Prints sind die Anschlüsse der Pumpen zu finden, welche die Flüssigkeiten befördern. Dazu gehört jeweils eine kleine Leistungsansteuerung mittels Logik-MOSFET und Freilaufdiode. 
 
 \textcolor{orange}{\textbf{\underline{Durchflussmessgeräte:}}} Über der Pumpenansteuerung befinden sich im orange markierten Bereich die Anschlüsse der Durchflussmessgeräte, welche auch die Speisung der Durchflussmessgeräte beherbergen und einen Entstörkondensator.
 
 \textcolor{gray}{\textbf{\underline{Maschinenbeleuchtung:}}}
-Um die Maschine mit einem Showeffekt auszustatten wurde eine Lichtansteuerung eines RGBW-LED-Streifen implementiert gemäss Kapitel \ref{subsec:Blockschaldbild}. Diese ist im grau markierten Bereich zu finden und beinhaltet einen Anschluss, sowie vier Steuer-MOSFET's.
+Um die Maschine mit einem Showeffekt auszustatten wurde eine Lichtansteuerung eines RGBW-LED-Streifen implementiert gemäss Kapitel \ref{subsec:Blockschaldbild}. Diese ist im grau markierten Bereich zu finden und beinhaltet einen Anschluss, sowie vier Logik-MOSFET's zur Ansteuerung.
 
 \textcolor{blue}{\textbf{\underline{Wireless- /Bluetoothmodul:}}}
-Um mit externen Gerätschaften kommunizieren zu können, befindet sich im Dunkelblau markierten Bereich des Wireless- / Bluetoothmodul. Auch dieses Beinhaltet neben dem eigentlichen Modul eine dazugehörige Programmierschnittstelle gemäss Blockschaldbild \ref{fig:Blockschaltbild_Cocktailmixer}.
+Um mit externen Gerätschaften kommunizieren zu können, befindet sich im Dunkelblau markierten Bereich das Wireless- / Bluetoothmodul. Auch dieses beinhaltet neben dem eigentlichen Modul eine dazugehörige Programmierschnittstelle gemäss Blockschaldbild \ref{fig:Blockschaltbild_Partymixer}.
 
 \textcolor{violet}{\textbf{\underline{SD-Karte:}}}
 Der SD-Kartenslot für eine Micro SD-Karte befindet sich links oben im Violett markierten Bereich.
