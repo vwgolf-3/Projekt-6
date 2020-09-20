@@ -176,7 +176,7 @@ void fuelle_getraenk(uint32_t fuellmenge)
                         }
 //*************************************************************************
 //                  Delay entfernen wenn mit Sensor gearbeitet wird.
-                        _delay_ms(2);
+                        _delay_ms(1);
                         if (check_Communication_Input_UART_1())
                         {
                             proceed_Communication_INPUT_UART_1();

@@ -41,6 +41,8 @@ extern void SD_startup(void);
 extern void zutaten_init(void);
 extern void cocktails_init(void);
 extern void RFID_init(void);
+void periodic_jobs(linear_ramp_t * ramp);
+void check_motor_activities(linear_ramp_t * ramp);
 extern void cocktail_test_command(unsigned char INPUT[256]);
 extern void cocktail_check_command(int8_t page, int8_t button);
 extern void Uart_Transmit_IT_PC(char * data);
@@ -97,5 +99,6 @@ extern uint8_t counter;
 
 uint32_t Position;
 uint32_t count_bla;
+volatile uint8_t compute;
 
 #endif /* MAIN_FUNC_H_ */

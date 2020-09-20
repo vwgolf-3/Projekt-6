@@ -47,23 +47,23 @@ struct linear_ramp {
 	volatile float motor_komplette_verschiebung;
 	volatile float motor_ticks_verschiebung;
 };
-typedef struct linear_ramp linear_ramp_t;
+typedef struct linear_ramp volatile linear_ramp_t;
 
-    linear_ramp_t Ramp;
-    linear_ramp_t * ramp;
+    volatile linear_ramp_t Ramp;
+    volatile linear_ramp_t * ramp;
 
 void reverse(char* str, int len);
 int intToStr(int x, char str[], int d);
 void ftoa(float n, char* res, int afterpoint);
 // void ramp_pwm_init(void);
 
-void linear_ramp_init(linear_ramp_t * ramp);
-void linear_ramp_set_defaults(linear_ramp_t * ramp);
-void calculateRamp(float acceleration, float velocity, float position, linear_ramp_t * ramp);
-void computeRamp(linear_ramp_t * ramp);
-float iterate_timer(linear_ramp_t * ramp);
-float position_func(float x0, float v0, float a, float t);
-float velocity_func(float v0, float a, float t);
+void linear_ramp_init(volatile linear_ramp_t * ramp);
+void linear_ramp_set_defaults(volatile linear_ramp_t * ramp);
+void calculateRamp(float acceleration, float velocity, float position, volatile linear_ramp_t * ramp);
+void computeRamp(volatile linear_ramp_t * ramp);
+float iterate_timer(volatile linear_ramp_t * ramp);
+void position_func(linear_ramp_t * ramp);
+void velocity_func(linear_ramp_t * ramp);
 float get_beschleunigungszeit(float velocity, float acceleration);
 float get_volle_geschwindigkeitszeit(float Position, float acceleration, float beschleunigungszeit, float max_velocity);
 #endif /* RAMP1_H_ */

@@ -64,8 +64,8 @@ void speicher_init()
 
 void ramp_init(void)
 {
-    linear_ramp_t Ramp;
-    linear_ramp_t * ramp = &Ramp;
+    volatile linear_ramp_t Ramp;
+    volatile linear_ramp_t * ramp = &Ramp;
 
     linear_ramp_init(ramp);
     linear_ramp_set_defaults(ramp);
@@ -84,6 +84,30 @@ void display_init()
     i_Liste_test[i_Liste_test_cnt] = 0;
 }
 
+void periodic_jobs(linear_ramp_t * ramp)
+{
+	check_motor_activities(ramp);
+	check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
+}
+
+void check_motor_activities(linear_ramp_t * ramp)
+{
+	// Debug für seriellen Monitor durch Eingabe: '2' ==> Position = 1
+	if ((Position == 1) && (ramp->ramp_enable == 0))
+	{
+		tmc4671_writeInt(0, 0x6B,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
+		tmc4671_setAbsolutTargetPosition(0, 0x00000000);            // Überprüfen der Maximalwerte, bei zu hohen Eingaben wird automatisch
+		calculateRamp(2000, 2000, count_bla * 10 * ramp->motor_eine_umdrehung, ramp);
+		Position = 0;
+	}
+	
+	// Falls der Hardware-Timer 1ms gezählt hat, berechne Ramp
+	if (compute == 1)
+	{
+		computeRamp(ramp);
+		compute = 0;
+	}
+}
 
 void heartbeat_LED(void)
 {
