@@ -1,17 +1,59 @@
-[0] Config.pm:304> INFO - This is Biber 2.14
-[0] Config.pm:307> INFO - Logfile is 'Fachbericht.blg'
-[95] biber-MSWIN32:322> INFO - === 
-[117] Biber.pm:415> INFO - Reading 'Fachbericht.bcf'
-[268] Biber.pm:943> INFO - Found 43 citekeys in bib section 0
-[289] Biber.pm:4256> INFO - Processing section 0
-[289] Utils.pm:75> INFO - Globbing data source 'literature/bibliography.bib'
-[302] Utils.pm:91> INFO - Globbed data source 'literature/bibliography.bib' to literature/bibliography.bib
-[318] Biber.pm:4455> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
-[325] bibtex.pm:1653> INFO - LaTeX decoding ...
-[518] bibtex.pm:1471> INFO - Found BibTeX data source 'literature/bibliography.bib'
-[795] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[795] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[795] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
-[795] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[843] bbl.pm:652> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
-[868] bbl.pm:755> INFO - Output to Fachbericht.bbl
+[0] Config.pm:302> INFO - This is Biber 2.11
+[1] Config.pm:305> INFO - Logfile is 'Fachbericht.blg'
+[78] biber-MSWIN32:313> INFO - === 
+[166] Biber.pm:371> INFO - Reading 'Fachbericht.bcf'
+[415] Biber.pm:857> INFO - Found 45 citekeys in bib section 0
+[453] Biber.pm:3976> INFO - Processing section 0
+[481] Biber.pm:4136> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
+[509] bibtex.pm:1500> INFO - LaTeX decoding ...
+[701] bibtex.pm:1316> INFO - Found BibTeX data source 'literature/bibliography.bib'
+[750] Utils.pm:193> WARN - I didn't find a database entry for 'jlcpcb_jlcpcb_2020' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for '\cite {aliexpress_us_nodate}' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'trinamicmotion_control_gmbh__co_kg_tmc6200_2019' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'trinamicmotion_control_gmbh__co_kg_tmc4671_2019' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'trinamicmotion_control_gmbh__co_kg_tmc-ups-xaxv-eval_2017' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'akm_servomotoren_2020' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'cui_devices_cui_2019' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'zenkner_usb_2014' (section 0)
+[751] Utils.pm:193> WARN - I didn't find a database entry for 'espressif_systems_esp32_2016' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'nxp_semiconductors_nv_mfrc522_2017' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'rfid-basisde_aufbau_2018' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'nxp_bv_2010_antenna_2010' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'behindthesciences_rgb_2017' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'theorycircuitcom_arduino_2018' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'ionosde_fat32_2020' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'milsch_aufbau_2009' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'grokhotkov_espressifarduino-esp32_2020' (section 0)
+[752] Utils.pm:193> WARN - I didn't find a database entry for 'santos_esp32_2018' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'verschiedene_autoren_avrdude_2019' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'vidmofollow_turn_2017' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'savannahgnuorg_index_2016' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'meier_mc1-skript_2017' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'dharmani_sdsdhc_2009' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'hammer_hterm_nodate' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'mikrochip_makes_getting_2015' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'mikrochip_makes_getting_2015-1' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'mikrochip_makes_getting_2015-2' (section 0)
+[753] Utils.pm:193> WARN - I didn't find a database entry for 'stahl_simulation_2014' (section 0)
+[754] Utils.pm:193> WARN - I didn't find a database entry for 'geisler_was_2018' (section 0)
+[754] Utils.pm:193> WARN - I didn't find a database entry for 'lenz_artikel_2016' (section 0)
+[754] Utils.pm:193> WARN - I didn't find a database entry for 'yadav_circular_2019' (section 0)
+[754] Utils.pm:193> WARN - I didn't find a database entry for 'loboriseu_esp32_autoresetjpg_2017' (section 0)
+[754] Utils.pm:193> WARN - I didn't find a database entry for 'liudr_trying_2017' (section 0)
+[755] Utils.pm:193> WARN - I didn't find a database entry for 'german-salescom_datenstruktur_nodate' (section 0)
+[755] Utils.pm:193> WARN - I didn't find a database entry for 'informatikuni-ulmde_fat32slide_2002' (section 0)
+[755] Utils.pm:193> WARN - I didn't find a database entry for 'iainandrew_esp8266_2018' (section 0)
+[755] Utils.pm:193> WARN - I didn't find a database entry for 'atmel_atmel_2014' (section 0)
+[755] Utils.pm:193> WARN - I didn't find a database entry for 'podkalicki_attiny13_2016' (section 0)
+[756] Utils.pm:193> WARN - I didn't find a database entry for 'haftmann_programmierung_nodate' (section 0)
+[756] Utils.pm:193> WARN - I didn't find a database entry for 'atmel_avr068_2006' (section 0)
+[756] Utils.pm:193> WARN - I didn't find a database entry for 'kumar_doubly_2017' (section 0)
+[756] Utils.pm:193> WARN - I didn't find a database entry for 'kleitz_sec_2011' (section 0)
+[776] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[776] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[777] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[777] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[800] bbl.pm:617> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
+[802] bbl.pm:720> INFO - Output to Fachbericht.bbl
+[811] Biber.pm:110> INFO - WARNINGS: 43

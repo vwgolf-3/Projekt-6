@@ -47,140 +47,140 @@
 \contentsline {subsubsection}{\numberline {4.4.3}USB-B}{21}{subsubsection.4.4.3}
 \contentsline {paragraph}{Schema}{21}{section*.42}
 \contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.44}
-\contentsline {subsection}{\numberline {4.5}Benutzerschnittstellen}{22}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}Display}{22}{subsubsection.4.5.1}
-\contentsline {paragraph}{Schema}{22}{section*.45}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.47}
-\contentsline {subsubsection}{\numberline {4.5.2}ESP}{23}{subsubsection.4.5.2}
-\contentsline {paragraph}{Schema (WiFi-Modul)}{23}{section*.48}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (WiFi-Modul)}{24}{section*.50}
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{24}{section*.51}
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{25}{section*.53}
-\contentsline {subsubsection}{\numberline {4.5.3}RFID}{25}{subsubsection.4.5.3}
-\contentsline {paragraph}{Schema}{26}{section*.54}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{26}{section*.56}
-\contentsline {subsection}{\numberline {4.6}Beleuchtung}{27}{subsection.4.6}
-\contentsline {paragraph}{Schema}{27}{section*.58}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{28}{section*.60}
-\contentsline {subsection}{\numberline {4.7}Mikrocontroller}{28}{subsection.4.7}
-\contentsline {paragraph}{Schema}{28}{section*.61}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.63}
-\contentsline {subsection}{\numberline {4.8}SD-Karte}{29}{subsection.4.8}
-\contentsline {paragraph}{Schema}{30}{section*.65}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{31}{section*.67}
-\contentsline {section}{\numberline {5}Inbetriebnahme}{31}{section.5}
-\contentsline {subsection}{\numberline {5.1}Speisungen}{31}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}12V Speisung}{31}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}5V Speisung}{31}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}3.3V Speisung}{31}{subsubsection.5.1.3}
-\contentsline {subsection}{\numberline {5.2}Programmierschnittstellen}{32}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Benutzerschnittstellen}{34}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Touch-Display}{34}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}ESP}{34}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}RFID}{35}{subsubsection.5.3.3}
-\contentsline {subsection}{\numberline {5.4}Mikrocontroller}{37}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}AVRdude in Atmel Studio einbinden}{37}{subsubsection.5.4.1}
-\contentsline {subsection}{\numberline {5.5}Datenspeicherung}{39}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}mikroSD-Karte}{39}{subsubsection.5.5.1}
-\contentsline {subsection}{\numberline {5.6}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{39}{subsection.5.6}
-\contentsline {subsubsection}{\numberline {5.6.1}Pumpen}{39}{subsubsection.5.6.1}
-\contentsline {subsubsection}{\numberline {5.6.2}Durchflussmessger\IeC {\"a}te}{40}{subsubsection.5.6.2}
-\contentsline {subsection}{\numberline {5.7}Beleuchtung}{40}{subsection.5.7}
-\contentsline {subsubsection}{\numberline {5.7.1}Vorgehen}{41}{subsubsection.5.7.1}
-\contentsline {subsection}{\numberline {5.8}Motor}{42}{subsection.5.8}
-\contentsline {subsubsection}{\numberline {5.8.1}FOC-Treiber}{42}{subsubsection.5.8.1}
-\contentsline {subsubsection}{\numberline {5.8.2}Gate-Treiber}{43}{subsubsection.5.8.2}
-\contentsline {subsubsection}{\numberline {5.8.3}BLDC und H-Br\IeC {\"u}cke}{43}{subsubsection.5.8.3}
-\contentsline {subsubsection}{\numberline {5.8.4}ABN-Encoder}{44}{subsubsection.5.8.4}
-\contentsline {subsubsection}{\numberline {5.8.5}PI-Regler}{44}{subsubsection.5.8.5}
-\contentsline {section}{\numberline {6}Software}{46}{section.6}
-\contentsline {subsection}{\numberline {6.1}Atmega2560}{46}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{47}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{48}{subsubsection.6.1.2}
-\contentsline {paragraph}{Bootloader-Section}{48}{section*.79}
-\contentsline {paragraph}{Init-Section}{48}{section*.80}
-\contentsline {paragraph}{Main-Loop}{48}{section*.81}
-\contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{50}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}ESP32}{50}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{51}{subsubsection.6.2.1}
-\contentsline {subsection}{\numberline {6.3}Displaysoftware}{51}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Displaymenu}{52}{subsubsection.6.3.1}
-\contentsline {subsection}{\numberline {6.4}Android App}{61}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}PartyMixer App}{63}{subsubsection.6.4.1}
-\contentsline {section}{\numberline {7}Mechanik}{65}{section.7}
-\contentsline {subsection}{\numberline {7.1}Rahmen}{66}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Getr\IeC {\"a}nkeschlitten}{66}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Verkleidung}{67}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Unterbringung der Elektronik}{68}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}K\IeC {\"u}hlbox}{68}{subsection.7.5}
-\contentsline {section}{\numberline {8}Evaluation}{70}{section.8}
-\contentsline {section}{\numberline {9}Fazit}{70}{section.9}
-\contentsline {subsection}{\numberline {9.1}Zielerreichung}{70}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Kosten}{70}{subsection.9.2}
-\contentsline {section}{\numberline {10}Schlusswort}{70}{section.10}
-\contentsline {section}{\numberline {11}Ehrlichkeitserkl\IeC {\"a}rung}{70}{section.11}
-\contentsline {section}{Literatur}{72}{section*.112}
-\contentsline {section}{\numberline {A}Programmierschnittstellen}{75}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Ger\IeC {\"a}te-Manager}{75}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Atmega2560}{75}{subsection.A.2}
-\contentsline {subsubsection}{\numberline {A.2.1}Wiring}{75}{subsubsection.A.2.1}
-\contentsline {subsubsection}{\numberline {A.2.2}Handshake}{76}{subsubsection.A.2.2}
-\contentsline {subsection}{\numberline {A.3}ESP32}{77}{subsection.A.3}
-\contentsline {subsubsection}{\numberline {A.3.1}Wiring}{77}{subsubsection.A.3.1}
-\contentsline {subsubsection}{\numberline {A.3.2}Handshake}{77}{subsubsection.A.3.2}
-\contentsline {section}{\numberline {B}SD-Karte}{81}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}FAT32}{81}{subsection.B.1}
-\contentsline {subsubsection}{\numberline {B.1.1}Beschreibung Aufbau}{81}{subsubsection.B.1.1}
-\contentsline {section}{\numberline {C}ESP32}{83}{appendix.C}
-\contentsline {subsection}{\numberline {C.1}Tabellarischer Vergleich zwischen ESP32 und ESP8266}{83}{subsection.C.1}
-\contentsline {subsection}{\numberline {C.2}Strapping-Pins}{83}{subsection.C.2}
-\contentsline {subsection}{\numberline {C.3}Inbetriebnahme}{84}{subsection.C.3}
-\contentsline {subsubsection}{\numberline {C.3.1}Arduino IDE}{84}{subsubsection.C.3.1}
-\contentsline {section}{\numberline {D}LED}{87}{appendix.D}
-\contentsline {subsection}{\numberline {D.1}PWM-Signale}{87}{subsection.D.1}
-\contentsline {subsubsection}{\numberline {D.1.1}Rainbow-Funktion}{89}{subsubsection.D.1.1}
-\contentsline {section}{\numberline {E}Mikrocontroller}{90}{appendix.E}
-\contentsline {subsection}{\numberline {E.1}Inbetriebnahme}{90}{subsection.E.1}
-\contentsline {subsubsection}{\numberline {E.1.1}Fuse-Bits}{90}{subsubsection.E.1.1}
-\contentsline {subsubsection}{\numberline {E.1.2}Bootloader}{91}{subsubsection.E.1.2}
-\contentsline {subsubsection}{\numberline {E.1.3}Lock-Bits}{92}{subsubsection.E.1.3}
-\contentsline {subsubsection}{\numberline {E.1.4}Einbinden AVRdude und stk500v2 (wiring)}{93}{subsubsection.E.1.4}
-\contentsline {subsubsection}{\numberline {E.1.5}Schwingung 16MHz Quarz}{94}{subsubsection.E.1.5}
-\contentsline {subsection}{\numberline {E.2}Speicherorganisation}{94}{subsection.E.2}
-\contentsline {subsubsection}{\numberline {E.2.1}Doubly Dynamic Linked List}{94}{subsubsection.E.2.1}
-\contentsline {section}{\numberline {F}TMC4671}{96}{appendix.F}
-\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{96}{subsection.F.1}
-\contentsline {subsection}{\numberline {F.2}BOB}{96}{subsection.F.2}
-\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{99}{subsection.F.3}
-\contentsline {subsubsection}{\numberline {F.3.1}Register}{99}{subsubsection.F.3.1}
-\contentsline {subsubsection}{\numberline {F.3.2}Setup}{100}{subsubsection.F.3.2}
-\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{102}{subsubsection.F.3.3}
-\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{105}{subsubsection.F.3.4}
-\contentsline {section}{\numberline {G}TMC6200}{106}{appendix.G}
-\contentsline {subsection}{\numberline {G.1}Standard-Schaltkreis}{106}{subsection.G.1}
-\contentsline {subsection}{\numberline {G.2}Blockdiagramm}{106}{subsection.G.2}
-\contentsline {subsection}{\numberline {G.3}Externe Gate-Spannungsversorgung}{107}{subsection.G.3}
-\contentsline {subsection}{\numberline {G.4}Inbetriebnahme}{107}{subsection.G.4}
-\contentsline {subsubsection}{\numberline {G.4.1}Inbetriebnahme Setup}{107}{subsubsection.G.4.1}
-\contentsline {subsubsection}{\numberline {G.4.2}Inbetriebnahme Parameter}{109}{subsubsection.G.4.2}
-\contentsline {subsubsection}{\numberline {G.4.3}Register}{109}{subsubsection.G.4.3}
-\contentsline {subsubsection}{\numberline {G.4.4}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{109}{subsubsection.G.4.4}
-\contentsline {subsubsection}{\numberline {G.4.5}Gate-Vorwiderstand}{109}{subsubsection.G.4.5}
-\contentsline {subsubsection}{\numberline {G.4.6}Inbetriebnahme SPI-Kommunikation}{110}{subsubsection.G.4.6}
-\contentsline {subsubsection}{\numberline {G.4.7}Inbetriebnahme Gate-Ctrl}{112}{subsubsection.G.4.7}
-\contentsline {section}{\numberline {H}H-Br\IeC {\"u}cke}{114}{appendix.H}
-\contentsline {subsection}{\numberline {H.1}Referenzschema}{114}{subsection.H.1}
-\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{114}{subsection.H.2}
-\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{114}{subsubsection.H.2.1}
-\contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{115}{subsubsection.H.2.2}
-\contentsline {section}{\numberline {I}CUI AMT332S-V ABN-Encoder}{116}{appendix.I}
-\contentsline {subsection}{\numberline {I.1}Pinout and Interface}{116}{subsection.I.1}
-\contentsline {subsection}{\numberline {I.2}Inbetriebnahme}{117}{subsection.I.2}
-\contentsline {subsubsection}{\numberline {I.2.1}Register}{117}{subsubsection.I.2.1}
-\contentsline {subsubsection}{\numberline {I.2.2}Inbetriebnahme Setup}{118}{subsubsection.I.2.2}
-\contentsline {subsubsection}{\numberline {I.2.3}Encoder-Signale}{120}{subsubsection.I.2.3}
-\contentsline {section}{\numberline {J}PI-Regler}{121}{appendix.J}
-\contentsline {subsection}{\numberline {J.1}TMCL-IDE}{121}{subsection.J.1}
-\contentsline {subsubsection}{\numberline {J.1.1}Drehmoment}{121}{subsubsection.J.1.1}
-\contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{122}{subsubsection.J.1.2}
-\contentsline {subsubsection}{\numberline {J.1.3}Position}{123}{subsubsection.J.1.3}
+\contentsline {subsection}{\numberline {4.5}Benutzerschnittstellen}{23}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Display}{23}{subsubsection.4.5.1}
+\contentsline {paragraph}{Schema}{23}{section*.45}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.47}
+\contentsline {subsubsection}{\numberline {4.5.2}ESP}{24}{subsubsection.4.5.2}
+\contentsline {paragraph}{Schema (WiFi-Modul)}{24}{section*.48}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (WiFi-Modul)}{25}{section*.50}
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{25}{section*.51}
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{26}{section*.53}
+\contentsline {subsubsection}{\numberline {4.5.3}RFID}{26}{subsubsection.4.5.3}
+\contentsline {paragraph}{Schema}{27}{section*.54}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.56}
+\contentsline {subsection}{\numberline {4.6}Beleuchtung}{28}{subsection.4.6}
+\contentsline {paragraph}{Schema}{28}{section*.58}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.60}
+\contentsline {subsection}{\numberline {4.7}Mikrocontroller}{29}{subsection.4.7}
+\contentsline {paragraph}{Schema}{29}{section*.61}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{30}{section*.63}
+\contentsline {subsection}{\numberline {4.8}SD-Karte}{30}{subsection.4.8}
+\contentsline {paragraph}{Schema}{31}{section*.65}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.67}
+\contentsline {section}{\numberline {5}Inbetriebnahme}{32}{section.5}
+\contentsline {subsection}{\numberline {5.1}Speisungen}{32}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}12V Speisung}{32}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}5V Speisung}{32}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}3.3V Speisung}{32}{subsubsection.5.1.3}
+\contentsline {subsection}{\numberline {5.2}Programmierschnittstellen}{33}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Benutzerschnittstellen}{35}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Touch-Display}{35}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}ESP}{35}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}RFID}{36}{subsubsection.5.3.3}
+\contentsline {subsection}{\numberline {5.4}Mikrocontroller}{38}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}AVRdude in Atmel Studio einbinden}{38}{subsubsection.5.4.1}
+\contentsline {subsection}{\numberline {5.5}Datenspeicherung}{40}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}mikroSD-Karte}{40}{subsubsection.5.5.1}
+\contentsline {subsection}{\numberline {5.6}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{40}{subsection.5.6}
+\contentsline {subsubsection}{\numberline {5.6.1}Pumpen}{40}{subsubsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.2}Durchflussmessger\IeC {\"a}te}{41}{subsubsection.5.6.2}
+\contentsline {subsection}{\numberline {5.7}Beleuchtung}{41}{subsection.5.7}
+\contentsline {subsubsection}{\numberline {5.7.1}Vorgehen}{42}{subsubsection.5.7.1}
+\contentsline {subsection}{\numberline {5.8}Motor}{43}{subsection.5.8}
+\contentsline {subsubsection}{\numberline {5.8.1}FOC-Treiber}{43}{subsubsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.2}Gate-Treiber}{44}{subsubsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.3}BLDC und H-Br\IeC {\"u}cke}{44}{subsubsection.5.8.3}
+\contentsline {subsubsection}{\numberline {5.8.4}ABN-Encoder}{45}{subsubsection.5.8.4}
+\contentsline {subsubsection}{\numberline {5.8.5}PI-Regler}{45}{subsubsection.5.8.5}
+\contentsline {section}{\numberline {6}Software}{47}{section.6}
+\contentsline {subsection}{\numberline {6.1}Atmega2560}{47}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{48}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{49}{subsubsection.6.1.2}
+\contentsline {paragraph}{Bootloader-Section}{49}{section*.79}
+\contentsline {paragraph}{Init-Section}{49}{section*.80}
+\contentsline {paragraph}{Main-Loop}{49}{section*.81}
+\contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{51}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}ESP32}{51}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{52}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Displaysoftware}{52}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Displaymenu}{53}{subsubsection.6.3.1}
+\contentsline {subsection}{\numberline {6.4}Android App}{62}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}PartyMixer App}{64}{subsubsection.6.4.1}
+\contentsline {section}{\numberline {7}Mechanik}{66}{section.7}
+\contentsline {subsection}{\numberline {7.1}Rahmen}{67}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Getr\IeC {\"a}nkeschlitten}{67}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Verkleidung}{68}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Unterbringung der Elektronik}{69}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}K\IeC {\"u}hlbox}{69}{subsection.7.5}
+\contentsline {section}{\numberline {8}Evaluation}{71}{section.8}
+\contentsline {section}{\numberline {9}Fazit}{71}{section.9}
+\contentsline {subsection}{\numberline {9.1}Zielerreichung}{71}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Kosten}{71}{subsection.9.2}
+\contentsline {section}{\numberline {10}Schlusswort}{71}{section.10}
+\contentsline {section}{\numberline {11}Ehrlichkeitserkl\IeC {\"a}rung}{71}{section.11}
+\contentsline {section}{Literatur}{73}{section*.112}
+\contentsline {section}{\numberline {A}Programmierschnittstellen}{74}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Ger\IeC {\"a}te-Manager}{74}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}Atmega2560}{74}{subsection.A.2}
+\contentsline {subsubsection}{\numberline {A.2.1}Wiring}{74}{subsubsection.A.2.1}
+\contentsline {subsubsection}{\numberline {A.2.2}Handshake}{75}{subsubsection.A.2.2}
+\contentsline {subsection}{\numberline {A.3}ESP32}{76}{subsection.A.3}
+\contentsline {subsubsection}{\numberline {A.3.1}Wiring}{76}{subsubsection.A.3.1}
+\contentsline {subsubsection}{\numberline {A.3.2}Handshake}{76}{subsubsection.A.3.2}
+\contentsline {section}{\numberline {B}SD-Karte}{80}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}FAT32}{80}{subsection.B.1}
+\contentsline {subsubsection}{\numberline {B.1.1}Beschreibung Aufbau}{80}{subsubsection.B.1.1}
+\contentsline {section}{\numberline {C}ESP32}{82}{appendix.C}
+\contentsline {subsection}{\numberline {C.1}Tabellarischer Vergleich zwischen ESP32 und ESP8266}{82}{subsection.C.1}
+\contentsline {subsection}{\numberline {C.2}Strapping-Pins}{82}{subsection.C.2}
+\contentsline {subsection}{\numberline {C.3}Inbetriebnahme}{83}{subsection.C.3}
+\contentsline {subsubsection}{\numberline {C.3.1}Arduino IDE}{83}{subsubsection.C.3.1}
+\contentsline {section}{\numberline {D}LED}{86}{appendix.D}
+\contentsline {subsection}{\numberline {D.1}PWM-Signale}{86}{subsection.D.1}
+\contentsline {subsubsection}{\numberline {D.1.1}Rainbow-Funktion}{88}{subsubsection.D.1.1}
+\contentsline {section}{\numberline {E}Mikrocontroller}{89}{appendix.E}
+\contentsline {subsection}{\numberline {E.1}Inbetriebnahme}{89}{subsection.E.1}
+\contentsline {subsubsection}{\numberline {E.1.1}Fuse-Bits}{89}{subsubsection.E.1.1}
+\contentsline {subsubsection}{\numberline {E.1.2}Bootloader}{90}{subsubsection.E.1.2}
+\contentsline {subsubsection}{\numberline {E.1.3}Lock-Bits}{91}{subsubsection.E.1.3}
+\contentsline {subsubsection}{\numberline {E.1.4}Einbinden AVRdude und stk500v2 (wiring)}{92}{subsubsection.E.1.4}
+\contentsline {subsubsection}{\numberline {E.1.5}Schwingung 16MHz Quarz}{93}{subsubsection.E.1.5}
+\contentsline {subsection}{\numberline {E.2}Speicherorganisation}{93}{subsection.E.2}
+\contentsline {subsubsection}{\numberline {E.2.1}Doubly Dynamic Linked List}{93}{subsubsection.E.2.1}
+\contentsline {section}{\numberline {F}TMC4671}{95}{appendix.F}
+\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{95}{subsection.F.1}
+\contentsline {subsection}{\numberline {F.2}BOB}{95}{subsection.F.2}
+\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{98}{subsection.F.3}
+\contentsline {subsubsection}{\numberline {F.3.1}Register}{98}{subsubsection.F.3.1}
+\contentsline {subsubsection}{\numberline {F.3.2}Setup}{99}{subsubsection.F.3.2}
+\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{101}{subsubsection.F.3.3}
+\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{104}{subsubsection.F.3.4}
+\contentsline {section}{\numberline {G}TMC6200}{105}{appendix.G}
+\contentsline {subsection}{\numberline {G.1}Standard-Schaltkreis}{105}{subsection.G.1}
+\contentsline {subsection}{\numberline {G.2}Blockdiagramm}{105}{subsection.G.2}
+\contentsline {subsection}{\numberline {G.3}Externe Gate-Spannungsversorgung}{106}{subsection.G.3}
+\contentsline {subsection}{\numberline {G.4}Inbetriebnahme}{106}{subsection.G.4}
+\contentsline {subsubsection}{\numberline {G.4.1}Inbetriebnahme Setup}{106}{subsubsection.G.4.1}
+\contentsline {subsubsection}{\numberline {G.4.2}Inbetriebnahme Parameter}{108}{subsubsection.G.4.2}
+\contentsline {subsubsection}{\numberline {G.4.3}Register}{108}{subsubsection.G.4.3}
+\contentsline {subsubsection}{\numberline {G.4.4}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{108}{subsubsection.G.4.4}
+\contentsline {subsubsection}{\numberline {G.4.5}Gate-Vorwiderstand}{108}{subsubsection.G.4.5}
+\contentsline {subsubsection}{\numberline {G.4.6}Inbetriebnahme SPI-Kommunikation}{109}{subsubsection.G.4.6}
+\contentsline {subsubsection}{\numberline {G.4.7}Inbetriebnahme Gate-Ctrl}{111}{subsubsection.G.4.7}
+\contentsline {section}{\numberline {H}H-Br\IeC {\"u}cke}{113}{appendix.H}
+\contentsline {subsection}{\numberline {H.1}Referenzschema}{113}{subsection.H.1}
+\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{113}{subsection.H.2}
+\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{113}{subsubsection.H.2.1}
+\contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{114}{subsubsection.H.2.2}
+\contentsline {section}{\numberline {I}CUI AMT332S-V ABN-Encoder}{115}{appendix.I}
+\contentsline {subsection}{\numberline {I.1}Pinout and Interface}{115}{subsection.I.1}
+\contentsline {subsection}{\numberline {I.2}Inbetriebnahme}{116}{subsection.I.2}
+\contentsline {subsubsection}{\numberline {I.2.1}Register}{116}{subsubsection.I.2.1}
+\contentsline {subsubsection}{\numberline {I.2.2}Inbetriebnahme Setup}{117}{subsubsection.I.2.2}
+\contentsline {subsubsection}{\numberline {I.2.3}Encoder-Signale}{119}{subsubsection.I.2.3}
+\contentsline {section}{\numberline {J}PI-Regler}{120}{appendix.J}
+\contentsline {subsection}{\numberline {J.1}TMCL-IDE}{120}{subsection.J.1}
+\contentsline {subsubsection}{\numberline {J.1.1}Drehmoment}{120}{subsubsection.J.1.1}
+\contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{121}{subsubsection.J.1.2}
+\contentsline {subsubsection}{\numberline {J.1.3}Position}{122}{subsubsection.J.1.3}
