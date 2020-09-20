@@ -49,6 +49,7 @@ main.d main.o: .././main.c .././utils/main_variables.h \
  .././libraries/Main_functions/../LED/../../utils/pin_defs.h \
  .././libraries/Main_functions/../Software_Ramp/ramp1.h \
  .././libraries/Main_functions/../Software_Ramp/../UART/UART.h \
+ .././libraries/Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
  .././libraries/Cocktail_functions/Cocktail_Statemachine.h \
  .././libraries/Cocktail_functions/Cocktail_functions.h \
  .././libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
@@ -168,6 +169,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././libraries/Main_functions/../Software_Ramp/ramp1.h:
 
 .././libraries/Main_functions/../Software_Ramp/../UART/UART.h:
+
+.././libraries/Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
 
 .././libraries/Cocktail_functions/Cocktail_Statemachine.h:
 

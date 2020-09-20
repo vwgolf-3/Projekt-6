@@ -35,6 +35,10 @@ int main(void)
 		// WIrd '1' eingegeben, so läuft ein Testskript durch 12 Positionen und dann wieder an die Startposition.
 
         check_Communication_Input_UART();
+		
+		read_registers_TMC4671();
+		read_registers_TMC6200();
+		_delay_ms(5000);
     }
 }
 

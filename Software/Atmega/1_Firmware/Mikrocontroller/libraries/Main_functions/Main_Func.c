@@ -21,10 +21,8 @@ void IO_init(void)
     RFID_DDR = RFID_OUTPUT_MASK;
     FLUSS_DDR = 0b00000000;
     SOFTSPI_DDR = SOFTSPI_OUTPUT_MASK;
-    SOFTSPI_CLK_PORT |= SOFTSPI_CLK_BIT;
-
     Position = 0;
-
+	count_bla =0;
 }
 
 void interfaces_init(void)
@@ -37,12 +35,13 @@ void interfaces_init(void)
 
 void devices_init(void)
 {
-//     nextion_change_page(25);
-//     nextion_setText("fehlertxt", "SD-Initialisieren");
-//     SD_startup();                                           // SD-Karte initialisieren
+    nextion_change_page(25);
+    nextion_setText("fehlertxt", "SD-Initialisieren");
+    SD_startup();                                           // SD-Karte initialisieren
     _delay_ms(100);
 
     initTMC6200();                                          // Gate-Treiber initialisieren
+//     initTMC4671_Openloop();                                  // FOC-Treiber initialisieren
     initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 }
 
@@ -52,15 +51,26 @@ void speicher_init()
     Uart_Transmit_IT_PC("Zutaten einkaufen...");
     nextion_change_page(25);
     nextion_setText("fehlertxt", "Zutaten einkaufen...");
-//     zutaten_init();                                         // Zutaten initialisieren
+    zutaten_init();                                         // Zutaten initialisieren
 
     Uart_Transmit_IT_PC("Cocktailbuch lesen...");
     nextion_setText("fehlertxt", "Cocktailbuch lesen...");
-//     cocktails_init();                                       // Cocktails initialisieren
+    cocktails_init();                                       // Cocktails initialisieren
 
     Uart_Transmit_IT_PC("RFID-Tags sammeln...");
     nextion_setText("fehlertxt", "RFID-Tags sammeln...");
-//     RFID_init();                                            // Tags initialisieren
+    RFID_init();                                            // Tags initialisieren
+}
+
+void ramp_init(void)
+{
+    linear_ramp_t Ramp;
+    linear_ramp_t * ramp = &Ramp;
+
+    linear_ramp_init(ramp);
+    linear_ramp_set_defaults(ramp);
+    
+    states = IDLE;
 }
 
 void display_init()
@@ -138,7 +148,7 @@ void read_Position_TMC4671(void)
 		Uart_Transmit_IT_PC("\r");
 	}
 	cntrr++;
-	_delay_ms(1);
+	_delay_ms(10);
 }
 
 char check_Communication_Input_UART_0(void)
@@ -181,13 +191,13 @@ void proceed_Communication_Input_UART_0(void)
 	else if (INPUT_UART_0[0]=='1')
 
 	{
-		uint32_t Position = 1000000;
+		uint32_t Position_target = 100000;
 		for (int i = 1 ; i <= 12 ; i++)
 		{
-			tmc4671_setAbsolutTargetPosition(0, i * Position);
-			while(((tmc4671_getActualPosition(0) <= (i* Position-200))||(tmc4671_getActualPosition(0)>= (i*Position+200))))
+			tmc4671_setAbsolutTargetPosition(0, i * Position_target);
+			while(((tmc4671_getActualPosition(0) <= (i* Position_target-200))||(tmc4671_getActualPosition(0)>= (i*Position_target+200))))
 			{
-				read_Position_TMC4671();
+// 				read_Position_TMC4671();
 			}
 			
 			Uart_Transmit_IT_PC("Position ");
@@ -195,7 +205,7 @@ void proceed_Communication_Input_UART_0(void)
 			itoa(i, (char *)buff, 10);
 			Uart_Transmit_IT_PC((char *)buff);
 			Uart_Transmit_IT_PC(" erreicht\r");
-			_delay_ms(1000);
+			_delay_ms(2000);
 		}
 		tmc4671_setAbsolutTargetPosition(0,0);
 		while((tmc4671_getActualPosition(0) >= (200)))
@@ -207,6 +217,7 @@ void proceed_Communication_Input_UART_0(void)
 	else if (INPUT_UART_0[0] == '2')
 	{
 		Position = 1;
+		count_bla ++;
 	}
 	else if (INPUT_UART_0[0] == 0)
 	{

@@ -58,6 +58,7 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
@@ -184,6 +185,8 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h:
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 

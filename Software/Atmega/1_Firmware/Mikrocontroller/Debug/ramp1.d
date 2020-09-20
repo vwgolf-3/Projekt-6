@@ -18,7 +18,27 @@ ramp1.d ramp1.o: ../libraries/Software_Ramp/ramp1.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ ../libraries/Software_Ramp/../TMC4671/TMC4671.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/API_Header.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Config.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Macros.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Bits.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/CRC.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ ../libraries/Software_Ramp/../TMC4671/TMC4671_Register.h \
+ ../libraries/Software_Ramp/../TMC4671/TMC4671_Constants.h \
+ ../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Constants.h \
+ ../libraries/Software_Ramp/../TMC4671/TMC4671_Fields.h \
+ ../libraries/Software_Ramp/../TMC4671/../SPI/SPI.h \
+ ../libraries/Software_Ramp/../TMC4671/../SPI/../../utils/pin_defs.h \
+ ../libraries/Software_Ramp/../TMC4671/../Software_SPI/Software_SPI.h \
+ ../libraries/Software_Ramp/../TMC4671/../Software_SPI/../../utils/pin_defs.h \
+ ../libraries/Software_Ramp/../TMC4671/../UART/UART.h
 
 ../libraries/Software_Ramp/Ramp1.h:
 
@@ -59,3 +79,43 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
+../libraries/Software_Ramp/../TMC4671/TMC4671.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/API_Header.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Config.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Constants.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Macros.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Bits.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/CRC.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/RegisterAccess.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+
+../libraries/Software_Ramp/../TMC4671/TMC4671_Register.h:
+
+../libraries/Software_Ramp/../TMC4671/TMC4671_Constants.h:
+
+../libraries/Software_Ramp/../TMC4671/../TMC-API/tmc/helpers/Constants.h:
+
+../libraries/Software_Ramp/../TMC4671/TMC4671_Fields.h:
+
+../libraries/Software_Ramp/../TMC4671/../SPI/SPI.h:
+
+../libraries/Software_Ramp/../TMC4671/../SPI/../../utils/pin_defs.h:
+
+../libraries/Software_Ramp/../TMC4671/../Software_SPI/Software_SPI.h:
+
+../libraries/Software_Ramp/../TMC4671/../Software_SPI/../../utils/pin_defs.h:
+
+../libraries/Software_Ramp/../TMC4671/../UART/UART.h:

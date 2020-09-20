@@ -32,7 +32,7 @@ int32_t tmc40bit_readInt(unsigned int motor, unsigned char address);
 //************************************************************//
 // Init
 //************************************************************//
-void initTMC4671_Openloop(void)
+void initTMC4671_Openloop(void);
 void initTMC4671_Encoder(void);
 //************************************************************//
 // Testdrive

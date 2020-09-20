@@ -52,6 +52,7 @@ Cocktail_functions.d Cocktail_functions.o: \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
@@ -169,6 +170,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h:
 
 ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
 
 ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 

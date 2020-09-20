@@ -8,6 +8,7 @@
 
 void linear_ramp_init(linear_ramp_t * ramp)
 {
+    ramp = &Ramp;
     ramp->ramp_enable = 0;
 
     ramp->ramp_timer = 0.0;
@@ -28,6 +29,10 @@ void linear_ramp_init(linear_ramp_t * ramp)
 
     ramp->max_acceleration = 0.0;
     ramp->max_velocity = 0.0;
+
+    ramp->motor_eine_umdrehung = 0.0;
+    ramp->motor_komplette_verschiebung = 0.0;
+    ramp->motor_ticks_verschiebung = 0.0;
 }
 void linear_ramp_set_defaults(linear_ramp_t * ramp)
 {
@@ -50,14 +55,18 @@ void linear_ramp_set_defaults(linear_ramp_t * ramp)
 
     // Following 2 variables determine maximum ratings
 
-    ramp->max_acceleration = 500.0;
-    ramp->max_velocity = 500.0;
+    ramp->max_acceleration = 2000.0;
+    ramp->max_velocity = 1500.0;
 
     // Following 3 variables should be used as outputs to control the motor according to the ramp
 
     ramp->ramp_acceleration = 0.0;      // Ramp acceleration actual
     ramp->ramp_velocity = 0.0;          // Ramp velocity actual
     ramp->ramp_position = 0.0;          // Ramp position actual
+
+    ramp->motor_eine_umdrehung = 196.635;
+    ramp->motor_komplette_verschiebung = 20.1596;
+    ramp->motor_ticks_verschiebung = 1.4801;
 }
 void calculateRamp(float acceleration, float velocity, float position, linear_ramp_t * ramp)
 {
@@ -184,6 +193,7 @@ void computeRamp(linear_ramp_t * ramp)
             }
             break;
         }
+		tmc4671_setAbsolutTargetPosition(0, (uint32_t)(ramp->ramp_position * 1000));
     }
 }
 float iterate_timer(linear_ramp_t * ramp)
@@ -267,3 +277,4 @@ void ftoa(float n, char* res, int afterpoint)
         intToStr((int)fpart, res + i + 1, afterpoint);
     }
 }
+

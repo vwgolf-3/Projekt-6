@@ -22,10 +22,8 @@ void SPI_init(void)
 
 	SPSR = (0<<SPI2X);      // Double Clock Rate			(0 = Disable, 1 = Enable)					Datasheet S. 198 (Kapitel 21.2.1)
 
-	disable_Slave(SDCARD);
 	disable_Slave(TMC4671);
 	disable_Slave(TMC6200);
-	disable_Slave(MFRC522);
 	
 }
 
@@ -67,14 +65,6 @@ void enable_Slave(uint8_t Slave)
 		case TMC6200:
 		SPI_CS_TMC6200_PORT &= ~SPI_CS_TMC6200_BIT;
 		break;
-		
-		case MFRC522:
-		SPI_CS_RC522_PORT &= ~SPI_CS_RC522_BIT;
-		break;
-		
-		case SDCARD:
-		SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT;
-		break;
 	}
 }
 
@@ -88,14 +78,6 @@ void disable_Slave(uint8_t Slave)
 		
 		case TMC6200:
 		SPI_CS_TMC6200_PORT |= SPI_CS_TMC6200_BIT;
-		break;
-		
-		case MFRC522:
-		SPI_CS_RC522_PORT |= SPI_CS_RC522_BIT;
-		break;
-		
-		case SDCARD:
-		SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT;
 		break;
 	}
 }

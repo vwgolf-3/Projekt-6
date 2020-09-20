@@ -201,7 +201,7 @@ SPILV[0..7]
 Text Label 6650 2525 2    50   ~ 0
 SPILV[0..7]
 $Comp
-L Mechanical:MountingHole_Pad H1
+L Pro6_Print-rescue:MountingHole_Pad-Mechanical H1
 U 1 1 5EEB4FC5
 P 900 6325
 F 0 "H1" H 1000 6374 50  0000 L CNN
@@ -212,7 +212,7 @@ F 3 "~" H 900 6325 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR01
+L Pro6_Print-rescue:GND-power #PWR01
 U 1 1 5EEB674E
 P 900 6525
 F 0 "#PWR01" H 900 6275 50  0001 C CNN
@@ -228,7 +228,7 @@ Connection ~ 900  6425
 Wire Wire Line
 	900  6425 1800 6425
 $Comp
-L Mechanical:MountingHole_Pad H2
+L Pro6_Print-rescue:MountingHole_Pad-Mechanical H2
 U 1 1 5EEBA11D
 P 1800 6325
 F 0 "H2" H 1900 6374 50  0000 L CNN
@@ -239,7 +239,7 @@ F 3 "~" H 1800 6325 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole_Pad H3
+L Pro6_Print-rescue:MountingHole_Pad-Mechanical H3
 U 1 1 5EEBA72E
 P 2675 6325
 F 0 "H3" H 2775 6374 50  0000 L CNN
@@ -250,7 +250,7 @@ F 3 "~" H 2675 6325 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole_Pad H4
+L Pro6_Print-rescue:MountingHole_Pad-Mechanical H4
 U 1 1 5EEBAEC6
 P 3525 6325
 F 0 "H4" H 3625 6374 50  0000 L CNN

@@ -95,8 +95,8 @@ void tmc40bit_writeInt(unsigned int debug_message, unsigned char address, unsign
     // Transmit address and data
     for (int count = 0 ; count < 5; count ++)
     {
-        softspi_write_uint8(tbuf[count]);
-//      spi_transmit(tbuf[count]);
+//         softspi_write_uint8(tbuf[count]);
+     spi_transmit(tbuf[count]);
     }
 
     // CS TMC6200 HIGH
@@ -120,14 +120,14 @@ int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
     enable_Slave(TMC4671);
 
     // write address
-    softspi_write_uint8(address);
-//  spi_transmit(address);
+//     softspi_write_uint8(address);
+ spi_transmit(address);
 
     // read 4 Bytes data
     for(int k = 1 ; k<5 ; k++)
     {
-        rbuf[k] = softspi_read_uint8();
-//      rbuf[k] = spi_receive();
+//         rbuf[k] = softspi_read_uint8();
+     rbuf[k] = spi_receive();
     }
 
     // CS TMC600 HIGH
@@ -185,12 +185,13 @@ int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
 //************************************************************//
 void initTMC4671_Openloop(void)
 {
+	uint8_t deb = 1;
 	// Motor type &  PWM configuration
-	tmc4671_writeInt(0, TMC4671_PWM_POLARITIES, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
-	tmc4671_writeInt(0, TMC4671_PWM_MAXCNT, 0x00000F9F);
-	tmc4671_writeInt(0, TMC4671_PWM_BBM_H_BBM_L, 0x00001919);
-	tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000007);
+	tmc4671_writeInt(deb, TMC4671_PWM_POLARITIES, 0x00000000);
+	tmc4671_writeInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
+	tmc4671_writeInt(deb, TMC4671_PWM_MAXCNT, 0x00000F9F);
+	tmc4671_writeInt(deb, TMC4671_PWM_BBM_H_BBM_L, 0x00001919);
+	tmc4671_writeInt(deb, TMC4671_PWM_SV_CHOP, 0x00000007);
 
 	// ADC configuration
 	tmc4671_writeInt(0, TMC4671_ADC_I_SELECT, 0x24000100);
@@ -438,7 +439,7 @@ void encoder_testdrive(void)
 
 void read_registers_TMC4671(void)
 {
-	uint8_t deb = 0;
+	uint8_t deb = 1;
 	tmc4671_readInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS);
 	tmc4671_readInt(deb, TMC4671_PWM_POLARITIES);
 	tmc4671_readInt(deb, TMC4671_PWM_MAXCNT);

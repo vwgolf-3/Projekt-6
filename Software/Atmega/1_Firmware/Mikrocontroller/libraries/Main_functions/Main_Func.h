@@ -44,6 +44,7 @@ extern void RFID_init(void);
 extern void cocktail_test_command(unsigned char INPUT[256]);
 extern void cocktail_check_command(int8_t page, int8_t button);
 extern void Uart_Transmit_IT_PC(char * data);
+void ramp_init(void);
 
 void testFunc(void);
 
@@ -95,5 +96,6 @@ extern uint8_t Grossschreib;
 extern uint8_t counter;
 
 uint32_t Position;
+uint32_t count_bla;
 
 #endif /* MAIN_FUNC_H_ */

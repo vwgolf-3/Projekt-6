@@ -93,8 +93,8 @@ void tmc40bit_writeInt(unsigned int debug_message, unsigned char address, unsign
     // Transmit address and data
     for (int count = 0 ; count < 5; count ++)
     {
-        softspi_write_uint8(tbuf[count]);
-//      spi_transmit(tbuf[count]);
+//         softspi_write_uint8(tbuf[count]);
+     spi_transmit(tbuf[count]);
     }
 
     // CS TMC6200 HIGH
@@ -118,14 +118,14 @@ int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
     enable_Slave(TMC4671);
 
     // write address
-    softspi_write_uint8(address);
-//  spi_transmit(address);
+//     softspi_write_uint8(address);
+ spi_transmit(address);
 
     // read 4 Bytes data
     for(int k = 1 ; k<5 ; k++)
     {
-        rbuf[k] = softspi_read_uint8();
-//      rbuf[k] = spi_receive();
+//         rbuf[k] = softspi_read_uint8();
+     rbuf[k] = spi_receive();
     }
 
     // CS TMC600 HIGH
@@ -189,7 +189,7 @@ void TMC4671_init(void)
 
 void read_registers_TMC4671(void)
 {
-	uint8_t deb = 0;
+	uint8_t deb = 1;
     tmc4671_readInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS);
     tmc4671_readInt(deb, TMC4671_PWM_POLARITIES);
     tmc4671_readInt(deb, TMC4671_PWM_MAXCNT);

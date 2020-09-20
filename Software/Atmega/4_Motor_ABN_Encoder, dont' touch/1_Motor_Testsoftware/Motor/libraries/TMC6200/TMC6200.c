@@ -26,12 +26,14 @@ int tmc6200_readInt(uint8_t debug_message, uint8_t address)
 	enable_Slave(TMC6200);
 
 	// write address
-	spi_transmit(address);
+    softspi_write_uint8(address);
+// 	spi_transmit(address);
 	
 	// read 4 Bytes data
 	for(int k = 1 ; k<5 ; k++)
 	{
-		rbuf[k] = spi_receive();
+        rbuf[k] = softspi_read_uint8();
+// 		rbuf[k] = spi_receive();
 	}
 	
 	// CS TMC600 HIGH
@@ -137,8 +139,12 @@ void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value)
 	// CS TMC6200 LOW
 	enable_Slave(TMC6200);
 	
-	// Transmit address and data
-	spi_transmit_IT((unsigned char *)tbuf, 5, TMC6200);
+    // Transmit address and data
+    for (int count = 0 ; count < 5; count ++)
+    {
+	    softspi_write_uint8(tbuf[count]);
+	    // 	    spi_transmit(tbuf[count]);
+    }
 	
 	// CS TMC6200 HIGH
 	disable_Slave(TMC6200);

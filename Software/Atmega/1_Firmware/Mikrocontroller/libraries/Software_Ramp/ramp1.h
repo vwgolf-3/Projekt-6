@@ -14,40 +14,48 @@
 #include <util/delay.h>
 
 #include "../UART/UART.h"
+#include "../TMC4671/TMC4671.h"
 
 enum ramp_states {IDLE, ACCELERATING, FULLSPEED, BREAKING};
 enum ramp_states states;
 
 struct linear_ramp {
-    uint8_t ramp_enable;
+    volatile uint8_t ramp_enable;
 
-    float ramp_timer;
-    float ramp_timer_iteration;
+    volatile float ramp_timer;
+    volatile float ramp_timer_iteration;
 
-    float ramp_acceleration_time;
-    float ramp_fullspeed_time;
-    float ramp_total_time;
+    volatile float ramp_acceleration_time;
+    volatile float ramp_fullspeed_time;
+    volatile float ramp_total_time;
 
-    float ramp_x_0;
-    float ramp_v_0;
+    volatile float ramp_x_0;
+    volatile float ramp_v_0;
 
-    float ramp_acceleration;
-    float ramp_velocity;
-    float ramp_position;
+    volatile float ramp_acceleration;
+    volatile float ramp_velocity;
+    volatile float ramp_position;
 
-    float target_acceleration;
-    float target_velocity;
-    float target_position_absolute;
+    volatile float target_acceleration;
+    volatile float target_velocity;
+    volatile float target_position_absolute;
 
-
-    float max_velocity;
-    float max_acceleration;
+    volatile float max_velocity;
+    volatile float max_acceleration;
+	
+	volatile float motor_eine_umdrehung;
+	volatile float motor_komplette_verschiebung;
+	volatile float motor_ticks_verschiebung;
 };
 typedef struct linear_ramp linear_ramp_t;
+
+    linear_ramp_t Ramp;
+    linear_ramp_t * ramp;
 
 void reverse(char* str, int len);
 int intToStr(int x, char str[], int d);
 void ftoa(float n, char* res, int afterpoint);
+// void ramp_pwm_init(void);
 
 void linear_ramp_init(linear_ramp_t * ramp);
 void linear_ramp_set_defaults(linear_ramp_t * ramp);

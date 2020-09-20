@@ -17,8 +17,8 @@ void SPI_init(void)
             (0<<DORD)|              // Data Order                   (0 = MSB first, 1 = LSB first)              Datasheet S. 197 (Kapitel 21.2.1)
             (1<<MSTR)|              // Master/Slave select          (0 = Slave, 1 = Master)                     Datasheet S. 197 (Kapitel 21.2.1)
             (1<<SPR1)|(1<<SPR0)|    // SPI Clock Rate               (Divider Systemclock 16MHz)                 Datasheet S. 198 (Kapitel 21.2.1)
-            (0<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
-            (0<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
+            (1<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
+            (1<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
 
     SPSR = (0<<SPI2X);      // Double Clock Rate            (0 = Disable, 1 = Enable)                   Datasheet S. 198 (Kapitel 21.2.1)
 
@@ -65,10 +65,16 @@ void enable_Slave(uint8_t Slave)
     switch (Slave)
     {
     case TMC4671:
+        SPCR |= (
+                    (1<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
+                    (1<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
         SPI_CS_TMC4671_PORT &= ~SPI_CS_TMC4671_BIT;
         break;
 
     case TMC6200:
+        SPCR |= (
+                    (1<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
+                    (1<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
         SPI_CS_TMC6200_PORT &= ~SPI_CS_TMC6200_BIT;
         break;
 
@@ -77,6 +83,9 @@ void enable_Slave(uint8_t Slave)
         break;
 
     case SDCARD:
+        SPCR |= (
+                    (0<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
+                    (0<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
         SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT;
         break;
     }

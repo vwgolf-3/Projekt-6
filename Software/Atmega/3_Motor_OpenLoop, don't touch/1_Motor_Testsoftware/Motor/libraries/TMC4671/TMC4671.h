@@ -13,11 +13,6 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
-#define F_CPU 16000000UL
-// Testfunktion 3s links / 3s rechts
-#include <util/delay.h>
-#include <stdlib.h>
-
 #include "../TMC-API/tmc/helpers/API_Header.h"
 #include "TMC4671_Register.h"
 #include "TMC4671_Constants.h"
@@ -32,7 +27,6 @@ void tmc4671_writeInt(unsigned int motor, unsigned char address, unsigned long v
 int32_t tmc4671_readInt(unsigned int motor, unsigned char address);
 void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long value);
 int32_t tmc40bit_readInt(unsigned int motor, unsigned char address);
-void TMC4671_init(void);
 void initTMC4671_Encoder(void);
 void initTMC4671_Openloop(void);
 // SPI
