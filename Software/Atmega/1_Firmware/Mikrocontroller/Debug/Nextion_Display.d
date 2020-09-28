@@ -52,6 +52,7 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h \
  ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h \
  ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
+ ../libraries/Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Nextion_Display/../../libraries/UART/UART.h
 
 ../libraries/Nextion_Display/Nextion_Display.h:
@@ -157,5 +158,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
+
+../libraries/Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h:
 
 ../libraries/Nextion_Display/../../libraries/UART/UART.h:

@@ -24,15 +24,14 @@ uint8_t * address_Standardwiederherstellung;                // EEprom address-Po
 
 /******************************************************************************************************************************/
 struct zutat {                                              // Struckt für die aktuelle Zutat (wird nur 1 Mal initialisiert)
-    char * name;                                            // Pointer auf den Speicher für den Namen der aktuellen Zutat
-    uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
-    uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
+	char * name;                                            // Pointer auf den Speicher für den Namen der aktuellen Zutat
+	uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
+	uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
 };
 typedef struct zutat zutat_t;                               // Typedef für Struct zutat_t
 
 zutat_t *aktuelle_zutat;                                    // Pointer auf aktuelle Zutat
 /******************************************************************************************************************************/
-
 
 /******************************************************************************************************************************/
 struct zutat_Maschine {                                     // Struckt für Zutaten in Maschine (wird 12 Mal initialisiert)
@@ -40,7 +39,7 @@ struct zutat_Maschine {                                     // Struckt für Zutat
     uint8_t status;                                         // Speicher für den Status (KEINGETRAENK=0, VOLL=1, LEER=2)
     uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
     uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
-    uint8_t stelle;                                       // Speicher für Position der Zutat in der Maschine
+    uint8_t stelle;                                         // Speicher für Position der Zutat in der Maschine
     uint32_t position_motor;                                       // Speicher für Position der Zutat in der Maschine
     struct zutat_Maschine* next;                            // Pointer auf das zuvor eingefügte Getränk
     struct zutat_Maschine* prev;                            // Pointer auf das danach eingefügte Getränk
@@ -62,6 +61,7 @@ struct zutat_file {                                         // Struckt für Zutat
 typedef struct zutat_file zutat_file_t;                     // Typedef für Struct zutat_file_t
 
 zutat_file_t * aktuelles_zutat_file;                        // Pointer auf aktuelle Zutat in Maschine
+zutat_file_t * buffer_zutat_file;                        // Pointer auf aktuelle Zutat in Maschine
 zutat_file_t * head_zutat_file;                             // Pointer auf zuletzt in die Liste eingefügtes Zutaten-File
 zutat_file_t * tail_zutat_file;                             // Pointer auf erstes in die Liste eingefügtes Zutaten-File
 /******************************************************************************************************************************/
@@ -94,4 +94,22 @@ zutat_file_t *insert_zutat_file_at_head(zutat_file_t **head, zutat_file_t *file_
 zutat_file_t *create_new_zutat_file(uint8_t file_to_create);
 /******************************************************************************************************************************/
 
+
+/******************************************************************************************************************************/
+struct zutat_list_node {                                    // Struckt für die aktuelle Zutat (wird nur 1 Mal initialisiert)
+	zutat_file_t * zutat_xy;                                     // Pointer auf den Speicher für den Namen der aktuellen Zutat
+	struct zutat_list_node * prev;                          // Speicher für Alkohol Ja/Nein
+	struct zutat_list_node * next;                          // Speicher für Alkohol Ja/Nein
+};
+typedef struct zutat_list_node zutat_list_node_t;           // Typedef für Struct zutat_t
+
+zutat_list_node_t *aktuelle_zutat_list_node;                // Pointer auf aktuelle Zutat
+zutat_list_node_t *buffer_zutat_list_node;                // Pointer auf aktuelle Zutat
+zutat_list_node_t *tail_zutat_list_node;					// Pointer auf aktuelle Zutat
+zutat_list_node_t *head_zutat_list_node;					// Pointer auf aktuelle Zutat
+/******************************************************************************************************************************/
+
+
+zutat_list_node_t *insert_zutat_list_node_at_head(zutat_list_node_t **head, zutat_list_node_t *file_to_insert);
+zutat_list_node_t *create_new_list_node_zut_file( zutat_file_t * file_to_link);
 #endif /* ZUTATEN_H_ */

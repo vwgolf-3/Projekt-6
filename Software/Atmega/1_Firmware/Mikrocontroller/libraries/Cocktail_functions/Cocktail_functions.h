@@ -17,6 +17,8 @@
 #include "../TMC6200/TMC6200.h"
 #include "../SD-Karte/FAT32.h"
 #include "../LED/LED.h"
+#include "../Software_Ramp/Ramp1.h"
+#include "../Main_functions/Main_Func.h"
 
 // Speicherstrukturen
 #include "Zutaten.h"
@@ -44,7 +46,7 @@ enum Liste_Startbildschirm {ALLE, ALKOHOL, ALKOHOLFREI};
 uint8_t Liste;
 
 // Zubereitung
-void fuelle_getraenk(uint32_t fuellmenge);
+void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp);
 void schalte_pumpe_aus(uint8_t Pumpe);
 void schalte_pumpe_ein(uint8_t Pumpe);
 
@@ -53,7 +55,7 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk);
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 
 // Getränke-Pointer
-void erstelle_Liste_name(char * input);
+getraenk_file_t * erstelle_Liste_name(getraenk_file_t * beginn_file, char * name_button);
 void erstelle_Liste_zutat(char * input);
 
 uint8_t lese_sensor(uint8_t Sensor);
@@ -72,7 +74,7 @@ void schiebe_file_prev(void);
 void schiebe_file_next(void);
 void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
-void erstelle_Liste_Zutat_Pos(char * name_button);
+zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
@@ -87,6 +89,12 @@ void ESP_Getraenk(void);
 
 void Getraenk_erstellt();
 void Maschineninfo_senden();
+
+void setze_standardeinstellungen(void);
+void renew_list(void);
+void write_M_file(char * buff_file);
+void schreibe_Getraenk_in_tag(uint8_t nr);
+void display_init(void);
 
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
 

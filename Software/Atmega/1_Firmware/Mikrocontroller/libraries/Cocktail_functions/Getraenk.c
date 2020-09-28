@@ -110,7 +110,7 @@ void cocktails_init(void)
                 - Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
     **************************************************************************************************************/
-    for ( int8_t count = 0 ; count <= 30; count++)
+    for ( int8_t count = 0 ; count <= 40; count++)
     {
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
@@ -183,8 +183,6 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, 
 
     return newGetraenk;
 }
-
-
 
 void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t kohlensaeure)
 {
@@ -325,36 +323,79 @@ getraenk_file_2_t *create_new_getraenk_file_2(uint8_t file_to_create)
 
 getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *file_to_insert)
 {
-    file_to_insert->next = *head;
-    file_to_insert->prev = NULL;
+	file_to_insert->next = *head;
+	file_to_insert->prev = NULL;
 
-    if((*head) == NULL)
-    {
-        tail_getraenk_file = file_to_insert;
-    } else
-    {
-        (*head)->prev = file_to_insert;
-        file_to_insert->prev = tail_getraenk_file;
-    }
-    *head = file_to_insert;
-    tail_getraenk_file->next = *head;
-    return file_to_insert;
+	if((*head) == NULL)
+	{
+		tail_getraenk_file = file_to_insert;
+	} else
+	{
+		(*head)->prev = file_to_insert;
+		file_to_insert->prev = tail_getraenk_file;
+	}
+	*head = file_to_insert;
+	tail_getraenk_file->next = *head;
+	return file_to_insert;
 }
 
 getraenk_file_2_t *insert_file_at_head_2(getraenk_file_2_t **head, getraenk_file_2_t *file_to_insert)
 {
-    file_to_insert->next = *head;
-    file_to_insert->prev = NULL;
+	file_to_insert->next = *head;
+	file_to_insert->prev = NULL;
 
-    if((*head) == NULL)
-    {
-        tail_getraenk_file_2 = file_to_insert;
-    } else
-    {
-        (*head)->prev = file_to_insert;
-        file_to_insert->prev = tail_getraenk_file_2;
-    }
-    *head = file_to_insert;
-    tail_getraenk_file_2->next = *head;
-    return file_to_insert;
+	if((*head) == NULL)
+	{
+		tail_getraenk_file_2 = file_to_insert;
+	} else
+	{
+		(*head)->prev = file_to_insert;
+		file_to_insert->prev = tail_getraenk_file_2;
+	}
+	*head = file_to_insert;
+	tail_getraenk_file_2->next = *head;
+	return file_to_insert;
+}
+
+getraenk_file_3_t *create_new_list_node_file(getraenk_file_t * getraenk_to_point_on)
+{
+	getraenk_file_3_t *newFile = calloc(1,sizeof(getraenk_file_3_t));
+	newFile->getraenk_x = getraenk_to_point_on;
+	return newFile;
+}
+
+getraenk_file_3_t *delete_head_list_node_file(getraenk_file_3_t **head)
+{
+	getraenk_file_3_t * newHead = (*head);
+	newHead = newHead->next;
+	free(*head);
+	newHead->prev=tail_list_node_file;
+	tail_list_node_file->next = newHead;
+	Uart_Transmit_IT_PC("delete: ");
+	lese_textfile_in_getraenk((*head)->getraenk_x->file);
+	Uart_Transmit_IT_PC(aktuellesGetraenk->name);
+	Uart_Transmit_IT_PC("\r");
+	Uart_Transmit_IT_PC("Newhead: ");
+	lese_textfile_in_getraenk(newHead->getraenk_x->file);
+	Uart_Transmit_IT_PC(aktuellesGetraenk->name);
+	Uart_Transmit_IT_PC("\r");
+	return newHead;
+}
+
+getraenk_file_3_t *insert_list_node_at_head(getraenk_file_3_t **head, getraenk_file_3_t *file_to_insert)
+{
+	file_to_insert->next = *head;
+	file_to_insert->prev = NULL;
+
+	if((*head) == NULL)
+	{
+		tail_list_node_file = file_to_insert;
+	} else
+	{
+		(*head)->prev = file_to_insert;
+		file_to_insert->prev = tail_list_node_file;
+	}
+	*head = file_to_insert;
+	tail_list_node_file->next = *head;
+	return file_to_insert;
 }

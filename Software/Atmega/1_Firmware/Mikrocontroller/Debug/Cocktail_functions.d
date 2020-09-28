@@ -53,6 +53,7 @@ Cocktail_functions.d Cocktail_functions.o: \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
@@ -61,6 +62,8 @@ Cocktail_functions.d Cocktail_functions.o: \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Cocktail_functions/../LED/LED.h \
+ ../libraries/Cocktail_functions/../Software_Ramp/Ramp1.h \
+ ../libraries/Cocktail_functions/../Main_functions/Main_Func.h \
  ../libraries/Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  ../libraries/Cocktail_functions/Getraenk.h \
@@ -173,6 +176,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
 
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h:
+
 ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 
 ../libraries/Cocktail_functions/../TMC4671/TMC4671.h:
@@ -188,6 +193,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
 
 ../libraries/Cocktail_functions/../LED/LED.h:
+
+../libraries/Cocktail_functions/../Software_Ramp/Ramp1.h:
+
+../libraries/Cocktail_functions/../Main_functions/Main_Func.h:
 
 ../libraries/Cocktail_functions/Zutaten.h:
 

@@ -15,10 +15,10 @@
 #include "../TMC6200/TMC6200.h"
 #include "../LED/LED.h"
 #include "../Software_Ramp/ramp1.h"
+#include "../Nextion_Display/Nextion_Display.h"
 
 #include <util/delay.h>
 
-void TIMER_init(void);
 void IO_init(void);
 void speicher_init();
 void devices_init(void);
@@ -34,21 +34,17 @@ void proceed_Communication_INPUT_UART_1(void);
 char check_Communication_Input_UART_2(void);
 void proceed_Communication_Input_UART_2(void);
 void check_Communication_Input_UART(void);
-void check_Communication_Input_MFRC522(void);
+void periodic_jobs(linear_ramp_t * ramp);
+void check_motor_activities(linear_ramp_t * ramp);
+void ramp_init(void);
 
-extern void SPI_init(void);
 extern void SD_startup(void);
 extern void zutaten_init(void);
 extern void cocktails_init(void);
 extern void RFID_init(void);
-void periodic_jobs(linear_ramp_t * ramp);
-void check_motor_activities(linear_ramp_t * ramp);
 extern void cocktail_test_command(unsigned char INPUT[256]);
 extern void cocktail_check_command(int8_t page, int8_t button);
 extern void Uart_Transmit_IT_PC(char * data);
-void ramp_init(void);
-
-void testFunc(void);
 
 
 //Variabeln UART_0
@@ -87,15 +83,6 @@ extern ring_buffer_t rb_rx_ESP;
 
 extern ring_buffer_t rb_tx_RFID;
 extern ring_buffer_t rb_rx_RFID;
-
-// Variable für Liste
-extern uint8_t i_Liste;
-extern uint8_t i_Liste_test[50];
-extern uint8_t i_Liste_test_cnt;
-extern uint8_t block_list_hoch;
-extern uint8_t block_list_runter;
-extern uint8_t Grossschreib;
-extern uint8_t counter;
 
 uint32_t Position;
 uint32_t count_bla;

@@ -6,7 +6,6 @@
  */
 
 #include "Main_Func.h"
-#include "../Nextion_Display/Nextion_Display.h"
 
 //Init_IO
 
@@ -40,9 +39,9 @@ void devices_init(void)
     SD_startup();                                           // SD-Karte initialisieren
     _delay_ms(100);
 
-    initTMC6200();                                          // Gate-Treiber initialisieren
+//     initTMC6200();                                          // Gate-Treiber initialisieren
 //     initTMC4671_Openloop();                                  // FOC-Treiber initialisieren
-    initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
+//     initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 }
 
 void speicher_init()
@@ -64,24 +63,10 @@ void speicher_init()
 
 void ramp_init(void)
 {
-    volatile linear_ramp_t Ramp;
-    volatile linear_ramp_t * ramp = &Ramp;
-
-    linear_ramp_init(ramp);
+    linear_ramp_init();
     linear_ramp_set_defaults(ramp);
     
     states = IDLE;
-}
-
-void display_init()
-{
-    // Initialisierungen Display
-    Grossschreib = 1;                                       // Initialisiere Grossschreibung Display mit gross (gibt kein Display init();)
-    i_Liste = 0;                                            // Listenabschnitt auf 0 vordefinieren
-    block_list_hoch = 0;                                    // Blockierung der Listen aufheben
-    block_list_runter = 0;                                  // Blockierung der Listen aufheben
-    i_Liste_test_cnt = 0;
-    i_Liste_test[i_Liste_test_cnt] = 0;
 }
 
 void periodic_jobs(linear_ramp_t * ramp)

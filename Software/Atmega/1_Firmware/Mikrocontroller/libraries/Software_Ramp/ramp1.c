@@ -6,9 +6,10 @@
 */
 #include "Ramp1.h"
 
-void linear_ramp_init(volatile linear_ramp_t * ramp)
-{
-    ramp = &Ramp;
+void linear_ramp_init(void)
+{	
+	ramp = &aRamp;
+	
     ramp->ramp_enable = 0;
 
     ramp->ramp_timer = 0.0;
@@ -135,6 +136,7 @@ void computeRamp(volatile linear_ramp_t * ramp)
 
             ramp->ramp_x_0 = 0.0;
             ramp->ramp_v_0 = 0.0;
+            ramp->ramp_acceleration = ramp->target_acceleration;
 
             // Nach den Berechnungen wechselt der Status auf Beschleunigen
             states = ACCELERATING;
@@ -144,10 +146,8 @@ void computeRamp(volatile linear_ramp_t * ramp)
 
             // Über die berechneten Bewegungszeiten kann nun interiert werden. Die Beschleunigung bleibt konstant,
             // die Geschwindigkeit und Position werden mit den Formeln berechnet.
-
             position_func(ramp);
             velocity_func(ramp);
-            ramp->ramp_acceleration = ramp->target_acceleration;
             iterate_timer(ramp);
 
             if (ramp->ramp_timer >= (ramp->ramp_acceleration_time))
@@ -156,6 +156,7 @@ void computeRamp(volatile linear_ramp_t * ramp)
                 states = FULLSPEED;
                 ramp->ramp_x_0 = ramp->ramp_position;
                 ramp->ramp_v_0 = ramp->ramp_velocity;
+                ramp->ramp_acceleration = 0.0;
                 ramp->ramp_timer = 0.0;
             }
             break;
@@ -164,7 +165,6 @@ void computeRamp(volatile linear_ramp_t * ramp)
 
             position_func(ramp);
             velocity_func(ramp);
-            ramp->ramp_acceleration = ramp->ramp_acceleration;
             iterate_timer(ramp);
             if (ramp->ramp_timer >= (ramp->ramp_fullspeed_time))
             {
@@ -173,6 +173,7 @@ void computeRamp(volatile linear_ramp_t * ramp)
                 ramp->ramp_timer = 0.0;
                 ramp->ramp_x_0 = ramp->ramp_position;
                 ramp->ramp_v_0 = ramp->ramp_velocity;
+                ramp->ramp_acceleration = - ramp->target_acceleration;
             }
 
             break;
@@ -180,8 +181,6 @@ void computeRamp(volatile linear_ramp_t * ramp)
         case BREAKING:
             position_func(ramp);
             velocity_func(ramp);
-            ramp->ramp_acceleration = -ramp->target_acceleration;
-
             iterate_timer(ramp);
             if (ramp->ramp_timer >= (ramp->ramp_acceleration_time))
             {
@@ -198,19 +197,19 @@ void computeRamp(volatile linear_ramp_t * ramp)
         tmc4671_setAbsolutTargetPosition(0, (uint32_t)(ramp->ramp_position * 1000));
     }
 }
-float iterate_timer(volatile linear_ramp_t * ramp)
+void iterate_timer(volatile linear_ramp_t * ramp)
 {
     ramp->ramp_timer += ramp->ramp_timer_iteration;
-    return ramp->ramp_timer;
 }
 void position_func(linear_ramp_t * ramp)
 {
-    ramp->ramp_position = ramp->ramp_x_0 + ramp->ramp_v_0 * ramp->ramp_timer + ramp->max_acceleration * ramp->ramp_timer * ramp->ramp_timer / 2;
+	ramp->ramp_position = ramp->ramp_x_0 + ramp->ramp_v_0 * ramp->ramp_timer + ramp->ramp_acceleration * ramp->ramp_timer * ramp->ramp_timer / 2;
 }
 void velocity_func(linear_ramp_t * ramp)
 {
-    ramp->ramp_velocity =  ramp->ramp_v_0 + ramp->ramp_acceleration * ramp->ramp_timer;
+	ramp->ramp_velocity = ramp->ramp_v_0 + ramp->ramp_acceleration * ramp->ramp_timer;
 }
+
 float get_beschleunigungszeit(float velocity, float acceleration)
 {
     return velocity / acceleration;
@@ -280,3 +279,15 @@ void ftoa(float n, char* res, int afterpoint)
     }
 }
 
+ISR(TIMER2_COMPA_vect)
+{
+	computeRamp(ramp);
+}
+
+void ramp_pwm_init(void)
+{
+	TCCR2A |= (1 << WGM21);
+	TCCR2B |= (1 << CS22);
+	TIMSK2 |= (1 << OCIE2A);
+	OCR2A = 250;
+}

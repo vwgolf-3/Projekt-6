@@ -327,3 +327,58 @@ zutat_file_t *insert_zutat_file_at_head(zutat_file_t **head, zutat_file_t *file_
 
     return file_to_insert;
 }
+
+zutat_list_node_t *create_new_list_node_zut_file( zutat_file_t * file_to_link)
+{
+    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutat_file_t
+    zutat_list_node_t *newFile = calloc(1,sizeof(zutat_list_node_t));
+
+    // Schreibe die Nummer des Files in entsprechende Variabeln des Structs
+    newFile->zutat_xy = file_to_link;
+
+    return newFile;
+}
+
+
+
+zutat_list_node_t *insert_zutat_list_node_at_head(zutat_list_node_t **head, zutat_list_node_t *file_to_insert)
+{
+    /*****************************************************************************
+    **==>**next******==>*==>*==>*==>*==>*| |*==>*==>*==>*==>*==>*******next**==>**
+    **             **   *   *   *   *   *| |*   *   *   *   *   **              **
+    **  Head-File  ** X * X * X * X * X *| |* X * X * X * X * X **  Tail-File   **
+    **             **   *   *   *   *   *| |*   *   *   *   *   **              **
+    **<==**prev******<==*<==*<==*<==*<==*| |*<==*<==*<==*<==*<==*******prev**<==**
+    ******************************************************************************/
+
+    // Setze das vorhergehende und nachkommende File des einzufügenden Files
+    file_to_insert->next = *head;
+    file_to_insert->prev = NULL;
+
+    // Falls keine head-Zutat besteht, ist die einzufügende Zutat die tail-Zutat
+    if((*head) == NULL)
+    {
+        tail_zutat_list_node = file_to_insert;
+    }
+
+    // Besteht ein head-File, ist dessen zuvorkommends File das einzufügende File
+    // und das zuvorkommende File des einzufügenden Files ist das tail-File
+    else
+    {
+        (*head)->prev = file_to_insert;
+        file_to_insert->prev = tail_zutat_list_node;
+    }
+
+    // head-File ist jetzt das einzufügende File
+    // Das nachkommende File des tail-Files ist jetzt das neue head-File
+    *head = file_to_insert;
+    tail_zutat_list_node->next = *head;
+
+    return file_to_insert;
+}
+
+
+
+
+
+

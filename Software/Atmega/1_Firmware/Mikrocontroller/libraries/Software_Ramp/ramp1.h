@@ -42,28 +42,32 @@ struct linear_ramp {
 
     volatile float max_velocity;
     volatile float max_acceleration;
-	
-	volatile float motor_eine_umdrehung;
-	volatile float motor_komplette_verschiebung;
-	volatile float motor_ticks_verschiebung;
+
+    volatile float motor_eine_umdrehung;
+    volatile float motor_komplette_verschiebung;
+    volatile float motor_ticks_verschiebung;
 };
 typedef struct linear_ramp volatile linear_ramp_t;
 
-    volatile linear_ramp_t Ramp;
-    volatile linear_ramp_t * ramp;
+linear_ramp_t *ramp;
+linear_ramp_t aRamp;
 
 void reverse(char* str, int len);
 int intToStr(int x, char str[], int d);
 void ftoa(float n, char* res, int afterpoint);
 // void ramp_pwm_init(void);
 
-void linear_ramp_init(volatile linear_ramp_t * ramp);
+void linear_ramp_init(void);
 void linear_ramp_set_defaults(volatile linear_ramp_t * ramp);
 void calculateRamp(float acceleration, float velocity, float position, volatile linear_ramp_t * ramp);
 void computeRamp(volatile linear_ramp_t * ramp);
-float iterate_timer(volatile linear_ramp_t * ramp);
+void iterate_timer(volatile linear_ramp_t * ramp);
 void position_func(linear_ramp_t * ramp);
 void velocity_func(linear_ramp_t * ramp);
+
 float get_beschleunigungszeit(float velocity, float acceleration);
 float get_volle_geschwindigkeitszeit(float Position, float acceleration, float beschleunigungszeit, float max_velocity);
+
+void ramp_pwm_init(void);
+
 #endif /* RAMP1_H_ */
