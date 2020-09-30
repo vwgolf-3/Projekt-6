@@ -35,14 +35,14 @@ zutat_t *aktuelle_zutat;                                    // Pointer auf aktue
 
 /******************************************************************************************************************************/
 struct zutat_Maschine {                                     // Struckt für Zutaten in Maschine (wird 12 Mal initialisiert)
-    char * name;                                            // Pointer auf den Speicher für den Namen der Zutat in Maschine
-    uint8_t status;                                         // Speicher für den Status (KEINGETRAENK=0, VOLL=1, LEER=2)
-    uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
-    uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
-    uint8_t stelle;                                         // Speicher für Position der Zutat in der Maschine
-    uint32_t position_motor;                                       // Speicher für Position der Zutat in der Maschine
-    struct zutat_Maschine* next;                            // Pointer auf das zuvor eingefügte Getränk
-    struct zutat_Maschine* prev;                            // Pointer auf das danach eingefügte Getränk
+	char * name;                                            // Pointer auf den Speicher für den Namen der Zutat in Maschine
+	uint8_t status;                                         // Speicher für den Status (KEINGETRAENK=0, VOLL=1, LEER=2)
+	uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
+	uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
+	uint8_t stelle;                                         // Speicher für Position der Zutat in der Maschine
+	uint32_t position_motor;                                       // Speicher für Position der Zutat in der Maschine
+	struct zutat_Maschine* next;                            // Pointer auf das zuvor eingefügte Getränk
+	struct zutat_Maschine* prev;                            // Pointer auf das danach eingefügte Getränk
 };
 typedef struct zutat_Maschine zutatMaschine_t;              // Typedef für Struct zutat_t
 
@@ -51,6 +51,11 @@ zutatMaschine_t *head_zut_in_Maschine;                      // Pointer auf zulet
 zutatMaschine_t *tail_zut_in_Maschine;                      // Pointer auf erstes in die Liste eingefügte Zutat in der Maschine
 /******************************************************************************************************************************/
 
+/******************************************************************************************************************************/
+zutatMaschine_t *aktuelleZutatAusserhalbMaschine;                   // Pointer auf aktuelle Zutat in Maschine
+zutatMaschine_t *head_zut_Ausserhalb_Maschine;                      // Pointer auf zuletzt in die Liste eingefügte Zutat in der Maschine
+zutatMaschine_t *tail_zut_Ausserhalb_Maschine;                      // Pointer auf erstes in die Liste eingefügte Zutat in der Maschine
+/******************************************************************************************************************************/
 
 /******************************************************************************************************************************/
 struct zutat_file {                                         // Struckt für Zutaten-Files (wird nach Anzahl Files initialisiert)

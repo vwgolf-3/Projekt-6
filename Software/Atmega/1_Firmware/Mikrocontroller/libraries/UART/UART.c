@@ -51,7 +51,6 @@ void UART_init()
 
 
     /******************************************************************************************************************************/
-    RB_init(&rb_tx_PC);                                         // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART0
     RB_init(&rb_rx_PC);                                         // Initialisiere Ring-Buffer (head = 0, tail = 0) RX UART0
 
     RB_init(&rb_rx_Display);                                    // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART1
@@ -91,16 +90,13 @@ void UART_init()
 
 void Uart_Transmit_IT_PC(char *data)
 {
-    /*
-        - Ermittle Länge des Strings
-        - Schreibe n Bytes in den Buffer für PC
-        - Enable Interrupt wenn Datenregister leer ist
-
-        PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
-    */
-    uint8_t nbytes = strlen((const char *)data);
-    RB_write(&rb_tx_PC, data, nbytes);
-    Uart_EnableTransmitIT_0();
+    int i = 0;
+    while (*(data + i) !='\0')
+    {
+	    while (!(UCSR0A & (1<<UDRE0)));
+	    UDR0 = *(data+i);
+	    i++;
+    }
 }
 
 void Uart_Transmit_IT_Display(char *data)
@@ -157,23 +153,23 @@ void tx_completed()
     asm("nop");
 }
 
-ISR(USART0_UDRE_vect)
-{
-    /*
-        - Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
-        - Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet
-    */
-    if (RB_length(&rb_tx_PC) > 0)
-    {
-        UDR0 = RB_readByte(&rb_tx_PC);
-    }
-    else
-    {
-        Uart_DisableTransmitIT_0();
-        if(ptr_tx_completed_0 != 0)
-            ptr_tx_completed_0();
-    }
-}
+// ISR(USART0_UDRE_vect)
+// {
+//     /*
+//         - Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
+//         - Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet
+//     */
+//     if (RB_length(&rb_tx_PC) > 0)
+//     {
+//         UDR0 = RB_readByte(&rb_tx_PC);
+//     }
+//     else
+//     {
+//         Uart_DisableTransmitIT_0();
+//         if(ptr_tx_completed_0 != 0)
+//             ptr_tx_completed_0();
+//     }
+// }
 
 ISR(USART0_RX_vect)
 {

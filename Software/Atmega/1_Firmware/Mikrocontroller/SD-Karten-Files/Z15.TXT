@@ -1,3 +1,3 @@
-Name:Weisser Rum
-Alkohol:1
+Name:Zuckersirup
+Alkohol:0
 Kohlensaeure:0

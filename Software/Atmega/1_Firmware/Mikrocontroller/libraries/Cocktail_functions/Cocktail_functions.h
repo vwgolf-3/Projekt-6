@@ -38,6 +38,8 @@ uint8_t block_list_runter;
 uint8_t Grossschreib;
 uint8_t counter;
 
+uint8_t kohlensaeure_mode;
+
 char buff_name[21];
 char stop;
 uint8_t externes_Getraenk_flag;
@@ -74,10 +76,12 @@ void schiebe_file_prev(void);
 void schiebe_file_next(void);
 void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
-zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_button);
+zutat_file_t * erstelle_Liste_Zutat_Pos(uint8_t ks, zutat_file_t * beginn_file, char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
+void setze_Fluessgkeit_in_Position_Aussen(uint8_t nr, uint8_t status);
+
 void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr);
 
 void send_List_Getraenke (void);
@@ -97,5 +101,7 @@ void schreibe_Getraenk_in_tag(uint8_t nr);
 void display_init(void);
 
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
+	
+	
 
 #endif /* COCKTAIL_FUNCTIONS_H_ */

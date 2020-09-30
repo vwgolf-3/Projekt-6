@@ -53,7 +53,7 @@ void zutaten_init(void)
 
     ******************************************************************************************************************/
 
-    for (int8_t count = 0 ; count <= 30; count++)
+    for (int8_t count = 1 ; count <= 50; count++)
     {
         // String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
         strcpy((char *)buff_init_textfiles_zutat, (const char *)"Z");
@@ -107,8 +107,8 @@ void zutaten_init(void)
     char buff5[20] = {'\0'};                            // Buffer für Filename "M.txt"
 
     uint8_t position = 0;                               // Variable, welche die Position des Getränks hochzählt.
-	
-	uint32_t abstand = 1000000;
+
+    uint32_t abstand = 1000000;
 
     /******************************************************************************************************************
 
@@ -156,10 +156,11 @@ void zutaten_init(void)
 
     // Position inkrementieren
     position++;
-
-    while(ptr != NULL)
-    {
+	
         ptr = strtok(NULL, delimiter);                                  // Abschnitt Name Zutat
+
+    while(strcmp(ptr, ";")!=0)
+    {
         strcpy((char *)buff1,ptr);                                      // Kopiere Name in Buffer
         ptr = strtok(NULL, delimiter);                                  // Abschnitt Status
         buff2 = atoi(ptr);                                              // Schreibe ASCI-Status in Integer-Buffer
@@ -180,10 +181,44 @@ void zutaten_init(void)
             // Position inkrementieren
             position++;
         }
+        ptr = strtok(NULL, delimiter);                                  // Abschnitt Name Zutat
     }
 
     // Aktuelle Zutat auf Tail zeigen lassen (Erstes hinzugefügt)
     aktuelleZutatInMaschine = tail_zut_in_Maschine;
+
+    head_zut_Ausserhalb_Maschine = NULL;
+    tail_zut_Ausserhalb_Maschine = NULL;
+	position = 0;
+	
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Name Zutat
+
+    while(strcmp(ptr, ";")!=0)
+    {
+	    strcpy((char *)buff1,ptr);                                      // Kopiere Name in Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Status
+	    buff2 = atoi(ptr);                                              // Schreibe ASCI-Status in Integer-Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Alkohol Ja/Nein
+	    buff3 = atoi(ptr);                                              // Schreibe ASCI-JA//Nein in Integer-Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Kohlensäure Ja/Nein
+	    buff4 = atoi(ptr);                                              // Schreibe ASCI-JA//Nein in Integer-Buffer
+
+	    // Falls der Name des Getränkes >=1 ist, erstelle neue Zutat in Maschine
+	    if (strlen((const char *)buff1)>=1)
+	    {
+		    // Speicher alloziieren
+		    tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, buff4, position, abstand*position);
+
+		    // Zutat in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
+		    head_zut_Ausserhalb_Maschine = insert_zutat_Maschine_at_head(&head_zut_Ausserhalb_Maschine,&tail_zut_Ausserhalb_Maschine, tmp_zutat_Maschine);
+
+		    // Position inkrementieren
+		    position++;
+	    }
+		
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Name Zutat
+    }
+		aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
 }
 
 
@@ -224,7 +259,7 @@ zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t al
     // Schreibe die Werte in entsprechende Variabeln des Structs
     newZutat->status = status;
     newZutat->stelle = k;
-	newZutat->position_motor = positon_motor;
+    newZutat->position_motor = positon_motor;
     newZutat->alkohol = alkohol;
     newZutat->kohlensaeure = kohlensaeure;
     newZutat->prev = NULL;

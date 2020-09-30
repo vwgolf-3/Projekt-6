@@ -474,7 +474,7 @@ getraenk_file_t * erstelle_Liste_name(getraenk_file_t * beginn_file, char * name
 
         if (i == 5 && block_list_runter == 0)
         {
-			tmp = aktuellesGetraenk_file;
+            tmp = aktuellesGetraenk_file;
         }
 
 
@@ -877,21 +877,54 @@ void loesche_FIle(uint8_t filename)
 
 }
 
-zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_button)
+zutat_file_t * erstelle_Liste_Zutat_Pos(uint8_t ks, zutat_file_t * beginn_file, char * name_button)
 {
-	zutat_file_t * tmp = head_zutat_file;
-    nextion_change_page(FLUESSANZEIGE1);
+    asm("nop");
 
+    if (ks ==0 )
+    {
+        nextion_visible_on("b1");
+    }
+    zutat_file_t * tmp = beginn_file;
+    kohlensaeure_mode = ks;
     // Für alle Buttons auf der Seite ...
     // Initialisierungen
     char button[50] = {'\0'};
     char buff[5] = {0};
     char buff10[50] = {'\0'};
-
+    kohlensaeure_mode = ks;
     aktuelles_zutat_file = beginn_file;
-
     for (int i = 0 ; i < 6 ; i++)
     {
+        // Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
+        // (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
+        // Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
+        if(aktuelles_zutat_file == tail_zutat_file && !block_list_runter)
+        {
+            block_list_hoch = 1;
+        }
+
+        // Beginn-File einlesen.
+        lese_textfile_in_zutat(aktuelles_zutat_file->file);
+        Uart_Transmit_IT_PC(aktuelle_zutat->name);
+        Uart_Transmit_IT_PC("\r");
+
+
+        // Getränk mit/ohne Kohlensäure finden (Abhängig von kohlesäure_mode)
+        uint8_t run = 1;
+        while ((aktuelle_zutat->kohlensaeure != kohlensaeure_mode)&& run == 1)
+        {
+            if(aktuelles_zutat_file != head_zutat_file)
+            {
+                aktuelles_zutat_file = aktuelles_zutat_file->prev;
+            }
+            else
+            {
+                run = 0;
+            }
+            lese_textfile_in_zutat(aktuelles_zutat_file->file);
+        }
+
         // Schreibe Zahl und Name des Buttons in String
         itoa((i + 1),buff,10);
         strcpy((char *)button, (const char *)name_button);
@@ -902,8 +935,21 @@ zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_
         if (aktuelles_zutat_file == head_zutat_file && !block_list_runter)
         {
             block_list_runter = 1;
-            lese_textfile_in_zutat(aktuelles_zutat_file->file);
-            nextion_setText(button,aktuelle_zutat->name);
+            if (aktuelle_zutat->kohlensaeure == kohlensaeure_mode)
+            {
+                nextion_setText(button,aktuelle_zutat->name);
+            }
+            else
+            {
+                // leerer String
+                nextion_setText(button,"");
+
+                // Sicherheitsdelay, Programm stürzt sonst ab
+                _delay_ms(10);
+
+                // Disable Button
+                nextion_disableButton(button);
+            }
         }
 
         // Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
@@ -923,36 +969,65 @@ zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_
         //Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
         else
         {
-            lese_textfile_in_zutat(aktuelles_zutat_file->file);
             nextion_setText(button,aktuelle_zutat->name);
         }
 
-        // Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
-        // (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
-        // Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
 
-        if(aktuelles_zutat_file == tail_zutat_file && !block_list_runter)
+        if (kohlensaeure_mode == 0)
         {
-            block_list_hoch = 1;
+            if (strcmp((char *)aktuelleZutatInMaschine->name, (char *)aktuelle_zutat->name)==0)
+            {
+                strcpy((char *)buff10, (const char *)button);
+                strcat((char *)buff10, (const char *)".pco=2016");
+                Uart_Transmit_IT_Display((char *)buff10);
+                endConversation();
+            }
         }
-
-        if (strcmp((char *)aktuelleZutatInMaschine->name, (char *)aktuelle_zutat->name)==0)
+        else
         {
-            strcpy((char *)buff10, (const char *)button);
-            strcat((char *)buff10, (const char *)".pco=2016");
-            Uart_Transmit_IT_Display((char *)buff10);
-            endConversation();
-        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /*
+            - 1. aktuell geschriebener Name aus aktueller Zutat vergleichen, ob vorhanden in der Liste aktuelle Zutat ausserhalb Maschine
+                - 2. Falls nicht vorhanden: Freier Platz suchen in Liste zum Speichern
+            */
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+            aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
+            run = 1;
+            do
+            {
+                if (strcmp(aktuelle_zutat->name, aktuelleZutatAusserhalbMaschine->name) == 0)
+                {
+                    run = 0;
+                    Uart_Transmit_IT_PC(aktuelleZutatAusserhalbMaschine->name);
+                    Uart_Transmit_IT_PC("\r");
+                    Uart_Transmit_IT_PC(aktuelle_zutat->name);
+                    Uart_Transmit_IT_PC("\r");
+                    strcpy((char *)buff10, (const char *)button);
+                    strcat((char *)buff10, (const char *)".pco=2016");
+                    Uart_Transmit_IT_Display((char *)buff10);
+                    endConversation();
+                }
+                else
+                {
+                    aktuelleZutatAusserhalbMaschine = aktuelleZutatAusserhalbMaschine->prev;
+                }
+            } while ((run == 1) && (aktuelleZutatAusserhalbMaschine != tail_zut_Ausserhalb_Maschine));
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
         // Ein Getraenk weiter Scrollen.
         aktuelles_zutat_file = aktuelles_zutat_file->prev;
 
-	    if (i == 5 && block_list_runter == 0)
-	    {
-		    tmp = aktuelles_zutat_file;
-	    }
-	    // Sicherheitsdelay, Programm stürzt sonst ab
-	    _delay_ms(10);
+        asm("nop");
+
+        if (i == 5 && block_list_runter == 0)
+        {
+            tmp = aktuelles_zutat_file;
+            return tmp;
+        }
+
+        // Sicherheitsdelay, Programm stürzt sonst ab
+        _delay_ms(10);
     }
     return tmp;
 }
@@ -998,6 +1073,12 @@ void lese_textfile_in_zutat(uint8_t file)
             aktuelle_zutat->alkohol = atoi(ptr);
         }
 
+        if (strcmp(ptr, "Kohlensaeure")==0)
+        {
+            ptr = strtok(NULL, delimiter);
+            aktuelle_zutat->kohlensaeure = atoi(ptr);
+        }
+
         // Neuer Kopf suchen und ptr darauf zeigen lassen
         ptr = strtok(NULL, delimiter);
     }
@@ -1034,68 +1115,69 @@ void setze_Posanzeige_Rot_Gruen(void)
 void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr)
 {
     aktuelleZutatInMaschine = tail_zut_in_Maschine;
+    aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
     for (int i = 0 ; i < nr; i++)
     {
         aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+        aktuelleZutatAusserhalbMaschine = aktuelleZutatAusserhalbMaschine->prev;
     }
 }
 
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
 {
+    char buff[50] = {'\0'};
+    char buff2[5] = {'\0'};
+
     // Falls nr ausserhalb des Listenbereichs ==> Keine Flüssigkeit
     if (nr == 6)
     {
         // Schreibe Null-Terminator über bestehenden Namen
-        char * leer = "(keine)";
-        char len1 = strlen((const char *)aktuelleZutatInMaschine->name);
-        char len2 = strlen((const char *)leer);
-        for (int count = 0 ; count < (len1 + 1) ; count++)
-        {
-            *(aktuelleZutatInMaschine->name + count) = '\0';
-        }
-        for (int count = 0 ; count < (len2 + 1) ; count++)
-        {
-            *(aktuelleZutatInMaschine->name + count) = *(leer + count);
-        }
+        strcpy(aktuelleZutatInMaschine->name, "(keine)");
+        aktuelleZutatInMaschine->alkohol = 0;
+        aktuelleZutatInMaschine->kohlensaeure=0;
+        aktuelleZutatInMaschine->status = status;
     }
 
-    else if (nr == 7)
+    // Falls nr ausserhalb des Listenbereichs ==> Neues File
+    if (nr == 7)
     {
-        char len3 = strlen((const char *)aktuelle_zutat->name);
-        for (int count = 0 ; count < (len3 + 1) ; count++)
-        {
-            *(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
-        }
+        strcpy((char *)aktuelleZutatInMaschine->name, (const char *)aktuelle_zutat->name);
+        aktuelleZutatInMaschine->alkohol = aktuelle_zutat->alkohol;
+        aktuelleZutatInMaschine->kohlensaeure=aktuelle_zutat->kohlensaeure;
+        aktuelleZutatInMaschine->status = status;
     }
 
-    // Falls innerhalb des Listenbereichs ==> Flüssigkeit aus File laden
-    else
-    {
-        // Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
-        aktuelles_zutat_file = tail_zutat_file;
-        for (int i = 0 ; i < (i_Liste + nr) ; i++)
-        {
-            aktuelles_zutat_file = aktuelles_zutat_file->prev;
-        }
-        lese_textfile_in_zutat(aktuelles_zutat_file->file);
-
-        // Schreibe Name der gefundenen Zutat in die ausgewählte Position.
-        char len = strlen((const char *)aktuelle_zutat->name);
-        for (int count = 0 ; count < (len + 1) ; count++)
-        {
-            *(aktuelleZutatInMaschine->name + count) = *(aktuelle_zutat->name + count);
-        }
-    }
-
-    // Definiere den Status des Getränks
-    aktuelleZutatInMaschine->status = status;
-
-    // Zurück zur Positionsanzeige
     nextion_change_page(POSANZEIGE);
 
+    // Falls innerhalb des Listenbereichs ==> Flüssigkeit aus File laden
+    if (nr < 6)
+    {
+        // Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
+        aktuelles_zutat_file = aktuelle_zutat_list_node->zutat_xy;
+        lese_textfile_in_zutat(aktuelles_zutat_file->file);
+        while ((aktuelle_zutat->kohlensaeure != kohlensaeure_mode) && (aktuelles_zutat_file != head_zutat_file))
+        {
+            aktuelles_zutat_file = aktuelles_zutat_file->prev;
+            lese_textfile_in_zutat(aktuelles_zutat_file->file);
+        }
+
+        for (uint8_t i = 0 ; i < nr ; i++)
+        {
+            aktuelles_zutat_file = aktuelles_zutat_file->prev;
+            lese_textfile_in_zutat(aktuelles_zutat_file->file);
+            while ((aktuelle_zutat->kohlensaeure != kohlensaeure_mode) && (aktuelles_zutat_file != head_zutat_file))
+            {
+                aktuelles_zutat_file = aktuelles_zutat_file->prev;
+                lese_textfile_in_zutat(aktuelles_zutat_file->file);
+            }
+        }
+
+        strcpy(aktuelleZutatInMaschine->name, aktuelle_zutat->name);
+        aktuelleZutatInMaschine->status = status;
+        aktuelleZutatInMaschine->alkohol = aktuelle_zutat->alkohol;
+        aktuelleZutatInMaschine->kohlensaeure = aktuelle_zutat->kohlensaeure;
+    }
     // Schreibe Änderung in Titel der Positionsanzeige
-    char buff[50] = {'\0'};
-    char buff2[5] = {'\0'};
     strcpy((char *)buff, "Nr.");
     itoa(aktuelleZutatInMaschine->stelle+1, buff2, 10);
     strcat((char *)buff, (const char *)buff2);
@@ -1109,9 +1191,6 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
     // Initialisieren Listen-Variabeln
     block_list_hoch = 0;
     block_list_runter = 0;
-    i_Liste = 0;
-
-
 
     // Aktualisieren des Maschinen-Files
     char buff98[20] = {'\0'};
@@ -1119,12 +1198,94 @@ void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status)
     deleteFile((unsigned char *)buff98);
     char buff_file[512] = {'\0'};
     char * ptr = buff_file;
+
     write_M_file(ptr);
 
     char buff97[20] = {'\0'};
     strcpy((char *)buff97, (const char *)"M.txt");
     writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
 
+}
+
+void setze_Fluessgkeit_in_Position_Aussen(uint8_t nr, uint8_t status)
+{
+    // Falls nr ausserhalb des Listenbereichs ==> Keine Flüssigkeit
+    if (nr == 6)
+    {
+        // Schreibe Null-Terminator über bestehenden Namen
+        strcpy(aktuelleZutatAusserhalbMaschine->name, "(keine)");
+        aktuelleZutatAusserhalbMaschine->alkohol = 0;
+        aktuelleZutatAusserhalbMaschine->kohlensaeure=0;
+        aktuelleZutatAusserhalbMaschine->status = status;
+    }
+
+    // Falls nr ausserhalb des Listenbereichs ==> Neues File
+    if (nr == 7)
+    {
+        strcpy((char *)aktuelleZutatAusserhalbMaschine->name, (const char *)aktuelle_zutat->name);
+        aktuelleZutatAusserhalbMaschine->alkohol = aktuelle_zutat->alkohol;
+        aktuelleZutatAusserhalbMaschine->kohlensaeure=aktuelle_zutat->kohlensaeure;
+        aktuelleZutatAusserhalbMaschine->status = status;
+    }
+
+    // Falls innerhalb des Listenbereichs ==> Flüssigkeit aus File laden
+    else
+    {
+        // Wähle Zutaten-File, auf welches gedrückt wurde und lese es ein.
+        aktuelles_zutat_file = aktuelle_zutat_list_node->zutat_xy;
+        lese_textfile_in_zutat(aktuelles_zutat_file->file);
+        while ((aktuelle_zutat->kohlensaeure != kohlensaeure_mode) && (aktuelles_zutat_file != head_zutat_file))
+        {
+            aktuelles_zutat_file = aktuelles_zutat_file->prev;
+            lese_textfile_in_zutat(aktuelles_zutat_file->file);
+        }
+
+        for (uint8_t i = 0 ; i < nr ; i++)
+        {
+            aktuelles_zutat_file = aktuelles_zutat_file->prev;
+            lese_textfile_in_zutat(aktuelles_zutat_file->file);
+            while ((aktuelle_zutat->kohlensaeure != kohlensaeure_mode) && (aktuelles_zutat_file != head_zutat_file))
+            {
+                aktuelles_zutat_file = aktuelles_zutat_file->prev;
+                lese_textfile_in_zutat(aktuelles_zutat_file->file);
+            }
+        }
+
+        uint8_t run = 1;
+        aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
+        do
+        {
+            if (strcmp(aktuelleZutatAusserhalbMaschine->name, aktuelle_zutat->name)==0)
+            {
+                strcpy(aktuelleZutatAusserhalbMaschine->name, aktuelle_zutat->name);
+                Uart_Transmit_IT_PC(aktuelleZutatAusserhalbMaschine->name);
+            }
+            aktuelleZutatAusserhalbMaschine = aktuelleZutatAusserhalbMaschine->prev;
+        } while (aktuelleZutatAusserhalbMaschine != tail_zut_Ausserhalb_Maschine && run ==1);
+
+//      char buff[50] = {'\0'};
+//      char buff2[5] = {'\0'};
+
+        // Schreibe Name der gefundenen Zutat in die ausgewählte Position.
+        char len = strlen((const char *)aktuelle_zutat->name);
+        for (int count = 0 ; count < (len + 1) ; count++)
+        {
+            *(aktuelleZutatAusserhalbMaschine->name + count) = *(aktuelle_zutat->name + count);
+        }
+    }
+
+    // Aktualisieren des Maschinen-Files
+    char buff98[20] = {'\0'};
+    strcpy((char *)buff98, (const char *)"M.txt");
+    deleteFile((unsigned char *)buff98);
+    char buff_file[512] = {'\0'};
+    char * ptr = buff_file;
+
+    write_M_file(ptr);
+
+    char buff97[20] = {'\0'};
+    strcpy((char *)buff97, (const char *)"M.txt");
+    writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
 }
 
 void send_List_Getraenke (void)
@@ -1440,8 +1601,8 @@ void renew_list(void)
 // Wurde Separat genommen, sodass das EEPROM mit aktuellen Drinks beschrieben werden kann für eine andere Standardeinstellung
 void write_M_file(char * buff_file)
 {
-    aktuelleZutatInMaschine = tail_zut_in_Maschine;
     char buff99[10] = {'\0'};
+    aktuelleZutatInMaschine = tail_zut_in_Maschine;
     for (int count = 0 ; count < 12 ; count++)
     {
         if (count != 0)
@@ -1461,22 +1622,41 @@ void write_M_file(char * buff_file)
         strcat((char *)buff_file, (const char *)",");
         itoa(aktuelleZutatInMaschine->kohlensaeure, (char *)buff99, 10);
         strcat((char *)buff_file, (const char *)buff99);
-        if (aktuelleZutatInMaschine != head_zut_in_Maschine)
+        strcat((char *)buff_file, (const char *)"\r");
+        aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+    }
+    strcat((char *)buff_file, (const char *)";\r");
+
+    aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
+    for (int count = 0 ; count < 12 ; count++)
+    {
+        strcat((char *)buff_file, (const char *)aktuelleZutatAusserhalbMaschine->name);
+        strcat((char *)buff_file, (const char *)",");
+        itoa(aktuelleZutatAusserhalbMaschine->status, (char *)buff99, 10);
+        strcat((char *)buff_file, (const char *)buff99);
+        strcat((char *)buff_file, (const char *)",");
+        itoa(aktuelleZutatAusserhalbMaschine->alkohol, (char *)buff99, 10);
+        strcat((char *)buff_file, (const char *)buff99);
+        strcat((char *)buff_file, (const char *)",");
+        itoa(aktuelleZutatAusserhalbMaschine->kohlensaeure, (char *)buff99, 10);
+        strcat((char *)buff_file, (const char *)buff99);
+        if (aktuelleZutatAusserhalbMaschine != head_zut_Ausserhalb_Maschine)
         {
             strcat((char *)buff_file, (const char *)"\r");
         }
         else
         {
-            strcat(buff_file, "~");
+            strcat(buff_file, "\r;\r~");
         }
-        aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+        aktuelleZutatAusserhalbMaschine = aktuelleZutatAusserhalbMaschine->prev;
     }
+    Uart_Transmit_IT_PC((char *)buff_file);
 
 //  uint8_t len = strlen(buff_file);
 //  address_Standardwiederherstellung = 0;
 //  for (uint8_t xxy = 0 ; xxy <len ; xxy++)
 //  {
-//      eeprom_write_byte(address_Standardwiederherstellung +xxy, *(buff_file+xxy))
+//      eeprom_write_byte(address_Standardwiederherstellung +xxy, *(buff_file+xxy));
 //  }
 }
 

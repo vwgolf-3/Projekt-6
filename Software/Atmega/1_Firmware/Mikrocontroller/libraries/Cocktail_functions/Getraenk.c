@@ -60,10 +60,11 @@ uint8_t check_existence(uint8_t file)
                 uint8_t count = 0;
                 uint8_t run = 1;
                 aktuelleZutatInMaschine = tail_zut_in_Maschine;
+                aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
 
                 while (run)
                 {
-                    if((strcmp((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0))
+                    if((strcmp((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0)||(strcmp((char *)ptr, (char *)aktuelleZutatAusserhalbMaschine->name) == 0))
                     {
                         run = 0;
                         ptr = strtok(NULL, delimiter);
@@ -75,6 +76,7 @@ uint8_t check_existence(uint8_t file)
                     }
                     count ++;
                     aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
+                    aktuelleZutatAusserhalbMaschine = aktuelleZutatAusserhalbMaschine->prev;
                 }
                 ptr = strtok(NULL, delimiter);
                 counter ++;
@@ -110,7 +112,7 @@ void cocktails_init(void)
                 - Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
     **************************************************************************************************************/
-    for ( int8_t count = 0 ; count <= 40; count++)
+    for ( int8_t count = 0 ; count <= 30; count++)
     {
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);

@@ -26,7 +26,6 @@ unsigned char   RB_writeByte(ring_buffer_t *rb, unsigned char data);
 unsigned char   RB_read(ring_buffer_t *rb, unsigned char *data, unsigned char datal);
 unsigned char   RB_write( ring_buffer_t *rb, char *data, unsigned char datal );
 
-ring_buffer_t rb_tx_PC;
 ring_buffer_t rb_rx_PC;
 
 ring_buffer_t rb_rx_Display;

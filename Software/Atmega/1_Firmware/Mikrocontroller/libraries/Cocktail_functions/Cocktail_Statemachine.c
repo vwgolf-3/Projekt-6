@@ -406,7 +406,7 @@ void check_listenanzeige(uint8_t button)
         {
             nextion_change_page(LISTENANZEIGE);
             block_list_runter = 0;
-			actual_list_node_file = actual_list_node_file->next;
+            actual_list_node_file = actual_list_node_file->next;
             erstelle_Liste_name(actual_list_node_file->getraenk_x, "cocktail");
         }
         break;
@@ -439,7 +439,7 @@ void check_listenanzeige(uint8_t button)
         */
         block_list_hoch = 0;
         block_list_runter = 0;
-		
+
         actual_list_node_file = tail_list_node_file;
         getraenk_file_3_t * tmp = NULL;
         do
@@ -1597,9 +1597,39 @@ void check_loeschanzeige(uint8_t button)
     }
 }
 
+void begin_erstelle_Liste_Zutat_Pos(uint8_t ks, uint8_t nr)
+{
+    zutat_list_node_t * tmp;
+
+    // Die Zutaten werden ab Beginn gesucht.
+    aktuelles_zutat_file = tail_zutat_file;
+
+    // Die Listen-Pointer werden mit 0 initialisiert
+    head_zutat_list_node = NULL;
+    tail_zutat_list_node = NULL;
+
+    // Suche erstes File ohne Kohensäure
+    lese_textfile_in_zutat(aktuelles_zutat_file->file);
+
+    // Erstelle eine neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt. Erste Zutat = Erster Eintrag des jeweiligen Listenabschnitts.
+    tmp = create_new_list_node_zut_file(aktuelles_zutat_file);
+    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
+
+    // Initialisiere den Pointer auf den aktuellen ersten Eintrag der Liste (welche den Pointer auf die erste Zutat ohne Kohlensäure beinhaltet)
+    aktuelle_zutat_list_node = head_zutat_list_node;
+    lese_textfile_in_zutat(aktuelle_zutat_list_node->zutat_xy->file);
+
+    // Screibe die erste Seite der Liste. Return value = Erster Eintrag der nächsten Seite. (Sind keine weiteren Einträge vorhanden, wird der letzte Eintrag zurückgegeben. ==> head_zutat_file)
+    nextion_change_page(FLUESSANZEIGE1);
+    buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, tail_zutat_file, "fluessigkeit");
+
+    // Erweitere die neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt, um ein Element.
+    tmp = create_new_list_node_zut_file(buffer_zutat_file);
+    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
+}
+
 void check_posanzeige(uint8_t button)
 {
-    i_Liste = 0;
     switch (button)
     {
     case B0:
@@ -1608,35 +1638,10 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 0 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-//         aktuelles_zutat_file = tail_zutat_file;
-//         zutat_list_node_t * tmp;
-//         tmp = create_new_list_node_zut_file(aktuelles_zutat_file);
-//         aktuelle_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
-// 
-//         nextion_change_page(FLUESSANZEIGE1);
-// 
-//         setze_aktuelle_Zutat_in_Maschine_prev(0);
-// 
-//         erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-// 		
-// 		
-// 		
-        aktuelles_zutat_file = tail_zutat_file;
-        zutat_list_node_t * tmp;
-        head_zutat_list_node = NULL;
-        tail_zutat_list_node = NULL;
-        tmp = create_new_list_node_zut_file(aktuelles_zutat_file);
-        head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
-        aktuelle_zutat_list_node = tail_zutat_list_node;
-
-        nextion_change_page(LISTENANZEIGE);
-
-        buffer_zutat_file = erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-
-        // Zweiten Listenabschnitt erstellen
-        tmp = create_new_list_node_zut_file(aktuelles_zutat_file);
-        head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
-		
+        kohlensaeure_mode = 0;
+        // Setzt die Zutat, welche Beschrieben werden soll.
+        setze_aktuelle_Zutat_in_Maschine_prev(0);
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,0);
         break;
 
     case B1:
@@ -1645,15 +1650,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 1 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(1);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-		
-		
-
-		
-		
-		
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,1);
         break;
 
     case B2:
@@ -1662,9 +1661,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 2 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(2);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,2);
         break;
 
     case B3:
@@ -1673,9 +1672,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 3 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(3);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,3);
         break;
 
     case B4:
@@ -1684,9 +1683,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 4 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(4);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,4);
         break;
 
     case B5:
@@ -1695,9 +1694,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 5 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(5);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,5);
         break;
 
     case B6:
@@ -1706,9 +1705,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 6 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(6);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,6);
         break;
 
     case B7:
@@ -1717,9 +1716,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 7 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(7);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,7);
         break;
 
     case B8:
@@ -1728,9 +1727,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 8 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(8);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,8);
         break;
 
     case B9:
@@ -1739,9 +1738,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 9 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(9);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,9);
         break;
 
     case B10:
@@ -1750,9 +1749,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 10 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(10);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,10);
         break;
 
     case B11:
@@ -1761,9 +1760,9 @@ void check_posanzeige(uint8_t button)
                     - Auf ausgewählte Position zeigen (Pos 11 in Liste), damit die Zutat darin abgelegt werden kann
                     - Liste erstellen für Zutatenauswahl, welche in die Maschine gestellt wird
         */
-        nextion_change_page(FLUESSANZEIGE1);
+        kohlensaeure_mode = 0;
         setze_aktuelle_Zutat_in_Maschine_prev(11);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,11);
         break;
 
     case ZURUECK3:
@@ -1777,8 +1776,9 @@ void check_posanzeige(uint8_t button)
         /*      0x0E = 0b14
                     - Wechsle auf Menuanzeige
         */
-        nextion_change_page(FLUESSANZEIGE1);
-        erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        kohlensaeure_mode = 1;
+        begin_erstelle_Liste_Zutat_Pos(kohlensaeure_mode,0);
+
         break;
     }
 }
@@ -1791,42 +1791,96 @@ void check_fluessanzeige1(uint8_t button)
         /*      0x01 = 0b01
                     - Lese File an Stelle 0 der Liste und setze Status VOLL
         */
-        setze_Fluessgkeit_in_Position(0, VOLL);
+        if (kohlensaeure_mode == 0)
+        {
+            setze_Fluessgkeit_in_Position(0, VOLL);
+        }
+        if (kohlensaeure_mode == 1)
+        {
+            block_list_runter = 0;
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->next->zutat_xy, "fluessigkeit");
+//             setze_Fluessgkeit_in_Position_Aussen(0, VOLL);
+        }
         break;
 
     case FLUESSIGKEIT2:
         /*      0x02 = 0b02
                     - Lese File an Stelle 1 der Liste und setze Status VOLL
         */
-        setze_Fluessgkeit_in_Position(1, VOLL);
+        if (kohlensaeure_mode == 0)
+        {
+            setze_Fluessgkeit_in_Position(1, VOLL);
+        }
+        else
+        {
+            block_list_runter = 0;
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+//             setze_Fluessgkeit_in_Position_Aussen(1, VOLL);
+        }
         break;
 
     case FLUESSIGKEIT3:
         /*      0x03 = 0b03
                     - Lese File an Stelle 2 der Liste und setze Status VOLL
         */
-        setze_Fluessgkeit_in_Position(2, VOLL);
+        if (kohlensaeure_mode == 0)
+        {
+            setze_Fluessgkeit_in_Position(2, VOLL);
+        }
+        else
+        {
+            block_list_runter = 0;
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+//             setze_Fluessgkeit_in_Position_Aussen(2, VOLL);
+        }
         break;
 
     case FLUESSIGKEIT4:
         /*      0x04 = 0b04
                     - Lese File an Stelle 3 der Liste und setze Status VOLL
         */
-        setze_Fluessgkeit_in_Position(3, VOLL);
+        if (kohlensaeure_mode == 0)
+        {
+            setze_Fluessgkeit_in_Position(3, VOLL);
+        }
+        else
+        {
+            block_list_runter = 0;
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+//             setze_Fluessgkeit_in_Position_Aussen(3, VOLL);
+        }
         break;
 
     case FLUESSIGKEIT5:
         /*      0x05 = 0b05
                     - Lese File an Stelle 4 der Liste und setze Status VOLL
         */
-        setze_Fluessgkeit_in_Position(4, VOLL);
+        if (kohlensaeure_mode == 0)
+        {
+            setze_Fluessgkeit_in_Position(4, VOLL);
+        }
+        else
+        {
+            block_list_runter = 0;
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+//             setze_Fluessgkeit_in_Position_Aussen(4, VOLL);
+        }
         break;
 
     case FLUESSIGKEIT6:
         /*      0x06 = 0b06
                     - Lese File an Stelle 5 der Liste und setze Status VOLL
         */
-        setze_Fluessgkeit_in_Position(5, VOLL);
+        if (kohlensaeure_mode == 0)
+        {
+            setze_Fluessgkeit_in_Position(5, VOLL);
+        }
+        else
+        {
+            block_list_runter = 0;
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+//             setze_Fluessgkeit_in_Position_Aussen(5, VOLL);
+        }
         break;
 
     case RAUFLIST5:
@@ -1834,17 +1888,12 @@ void check_fluessanzeige1(uint8_t button)
                     - Untere Blockierung aufheben
                     - Gehe Liste um 6 Getränke hoch, falls nicht schon am oberen Ende
                     - Schreibe Cocktailnamen in die Liste*/
-        block_list_runter = 0;
         if (!block_list_hoch)
         {
-//             block_list_runter = 0;
-//             aktuelle_zutat_list_node = aktuelle_zutat_list_node->next;
-//             free(aktuelle_zutat_list_node->prev);
-//             erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-			
             block_list_runter = 0;
             aktuelle_zutat_list_node = aktuelle_zutat_list_node->next;
-            erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+            nextion_change_page(FLUESSANZEIGE1);
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
         }
         break;
 
@@ -1856,18 +1905,15 @@ void check_fluessanzeige1(uint8_t button)
         */
         if (!block_list_runter)
         {
-//             block_list_hoch = 0;
-//             i_Liste += 1;
-//             aktuelle_zutat_list_node = aktuelle_zutat_list_node->prev;
-//             erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-			
+
             block_list_hoch = 0;
             aktuelle_zutat_list_node = aktuelle_zutat_list_node->prev;
-            buffer_zutat_file = erstelle_Liste_Zutat_Pos(aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+            nextion_change_page(FLUESSANZEIGE1);
+            buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
             if (aktuelle_zutat_list_node==head_zutat_list_node)
             {
-	            zutat_list_node_t * tmp = create_new_list_node_zut_file(buffer_zutat_file);
-	            head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
+                zutat_list_node_t * tmp = create_new_list_node_zut_file(buffer_zutat_file);
+                head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
             }
         }
         break;
@@ -1922,18 +1968,20 @@ void check_fluessanzeige2(uint8_t button)
                     - Name in aktuellesGetraenk schreiben
                     - i_Liste für Listenabschnitt auf 0 setzen
         */
+
+        // Wurde kein Name eingegeben, wird user darüber informiert.
         if (strlen(buff_name) == 0)
         {
             nextion_setText("neuefluesstxt", "Bitte mindestens ein Zeichen eigeben.");
         }
         else
+            // Weiter zur nächsten Seite, der Name wird in der aktuellen Zutat gespeichert.
         {
             nextion_change_page(FLUESSANZEIGE4-1);
-            uint8_t len = strlen((const char *)buff_name);
-            for (int count = 0 ; count < len + 1; count++)
-            {
-                *(aktuelle_zutat->name + count) = *(buff_name + count);
-            }
+            strcpy(aktuelle_zutat->name,(const char *)buff_name);
+			Uart_Transmit_IT_PC("Tastatureingabe Name: ");
+			Uart_Transmit_IT_PC(aktuelle_zutat->name);
+			Uart_Transmit_IT_PC("\r");
         }
         break;
     }
@@ -1943,9 +1991,10 @@ void check_fluessanzeige3(uint8_t button)
 {
     char buff_filename[15] = {'\0'};
     char buff_string[50] = {'\0'};
-    char buff_itoa[5] = {'\0'};
     char * ptr = buff_string;
+    char buff_itoa[5] = {'\0'};
     zutat_file_t * tmp;
+
     switch (button)
     {
     case JA1:
@@ -1965,25 +2014,36 @@ void check_fluessanzeige3(uint8_t button)
                     - Liste mit Zutaten erstellen
                     - Name der aktuellen Zutat auf 0 initialisieren
         */
+
+        // Zeige dem User, was geschieht
         nextion_change_page(RFIDFEHLER);
         nextion_setText("fehlertxt", "Zutat wird probiert und \\rgespeichert...");
 
-        strcpy(ptr, (const char *)"Name:");
-        strcat(ptr, (const char *)aktuelle_zutat->name);
-        strcat(ptr, (const char *)"\rAlkohol:");
+        // Überprüfe ob Ja/Nein
         if (button == JA1)
         {
-            itoa(1, (char *)buff_itoa, 10);
+            aktuelle_zutat->alkohol = 1;
         }
         if (button == NEIN2)
         {
-            itoa(0, (char *)buff_itoa, 10);
+            aktuelle_zutat->alkohol = 0;
         }
+
+        // Erstelle String, um Zutat zu speichern
+        strcpy(ptr, (const char *)"Name:");
+        strcat(ptr, (const char *)aktuelle_zutat->name);
+        strcat(ptr, (const char *)"\rAlkohol:");
+        itoa(aktuelle_zutat->alkohol, (char *)buff_itoa, 10);
+        strcat(ptr, (const char *)buff_itoa);
+        strcat(ptr, (const char *)"\rKohlensaeure:");
+        itoa(aktuelle_zutat->kohlensaeure, (char *)buff_itoa, 10);
         strcat(ptr, (const char *)buff_itoa);
         strcat(ptr, (const char *)"~");
 
+        // Suche nächste freie Nummer für File.
         uint8_t stop_suche = 0;
-        uint8_t count = 1;
+        int8_t count = 1;
+
         while (stop_suche == 0)
         {
             // String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
@@ -1991,11 +2051,9 @@ void check_fluessanzeige3(uint8_t button)
             itoa(count, (char *)buff_itoa, 10);
             strcat((char *)buff_filename, (const char *)buff_itoa);
             strcat((char *)buff_filename, (const char *)".txt");
-
             // Prüfen ob File existiert
             if(readFile(VERIFY, (unsigned char *)buff_filename)!=1)
             {
-                // Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
                 tmp = create_new_zutat_file(count);
                 head_zutat_file = insert_zutat_file_at_head(&head_zutat_file, tmp);
                 stop_suche = 1;
@@ -2003,17 +2061,28 @@ void check_fluessanzeige3(uint8_t button)
             }
             count++;
         }
+
+        // File abspeichern
         strcpy((char *)buff_filename, (const char *)"Z");
         itoa(count, (char *)buff_itoa, 10);
         strcat((char *)buff_filename, (const char *)buff_itoa);
         strcat((char *)buff_filename, (const char *)".txt");
         writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
-
-        i_Liste = 0;
-        block_list_runter = 0;
-        block_list_hoch = 0;
-
-        strcpy((char *)aktuelleZutatInMaschine->name, (const char *)buff_name);
+		
+        aktuelles_zutat_file = tail_zutat_file;
+        do
+        {
+	        char buff[5] = {'\0'};
+	        itoa(aktuelles_zutat_file->file, (char *)buff, 10);
+	        Uart_Transmit_IT_PC((char *)buff);
+	        lese_textfile_in_zutat(aktuelles_zutat_file->file);
+	        Uart_Transmit_IT_PC(aktuelle_zutat->name);
+	        Uart_Transmit_IT_PC("\r");
+	        _delay_ms(10);
+	        aktuelles_zutat_file = aktuelles_zutat_file->prev;
+        } while (aktuelles_zutat_file != tail_zutat_file);
+		
+        // Resetten des buff_name
         uint8_t len = strlen((const char *)buff_name);
         for (int count = 0 ; count < len + 1; count++)
         {
@@ -2021,7 +2090,19 @@ void check_fluessanzeige3(uint8_t button)
         }
         counter = 0;
 
-        setze_Fluessgkeit_in_Position(7, VOLL);
+        // Falls neue Zutat im Kohensäuremodus gestartet wurde
+        if (kohlensaeure_mode == 0)
+        {
+            if (aktuelle_zutat->kohlensaeure == 0)
+            {
+                setze_Fluessgkeit_in_Position(7, VOLL);
+            }
+        }
+        else
+        {
+            setze_Fluessgkeit_in_Position_Aussen(4, VOLL);
+            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+        }
         break;
 
     case ZURUECK7:
@@ -2168,9 +2249,9 @@ void check_RFIDAnzeige1(uint8_t button)
                     - Wechsle auf Zutatenanzeige
                     -
         */
-        block_list_runter = 0;
         if (!block_list_hoch)
         {
+            block_list_runter = 0;
             i_Liste -=6;
 
             // Getränkedurchwahr bei Tail starten.
@@ -2256,9 +2337,9 @@ void check_RFIDAnzeige1(uint8_t button)
                     - Wechsle auf Zutatenanzeige
                     -
         */
-        block_list_hoch = 0;
         if (!block_list_runter)
         {
+            block_list_hoch = 0;
             i_Liste +=6;
             // Getränkedurchwahr bei Tail starten.
             aktueller_tag = tail_tag;
@@ -2388,9 +2469,9 @@ void check_RFIDAnzeige2(uint8_t button)
                     - Gehe Liste um 8 Getränke hoch, falls nicht schon am oberen Ende
                     - Schreibe Cocktailnamen in die Liste
         */
-        block_list_runter = 0;
         if (!block_list_hoch)
         {
+            block_list_runter = 0;
             i_Liste -= 1;
             erstelle_Liste_name(liste_vorher_getraenk_file, "cocktail");
         }
@@ -2402,9 +2483,9 @@ void check_RFIDAnzeige2(uint8_t button)
                     - Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
                     - Schreibe Cocktailnamen in die Liste
         */
-        block_list_hoch = 0;
         if (!block_list_runter)
         {
+            block_list_hoch = 0;
             i_Liste += 1;
             erstelle_Liste_name(liste_nacher_getraenk_file, "cocktail");
         }
