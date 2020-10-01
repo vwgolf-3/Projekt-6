@@ -14,49 +14,52 @@
 #include <stdlib.h>                                         // Wird benötigt für Variabelnumwandlungen (z.B itoa(), atoi(), ...)
 #include <string.h>                                         // Wird benötigt würd Stringoperationen (z.B strcpy(), strcat(), ...)
 #include "../SD-Karte/FAT32.h"                              // Wird benötigt für Lese- und Schreiboperationen auf die SD-Karte
+
+
+
 /******************************************************************************************************************************/
-
-
-/******************************************************************************************************************************/
-uint8_t * address_Standardwiederherstellung;                // EEprom address-Pointer für die Standardwiederherstellung
-/******************************************************************************************************************************/
-
-
+// Physikalisch vorhandener Speicher für eine Zutat (Wird nur 1x initialisiert)
 /******************************************************************************************************************************/
 struct zutat {                                              // Struckt für die aktuelle Zutat (wird nur 1 Mal initialisiert)
-	char * name;                                            // Pointer auf den Speicher für den Namen der aktuellen Zutat
-	uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
-	uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
+    char * name;                                            // Pointer auf den Speicher für den Namen der aktuellen Zutat
+    uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
+    uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
 };
 typedef struct zutat zutat_t;                               // Typedef für Struct zutat_t
 
 zutat_t *aktuelle_zutat;                                    // Pointer auf aktuelle Zutat
-/******************************************************************************************************************************/
+
+
 
 /******************************************************************************************************************************/
+// Aufgrund des Problems mit Kohlensäure Ja/Nein, wird in zwei Listen unterteilt: Zutaten in und ausserhab der Maschine
+/******************************************************************************************************************************/
 struct zutat_Maschine {                                     // Struckt für Zutaten in Maschine (wird 12 Mal initialisiert)
-	char * name;                                            // Pointer auf den Speicher für den Namen der Zutat in Maschine
-	uint8_t status;                                         // Speicher für den Status (KEINGETRAENK=0, VOLL=1, LEER=2)
-	uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
-	uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
-	uint8_t stelle;                                         // Speicher für Position der Zutat in der Maschine
-	uint32_t position_motor;                                       // Speicher für Position der Zutat in der Maschine
-	struct zutat_Maschine* next;                            // Pointer auf das zuvor eingefügte Getränk
-	struct zutat_Maschine* prev;                            // Pointer auf das danach eingefügte Getränk
+    char * name;                                            // Pointer auf den Speicher für den Namen der Zutat in Maschine
+    uint8_t status;                                         // Speicher für den Status (KEINGETRAENK=0, VOLL=1, LEER=2)
+    uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
+    uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
+    uint8_t stelle;                                         // Speicher für Position der Zutat in der Maschine
+    uint32_t position_motor;                                // Speicher für Position der Zutat in der Maschine
+    struct zutat_Maschine* next;                            // Pointer auf das zuvor eingefügte Getränk
+    struct zutat_Maschine* prev;                            // Pointer auf das danach eingefügte Getränk
 };
 typedef struct zutat_Maschine zutatMaschine_t;              // Typedef für Struct zutat_t
 
-zutatMaschine_t *aktuelleZutatInMaschine;                   // Pointer auf aktuelle Zutat in Maschine
-zutatMaschine_t *head_zut_in_Maschine;                      // Pointer auf zuletzt in die Liste eingefügte Zutat in der Maschine
-zutatMaschine_t *tail_zut_in_Maschine;                      // Pointer auf erstes in die Liste eingefügte Zutat in der Maschine
-/******************************************************************************************************************************/
+zutatMaschine_t *aktuelle_Zutat_in_Maschine_ohne_KS;        // Pointer auf aktuelle Zutat (ohne Kohlensäure) in Maschine
+zutatMaschine_t *buffer_zut_in_Maschine_ohne_KS;              // Pointer auf zuletzt in die Liste eingefügte Zutat (ohne Kohlensäure) in der Maschine
+zutatMaschine_t *head_zut_in_Maschine_ohne_KS;              // Pointer auf zuletzt in die Liste eingefügte Zutat (ohne Kohlensäure) in der Maschine
+zutatMaschine_t *tail_zut_in_Maschine_ohne_KS;              // Pointer auf erstes in die Liste eingefügte Zutat (ohne Kohlensäure) in der Maschine
+
+zutatMaschine_t *aktuelle_Zutat_ausser_Maschine_mit_KS;     // Pointer auf aktuelle Zutat (mit Kohlensäure) in Maschine
+zutatMaschine_t *buffer_zut_ausser_Maschine_mit_KS;           // Pointer auf zuletzt in die Liste eingefügte Zutat (mit Kohlensäure) in der Maschine
+zutatMaschine_t *head_zut_ausser_Maschine_mit_KS;           // Pointer auf zuletzt in die Liste eingefügte Zutat (mit Kohlensäure) in der Maschine
+zutatMaschine_t *tail_zut_ausser_Maschine_mit_KS;           // Pointer auf erstes in die Liste eingefügte Zutat (mit Kohlensäure) in der Maschine
+
+
 
 /******************************************************************************************************************************/
-zutatMaschine_t *aktuelleZutatAusserhalbMaschine;                   // Pointer auf aktuelle Zutat in Maschine
-zutatMaschine_t *head_zut_Ausserhalb_Maschine;                      // Pointer auf zuletzt in die Liste eingefügte Zutat in der Maschine
-zutatMaschine_t *tail_zut_Ausserhalb_Maschine;                      // Pointer auf erstes in die Liste eingefügte Zutat in der Maschine
-/******************************************************************************************************************************/
-
+// Die Zutaten Files werden auch nach Kohensäure sortiert.
 /******************************************************************************************************************************/
 struct zutat_file {                                         // Struckt für Zutaten-Files (wird nach Anzahl Files initialisiert)
     uint8_t file;                                           // Speicher für Variable des Filenamens
@@ -65,56 +68,114 @@ struct zutat_file {                                         // Struckt für Zutat
 };
 typedef struct zutat_file zutat_file_t;                     // Typedef für Struct zutat_file_t
 
-zutat_file_t * aktuelles_zutat_file;                        // Pointer auf aktuelle Zutat in Maschine
-zutat_file_t * buffer_zutat_file;                        // Pointer auf aktuelle Zutat in Maschine
-zutat_file_t * head_zutat_file;                             // Pointer auf zuletzt in die Liste eingefügtes Zutaten-File
-zutat_file_t * tail_zutat_file;                             // Pointer auf erstes in die Liste eingefügtes Zutaten-File
-/******************************************************************************************************************************/
+zutat_file_t * buffer_zutat_file;                           // Pointer auf aktuelle Zutat in Maschine
 
+zutat_file_t * aktuelles_Zutat_file_in_Maschine_ohne_KS;                        // Pointer auf aktuelle Zutat in Maschine
+zutat_file_t * head_Zutat_file_in_Maschine_ohne_KS;                             // Pointer auf zuletzt in die Liste eingefügtes Zutaten-File
+zutat_file_t * tail_Zutat_file_in_Maschine_ohne_KS;                             // Pointer auf erstes in die Liste eingefügtes Zutaten-File
 
-/******************************************************************************************************************************/
-void zutaten_init(void);                                    // Funktion für die Initialisierung der Zutaten und deren Speicher
-/******************************************************************************************************************************/
+zutat_file_t * aktuelles_Zutat_file_ausser_Maschine_mit_KS;                        // Pointer auf aktuelle Zutat in Maschine
+zutat_file_t * head_Zutat_file_ausser_Maschine_mit_KS;                             // Pointer auf zuletzt in die Liste eingefügtes Zutaten-File
+zutat_file_t * tail_Zutat_file_ausser_Maschine_mit_KS;                             // Pointer auf erstes in die Liste eingefügtes Zutaten-File
 
-
-/******************************************************************************************************************************/
-zutat_t *create_zutat();                                    // Funktion zur Alloziierung des Speicherplatzes für zutat_t
-/******************************************************************************************************************************/
 
 
 /******************************************************************************************************************************/
-// Funktion für das aneinanderreihen der Listeneinträge für zutatMaschine_t (Eingrag wird am head eingefügt)
-zutatMaschine_t *insert_zutat_Maschine_at_head(zutatMaschine_t **head_zutat, zutatMaschine_t **tail_zutat, zutatMaschine_t *zutat_to_insert);
-
-// Funktion zur Alloziierung des Speicherplatzes für zutatMaschine_t
-zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t kohlensaeure, uint8_t k, uint32_t positon_motor);
-/******************************************************************************************************************************/
-
-
-/******************************************************************************************************************************/
-// Funktion für das aneinanderreihen der Listeneinträge für zutat_file_t (Eingrag wird am head eingefügt)
-zutat_file_t *insert_zutat_file_at_head(zutat_file_t **head, zutat_file_t *file_to_insert);
-
-// Funktion zur Alloziierung des Speicherplatzes für zutat_file_t
-zutat_file_t *create_new_zutat_file(uint8_t file_to_create);
-/******************************************************************************************************************************/
-
-
+// Listen-Funktionen für die Listen-Anzeige (schnelleres Finden der aktuellen Position)
 /******************************************************************************************************************************/
 struct zutat_list_node {                                    // Struckt für die aktuelle Zutat (wird nur 1 Mal initialisiert)
-	zutat_file_t * zutat_xy;                                     // Pointer auf den Speicher für den Namen der aktuellen Zutat
+	zutat_file_t * zutat_xy;                                // Pointer auf den Speicher für den Namen der aktuellen Zutat
 	struct zutat_list_node * prev;                          // Speicher für Alkohol Ja/Nein
 	struct zutat_list_node * next;                          // Speicher für Alkohol Ja/Nein
 };
 typedef struct zutat_list_node zutat_list_node_t;           // Typedef für Struct zutat_t
 
 zutat_list_node_t *aktuelle_zutat_list_node;                // Pointer auf aktuelle Zutat
-zutat_list_node_t *buffer_zutat_list_node;                // Pointer auf aktuelle Zutat
-zutat_list_node_t *tail_zutat_list_node;					// Pointer auf aktuelle Zutat
-zutat_list_node_t *head_zutat_list_node;					// Pointer auf aktuelle Zutat
+zutat_list_node_t *buffer_zutat_list_node;                  // Pointer auf aktuelle Zutat
+zutat_list_node_t *tail_zutat_list_node;                    // Pointer auf aktuelle Zutat
+zutat_list_node_t *head_zutat_list_node;                    // Pointer auf aktuelle Zutat
+
+
 /******************************************************************************************************************************/
+// Listen-Funktionen für die Listen-Anzeige (schnelleres Finden der aktuellen Position)
+/******************************************************************************************************************************/
+struct zutatMaschine_list_node {                                    // Struckt für die aktuelle Zutat (wird nur 1 Mal initialisiert)
+	zutatMaschine_t * zutat_xy;                                // Pointer auf den Speicher für den Namen der aktuellen Zutat
+	struct zutatMaschine_list_node * prev;                          // Speicher für Alkohol Ja/Nein
+	struct zutatMaschine_list_node * next;                          // Speicher für Alkohol Ja/Nein
+};
+typedef struct zutatMaschine_list_node zutatMaschine_list_node_t;           // Typedef für Struct zutat_t
+
+zutatMaschine_list_node_t *aktuelle_zutatMaschine_list_node;                // Pointer auf aktuelle Zutat
+zutatMaschine_list_node_t *buffer_zutatMaschine_list_node;                  // Pointer auf aktuelle Zutat
+zutatMaschine_list_node_t *tail_zutatMaschine_list_node;                    // Pointer auf aktuelle Zutat
+zutatMaschine_list_node_t *head_zutatMaschine_list_node;                    // Pointer auf aktuelle Zutat
 
 
-zutat_list_node_t *insert_zutat_list_node_at_head(zutat_list_node_t **head, zutat_list_node_t *file_to_insert);
+
+/******************************************************************************************************************************/
+// Initialisierung des physikalischen speichers und der Listen
+/******************************************************************************************************************************/
+void zutaten_init(void);                                    // Funktion für die Initialisierung der Zutaten und deren Speicher
+
+
+
+/******************************************************************************************************************************/
+// Physikalischer Speicher für die aktuelle Zutat
+/******************************************************************************************************************************/
+zutat_t *create_zutat();                                    // Funktion zur Alloziierung des Speicherplatzes für zutat_t
+
+
+
+/******************************************************************************************************************************/
+// Listen-Funktionen Zutat in und ausserhalb der Maschinen
+/******************************************************************************************************************************/
+// Funktion für das aneinanderreihen der Listeneinträge für zutatMaschine_t (Eingrag wird am head eingefügt)
+zutatMaschine_t *insert_zutat_Maschine_at_head(zutatMaschine_t **head_zutat, zutatMaschine_t **tail_zutat, zutatMaschine_t *zutat_to_insert);
+
+// Funktion zur Alloziierung des Speicherplatzes für zutatMaschine_t
+zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t kohlensaeure, uint8_t k, uint32_t positon_motor);
+
+
+
+/******************************************************************************************************************************/
+// Listen-Funktionen für die Files mit/ohne Kohlensäure
+/******************************************************************************************************************************/
+// Funktion zur Alloziierung des Speicherplatzes für zutat_file_t
+zutat_file_t *create_new_zutat_file(uint8_t file_to_create);
+
+// Funktion für das aneinanderreihen der Listeneinträge für zutat_file_t (Eingrag wird am head eingefügt)
+zutat_file_t *insert_zutat_file_at_head(zutat_file_t **head, zutat_file_t **tail, zutat_file_t *file_to_insert);
+
+
+
+/******************************************************************************************************************************/
+// Listen-Funktionen für die Listen-Anzeige (schnelleres Finden der aktuellen Position)
+/******************************************************************************************************************************/
+// Funktion zur Alloziierung des Speicherplatzes für zutat_list_node_t
 zutat_list_node_t *create_new_list_node_zut_file( zutat_file_t * file_to_link);
+
+// Funktion für das aneinanderreihen der Listeneinträge für zutat_list_node_t (Eingrag wird am head eingefügt)
+zutat_list_node_t *insert_zutat_list_node_at_head(zutat_list_node_t **head, zutat_list_node_t *file_to_insert);
+
+
+
+/******************************************************************************************************************************/
+// Listen-Funktionen für die Listen-Anzeige (schnelleres Finden der aktuellen Position)
+/******************************************************************************************************************************/
+// Funktion zur Alloziierung des Speicherplatzes für zutat_list_node_t
+zutatMaschine_list_node_t *create_new_list_node_zutMaschine_file( zutatMaschine_t * file_to_link);
+
+// Funktion für das aneinanderreihen der Listeneinträge für zutat_list_node_t (Eingrag wird am head eingefügt)
+zutatMaschine_list_node_t *insert_zutatMaschine_list_node_at_head(zutatMaschine_list_node_t **head, zutatMaschine_list_node_t *file_to_insert);
+
+
+
+/******************************************************************************************************************************/
+// Eeprom-Variable
+/******************************************************************************************************************************/
+uint8_t * address_Standardwiederherstellung;                // EEprom address-Pointer für die Standardwiederherstellung
+
+
+
 #endif /* ZUTATEN_H_ */

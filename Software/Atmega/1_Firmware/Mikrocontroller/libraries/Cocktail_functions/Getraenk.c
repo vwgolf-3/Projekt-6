@@ -59,12 +59,12 @@ uint8_t check_existence(uint8_t file)
 
                 uint8_t count = 0;
                 uint8_t run = 1;
-                aktuelleZutatInMaschine = tail_zut_in_Maschine;
-                aktuelleZutatAusserhalbMaschine = tail_zut_Ausserhalb_Maschine;
+                aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+                aktuelle_Zutat_ausser_Maschine_mit_KS = tail_zut_ausser_Maschine_mit_KS;
 
                 while (run)
                 {
-                    if((strcmp((char *)ptr, (char *)aktuelleZutatInMaschine->name) == 0)||(strcmp((char *)ptr, (char *)aktuelleZutatAusserhalbMaschine->name) == 0))
+                    if((strcmp((char *)ptr, (char *)aktuelle_Zutat_in_Maschine_ohne_KS->name) == 0)||(strcmp((char *)ptr, (char *)aktuelle_Zutat_ausser_Maschine_mit_KS->name) == 0))
                     {
                         run = 0;
                         ptr = strtok(NULL, delimiter);
@@ -75,8 +75,8 @@ uint8_t check_existence(uint8_t file)
                         exists = 0;
                     }
                     count ++;
-                    aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
-                    aktuelleZutatAusserhalbMaschine = aktuelleZutatAusserhalbMaschine->prev;
+                    aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
+                    aktuelle_Zutat_ausser_Maschine_mit_KS = aktuelle_Zutat_ausser_Maschine_mit_KS->prev;
                 }
                 ptr = strtok(NULL, delimiter);
                 counter ++;

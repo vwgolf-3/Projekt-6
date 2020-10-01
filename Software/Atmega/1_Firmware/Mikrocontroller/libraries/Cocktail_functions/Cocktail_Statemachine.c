@@ -509,14 +509,23 @@ void check_menuanzeige(uint8_t button)
                     - Setze Listenabschnitt auf 1. Abschnitt
                     - Erstelle ersten Listenabschnitt mit Cocktailnamen
         */
+        bufferGetraenk_file = aktuellesGetraenk_file;
+
         aktuellesGetraenk_file = tail_getraenk_file;
         getraenk_file_3_t * tmp;
+        head_list_node_file = NULL;
+        tail_list_node_file = NULL;
         tmp = create_new_list_node_file(aktuellesGetraenk_file);
-        actual_list_node_file = insert_list_node_at_head(&head_list_node_file, tmp);
+        head_list_node_file = insert_list_node_at_head(&head_list_node_file, tmp);
+        actual_list_node_file = tail_list_node_file;
 
         nextion_change_page(BEARBEITUNGSANZEIGE);
-        i_Liste = 0;
-        erstelle_Liste_name(actual_list_node_file->getraenk_x, "cocktail");
+
+        buffer2Getraenk_file = erstelle_Liste_name(actual_list_node_file->getraenk_x, "cocktail");
+
+        // Zweiten Listenabschnitt erstellen
+        tmp = create_new_list_node_file(buffer2Getraenk_file);
+        head_list_node_file = insert_list_node_at_head(&head_list_node_file, tmp);
         break;
 
     case COCKTAILERSTELLEN:
@@ -647,18 +656,14 @@ void check_bearbeitungsanzeige(uint8_t button)
                     - Gehe Liste um 8 Getränke hoch, falls nicht schon am oberen Ende
                     - Schreibe Cocktailnamen in die Liste
         */
+
         if (!block_list_hoch)
         {
+            nextion_change_page(BEARBEITUNGSANZEIGE);
             block_list_runter = 0;
-            i_Liste -= 1;
             actual_list_node_file = actual_list_node_file->next;
-
-            free(actual_list_node_file->prev);
-
-            nextion_change_page(LISTENANZEIGE);
             erstelle_Liste_name(actual_list_node_file->getraenk_x, "cocktail");
         }
-
         break;
 
     case RUNTERLIST2:
@@ -667,14 +672,17 @@ void check_bearbeitungsanzeige(uint8_t button)
                     - Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
                     - Schreibe Cocktailnamen in die Liste
         */
-        block_list_hoch = 0;
         if (!block_list_runter)
         {
             block_list_hoch = 0;
-            i_Liste += 1;
-            nextion_change_page(LISTENANZEIGE);
+            nextion_change_page(BEARBEITUNGSANZEIGE);
             actual_list_node_file = actual_list_node_file->prev;
-            erstelle_Liste_name(actual_list_node_file->getraenk_x, "cocktail");
+            buffer2Getraenk_file = erstelle_Liste_name(actual_list_node_file->getraenk_x, "cocktail");
+            if (actual_list_node_file->getraenk_x->file == head_list_node_file->getraenk_x->file)
+            {
+                getraenk_file_3_t * tmp = create_new_list_node_file(buffer2Getraenk_file);
+                head_list_node_file = insert_list_node_at_head(&head_list_node_file, tmp);
+            }
         }
         break;
 
@@ -705,30 +713,35 @@ void check_ceinstanzeige(uint8_t button)
     switch(button)
     {
     case RAUFLIST3:
-        /*      0x01 = 0b01
+        /*      0x07 = 0b07c
                     - Untere Blockierung aufheben
-                    - Gehe Liste um 4 Zutaten hoch, falls nicht schon am oberen Ende
-                    - Schreibe Cocktailnamen in die Liste
-        */
-        block_list_runter = 0;
+                    - Gehe Liste um 6 Getränke hoch, falls nicht schon am oberen Ende
+                    - Schreibe Cocktailnamen in die Liste*/
         if (!block_list_hoch)
         {
-            i_Liste -= 4;
-            erstelle_Liste_zutat("zutat");
+            block_list_runter = 0;
+            aktuelle_zutatMaschine_list_node = aktuelle_zutatMaschine_list_node->next;
+            erstelle_Liste_zutat(aktuelle_zutatMaschine_list_node->zutat_xy, "zutat");
         }
         break;
 
     case RUNTERLIST3:
-        /*      0x02 = 0b02
+        /*      0x08 = 0b08
                     - Obere Blockierung aufheben
-                    - Gehe Liste um 4 Zutaten runter, falls nicht schon am untern Ende
+                    - Gehe Liste um 6 Getränke runter, falls nicht schon am unteren Ende
                     - Schreibe Cocktailnamen in die Liste
         */
-        block_list_hoch = 0;
         if (!block_list_runter)
         {
-            i_Liste += 4;
-            erstelle_Liste_zutat("zutat");
+
+            block_list_hoch = 0;
+            aktuelle_zutatMaschine_list_node = aktuelle_zutatMaschine_list_node->prev;
+            buffer_zut_in_Maschine_ohne_KS = erstelle_Liste_zutat(aktuelle_zutatMaschine_list_node->zutat_xy, "zutat");
+            if (aktuelle_zutatMaschine_list_node==head_zutatMaschine_list_node)
+            {
+                zutatMaschine_list_node_t * tmp = create_new_list_node_zutMaschine_file(buffer_zut_in_Maschine_ohne_KS);
+                head_zutatMaschine_list_node = insert_zutatMaschine_list_node_at_head(&head_zutatMaschine_list_node, tmp);
+            }
         }
         break;
 
@@ -1396,7 +1409,7 @@ void check_erstanzeige1(uint8_t button)
             }
             counter = 0;
             i_Liste = 0;
-            erstelle_Liste_zutat("zutat");
+            erstelle_Liste_zutat(NULL, "zutat");
         }
         break;
     }
@@ -1494,23 +1507,23 @@ void check_erstanzeige2(uint8_t button)
             uint8_t alkohol = 0;
             uint8_t kohlensaeure = 0;
 
-            aktuelleZutatInMaschine = tail_zut_in_Maschine;
+            aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
             do
             {
-                if (*(aktuellesGetraenk->mengen + aktuelleZutatInMaschine->stelle) > 0)
+                if (*(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) > 0)
                 {
-                    if (aktuelleZutatInMaschine->alkohol == 1)
+                    if (aktuelle_Zutat_in_Maschine_ohne_KS->alkohol == 1)
                     {
                         alkohol = 1;
                     }
 
-                    if (aktuelleZutatInMaschine->kohlensaeure == 1)
+                    if (aktuelle_Zutat_in_Maschine_ohne_KS->kohlensaeure == 1)
                     {
                         kohlensaeure = 1;
                     }
                 }
-                aktuelleZutatInMaschine = aktuelleZutatInMaschine->prev;
-            } while (aktuelleZutatInMaschine!= tail_zut_in_Maschine);
+                aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
+            } while (aktuelle_Zutat_in_Maschine_ohne_KS!= tail_zut_in_Maschine_ohne_KS);
             aktuellesGetraenk->alkohol = alkohol;
 
             // Suche von 1 bis 100 durch die Files
@@ -1599,33 +1612,42 @@ void check_loeschanzeige(uint8_t button)
 
 void begin_erstelle_Liste_Zutat_Pos(uint8_t ks, uint8_t nr)
 {
-    zutat_list_node_t * tmp;
+    zutat_list_node_t * tmp_node;
+    zutat_file_t * tmp_file;
+    kohlensaeure_mode = ks;
 
     // Die Zutaten werden ab Beginn gesucht.
-    aktuelles_zutat_file = tail_zutat_file;
+    if (kohlensaeure_mode == 0)
+    {
+        tmp_file = tail_Zutat_file_in_Maschine_ohne_KS;
+    }
+    else
+    {
+        tmp_file = tail_Zutat_file_ausser_Maschine_mit_KS;
+    }
 
     // Die Listen-Pointer werden mit 0 initialisiert
     head_zutat_list_node = NULL;
     tail_zutat_list_node = NULL;
 
     // Suche erstes File ohne Kohensäure
-    lese_textfile_in_zutat(aktuelles_zutat_file->file);
+    lese_textfile_in_zutat(tmp_file->file);
 
     // Erstelle eine neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt. Erste Zutat = Erster Eintrag des jeweiligen Listenabschnitts.
-    tmp = create_new_list_node_zut_file(aktuelles_zutat_file);
-    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
+    tmp_node = create_new_list_node_zut_file(tmp_file);
+    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp_node);
 
     // Initialisiere den Pointer auf den aktuellen ersten Eintrag der Liste (welche den Pointer auf die erste Zutat ohne Kohlensäure beinhaltet)
     aktuelle_zutat_list_node = head_zutat_list_node;
     lese_textfile_in_zutat(aktuelle_zutat_list_node->zutat_xy->file);
 
-    // Screibe die erste Seite der Liste. Return value = Erster Eintrag der nächsten Seite. (Sind keine weiteren Einträge vorhanden, wird der letzte Eintrag zurückgegeben. ==> head_zutat_file)
+    // Screibe die erste Seite der Liste. Return value = Erster Eintrag der nächsten Seite. (Sind keine weiteren Einträge vorhanden, wird der letzte Eintrag zurückgegeben. ==> head_Zutat_file_in_Maschine_ohne_KS)
     nextion_change_page(FLUESSANZEIGE1);
-    buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, tail_zutat_file, "fluessigkeit");
+    buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, tmp_file, "fluessigkeit");
 
     // Erweitere die neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt, um ein Element.
-    tmp = create_new_list_node_zut_file(buffer_zutat_file);
-    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp);
+    tmp_node = create_new_list_node_zut_file(buffer_zutat_file);
+    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp_node);
 }
 
 void check_posanzeige(uint8_t button)
@@ -1798,8 +1820,7 @@ void check_fluessanzeige1(uint8_t button)
         if (kohlensaeure_mode == 1)
         {
             block_list_runter = 0;
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->next->zutat_xy, "fluessigkeit");
-//             setze_Fluessgkeit_in_Position_Aussen(0, VOLL);
+            setze_Fluessgkeit_in_Position_Aussen(0, VOLL);
         }
         break;
 
@@ -1814,8 +1835,7 @@ void check_fluessanzeige1(uint8_t button)
         else
         {
             block_list_runter = 0;
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-//             setze_Fluessgkeit_in_Position_Aussen(1, VOLL);
+            setze_Fluessgkeit_in_Position_Aussen(1, VOLL);
         }
         break;
 
@@ -1830,8 +1850,7 @@ void check_fluessanzeige1(uint8_t button)
         else
         {
             block_list_runter = 0;
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-//             setze_Fluessgkeit_in_Position_Aussen(2, VOLL);
+            setze_Fluessgkeit_in_Position_Aussen(2, VOLL);
         }
         break;
 
@@ -1846,8 +1865,7 @@ void check_fluessanzeige1(uint8_t button)
         else
         {
             block_list_runter = 0;
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-//             setze_Fluessgkeit_in_Position_Aussen(3, VOLL);
+            setze_Fluessgkeit_in_Position_Aussen(3, VOLL);
         }
         break;
 
@@ -1862,8 +1880,7 @@ void check_fluessanzeige1(uint8_t button)
         else
         {
             block_list_runter = 0;
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-//             setze_Fluessgkeit_in_Position_Aussen(4, VOLL);
+            setze_Fluessgkeit_in_Position_Aussen(4, VOLL);
         }
         break;
 
@@ -1878,13 +1895,12 @@ void check_fluessanzeige1(uint8_t button)
         else
         {
             block_list_runter = 0;
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
-//             setze_Fluessgkeit_in_Position_Aussen(5, VOLL);
+            setze_Fluessgkeit_in_Position_Aussen(5, VOLL);
         }
         break;
 
     case RAUFLIST5:
-        /*      0x07 = 0b07
+        /*      0x07 = 0b07c
                     - Untere Blockierung aufheben
                     - Gehe Liste um 6 Getränke hoch, falls nicht schon am oberen Ende
                     - Schreibe Cocktailnamen in die Liste*/
@@ -1892,7 +1908,6 @@ void check_fluessanzeige1(uint8_t button)
         {
             block_list_runter = 0;
             aktuelle_zutat_list_node = aktuelle_zutat_list_node->next;
-            nextion_change_page(FLUESSANZEIGE1);
             erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
         }
         break;
@@ -1908,7 +1923,6 @@ void check_fluessanzeige1(uint8_t button)
 
             block_list_hoch = 0;
             aktuelle_zutat_list_node = aktuelle_zutat_list_node->prev;
-            nextion_change_page(FLUESSANZEIGE1);
             buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
             if (aktuelle_zutat_list_node==head_zutat_list_node)
             {
@@ -1941,7 +1955,6 @@ void check_fluessanzeige1(uint8_t button)
                     - Färbe die Nummern der Positionen gemäss Status
                     - i_Liste für Listenabschnitt auf 0 setzen
         */
-        i_Liste = 0;
         block_list_hoch = 0;
         block_list_runter = 0;
         nextion_change_page(POSANZEIGE);
@@ -1979,9 +1992,9 @@ void check_fluessanzeige2(uint8_t button)
         {
             nextion_change_page(FLUESSANZEIGE4-1);
             strcpy(aktuelle_zutat->name,(const char *)buff_name);
-			Uart_Transmit_IT_PC("Tastatureingabe Name: ");
-			Uart_Transmit_IT_PC(aktuelle_zutat->name);
-			Uart_Transmit_IT_PC("\r");
+            Uart_Transmit_IT_PC("Tastatureingabe Name: ");
+            Uart_Transmit_IT_PC(aktuelle_zutat->name);
+            Uart_Transmit_IT_PC("\r");
         }
         break;
     }
@@ -2051,43 +2064,39 @@ void check_fluessanzeige3(uint8_t button)
             itoa(count, (char *)buff_itoa, 10);
             strcat((char *)buff_filename, (const char *)buff_itoa);
             strcat((char *)buff_filename, (const char *)".txt");
+
             // Prüfen ob File existiert
             if(readFile(VERIFY, (unsigned char *)buff_filename)!=1)
             {
+                // File abspeichern
+                strcpy((char *)buff_filename, (const char *)"Z");
+                itoa(count, (char *)buff_itoa, 10);
+                strcat((char *)buff_filename, (const char *)buff_itoa);
+                strcat((char *)buff_filename, (const char *)".txt");
+                writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
+
                 tmp = create_new_zutat_file(count);
-                head_zutat_file = insert_zutat_file_at_head(&head_zutat_file, tmp);
+                lese_textfile_in_zutat(count);
+                if (aktuelle_zutat->kohlensaeure == 0)
+                {
+                    head_Zutat_file_in_Maschine_ohne_KS = insert_zutat_file_at_head(&head_Zutat_file_in_Maschine_ohne_KS, &tail_Zutat_file_in_Maschine_ohne_KS, tmp);
+                }
+                else
+                {
+                    head_Zutat_file_ausser_Maschine_mit_KS = insert_zutat_file_at_head(&head_Zutat_file_ausser_Maschine_mit_KS, &tail_Zutat_file_ausser_Maschine_mit_KS, tmp);
+                }
                 stop_suche = 1;
-                count--;
             }
             count++;
         }
 
-        // File abspeichern
-        strcpy((char *)buff_filename, (const char *)"Z");
-        itoa(count, (char *)buff_itoa, 10);
-        strcat((char *)buff_filename, (const char *)buff_itoa);
-        strcat((char *)buff_filename, (const char *)".txt");
-        writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
-		
-        aktuelles_zutat_file = tail_zutat_file;
-        do
-        {
-	        char buff[5] = {'\0'};
-	        itoa(aktuelles_zutat_file->file, (char *)buff, 10);
-	        Uart_Transmit_IT_PC((char *)buff);
-	        lese_textfile_in_zutat(aktuelles_zutat_file->file);
-	        Uart_Transmit_IT_PC(aktuelle_zutat->name);
-	        Uart_Transmit_IT_PC("\r");
-	        _delay_ms(10);
-	        aktuelles_zutat_file = aktuelles_zutat_file->prev;
-        } while (aktuelles_zutat_file != tail_zutat_file);
-		
-        // Resetten des buff_name
+        // Resetten des buff_name und counter
         uint8_t len = strlen((const char *)buff_name);
-        for (int count = 0 ; count < len + 1; count++)
+        for (uint8_t kk = 0 ; kk == len ; kk++)
         {
-            buff_name[count] = '\0';
+            buff_name[kk] = '\0';
         }
+
         counter = 0;
 
         // Falls neue Zutat im Kohensäuremodus gestartet wurde
@@ -2097,11 +2106,22 @@ void check_fluessanzeige3(uint8_t button)
             {
                 setze_Fluessgkeit_in_Position(7, VOLL);
             }
+            else
+            {
+                setze_Fluessgkeit_in_Position(8, VOLL);
+            }
         }
         else
         {
-            setze_Fluessgkeit_in_Position_Aussen(4, VOLL);
-            erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+            if (aktuelle_zutat->kohlensaeure == 1)
+            {
+                nextion_change_page(FLUESSANZEIGE1);
+                aktuelle_zutat_list_node = tail_zutat_list_node;
+                erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
+//                 setze_Fluessgkeit_in_Position(8, VOLL);
+            }
+//             setze_Fluessgkeit_in_Position_Aussen(4, VOLL);
+//             erstelle_Liste_Zutat_Pos(kohlensaeure_mode, aktuelle_zutat_list_node->zutat_xy, "fluessigkeit");
         }
         break;
 
@@ -2586,3 +2606,62 @@ void check_LED(uint8_t button)
         break;
     }
 }
+/*
+
+    // Kohlesäuremode = 0 ==> User kann auch "keine Flüssigkeit" auswählen.
+    kohlensaeure_mode = ks;
+
+    if (kohlensaeure_mode ==0 )
+    {
+        nextion_visible_on("b1");
+    }
+
+    zutat_file_t * tmp_file_tail;
+    zutat_file_t * tmp_file_head;
+    zutat_file_t * tmp_file_actual = beginn_file;
+    zutat_file_t * tmp_file_return = beginn_file;
+
+    // Die Zutaten werden ab Beginn gesucht.
+    if (kohlensaeure_mode == 0)
+    {
+        tmp_file_tail = tail_Zutat_file_in_Maschine_ohne_KS;
+        tmp_file_head = head_Zutat_file_in_Maschine_ohne_KS;
+    }
+    else
+    {
+        tmp_file_tail = tail_Zutat_file_ausser_Maschine_mit_KS;
+        tmp_file_head = head_Zutat_file_ausser_Maschine_mit_KS;
+    }
+
+    // Für alle Buttons auf der Seite ...
+    char button[50] = {'\0'};
+    char buff[5] = {0};
+    char buff10[50] = {'\0'};
+
+    for (int i = 0 ; i < 6 ; i++)
+    {
+
+       // Falls das Ende der Liste erreicht ist und Liste noch nicht blockiert,
+       // Weiteres Scrollen blockieren,
+       // Letzter Eintrag eintragen
+
+       if (tmp_actual_zut_Maschine == tmp_head_zut_Maschine && !block_list_runter)
+       {
+
+       }
+
+       else if (block_list_runter)
+       {
+
+       }
+
+       else
+       {
+
+       }
+
+       tmp_actual_zut_Maschine = tmp_actual_zut_Maschine->prev;
+    }
+    return tmp_file_return;
+	
+	*/

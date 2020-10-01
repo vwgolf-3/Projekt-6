@@ -58,7 +58,7 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 
 // Getränke-Pointer
 getraenk_file_t * erstelle_Liste_name(getraenk_file_t * beginn_file, char * name_button);
-void erstelle_Liste_zutat(char * input);
+zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char * input);
 
 uint8_t lese_sensor(uint8_t Sensor);
 
