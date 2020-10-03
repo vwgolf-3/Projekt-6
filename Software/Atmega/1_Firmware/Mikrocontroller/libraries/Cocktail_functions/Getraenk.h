@@ -31,13 +31,6 @@ struct getraenk_file {
 };
 typedef struct getraenk_file getraenk_file_t;
 
-struct getraenk_file_2 {
-	uint8_t file;
-	struct getraenk_file_2 * next;
-	struct getraenk_file_2 * prev;
-};
-typedef struct getraenk_file_2 getraenk_file_2_t;
-
 struct getraenk_file_3 {
 	getraenk_file_t * getraenk_x;
 	struct getraenk_file_3 * next;
@@ -55,9 +48,9 @@ getraenk_file_t * liste_vorher_getraenk_file;
 getraenk_file_t * liste_start_getraenk_file;
 getraenk_file_t * liste_nacher_getraenk_file;
 
-getraenk_file_2_t *aktuellesGetraenk_file_2;
-getraenk_file_2_t * head_getraenk_file_2;
-getraenk_file_2_t * tail_getraenk_file_2;
+getraenk_file_t *aktuellesGetraenk_file_2;
+getraenk_file_t * head_getraenk_file_2;
+getraenk_file_t * tail_getraenk_file_2;
 
 getraenk_t *aktuellesGetraenk;
 getraenk_t *head_getraenk;  // Getränk-Pointer
@@ -90,8 +83,8 @@ void delete_EEPROM (uint8_t * add);
 getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *file_to_insert);
 getraenk_file_t *create_new_getraenk_file(uint8_t file_to_create);
 
-getraenk_file_2_t *insert_file_at_head_2(getraenk_file_2_t **head, getraenk_file_2_t *file_to_insert);
-getraenk_file_2_t *create_new_getraenk_file_2(uint8_t file_to_create);
+getraenk_file_t *insert_file_at_head_2(getraenk_file_t **head, getraenk_file_t *file_to_insert);
+getraenk_file_t *create_new_getraenk_file_2(uint8_t file_to_create);
 
 getraenk_file_3_t *create_new_list_node_file(getraenk_file_t * getraenk_to_point_on);
 getraenk_file_3_t *insert_list_node_at_head(getraenk_file_3_t **head, getraenk_file_3_t *file_to_insert);

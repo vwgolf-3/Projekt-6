@@ -22,26 +22,25 @@ void bearbeite_Cocktail(uint8_t cocktail)
 {
 //     choose_aktuellesGetraenk(cocktail);
 
-	// Wähle geklickten Cocktail aus und schreibe ihn von SD in physikalischen Speicher
+    // Wähle geklickten Cocktail aus und schreibe ihn von SD in physikalischen Speicher
     getraenk_file_t * tmp = actual_list_node_file->getraenk_x;
     for (uint8_t cnt = 0 ; cnt < cocktail; cnt++)
     {
         tmp = tmp->prev;
     }
-    lese_textfile_in_getraenk(tmp->file);
+    aktuellesGetraenk_file = tmp;
+    lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
     Uart_Transmit_IT_PC(aktuellesGetraenk->name);
     Uart_Transmit_IT_PC("\r");
 
-	// Neue Liste beginnt == Blockierung aufheben
+    // Neue Liste beginnt == Blockierung aufheben
     block_list_hoch = 0;
     block_list_runter = 0;
-
-
     zutatMaschine_list_node_t * tmp_node;
     zutatMaschine_t * tmp_file;
 
     // Die Zutaten werden ab Beginn gesucht.
-	tmp_file = tail_zut_in_Maschine_ohne_KS;
+    tmp_file = tail_zut_in_Maschine_ohne_KS;
 
     // Die Listen-Pointer werden mit 0 initialisiert
     head_zutatMaschine_list_node = NULL;
@@ -50,8 +49,8 @@ void bearbeite_Cocktail(uint8_t cocktail)
     // Erstelle eine neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt. Erste Zutat = Erster Eintrag des jeweiligen Listenabschnitts.
     tmp_node = create_new_list_node_zutMaschine_file(tmp_file);
     head_zutatMaschine_list_node = insert_zutatMaschine_list_node_at_head(&head_zutatMaschine_list_node, tmp_node);
-	Uart_Transmit_IT_PC(head_zutatMaschine_list_node->zutat_xy->name);
-	Uart_Transmit_IT_PC("\r");
+    Uart_Transmit_IT_PC(head_zutatMaschine_list_node->zutat_xy->name);
+    Uart_Transmit_IT_PC("\r");
     // Initialisiere den Pointer auf den aktuellen ersten Eintrag der Liste (welche den Pointer auf die erste Zutat ohne Kohlensäure beinhaltet)
     aktuelle_zutatMaschine_list_node = head_zutatMaschine_list_node;
 
@@ -61,9 +60,7 @@ void bearbeite_Cocktail(uint8_t cocktail)
 
     // Erweitere die neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt, um ein Element.
     tmp_node = create_new_list_node_zutMaschine_file(buffer_zut_in_Maschine_ohne_KS);
-    head_zutatMaschine_list_node = insert_zutatMaschine_list_node_at_head(&head_zutatMaschine_list_node, tmp_node);	
-	Uart_Transmit_IT_PC(head_zutatMaschine_list_node->zutat_xy->name);
-	Uart_Transmit_IT_PC("\r");
+    head_zutatMaschine_list_node = insert_zutatMaschine_list_node_at_head(&head_zutatMaschine_list_node, tmp_node);
 }
 
 void zubereitung_getraenk(uint32_t Menge)
@@ -80,6 +77,36 @@ void zubereitung_getraenk(uint32_t Menge)
 
 void schreibe_Menge_in_Getraenk(uint8_t zutat)
 {
+    zutatMaschine_t * tmp_zut_Maschine_actual_2 = aktuelle_zutatMaschine_list_node->zutat_xy;
+    for (int count = 0 ; count < zutat; count++)
+    {
+        tmp_zut_Maschine_actual_2 = tmp_zut_Maschine_actual_2->prev;
+    }
+// Aneinanderreihen zweier Listen
+
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+    zutatMaschine_t * tmp_zut_Maschine_tail;
+//     zutatMaschine_t * tmp_zut_Maschine_head;
+    zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+// Anfang und Ende der gesamten Liste
+    tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+//     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+    head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
     nextion_setText("t0", "");
     uint8_t val = 0;
     char buff[15] = {0};
@@ -88,16 +115,28 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
 
     uint8_t totval = 0;
     uint8_t restval = 0;
-    // Alle Werte aus den anderen Mengen holen
+    char buff333[5] = {'\0'};
 
-    for (int count = 0 ; count < 12 ; count++)
+    // Alle Werte aus den anderen Mengen holen
+    tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
+    do
     {
-        if (count != (zutat + i_Liste))
-        {
-            totval += *(aktuellesGetraenk->mengen + count);
-        }
-    }
-    restval = 100 - totval;
+        totval += tmp_zut_Maschine_actual->menge;
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+    } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
+
+    itoa(totval, (char *)buff333, 10);
+    Uart_Transmit_IT_PC("\rTotal-Val 1: ");
+    Uart_Transmit_IT_PC((char *)buff333);
+    Uart_Transmit_IT_PC("\r");
+
+    restval = 100 - (totval - tmp_zut_Maschine_actual_2->menge);
+    itoa(restval, (char *)buff333, 10);
+	
+	
+    Uart_Transmit_IT_PC("Rest-Val: ");
+    Uart_Transmit_IT_PC((char *)buff333);
+    Uart_Transmit_IT_PC("\r");
 
     // String, um Slider auszuwählen
     strcpy((char *)buff, (const char *)"slider");
@@ -113,11 +152,31 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
         nextion_setText("t0", "Schon 100% erreicht");
     }
 
-    *(aktuellesGetraenk->mengen+(i_Liste+zutat)) = val;
-
+    tmp_zut_Maschine_actual_2->menge = val;
+    itoa(val, (char *)buff333, 10);
+    Uart_Transmit_IT_PC("Name: ");
+    Uart_Transmit_IT_PC(tmp_zut_Maschine_actual_2->name);
+    Uart_Transmit_IT_PC("\rVal: ");
+    Uart_Transmit_IT_PC((char *)buff333);
+    Uart_Transmit_IT_PC("\r");
     // String um Text zu Setzen
     itoa((int)val, (char *)buff2, 10);
     strcat((char *)buff2, "%");
+
+    totval = 0;
+    // Alle Werte aus den anderen Mengen holen
+    tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
+    do
+    {
+        totval += tmp_zut_Maschine_actual->menge;
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+    } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
+
+    itoa(totval, (char *)buff333, 10);
+    Uart_Transmit_IT_PC("\rTotal-Val 2: ");
+    Uart_Transmit_IT_PC((char *)buff333);
+    Uart_Transmit_IT_PC("\r");
+
 
     // String um Textfeld auszuwählen
     strcpy((char *)buff, (const char *)"menge");
@@ -138,6 +197,11 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat)
     // Text schreiben
     nextion_setValue(buff,buff2);
     _delay_ms(2);
+
+    head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+    head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+    tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
 }
 
 void choose_aktuellesGetraenk(uint8_t nr)
@@ -445,34 +509,40 @@ void schreibe_Getraenk_in_tag(uint8_t nr)
 
 getraenk_file_t * erstelle_Liste_name(getraenk_file_t * beginn_file, char * name_button)
 {
-    getraenk_file_t * tmp = head_getraenk_file;
+    getraenk_file_t * tmp_file_tail;
+    getraenk_file_t * tmp_file_head;
+    getraenk_file_t * tmp_file_actual = beginn_file;
+
+    tmp_file_tail = tail_getraenk_file;
+    tmp_file_head = head_getraenk_file;
+
     // Für alle Buttons auf der Seite ...
     // Initialisierungen
-    char button[21] = {'\0'};
-    char buff[4] = {0};
-    char buff10[20] = {'\0'};
+    char button[50] = {'\0'};
+    char buff[5] = {0};
 
-    strcat((char *)buff10, (const char *)name_button);
-    itoa((i + 1), (char *)buff, 10);
-    strcat((char *)buff10, (const char *)buff);
-
-    nextion_enableButton(buff10);
-
-    aktuellesGetraenk_file = beginn_file;
-
-    for (int i = 0 ; i < 6 ; i++)
+    for (int count = 0 ; count < 6 ; count++)
     {
+        // Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
+        if(tmp_file_actual == tmp_file_tail && !block_list_runter)
+        {
+            block_list_hoch = 1;
+        }
+
+        lese_textfile_in_getraenk(tmp_file_actual->file);
+        Uart_Transmit_IT_PC(aktuellesGetraenk->name);
+        Uart_Transmit_IT_PC("\r");
         // Schreibe Zahl und Name des Buttons in String
-        itoa((i + 1),buff,10);
+        itoa((count + 1), (char *)buff, 10);
         strcpy((char *)button, (const char *)name_button);
         strcat((char *)button, (const char *)buff);
+        nextion_enableButton(button);
 
         // Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
         // runterscrollen blockieren und letzter Name einschreiben.
-        if (aktuellesGetraenk_file == head_getraenk_file && !block_list_runter)
+        if (tmp_file_actual == tmp_file_head && !block_list_runter)
         {
             block_list_runter = 1;
-            lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
             nextion_setText(button,aktuellesGetraenk->name);
         }
 
@@ -486,79 +556,87 @@ getraenk_file_t * erstelle_Liste_name(getraenk_file_t * beginn_file, char * name
             // Sicherheitsdelay, Programm stürzt sonst ab
             _delay_ms(10);
 
-            // Schreibe Text und Buttonnummer für disable in String
-            strcpy((char *)buff10, (const char *)name_button);
-            itoa((i + 1), (char *)buff, 10);
-            strcat((char *)buff10, (const char *)buff);
-
             // Disable Button
-            nextion_disableButton(buff10);
+            nextion_disableButton(button);
         }
 
         //Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
         else
         {
-            lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
             nextion_setText(button,aktuellesGetraenk->name);
         }
 
-        // Falls das obere Ende der Liste erreicht wird, hochscrollen blockieren
-        if(aktuellesGetraenk_file == tail_getraenk_file && !block_list_runter)
-        {
-            block_list_hoch = 1;
-        }
-
         // Ein Getraenk weiter Scrollen
-        aktuellesGetraenk_file = aktuellesGetraenk_file->prev;
+        tmp_file_actual = tmp_file_actual->prev;
 
-        if (i == 5 && block_list_runter == 0)
+        if (count == 5)
         {
-            tmp = aktuellesGetraenk_file;
+            if (block_list_runter == 1)
+            {
+                return beginn_file;
+            }
+            else
+            {
+                return tmp_file_actual;
+            }
         }
-
-
 
         // Sicherheitsdelay, Programm stürzt sonst ab
         _delay_ms(10);
     }
-    return tmp;
+    return NULL;
 }
 
 zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char * input)
 {
-///////////////////////////
     // Strings für Name/Slider/Wert
     char string[21] = {'\0'};
     char string2[21] = {'\0'};
     char string3[21] = {'\0'};
-		
+
     // Itoa-Buffer
     char buff[5] = {0};
 
-    // Für Liste
+// Aneinanderreihen zweier Listen
+
+    // Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
     zutatMaschine_t * tmp_zut_Maschine_tail;
     zutatMaschine_t * tmp_zut_Maschine_head;
     zutatMaschine_t * tmp_zut_Maschine_actual = beginn_Maschine;
     zutatMaschine_t * tmp_zut_Maschine_return = beginn_Maschine;
 
-    // Beide Listen aneinanderhängen
+    // Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+    // Anfang und Ende der gesamten Liste
     tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
 
-    zutatMaschine_t * tmp_ohne = head_zut_in_Maschine_ohne_KS->prev;
-    zutatMaschine_t * tmp_mit = head_zut_ausser_Maschine_mit_KS->next;
+    // Äussere Verbindungen
+    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
 
+    // Innere Verbindungen
+    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
     head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
-    head_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+
+// head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+// head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+// tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+// tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
 
     for (int count = 0 ; count < 4 ; count++)
     {
-	Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
-	Uart_Transmit_IT_PC("\r");
-	asm("nop");
-	
+        Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+        Uart_Transmit_IT_PC("\r");
+        asm("nop");
+
         // Schreibe Buttonname, Slidername und Anzeiename in einen String
         itoa((count+1),buff,10);
+
         strcpy((char *)string, (const char *)input);
         strcat((char *)string, (const char *)buff);
 
@@ -568,6 +646,9 @@ zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char *
         strcpy((char *)string3, (const char *)"menge");
         strcat((char *)string3, (const char *)buff);
 
+        nextion_visible_on(string);
+        nextion_visible_on(string2);
+        nextion_visible_on(string3);
 
         // Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
         // (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
@@ -577,24 +658,39 @@ zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char *
             block_list_hoch = 1;
         }
 
+        while(tmp_zut_Maschine_actual->status == 0 && tmp_zut_Maschine_actual != tmp_zut_Maschine_head)
+        {
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+        }
+
         // Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
         // runterscrollen, blockieren und letzter Name einschreiben.
         if (tmp_zut_Maschine_actual == tmp_zut_Maschine_head && !block_list_runter)
         {
             block_list_runter = 1;
-			nextion_setText(string,tmp_zut_Maschine_actual->name);
-			itoa(*(aktuellesGetraenk->mengen+tmp_zut_Maschine_actual->stelle),buff,10);
-            nextion_setValue(string2,buff);
-            strcat(buff, "%");
-            nextion_setText(string3,buff);
+            if (tmp_zut_Maschine_actual->status == 1)
+            {
+                nextion_setText(string,tmp_zut_Maschine_actual->name);
+                itoa(tmp_zut_Maschine_actual->menge,buff,10);
+                nextion_setValue(string2,buff);
+                strcat(buff, "%");
+                nextion_setText(string3,buff);
+            }
+            else
+            {
+                nextion_visible_off(string);
+                nextion_visible_off(string2);
+                nextion_visible_off(string3);
+            }
         }
 
         // Sonst, wenn Liste Blockiert
         // Leerer String in Feld schreiben
         else if (block_list_runter)
         {
-            nextion_setText(string,"");
-            nextion_setValue(string2,"0");
+            nextion_visible_off(string);
+            nextion_visible_off(string2);
+            nextion_visible_off(string3);
         }
 
         // Im Normalbetrieb Zutat in Feld schreiben,
@@ -602,7 +698,7 @@ zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char *
         else
         {
             nextion_setText(string,tmp_zut_Maschine_actual->name);
-            itoa(*(aktuellesGetraenk->mengen+tmp_zut_Maschine_actual->stelle),buff,10);
+            itoa(tmp_zut_Maschine_actual->menge,buff,10);
             nextion_setValue(string2,buff);
             strcat(buff, "%");
             nextion_setText(string3,buff);
@@ -621,10 +717,12 @@ zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char *
         _delay_ms(10);
     }
 
-    head_zut_in_Maschine_ohne_KS->prev = tmp_ohne;
-    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit;
-	Uart_Transmit_IT_PC(tmp_zut_Maschine_return->name);
-	Uart_Transmit_IT_PC("\r");
+    head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+    head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+    tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
+    Uart_Transmit_IT_PC(tmp_zut_Maschine_return->name);
+    Uart_Transmit_IT_PC("\r");
     return tmp_zut_Maschine_return;
 }
 
@@ -692,6 +790,31 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk)
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 {
 
+// Aneinanderreihen zweier Listen
+
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+    zutatMaschine_t * tmp_zut_Maschine_tail;
+//     zutatMaschine_t * tmp_zut_Maschine_head;
+    zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+// Anfang und Ende der gesamten Liste
+    tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+//     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+    head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
 //                  - Erstelle lokale Variable für itoa-Buffer
 //                  - Erstelle lokale Variable für Stringkette
 //                  - Erstelle lokale Variable für Zutaten
@@ -706,25 +829,29 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
     char buff[10] = {'\0'};
     char string[512] = {'\0'};
 
-    aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+    tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
 
-    for (uint8_t count = 0 ; count<12 ; count++)
+    do
     {
-        if (*(aktuellesGetraenk->mengen + count) > (uint8_t)0)
+        if (tmp_zut_Maschine_actual->menge > (uint8_t)0)
         {
-            strcat((char *)string, (const char *)aktuelle_Zutat_in_Maschine_ohne_KS->name);
-            for (int count2 = 0 ; count2<(20-strlen(aktuelle_Zutat_in_Maschine_ohne_KS->name)) ; count2++)
+            strcat((char *)string, (const char *)tmp_zut_Maschine_actual->name);
+            for (int count2 = 0 ; count2<(20-strlen(tmp_zut_Maschine_actual->name)) ; count2++)
             {
                 strcat((char *)string,(const char *)"-");
             }
             strcat((char *)string, (const char *)"(");
-            itoa(*(aktuellesGetraenk->mengen + count),(char *)buff, 10);
+            itoa(tmp_zut_Maschine_actual->menge,(char *)buff, 10);
             strcat((char *)string, (const char *)buff);
             strcat((char *)string, (const char *)"%)\\r");
         }
-        aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-    }
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+    } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
     nextion_setText("zutatenliste",string);
+    head_zut_in_Maschine_ohne_KS->prev = tmp_ohne_KS_head;
+    tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
+    head_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_head;
 }
 
 void schiebe_file_next(void)
@@ -745,6 +872,36 @@ void schiebe_file_prev(void)
 
 void lese_textfile_in_getraenk(uint8_t file)
 {
+// Aneinanderreihen zweier Listen
+
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+    zutatMaschine_t * tmp_zut_Maschine_tail;
+//     zutatMaschine_t * tmp_zut_Maschine_head;
+    zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+// Anfang und Ende der gesamten Liste
+    tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+//     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+    head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
+//     head_zut_in_Maschine_ohne_KS->prev = tmp_ohne_KS_head;
+//     tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+//     tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
+//     head_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_head;
+
     // Erstellen eines Strings in Form von: "file.txt"
     char buff[50];
     itoa((int)file,(char *)buff,10);
@@ -785,34 +942,46 @@ void lese_textfile_in_getraenk(uint8_t file)
         {
             ptr = strtok(NULL, delimiter);
 
-            aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
 
             do
             {
-                *(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) = (uint8_t) 0;
-                aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-            } while(aktuelle_Zutat_in_Maschine_ohne_KS != tail_zut_in_Maschine_ohne_KS);
+                *(aktuellesGetraenk->mengen + tmp_zut_Maschine_actual->stelle) = (uint8_t) 0;
+                tmp_zut_Maschine_actual->menge = (uint8_t) 0;
+                tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+                char buff33[5] = {'\0'};
+                itoa(*(aktuellesGetraenk->mengen + tmp_zut_Maschine_actual->stelle), (char *)buff33, 10);
+                Uart_Transmit_IT_PC("Pointer: ");
+                Uart_Transmit_IT_PC((char *)buff33);
+                Uart_Transmit_IT_PC("\r");
+                itoa(tmp_zut_Maschine_actual->menge, (char *)buff33, 10);
+                Uart_Transmit_IT_PC("Position: ");
+                Uart_Transmit_IT_PC((char *)buff33);
+                Uart_Transmit_IT_PC("\r");
+            } while(tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
+            Uart_Transmit_IT_PC("1:\r");
 
             // Suche Zutaten im File
             while(*ptr != ';')
             {
-                aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+                tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
 
                 // Suche nach richtiger Position der Zutat in der Maschine
                 do
                 {
                     // Vergleiche dafür den Namen der Zutat im File mit dem Namen der Zutat in der Maschine
-                    if(strcmp((char *)ptr, (char *)aktuelle_Zutat_in_Maschine_ohne_KS->name) == 0)
+                    if(strcmp((char *)ptr, (char *)tmp_zut_Maschine_actual->name) == 0)
                     {
                         ptr = strtok(NULL, delimiter);
 
                         // Und schreibe Wert in die richtige Position
-                        *(uint8_t *)(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) = atoi(ptr);
-                        aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+                        tmp_zut_Maschine_actual->menge = atoi(ptr);
+                        *(uint8_t *)(aktuellesGetraenk->mengen + tmp_zut_Maschine_actual->stelle) = atoi(ptr);
+                        tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
                     }
 
-                    aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-                } while(aktuelle_Zutat_in_Maschine_ohne_KS != tail_zut_in_Maschine_ohne_KS);
+                    tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+                } while(tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
 
                 ptr = strtok(NULL, delimiter);
             }
@@ -839,6 +1008,10 @@ void lese_textfile_in_getraenk(uint8_t file)
         // Neuer Kopf suchen und ptr darauf zeigen lassen
         ptr = strtok(NULL, delimiter);
     }
+    head_zut_in_Maschine_ohne_KS->prev = tmp_ohne_KS_head;
+    tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
+    head_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_head;
 }
 
 void SD_startup(void)
@@ -894,7 +1067,33 @@ void SD_startup(void)
 
 void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohlensaeure)
 {
-    char buff[128] = {0};
+
+// Aneinanderreihen zweier Listen
+
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+    zutatMaschine_t * tmp_zut_Maschine_tail;
+// zutatMaschine_t * tmp_zut_Maschine_head;
+    zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+// Anfang und Ende der gesamten Liste
+    tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+// tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+    head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
+    char buff[512] = {0};
     char * ptr = buff;
     strcat(ptr, "Name:");
     strcat(ptr, name);
@@ -902,19 +1101,21 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohle
     strcat(ptr, "\rMengen:\r");
     char buff2[5]  = {0};
 
-    aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+    tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
     do
     {
-        if (*(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) > (uint8_t) 0)
+        if (tmp_zut_Maschine_actual->menge > (uint8_t) 0)
         {
-            strcat(ptr,aktuelle_Zutat_in_Maschine_ohne_KS->name);
+            Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+            strcat(ptr,tmp_zut_Maschine_actual->name);
             strcat(ptr, (const char *)":");
-            itoa(*(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle), (char *)buff2, 10);
+            itoa(tmp_zut_Maschine_actual->menge, (char *)buff2, 10);
             strcat(ptr, (const char *)buff2);
             strcat(ptr, (const char *)"\r");
+            Uart_Transmit_IT_PC((char *)buff2);
         }
-        aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-    } while (aktuelle_Zutat_in_Maschine_ohne_KS != tail_zut_in_Maschine_ohne_KS);
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+    } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
 
     strcat(ptr, ";\r");
     strcat(ptr, "Alkohol:");
@@ -928,7 +1129,7 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohle
     strcat(ptr, "\r");
 
     strcat(ptr, "Bild:");
-    if (aktuellesGetraenk->picture != 24)
+    if (aktuellesGetraenk->picture != 32)
     {
         char buff[5];
         itoa(aktuellesGetraenk->picture,(char *)buff, 10);
@@ -936,7 +1137,7 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohle
     }
     else
     {
-        strcat(ptr, "24");
+        strcat(ptr, "32");
     }
 
     strcat(ptr, "~");
@@ -945,6 +1146,10 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohle
     itoa(filename, (char *)buff3, 10);
     strcat((char *)buff3, (const char *)".txt");
     writeFile((unsigned char *)buff3,(unsigned char *)ptr);
+    head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+    head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+    tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
 }
 
 void loesche_FIle(uint8_t filename)
@@ -1739,7 +1944,7 @@ void renew_list(void)
 
     aktuellesGetraenk_file = tail_getraenk_file;
     lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
-    nextion_change_page(MENUANZEIGE);
+    nextion_change_page(STARTANZEIGE);
 }
 
 // Wurde Separat genommen, sodass das EEPROM mit aktuellen Drinks beschrieben werden kann für eine andere Standardeinstellung
@@ -1813,4 +2018,45 @@ void display_init(void)
     block_list_runter = 0;                                  // Blockierung der Listen aufheben
     i_Liste_test_cnt = 0;
     i_Liste_test[i_Liste_test_cnt] = 0;
+}
+
+
+void begin_erstelle_Liste_Zutat_Pos(uint8_t ks, uint8_t nr)
+{
+    zutat_list_node_t * tmp_node;
+    zutat_file_t * tmp_file;
+    kohlensaeure_mode = ks;
+
+    // Die Zutaten werden ab Beginn gesucht.
+    if (kohlensaeure_mode == 0)
+    {
+        tmp_file = tail_Zutat_file_in_Maschine_ohne_KS;
+    }
+    else
+    {
+        tmp_file = tail_Zutat_file_ausser_Maschine_mit_KS;
+    }
+
+    // Die Listen-Pointer werden mit 0 initialisiert
+    head_zutat_list_node = NULL;
+    tail_zutat_list_node = NULL;
+
+    // Suche erstes File ohne Kohensäure
+    lese_textfile_in_zutat(tmp_file->file);
+
+    // Erstelle eine neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt. Erste Zutat = Erster Eintrag des jeweiligen Listenabschnitts.
+    tmp_node = create_new_list_node_zut_file(tmp_file);
+    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp_node);
+
+    // Initialisiere den Pointer auf den aktuellen ersten Eintrag der Liste (welche den Pointer auf die erste Zutat ohne Kohlensäure beinhaltet)
+    aktuelle_zutat_list_node = head_zutat_list_node;
+    lese_textfile_in_zutat(aktuelle_zutat_list_node->zutat_xy->file);
+
+    // Screibe die erste Seite der Liste. Return value = Erster Eintrag der nächsten Seite. (Sind keine weiteren Einträge vorhanden, wird der letzte Eintrag zurückgegeben. ==> head_Zutat_file_in_Maschine_ohne_KS)
+    nextion_change_page(FLUESSANZEIGE1);
+    buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, tmp_file, "fluessigkeit");
+
+    // Erweitere die neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt, um ein Element.
+    tmp_node = create_new_list_node_zut_file(buffer_zutat_file);
+    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp_node);
 }

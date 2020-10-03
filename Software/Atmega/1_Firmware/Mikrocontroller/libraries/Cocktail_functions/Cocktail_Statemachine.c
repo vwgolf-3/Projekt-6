@@ -268,7 +268,8 @@ void check_startseite(uint8_t button)
         tail_list_node_file = NULL;
         tmp = create_new_list_node_file(aktuellesGetraenk_file);
         head_list_node_file = insert_list_node_at_head(&head_list_node_file, tmp);
-        actual_list_node_file = tail_list_node_file;
+        actual_list_node_file = head_list_node_file;
+        lese_textfile_in_getraenk(actual_list_node_file->getraenk_x->file);
 
         nextion_change_page(LISTENANZEIGE);
 
@@ -535,14 +536,54 @@ void check_menuanzeige(uint8_t button)
                     - Setze counter für Buchstabenindex des neuen Cocktail-Namens = 0
                     - Initialisiere neuen Cocktailname auf '\0'
         */
+
         nextion_change_page(ERSTANZEIGE1);
+// Aneinanderreihen zweier Listen
+
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+        zutatMaschine_t * tmp_zut_Maschine_tail;
+//     zutatMaschine_t * tmp_zut_Maschine_head;
+        zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+        zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+        zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+        zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+        zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+// Anfang und Ende der gesamten Liste
+        tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+//     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+        tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+        head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+        tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+        head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
+        do
+        {
+            tmp_zut_Maschine_actual->menge = 0;
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+        } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
+
+        head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+        head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+        tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+        tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
+
         char buff10[20] = {'\0'};
         strcpy((char *)buff10, "Fs");
         strcat((char *)buff10, (const char *)".pco=2016");
         Uart_Transmit_IT_Display((char *)buff10);
         endConversation();
+
         Grossschreib = 1;
         counter = 0;
+
         char len = strlen(buff_name);
         for (int i = 0 ; i < len ; i ++)
         {
@@ -692,6 +733,8 @@ void check_bearbeitungsanzeige(uint8_t button)
                     - Gehe Liste um 8 Getränke runter, falls nicht schon am unteren Ende
                     - Schreibe Cocktailnamen in die Liste
         */
+        aktuellesGetraenk_file  = bufferGetraenk_file;
+        lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
         block_list_hoch = 0;
         block_list_runter = 0;
         i_Liste = 0;
@@ -708,6 +751,22 @@ void check_bearbeitungsanzeige(uint8_t button)
 
 void check_ceinstanzeige(uint8_t button)
 {
+// Aneinanderreihen zweier Listen
+
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+    zutatMaschine_t * tmp_zut_Maschine_tail;
+// zutatMaschine_t * tmp_zut_Maschine_head;
+    zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+
+
+
     uint8_t val = 0;
 
     switch(button)
@@ -761,16 +820,30 @@ void check_ceinstanzeige(uint8_t button)
                     - Aktuelles Getränke-File erstellen und speichern
                     - Startanzeige setzen
         */
-        for (int count = 0 ; count <12; count++)
+
+// Anfang und Ende der gesamten Liste
+        tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+// tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+        tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+        head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+        tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+        head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
+        do
         {
-            val += *(aktuellesGetraenk->mengen+count);
-        }
+            val += tmp_zut_Maschine_actual->menge;
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+        } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
 
         if (val == 100)
         {
             block_list_hoch = 0;
             block_list_runter = 0;
-            i_Liste = 0;
             nextion_change_page(RFIDFEHLER);
             nextion_setText("fehlertxt", "Wird gespeichert...");
             loesche_FIle(aktuellesGetraenk_file->file);
@@ -782,6 +855,10 @@ void check_ceinstanzeige(uint8_t button)
         {
             nextion_setText("t0", "Noch nicht 100% ausgewählt.");
         }
+        head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+        head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+        tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+        tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
         break;
 
     case SLIDER01:
@@ -817,7 +894,7 @@ void check_ceinstanzeige(uint8_t button)
         block_list_runter = 0;
         i_Liste = 0;
         nextion_change_page(STARTANZEIGE);
-        aktuellesGetraenk_file =tail_getraenk_file;
+        aktuellesGetraenk_file =bufferGetraenk_file;
         lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
         setze_startanzeige(aktuellesGetraenk);
         break;
@@ -849,7 +926,7 @@ void check_reinanzeige2(uint8_t button)
     switch(button)
     {
     case ABBRECHEN2:
-        /*      0x01 = 0b01
+        /*      0x01 = 0b01c
                     - Menuanzeige setzen
         */
         nextion_change_page(MENUANZEIGE);
@@ -1369,7 +1446,8 @@ void check_erstanzeige1(uint8_t button)
                     - Buffer für neuen Cocktail-Name rücksetzen
                     - Startanzeige setzen
         */
-        lese_textfile_in_getraenk(tail_getraenk_file->file);
+        aktuellesGetraenk_file  = bufferGetraenk_file;
+        lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
         counter = 0;
         for (int i = 0 ; i <20 ; i ++)
         {
@@ -1402,14 +1480,73 @@ void check_erstanzeige1(uint8_t button)
         }
         else
         {
-            nextion_change_page(ERSTANZEIGE2);
-            for (int i = 0 ; i < 12 ; i++)
+            bufferGetraenk_file = aktuellesGetraenk_file;
+
+            // Aneinanderreihen zweier Listen
+
+            // Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+            zutatMaschine_t * tmp_zut_Maschine_tail;
+            //     zutatMaschine_t * tmp_zut_Maschine_head;
+            zutatMaschine_t * tmp_zut_Maschine_actual;
+
+            // Speichern der Momentanen Pointer.
+            zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+            zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+            zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+            zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+            // Anfang und Ende der gesamten Liste
+            tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+            //     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+            // Äussere Verbindungen
+            tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+            head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+            // Innere Verbindungen
+            tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+            head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
+            do
             {
-                *(aktuellesGetraenk->mengen + i) = 0;
-            }
-            counter = 0;
-            i_Liste = 0;
-            erstelle_Liste_zutat(NULL, "zutat");
+                tmp_zut_Maschine_actual->menge = 0;
+                tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+            } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
+
+            head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+            head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+            tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+            tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
+
+            // Neue Liste beginnt == Blockierung aufheben
+            block_list_hoch = 0;
+            block_list_runter = 0;
+
+            zutatMaschine_list_node_t * tmp_node;
+            zutatMaschine_t * tmp_file;
+
+            // Die Zutaten werden ab Beginn gesucht.
+            tmp_file = tail_zut_in_Maschine_ohne_KS;
+
+            // Die Listen-Pointer werden mit 0 initialisiert
+            head_zutatMaschine_list_node = NULL;
+            tail_zutatMaschine_list_node = NULL;
+
+            // Erstelle eine neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt. Erste Zutat = Erster Eintrag des jeweiligen Listenabschnitts.
+            tmp_node = create_new_list_node_zutMaschine_file(tmp_file);
+            head_zutatMaschine_list_node = insert_zutatMaschine_list_node_at_head(&head_zutatMaschine_list_node, tmp_node);
+
+            // Initialisiere den Pointer auf den aktuellen ersten Eintrag der Liste (welche den Pointer auf die erste Zutat ohne Kohlensäure beinhaltet)
+            aktuelle_zutatMaschine_list_node = head_zutatMaschine_list_node;
+
+            // Screibe die erste Seite der Liste. Return value = Erster Eintrag der nächsten Seite. (Sind keine weiteren Einträge vorhanden, wird der letzte Eintrag zurückgegeben. ==> head_Zutat_file_in_Maschine_ohne_KS)
+            nextion_change_page(ERSTANZEIGE2);
+            buffer_zut_in_Maschine_ohne_KS = erstelle_Liste_zutat(tmp_file, "zutat");
+
+            // Erweitere die neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt, um ein Element.
+            tmp_node = create_new_list_node_zutMaschine_file(buffer_zut_in_Maschine_ohne_KS);
+            head_zutatMaschine_list_node = insert_zutatMaschine_list_node_at_head(&head_zutatMaschine_list_node, tmp_node);
         }
         break;
     }
@@ -1460,7 +1597,30 @@ void check_erstanzeige2(uint8_t button)
     */
 
     uint8_t val = 0;
+// Aneinanderreihen zweier Listen
 
+// Pointer Beginn/Anfang/Aktuell/Return-(zutatMaschine_t)
+    zutatMaschine_t * tmp_zut_Maschine_tail;
+//     zutatMaschine_t * tmp_zut_Maschine_head;
+    zutatMaschine_t * tmp_zut_Maschine_actual;
+
+// Speichern der Momentanen Pointer.
+    zutatMaschine_t * tmp_ohne_KS_head = head_zut_in_Maschine_ohne_KS->prev;
+    zutatMaschine_t * tmp_mit_KS_head = head_zut_ausser_Maschine_mit_KS->prev;
+    zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
+    zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
+
+// Anfang und Ende der gesamten Liste
+    tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+//     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
+
+// Äussere Verbindungen
+    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
+
+// Innere Verbindungen
+    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+    head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
     // Initialisierung für Erstellung eines neuen Getränkefiles
     getraenk_file_t * tmp2;
 
@@ -1471,6 +1631,9 @@ void check_erstanzeige2(uint8_t button)
                     - Startanzeige setzen
                     - Listenabschnitt auf 0 setzen
         */
+        aktuellesGetraenk_file  = bufferGetraenk_file;
+        lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+        asm("nop");
         nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
         i_Liste = 0;
@@ -1489,12 +1652,28 @@ void check_erstanzeige2(uint8_t button)
                     - i_Liste für Listenabschnitt auf 0 setzen
                     - buff_name auf '\0' initialisieren für nächstes Getränk
         */
+// Anfang und Ende der gesamten Liste
+        tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
+// tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
 
+// Äussere Verbindungen
+        tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
+        head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
 
-        for (int count = 0 ; count <12; count++)
+// Innere Verbindungen
+        tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
+        head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
+
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
+        do
         {
-            val += *(aktuellesGetraenk->mengen+count);
-        }
+            val += tmp_zut_Maschine_actual->menge;
+            char buff333[5] = {'\0'};
+            itoa(val, (char *)buff333, 10);
+            Uart_Transmit_IT_PC((char *)buff333);
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+        } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_tail);
+
 
         if (val == 100)
         {
@@ -1507,23 +1686,23 @@ void check_erstanzeige2(uint8_t button)
             uint8_t alkohol = 0;
             uint8_t kohlensaeure = 0;
 
-            aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_tail;
             do
             {
-                if (*(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) > 0)
+                if (tmp_zut_Maschine_actual->menge > 0)
                 {
-                    if (aktuelle_Zutat_in_Maschine_ohne_KS->alkohol == 1)
+                    if (tmp_zut_Maschine_actual->alkohol == 1)
                     {
                         alkohol = 1;
                     }
 
-                    if (aktuelle_Zutat_in_Maschine_ohne_KS->kohlensaeure == 1)
+                    if (tmp_zut_Maschine_actual->kohlensaeure == 1)
                     {
                         kohlensaeure = 1;
                     }
                 }
-                aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-            } while (aktuelle_Zutat_in_Maschine_ohne_KS!= tail_zut_in_Maschine_ohne_KS);
+                tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
+            } while (tmp_zut_Maschine_actual!= tmp_zut_Maschine_tail);
             aktuellesGetraenk->alkohol = alkohol;
 
             // Suche von 1 bis 100 durch die Files
@@ -1541,15 +1720,16 @@ void check_erstanzeige2(uint8_t button)
                     erstelle_File(count, buff_name, alkohol, kohlensaeure);
                     tmp2 = create_new_getraenk_file(count);
                     head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+                    head_getraenk_file_2 = insert_file_at_head(&head_getraenk_file_2, tmp2);
                     count = 100;
                     aktuellesGetraenk_file = head_getraenk_file;
+                    aktuellesGetraenk_file_2 = head_getraenk_file_2;
                     lese_textfile_in_getraenk(head_getraenk_file->file);
                 }
             }
             nextion_change_page(STARTANZEIGE);
             setze_startanzeige(aktuellesGetraenk);
             counter = 0;
-            i_Liste = 0;
             for (int i = 0 ; i <20 ; i ++)
             {
                 buff_name[i] = '\0';
@@ -1559,6 +1739,10 @@ void check_erstanzeige2(uint8_t button)
         {
             nextion_setText("t0", "Noch nicht 100% ausgewählt.");
         }
+        head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+        head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+        tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+        tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
         break;
     }
 }
@@ -1608,46 +1792,6 @@ void check_loeschanzeige(uint8_t button)
         setze_startanzeige(aktuellesGetraenk);
         break;
     }
-}
-
-void begin_erstelle_Liste_Zutat_Pos(uint8_t ks, uint8_t nr)
-{
-    zutat_list_node_t * tmp_node;
-    zutat_file_t * tmp_file;
-    kohlensaeure_mode = ks;
-
-    // Die Zutaten werden ab Beginn gesucht.
-    if (kohlensaeure_mode == 0)
-    {
-        tmp_file = tail_Zutat_file_in_Maschine_ohne_KS;
-    }
-    else
-    {
-        tmp_file = tail_Zutat_file_ausser_Maschine_mit_KS;
-    }
-
-    // Die Listen-Pointer werden mit 0 initialisiert
-    head_zutat_list_node = NULL;
-    tail_zutat_list_node = NULL;
-
-    // Suche erstes File ohne Kohensäure
-    lese_textfile_in_zutat(tmp_file->file);
-
-    // Erstelle eine neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt. Erste Zutat = Erster Eintrag des jeweiligen Listenabschnitts.
-    tmp_node = create_new_list_node_zut_file(tmp_file);
-    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp_node);
-
-    // Initialisiere den Pointer auf den aktuellen ersten Eintrag der Liste (welche den Pointer auf die erste Zutat ohne Kohlensäure beinhaltet)
-    aktuelle_zutat_list_node = head_zutat_list_node;
-    lese_textfile_in_zutat(aktuelle_zutat_list_node->zutat_xy->file);
-
-    // Screibe die erste Seite der Liste. Return value = Erster Eintrag der nächsten Seite. (Sind keine weiteren Einträge vorhanden, wird der letzte Eintrag zurückgegeben. ==> head_Zutat_file_in_Maschine_ohne_KS)
-    nextion_change_page(FLUESSANZEIGE1);
-    buffer_zutat_file = erstelle_Liste_Zutat_Pos(kohlensaeure_mode, tmp_file, "fluessigkeit");
-
-    // Erweitere die neue Liste, deren Elemente einen Pointer auf die erste Zutat ohne Kohlensäure besitzt, um ein Element.
-    tmp_node = create_new_list_node_zut_file(buffer_zutat_file);
-    head_zutat_list_node = insert_zutat_list_node_at_head(&head_zutat_list_node, tmp_node);
 }
 
 void check_posanzeige(uint8_t button)
@@ -1804,6 +1948,7 @@ void check_posanzeige(uint8_t button)
         break;
     }
 }
+
 
 void check_fluessanzeige1(uint8_t button)
 {
@@ -2663,5 +2808,147 @@ void check_LED(uint8_t button)
        tmp_actual_zut_Maschine = tmp_actual_zut_Maschine->prev;
     }
     return tmp_file_return;
-	
-	*/
+
+
+zutat_file_t * erstelle_Liste_Zutat_Pos(uint8_t ks, zutat_file_t * beginn_file, char * name_button)
+{
+    // Kohlesäuremode = 0 ==> User kann auch "keine Flüssigkeit" auswählen.
+    kohlensaeure_mode = ks;
+
+    if (kohlensaeure_mode ==0 )
+    {
+        nextion_visible_on("b1");
+    }
+
+    zutat_file_t * tmp_file_tail;
+    zutat_file_t * tmp_file_head;
+    zutat_file_t * tmp_file_actual = beginn_file;
+    zutat_file_t * tmp_file_return = beginn_file;
+
+    // Die Zutaten werden ab Beginn gesucht.
+    if (kohlensaeure_mode == 0)
+    {
+        tmp_file_tail = tail_Zutat_file_in_Maschine_ohne_KS;
+        tmp_file_head = head_Zutat_file_in_Maschine_ohne_KS;
+    }
+    else
+    {
+        tmp_file_tail = tail_Zutat_file_ausser_Maschine_mit_KS;
+        tmp_file_head = head_Zutat_file_ausser_Maschine_mit_KS;
+    }
+
+    // Für alle Buttons auf der Seite ...
+    char button[50] = {'\0'};
+    char buff[5] = {0};
+    char buff10[50] = {'\0'};
+
+    for (int i = 0 ; i < 6 ; i++)
+    {
+        // Falls das obere Ende der Liste erreicht wird, und das untere noch nicht erreicht wurde
+        // (da aktuelles Getraenk auf Tail getraenk springt und sozusagen "überläuft" und so beide
+        // Richtungen blockiert werden, sobald das untere Ende erreicht wird), hochscrollen blockieren
+        if(tmp_file_actual == tmp_file_tail && !block_list_runter)
+        {
+            block_list_hoch = 1;
+        }
+
+        // Beginn-File einlesen.
+        lese_textfile_in_zutat(tmp_file_actual->file);
+        Uart_Transmit_IT_PC(aktuelle_zutat->name);
+        Uart_Transmit_IT_PC("\r");
+
+
+        // Getränk mit/ohne Kohlensäure finden (Abhängig von kohlesäure_mode)
+        uint8_t run = 1;
+        while ((aktuelle_zutat->kohlensaeure != kohlensaeure_mode)&& run == 1)
+        {
+            if(tmp_file_actual != tmp_file_head)
+            {
+                tmp_file_actual = tmp_file_actual->prev;
+            }
+            else
+            {
+                run = 0;
+            }
+            lese_textfile_in_zutat(tmp_file_actual->file);
+        }
+
+        // Schreibe Zahl und Name des Buttons in String
+        itoa((i + 1),buff,10);
+        strcpy((char *)button, (const char *)name_button);
+        strcat((char *)button, (const char *)buff);
+        nextion_enableButton(button);
+
+        // Falls das untere Ende der Liste erreicht wurde und liste noch nicht blockiert ist,
+        // runterscrollen, blockieren und letzter Name einschreiben.
+        if (tmp_file_actual == tmp_file_head && !block_list_runter)
+        {
+            block_list_runter = 1;
+            if (aktuelle_zutat->kohlensaeure == kohlensaeure_mode)
+            {
+                nextion_setText(button,aktuelle_zutat->name);
+            }
+            else
+            {
+                // leerer String
+                nextion_setText(button,"");
+
+                // Sicherheitsdelay, Programm stürzt sonst ab
+                _delay_ms(10);
+
+                // Disable Button
+                nextion_disableButton(button);
+            }
+        }
+
+        // Falls die Liste blockiert ist, Leeren String in das Feld schreiben und
+        // die Buttons disablen
+        else if (block_list_runter)
+        {
+            // leerer String
+            nextion_setText(button,"");
+
+            // Sicherheitsdelay, Programm stürzt sonst ab
+            _delay_ms(10);
+
+            // Disable Button
+            nextion_disableButton(button);
+        }
+
+        //Falls Eintrag dazwischen, Name einschreiben (Normalbetrieb)
+        else
+        {
+            nextion_setText(button,aktuelle_zutat->name);
+        }
+
+        //Falls
+        if (strcmp((char *)aktuelle_Zutat_in_Maschine_ohne_KS->name, (char *)aktuelle_zutat->name)==0)
+        {
+            strcpy((char *)buff10, (const char *)button);
+            strcat((char *)buff10, (const char *)".pco=2016");
+            Uart_Transmit_IT_Display((char *)buff10);
+            endConversation();
+        }
+        else
+        {
+            strcpy((char *)buff10, (const char *)button);
+            strcat((char *)buff10, (const char *)".pco=0");
+            Uart_Transmit_IT_Display((char *)buff10);
+            endConversation();
+        }
+
+        // Ein Getraenk weiter Scrollen.
+        tmp_file_actual = tmp_file_actual->prev;
+
+        if (i == 5 && block_list_runter == 0)
+        {
+            tmp_file_return = tmp_file_actual;
+            return tmp_file_return;
+        }
+
+        // Sicherheitsdelay, Programm stürzt sonst ab
+        _delay_ms(10);
+    }
+    return tmp_file_return;
+}
+    */

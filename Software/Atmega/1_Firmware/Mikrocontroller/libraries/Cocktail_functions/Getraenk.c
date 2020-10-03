@@ -103,7 +103,7 @@ void cocktails_init(void)
     head_getraenk_file = NULL;
     head_getraenk_file_2 = NULL;
     getraenk_file_t * tmp2;
-    getraenk_file_2_t * tmp3;
+    getraenk_file_t * tmp3;
 
     /**************************************************************************************************************
 
@@ -112,7 +112,7 @@ void cocktails_init(void)
                 - Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
     **************************************************************************************************************/
-    for ( int8_t count = 0 ; count <= 30; count++)
+    for ( int8_t count = 0 ; count <= 50; count++)
     {
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
@@ -157,7 +157,7 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, 
 {
     getraenk_t *newGetraenk = calloc(1,sizeof(getraenk_t));
     size_t n1 = strlen((const char *)name)+1;
-    size_t n2 = 13;
+    size_t n2 = 25;
 
     newGetraenk->name = calloc(n1,sizeof(char));
     newGetraenk->mengen = calloc(n2,sizeof(uint8_t));
@@ -316,9 +316,9 @@ getraenk_file_t *create_new_getraenk_file(uint8_t file_to_create)
     return newFile;
 }
 
-getraenk_file_2_t *create_new_getraenk_file_2(uint8_t file_to_create)
+getraenk_file_t *create_new_getraenk_file_2(uint8_t file_to_create)
 {
-    getraenk_file_2_t *newFile = calloc(1,sizeof(getraenk_file_2_t));
+    getraenk_file_t *newFile = calloc(1,sizeof(getraenk_file_t));
     newFile->file = file_to_create;
     return newFile;
 }
@@ -341,7 +341,7 @@ getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *fi
 	return file_to_insert;
 }
 
-getraenk_file_2_t *insert_file_at_head_2(getraenk_file_2_t **head, getraenk_file_2_t *file_to_insert)
+getraenk_file_t *insert_file_at_head_2(getraenk_file_t **head, getraenk_file_t *file_to_insert)
 {
 	file_to_insert->next = *head;
 	file_to_insert->prev = NULL;

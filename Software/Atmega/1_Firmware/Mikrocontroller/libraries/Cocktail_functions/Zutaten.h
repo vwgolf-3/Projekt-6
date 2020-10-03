@@ -40,6 +40,7 @@ struct zutat_Maschine {                                     // Struckt für Zutat
     uint8_t alkohol;                                        // Speicher für Alkohol Ja/Nein
     uint8_t kohlensaeure;                                   // Speicher für Alkohol Ja/Nein
     uint8_t stelle;                                         // Speicher für Position der Zutat in der Maschine
+    uint8_t menge;                                          // Speicher für Menge der Zutat in der Maschine
     uint32_t position_motor;                                // Speicher für Position der Zutat in der Maschine
     struct zutat_Maschine* next;                            // Pointer auf das zuvor eingefügte Getränk
     struct zutat_Maschine* prev;                            // Pointer auf das danach eingefügte Getränk

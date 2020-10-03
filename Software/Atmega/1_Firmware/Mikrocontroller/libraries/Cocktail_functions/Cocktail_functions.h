@@ -100,6 +100,8 @@ void write_M_file(char * buff_file);
 void schreibe_Getraenk_in_tag(uint8_t nr);
 void display_init(void);
 
+void begin_erstelle_Liste_Zutat_Pos(uint8_t ks, uint8_t nr);
+
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
 	
 	
