@@ -39,6 +39,7 @@ void zutaten_init(void)
 
     head_Zutat_file_in_Maschine_ohne_KS = NULL;                             // Erstes hinzugefügtes File auf NULL
     tail_Zutat_file_in_Maschine_ohne_KS = NULL;                             // Letztes hinzugefügtes File auf NULL
+	
     head_Zutat_file_ausser_Maschine_mit_KS = NULL;                          // Erstes hinzugefügtes File auf NULL
     tail_Zutat_file_ausser_Maschine_mit_KS = NULL;                          // Letztes hinzugefügtes File auf NULL
 
@@ -56,7 +57,7 @@ void zutaten_init(void)
 
     ******************************************************************************************************************/
 
-    for (int8_t count = 1 ; count <= 50; count++)
+    for (int8_t count = 1 ; count <= 30; count++)
     {
         // String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
         strcpy((char *)buff_init_textfiles_zutat, (const char *)"Z");
@@ -342,7 +343,7 @@ zutatMaschine_t *insert_zutat_Maschine_at_head(zutatMaschine_t **head_zutat, zut
     else
     {
         (*head_zutat)->prev = zutat_to_insert;
-        zutat_to_insert->prev = (*tail_zutat);
+    zutat_to_insert->prev = (*tail_zutat);
     }
 
     // head-Zutat ist jetzt die einzufügende Zutat
@@ -393,7 +394,7 @@ zutat_file_t *insert_zutat_file_at_head(zutat_file_t **head, zutat_file_t **tail
     else
     {
         (*head)->prev = file_to_insert;
-        file_to_insert->prev = (*tail);
+    file_to_insert->prev = (*tail);
     }
 
     // head-File ist jetzt das einzufügende File
@@ -442,11 +443,11 @@ zutat_list_node_t *insert_zutat_list_node_at_head(zutat_list_node_t **head, zuta
     else
     {
         (*head)->prev = file_to_insert;
-        file_to_insert->prev = tail_zutat_list_node;
     }
 
     // head-File ist jetzt das einzufügende File
     // Das nachkommende File des tail-Files ist jetzt das neue head-File
+    file_to_insert->prev = tail_zutat_list_node;
     *head = file_to_insert;
     tail_zutat_list_node->next = *head;
 

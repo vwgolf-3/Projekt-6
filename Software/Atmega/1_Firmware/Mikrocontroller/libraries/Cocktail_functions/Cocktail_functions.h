@@ -76,7 +76,7 @@ void schiebe_file_prev(void);
 void schiebe_file_next(void);
 void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
-zutat_file_t * erstelle_Liste_Zutat_Pos(uint8_t ks, zutat_file_t * beginn_file, char * name_button);
+zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
@@ -100,7 +100,7 @@ void write_M_file(char * buff_file);
 void schreibe_Getraenk_in_tag(uint8_t nr);
 void display_init(void);
 
-void begin_erstelle_Liste_Zutat_Pos(uint8_t ks, uint8_t nr);
+void begin_erstelle_Liste_Zutat_Pos(void);
 
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
 	

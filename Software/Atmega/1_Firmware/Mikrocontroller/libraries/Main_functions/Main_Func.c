@@ -191,7 +191,6 @@ void proceed_Communication_Input_UART_0(void)
 	char * ch = "Proceed UART 0: \n\r";
 	Uart_Transmit_IT_PC(ch);
 	
-	
 	if (INPUT_UART_0[0]=='0')
 	{
 		tmc4671_setAbsolutTargetPosition(0,0);
@@ -291,10 +290,6 @@ char check_Communication_Input_UART_1(void)
 
 void proceed_Communication_INPUT_UART_1(void)
 {
-    Uart_Transmit_IT_PC("Proceed UART 1: ");
-    Uart_Transmit_IT_PC((char *)INPUT_UART_1);
-    Uart_Transmit_IT_PC("\r");
-
     cocktail_check_command(INPUT_UART_1[0], INPUT_UART_1[1]);
 }
 

@@ -97,7 +97,6 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
     strcat((char *)buff, (const char *)object);
     strcat((char *)buff, (const char *)val);
     Uart_Transmit_IT_Display((char *) buff);
-    Uart_Transmit_IT_PC((char *) buff);
     endConversation();
 
     while (check_Communication_Input_UART_1()==0)
@@ -111,9 +110,6 @@ uint8_t nextion_getSliderValue(char * object, unsigned char * INPUT)
     {
         ret = INPUT_UART_1[1];
     }
-    itoa(ret, (char *)buff, 10);
-    Uart_Transmit_IT_PC((char *)buff);
-    Uart_Transmit_IT_PC("\r");
     return ret;
 }
 

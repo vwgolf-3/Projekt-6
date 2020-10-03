@@ -20,7 +20,7 @@ Ginger Ale,1,0,1
 (keine),0,0,0
 (keine),0,0,0
 (keine),0,0,0
-(keine),0,0,1
-(keine),0,0,1
-(keine),0,0,1
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
 ;

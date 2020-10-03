@@ -112,7 +112,7 @@ void cocktails_init(void)
                 - Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
     **************************************************************************************************************/
-    for ( int8_t count = 0 ; count <= 50; count++)
+    for ( int8_t count = 0 ; count <= 20; count++)
     {
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
