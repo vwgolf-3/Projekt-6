@@ -1,17 +1,15 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'Fachbericht.blg'
-[61] biber-MSWIN32:313> INFO - === 
-[117] Biber.pm:371> INFO - Reading 'Fachbericht.bcf'
-[341] Biber.pm:857> INFO - Found 47 citekeys in bib section 0
-[373] Biber.pm:3976> INFO - Processing section 0
-[399] Biber.pm:4136> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
-[426] bibtex.pm:1500> INFO - LaTeX decoding ...
-[684] bibtex.pm:1316> INFO - Found BibTeX data source 'literature/bibliography.bib'
-[1006] Utils.pm:193> WARN - I didn't find a database entry for '\IeC {\textbullet }' (section 0)
-[1079] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1079] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1080] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
-[1080] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
-[1166] bbl.pm:617> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
-[1199] bbl.pm:720> INFO - Output to Fachbericht.bbl
-[1209] Biber.pm:110> INFO - WARNINGS: 1
+[66] biber-MSWIN32:313> INFO - === 
+[129] Biber.pm:371> INFO - Reading 'Fachbericht.bcf'
+[380] Biber.pm:857> INFO - Found 59 citekeys in bib section 0
+[406] Biber.pm:3976> INFO - Processing section 0
+[428] Biber.pm:4136> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
+[459] bibtex.pm:1500> INFO - LaTeX decoding ...
+[814] bibtex.pm:1316> INFO - Found BibTeX data source 'literature/bibliography.bib'
+[1385] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1385] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1385] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[1385] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[1468] bbl.pm:617> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
+[1506] bbl.pm:720> INFO - Output to Fachbericht.bbl
