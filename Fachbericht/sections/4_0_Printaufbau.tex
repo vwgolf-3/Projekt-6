@@ -7,7 +7,7 @@ In Abbildung \ref{fig:Print_3D} ist der Aufbau des entstandenen Prints zu sehen.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/Printteile}
-	\caption{Print 3D}
+	\caption{Aufbau des Prints als Modell}
 	\label{fig:Print_3D}
 \end{figure} 
 
@@ -35,7 +35,7 @@ Layer 2 / 3 & 0.5oz & (17$\mu$m)\\
 \hline
 \end{tabular}
 \end{footnotesize}
-\caption{JLCPCB \cite{jlcpcb_jlcpcb_2020}}
+\caption{Spezifikationen der Platine \cite{jlcpcb_jlcpcb_2020}}
 \label{tab:table}
 }
 \qquad
@@ -43,7 +43,7 @@ Layer 2 / 3 & 0.5oz & (17$\mu$m)\\
 \centering
 \begin{figure}[H]
     \includegraphics[width=1\textwidth]{graphics/Print_Layers}
-\caption{JLCPCB \cite{jlcpcb_jlcpcb_2020}}
+\caption{Querschnitt der Platine \cite{jlcpcb_jlcpcb_2020}}
 \label{fig:figure}
 \end{figure}
 \end{minipage}
@@ -62,7 +62,7 @@ In den rot markierten Bereichen sind die Speisungsteile zu sehen, wobei sich auf
 Im hellblau markierten Bereich auf der linken Seite des Prints befindet sich das Herzstück der Elektronik. Der Mikrocontroller mit der dazugehörigen Programmierschnittstelle, welche einen Micro-USB Anschluss zu Programmierzwecken beinhaltet.
 
 \textcolor{Goldenrod}{\textbf{\underline{Pumpenansteuerung:}}}
-Auf der unteren Seite des Prints sind die Anschlüsse der Pumpen zu finden, welche die Flüssigkeiten befördern. Dazu gehört jeweils eine kleine Leistungsansteuerung mittels Logik-MOSFET und Freilaufdiode. 
+Auf der unteren Seite des Prints sind im gelben Bereich die Anschlüsse der Pumpen zu finden, welche die Flüssigkeiten befördern. Dazu gehört jeweils eine kleine Leistungsansteuerung mittels Logik-MOSFET und Freilaufdiode. 
 
 \textcolor{orange}{\textbf{\underline{Durchflussmessgeräte:}}} Über der Pumpenansteuerung befinden sich im orange markierten Bereich die Anschlüsse der Durchflussmessgeräte, welche auch die Speisung der Durchflussmessgeräte beherbergen und einen Entstörkondensator.
 
@@ -77,7 +77,9 @@ Der SD-Kartenslot für eine Micro SD-Karte befindet sich links oben im Violett m
 
 
 \textcolor{lightgray}{\textbf{\underline{Motoransteuerung:}}}
-Einen grossen Teil des Print's hat die Motorenansteuerung in Beschlagnahmung genommen. Diese ist im weissen Teil des Print's zu finden. Diese ist in drei Teile unterteilt von links nach rechts. Als erstes der FOC-Treiber, gefolgt vom Gate-Treiber und der H-Brücke mit dem Anschluss des Motor's. 
+Einen grossen Teil des Print's hat die Motorenansteuerung in Beschlagnahmung genommen. Diese ist im weissen Teil des Print's zu finden. Diese ist in drei Teile unterteilt von links nach rechts. Als erstes der FOC-Treiber, gefolgt vom Gate-Treiber und der H-Brücke mit dem Anschluss des Motor's.
+
+\todo{Noch bemerken, dass dies nun xtern gemacht wird?} 
 
 \textcolor{LimeGreen}{\textbf{\underline{Display:}}}
 Das Display benötigt keine grosse Ansteuerungslogik und besteht aus diesem Grund auch nur aus einem einzelnen Stecker, im Bereich des Mikrocontrollers, im hellgrün markierten Bereich.
@@ -86,4 +88,4 @@ Das Display benötigt keine grosse Ansteuerungslogik und besteht aus diesem Grun
 Aus Sicherheitsgründen wurde für den Fall, dass Probleme bei der Inbetriebnahme auftauchen ein Steckplatz für ein Evaluationsboard des Wireless- / Bluetoothmoduls implementiert. Dieses wird jedoch nicht verwendet. Somit generiert dies neue Möglichkeiten für weitere Anschlüsse am Wireless- / Bluetoothmodul im Dunkelblauen Teil. An diesen Anschlüssen befindet sich nun das RFID Evaluationsboard. 
 
 \textcolor{ForestGreen}{\textbf{\underline{RFID-Modul:}}}
-Für den Fall, dass noch genügend Zeit übrigbleiben sollte, wurde ein eigenes RFID-Board gelayoutet. Diese ist im dunkelgrünen Bereich zu sehen. Dieses wird jedoch in diesem Projekt nicht verwendet, da sich das RFID-Modul nun im schwarz markierten Bereich befindet. 
+Für den Fall, dass noch genügend Zeit übrigbleiben sollte, wurde ein eigenes RFID-Board gelayoutet. Diese ist im dunkelgrünen Bereich zu sehen. Dieses wird jedoch in diesem Projekt nicht verwendet, da sich das RFID-Modul nun im schwarz markierten Bereich als Evaluationsboard befindet. 
