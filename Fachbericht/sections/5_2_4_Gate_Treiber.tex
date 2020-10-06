@@ -35,7 +35,7 @@ Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zus
 
 %\subparagraph{Shunt-Widerstände $\mathrm{\mathbf{R_{Sense}}}$}
 Für die Messung des Stromes wird ein Shunt in Serie mit der Spule des BLDC-Motors geschaltet. Die Shunts R89 - R91 sind in Abbildung \ref{fig:Schema_H_Bruecke_und_BLDC} zu sehen. Durch den fliessenden Strom liegt eine Spannung über dem Shunt, welche dann vom TMC6200 verstärkt wird und aufbereitet an den Kontroll-Chip TMC4671 ausgegeben wird. Die Verstärkung sowie Offset auf das Signal sind über SPI programmierbar.
-Die Dimensionierung der Widerstände und die darauf folgende Programmierung des TMC6200 sind schon von Trinamic ermittelt worden. Es wird empfohlen, die Widerstände nach dem Maximalstrom des Motors auszuwählen. Im Falle des AKM22h sind dies 5A. Darüber hinaus wird empfohlen, eine Überdimensionierung von 25-50\% vorzunehmen. Die Schaltung für den Partymixer wird auf 10A ausgelegt. Eine von Trinamic erstellte Tabelle  ergibt empfiehlt einen Widerstand von 10m\textOmega\ für die Shunt-Widerstände und einen Verstärkungsfaktor der Phasenströme von 10. Die Tabelle ist im Anhang Kapitel \ref{Appendix:Shunt} zu finden. \cite[S.31]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
+Die Dimensionierung der Widerstände und die darauf folgende Programmierung des TMC6200 sind schon von Trinamic ermittelt worden. Es wird empfohlen, die Widerstände nach dem Maximalstrom des Motors auszuwählen. Im Falle des AKM22h sind dies 5A. Darüber hinaus wird empfohlen, eine Überdimensionierung von 25-50\% vorzunehmen. Die Schaltung für den PartyMixer wird auf 10A ausgelegt. Eine von Trinamic erstellte Tabelle  empfiehlt einen Widerstand von 10m\textOmega\ für die Shunt-Widerstände und einen Verstärkungsfaktor der Phasenströme von 10. Die Tabelle ist im Anhang Kapitel \ref{Appendix:Shunt} zu finden. \cite[S.31]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
 
 %\begin{tabular}{lll}
 %$\mathbf{R_{Sense}}$ =  \textbf{10m\textOmega}\\
@@ -63,7 +63,7 @@ Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Widerstandsw
 
 %\paragraph{Bootstrap Kondensatoren $\mathrm{\mathbf{C_{Bootstrap}}}$}
 
-Die Bootstrap-Kondensator werden benutzt, um die Gate-Spannung am High-Side-MOSFET auf die Schaltspannung (48V) plus die Gatespannung anzuheben. Die Kondensatoren C76 - C78 in Abb. \ref{fig:Schema_Gate_Treiber} unterstützen diesen Effekt.
+Die Bootstrap-Kondensatoren werden benutzt, um die Gate-Spannung am High-Side-MOSFET auf die Schaltspannung (48V) plus die Gatespannung anzuheben. Die Kondensatoren C76 - C78 in Abb. \ref{fig:Schema_Gate_Treiber} unterstützen diesen Effekt.
 Die Dimensionierung dieser Kondensatoren wird im Datenblatt mit einem Kapazitätswert zwischen 470nF und 1\textmugreek F angegeben, bei einer Nennspannung von 16V oder 25V. Weiter gilt gemäss Datenblatt, dass bei MOSFET's mit einem $\mathrm{Q_G \geq 40nC}$ die Gatekapazität 1\textmugreek F sein soll. Da die Kapazität 61nF beträgt, ist dies der Fall. Die Bootstrap-Kondensatoren werden deswegen mit 1\textmugreek F dimensioniert. \cite[S.10]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
 
 %\begin{tabular}{lll}
