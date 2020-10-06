@@ -21,7 +21,7 @@ void IO_init(void)
     FLUSS_DDR = 0b00000000;
     SOFTSPI_DDR = SOFTSPI_OUTPUT_MASK;
     Position = 0;
-	count_bla =0;
+    count_bla =0;
 }
 
 void interfaces_init(void)
@@ -38,10 +38,13 @@ void devices_init(void)
     nextion_setText("fehlertxt", "SD-Initialisieren");
     SD_startup();                                           // SD-Karte initialisieren
     _delay_ms(100);
+    EN_TMC6200_PORT &= ~EN_TMC6200_BIT;                     // Enable TMC6200 (Active High)
 
-//     initTMC6200();                                          // Gate-Treiber initialisieren
-//     initTMC4671_Openloop();                                  // FOC-Treiber initialisieren
-//     initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
+    initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
+    initTMC6200();                                          // Gate-Treiber initialisieren
+    read_registers_TMC6200();
+    read_registers_TMC4671();
+    encoder_testdrive();
 }
 
 void speicher_init()
@@ -65,33 +68,33 @@ void ramp_init(void)
 {
     linear_ramp_init();
     linear_ramp_set_defaults(ramp);
-    
+
     states = IDLE;
 }
 
 void periodic_jobs(linear_ramp_t * ramp)
 {
 	check_motor_activities(ramp);
-	check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
+    check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
 }
 
 void check_motor_activities(linear_ramp_t * ramp)
 {
-	// Debug für seriellen Monitor durch Eingabe: '2' ==> Position = 1
-	if ((Position == 1) && (ramp->ramp_enable == 0))
-	{
-		tmc4671_writeInt(0, 0x6B,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-		tmc4671_setAbsolutTargetPosition(0, 0x00000000);            // Überprüfen der Maximalwerte, bei zu hohen Eingaben wird automatisch
-		calculateRamp(2000, 2000, count_bla * 10 * ramp->motor_eine_umdrehung, ramp);
-		Position = 0;
-	}
-	
-	// Falls der Hardware-Timer 1ms gezählt hat, berechne Ramp
-	if (compute == 1)
-	{
-		computeRamp(ramp);
-		compute = 0;
-	}
+    // Debug für seriellen Monitor durch Eingabe: '2' ==> Position = 1
+    if ((Position == 1) && (ramp->ramp_enable == 0))
+    {
+        tmc4671_writeInt(0, 0x6B,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
+        tmc4671_setAbsolutTargetPosition(0, 0x00000000);            // Überprüfen der Maximalwerte, bei zu hohen Eingaben wird automatisch
+        calculateRamp(2000, 2000, count_bla * 10 * ramp->motor_eine_umdrehung, ramp);
+        Position = 0;
+    }
+
+    // Falls der Hardware-Timer 1ms gezählt hat, berechne Ramp
+    if (compute == 1)
+    {
+        computeRamp(ramp);
+        compute = 0;
+    }
 }
 
 void heartbeat_LED(void)
@@ -107,57 +110,59 @@ void toggle_LED(void)
 
 void my_itoa( int64_t z, char* buffer )
 {
-	// Reference to: https://www.mikrocontroller.net/attachment/highlight/305548
+    // Reference to: https://www.mikrocontroller.net/attachment/highlight/305548
 
-	int      i = 0;
-	int      j;
-	char     tmp;
-	int64_t  u;    // In u bearbeiten wir den Absolutbetrag von z.
-	char     sflag= 0;
+    int      i = 0;
+    int      j;
+    char     tmp;
+    int64_t  u;    // In u bearbeiten wir den Absolutbetrag von z.
+    char     sflag= 0;
 
-	u= z;
-	// ist die Zahl negativ?
-	// gleich mal ein - hinterlassen und die Zahl positiv machen
-	// die einzelnen Stellen der Zahl berechnen
-	if (u< 0)
-	{
-		u= u*(-1);
-		sflag= 1;
-	}
-	do
-	{
-		buffer[i++] = '0' + (u % 10);
-		u /= 10;
-	}
-	while( u > 0 );
-	if (sflag)  { buffer[i++]= '-'; }
+    u= z;
+    // ist die Zahl negativ?
+    // gleich mal ein - hinterlassen und die Zahl positiv machen
+    // die einzelnen Stellen der Zahl berechnen
+    if (u< 0)
+    {
+        u= u*(-1);
+        sflag= 1;
+    }
+    do
+    {
+        buffer[i++] = '0' + (u % 10);
+        u /= 10;
+    }
+    while( u > 0 );
+    if (sflag)  {
+        buffer[i++]= '-';
+    }
 
-	// den String in sich spiegeln
-	for( j = 0; j < i / 2; ++j )
-	{
-		tmp = buffer[j];
-		buffer[j] = buffer[i-j-1];
-		buffer[i-j-1] = tmp;
-	}
+    // den String in sich spiegeln
+    for( j = 0; j < i / 2; ++j )
+    {
+        tmp = buffer[j];
+        buffer[j] = buffer[i-j-1];
+        buffer[i-j-1] = tmp;
+    }
 
-	buffer[i] = '\0';
+    buffer[i] = '\0';
 }
 
 void read_Position_TMC4671(void)
 {
-	// +/- alle 100ms Position abfragen und über Seiriellen Port ausgeben
-	static uint8_t cntrr = 0;
-	if (cntrr == 100)
-	{
-		cntrr = 0;
-		int64_t val = tmc4671_getActualPosition(0);
-		char testarray[100] = {'\0'};
-		my_itoa(val, (char *)testarray);
-		Uart_Transmit_IT_PC((char *)testarray);
-		Uart_Transmit_IT_PC("\r");
-	}
-	cntrr++;
-	_delay_ms(10);
+    // +/- alle 100ms Position abfragen und über Seiriellen Port ausgeben
+    static uint8_t cntrr = 0;
+    if (cntrr == 100)
+    {
+        cntrr = 0;
+        int64_t val = tmc4671_getActualPosition(0);
+        char testarray[100] = {'\0'};
+        my_itoa(val, (char *)testarray);
+        Uart_Transmit_IT_PC((char *)testarray);
+        Uart_Transmit_IT_PC("\r");
+    }
+    cntrr++;
+    _delay_ms(10);
 }
 
 char check_Communication_Input_UART_0(void)
@@ -188,50 +193,48 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
-	char * ch = "Proceed UART 0: \n\r";
-	Uart_Transmit_IT_PC(ch);
-	
-	if (INPUT_UART_0[0]=='0')
-	{
-		tmc4671_setAbsolutTargetPosition(0,0);
-		Position = 0;
-	}
-	else if (INPUT_UART_0[0]=='1')
+    char * ch = "Proceed UART 0: \n\r";
+    Uart_Transmit_IT_PC(ch);
 
-	{
-		uint32_t Position_target = 100000;
-		for (int i = 1 ; i <= 12 ; i++)
-		{
-			tmc4671_setAbsolutTargetPosition(0, i * Position_target);
-			while(((tmc4671_getActualPosition(0) <= (i* Position_target-200))||(tmc4671_getActualPosition(0)>= (i*Position_target+200))))
-			{
-// 				read_Position_TMC4671();
-			}
-			
-			Uart_Transmit_IT_PC("Position ");
-			char buff[5] = {'\0'};
-			itoa(i, (char *)buff, 10);
-			Uart_Transmit_IT_PC((char *)buff);
-			Uart_Transmit_IT_PC(" erreicht\r");
-			_delay_ms(2000);
-		}
-		tmc4671_setAbsolutTargetPosition(0,0);
-		while((tmc4671_getActualPosition(0) >= (200)))
-		{
-			read_Position_TMC4671();
-		}
-		Uart_Transmit_IT_PC("Ausgangspunkt erreicht.");
-	}
-	else if (INPUT_UART_0[0] == '2')
-	{
-		Position = 1;
-		count_bla ++;
-	}
-	else if (INPUT_UART_0[0] == 0)
-	{
-		Position += 10000000;
-		tmc4671_setAbsolutTargetPosition(0,Position);
-	}
+    if (INPUT_UART_0[0]=='0')
+    {
+        tmc4671_setTargetVelocity(0,200);
+    }
+    else if (INPUT_UART_0[0]=='1')
+
+    {
+        uint32_t Position_target = 100000;
+        for (int i = 1 ; i <= 12 ; i++)
+        {
+            tmc4671_setAbsolutTargetPosition(0, i * Position_target);
+            while(((tmc4671_getActualPosition(0) <= (i* Position_target-200))||(tmc4671_getActualPosition(0)>= (i*Position_target+200))))
+            {
+//              read_Position_TMC4671();
+            }
+
+            Uart_Transmit_IT_PC("Position ");
+            char buff[5] = {'\0'};
+            itoa(i, (char *)buff, 10);
+            Uart_Transmit_IT_PC((char *)buff);
+            Uart_Transmit_IT_PC(" erreicht\r");
+            _delay_ms(2000);
+        }
+        tmc4671_setAbsolutTargetPosition(0,0);
+        while((tmc4671_getActualPosition(0) >= (200)))
+        {
+            read_Position_TMC4671();
+        }
+        Uart_Transmit_IT_PC("Ausgangspunkt erreicht.");
+    }
+    else if (INPUT_UART_0[0] == '2')
+    {
+        Position = 1;
+        count_bla ++;
+    }
+    else if (INPUT_UART_0[0] == 0)
+    {
+        tmc4671_setTargetVelocity(0,500);
+    }
 }
 
 char check_Communication_Input_UART_1(void)

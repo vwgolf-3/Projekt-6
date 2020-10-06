@@ -16,7 +16,7 @@
 #include "../LED/LED.h"
 #include "../Software_Ramp/ramp1.h"
 #include "../Nextion_Display/Nextion_Display.h"
-
+extern void encoder_testdrive(void);
 #include <util/delay.h>
 
 void IO_init(void);

@@ -11,7 +11,6 @@ void softspi_setup_master(void)
 {
     SOFTSPI_CLK_DDR |= SOFTSPI_CLK_BIT;
     SOFTSPI_MOSI_DDR |= SOFTSPI_MOSI_BIT;
-    SOFTSPI_CS_DDR |= SOFTSPI_CS_BIT;
 }
 
 void softspi_clk_low(void)

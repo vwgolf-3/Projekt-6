@@ -1778,19 +1778,24 @@ void free_list_getraenke(void)
 {
     /* deref head_ref to get the real head */
     getraenk_file_t* current = head_getraenk_file;
-    getraenk_file_t* next;
+    getraenk_file_t* next = current;
 
-    while (current != head_getraenk_file)
+    while (current != tail_getraenk_file)
     {
+		Uart_Transmit_IT_PC("Hoi3\r");
         next = current->next;
         free(current);
         current = next;
     }
-
+	if (current == tail_getraenk_file)
+	{
+		head_getraenk_file = NULL;
+		tail_getraenk_file = NULL;
+		free(current);
+		Uart_Transmit_IT_PC("Hoi4\r");
+	}
     /* deref head_ref to affect the real head back
         in the caller. */
-    head_getraenk_file = NULL;
-    tail_getraenk_file = NULL;
 }
 
 void setze_standardeinstellungen(void)
@@ -1836,26 +1841,43 @@ void setze_standardeinstellungen(void)
     uint8_t run = 0;
     do
     {
-        if (run)
-        {
-            ptr = strtok(NULL, delimiter);                        // Abschnitt Name Zutat
-        } else
-        {
-            ptr = strtok((char *)buff_string, delimiter);                            // Abschnitt Name Zutat
-            run = 1;
-        }
-        strcpy(aktuelle_Zutat_in_Maschine_ohne_KS->name,ptr);                      // Kopiere Name in Buffer
-        Uart_Transmit_IT_PC(aktuelle_Zutat_in_Maschine_ohne_KS->name);
-        ptr = strtok(NULL, delimiter);                                  // Abschnitt Status
-        Uart_Transmit_IT_PC(ptr);
-        aktuelle_Zutat_in_Maschine_ohne_KS->status = atoi(ptr);                    // Schreibe ASCI-Status in Integer-Buffer
-        ptr = strtok(NULL, delimiter);                                  // Abschnitt Alkohol Ja/Nein
-        aktuelle_Zutat_in_Maschine_ohne_KS->alkohol = atoi(ptr);                   // Schreibe ASCI-JA//Nein in Integer-Buffer
-        ptr = strtok(NULL, delimiter);                                  // Abschnitt Kohlensäure Ja/Nein
-        aktuelle_Zutat_in_Maschine_ohne_KS->kohlensaeure = atoi(ptr);              // Schreibe ASCI-JA//Nein in Integer-Buffer
+	    if (run)
+	    {
+		    ptr = strtok(NULL, delimiter);                        // Abschnitt Name Zutat
+	    } else
+	    {
+		    ptr = strtok((char *)buff_string, delimiter);                            // Abschnitt Name Zutat
+		    run = 1;
+	    }
+	    strcpy(aktuelle_Zutat_in_Maschine_ohne_KS->name,ptr);                      // Kopiere Name in Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Status
+	    aktuelle_Zutat_in_Maschine_ohne_KS->status = atoi(ptr);                    // Schreibe ASCI-Status in Integer-Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Alkohol Ja/Nein
+	    aktuelle_Zutat_in_Maschine_ohne_KS->alkohol = atoi(ptr);                   // Schreibe ASCI-JA//Nein in Integer-Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Kohlensäure Ja/Nein
+	    aktuelle_Zutat_in_Maschine_ohne_KS->kohlensaeure = atoi(ptr);              // Schreibe ASCI-JA//Nein in Integer-Buffer
 
-        aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
+	    aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
     } while(aktuelle_Zutat_in_Maschine_ohne_KS != tail_zut_in_Maschine_ohne_KS);
+	
+		    ptr = strtok(NULL, delimiter);                                  // Abschnitt Kohlensäure Ja/Nein
+
+	    // Beschreibe die Maschinenzutaten gemäss Backup M.txt
+    aktuelle_Zutat_ausser_Maschine_mit_KS = tail_zut_ausser_Maschine_mit_KS;
+    do
+    {
+		    ptr = strtok(NULL, delimiter);                        // Abschnitt Name Zutat
+	    strcpy(aktuelle_Zutat_ausser_Maschine_mit_KS->name,ptr);                      // Kopiere Name in Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Status
+	    Uart_Transmit_IT_PC(ptr);
+	    aktuelle_Zutat_ausser_Maschine_mit_KS->status = atoi(ptr);                    // Schreibe ASCI-Status in Integer-Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Alkohol Ja/Nein
+	    aktuelle_Zutat_ausser_Maschine_mit_KS->alkohol = atoi(ptr);                   // Schreibe ASCI-JA//Nein in Integer-Buffer
+	    ptr = strtok(NULL, delimiter);                                  // Abschnitt Kohlensäure Ja/Nein
+	    aktuelle_Zutat_ausser_Maschine_mit_KS->kohlensaeure = atoi(ptr);              // Schreibe ASCI-JA//Nein in Integer-Buffer
+
+	    aktuelle_Zutat_ausser_Maschine_mit_KS = aktuelle_Zutat_ausser_Maschine_mit_KS->prev;
+    } while(aktuelle_Zutat_ausser_Maschine_mit_KS != tail_zut_ausser_Maschine_mit_KS);
 
     // Erstelle Getränkeliste neu mit gebackupten Maschinenzutaten
     renew_list();
@@ -1887,7 +1909,9 @@ void renew_list(void)
             head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp);
         }
         aktuellesGetraenk_file_2 = aktuellesGetraenk_file_2->prev;
+		Uart_Transmit_IT_PC("Hoi\r");
     } while (aktuellesGetraenk_file_2 != tail_getraenk_file_2);
+		Uart_Transmit_IT_PC("Hoi2\r");
 
     aktuellesGetraenk_file = tail_getraenk_file;
     lese_textfile_in_getraenk(aktuellesGetraenk_file->file);

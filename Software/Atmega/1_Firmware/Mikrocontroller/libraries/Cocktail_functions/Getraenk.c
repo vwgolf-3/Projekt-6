@@ -112,7 +112,7 @@ void cocktails_init(void)
                 - Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
     **************************************************************************************************************/
-    for ( int8_t count = 0 ; count <= 20; count++)
+    for ( int8_t count = 0 ; count <= 50; count++)
     {
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
@@ -336,6 +336,7 @@ getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *fi
 		(*head)->prev = file_to_insert;
 		file_to_insert->prev = tail_getraenk_file;
 	}
+		file_to_insert->prev = tail_getraenk_file;
 	*head = file_to_insert;
 	tail_getraenk_file->next = *head;
 	return file_to_insert;
@@ -354,6 +355,7 @@ getraenk_file_t *insert_file_at_head_2(getraenk_file_t **head, getraenk_file_t *
 		(*head)->prev = file_to_insert;
 		file_to_insert->prev = tail_getraenk_file_2;
 	}
+		file_to_insert->prev = tail_getraenk_file_2;
 	*head = file_to_insert;
 	tail_getraenk_file_2->next = *head;
 	return file_to_insert;

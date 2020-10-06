@@ -1652,19 +1652,6 @@ void check_erstanzeige2(uint8_t button)
     zutatMaschine_t * tmp_ohne_KS_tail = tail_zut_in_Maschine_ohne_KS->next;
     zutatMaschine_t * tmp_mit_KS_tail = tail_zut_ausser_Maschine_mit_KS->next;
 
-// Anfang und Ende der gesamten Liste
-    tmp_zut_Maschine_tail = tail_zut_in_Maschine_ohne_KS;
-//     tmp_zut_Maschine_head = head_zut_ausser_Maschine_mit_KS;
-
-// Äussere Verbindungen
-    tail_zut_in_Maschine_ohne_KS->next = head_zut_ausser_Maschine_mit_KS;
-    head_zut_ausser_Maschine_mit_KS->prev = tail_zut_in_Maschine_ohne_KS;
-
-// Innere Verbindungen
-    tail_zut_ausser_Maschine_mit_KS->next = head_zut_in_Maschine_ohne_KS;
-    head_zut_in_Maschine_ohne_KS->prev = tail_zut_ausser_Maschine_mit_KS;
-    // Initialisierung für Erstellung eines neuen Getränkefiles
-    getraenk_file_t * tmp2;
 
     switch (button)
     {
@@ -1745,7 +1732,7 @@ void check_erstanzeige2(uint8_t button)
             aktuellesGetraenk->alkohol = alkohol;
 
             // Suche von 1 bis 100 durch die Files
-            for (int8_t count = 1 ; count <= 100; count++) {
+            for (int8_t count = 1 ; count < 100; count++) {
 
                 // Text erstellen, um File-Nr. zu suchen.
                 char buff[15] = {'\0'};
@@ -1757,15 +1744,18 @@ void check_erstanzeige2(uint8_t button)
                 {
                     // File speichern
                     erstelle_File(count, buff_name, alkohol, kohlensaeure);
+                    getraenk_file_t * tmp2;
                     tmp2 = create_new_getraenk_file(count);
                     head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
-                    head_getraenk_file_2 = insert_file_at_head(&head_getraenk_file_2, tmp2);
+                    getraenk_file_t * tmp3;
+                    tmp3 = create_new_getraenk_file_2(count);
+                    head_getraenk_file_2 = insert_file_at_head_2(&head_getraenk_file_2, tmp3);
                     count = 100;
                     aktuellesGetraenk_file = head_getraenk_file;
                     aktuellesGetraenk_file_2 = head_getraenk_file_2;
-                    lese_textfile_in_getraenk(head_getraenk_file->file);
                 }
             }
+            lese_textfile_in_getraenk(head_getraenk_file->file);
             nextion_change_page(STARTANZEIGE);
             setze_startanzeige(aktuellesGetraenk);
             counter = 0;
@@ -1778,12 +1768,12 @@ void check_erstanzeige2(uint8_t button)
         {
             nextion_setText("t0", "Noch nicht 100% ausgewählt.");
         }
-        head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
-        head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
-        tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
-        tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
         break;
     }
+    head_zut_in_Maschine_ohne_KS->prev =tmp_ohne_KS_head;
+    head_zut_ausser_Maschine_mit_KS->prev = tmp_mit_KS_head;
+    tail_zut_in_Maschine_ohne_KS->next = tmp_ohne_KS_tail;
+    tail_zut_ausser_Maschine_mit_KS->next = tmp_mit_KS_tail;
 }
 
 void check_loeschanzeige(uint8_t button)
