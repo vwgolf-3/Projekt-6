@@ -6,9 +6,9 @@
 
 Der Motor wird über eine H-Brücke gesteuert. Dies bedingt pro Spule zwei MOSFET's, um diese entsprechend magnetisieren zu können. Um einen MOSFET in einen leitenden Zustand zu bringen, muss das Gate des MOSFET's mit einer elektrischen Ladung gefüllt werden. Während diesem Vorgang hat am Gate ein kapazitives Verhalten, was bedeutet, dass bei jedem Schaltvorgang Ströme fliessen. Um ein optimales Schaltverhalten zu erreichen, die Umschaltverluste zu verringern und somit die daraus entstehende Abwärme zu verhindern, ist es vorteilhaft die Gates so schnell wie möglich laden und entladen zu können. Da kommt der Gate-Treiber ins Spiel. Dieser ladet und entladet das Gate schnell genug und stellt die dazu benötigte Energie für das Gate zur Verfügung.
 
-\paragraph{Schema}\mbox{}
+\paragraph{Schema}\mbox{}\\
 
-Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zusatzfunktionen wie Strommessung, Messverstärkung, Kurzschlussdetektion etc. genutzt werden können, wurde während des Entwicklungsprozesses ein Gate-Treiber von Trinamic ausgewählt. Das entsprechende Bauteil ist der TMC6200. Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:Schaltung_TMC6200} und \ref{Appendix:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der TMC6200 aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Spannungsversogrung besteht.
+Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zusatzfunktionen wie Strommessung, Messverstärkung, Kurzschlussdetektion etc. genutzt werden können, wurde während des Entwicklungsprozesses ein Gate-Treiber von Trinamic ausgewählt. Das entsprechende Bauteil ist der TMC6200. Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:Schaltung_TMC6200} und \ref{Appendix:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der TMC6200 aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Spannungsversogrung besteht. Das Schema ist in Abbildung \ref{fig:Schema_Gate_Treiber} zu sehen.
 
 
 \begin{figure}[H]
@@ -31,7 +31,7 @@ Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zus
 %	\label{fig:Schema_TMC6200}
 %\end{figure}
 
-\paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
+\paragraph{Funktionsbeschrieb der Schaltung}\mbox{}\\
 
 %\subparagraph{Shunt-Widerstände $\mathrm{\mathbf{R_{Sense}}}$}
 Für die Messung des Stromes wird ein Shunt in Serie mit der Spule des BLDC-Motors geschaltet. Die Shunts R89 - R91 sind in Abbildung \ref{fig:Schema_H_Bruecke_und_BLDC} zu sehen. Durch den fliessenden Strom liegt eine Spannung über dem Shunt, welche dann vom TMC6200 verstärkt wird und aufbereitet an den Kontroll-Chip TMC4671 ausgegeben wird. Die Verstärkung sowie Offset auf das Signal sind über SPI programmierbar.
