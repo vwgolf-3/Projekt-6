@@ -5,7 +5,7 @@ Der Mikrocontroller, sowie die Durchflussmessgeräte und das Display  werden mit
 
 \paragraph{Schema}\mbox{}\\
 
-Das Schema in Abbildung \ref{fig:Schema_Speisung_5V} kann wie bei der 12V Speisung gemäss Kapitel \ref{subsubsec:12V Speisung}in fünf Teile unterteilt werden. Da wären zuerst die Eingangskondensatoren, welche mit C31, C33 \& C35 realisiert sind. Diese Entstörstufe wird wiederum gefolgt von einem Spannungsteiler, welcher den Enable auf aktiv setzt. Der eigentliche Regler wird auch hier mittels des IC6, D5 \& L4 realisiert. Mittels zweier Spannungsteiler, wird die gewünschte Ausgangsspannung, sowie die "Overvoltage-Protection" eingestellt. Vor dem Ausgang der Schaltung ist dann erneut eine Filterstufe implementiert, welche das Ausgangssignal glättet.
+Das Schema in Abbildung \ref{fig:Schema_Speisung_5V} kann wie bei der 12V Speisung gemäss Kapitel \ref{subsubsec:12V Speisung} in fünf Teile unterteilt werden. Da wären zuerst die Eingangskondensatoren, welche mit C31, C33 \& C35 realisiert sind. Diese Entstörstufe wird wiederum gefolgt von einem Spannungsteiler, welcher den Enable auf aktiv setzt. Der eigentliche Regler wird auch hier mittels des IC6, D5 \& L4 realisiert. Mittels zweier Spannungsteiler, wird die gewünschte Ausgangsspannung, sowie die \flqq Overvoltage-Protection\frqq~ eingestellt. Vor dem Ausgang der Schaltung ist dann erneut eine Kondensatorstufe implementiert, welche das Ausgangssignal glättet.
 
 \begin{figure}[h!]
 	\centering
@@ -18,7 +18,7 @@ Das Schema in Abbildung \ref{fig:Schema_Speisung_5V} kann wie bei der 12V Speisu
 
 Auch bei der 5V Speisung wurde mittels R29 \& R31 ein Spannungsteiler realisiert, welcher das IC gemäss Kapitel \ref{subsubsec:12V Speisung} auf aktiv setzt.
 
-Das Widerstandsverhältnis von R41 \& R42, welches die Ausgangsspannung definiert, wurde gemäss Formel \ref{equ:Ausgangsspannung_12V} berechnet. Somit ergeben sich für R41=301k$\Omega$ und für R42=57.6k$\Omega$, Was einer Ausgangsspannung von 4.98V entspricht. \cite[S.10]{monolithic_power_systems_mp24943_2011} 
+Das Widerstandsverhältnis von R41 \& R42, welches die Ausgangsspannung definiert, wurde gemäss Formel \ref{equ:Ausgangsspannung_12V} berechnet. Somit ergeben sich für R41=301k$\Omega$ und für R42=57.6k$\Omega$, was einer Ausgangsspannung von 4.98V entspricht. \cite[S.10]{monolithic_power_systems_mp24943_2011} 
 
 Beim Überspannungsschutz musste darauf geachtet werden, dass der Mikrokontroller AtMega2560-16AU nur in einem Spannungsbereich von 4.5V-5.5V betrieben werden darf. Die maximal verträgliche Eingangsspannung liegt laut Datenblatt bei 6V. Somit muss der Überspannungsschutz so gestaltet werden, dass die Schwelle von 6V nicht überschritten werden kann. Um dies erreichen zu können, wurde für R36=301k$\Omega$ und R37=53k$\Omega$ gewählt. Gemäss Formel \ref{equ:Vovp_12V} erhält man so eine Überspannungsschutzschwelle von 6V. \cite[S.1]{atmel_atmel_2014} \cite[S.10]{monolithic_power_systems_mp24943_2011}
 
