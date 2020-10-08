@@ -6,9 +6,6 @@
  */
 #include "UART.h"
 
-
-
-
 void UART_init()
 {
 
@@ -18,9 +15,6 @@ void UART_init()
 
 #define BAUD57600 57600                                   // Define für Baudrate-Register
 #define BRC57600 ((F_CPU/16/BAUD57600) -1)                // Define für Baudrate-Register
-
-#define BAUD38400 38400
-#define BRC38400 ((F_CPU/16/BAUD38400) -1)
 
 #define BAUD74880 74880
 #define BRC74880 ((F_CPU/16/BAUD74880) -1)
@@ -42,36 +36,22 @@ void UART_init()
     UBRR2L = BRC74880;                                          // Baudrate Register2 (9600) UART2
     UCSR2B = (1<<RXEN2)|(1<<TXEN2);                             // Enable RX und TX UART 2
     UCSR2C = (1<<UCSZ20)|(1<<UCSZ21);                           // Übertragene Bits: 8 und parity disabled UART2
-
-    UBRR3H = (BRC9600>>8);                                      // Baudrate Register1 (9600) UART3
-    UBRR3L = BRC9600;                                           // Baudrate Register2 (9600) UART3
-    UCSR3B = (1<<RXEN3)|(1<<TXEN3);                             // Enable RX und TX UART 3
-    UCSR3C = (1<<UCSZ30)|(1<<UCSZ31);                           // Übertragene Bits: 8 und parity disabled UART3
     /******************************************************************************************************************************/
 
 
     /******************************************************************************************************************************/
     RB_init(&rb_rx_PC);                                         // Initialisiere Ring-Buffer (head = 0, tail = 0) RX UART0
-
     RB_init(&rb_rx_Display);                                    // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART1
-
-    RB_init(&rb_tx_ESP);                                        // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART2
     RB_init(&rb_rx_ESP);                                        // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART2
-
-    RB_init(&rb_tx_RFID);                                       // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART3
-    RB_init(&rb_rx_RFID);                                       // Initialisiere Ring-Buffer (head = 0, tail = 0) TX UART3
     /******************************************************************************************************************************/
 
 
     /******************************************************************************************************************************/
     Uart_EnableRxIT_0();                                        // Enable RX-Interrupt: Receive Complete UART 0
-
     Uart_EnableRxIT_1();                                        // Enable RX-Interrupt: Receive Complete UART 1
-
     Uart_EnableRxIT_2();                                        // Enable RX-Interrupt: Receive Complete UART 2
 
-    Uart_EnableRxIT_3();                                        // Enable RX-Interrupt: Receive Complete UART 3
-    /******************************************************************************************************************************/
+   /******************************************************************************************************************************/
 
 
     /******************************************************************************************************************************/
@@ -83,7 +63,6 @@ void UART_init()
     ptr_tx_completed_0=tx_completed;                            // Pointer tx Completed UART0 auf Funktion (Kurz warten) setzen
     ptr_tx_completed_1=tx_completed;                            // Pointer tx Completed UART1 auf Funktion (Kurz warten) setzen
     ptr_tx_completed_2=tx_completed;                            // Pointer tx Completed UART2 auf Funktion (Kurz warten) setzen
-    ptr_tx_completed_3=tx_completed;                            // Pointer tx Completed UART3 auf Funktion (Kurz warten) setzen
     /******************************************************************************************************************************/
 
 }
@@ -125,23 +104,13 @@ void Uart_Transmit_IT_ESP(char *data)
 
         PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
     */
-    uint8_t nbytes = strlen((const char *)data);
-    RB_write(&rb_tx_ESP, data, nbytes);
-    Uart_EnableTransmitIT_2();
-}
-
-void Uart_Transmit_IT_RFID(char *data)
-{
-    /*
-        - Ermittle Länge des Strings
-        - Schreibe n Bytes in den Buffer für RFID
-        - Enable Interrupt wenn Datenregister leer ist
-
-        PROBLEM: Buffer overflow wenn lange Strings gesendet werden.
-    */
-    uint8_t nbytes = strlen((const char *)data);
-    RB_write(&rb_tx_RFID, data, nbytes);
-    Uart_EnableTransmitIT_3();
+    int i = 0;
+    while (*(data + i) !='\0')
+    {
+	    while (!(UCSR2A & (1<<UDRE2)));
+	    UDR2 = *(data+i);
+	    i++;
+    }
 }
 
 void tx_completed()
@@ -153,23 +122,6 @@ void tx_completed()
     asm("nop");
 }
 
-// ISR(USART0_UDRE_vect)
-// {
-//     /*
-//         - Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
-//         - Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet
-//     */
-//     if (RB_length(&rb_tx_PC) > 0)
-//     {
-//         UDR0 = RB_readByte(&rb_tx_PC);
-//     }
-//     else
-//     {
-//         Uart_DisableTransmitIT_0();
-//         if(ptr_tx_completed_0 != 0)
-//             ptr_tx_completed_0();
-//     }
-// }
 
 ISR(USART0_RX_vect)
 {
@@ -189,24 +141,6 @@ ISR(USART1_RX_vect)
     RB_writeByte(&rb_rx_Display,ch);
 }
 
-ISR(USART2_UDRE_vect)
-{
-    /*
-        - Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
-        - Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet
-    */
-    if (RB_length(&rb_tx_ESP) > 0)
-    {
-        UDR2 = RB_readByte(&rb_tx_ESP);
-    }
-    else
-    {
-        Uart_DisableTransmitIT_2();
-        if(ptr_tx_completed_2 != 0)
-            ptr_tx_completed_2();
-    }
-}
-
 ISR(USART2_RX_vect)
 {
     /*
@@ -214,33 +148,6 @@ ISR(USART2_RX_vect)
     */
     char ch = UDR2;
     RB_writeByte(&rb_rx_ESP,ch);
-}
-
-ISR(USART3_UDRE_vect)
-{
-    /*
-        - Befinden sich Daten im Buffer, wird das nächste Byte aus dem Buffer gesendet
-        - Ansonsten wird das Interrupt deaktiviert und zwei Schritte gewartet
-    */
-    if (RB_length(&rb_tx_RFID) > 0)
-    {
-        UDR3 = RB_readByte(&rb_tx_RFID);
-    }
-    else
-    {
-        Uart_DisableTransmitIT_3();
-        if(ptr_tx_completed_3 != 0)
-            ptr_tx_completed_3();
-    }
-}
-
-ISR(USART3_RX_vect)
-{
-    /*
-        - Wird ein Empfangs-Interrupt seitens RFID ausgelöst, wird das empfangene Byte in den RFID-Buffer geschrieben
-    */
-    char ch = UDR3;
-    RB_writeByte(&rb_rx_RFID,ch);
 }
 
 // Funktionen, welche in der SD- und FAT-Library verwendet werden. Diese wurden so umgeschrieben, dass sie an die

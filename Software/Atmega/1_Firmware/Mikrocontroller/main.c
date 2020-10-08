@@ -13,8 +13,10 @@
 // MainLoop
 int main(void)
 {
-    init_LED();
-	
+//     init_LED();
+//
+number_main = 0;
+number_main_ptr = &number_main;
     ramp_pwm_init();
 
     interfaces_init();
@@ -22,15 +24,15 @@ int main(void)
     devices_init();
 
     speicher_init();
-	
-	ramp_init();
+
+    ramp_init();
 
     Position = 0;
     compute = 0;
-
+	
     nextion_change_page(STARTANZEIGE);
     setze_startanzeige(aktuellesGetraenk);                  // Startanzeige des Displays setzen
-	
+
     // Mainroutine
     while (1)
     {

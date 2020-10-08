@@ -53,22 +53,30 @@ main.d main.o: .././main.c .././utils/main_variables.h \
  .././libraries/Main_functions/../Nextion_Display/Nextion_Display.h \
  .././libraries/Main_functions/../Nextion_Display/../Main_functions/Main_Func.h \
  .././libraries/Main_functions/../Nextion_Display/../../libraries/UART/UART.h \
+ .././libraries/Main_functions/../Cocktail_functions/Zutaten.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
+ .././libraries/Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
+ .././libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
+ .././libraries/Main_functions/../Cocktail_functions/../SD-Karte/../SPI/SPI.h \
+ .././libraries/Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h \
+ .././libraries/Main_functions/../Cocktail_functions/../Lists/Lists.h \
+ .././libraries/Main_functions/../Cocktail_functions/../Lists/../UART/UART.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
+ .././libraries/Main_functions/../Lists/Lists.h \
  .././libraries/Cocktail_functions/Cocktail_Statemachine.h \
  .././libraries/Cocktail_functions/Cocktail_functions.h \
  .././libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
  .././libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  .././libraries/Cocktail_functions/../TMC6200/TMC6200.h \
  .././libraries/Cocktail_functions/../SD-Karte/FAT32.h \
- .././libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
- .././libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
- .././libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
  .././libraries/Cocktail_functions/../LED/LED.h \
  .././libraries/Cocktail_functions/../Software_Ramp/Ramp1.h \
  .././libraries/Cocktail_functions/../Main_functions/Main_Func.h \
  .././libraries/Cocktail_functions/Zutaten.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  .././libraries/Cocktail_functions/Getraenk.h \
  .././libraries/Cocktail_functions/../UART/UART.h \
+ .././libraries/Cocktail_functions/../Lists/Lists.h \
  .././libraries/Cocktail_functions/TAGS.h
 
 .././utils/main_variables.h:
@@ -181,6 +189,28 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././libraries/Main_functions/../Nextion_Display/../../libraries/UART/UART.h:
 
+.././libraries/Main_functions/../Cocktail_functions/Zutaten.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../SD-Karte/../SPI/SPI.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../Lists/Lists.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../Lists/../UART/UART.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+.././libraries/Main_functions/../Lists/Lists.h:
+
 .././libraries/Cocktail_functions/Cocktail_Statemachine.h:
 
 .././libraries/Cocktail_functions/Cocktail_functions.h:
@@ -193,12 +223,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././libraries/Cocktail_functions/../SD-Karte/FAT32.h:
 
-.././libraries/Cocktail_functions/../SD-Karte/SD_routines.h:
-
-.././libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h:
-
-.././libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
-
 .././libraries/Cocktail_functions/../LED/LED.h:
 
 .././libraries/Cocktail_functions/../Software_Ramp/Ramp1.h:
@@ -207,10 +231,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././libraries/Cocktail_functions/Zutaten.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
-
 .././libraries/Cocktail_functions/Getraenk.h:
 
 .././libraries/Cocktail_functions/../UART/UART.h:
+
+.././libraries/Cocktail_functions/../Lists/Lists.h:
 
 .././libraries/Cocktail_functions/TAGS.h:

@@ -35,14 +35,14 @@ void RFID_init(void)
     {
         // String mit Name des Textfiles erstellen (Z0.txt bis Z199.txt)
         // Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-        tmp = create_new_tag("Hoi", count, count);
+        tmp = create_new_tag("", count, count);
         head_tag = insert_tag_at_head(&head_tag, tmp);
     }
 }
 
 rfid_tag_t *create_new_tag(char * cocktail_name, uint8_t tag_nummer, uint8_t tag_ID)
 {
-    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutatMaschine_t
+    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutat_maschine_node_t
     rfid_tag_t *newTag = calloc(1,sizeof(rfid_tag_t));
 
     // Alloziiere Speicher für den Namen und setze den Struct-Pointer name darauf

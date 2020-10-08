@@ -59,8 +59,6 @@ uint8_t check_existence(uint8_t file)
 
                 uint8_t count = 0;
                 uint8_t run = 1;
-                aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
-                aktuelle_Zutat_ausser_Maschine_mit_KS = tail_zut_ausser_Maschine_mit_KS;
 
                 while (run)
                 {
@@ -75,8 +73,8 @@ uint8_t check_existence(uint8_t file)
                         exists = 0;
                     }
                     count ++;
-                    aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-                    aktuelle_Zutat_ausser_Maschine_mit_KS = aktuelle_Zutat_ausser_Maschine_mit_KS->prev;
+                    aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->next;
+                    aktuelle_Zutat_ausser_Maschine_mit_KS = aktuelle_Zutat_ausser_Maschine_mit_KS->next;
                 }
                 ptr = strtok(NULL, delimiter);
                 counter ++;
@@ -93,17 +91,17 @@ uint8_t check_existence(uint8_t file)
 void cocktails_init(void)
 {
     Liste = ALLE;
-
+    number_getraenk_alle_ = 0;
+    number_getraenk_alle = &number_getraenk_alle_;
+	number_list_ = 0;
+	number_list = &number_list_;
     /**************************************************************************************************************
 
                 - Initialisierungen
 
     **************************************************************************************************************/
 
-    head_getraenk_file = NULL;
-    head_getraenk_file_2 = NULL;
-    getraenk_file_t * tmp2;
-    getraenk_file_t * tmp3;
+    head_getraenk_file_alle = NULL;
 
     /**************************************************************************************************************
 
@@ -112,23 +110,20 @@ void cocktails_init(void)
                 - Im Eintrag ist der Name des Files gespeichert, und ermöglicht einen späteren Aufruf.
 
     **************************************************************************************************************/
-    for ( int8_t count = 0 ; count <= 50; count++)
+    for (int8_t count = 0 ; count <= 50; count++)
     {
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
         strcat((char *)buff, (const char *)".txt");
         if(readFile(VERIFY, (unsigned char *)buff)==1)
         {
-            tmp3 = create_new_getraenk_file_2(count);
-            head_getraenk_file_2 = insert_file_at_head_2(&head_getraenk_file_2, tmp3);
-
             if(check_existence(count))
             {
-                tmp2 = create_new_getraenk_file(count);
-                head_getraenk_file = insert_file_at_head(&head_getraenk_file, tmp2);
+				insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
             }
         }
     }
+    display_from_beg(number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
 
     /**************************************************************************************************************
 
@@ -148,9 +143,8 @@ void cocktails_init(void)
 
     **************************************************************************************************************/
 
-    aktuellesGetraenk_file = tail_getraenk_file;
-    aktuellesGetraenk_file_2 = tail_getraenk_file_2;
-    lese_textfile_in_getraenk(aktuellesGetraenk_file->file);
+    actual_getraenk_file_alle = head_getraenk_file_alle;
+    lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
 }
 
 getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, uint8_t kohlensaeure, uint8_t picture)
@@ -186,220 +180,79 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, 
     return newGetraenk;
 }
 
-void add_drink_to_eeprom(uint8_t * add, char * name, uint8_t * mengen, uint8_t value, uint8_t alkohol, uint8_t kohlensaeure)
+file_node_t *create_new_getraenk_file(uint8_t file_to_create)
 {
-    int i = 0;
-    uint8_t n = strlen((const char *) name );
-    char temp_name[n];
-    char temp_mengen[12];
-
-    strncpy(temp_name, (const char *)name, n);
-    strncpy(temp_mengen, (const char *)mengen, 12);
-
-    eeprom_write_byte(add,n);
-
-    for(i = 0; i<n ; i++)
-    {
-        eeprom_write_byte((add+i+1), temp_name[i]);
-        _delay_ms(5);
-    }
-
-    for(i = n; i<(n+12) ; i++)
-    {
-        eeprom_write_byte((add+i+1), temp_mengen[i]);
-        _delay_ms(5);
-    }
-
-
-    i++;
-    eeprom_write_byte((add+i+1),value);
-
-    i++;
-    eeprom_write_byte((add+i+1),alkohol);
-
-    i++;
-    eeprom_write_byte((add+i+1),kohlensaeure);
-
-    _delay_ms(5);
-
-    i++;
-    eeprom_write_byte((add+i+1),'\0');
-
-    address_getraenk = add+i+1;
-}
-
-int8_t count_eeprom_drinks(uint8_t * add)
-{
-    int8_t cnt = 0;
-    int8_t val = 0;
-    int8_t n = 0;
-    do
-    {
-        cnt++;
-        val = eeprom_read_byte(add+n);
-        if(n == '\0')
-        {
-            return cnt;
-        }
-        n += val + 15 + 1;
-        add += n;
-    } while (n !='\0');
-    return 0;
-}
-
-getraenk_t * read_drink_from_eemprom(uint8_t * add)
-{
-    getraenk_t * drink;
-
-    int i = 0;
-    uint8_t n = eeprom_read_byte(add);                  // Schauen, wie lang der String ist
-    char name[n];
-    uint8_t mengen [12];
-    uint8_t alkohol = 0;
-    uint8_t kohlensaeure = 0;
-
-    for (i = 0; i<n ; i++)
-    {
-        *(name+i) = eeprom_read_byte(add+i+1);          // Schreibe Name Byte für Byte in übergebenen Speicher-Pointer (uint8_t name *)
-        _delay_ms(5);
-    }
-    *(name+i)='\0';                                     // Beende Array mit Terminator '\0'
-    _delay_ms(5);
-
-    for(i = n; i<(n+12) ; i++)
-    {
-        *(mengen+i) = eeprom_read_byte((add+i+1));      // Schreibe Mengen Byte für Byte in üergebenen Speicher-Pointer (uint8_t mengen *)
-        _delay_ms(5);
-    }
-    *(mengen+i)='\0';                                   // Beende Array mit Terminator '\0'
-    _delay_ms(5);
-
-    i++;
-    alkohol = eeprom_read_byte(add+i+1);                // Alkoholgehalt aus EEPROM lesen und in Variable ablegen
-
-    i++;
-    kohlensaeure = eeprom_read_byte(add+i+1);               // Alkoholgehalt aus EEPROM lesen und in Variable ablegen
-
-    _delay_ms(5);
-
-    drink = create_new_getraenk(name, mengen, alkohol, kohlensaeure, 24);
-
-    i++;
-    address_getraenk = add+i+1;
-
-    return drink;
-}
-
-void add_EEPROM_drinks_to_list(uint8_t * add)
-{
-//  getraenk_t * drink = 0;
-
-//  while (eeprom_read_byte(address_getraenk) != '\0')
-//  {
-//      drink = read_drink_from_eemprom(address_getraenk);
-//      insert_at_head(&head_getraenk, drink);
-//  }
-}
-
-void delete_EEPROM (uint8_t * add)
-{
-    for(int i = 0 ; i<4059 ; i++)
-    {
-        eeprom_write_byte(add+i,'\0');
-    }
-}
-
-getraenk_file_t *create_new_getraenk_file(uint8_t file_to_create)
-{
-    getraenk_file_t *newFile = calloc(1,sizeof(getraenk_file_t));
+    file_node_t *newFile = calloc(1,sizeof(file_node_t));
     newFile->file = file_to_create;
     return newFile;
 }
 
-getraenk_file_t *create_new_getraenk_file_2(uint8_t file_to_create)
+file_node_t *create_new_getraenk_file_2(uint8_t file_to_create)
 {
-    getraenk_file_t *newFile = calloc(1,sizeof(getraenk_file_t));
+    file_node_t *newFile = calloc(1,sizeof(file_node_t));
     newFile->file = file_to_create;
     return newFile;
 }
 
-getraenk_file_t *insert_file_at_head(getraenk_file_t **head, getraenk_file_t *file_to_insert)
+file_node_t *insert_file_at_head(file_node_t **head, file_node_t *file_to_insert)
 {
 	file_to_insert->next = *head;
 	file_to_insert->prev = NULL;
 
 	if((*head) == NULL)
 	{
-		tail_getraenk_file = file_to_insert;
+		tail_getraenk_file_alle = file_to_insert;
 	} else
 	{
 		(*head)->prev = file_to_insert;
-		file_to_insert->prev = tail_getraenk_file;
+		file_to_insert->prev = tail_getraenk_file_alle;
 	}
-		file_to_insert->prev = tail_getraenk_file;
+		file_to_insert->prev = tail_getraenk_file_alle;
 	*head = file_to_insert;
-	tail_getraenk_file->next = *head;
+	tail_getraenk_file_alle->next = *head;
 	return file_to_insert;
 }
 
-getraenk_file_t *insert_file_at_head_2(getraenk_file_t **head, getraenk_file_t *file_to_insert)
+file_list_node_t *create_new_list_node_file(file_node_t * getraenk_to_point_on)
 {
-	file_to_insert->next = *head;
-	file_to_insert->prev = NULL;
-
-	if((*head) == NULL)
-	{
-		tail_getraenk_file_2 = file_to_insert;
-	} else
-	{
-		(*head)->prev = file_to_insert;
-		file_to_insert->prev = tail_getraenk_file_2;
-	}
-		file_to_insert->prev = tail_getraenk_file_2;
-	*head = file_to_insert;
-	tail_getraenk_file_2->next = *head;
-	return file_to_insert;
-}
-
-getraenk_file_3_t *create_new_list_node_file(getraenk_file_t * getraenk_to_point_on)
-{
-	getraenk_file_3_t *newFile = calloc(1,sizeof(getraenk_file_3_t));
-	newFile->getraenk_x = getraenk_to_point_on;
+	file_list_node_t *newFile = calloc(1,sizeof(file_list_node_t));
+	newFile->getraenk_file = getraenk_to_point_on;
 	return newFile;
 }
 
-getraenk_file_3_t *delete_head_list_node_file(getraenk_file_3_t **head)
+file_list_node_t *delete_
+(file_list_node_t **head)
 {
-	getraenk_file_3_t * newHead = (*head);
+	file_list_node_t * newHead = (*head);
 	newHead = newHead->next;
 	free(*head);
-	newHead->prev=tail_list_node_file;
-	tail_list_node_file->next = newHead;
+	newHead->prev=tail_list_node_getraenk;
+	tail_list_node_getraenk->next = newHead;
 	Uart_Transmit_IT_PC("delete: ");
-	lese_textfile_in_getraenk((*head)->getraenk_x->file);
+	lese_textfile_in_getraenk((*head)->getraenk_file->file);
 	Uart_Transmit_IT_PC(aktuellesGetraenk->name);
 	Uart_Transmit_IT_PC("\r");
 	Uart_Transmit_IT_PC("Newhead: ");
-	lese_textfile_in_getraenk(newHead->getraenk_x->file);
+	lese_textfile_in_getraenk(newHead->getraenk_file->file);
 	Uart_Transmit_IT_PC(aktuellesGetraenk->name);
 	Uart_Transmit_IT_PC("\r");
 	return newHead;
 }
 
-getraenk_file_3_t *insert_list_node_at_head(getraenk_file_3_t **head, getraenk_file_3_t *file_to_insert)
+file_list_node_t *insert_list_node_at_head(file_list_node_t **head, file_list_node_t *file_to_insert)
 {
 	file_to_insert->next = *head;
 	file_to_insert->prev = NULL;
 
 	if((*head) == NULL)
 	{
-		tail_list_node_file = file_to_insert;
+		tail_list_node_getraenk = file_to_insert;
 	} else
 	{
 		(*head)->prev = file_to_insert;
-		file_to_insert->prev = tail_list_node_file;
+		file_to_insert->prev = tail_list_node_getraenk;
 	}
 	*head = file_to_insert;
-	tail_list_node_file->next = *head;
+	tail_list_node_getraenk->next = *head;
 	return file_to_insert;
 }

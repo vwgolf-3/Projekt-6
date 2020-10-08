@@ -53,6 +53,17 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h \
  ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
  ../libraries/Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../SPI/SPI.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Lists/Lists.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Lists/../UART/UART.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
+ ../libraries/Nextion_Display/../Main_functions/../Lists/Lists.h \
  ../libraries/Nextion_Display/../../libraries/UART/UART.h
 
 ../libraries/Nextion_Display/Nextion_Display.h:
@@ -160,5 +171,27 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../SPI/SPI.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/../UART/UART.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Lists/Lists.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Lists/../UART/UART.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+../libraries/Nextion_Display/../Main_functions/../Lists/Lists.h:
 
 ../libraries/Nextion_Display/../../libraries/UART/UART.h:

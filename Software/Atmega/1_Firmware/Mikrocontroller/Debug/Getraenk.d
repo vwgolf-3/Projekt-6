@@ -26,6 +26,10 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
  ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
+ ../libraries/Cocktail_functions/../Lists/Lists.h \
+ ../libraries/Cocktail_functions/../Lists/../UART/UART.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/Main_Func.h \
@@ -60,6 +64,10 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat32.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Lists/Lists.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
@@ -124,6 +132,14 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h:
 
 ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
+
+../libraries/Cocktail_functions/../Lists/Lists.h:
+
+../libraries/Cocktail_functions/../Lists/../UART/UART.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/Cocktail_functions.h:
 
@@ -192,6 +208,14 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat32.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h:
+
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Lists/Lists.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 

@@ -27,13 +27,7 @@ unsigned char   RB_read(ring_buffer_t *rb, unsigned char *data, unsigned char da
 unsigned char   RB_write( ring_buffer_t *rb, char *data, unsigned char datal );
 
 ring_buffer_t rb_rx_PC;
-
 ring_buffer_t rb_rx_Display;
-
-ring_buffer_t rb_tx_ESP;
 ring_buffer_t rb_rx_ESP;
-
-ring_buffer_t rb_tx_RFID;
-ring_buffer_t rb_rx_RFID;
 
 #endif /* RING_BUFFER_H_ */

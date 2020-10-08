@@ -25,6 +25,8 @@
 #include "Getraenk.h"
 #include "TAGS.h"
 
+// #include "../Lists/Lists.h"
+
 unsigned char option, error, data, FAT32_active;
 unsigned int i;
 unsigned char fileName[13];
@@ -57,8 +59,8 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk);
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 
 // Getränke-Pointer
-getraenk_file_t * erstelle_Liste_name(getraenk_file_t * beginn_file, char * name_button);
-zutatMaschine_t * erstelle_Liste_zutat(zutatMaschine_t * beginn_Maschine, char * input);
+file_node_t * erstelle_Liste_name(file_node_t * beginn_file, char * name_button);
+zutat_maschine_node_t * erstelle_Liste_zutat(zutat_maschine_node_t * beginn_Maschine, char * input);
 
 uint8_t lese_sensor(uint8_t Sensor);
 
@@ -76,13 +78,13 @@ void schiebe_file_prev(void);
 void schiebe_file_next(void);
 void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
-zutat_file_t * erstelle_Liste_Zutat_Pos(zutat_file_t * beginn_file, char * name_button);
+file_node_t * erstelle_Liste_Zutat_Pos(file_node_t * beginn_file, char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
 void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
 void setze_Fluessgkeit_in_Position_Aussen(uint8_t nr, uint8_t status);
 
-void setze_aktuelle_Zutat_in_Maschine_prev(uint8_t nr);
+void setze_aktuelle_Zutat_in_Maschine(uint8_t nr);
 
 void send_List_Getraenke (void);
 void send_List_RFID (void);

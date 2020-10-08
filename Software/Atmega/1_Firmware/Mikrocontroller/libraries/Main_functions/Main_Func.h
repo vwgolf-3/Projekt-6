@@ -16,7 +16,13 @@
 #include "../LED/LED.h"
 #include "../Software_Ramp/ramp1.h"
 #include "../Nextion_Display/Nextion_Display.h"
+#include "../Cocktail_functions/Zutaten.h"
 extern void encoder_testdrive(void);
+#include "../Lists/Lists.h"
+file_node_t *head, *tail;
+int number_main;
+int *number_main_ptr;
+
 #include <util/delay.h>
 
 void IO_init(void);
@@ -42,47 +48,37 @@ extern void SD_startup(void);
 extern void zutaten_init(void);
 extern void cocktails_init(void);
 extern void RFID_init(void);
+
 extern void cocktail_test_command(unsigned char INPUT[256]);
 extern void cocktail_check_command(int8_t page, int8_t button);
+
 extern void Uart_Transmit_IT_PC(char * data);
 
 
 //Variabeln UART_0
 extern unsigned char cntr_UART_0;
-extern unsigned char INPUT_UART_0[256];
+extern unsigned char INPUT_UART_0[128];
 extern char UART_recieved_finished_0;
 extern char cntr_End_UART_0;
 
 //Variabeln UART_1
 extern unsigned char cntr_UART_1;
-extern unsigned char INPUT_UART_1[256];
+extern unsigned char INPUT_UART_1[128];
 extern char UART_recieved_finished_1;
 extern char cntr_End_UART_1;
 extern char * ptr_Uart_1;
 
 //Variabeln UART_2
 extern unsigned char cntr_UART_2;
-extern unsigned char INPUT_UART_2[256];
+extern unsigned char INPUT_UART_2[128];
 extern char UART_recieved_finished_2;
 extern char cntr_End_UART_2;
 
-//Variabeln UART_2
-extern unsigned char cntr_UART_3;
-extern unsigned char INPUT_UART_3[256];
-extern char UART_recieved_finished_3;
-extern char cntr_End_UART_3;
-
-extern ring_buffer_t rb_tx_PC;
 extern ring_buffer_t rb_rx_PC;
 
-extern ring_buffer_t rb_tx_Display;
 extern ring_buffer_t rb_rx_Display;
 
-extern ring_buffer_t rb_tx_ESP;
 extern ring_buffer_t rb_rx_ESP;
-
-extern ring_buffer_t rb_tx_RFID;
-extern ring_buffer_t rb_rx_RFID;
 
 uint32_t Position;
 uint32_t count_bla;

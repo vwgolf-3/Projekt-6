@@ -43,6 +43,7 @@ C_SRCS +=  \
 ../libraries/Cocktail_functions/TAGS.c \
 ../libraries/Cocktail_functions/Zutaten.c \
 ../libraries/LED/LED.c \
+../libraries/Lists/Lists.c \
 ../libraries/Main_functions/Main_Func.c \
 ../libraries/Nextion_Display/Nextion_Display.c \
 ../libraries/RingBuffer/ring_buffer.c \
@@ -70,6 +71,7 @@ Getraenk.o \
 TAGS.o \
 Zutaten.o \
 LED.o \
+Lists.o \
 Main_Func.o \
 Nextion_Display.o \
 ring_buffer.o \
@@ -90,6 +92,7 @@ Getraenk.o \
 TAGS.o \
 Zutaten.o \
 LED.o \
+Lists.o \
 Main_Func.o \
 Nextion_Display.o \
 ring_buffer.o \
@@ -110,6 +113,7 @@ Getraenk.d \
 TAGS.d \
 Zutaten.d \
 LED.d \
+Lists.d \
 Main_Func.d \
 Nextion_Display.d \
 ring_buffer.d \
@@ -130,6 +134,7 @@ Getraenk.d \
 TAGS.d \
 Zutaten.d \
 LED.d \
+Lists.d \
 Main_Func.d \
 Nextion_Display.d \
 ring_buffer.d \
@@ -193,6 +198,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./LED.o: ../libraries/LED/LED.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./Lists.o: ../libraries/Lists/Lists.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

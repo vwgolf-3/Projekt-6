@@ -11,7 +11,7 @@
 void zutaten_init(void)
 {
 // Beim Initialisierungsvorgang der Zutaten werden zuerst alle verfügbaren gespeicherten Zutaten auf der SD-Karte
-// gesucht und deren Nummer in einer File-Liste gespeichert. Anhand dieser Liste (des Typs zutat_file_t) können
+// gesucht und deren Nummer in einer File-Liste gespeichert. Anhand dieser Liste (des Typs file_node_t) können
 // die Zutaten-Files während des Programmflusses stets aufgerufen, gespeichert und zur Verarbeitung in den
 // Programmspeicher geladen werden. Die Daten werden zur Verwendung in ein Struct (des Typs zutat_t) geladen und
 // von dort aus wieder aufgerufen.
@@ -28,6 +28,16 @@ void zutaten_init(void)
     address_Standardwiederherstellung  = (uint8_t *)0;
     aktuelle_zutat = create_zutat();
 
+    number_zutaten_ohne_ = 0;
+    number_zutaten_mit_ = 0;
+    number_zutaten_mit = &number_zutaten_mit_;
+    number_zutaten_ohne = &number_zutaten_ohne_;
+
+    number_zutaten_maschine_ohne_ = 0;
+    number_zutaten_maschine_mit_ = 0;
+    number_zutaten_maschine_mit = &number_zutaten_maschine_mit_;
+    number_zutaten_maschine_ohne = &number_zutaten_maschine_ohne_;
+
     /******************************************************************************************************************
     *******************************************************************************************************************
     **                                         ************************************************************************
@@ -36,14 +46,6 @@ void zutaten_init(void)
     *******************************************************************************************************************
     *******************************************************************************************************************
     Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wieder gleich sind wie davor.       */
-
-    head_Zutat_file_in_Maschine_ohne_KS = NULL;                             // Erstes hinzugefügtes File auf NULL
-    tail_Zutat_file_in_Maschine_ohne_KS = NULL;                             // Letztes hinzugefügtes File auf NULL
-	
-    head_Zutat_file_ausser_Maschine_mit_KS = NULL;                          // Erstes hinzugefügtes File auf NULL
-    tail_Zutat_file_ausser_Maschine_mit_KS = NULL;                          // Letztes hinzugefügtes File auf NULL
-
-    zutat_file_t * tmp;                                 // Temporärer Zutaten-File-Pointer für Hinzufügen der Zutat
 
     // Buffer
     char buff_init_textfiles_zutat[21] = {'\0'};        // Buffer für Filename
@@ -69,62 +71,20 @@ void zutaten_init(void)
         if(readFile(VERIFY, (unsigned char *)buff_init_textfiles_zutat)==1)
         {
             // Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-            tmp = create_new_zutat_file(count);
             lese_textfile_in_zutat(count);
-//             Uart_Transmit_IT_PC("Einlesen: ");
-//             Uart_Transmit_IT_PC(aktuelle_zutat->name);
-//             Uart_Transmit_IT_PC(", ");
-//             char buff[5] = {'\0'};
-//             itoa(aktuelle_zutat->kohlensaeure, (char *)buff,10);
-//             Uart_Transmit_IT_PC((char *)buff);
-//             Uart_Transmit_IT_PC("\r");
+
             if (aktuelle_zutat->kohlensaeure == 0)
             {
-                head_Zutat_file_in_Maschine_ohne_KS = insert_zutat_file_at_head(&head_Zutat_file_in_Maschine_ohne_KS, &tail_Zutat_file_in_Maschine_ohne_KS, tmp);
-//                 Uart_Transmit_IT_PC("Head ohne: ");
-//                 Uart_Transmit_IT_PC(aktuelle_zutat->name);
-//                 Uart_Transmit_IT_PC("\r");
+                insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
             }
             else
             {
-                head_Zutat_file_ausser_Maschine_mit_KS = insert_zutat_file_at_head(&head_Zutat_file_ausser_Maschine_mit_KS, &tail_Zutat_file_ausser_Maschine_mit_KS, tmp);
-//                 Uart_Transmit_IT_PC("Head mit: ");
-//                 Uart_Transmit_IT_PC(aktuelle_zutat->name);
-//                 Uart_Transmit_IT_PC("\r");
+                insert_at_end(count, &number_zutaten_mit, &head_zutat_file_mit, &tail_zutat_file_mit);
             }
         }
     }
-
-    /******************************************************************************************************************
-
-        - Für eine Zutat wird eine Struktur werdendet. Mittels create_zutat wird Speicherplatz dafür alloziiert.
-        - Werden Daten benötigt, wird mittels lese_textfile_in_zutat ein File in diese eine Zutaten-Struktur
-          eingelesen. Die benötigten Infos werden daraus extrahiert und im Speicher abgelegt.
-        - Damit die aktuelle Zutat auf das File1 zeigt, zeigt es auf den Tail der Liste (Erstes hinzugefügt).
-
-    ******************************************************************************************************************/
-
-//     aktuelles_Zutat_file_in_Maschine_ohne_KS = tail_Zutat_file_in_Maschine_ohne_KS;
-//     Uart_Transmit_IT_PC("In Maschine: \r");
-//     do
-//     {
-//         lese_textfile_in_zutat(aktuelles_Zutat_file_in_Maschine_ohne_KS->file);
-//         Uart_Transmit_IT_PC("Einlesen1: ");
-//         Uart_Transmit_IT_PC(aktuelle_zutat->name);
-//         Uart_Transmit_IT_PC("\r");
-//         aktuelles_Zutat_file_in_Maschine_ohne_KS = aktuelles_Zutat_file_in_Maschine_ohne_KS->prev;
-//     } while (aktuelles_Zutat_file_in_Maschine_ohne_KS != tail_Zutat_file_in_Maschine_ohne_KS);
-//
-//  aktuelles_Zutat_file_ausser_Maschine_mit_KS = tail_Zutat_file_ausser_Maschine_mit_KS;
-//     Uart_Transmit_IT_PC("Ausser Maschine: \r");
-//     do
-//     {
-//      lese_textfile_in_zutat(aktuelles_Zutat_file_ausser_Maschine_mit_KS->file);
-//      Uart_Transmit_IT_PC("Einlesen1: ");
-//      Uart_Transmit_IT_PC(aktuelle_zutat->name);
-//      Uart_Transmit_IT_PC("\r");
-//      aktuelles_Zutat_file_ausser_Maschine_mit_KS = aktuelles_Zutat_file_ausser_Maschine_mit_KS->prev;
-//     } while (aktuelles_Zutat_file_ausser_Maschine_mit_KS != tail_Zutat_file_ausser_Maschine_mit_KS);
+    display_from_beg(number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
+    display_from_beg(number_zutaten_mit, &head_zutat_file_mit, &tail_zutat_file_mit);
 
     /******************************************************************************************************************
     *******************************************************************************************************************
@@ -134,13 +94,6 @@ void zutaten_init(void)
     *******************************************************************************************************************
     *******************************************************************************************************************
     Diese werden von der/auf die SD-Karte geladen, damit Sie nach einem Neustart wieder gleich sind wie davor.       */
-
-    head_zut_in_Maschine_ohne_KS = NULL;                        // Erste hinzugefügte Zutat auf NULL
-    tail_zut_in_Maschine_ohne_KS = NULL;                        // Letzte hinzugefügte Zutat auf NULL
-    head_zut_ausser_Maschine_mit_KS = NULL;                        // Erste hinzugefügte Zutat auf NULL
-    tail_zut_ausser_Maschine_mit_KS = NULL;                        // Letzte hinzugefügte Zutat auf NULL
-
-    zutatMaschine_t * tmp_zutat_Maschine;               // Temporärer Zutaten-File-Pointer für Hinzufügen der Zutat
 
     char delimiter[] = ",\r\n";                         // Trennungszeichen definieren              (strtok)
     char *ptr;                                          // Pointer für Abschnitte initialisieren   (strtok)
@@ -195,10 +148,9 @@ void zutaten_init(void)
     buff4 = atoi(ptr);                                                  // Schreibe ASCI-JA//Nein in Integer-Buffer
 
     // Speicher alloziieren
-    tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, buff4, position, abstand*position);
 
     // Zutat in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-    head_zut_in_Maschine_ohne_KS = insert_zutat_Maschine_at_head(&head_zut_in_Maschine_ohne_KS,&tail_zut_in_Maschine_ohne_KS, tmp_zutat_Maschine);
+            insert_at_end_2((char *)buff1, buff2, buff3, buff4, position, abstand*position, &number_zutaten_maschine_ohne, &head_zutat_maschine_ohne, &tail_zutat_maschine_ohne);
 
     // Position inkrementieren
     position++;
@@ -219,10 +171,7 @@ void zutaten_init(void)
         if (strlen((const char *)buff1)>=1)
         {
             // Speicher alloziieren
-            tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, buff4, position, abstand*position);
-
-            // Zutat in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-            head_zut_in_Maschine_ohne_KS = insert_zutat_Maschine_at_head(&head_zut_in_Maschine_ohne_KS,&tail_zut_in_Maschine_ohne_KS, tmp_zutat_Maschine);
+            insert_at_end_2((char *)buff1, buff2, buff3, buff4, position, abstand*position, &number_zutaten_maschine_ohne, &head_zutat_maschine_ohne, &tail_zutat_maschine_ohne);
 
             // Position inkrementieren
             position++;
@@ -231,10 +180,8 @@ void zutaten_init(void)
     }
 
     // Aktuelle Zutat auf Tail zeigen lassen (Erstes hinzugefügt)
-    aktuelle_Zutat_in_Maschine_ohne_KS = tail_zut_in_Maschine_ohne_KS;
+    aktuelle_Zutat_in_Maschine_ohne_KS = tail_zutat_maschine_ohne;
 
-    head_zut_ausser_Maschine_mit_KS = NULL;
-    tail_zut_ausser_Maschine_mit_KS = NULL;
     position = 0;
 
     ptr = strtok(NULL, delimiter);                                  // Abschnitt Name Zutat
@@ -253,10 +200,7 @@ void zutaten_init(void)
         if (strlen((const char *)buff1)>=1)
         {
             // Speicher alloziieren
-            tmp_zutat_Maschine = create_neue_zutat_Maschine((char *)buff1,buff2, buff3, buff4, position, abstand*position);
-
-            // Zutat in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-            head_zut_ausser_Maschine_mit_KS = insert_zutat_Maschine_at_head(&head_zut_ausser_Maschine_mit_KS,&tail_zut_ausser_Maschine_mit_KS, tmp_zutat_Maschine);
+            insert_at_end_2((char *)buff1, buff2, buff3, buff4, position, abstand*position, &number_zutaten_maschine_mit, &head_zutat_maschine_mit, &tail_zutat_maschine_mit);
 
             // Position inkrementieren
             position++;
@@ -264,10 +208,10 @@ void zutaten_init(void)
 
         ptr = strtok(NULL, delimiter);                                  // Abschnitt Name Zutat
     }
-    aktuelle_Zutat_ausser_Maschine_mit_KS = tail_zut_ausser_Maschine_mit_KS;
+    aktuelle_Zutat_ausser_Maschine_mit_KS = tail_zutat_maschine_mit;
+    display_from_beg_2(number_zutaten_maschine_ohne, &head_zutat_maschine_ohne, &tail_zutat_maschine_ohne);
+    display_from_beg_2(number_zutaten_maschine_mit, &head_zutat_maschine_mit, &tail_zutat_maschine_mit);
 }
-
-
 
 zutat_t *create_zutat()
 {
@@ -292,122 +236,9 @@ zutat_t *create_zutat()
     return newZutat;
 }
 
-zutatMaschine_t *create_neue_zutat_Maschine(char * name, char status, uint8_t alkohol, uint8_t kohlensaeure, uint8_t k, uint32_t positon_motor)
+zutat_list_node_t *create_new_list_node_zut_file( file_node_t * file_to_link)
 {
-    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutatMaschine_t
-    zutatMaschine_t *newZutat = calloc(1,sizeof(zutatMaschine_t));
-
-    // Alloziiere Speicher für den Namen und setze den Struct-Pointer name darauf
-    newZutat->name = calloc(21,sizeof(char));
-
-    // Schreibe die Werte in entsprechende Variabeln des Structs
-    newZutat->status = status;
-    newZutat->stelle = k;
-    newZutat->position_motor = positon_motor;
-    newZutat->alkohol = alkohol;
-    newZutat->kohlensaeure = kohlensaeure;
-    newZutat->prev = NULL;
-    newZutat->next = NULL;
-
-    // Initialisiere den Speicher, auf den der Pointer zeigt mit '\0'
-    for (int i=0; i<21; i++)
-    {
-        *(char *)(newZutat->name + i) = *(char *)(name + i);
-    }
-
-    return newZutat;
-}
-
-zutatMaschine_t *insert_zutat_Maschine_at_head(zutatMaschine_t **head_zutat, zutatMaschine_t ** tail_zutat, zutatMaschine_t *zutat_to_insert)
-{
-    /*****************************************************************************
-    **==>**next******==>*==>*==>*==>*==>*| |*==>*==>*==>*==>*==>*******next**==>**
-    **             **   *   *   *   *   *| |*   *   *   *   *   **              **
-    **  Head-Zutat ** X * X * X * X * X *| |* X * X * X * X * X **  Tail-Zutat  **
-    **             **   *   *   *   *   *| |*   *   *   *   *   **              **
-    **<==**prev******<==*<==*<==*<==*<==*| |*<==*<==*<==*<==*<==*******prev**<==**
-    ******************************************************************************/
-
-    // Setze die vorhergehende und nachkommende Zutat der einzufügenden Zutat
-    zutat_to_insert->next = (*head_zutat);              // (1. Zutat = NULL)
-    zutat_to_insert->prev = NULL;
-
-    // Falls keine head-Zutat besteht, ist die einzufügende Zutat die tail-Zutat
-    if((*head_zutat) == NULL)
-    {
-        (*tail_zutat) = zutat_to_insert;
-    }
-
-    // Besteht eine head-Zutat, ist deren zuvorkommende Zutat die einzufügende Zutat
-    // und die zuvorkommende Zutat der einzufügenden Zutat ist die tail-Zutat
-    else
-    {
-        (*head_zutat)->prev = zutat_to_insert;
-    zutat_to_insert->prev = (*tail_zutat);
-    }
-
-    // head-Zutat ist jetzt die einzufügende Zutat
-    // Das nachkommende File der tail-Zutat ist jetzt die neue head-Zutat
-    (*head_zutat) = zutat_to_insert;
-    (*tail_zutat)->next = (*head_zutat);
-
-    return zutat_to_insert;
-}
-
-
-
-zutat_file_t *create_new_zutat_file(uint8_t file_to_create)
-{
-    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutat_file_t
-    zutat_file_t *newFile = calloc(1,sizeof(zutat_file_t));
-
-    // Schreibe die Nummer des Files in entsprechende Variabeln des Structs
-    newFile->file = file_to_create;
-
-    return newFile;
-}
-
-
-
-zutat_file_t *insert_zutat_file_at_head(zutat_file_t **head, zutat_file_t **tail, zutat_file_t *file_to_insert)
-{
-    /*****************************************************************************
-    **==>**next******==>*==>*==>*==>*==>*| |*==>*==>*==>*==>*==>*******next**==>**
-    **             **   *   *   *   *   *| |*   *   *   *   *   **              **
-    **  Head-File  ** X * X * X * X * X *| |* X * X * X * X * X **  Tail-File   **
-    **             **   *   *   *   *   *| |*   *   *   *   *   **              **
-    **<==**prev******<==*<==*<==*<==*<==*| |*<==*<==*<==*<==*<==*******prev**<==**
-    ******************************************************************************/
-
-    // Setze das vorhergehende und nachkommende File des einzufügenden Files
-    file_to_insert->next = *head;
-    file_to_insert->prev = NULL;
-
-    // Falls keine head-Zutat besteht, ist die einzufügende Zutat die tail-Zutat
-    if((*head) == NULL)
-    {
-        (*tail) = file_to_insert;
-    }
-
-    // Besteht ein head-File, ist dessen zuvorkommends File das einzufügende File
-    // und das zuvorkommende File des einzufügenden Files ist das tail-File
-    else
-    {
-        (*head)->prev = file_to_insert;
-    file_to_insert->prev = (*tail);
-    }
-
-    // head-File ist jetzt das einzufügende File
-    // Das nachkommende File des tail-Files ist jetzt das neue head-File
-    *head = file_to_insert;
-    (*tail)->next = *head;
-
-    return file_to_insert;
-}
-
-zutat_list_node_t *create_new_list_node_zut_file( zutat_file_t * file_to_link)
-{
-    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutat_file_t
+    // Alloziiere Speicher für die Struct-Variabeln gemäss Struct file_node_t
     zutat_list_node_t *newFile = calloc(1,sizeof(zutat_list_node_t));
 
     // Schreibe die Nummer des Files in entsprechende Variabeln des Structs
@@ -459,7 +290,7 @@ zutat_list_node_t *insert_zutat_list_node_at_head(zutat_list_node_t **head, zuta
 
 
 
-zutatMaschine_list_node_t *create_new_list_node_zutMaschine_file( zutatMaschine_t * file_to_link)
+zutatMaschine_list_node_t *create_new_list_node_zutMaschine_file( zutat_maschine_node_t * file_to_link)
 {
     // Alloziiere Speicher für die Struct-Variabeln gemäss Struct zutatMaschine_list_node_t
     zutatMaschine_list_node_t *newFile = calloc(1,sizeof(zutatMaschine_list_node_t));

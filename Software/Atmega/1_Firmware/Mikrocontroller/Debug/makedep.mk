@@ -14,6 +14,8 @@ libraries\Cocktail_functions\Zutaten.c
 
 libraries\LED\LED.c
 
+libraries\Lists\Lists.c
+
 libraries\Main_functions\Main_Func.c
 
 libraries\Nextion_Display\Nextion_Display.c

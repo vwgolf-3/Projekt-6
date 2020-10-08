@@ -123,6 +123,4 @@ void tmc4671_setTorqueFluxPI(uint8_t motor, uint16_t pParameter, uint16_t iParam
 void tmc4671_setVelocityPI(uint8_t motor, uint16_t pParameter, uint16_t iParameter);
 void tmc4671_setPositionPI(uint8_t motor, uint16_t pParameter, uint16_t iParameter);
 
-int32_t tmc4671_readFieldWithDependency(uint8_t motor, uint8_t reg, uint8_t dependsReg, uint32_t dependsValue, uint32_t mask, uint8_t shift);
-
 #endif /* TMC_IC_TMC4671_H_ */

@@ -74,7 +74,7 @@ void ramp_init(void)
 
 void periodic_jobs(linear_ramp_t * ramp)
 {
-	check_motor_activities(ramp);
+    check_motor_activities(ramp);
     check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
 }
 
@@ -193,47 +193,57 @@ char check_Communication_Input_UART_0(void)
 
 void proceed_Communication_Input_UART_0(void)
 {
+
     char * ch = "Proceed UART 0: \n\r";
     Uart_Transmit_IT_PC(ch);
 
-    if (INPUT_UART_0[0]=='0')
+    if (INPUT_UART_0[0]=='s')
     {
-        tmc4671_setTargetVelocity(0,200);
+	    display_from_beg(number_main_ptr, &head,&tail);
+    }
+    else if (INPUT_UART_0[0]=='a')
+    {
+	    display_from_beg(number_main_ptr, &head,&tail);
+    }
+    else if (INPUT_UART_0[0]=='0')
+    {
+        insert_at_first(0,&number_main_ptr,  &head, &tail);
     }
     else if (INPUT_UART_0[0]=='1')
-
     {
-        uint32_t Position_target = 100000;
-        for (int i = 1 ; i <= 12 ; i++)
-        {
-            tmc4671_setAbsolutTargetPosition(0, i * Position_target);
-            while(((tmc4671_getActualPosition(0) <= (i* Position_target-200))||(tmc4671_getActualPosition(0)>= (i*Position_target+200))))
-            {
-//              read_Position_TMC4671();
-            }
-
-            Uart_Transmit_IT_PC("Position ");
-            char buff[5] = {'\0'};
-            itoa(i, (char *)buff, 10);
-            Uart_Transmit_IT_PC((char *)buff);
-            Uart_Transmit_IT_PC(" erreicht\r");
-            _delay_ms(2000);
-        }
-        tmc4671_setAbsolutTargetPosition(0,0);
-        while((tmc4671_getActualPosition(0) >= (200)))
-        {
-            read_Position_TMC4671();
-        }
-        Uart_Transmit_IT_PC("Ausgangspunkt erreicht.");
+        insert_at_first(1,&number_main_ptr,  &head, &tail);
     }
     else if (INPUT_UART_0[0] == '2')
     {
-        Position = 1;
-        count_bla ++;
+        insert_at_first(2,&number_main_ptr,  &head, &tail);
     }
-    else if (INPUT_UART_0[0] == 0)
+    else if (INPUT_UART_0[0] == '3')
     {
-        tmc4671_setTargetVelocity(0,500);
+        insert_at_first(3,&number_main_ptr,  &head, &tail);
+    }
+    else if (INPUT_UART_0[0] == '4')
+    {
+        insert_at_first(4,&number_main_ptr,  &head, &tail);
+    }
+    else if (INPUT_UART_0[0] == '5')
+    {
+        insert_at_first(5,&number_main_ptr,  &head, &tail);
+    }
+    else if (INPUT_UART_0[0] == '6')
+    {
+        insert_at_first(6, &number_main_ptr, &head, &tail);
+    }
+    else if (INPUT_UART_0[0] == '7')
+    {
+	    insert_at_first(7,&number_main_ptr,  &head, &tail);
+    }
+    else if (INPUT_UART_0[0] == '8')
+    {
+	    insert_at_first(8, &number_main_ptr, &head, &tail);
+    }
+    else if (INPUT_UART_0[0] == '9')
+    {
+	    insert_at_first(9, &number_main_ptr, &head, &tail);
     }
 }
 
@@ -293,6 +303,16 @@ char check_Communication_Input_UART_1(void)
 
 void proceed_Communication_INPUT_UART_1(void)
 {
+	char buff[5] = {'\0'};
+	itoa(INPUT_UART_1[0], (char *)buff, 10);
+	Uart_Transmit_IT_PC("Proceed Display: ");
+	Uart_Transmit_IT_PC((char *)buff);
+		itoa(INPUT_UART_1[1], (char *)buff, 10);
+	Uart_Transmit_IT_PC(", ");
+	Uart_Transmit_IT_PC((char *)buff);
+	Uart_Transmit_IT_PC("\r");
+
+	
     cocktail_check_command(INPUT_UART_1[0], INPUT_UART_1[1]);
 }
 

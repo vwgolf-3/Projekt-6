@@ -172,6 +172,10 @@
       <SubType>compile</SubType>
       <Link>LED.c</Link>
     </Compile>
+    <Compile Include="libraries\Lists\Lists.c">
+      <SubType>compile</SubType>
+      <Link>Lists.c</Link>
+    </Compile>
     <Compile Include="libraries\Main_functions\Main_Func.c">
       <SubType>compile</SubType>
       <Link>Main_Func.c</Link>
