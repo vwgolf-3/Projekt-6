@@ -581,43 +581,6 @@
       \verb https://dl.espressif.com/dl/schematics/ESP32-Core-Board-V2_sch.pdf
       \endverb
     \endentry
-    \entry{zhou_nextion_nodate}{online}{}
-      \name{author}{1}{}{%
-        {{hash=22b735ab1565b2de834501b4b05d456b}{%
-           family={Zhou},
-           familyi={Z\bibinitperiod},
-           given={Baojie},
-           giveni={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{22b735ab1565b2de834501b4b05d456b}
-      \strng{fullhash}{22b735ab1565b2de834501b4b05d456b}
-      \strng{bibnamehash}{22b735ab1565b2de834501b4b05d456b}
-      \strng{authorbibnamehash}{22b735ab1565b2de834501b4b05d456b}
-      \strng{authornamehash}{22b735ab1565b2de834501b4b05d456b}
-      \strng{authorfullhash}{22b735ab1565b2de834501b4b05d456b}
-      \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{{NEXTION} {EDITOR} {VER} 1.61.2sanjiaoMade for {HMI} {GUI}}
-      \field{langid}{american}
-      \field{note}{Library Catalog: nextion.tech}
-      \field{title}{Nextion Software}
-      \field{titleaddon}{Nextion}
-      \field{urlday}{3}
-      \field{urlmonth}{10}
-      \field{urlyear}{2020}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\R9UUI59W\\nextion-editor.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://nextion.tech/nextion-editor/
-      \endverb
-      \verb{url}
-      \verb https://nextion.tech/nextion-editor/
-      \endverb
-    \endentry
     \entry{nxp_semiconductors_nv_mfrc522_2017}{online}{}
       \name{author}{1}{}{%
         {{hash=351ec30647226ed93b9cc5621dc3ee5b}{%
@@ -916,8 +879,8 @@
       \strng{authorbibnamehash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
       \strng{authornamehash}{52157facbe29909b1a88ad405706b05d}
       \strng{authorfullhash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Arduino core for the {ESP}32. Contribute to espressif/arduino-esp32 development by creating an account on {GitHub}.}
@@ -1200,8 +1163,8 @@
       \strng{authorbibnamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
       \strng{authornamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
       \strng{authorfullhash}{7ba0e7dee17e472e6b1e8a771dc05254}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{HTerm} is a terminal program for Windows that allows in- and output in different number systems}
@@ -1567,6 +1530,43 @@
       \verb https://nextion.tech/datasheets/nx8048t070/
       \endverb
     \endentry
+    \entry{zhou_nextion_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=22b735ab1565b2de834501b4b05d456b}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Baojie},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{22b735ab1565b2de834501b4b05d456b}
+      \strng{fullhash}{22b735ab1565b2de834501b4b05d456b}
+      \strng{bibnamehash}{22b735ab1565b2de834501b4b05d456b}
+      \strng{authorbibnamehash}{22b735ab1565b2de834501b4b05d456b}
+      \strng{authornamehash}{22b735ab1565b2de834501b4b05d456b}
+      \strng{authorfullhash}{22b735ab1565b2de834501b4b05d456b}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{NEXTION} {EDITOR} {VER} 1.61.2sanjiaoMade for {HMI} {GUI}}
+      \field{langid}{american}
+      \field{note}{Library Catalog: nextion.tech}
+      \field{title}{Nextion Software}
+      \field{titleaddon}{Nextion}
+      \field{urlday}{3}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\robin\\Zotero\\storage\\R9UUI59W\\nextion-editor.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://nextion.tech/nextion-editor/
+      \endverb
+      \verb{url}
+      \verb https://nextion.tech/nextion-editor/
+      \endverb
+    \endentry
     \entry{pngimgcom_cocktail_nodate-7}{online}{}
       \name{author}{1}{}{%
         {{hash=73aecc4f8df4a46533222dee439fab7a}{%
@@ -1766,8 +1766,8 @@
       \strng{authorbibnamehash}{a0b811cb07a033235ba4760370ce9c4b}
       \strng{authornamehash}{a0b811cb07a033235ba4760370ce9c4b}
       \strng{authorfullhash}{a0b811cb07a033235ba4760370ce9c4b}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{22}
