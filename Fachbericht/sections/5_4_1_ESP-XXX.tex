@@ -4,7 +4,7 @@
 
 Für die Implementierung des kabellosen Zugriffs wird das ESP32 verwendet. Die Hauptfunktion auf dem Print ist die Kommunikation mit dem Mikrocontroller über die zweite serielle Schnittstelle. Die Ansteuerung zum Schreiben des Programmspeichers wird so implementiert, dass der Boot-Modus automatisch gestartet werden kann, wenn ein Code hochgeladen werden soll. Dies hat eine zusätzliche Schaltung zur Folge.
 
-Aufgrund schon bestehender Erfahrungen wurde ein Espressif ESP-Modul ausgewählt. Grundsätzlich standen zwei Modelle zur Auswahl. Das ESP8266 und das ESP32. Für die Cocktailmaschine wurde das ESP32 ausgewählt, da dies Leistungsstärker ist. Die genauen Datenvergleiche sind im Anhang Kapitel \ref{Appendix:ESP32_vs_ESP8266} ersichtlich. Das ESP32 unterstützt das Protokoll nach ISO 802.11 b/g/n und kann somit auf 2.4GHz sowie 5GHz arbeiten. Mit dem n-Protokoll und einer Antenne kann so bis zu 150MBit übertragen werden bei einer Bandbreite von 20MHz.
+Aufgrund schon bestehender Erfahrungen wurde ein Espressif ESP-Modul ausgewählt. Grundsätzlich standen zwei Modelle zur Auswahl. Das ESP8266 und das ESP32. Für die Cocktailmaschine wurde das ESP32 ausgewählt, da diese leistungsstärker ist. Die genauen Datenvergleiche sind im Anhang Kapitel \ref{Appendix:ESP32_vs_ESP8266} ersichtlich. Das ESP32 unterstützt das Protokoll nach ISO 802.11 b/g/n und kann somit auf 2.4GHz sowie 5GHz arbeiten. Mit dem n-Protokoll und einer Antenne kann so bis zu 150MBit übertragen werden bei einer Bandbreite von 20MHz.
 
 Wichtig ist, dass ein ESP ausgewählt wird, welches einen Anschluss für eine abgesetzte Antenne hat, da die Leiterplatte, worauf das Modul verbaut wird, im Gehäuse platziert wird. Dazu eignet sich der Espressif ESP32-32U.
 
@@ -24,7 +24,7 @@ Im Anhang Kapitel \ref{Appendix:ESP32_Strapping} sind die Strapping-Pins aufgeli
 %\label{fig:Produktbild_ESP32_32U_DevKit}
 %\end{figure}
 
-\paragraph{Schema (WiFi-Modul)}\mbox{}
+\paragraph{Schema (Bluetooth- / Wifimodul)}\mbox{}
 
 In Abbildung \ref{fig:Schema_ESP32} wird das Schema rund um das ESP32 an sich gezeigt. Es beinhaltet Stützkondensatoren sowie einige Pull-up- und Pull-down-Widerstände, welche verwendet werden, um einen vordefinierten Grundzustand beim Booten des ESP32-Moduls zu erreichen (Strapping-Pins). Weiter gibt es einen Kondensator, welcher dazu da ist, bei gewünschter Zeit in den Download-Boot-Modus zu gelangen. In diesem Modus kann die User-Applikation übertragen werden.
 
@@ -35,7 +35,7 @@ In Abbildung \ref{fig:Schema_ESP32} wird das Schema rund um das ESP32 an sich ge
 	\label{fig:Schema_ESP32}
 \end{figure}
 
-\paragraph{Funktionsbeschrieb der Schaltung (WiFi-Modul)}\mbox{}
+\paragraph{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}\mbox{}
 
 Das ESP32 an sich ist mit MOD1 beschriftet. Die Kondensatoren C9 und C10 dienen zur Glättung der Eingangsspannung. Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high), der Widerstand R7 zieht diese Leitung auf 5V. Die Widerstände R8, R9, R10 und R11 sind an die Strapping-Pins angeschlossen.
 %Über diese werden beim Aufstarten des ESP32 der Boot-Modus, die Versorgungsspannung von VDD\_SDIO\footnote{Secure Digital Input Output}-Slave (Erweiterung der SD-Spezifikationen) und andere Initialisierungseinstellungen konfiguriert.
@@ -45,8 +45,10 @@ Details zu den Konfigurationen sind in Tabelle \ref{tab:Strapping_pins} aufgelis
 
 \paragraph{Schema (Automatische Boot-Logik)}\mbox{}
 
-In Abbildung \ref{fig:Schema_ESP32_Flashbuttons} wird die Schaltung gezeigt, welche verwendet wird, das ESP32-Modul in den gewünschten Boot-Zustand zu bringen. Für die Beschaltung der automatischen Boot-Logik benötigt es eine Schaltung mit DTR und RTS als Inputs vom USB-UART-Converter her und EN und IO0 als Outputs auf das ESP32. Die Buttons können bei Bedarf verwendet werden, sind für den automatischen Boot-Modus jedoch nicht zwingend nötig. Sie könnten dazu verwendet werden, manuell in den Bootmodus zu gelangen.\\
+In Abbildung \ref{fig:Schema_ESP32_Flashbuttons} wird die Schaltung gezeigt, welche verwendet wird, das ESP32-Modul in den gewünschten Boot-Zustand zu bringen. Für die Beschaltung der automatischen Boot-Logik benötigt es eine Schaltung mit DTR und RTS als Inputs vom USB-UART-Converter her und EN und IO0 als Outputs auf das ESP32. Die Buttons können bei Bedarf verwendet werden, sind für den automatischen Boot-Modus jedoch nicht zwingend nötig. Sie könnten dazu verwendet werden manuell in den Bootmodus zu gelangen.\\
 Die Widerstände R20 und R21 sind Vorwiderstände an der Basis der Transistoren Q1 und Q2. R22 und R23 sind Pull-Up-Widerstände für die EN- und IO0-Leitung. Die Kondensatoren C13 und C12 dienen zum entprellen. Die Widerstände R25 und R24 begrenzen den Strom bei Drücken der Buttons S1 und S2.
+
+\todo{Quelle nicht in Fusszeile sondern richtig ins Quellenverzeichnis}
 
 \begin{figure}[H]
 	\centering

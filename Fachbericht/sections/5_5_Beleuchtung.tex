@@ -1,7 +1,7 @@
 \subsection{Beleuchtung}
 \label{subsec:Beleuchtung_2}
 
-Damit die Maschine schon von Weitem erkennbar ist, wird ein auffallendes Mittel benötigt. Dazu eignet sich ein LED-Band hervorragend, am besten wenn es noch verschiedenfarbig ist. Dazu ist einerseits das LED-Band von Nöten und die geeignete Ansterung dazu. Für die Cocktailmaschine wurde festgelegt, dass der LED-Streifen die benötigten Wirderstände für die LED's schon aufgeklebt hat und die Ansteuerung folglich direkt über FET's geschehen kann. Der Aufbau ähnelt dann dem in Abbildung \ref{fig:LED1} gezeigten Schaltung. Der Streifen wäre Rot eingerahmt, die LED's und Widerstände befinden sich auf dem Band und die zu sehenden Fähnchen für R, G, B und W führen zum Mikrocontroller. Es können auch mehrere Bänder parallel geschaltet werden, wie in Abbildung \ref{fig:LED1} ersichtlich ist.
+Damit die Maschine erkennbar ist und auch Eindruck schindet, wurde ein auffallendes Mittel benötigt. Dazu eignet sich ein LED-Band hervorragend. Am besten, wenn es noch verschiedenfarbig ist. Dazu ist einerseits das LED-Band von Nöten und die geeignete Ansterung dazu. Für die Cocktailmaschine wurde festgelegt, dass der LED-Streifen die benötigten Wirderstände für die LED's schon integriert hat und die Ansteuerung folglich direkt über FET's geschehen kann. Der Aufbau ähnelt dann dem in Abbildung \ref{fig:LED1} gezeigten Schaltung. Der Streifen ist Rot eingerahmt, die LED's und Widerstände befinden sich auf dem Band und die zu sehenden Fähnchen für R, G, B und W führen zum Mikrocontroller. Es können auch mehrere Bänder parallel geschaltet werden, wie in Abbildung \ref{fig:LED1} ersichtlich ist.
 
 \begin{figure}[h!]
 \center
@@ -12,7 +12,7 @@ Damit die Maschine schon von Weitem erkennbar ist, wird ein auffallendes Mittel 
 
 \paragraph{Schema}\mbox{}
 
-Abbildung \ref{fig:Schema_LED} zeigt den Schaltungsaufbar der LED-Steuerung. Damit die LED's angesteuert werden können, braucht es ein Bauteil, welches mit einer 5V-Ansteuerung 12V schalten können. Dazu wird ein MOSFET verwendet. Über die Widerstände an den Gates wird der Strom zum Schutz des Gates begrenzt. Die Leitungen führen direkt auf den Klemmblock für die LED-Streifen. Parallel dazu wurden noch für jede Lichtfarbe ein Kontroll-LED installiert, welche es ermöglicht auch ohne LED-Band etwas zu programmieren.
+Abbildung \ref{fig:Schema_LED} zeigt den Schaltungsaufbar der LED-Steuerung. Damit die LED's angesteuert werden können, braucht es ein Bauteil welches mit einer 5V-Ansteuerung 12V schalten können. Dazu wird der Selbe MOSFET verwendet wie schon bei den Pumpen in Kapitel \ref{subsubsec:Pumpen}. Über die Widerstände an den Gates wird der Strom zum Schutz des Gates begrenzt. Ausserdem verhindern sie ein allfälliges Oszillieren. Die Leitungen führen direkt auf den Klemmblock für die LED-Streifen. Parallel dazu wurde noch für jede Lichtfarbe ein Kontroll-LED installiert, welches es ermöglicht auch ohne LED-Band etwas zu programmieren und ersichtlich zu machen.
 
 \begin{figure}[!h]
 \center
@@ -23,4 +23,4 @@ Abbildung \ref{fig:Schema_LED} zeigt den Schaltungsaufbar der LED-Steuerung. Dam
 \newpage
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
-Licht sind bekanntlich elektromagnetische Wellen im sichtbaren Wellenlängen-Bereich. Dabei gibt es vier Hauptfarben: Rot, Grün, Blau und Weiss. Zwar kann Weiss auch aus einer Kombination aller drei Farben erstellt werden, kommt aber besser mit einer separaten Diode. Das resultierende Licht des Bandes ist eine Überlagerung der Wellenlängen. Diese Überlagerung kann vom Mikrocontroller über den Duty-Cycle eines PWM-Signals gesteuert werden. So lassen sich mit dem Licht praktisch aus den Grundfarben praktisch alle Farben mischen.
+Bei Licht handelt es sich bekanntlich um elektromagnetische Wellen, welche im sichtbaren Wellenlängen-Bereich liegen. Dabei gibt es vier Hauptfarben: Rot, Grün, Blau und Weiss. Zwar kann Weiss auch aus einer Kombination aller drei Farben erstellt werden, es kommt aber besser mit einer separaten Diode. Das resultierende Licht des Bandes ist eine Überlagerung der Wellenlängen. Diese Überlagerung kann vom Mikrocontroller über den Duty-Cycle eines PWM-Signals gesteuert werden. So lassen sich mit dem Licht aus den Grundfarben praktisch alle Farben mischen.
