@@ -1,9 +1,9 @@
 \subsection{SD-Karte}
 \label{subsec:SD-Karte}
 
-Damit gespeicherte Getränke, Zutaten und Maschinenzustände bei einem Neustart der Cocktailmaschine erhalten bleiben, werden diese auf der SD-Karte abgelegt. Nest dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Werden zu viel Getränke und Zutaten gespeichert, so führt dies zu einem Absturz des Mikrocontrollers. Es wurde entschieden, eine mikroSD zu verwenden. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gibt.
+Damit gespeicherte Getränke, Zutaten und Maschinenzustände bei einem Neustart der Cocktailmaschine erhalten bleiben, werden diese auf der SD-Karte abgelegt. Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Werden zu viel Getränke und Zutaten auf dem Mikrocontroller gespeichert, so führt dies zu einem Absturz des Mikrocontrollers. Es wurde daher entschieden, eine mikroSD-Karte zu verwenden. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gab.
 
-Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. Es ist erkennbar, dass sie über SPI kommuniziert. Für den Anschluss wird nur ein mikroSD-Sockel benötigt. So kann die mikroSD über den Level-Shifter vom Mikrocontroller angesteuert werden.
+Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. Es ist erkennbar, dass sie über SPI kommuniziert. Für den Anschluss wird nur ein mikroSD-Sockel benötigt. So kann die mikroSD über einen Level-Shifter vom Mikrocontroller angesteuert werden. Der Level-Shifter wird verwendet, da der Mikrocontroller mit 5V-Signalen arbeitet und die SD-Karte mit 3,3V arbeitet.
 
 \begin{figure}[H]
 	\centering
@@ -25,7 +25,7 @@ Der Speicherbereich einer FAT32-formatierten Partition besteht aus fünf Bereich
 
 Im Anhang Kapitel \ref{Appendix:FAT32_Aufbau} sind die einzelnen Bereiche detailliert beschrieben.
 
-Für die Cocktailmaschine wird softwareseitig eine Library benötigt, welche die FAT32-Commands implementiert und geichzeitig die Operationen auf der SD-Karte handelt. So ist die SD-Karte auch am Computer editierbar und die Befehlsliste reduziert sich auf readFile, writeFile und deleteFile.
+Für den PartyMixer wird softwareseitig eine Library benötigt, welche die FAT32-Commands  implementiert und geichzeitig die Operationen auf der SD-Karte abhandelt. So ist die SD-Karte auch am Computer editierbar und die Befehlsliste reduziert sich auf readFile, writeFile und deleteFile.
 
 \paragraph{Schema}\mbox{}
 
