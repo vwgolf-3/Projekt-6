@@ -63,7 +63,8 @@ Nextion_Display.d Nextion_Display.o: \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../Lists/../UART/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- ../libraries/Nextion_Display/../Main_functions/../Lists/Lists.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
+ ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../UART/UART.h \
  ../libraries/Nextion_Display/../../libraries/UART/UART.h
 
 ../libraries/Nextion_Display/Nextion_Display.h:
@@ -192,6 +193,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-../libraries/Nextion_Display/../Main_functions/../Lists/Lists.h:
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h:
+
+../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/../UART/UART.h:
 
 ../libraries/Nextion_Display/../../libraries/UART/UART.h:

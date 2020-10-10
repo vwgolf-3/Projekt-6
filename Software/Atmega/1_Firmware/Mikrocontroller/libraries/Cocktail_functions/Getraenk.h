@@ -16,6 +16,7 @@
 #include "../SD-Karte/FAT32.h"
 #include "../Lists/Lists.h"
 
+
 // Phsikalischer Speicher mit Pointer darauf
 struct getraenk {
     char * name;
@@ -33,15 +34,10 @@ file_node_t *head_getraenk_file_alle, *tail_getraenk_file_alle, *actual_getraenk
 int number_getraenk_alle_;
 int *number_getraenk_alle;
 
-file_list_node_t * tail_list_node_getraenk;
-file_list_node_t * head_list_node_getraenk;
-file_list_node_t * actual_list_node_getraenk;
-int number_list_;
-int *number_list;
+file_list_node_t * tail_list_node_getraenk, * head_list_node_getraenk, * actual_list_node_getraenk;
+int number_list_getraenke_alle_val;
+int *number_list_getranke_alle;
 
-uint8_t * address_getraenk; // EEprom address-Pointer
-
-uint8_t check_existence(uint8_t file);
 void cocktails_init(void);
 
 // Getränk struct

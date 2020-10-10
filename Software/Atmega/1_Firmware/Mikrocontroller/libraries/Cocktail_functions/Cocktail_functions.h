@@ -32,16 +32,13 @@ unsigned int i;
 unsigned char fileName[13];
 
 // Variable für Liste
-uint8_t i_Liste;
-uint8_t i_Liste_test[50];
-uint8_t i_Liste_test_cnt;
 uint8_t block_list_hoch;
 uint8_t block_list_runter;
 uint8_t Grossschreib;
 uint8_t counter;
 
 uint8_t kohlensaeure_mode;
-
+uint8_t i_Liste;
 char buff_name[21];
 char stop;
 uint8_t externes_Getraenk_flag;
@@ -59,8 +56,8 @@ void setze_startanzeige(getraenk_t * anzeige_getraenk);
 void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk);
 
 // Getränke-Pointer
-file_node_t * erstelle_Liste_name(file_node_t * beginn_file, char * name_button);
-zutat_maschine_node_t * erstelle_Liste_zutat(zutat_maschine_node_t * beginn_Maschine, char * input);
+file_node_t * erstelle_liste_cocktails(file_node_t * beginn_file, char * name_button);
+zutat_maschine_node_t * erstelle_liste_zutat(zutat_maschine_node_t * beginn_Maschine, char * input);
 
 uint8_t lese_sensor(uint8_t Sensor);
 
@@ -71,25 +68,23 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohle
 void loesche_FIle(uint8_t filename);
 void schreibe_Menge_in_Getraenk(uint8_t zutat);
 
-// Testfunktion
-void cocktail_test_command(unsigned char INPUT[256]);
-
 void schiebe_file_prev(void);
 void schiebe_file_next(void);
 void zubereitung_getraenk(uint32_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
-file_node_t * erstelle_Liste_Zutat_Pos(file_node_t * beginn_file, char * name_button);
+file_node_t * erstelle_liste_zutat_pos(file_node_t * beginn_file, char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
-void setze_Fluessgkeit_in_Position(uint8_t nr, uint8_t status);
-void setze_Fluessgkeit_in_Position_Aussen(uint8_t nr, uint8_t status);
+void setze_fluessgkeit_in_position_ohne(uint8_t nr, uint8_t status);
+void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status);
 
 void setze_aktuelle_Zutat_in_Maschine(uint8_t nr);
+uint8_t check_existence(uint8_t file);
 
 void send_List_Getraenke (void);
 void send_List_RFID (void);
 void send_List_Zutaten (void);
-void choose_aktuellesGetraenk(uint8_t nr);
+void setze_aktuelles_getraenk_in_maschine(uint8_t nr);
 
 void ESP_Getraenk(void);
 
@@ -102,10 +97,30 @@ void write_M_file(char * buff_file);
 void schreibe_Getraenk_in_tag(uint8_t nr);
 void display_init(void);
 
-void begin_erstelle_Liste_Zutat_Pos(void);
+void prepare_empty_getraenk(void);
+
+void speichere_bearbeiteten_cocktail(void);
+void speichere_neuen_cocktail(void);
+
+void begin_erstelle_liste_zutaten_maschine(uint8_t page, char* button);
+void begin_erstelle_liste_alle_zutaten(uint8_t page, char * name);
+void begin_erstelle_liste_cocktails(uint8_t page, char* button);
+
+void delete_list_node_zutat_maschine(void);
+void delete_list_node_files(uint8_t art);
+
+void rauflist_files(uint8_t art);
+void runterlist_files(uint8_t art);
+
+void rauflist_zutat_maschine(void);
+void runterlist_zutat_maschine(void);
+
+void concentrace_zutat_maschine_list(void);
+void deconcentrace_zutat_maschine_list(void);
+
+void delete_file_node_alle(uint8_t art);
 
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
+enum file_art {ZUTAT, COCKTAIL, ZUTAT_MIT, ZUTAT_OHNE};
 	
-	
-
 #endif /* COCKTAIL_FUNCTIONS_H_ */

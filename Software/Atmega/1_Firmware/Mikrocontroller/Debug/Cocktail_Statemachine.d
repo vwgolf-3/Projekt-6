@@ -65,7 +65,8 @@ Cocktail_Statemachine.d Cocktail_Statemachine.o: \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Lists/Lists.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../UART/UART.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
@@ -75,8 +76,6 @@ Cocktail_Statemachine.d Cocktail_Statemachine.o: \
  ../libraries/Cocktail_functions/../Main_functions/Main_Func.h \
  ../libraries/Cocktail_functions/Zutaten.h \
  ../libraries/Cocktail_functions/Getraenk.h \
- ../libraries/Cocktail_functions/../UART/UART.h \
- ../libraries/Cocktail_functions/../Lists/Lists.h \
  ../libraries/Cocktail_functions/TAGS.h
 
 ../libraries/Cocktail_functions/Cocktail_Statemachine.h:
@@ -209,7 +208,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Lists/Lists.h:
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../UART/UART.h:
 
 ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 
@@ -228,9 +229,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../libraries/Cocktail_functions/Zutaten.h:
 
 ../libraries/Cocktail_functions/Getraenk.h:
-
-../libraries/Cocktail_functions/../UART/UART.h:
-
-../libraries/Cocktail_functions/../Lists/Lists.h:
 
 ../libraries/Cocktail_functions/TAGS.h:

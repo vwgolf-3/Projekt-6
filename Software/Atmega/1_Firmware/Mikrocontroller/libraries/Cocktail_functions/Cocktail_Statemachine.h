@@ -16,7 +16,8 @@
 void init_Getraenke_func();
 
 // Commands Display/ESP
-void cocktail_check_command(int8_t page_in, int8_t button_in);
+void cocktail_check_command_display(int8_t page_in, int8_t button_in);
+void cocktail_check_command_ESP(int8_t page, int8_t button);
 
 // Subfunktionen
 void check_startseite(uint8_t button);

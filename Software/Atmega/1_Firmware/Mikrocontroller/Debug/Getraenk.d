@@ -67,7 +67,7 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat32.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Lists/Lists.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
@@ -215,7 +215,7 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Lists/Lists.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h:
 

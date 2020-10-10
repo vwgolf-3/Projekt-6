@@ -17,11 +17,9 @@
 #include "../Software_Ramp/ramp1.h"
 #include "../Nextion_Display/Nextion_Display.h"
 #include "../Cocktail_functions/Zutaten.h"
+#include "../Cocktail_functions/Getraenk.h"
+
 extern void encoder_testdrive(void);
-#include "../Lists/Lists.h"
-file_node_t *head, *tail;
-int number_main;
-int *number_main_ptr;
 
 #include <util/delay.h>
 
@@ -49,8 +47,8 @@ extern void zutaten_init(void);
 extern void cocktails_init(void);
 extern void RFID_init(void);
 
-extern void cocktail_test_command(unsigned char INPUT[256]);
-extern void cocktail_check_command(int8_t page, int8_t button);
+extern void cocktail_check_command_display(int8_t page, int8_t button);
+extern void cocktail_check_command_ESP(int8_t page, int8_t button);
 
 extern void Uart_Transmit_IT_PC(char * data);
 

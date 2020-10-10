@@ -63,7 +63,8 @@ main.d main.o: .././main.c .././utils/main_variables.h \
  .././libraries/Main_functions/../Cocktail_functions/../Lists/../UART/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././libraries/Main_functions/../Lists/Lists.h \
+ .././libraries/Main_functions/../Cocktail_functions/Getraenk.h \
+ .././libraries/Main_functions/../Cocktail_functions/../UART/UART.h \
  .././libraries/Cocktail_functions/Cocktail_Statemachine.h \
  .././libraries/Cocktail_functions/Cocktail_functions.h \
  .././libraries/Cocktail_functions/../Nextion_Display/Nextion_Display.h \
@@ -75,8 +76,6 @@ main.d main.o: .././main.c .././utils/main_variables.h \
  .././libraries/Cocktail_functions/../Main_functions/Main_Func.h \
  .././libraries/Cocktail_functions/Zutaten.h \
  .././libraries/Cocktail_functions/Getraenk.h \
- .././libraries/Cocktail_functions/../UART/UART.h \
- .././libraries/Cocktail_functions/../Lists/Lists.h \
  .././libraries/Cocktail_functions/TAGS.h
 
 .././utils/main_variables.h:
@@ -209,7 +208,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-.././libraries/Main_functions/../Lists/Lists.h:
+.././libraries/Main_functions/../Cocktail_functions/Getraenk.h:
+
+.././libraries/Main_functions/../Cocktail_functions/../UART/UART.h:
 
 .././libraries/Cocktail_functions/Cocktail_Statemachine.h:
 
@@ -232,9 +233,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././libraries/Cocktail_functions/Zutaten.h:
 
 .././libraries/Cocktail_functions/Getraenk.h:
-
-.././libraries/Cocktail_functions/../UART/UART.h:
-
-.././libraries/Cocktail_functions/../Lists/Lists.h:
 
 .././libraries/Cocktail_functions/TAGS.h:
