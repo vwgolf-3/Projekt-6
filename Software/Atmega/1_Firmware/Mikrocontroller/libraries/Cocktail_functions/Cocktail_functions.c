@@ -1184,7 +1184,7 @@ uint8_t check_existence(uint8_t file)
 // Pumpen / Zubereitung
 //***********************************************//
 
-void zubereitung_getraenk(uint32_t Menge)
+void zubereitung_getraenk(uint8_t Menge)
 {
     nextion_change_page(ZUBBILDSCHIRM);
     nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk.");
@@ -1198,107 +1198,190 @@ void zubereitung_getraenk(uint32_t Menge)
 
 void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 {
-    aktuelle_Zutat_in_Maschine_ohne_KS = tail_zutat_maschine_ohne;
+
     externes_Getraenk_flag = 0;
+
+    uint32_t geschwindigkeit = 600;
+    uint32_t beschleunigung = 600;
+
+    tmc4671_setActualPosition(0,0);
+
+    char itoa_buff[20] = {'\0'};
+    char * itoa_ptr = itoa_buff;
+
+
+    tmp_zut_Maschine_actual = head_zutat_maschine_ohne;
 
     // Switche durch alle Getränke
     do
     {
-        Uart_Transmit_IT_PC(aktuelle_Zutat_in_Maschine_ohne_KS->name);
-        Uart_Transmit_IT_PC("\r");
 
-        *(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) = 20;
 
-        // Falls das Getränk vorkommt
-        if ((*(aktuellesGetraenk->mengen + aktuelle_Zutat_in_Maschine_ohne_KS->stelle) > 0) && (stop == 0))
+        // Falls das Getränk in der Maschine vorkommt
+        if ((tmp_zut_Maschine_actual->menge > 0) && (stop == 0))
         {
-            Uart_Transmit_IT_PC(aktuelle_Zutat_in_Maschine_ohne_KS->name);
+            Uart_Transmit_IT_PC("Name Zutat: ");
+            Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+
+            Uart_Transmit_IT_PC("\rStelle: ");
+            itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
+            Uart_Transmit_IT_PC(itoa_ptr);
+
+            char ftoa_buff[20] = {'\0'};
+            char * ftoa_ptr = ftoa_buff;
+
+            Uart_Transmit_IT_PC("\rAktuelle Position: ");
+            float val = (float)tmc4671_getActualPosition(0)/1000;
+            ftoa(val, ftoa_ptr, 4);
+            Uart_Transmit_IT_PC(ftoa_ptr);
+            Uart_Transmit_IT_PC(")\r");
+
+            char ftoa_buff_2[20] = {'\0'};
+            char * ftoa_ptr_2 = ftoa_buff_2;
+
+            Uart_Transmit_IT_PC("Zielposition: ");
+            float val2 = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung - tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
+            ftoa(val2, ftoa_ptr_2, 4);
+            Uart_Transmit_IT_PC(ftoa_ptr_2);
             Uart_Transmit_IT_PC("\r");
-            aktuelle_Zutat_in_Maschine_ohne_KS->kohlensaeure = 0;
-            if (aktuelle_Zutat_in_Maschine_ohne_KS->kohlensaeure == 0)
+
+            calculateRamp(beschleunigung, geschwindigkeit, val, val2, ramp);
+
+            while (ramp->ramp_enable ==1 && stop == 0)
             {
-                // Bewege Motor an stelle XY
-                /*
-                    Gebe Motor Position vor
+                periodic_jobs(ramp);
+            }
 
-                    While momentane Position != vorgegebene Position
-                        warten
 
-                    Weiter mit Programmm
+            Uart_Transmit_IT_PC("Stelle: ");
+            itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
+            Uart_Transmit_IT_PC(itoa_ptr);
+            Uart_Transmit_IT_PC(" erreicht. (");
 
-                */
-                calculateRamp(2000, 2000, tmc4671_getActualPosition(0)/1000 + ramp->motor_eine_umdrehung, ramp);
-                while (ramp->ramp_enable)
+            char ftoa_buff_3[20] = {'\0'};
+            char * ftoa_ptr_3 = ftoa_buff_3;
+            val = (float)tmc4671_getActualPosition(0)/1000;
+            ftoa(val, ftoa_ptr_3, 4);
+            Uart_Transmit_IT_PC(ftoa_ptr_3);
+            Uart_Transmit_IT_PC(")\r\r");
+
+
+            uint32_t pulse_prp[13] = {'\0'};
+            uint32_t pulse_prp_3dl[13] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501, '\0'}; //3dl
+            uint32_t pulse_prp_5dl[13] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506, '\0'}; //5dl
+            uint32_t pulse_prp_1dl[13] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479, '\0'}; //1dl
+            for (uint8_t count = 0 ; count < 12 ; count++)
+            {
+                switch (fuellmenge)
                 {
-                    periodic_jobs(ramp);
-                    _delay_ms(1);
+                case DL_1:
+                    pulse_prp[count] = pulse_prp_1dl[count];
+                    break;
+                case DL_3:
+                    pulse_prp[count] = pulse_prp_3dl[count];
+                    break;
+                case DL_5:
+                    pulse_prp[count] = pulse_prp_5dl[count];
+                    break;
                 }
-                tmc4671_writeInt(0, TMC4671_PID_POSITION_ACTUAL,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
+            }
 
-//              uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479};
-//              uint32_t pulse_prp_3dl[12] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501};
-                uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506};
+            // Berechne Menge, schalte Pumpe ein und beginne mit füllen
+            uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp[tmp_zut_Maschine_actual->stelle]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
 
-                // Berechne Menge, schalte Pumpe ein und beginne mit füllen
-                uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp_5dl[i]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
+            uint8_t fuellen = 1;
+            uint8_t newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
 
-                uint8_t fuellen = 1;
-                uint8_t newval = lese_sensor(aktuelle_Zutat_in_Maschine_ohne_KS->stelle);
+            schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
+            while (fuellen)
+            {
+                // Polle PWM-Signal des Durchflusssensor
+                static uint8_t oldval=0;
+                static uint32_t count=0;
 
-                schalte_pumpe_ein(aktuelle_Zutat_in_Maschine_ohne_KS->stelle);
-                while (fuellen)
-                {
-                    // Polle PWM-Signal des Durchflusssensor
-                    static uint8_t oldval=0;
-                    static uint32_t count=0;
-
-                    // Lese Sensor ein
-                    newval = oldval ^ 0b00000001;
+                // Lese Sensor ein
+                newval = oldval ^ 0b00000001;
 //                  newval = lese_sensor(i);
 
-                    // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
-                    if( !oldval && newval)
+                // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
+                if( !oldval && newval)
+                {
+                    // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
+                    if(count++ > Menge)
                     {
-                        // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
-                        if(count++ > Menge)
+                        schalte_pumpe_aus(tmp_zut_Maschine_actual->stelle);
+                        count = 0;
+                        fuellen = 0;
+                    }
+//*************************************************************************
+//                  Delay entfernen wenn mit Sensor gearbeitet wird.
+                    _delay_ms(1);
+                    if (check_Communication_Input_UART_1())
+                    {
+                        proceed_Communication_INPUT_UART_1();
+                        if (stop == 1)
                         {
-                            schalte_pumpe_aus(aktuelle_Zutat_in_Maschine_ohne_KS->stelle);
+                            for (int k = 0 ; k < 12 ; k++)
+                            {
+                                schalte_pumpe_aus(k);
+                            }
+                            nextion_change_page(ABBRUCHANZEIGE);
+                            _delay_ms(2000);
+                            lese_textfile_in_getraenk(head_getraenk_file_alle->file);
+                            nextion_change_page(STARTANZEIGE);
+                            setze_startanzeige(aktuellesGetraenk);
                             count = 0;
                             fuellen = 0;
                         }
-//*************************************************************************
-//                  Delay entfernen wenn mit Sensor gearbeitet wird.
-                        _delay_ms(1);
-                        if (check_Communication_Input_UART_1())
-                        {
-                            proceed_Communication_INPUT_UART_1();
-                            if (stop == 1)
-                            {
-                                for (int k = 0 ; k < 12 ; k++)
-                                {
-                                    schalte_pumpe_aus(k);
-                                }
-                                nextion_change_page(ABBRUCHANZEIGE);
-                                _delay_ms(2000);
-
-                                setze_startanzeige(aktuellesGetraenk);
-                                count = 0;
-                                fuellen = 0;
-                            }
-                        }
                     }
-                    // Aktueller Sensorwert speichern
-                    oldval = newval;
                 }
+                // Aktueller Sensorwert speichern
+                oldval = newval;
             }
-            else
-            {
-                externes_Getraenk_flag = 1;
-            }
+            _delay_ms(1000);
         }
-        aktuelle_Zutat_in_Maschine_ohne_KS = aktuelle_Zutat_in_Maschine_ohne_KS->prev;
-    } while(aktuelle_Zutat_in_Maschine_ohne_KS != tail_zutat_maschine_ohne);
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
+    } while(tmp_zut_Maschine_actual != head_zutat_maschine_ohne);
 
+    char ftoa_buff[20] = {'\0'};
+    char * ftoa_ptr = ftoa_buff;
+
+    Uart_Transmit_IT_PC("\rAktuelle Position: ");
+    float val = (float)tmc4671_getActualPosition(0)/1000;
+    ftoa(val, ftoa_ptr, 4);
+    Uart_Transmit_IT_PC(ftoa_ptr);
+    Uart_Transmit_IT_PC(")\r\r");
+
+    char ftoa_buff_2[20] = {'\0'};
+    char * ftoa_ptr_2 = ftoa_buff_2;
+
+    Uart_Transmit_IT_PC("Zielposition: ");
+    float val2 = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung - tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
+    ftoa(val2, ftoa_ptr_2, 4);
+    Uart_Transmit_IT_PC(ftoa_ptr_2);
+    Uart_Transmit_IT_PC("\r\r");
+
+    calculateRamp(beschleunigung, geschwindigkeit, tmc4671_getActualPosition(0)/1000, 0, ramp);
+
+    while (ramp->ramp_enable && stop == 0)
+    {
+        periodic_jobs(ramp);
+    }
+
+    Uart_Transmit_IT_PC("Position: ");
+    itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
+    Uart_Transmit_IT_PC(itoa_ptr);
+    Uart_Transmit_IT_PC(" erreicht. (");
+    my_itoa(tmc4671_getActualPosition(0), itoa_ptr);
+    Uart_Transmit_IT_PC(itoa_ptr);
+    Uart_Transmit_IT_PC(")\r");
+
+    tmc4671_setActualPosition(0,0);
+    tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION,                    0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 55 = 0x52(PHI_E_SELECTION)
+    tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION,              0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
+    tmc4671_writeInt(0, TMC4671_PID_POSITION_ACTUAL,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
+    tmc4671_setAbsolutTargetPosition(0, 0x00000000);
+    read_registers_TMC4671();
     /*
         Fahre zurück bis Home-Schalter betätigt wird
     */
@@ -2253,7 +2336,7 @@ void ESP_Getraenk(void)
 
 void Getraenk_erstellt()
 {
-	buffer2_getraenk_file_alle = actual_getraenk_file_alle;
+    buffer2_getraenk_file_alle = actual_getraenk_file_alle;
 
     while (check_Communication_Input_UART_2()==0)
         ;
@@ -2351,11 +2434,11 @@ void Getraenk_erstellt()
             {
                 insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
             }
-			count = COUNT_UNTIL;
+            count = COUNT_UNTIL;
         }
     }
-	actual_getraenk_file_alle = buffer2_getraenk_file_alle;
-	lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
-	nextion_change_page(STARTANZEIGE);
-	setze_startanzeige(aktuellesGetraenk);
+    actual_getraenk_file_alle = buffer2_getraenk_file_alle;
+    lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
+    nextion_change_page(STARTANZEIGE);
+    setze_startanzeige(aktuellesGetraenk);
 }

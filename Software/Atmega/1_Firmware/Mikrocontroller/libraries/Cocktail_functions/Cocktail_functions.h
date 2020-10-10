@@ -70,7 +70,7 @@ void schreibe_Menge_in_Getraenk(uint8_t zutat);
 
 void schiebe_file_prev(void);
 void schiebe_file_next(void);
-void zubereitung_getraenk(uint32_t Menge);
+void zubereitung_getraenk(uint8_t Menge);
 void bearbeite_Cocktail(uint8_t cocktail);
 file_node_t * erstelle_liste_zutat_pos(file_node_t * beginn_file, char * name_button);
 void lese_textfile_in_zutat(uint8_t file);
@@ -122,5 +122,6 @@ void delete_file_node_alle(uint8_t art);
 
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
 enum file_art {ZUTAT, COCKTAIL, ZUTAT_MIT, ZUTAT_OHNE};
+enum mengen {DL_1, DL_3, DL_5};
 	
 #endif /* COCKTAIL_FUNCTIONS_H_ */

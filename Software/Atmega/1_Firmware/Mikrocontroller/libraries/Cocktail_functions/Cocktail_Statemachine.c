@@ -1542,14 +1542,14 @@ void check_zubabfrage(uint8_t button)
         /*      0x01 = 0b01
                     - Getränk mit 3dl zubereiten
         */
-        zubereitung_getraenk((uint32_t)3);
+        zubereitung_getraenk(DL_3);
         break;
 
     case GROSS:
         /*      0x02 = 0b02
                     - Getränk mit 5dl zubereiten
         */
-        zubereitung_getraenk((uint32_t)5);
+        zubereitung_getraenk(DL_5);
         break;
 
     case ABBRUCHZUBAB:

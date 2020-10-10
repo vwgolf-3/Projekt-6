@@ -43,9 +43,9 @@ struct linear_ramp {
     volatile float max_velocity;
     volatile float max_acceleration;
 
-    volatile float motor_eine_umdrehung;
-    volatile float motor_komplette_verschiebung;
-    volatile float motor_ticks_verschiebung;
+    volatile float motor_faktor_eine_umdrehung;
+    volatile float motor_umdrehungen_komplette_verschiebung;
+    volatile float motor_umdrehungen_teilverschiebung;
 };
 typedef struct linear_ramp volatile linear_ramp_t;
 
@@ -59,7 +59,7 @@ void ftoa(float n, char* res, int afterpoint);
 
 void linear_ramp_init(void);
 void linear_ramp_set_defaults(volatile linear_ramp_t * ramp);
-void calculateRamp(float acceleration, float velocity, float position, volatile linear_ramp_t * ramp);
+void calculateRamp(float acceleration, float velocity, float start_position, float end_position, volatile linear_ramp_t * ramp);
 void computeRamp(volatile linear_ramp_t * ramp);
 void iterate_timer(volatile linear_ramp_t * ramp);
 void position_func(linear_ramp_t * ramp);
