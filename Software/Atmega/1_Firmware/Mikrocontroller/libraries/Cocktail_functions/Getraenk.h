@@ -22,7 +22,6 @@ struct getraenk {
     char * name;
     uint8_t alkohol;
     uint8_t kohlensaeure;
-    uint8_t * mengen;
     uint8_t picture;
 };
 typedef struct getraenk getraenk_t;

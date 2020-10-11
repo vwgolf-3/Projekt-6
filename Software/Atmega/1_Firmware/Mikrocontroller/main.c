@@ -13,7 +13,9 @@
 // MainLoop
 int main(void)
 {
-    init_LED();
+    EN_TMC6200_PORT &= ~EN_TMC6200_BIT;                     // Disable TMC6200 (Active High)
+
+//     init_LED();
 
     interfaces_init();
 

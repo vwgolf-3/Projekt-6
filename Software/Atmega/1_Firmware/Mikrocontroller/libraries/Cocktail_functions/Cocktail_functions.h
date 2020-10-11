@@ -41,7 +41,6 @@ uint8_t kohlensaeure_mode;
 uint8_t i_Liste;
 char buff_name[21];
 char stop;
-uint8_t externes_Getraenk_flag;
 
 enum Liste_Startbildschirm {ALLE, ALKOHOL, ALKOHOLFREI};
 uint8_t Liste;

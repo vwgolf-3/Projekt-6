@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.9 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -32,7 +32,7 @@
       \strng{authornamehash}{92f306c31bed5178fb45604cfc04b454}
       \strng{authorfullhash}{92f306c31bed5178fb45604cfc04b454}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{10}
@@ -67,11 +67,11 @@
       \strng{authornamehash}{5bade50dcf5384b2794f61f081cc5b91}
       \strng{authorfullhash}{5bade50dcf5384b2794f61f081cc5b91}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Smarter Shopping, Better Living! Aliexpress.com}
-      \field{title}{{US} \$1.94 35\% {OFF}{|}{DC}12V 13,8 V 15V 18V 24V 27V 28V 30V 32V 36V 42V 48V 60V 360W 600W 1000W Schaltnetzteil Quelle Transformator {AC} {DC} {SMPS}-in Schaltnetzteil aus Heimwerkerbedarf bei {AliExpress}}
+      \field{title}{{US} \$1.94 35\% {OFF}|{DC}12V 13,8 V 15V 18V 24V 27V 28V 30V 32V 36V 42V 48V 60V 360W 600W 1000W Schaltnetzteil Quelle Transformator {AC} {DC} {SMPS}-in Schaltnetzteil aus Heimwerkerbedarf bei {AliExpress}}
       \field{titleaddon}{aliexpress.com}
       \field{urlday}{11}
       \field{urlmonth}{1}
@@ -98,12 +98,13 @@
       \strng{authorbibnamehash}{bda6b04aae0f39aadb9d3cd11cf57d1a}
       \strng{authornamehash}{bda6b04aae0f39aadb9d3cd11cf57d1a}
       \strng{authorfullhash}{bda6b04aae0f39aadb9d3cd11cf57d1a}
+      \field{extraname}{1}
       \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Smarter Shopping, Better Living! Aliexpress.com}
-      \field{title}{{US} \$6.37 15\% {OFF}{|}{AIYIMA} 12 V {DC} mini wasserpumpe Trinkwasser brunnen elektrische pumpen Korrosion widerstand für tee maschine Wasserfilter-in Pumpen aus Heimwerkerbedarf bei {AliExpress} - 11.11\_Doppel-11Tag der Singles}
+      \field{title}{{US} \$6.37 15\% {OFF}|{AIYIMA} 12 V {DC} mini wasserpumpe Trinkwasser brunnen elektrische pumpen Korrosion widerstand für tee maschine Wasserfilter-in Pumpen aus Heimwerkerbedarf bei {AliExpress} - 11.11\_Doppel-11Tag der Singles}
       \field{titleaddon}{aliexpress.com}
       \field{urlday}{18}
       \field{urlmonth}{10}
@@ -132,12 +133,12 @@
       \strng{authornamehash}{2a06ef983aa0b70920e123fe457beedc}
       \strng{authorfullhash}{2a06ef983aa0b70920e123fe457beedc}
       \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{MP}24943DN-{LF} Monolithic Power Systems ({MPS}) Schaltspannungsregler 3A 55V 100kHz Buck Converter Datenblatt, Bestand und Preis.}
       \field{langid}{german}
-      \field{title}{{MP}24943DN-{LF} Monolithic Power Systems ({MPS}) {|} Mouser}
+      \field{title}{{MP}24943DN-{LF} Monolithic Power Systems ({MPS}) | Mouser}
       \field{titleaddon}{Mouser Electronics}
       \field{urlday}{11}
       \field{urlmonth}{1}
@@ -165,8 +166,9 @@
       \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
       \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
       \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Atmega2560 Datasheet}
@@ -191,20 +193,20 @@
     \endentry
     \entry{monolithic_power_systems_mp24943_2011}{online}{}
       \name{author}{1}{}{%
-        {{hash=3bb4a0e3fd770071779b09475a346464}{%
+        {{hash=8e654db9d1ce837cf87aad8fdbee5bae}{%
            family={Systems},
            familyi={S\bibinitperiod},
            given={Monolithic\bibnamedelima Power},
            giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
       }
-      \strng{namehash}{3bb4a0e3fd770071779b09475a346464}
-      \strng{fullhash}{3bb4a0e3fd770071779b09475a346464}
-      \strng{bibnamehash}{3bb4a0e3fd770071779b09475a346464}
-      \strng{authorbibnamehash}{3bb4a0e3fd770071779b09475a346464}
-      \strng{authornamehash}{3bb4a0e3fd770071779b09475a346464}
-      \strng{authorfullhash}{3bb4a0e3fd770071779b09475a346464}
+      \strng{namehash}{8e654db9d1ce837cf87aad8fdbee5bae}
+      \strng{fullhash}{8e654db9d1ce837cf87aad8fdbee5bae}
+      \strng{bibnamehash}{8e654db9d1ce837cf87aad8fdbee5bae}
+      \strng{authorbibnamehash}{8e654db9d1ce837cf87aad8fdbee5bae}
+      \strng{authornamehash}{8e654db9d1ce837cf87aad8fdbee5bae}
+      \strng{authorfullhash}{8e654db9d1ce837cf87aad8fdbee5bae}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{13}
@@ -235,7 +237,7 @@
       \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
       \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
       \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -255,18 +257,19 @@
     \endentry
     \entry{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}{online}{}
       \name{author}{1}{}{%
-        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+        {{hash=8f41c44084716c1ae574e6083aee0c61}{%
            family={{TRINAMICMotion Control GmbH \& Co. KG}},
            familyi={T\bibinitperiod}}}%
       }
-      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{namehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{fullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{bibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorbibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authornamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorfullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \field{extraname}{1}
       \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{TMC}6200 Datasheet}
@@ -291,18 +294,19 @@
     \endentry
     \entry{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}{online}{}
       \name{author}{1}{}{%
-        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+        {{hash=8f41c44084716c1ae574e6083aee0c61}{%
            family={{TRINAMICMotion Control GmbH \& Co. KG}},
            familyi={T\bibinitperiod}}}%
       }
-      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{namehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{fullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{bibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorbibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authornamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorfullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \field{extraname}{2}
       \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{TMC}4671 Datasheet}
@@ -327,18 +331,19 @@
     \endentry
     \entry{trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020}{online}{}
       \name{author}{1}{}{%
-        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+        {{hash=8f41c44084716c1ae574e6083aee0c61}{%
            family={{TRINAMICMotion Control GmbH \& Co. KG}},
            familyi={T\bibinitperiod}}}%
       }
-      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{namehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{fullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{bibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorbibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authornamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorfullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{TMC}4671-{BOB} Datasheet}
@@ -363,18 +368,19 @@
     \endentry
     \entry{trinamicmotion_control_gmbh__co_kg_tmc-ups-xaxv-eval_2017}{online}{}
       \name{author}{1}{}{%
-        {{hash=f68e0f703dbd503efac95b6759e172f7}{%
+        {{hash=8f41c44084716c1ae574e6083aee0c61}{%
            family={{TRINAMICMotion Control GmbH \& Co. KG}},
            familyi={T\bibinitperiod}}}%
       }
-      \strng{namehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{fullhash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{bibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorbibnamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authornamehash}{f68e0f703dbd503efac95b6759e172f7}
-      \strng{authorfullhash}{f68e0f703dbd503efac95b6759e172f7}
+      \strng{namehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{fullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{bibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorbibnamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authornamehash}{8f41c44084716c1ae574e6083aee0c61}
+      \strng{authorfullhash}{8f41c44084716c1ae574e6083aee0c61}
+      \field{extraname}{4}
       \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{TMC}-{UPS}-{xAxV}-{EVAL}}
@@ -414,7 +420,7 @@
       \strng{authornamehash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
       \strng{authorfullhash}{fdf4e3e8e8b4e4ae3988278f12c7fe23}
       \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{23}
@@ -440,18 +446,18 @@
     \endentry
     \entry{cui_devices_cui_2019}{online}{}
       \name{author}{1}{}{%
-        {{hash=dea01ad0532f40f9963fdf78070989b4}{%
+        {{hash=9be143cfce13b2a066701ba6938d6d52}{%
            family={{CUI Devices}},
            familyi={C\bibinitperiod}}}%
       }
-      \strng{namehash}{dea01ad0532f40f9963fdf78070989b4}
-      \strng{fullhash}{dea01ad0532f40f9963fdf78070989b4}
-      \strng{bibnamehash}{dea01ad0532f40f9963fdf78070989b4}
-      \strng{authorbibnamehash}{dea01ad0532f40f9963fdf78070989b4}
-      \strng{authornamehash}{dea01ad0532f40f9963fdf78070989b4}
-      \strng{authorfullhash}{dea01ad0532f40f9963fdf78070989b4}
+      \strng{namehash}{9be143cfce13b2a066701ba6938d6d52}
+      \strng{fullhash}{9be143cfce13b2a066701ba6938d6d52}
+      \strng{bibnamehash}{9be143cfce13b2a066701ba6938d6d52}
+      \strng{authorbibnamehash}{9be143cfce13b2a066701ba6938d6d52}
+      \strng{authornamehash}{9be143cfce13b2a066701ba6938d6d52}
+      \strng{authorfullhash}{9be143cfce13b2a066701ba6938d6d52}
       \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{CUI} {AMT}33S-V Datasheet Rev 1.01}
@@ -476,24 +482,25 @@
     \endentry
     \entry{five__tools_store_us_nodate}{online}{}
       \name{author}{1}{}{%
-        {{hash=95a95608c088a05b96b9f502e0680aa4}{%
+        {{hash=94ebb113e4ca3e51ded0130bb1ea8931}{%
            family={Store},
            familyi={S\bibinitperiod},
            given={Five\bibnamedelimb +\bibnamedelima Tools},
            giveni={F\bibinitperiod\bibinitdelim +\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
       }
-      \strng{namehash}{95a95608c088a05b96b9f502e0680aa4}
-      \strng{fullhash}{95a95608c088a05b96b9f502e0680aa4}
-      \strng{bibnamehash}{95a95608c088a05b96b9f502e0680aa4}
-      \strng{authorbibnamehash}{95a95608c088a05b96b9f502e0680aa4}
-      \strng{authornamehash}{95a95608c088a05b96b9f502e0680aa4}
-      \strng{authorfullhash}{95a95608c088a05b96b9f502e0680aa4}
+      \strng{namehash}{94ebb113e4ca3e51ded0130bb1ea8931}
+      \strng{fullhash}{94ebb113e4ca3e51ded0130bb1ea8931}
+      \strng{bibnamehash}{94ebb113e4ca3e51ded0130bb1ea8931}
+      \strng{authorbibnamehash}{94ebb113e4ca3e51ded0130bb1ea8931}
+      \strng{authornamehash}{94ebb113e4ca3e51ded0130bb1ea8931}
+      \strng{authorfullhash}{94ebb113e4ca3e51ded0130bb1ea8931}
+      \field{extraname}{2}
       \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Smarter Shopping, Better Living! Aliexpress.com}
-      \field{title}{{US} \$1.97 28\% {OFF}{|}C18 Neue Heiße 1pc Wasser Kaffee Flow Sensor Schalter Meter Durchflussmesser Zähler 0,3 6L/min-in Durchfluss-Sensoren aus Werkzeug bei {AliExpress} - 11.11\_Doppel-11Tag der Singles}
+      \field{title}{{US} \$1.97 28\% {OFF}|C18 Neue Heiße 1pc Wasser Kaffee Flow Sensor Schalter Meter Durchflussmesser Zähler 0,3 6L/min-in Durchfluss-Sensoren aus Werkzeug bei {AliExpress} - 11.11\_Doppel-11Tag der Singles}
       \field{titleaddon}{aliexpress.com}
       \field{urlday}{21}
       \field{urlmonth}{10}
@@ -511,20 +518,20 @@
     \endentry
     \entry{zenkner_usb_2014}{article}{}
       \name{author}{1}{}{%
-        {{hash=fd4d875f6261d2d063964ee1dea6a367}{%
+        {{hash=2e256aa21d6f519fd9e2a747d9e14b92}{%
            family={Zenkner},
            familyi={Z\bibinitperiod},
            given={Von\bibnamedelima Heinz},
            giveni={V\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
       }
-      \strng{namehash}{fd4d875f6261d2d063964ee1dea6a367}
-      \strng{fullhash}{fd4d875f6261d2d063964ee1dea6a367}
-      \strng{bibnamehash}{fd4d875f6261d2d063964ee1dea6a367}
-      \strng{authorbibnamehash}{fd4d875f6261d2d063964ee1dea6a367}
-      \strng{authornamehash}{fd4d875f6261d2d063964ee1dea6a367}
-      \strng{authorfullhash}{fd4d875f6261d2d063964ee1dea6a367}
+      \strng{namehash}{2e256aa21d6f519fd9e2a747d9e14b92}
+      \strng{fullhash}{2e256aa21d6f519fd9e2a747d9e14b92}
+      \strng{bibnamehash}{2e256aa21d6f519fd9e2a747d9e14b92}
+      \strng{authorbibnamehash}{2e256aa21d6f519fd9e2a747d9e14b92}
+      \strng{authornamehash}{2e256aa21d6f519fd9e2a747d9e14b92}
+      \strng{authorfullhash}{2e256aa21d6f519fd9e2a747d9e14b92}
       \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{28}
@@ -551,18 +558,19 @@
     \endentry
     \entry{espressif_systems_esp32_2016}{online}{}
       \name{author}{1}{}{%
-        {{hash=4c3e9d8987c42743634416815cc88543}{%
+        {{hash=66589871a3c3f27bcbf3891133af42b1}{%
            family={{Espressif Systems}},
            familyi={E\bibinitperiod}}}%
       }
-      \strng{namehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{fullhash}{4c3e9d8987c42743634416815cc88543}
-      \strng{bibnamehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{authorbibnamehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{authornamehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{authorfullhash}{4c3e9d8987c42743634416815cc88543}
+      \strng{namehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{fullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{bibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorbibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authornamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorfullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \field{extraname}{1}
       \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Schematic {ESP} 32}
@@ -583,18 +591,18 @@
     \endentry
     \entry{nxp_semiconductors_nv_mfrc522_2017}{online}{}
       \name{author}{1}{}{%
-        {{hash=351ec30647226ed93b9cc5621dc3ee5b}{%
+        {{hash=9811a8e6bb4eac5b232a7b0d721d8b4b}{%
            family={{NXP Semiconductors N.V.}},
            familyi={N\bibinitperiod}}}%
       }
-      \strng{namehash}{351ec30647226ed93b9cc5621dc3ee5b}
-      \strng{fullhash}{351ec30647226ed93b9cc5621dc3ee5b}
-      \strng{bibnamehash}{351ec30647226ed93b9cc5621dc3ee5b}
-      \strng{authorbibnamehash}{351ec30647226ed93b9cc5621dc3ee5b}
-      \strng{authornamehash}{351ec30647226ed93b9cc5621dc3ee5b}
-      \strng{authorfullhash}{351ec30647226ed93b9cc5621dc3ee5b}
+      \strng{namehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{fullhash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{bibnamehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{authorbibnamehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{authornamehash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
+      \strng{authorfullhash}{9811a8e6bb4eac5b232a7b0d721d8b4b}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{MFRC}522 Datasheet}
@@ -620,18 +628,18 @@
     \endentry
     \entry{rfid-basisde_aufbau_2018}{online}{}
       \name{author}{1}{}{%
-        {{hash=95237511546058d1622ab825ea1d498c}{%
+        {{hash=566eae87872d05ee5912ecc29ce36b56}{%
            family={{RFID-basis.de}},
            familyi={R\bibinitperiod}}}%
       }
-      \strng{namehash}{95237511546058d1622ab825ea1d498c}
-      \strng{fullhash}{95237511546058d1622ab825ea1d498c}
-      \strng{bibnamehash}{95237511546058d1622ab825ea1d498c}
-      \strng{authorbibnamehash}{95237511546058d1622ab825ea1d498c}
-      \strng{authornamehash}{95237511546058d1622ab825ea1d498c}
-      \strng{authorfullhash}{95237511546058d1622ab825ea1d498c}
+      \strng{namehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{fullhash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{bibnamehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{authorbibnamehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{authornamehash}{566eae87872d05ee5912ecc29ce36b56}
+      \strng{authorfullhash}{566eae87872d05ee5912ecc29ce36b56}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{15}
@@ -656,18 +664,18 @@
     \endentry
     \entry{nxp_bv_2010_antenna_2010}{online}{}
       \name{author}{1}{}{%
-        {{hash=4f957dfe979c430c82384c5d473ac4a5}{%
+        {{hash=e0170dfc536666238868cf8d0753deb5}{%
            family={{NXP B.V. 2010}},
            familyi={N\bibinitperiod}}}%
       }
-      \strng{namehash}{4f957dfe979c430c82384c5d473ac4a5}
-      \strng{fullhash}{4f957dfe979c430c82384c5d473ac4a5}
-      \strng{bibnamehash}{4f957dfe979c430c82384c5d473ac4a5}
-      \strng{authorbibnamehash}{4f957dfe979c430c82384c5d473ac4a5}
-      \strng{authornamehash}{4f957dfe979c430c82384c5d473ac4a5}
-      \strng{authorfullhash}{4f957dfe979c430c82384c5d473ac4a5}
+      \strng{namehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{fullhash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{bibnamehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{authorbibnamehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{authornamehash}{e0170dfc536666238868cf8d0753deb5}
+      \strng{authorfullhash}{e0170dfc536666238868cf8d0753deb5}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Antenna design guide for {MFRC}52x, {PN}51x and {PN}53x}
@@ -699,7 +707,7 @@
       \strng{authornamehash}{a50d8f32862dce43c344695b522ee2a1}
       \strng{authorfullhash}{a50d8f32862dce43c344695b522ee2a1}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This post presents an {RGB} {LED} strip tutorial including how to power it and how to create color from the full {RGB} color spectrum.}
@@ -726,18 +734,18 @@
     \endentry
     \entry{theorycircuitcom_arduino_2018}{online}{}
       \name{author}{1}{}{%
-        {{hash=91122a76fd9ef0cb66e1da9ebde11e3f}{%
+        {{hash=f436a56c4a9eac2506f449956a85a425}{%
            family={{theorycircuit.com}},
            familyi={t\bibinitperiod}}}%
       }
-      \strng{namehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
-      \strng{fullhash}{91122a76fd9ef0cb66e1da9ebde11e3f}
-      \strng{bibnamehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
-      \strng{authorbibnamehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
-      \strng{authornamehash}{91122a76fd9ef0cb66e1da9ebde11e3f}
-      \strng{authorfullhash}{91122a76fd9ef0cb66e1da9ebde11e3f}
+      \strng{namehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{fullhash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{bibnamehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{authorbibnamehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{authornamehash}{f436a56c4a9eac2506f449956a85a425}
+      \strng{authorfullhash}{f436a56c4a9eac2506f449956a85a425}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{If you want to track or monitor the sensor output value then it is important to log the data, Here temperature sensor {LM}35 output data is stored in a Micro {SD} card with the help of arduino and Micro {SD} card adapter, You can use this setup as Arduino {SD} card data logger and it can be exported to excel sheet for data analysis. You can define the time interval of data reading and storing in {SD} card by the Arduino Code, Any types of sensors can be used as a data input source and the following setup will capture the sensor data and writes into {SD} as text file. micro {SD} Card Pinout Micro {SD} memory card available in different}
@@ -764,18 +772,18 @@
     \endentry
     \entry{ionosde_fat32_2020}{online}{}
       \name{author}{1}{}{%
-        {{hash=da34f13d204cdce7cab9b7bc9cb140be}{%
+        {{hash=69e2f7969761339cdbeddb36b0e35d30}{%
            family={{ionos.de}},
            familyi={i\bibinitperiod}}}%
       }
-      \strng{namehash}{da34f13d204cdce7cab9b7bc9cb140be}
-      \strng{fullhash}{da34f13d204cdce7cab9b7bc9cb140be}
-      \strng{bibnamehash}{da34f13d204cdce7cab9b7bc9cb140be}
-      \strng{authorbibnamehash}{da34f13d204cdce7cab9b7bc9cb140be}
-      \strng{authornamehash}{da34f13d204cdce7cab9b7bc9cb140be}
-      \strng{authorfullhash}{da34f13d204cdce7cab9b7bc9cb140be}
+      \strng{namehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{fullhash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{bibnamehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{authorbibnamehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{authornamehash}{69e2f7969761339cdbeddb36b0e35d30}
+      \strng{authorfullhash}{69e2f7969761339cdbeddb36b0e35d30}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Microsoft hatte mit dem File Allocation Table und vor allem {FAT}32 lange Zeit den De-facto-Standard für Dateiformate inne. Aber ist das System noch zeitgemäß?}
@@ -815,7 +823,7 @@
       \strng{authornamehash}{d66d1c107aacf5ecfc0cf5e400159a35}
       \strng{authorfullhash}{d66d1c107aacf5ecfc0cf5e400159a35}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Aufbau des {FAT}32 Dateisystems {ERIK} {MILSCH}, Würzburg, Germany, Februar Historie und Grundlagen Das {FAT}32 Dateisystem wurden von Microsoft im Jahre 1997 als Nachfolger des {FAT}16 Dateisystem eingeführt.}
@@ -854,7 +862,7 @@
            familyi={J\bibinitperiod},
            given={Mahavir},
            giveni={M\bibinitperiod}}}%
-        {{hash=c8de412bb90c1cebba70a2afe3edbd74}{%
+        {{hash=a6a3bc4ae7edd3e68fae0d05b02f9f4f}{%
            family={Dev},
            familyi={D\bibinitperiod},
            given={Me\bibnamedelima No},
@@ -874,13 +882,13 @@
         {Espressif Systems}%
       }
       \strng{namehash}{52157facbe29909b1a88ad405706b05d}
-      \strng{fullhash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
-      \strng{bibnamehash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
-      \strng{authorbibnamehash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
+      \strng{fullhash}{644920c751f874e6b0f958619e767700}
+      \strng{bibnamehash}{644920c751f874e6b0f958619e767700}
+      \strng{authorbibnamehash}{644920c751f874e6b0f958619e767700}
       \strng{authornamehash}{52157facbe29909b1a88ad405706b05d}
-      \strng{authorfullhash}{ed991aa68c4b1ea3c8d2d5759fbff5e7}
+      \strng{authorfullhash}{644920c751f874e6b0f958619e767700}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Arduino core for the {ESP}32. Contribute to espressif/arduino-esp32 development by creating an account on {GitHub}.}
@@ -917,14 +925,14 @@
       \strng{authornamehash}{d97486ef3495d0397d5aca2f0adb3565}
       \strng{authorfullhash}{d97486ef3495d0397d5aca2f0adb3565}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{In this project you'll create a standalone web server with an {ESP}32 that can toggle two {LEDs} using the Arduino {IDE} programming environment.}
       \field{day}{16}
       \field{langid}{american}
       \field{month}{7}
-      \field{title}{{ESP}32 Web Server - Arduino {IDE} {|} Random Nerd Tutorials}
+      \field{title}{{ESP}32 Web Server - Arduino {IDE} | Random Nerd Tutorials}
       \field{urlday}{12}
       \field{urlmonth}{9}
       \field{urlyear}{2020}
@@ -951,7 +959,7 @@
       \strng{authornamehash}{dd64f9d6a9d1921e44efdf93dcd003f5}
       \strng{authorfullhash}{dd64f9d6a9d1921e44efdf93dcd003f5}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{day}{18}
@@ -973,18 +981,18 @@
     \endentry
     \entry{verschiedene_autoren_avrdude_2019}{online}{}
       \name{author}{1}{}{%
-        {{hash=3155dc0bc3f6f61c9990513b2ec8ea44}{%
+        {{hash=d9135b14fa668599d004fad6fa0a6f3c}{%
            family={{Verschiedene Autoren}},
            familyi={V\bibinitperiod}}}%
       }
-      \strng{namehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
-      \strng{fullhash}{3155dc0bc3f6f61c9990513b2ec8ea44}
-      \strng{bibnamehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
-      \strng{authorbibnamehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
-      \strng{authornamehash}{3155dc0bc3f6f61c9990513b2ec8ea44}
-      \strng{authorfullhash}{3155dc0bc3f6f61c9990513b2ec8ea44}
+      \strng{namehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{fullhash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{bibnamehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{authorbibnamehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{authornamehash}{d9135b14fa668599d004fad6fa0a6f3c}
+      \strng{authorfullhash}{d9135b14fa668599d004fad6fa0a6f3c}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{16}
@@ -1020,7 +1028,7 @@
       \strng{authornamehash}{56cfdc79f42e22c17a0ba7a354f111c0}
       \strng{authorfullhash}{56cfdc79f42e22c17a0ba7a354f111c0}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Turn Arduino's Serial Converter Into {AVRISP} {MkII} Clone : I'll show you how to use Arduino’s {USB}-serial converter as {AVRISP} {mkII}. Process is completely reversible. You’ll need: Arduino {UNO}, or any other board with {ATmega}16U2 or 32U2 (8U2 has too small flash) {USB}-serial converter, Some wires,Optionally for…}
@@ -1047,18 +1055,18 @@
     \endentry
     \entry{savannahgnuorg_index_2016}{online}{}
       \name{author}{1}{}{%
-        {{hash=4e66b0cd2c39f296b5477cedf6b29612}{%
+        {{hash=da88d0450744b3b6d243255ba46174fb}{%
            family={{savannah.gnu.org}},
            familyi={s\bibinitperiod}}}%
       }
-      \strng{namehash}{4e66b0cd2c39f296b5477cedf6b29612}
-      \strng{fullhash}{4e66b0cd2c39f296b5477cedf6b29612}
-      \strng{bibnamehash}{4e66b0cd2c39f296b5477cedf6b29612}
-      \strng{authorbibnamehash}{4e66b0cd2c39f296b5477cedf6b29612}
-      \strng{authornamehash}{4e66b0cd2c39f296b5477cedf6b29612}
-      \strng{authorfullhash}{4e66b0cd2c39f296b5477cedf6b29612}
+      \strng{namehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{fullhash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{bibnamehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{authorbibnamehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{authornamehash}{da88d0450744b3b6d243255ba46174fb}
+      \strng{authorfullhash}{da88d0450744b3b6d243255ba46174fb}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{17}
@@ -1097,7 +1105,7 @@
       \strng{authornamehash}{18ef5db8814c8c1b34765f6ffdda9aa2}
       \strng{authorfullhash}{18ef5db8814c8c1b34765f6ffdda9aa2}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Script mc1 - Hardwarenahe Programmierung in C -}
@@ -1113,20 +1121,20 @@
     \endentry
     \entry{dharmani_sdsdhc_2009}{online}{}
       \name{author}{1}{}{%
-        {{hash=9682fbc124d5299d4b276e4d80b0b77b}{%
+        {{hash=099defb67505dd5597d2fc46e70c9218}{%
            family={Dharmani},
            familyi={D\bibinitperiod},
            given={C.\bibnamedelimi C.},
            giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
-      \strng{namehash}{9682fbc124d5299d4b276e4d80b0b77b}
-      \strng{fullhash}{9682fbc124d5299d4b276e4d80b0b77b}
-      \strng{bibnamehash}{9682fbc124d5299d4b276e4d80b0b77b}
-      \strng{authorbibnamehash}{9682fbc124d5299d4b276e4d80b0b77b}
-      \strng{authornamehash}{9682fbc124d5299d4b276e4d80b0b77b}
-      \strng{authorfullhash}{9682fbc124d5299d4b276e4d80b0b77b}
+      \strng{namehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{fullhash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{bibnamehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{authorbibnamehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{authornamehash}{099defb67505dd5597d2fc46e70c9218}
+      \strng{authorfullhash}{099defb67505dd5597d2fc46e70c9218}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Hi friends, Here is my project on interfacing of {SD} Card ({microSD}). {microSD} cards are available very cheap nowadays, a great option for ha...}
@@ -1164,7 +1172,7 @@
       \strng{authornamehash}{7ba0e7dee17e472e6b1e8a771dc05254}
       \strng{authorfullhash}{7ba0e7dee17e472e6b1e8a771dc05254}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{HTerm} is a terminal program for Windows that allows in- and output in different number systems}
@@ -1187,25 +1195,25 @@
     \endentry
     \entry{wagner_iapws_2002}{article}{}
       \name{author}{2}{}{%
-        {{hash=4afceed35891436e08b1ec404aa164df}{%
+        {{hash=f05914b095d98d63a98e165f3f99b6bf}{%
            family={Wagner},
            familyi={W\bibinitperiod},
            given={W.},
            giveni={W\bibinitperiod}}}%
-        {{hash=9876337be49817429e94868bcc9ea9bc}{%
+        {{hash=c541272eaf0e6ceb0fbed27f4b6552bd}{%
            family={Pruß},
            familyi={P\bibinitperiod},
            given={A.},
            giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{8808e92552ae8142277cc4880aadb143}
-      \strng{fullhash}{8808e92552ae8142277cc4880aadb143}
-      \strng{bibnamehash}{8808e92552ae8142277cc4880aadb143}
-      \strng{authorbibnamehash}{8808e92552ae8142277cc4880aadb143}
-      \strng{authornamehash}{8808e92552ae8142277cc4880aadb143}
-      \strng{authorfullhash}{8808e92552ae8142277cc4880aadb143}
+      \strng{namehash}{d12e0ea275d502e9a893a1a0dd79b261}
+      \strng{fullhash}{d12e0ea275d502e9a893a1a0dd79b261}
+      \strng{bibnamehash}{d12e0ea275d502e9a893a1a0dd79b261}
+      \strng{authorbibnamehash}{d12e0ea275d502e9a893a1a0dd79b261}
+      \strng{authornamehash}{d12e0ea275d502e9a893a1a0dd79b261}
+      \strng{authorfullhash}{d12e0ea275d502e9a893a1a0dd79b261}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0047-2689, 1529-7845}
@@ -1236,18 +1244,19 @@
     \endentry
     \entry{mikrochip_makes_getting_2015}{video}{}
       \name{author}{1}{}{%
-        {{hash=50877bba0600848bfbd69cfa89d19eeb}{%
+        {{hash=1d934a41c4de87eb5bc6e75ff77905f4}{%
            family={{Mikrochip Makes}},
            familyi={M\bibinitperiod}}}%
       }
-      \strng{namehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{fullhash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{bibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authorbibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authornamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authorfullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{namehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{fullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{bibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \field{extraname}{1}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{In this video, we will: - Introduce Pulse Width Modulation ({PWM}) and the importance of high frequency and resolution. - Set a prescalar of 1 to get maximum {PWM} frequency. - Set up two output compare {IRQ}’s: one to control the period, the other to control the duty cycle. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
@@ -1270,18 +1279,19 @@
     \endentry
     \entry{mikrochip_makes_getting_2015-1}{video}{}
       \name{author}{1}{}{%
-        {{hash=50877bba0600848bfbd69cfa89d19eeb}{%
+        {{hash=1d934a41c4de87eb5bc6e75ff77905f4}{%
            family={{Mikrochip Makes}},
            familyi={M\bibinitperiod}}}%
       }
-      \strng{namehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{fullhash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{bibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authorbibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authornamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authorfullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{namehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{fullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{bibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \field{extraname}{2}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{In this video, we will learn: - Setting up a millisecond timer to update the duty cycle - Using the 8-bit timer-counter 0 as a millisecond timer. - Incrementing the duty cycle every 2 {mS}, resetting the duty cycle to 0 when it equals the period. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
@@ -1304,18 +1314,19 @@
     \endentry
     \entry{mikrochip_makes_getting_2015-2}{video}{}
       \name{author}{1}{}{%
-        {{hash=50877bba0600848bfbd69cfa89d19eeb}{%
+        {{hash=1d934a41c4de87eb5bc6e75ff77905f4}{%
            family={{Mikrochip Makes}},
            familyi={M\bibinitperiod}}}%
       }
-      \strng{namehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{fullhash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{bibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authorbibnamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authornamehash}{50877bba0600848bfbd69cfa89d19eeb}
-      \strng{authorfullhash}{50877bba0600848bfbd69cfa89d19eeb}
+      \strng{namehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{fullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{bibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorbibnamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authornamehash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \strng{authorfullhash}{1d934a41c4de87eb5bc6e75ff77905f4}
+      \field{extraname}{3}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{In this video, we will: - Create functions: {PWM}\_Increase\_duty ( ), {PWM}\_Decrease\_duty ( ), {PWM}\_BrightDim ( ) - Use enumerators to keep track of the direction of {PWM} duty cycle change. - Declare our function prototypes. Follow along with the entire ‘Getting Started with {AVR}’ series: http://bit.ly/{GettingStartedwithAVR} Want to explore {AVR} microcontrollers some more? http://www.atmel.com/products/microco... Xplained Mini: http://www.atmel.com/products/microco... {ATmega}328P: http://www.atmel.com/devices/atmega32... Atmel Studio: http://www.atmel.com/tools/atmelstudi... Stay connected! Embedded Design Blog: http://blog.atmel.com Twitter: http://www.atmel.com/twitter Facebook: http://www.atmel.com/facebook {LinkedIn}: http://www.atmel.com/linkedin}
@@ -1351,7 +1362,7 @@
       \strng{authornamehash}{5f206437030870be60da6c0706e351e7}
       \strng{authorfullhash}{5f206437030870be60da6c0706e351e7}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Die Arbeit behandelt die Steuerung von {BLDC}- und {PMSM}-Motoren mit Schwer-punkt der ruckbegrenzten Beschleunigung während des Positioniervorgangs. Zu Be-ginn werden die verwendeten Arten an Motoren, Sensoren, Regelungsverfahren {undInterpolationen} vorgestellt. Darauf folgt die mathematische Gegenüberstellung {desTrapezgeschwindigkeits}- und des sinoiden Beschleunigungsprofils, die Betrachtungder Simulation mit einer Kaskadenregelung und die Implementierung auf {realerHardware}. Anschließend stellt eine ausführliche Evaluierung die Auswirkung {desRucks} beider Interpolationsarten anhand verschiedener Szenarien dar. Die Arbeit en-det mit einer Zusammenfassung der erzielten Ergebnisse und einem Ausblick aufweiterführende Arbeiten.}
@@ -1392,7 +1403,7 @@
       \strng{authornamehash}{3357c8f7b4d30351aa7226de42eb6188}
       \strng{authorfullhash}{3357c8f7b4d30351aa7226de42eb6188}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Eine Application-Programming-Interface (oder auch Application-Program-Interface, kurz: {API}) ist eine Schnittstelle, die es zwei Programmen ermöglicht, miteinander zu kommunizieren. Frei ins Deutsche übersetzt, kann eine {API} auch als „Schnittstelle zur Anwendungsprogrammierung“ oder „Programmierschnittstelle“ bezeichnet werden.}
@@ -1432,13 +1443,13 @@
       \strng{authornamehash}{e13d7255ad0d34f21e88f41977181b0c}
       \strng{authorfullhash}{e13d7255ad0d34f21e88f41977181b0c}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{5}
       \field{langid}{german}
       \field{month}{3}
-      \field{title}{Artikel {|} Doppelt verkettete Listen in C}
+      \field{title}{Artikel | Doppelt verkettete Listen in C}
       \field{titleaddon}{Doppelt verkettete Listen in C}
       \field{urlday}{17}
       \field{urlmonth}{9}
@@ -1471,7 +1482,7 @@
       \strng{authornamehash}{0bce03580874fce8a1b665df86aac80a}
       \strng{authorfullhash}{0bce03580874fce8a1b665df86aac80a}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Learn what is and how to implement a circular doubly linked list in javascript. Two different object based and es6 class based implementation.}
@@ -1509,7 +1520,7 @@
       \strng{authornamehash}{f87567f2159b425795ebb7ba9bc406ec}
       \strng{authorfullhash}{f87567f2159b425795ebb7ba9bc406ec}
       \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{NX}8048T070Overview Nextion Models Specifications Electronic Characteristics Working Environment \& Reliability Parameter Interfaces Performance Memory Features Product {DimensionsOverview} Nextion is a seamless Human Machine Interface ({HMI}) solution that provides a control and visualisation interface between a human}
@@ -1545,7 +1556,7 @@
       \strng{authornamehash}{22b735ab1565b2de834501b4b05d456b}
       \strng{authorfullhash}{22b735ab1565b2de834501b4b05d456b}
       \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{NEXTION} {EDITOR} {VER} 1.61.2sanjiaoMade for {HMI} {GUI}}
@@ -1569,18 +1580,19 @@
     \endentry
     \entry{pngimgcom_cocktail_nodate-7}{online}{}
       \name{author}{1}{}{%
-        {{hash=73aecc4f8df4a46533222dee439fab7a}{%
+        {{hash=ee87a376933f79caccc237ca99c56390}{%
            family={pngimg.com},
            familyi={p\bibinitperiod}}}%
       }
-      \strng{namehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{fullhash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{bibnamehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{authorbibnamehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{authornamehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{authorfullhash}{73aecc4f8df4a46533222dee439fab7a}
+      \strng{namehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{fullhash}{ee87a376933f79caccc237ca99c56390}
+      \strng{bibnamehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{authorbibnamehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{authornamehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{authorfullhash}{ee87a376933f79caccc237ca99c56390}
+      \field{extraname}{1}
       \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Cocktail {PNG} {PNG} image. You can download {PNG} image Cocktail {PNG}, free {PNG} image, Cocktail {PNG} {PNG}}
@@ -1603,18 +1615,19 @@
     \endentry
     \entry{pngimgcom_cocktail_nodate-6}{online}{}
       \name{author}{1}{}{%
-        {{hash=73aecc4f8df4a46533222dee439fab7a}{%
+        {{hash=ee87a376933f79caccc237ca99c56390}{%
            family={pngimg.com},
            familyi={p\bibinitperiod}}}%
       }
-      \strng{namehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{fullhash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{bibnamehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{authorbibnamehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{authornamehash}{73aecc4f8df4a46533222dee439fab7a}
-      \strng{authorfullhash}{73aecc4f8df4a46533222dee439fab7a}
+      \strng{namehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{fullhash}{ee87a376933f79caccc237ca99c56390}
+      \strng{bibnamehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{authorbibnamehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{authornamehash}{ee87a376933f79caccc237ca99c56390}
+      \strng{authorfullhash}{ee87a376933f79caccc237ca99c56390}
+      \field{extraname}{2}
       \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Cocktail {PNG} {PNG} image. You can download {PNG} image Cocktail {PNG}, free {PNG} image, Cocktail {PNG} {PNG}}
@@ -1637,7 +1650,7 @@
     \endentry
     \entry{noauthor_cocktail_nodate-2}{online}{}
       \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labeltitlesource}{title}
       \field{abstract}{Cocktail {PNG} {PNG} image. You can download {PNG} image Cocktail {PNG}, free {PNG} image, Cocktail {PNG} {PNG}}
       \field{langid}{english}
@@ -1669,11 +1682,12 @@
       \strng{authorbibnamehash}{07d7a49424a053fdc4bee4b720aab900}
       \strng{authornamehash}{07d7a49424a053fdc4bee4b720aab900}
       \strng{authorfullhash}{07d7a49424a053fdc4bee4b720aab900}
+      \field{extraname}{1}
       \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{{MIT} App Inventor {|} Explore {MIT} App Inventor}
+      \field{title}{{MIT} App Inventor | Explore {MIT} App Inventor}
       \field{urlday}{3}
       \field{urlmonth}{10}
       \field{urlyear}{2020}
@@ -1701,7 +1715,7 @@
       \strng{authornamehash}{e9fcadb9433d636f67106154099cc4f5}
       \strng{authorfullhash}{e9fcadb9433d636f67106154099cc4f5}
       \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Much more than a modern app creator without coding}
@@ -1735,8 +1749,9 @@
       \strng{authorbibnamehash}{07d7a49424a053fdc4bee4b720aab900}
       \strng{authornamehash}{07d7a49424a053fdc4bee4b720aab900}
       \strng{authorfullhash}{07d7a49424a053fdc4bee4b720aab900}
+      \field{extraname}{2}
       \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{MIT} App Inventor for {iOS} version 0.9 takes off in {TestFlight}}
@@ -1756,18 +1771,18 @@
     \endentry
     \entry{loboriseu_esp32_autoresetjpg_2017}{online}{}
       \name{author}{1}{}{%
-        {{hash=a0b811cb07a033235ba4760370ce9c4b}{%
+        {{hash=da93a904e07b24c643dfec3c93ee2dec}{%
            family={{loboris.eu}},
            familyi={l\bibinitperiod}}}%
       }
-      \strng{namehash}{a0b811cb07a033235ba4760370ce9c4b}
-      \strng{fullhash}{a0b811cb07a033235ba4760370ce9c4b}
-      \strng{bibnamehash}{a0b811cb07a033235ba4760370ce9c4b}
-      \strng{authorbibnamehash}{a0b811cb07a033235ba4760370ce9c4b}
-      \strng{authornamehash}{a0b811cb07a033235ba4760370ce9c4b}
-      \strng{authorfullhash}{a0b811cb07a033235ba4760370ce9c4b}
+      \strng{namehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{fullhash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{bibnamehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{authorbibnamehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{authornamehash}{da93a904e07b24c643dfec3c93ee2dec}
+      \strng{authorfullhash}{da93a904e07b24c643dfec3c93ee2dec}
       \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{22}
@@ -1803,7 +1818,7 @@
       \strng{authornamehash}{7814f508cefb6f5212a5c3a3b42d64fe}
       \strng{authorfullhash}{7814f508cefb6f5212a5c3a3b42d64fe}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{17}
@@ -1827,18 +1842,18 @@
     \endentry
     \entry{german-salescom_datenstruktur_nodate}{online}{}
       \name{author}{1}{}{%
-        {{hash=fb06bce0add3d61c30908d093286cb1b}{%
+        {{hash=ce544b3d27d61dfff047d12c14b00255}{%
            family={{german-sales.com}},
            familyi={g\bibinitperiod}}}%
       }
-      \strng{namehash}{fb06bce0add3d61c30908d093286cb1b}
-      \strng{fullhash}{fb06bce0add3d61c30908d093286cb1b}
-      \strng{bibnamehash}{fb06bce0add3d61c30908d093286cb1b}
-      \strng{authorbibnamehash}{fb06bce0add3d61c30908d093286cb1b}
-      \strng{authornamehash}{fb06bce0add3d61c30908d093286cb1b}
-      \strng{authorfullhash}{fb06bce0add3d61c30908d093286cb1b}
+      \strng{namehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{fullhash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{bibnamehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{authorbibnamehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{authornamehash}{ce544b3d27d61dfff047d12c14b00255}
+      \strng{authorfullhash}{ce544b3d27d61dfff047d12c14b00255}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Die Datenstruktur einer Speicherkarte für die Digitalkamera lässt nachdem sie gelöscht wurde immer noch eine Datenrettung der Bilder zu.}
@@ -1860,18 +1875,18 @@
     \endentry
     \entry{informatikuni-ulmde_fat32slide_2002}{online}{}
       \name{author}{1}{}{%
-        {{hash=be473ad7072ebdf291a6206a09ada581}{%
+        {{hash=811d61330acc621b4ca342c7f9ca032f}{%
            family={{informatik.uni-ulm.de}},
            familyi={i\bibinitperiod}}}%
       }
-      \strng{namehash}{be473ad7072ebdf291a6206a09ada581}
-      \strng{fullhash}{be473ad7072ebdf291a6206a09ada581}
-      \strng{bibnamehash}{be473ad7072ebdf291a6206a09ada581}
-      \strng{authorbibnamehash}{be473ad7072ebdf291a6206a09ada581}
-      \strng{authornamehash}{be473ad7072ebdf291a6206a09ada581}
-      \strng{authorfullhash}{be473ad7072ebdf291a6206a09ada581}
+      \strng{namehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{fullhash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{bibnamehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{authorbibnamehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{authornamehash}{811d61330acc621b4ca342c7f9ca032f}
+      \strng{authorfullhash}{811d61330acc621b4ca342c7f9ca032f}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{28}
@@ -1906,7 +1921,7 @@
       \strng{authornamehash}{5b109c743893779f7aa41a9c78d2215c}
       \strng{authorfullhash}{5b109c743893779f7aa41a9c78d2215c}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{ESP}8266 vs {ESP}32: What's the difference? - Wia Community}
@@ -1930,18 +1945,19 @@
     \endentry
     \entry{espressif_systems_esp32_2020}{online}{}
       \name{author}{1}{}{%
-        {{hash=4c3e9d8987c42743634416815cc88543}{%
+        {{hash=66589871a3c3f27bcbf3891133af42b1}{%
            family={{Espressif Systems}},
            familyi={E\bibinitperiod}}}%
       }
-      \strng{namehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{fullhash}{4c3e9d8987c42743634416815cc88543}
-      \strng{bibnamehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{authorbibnamehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{authornamehash}{4c3e9d8987c42743634416815cc88543}
-      \strng{authorfullhash}{4c3e9d8987c42743634416815cc88543}
+      \strng{namehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{fullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{bibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorbibnamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authornamehash}{66589871a3c3f27bcbf3891133af42b1}
+      \strng{authorfullhash}{66589871a3c3f27bcbf3891133af42b1}
+      \field{extraname}{2}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Datasheet {ESP} 32 Version 3.4}
@@ -1975,14 +1991,14 @@
       \strng{authornamehash}{fdc411710d8ecb0240584c4cbc05ead6}
       \strng{authorfullhash}{fdc411710d8ecb0240584c4cbc05ead6}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This is a simple {ATtiny}13 project that controls {LED} {RGB} using Software {PWM}. In result It gives really nice and colourful light effect.}
       \field{day}{11}
       \field{langid}{british}
       \field{month}{4}
-      \field{title}{{ATtiny}13 - controlling {LED} {RGB} {|} Łukasz Podkalicki}
+      \field{title}{{ATtiny}13 - controlling {LED} {RGB} | Łukasz Podkalicki}
       \field{urlday}{14}
       \field{urlmonth}{9}
       \field{urlyear}{2020}
@@ -2014,7 +2030,7 @@
       \strng{authornamehash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
       \strng{authorfullhash}{2ce78b7bcd9a7ad76d8f9988066e84a6}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Programmierung des Speichers}
@@ -2044,8 +2060,9 @@
       \strng{authorbibnamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
       \strng{authornamehash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
       \strng{authorfullhash}{bed89e32bb03bc7e71ebbf7729f9d4ce}
+      \field{extraname}{2}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -2084,7 +2101,7 @@
       \strng{authornamehash}{1f55630df021579a70effd766f8c462b}
       \strng{authorfullhash}{1f55630df021579a70effd766f8c462b}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.}
@@ -2092,7 +2109,7 @@
       \field{langid}{american}
       \field{month}{4}
       \field{note}{Section: Linked List}
-      \field{title}{Doubly Circular Linked List {|} Set 1 (Introduction and Insertion)}
+      \field{title}{Doubly Circular Linked List | Set 1 (Introduction and Insertion)}
       \field{titleaddon}{{GeeksforGeeks}}
       \field{urlday}{17}
       \field{urlmonth}{9}
@@ -2125,7 +2142,7 @@
       \strng{authornamehash}{77b321ce0ccefbced546780de84ebf8f}
       \strng{authorfullhash}{77b321ce0ccefbced546780de84ebf8f}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{switch debouncing techniques}

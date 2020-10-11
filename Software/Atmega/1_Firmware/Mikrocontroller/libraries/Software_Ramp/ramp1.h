@@ -55,7 +55,7 @@ linear_ramp_t aRamp;
 void reverse(char* str, int len);
 int intToStr(int x, char str[], int d);
 void ftoa(float n, char* res, int afterpoint);
-// void ramp_pwm_init(void);
+void ramp_pwm_init(void);
 
 void linear_ramp_init(void);
 void linear_ramp_set_defaults(volatile linear_ramp_t * ramp);

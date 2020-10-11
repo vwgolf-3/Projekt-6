@@ -1196,203 +1196,285 @@ void zubereitung_getraenk(uint8_t Menge)
     setze_startanzeige(aktuellesGetraenk);
 }
 
-void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
+void debug_message_1(float val, float val2)
 {
-
-    externes_Getraenk_flag = 0;
-
-    uint32_t geschwindigkeit = 600;
-    uint32_t beschleunigung = 600;
-
-    tmc4671_setActualPosition(0,0);
-
     char itoa_buff[20] = {'\0'};
     char * itoa_ptr = itoa_buff;
-
-
-    tmp_zut_Maschine_actual = head_zutat_maschine_ohne;
-
-    // Switche durch alle Getränke
-    do
-    {
-
-
-        // Falls das Getränk in der Maschine vorkommt
-        if ((tmp_zut_Maschine_actual->menge > 0) && (stop == 0))
-        {
-            Uart_Transmit_IT_PC("Name Zutat: ");
-            Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
-
-            Uart_Transmit_IT_PC("\rStelle: ");
-            itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
-            Uart_Transmit_IT_PC(itoa_ptr);
-
-            char ftoa_buff[20] = {'\0'};
-            char * ftoa_ptr = ftoa_buff;
-
-            Uart_Transmit_IT_PC("\rAktuelle Position: ");
-            float val = (float)tmc4671_getActualPosition(0)/1000;
-            ftoa(val, ftoa_ptr, 4);
-            Uart_Transmit_IT_PC(ftoa_ptr);
-            Uart_Transmit_IT_PC(")\r");
-
-            char ftoa_buff_2[20] = {'\0'};
-            char * ftoa_ptr_2 = ftoa_buff_2;
-
-            Uart_Transmit_IT_PC("Zielposition: ");
-            float val2 = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung - tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
-            ftoa(val2, ftoa_ptr_2, 4);
-            Uart_Transmit_IT_PC(ftoa_ptr_2);
-            Uart_Transmit_IT_PC("\r");
-
-            calculateRamp(beschleunigung, geschwindigkeit, val, val2, ramp);
-
-            while (ramp->ramp_enable ==1 && stop == 0)
-            {
-                periodic_jobs(ramp);
-            }
-
-
-            Uart_Transmit_IT_PC("Stelle: ");
-            itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
-            Uart_Transmit_IT_PC(itoa_ptr);
-            Uart_Transmit_IT_PC(" erreicht. (");
-
-            char ftoa_buff_3[20] = {'\0'};
-            char * ftoa_ptr_3 = ftoa_buff_3;
-            val = (float)tmc4671_getActualPosition(0)/1000;
-            ftoa(val, ftoa_ptr_3, 4);
-            Uart_Transmit_IT_PC(ftoa_ptr_3);
-            Uart_Transmit_IT_PC(")\r\r");
-
-
-            uint32_t pulse_prp[13] = {'\0'};
-            uint32_t pulse_prp_3dl[13] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501, '\0'}; //3dl
-            uint32_t pulse_prp_5dl[13] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506, '\0'}; //5dl
-            uint32_t pulse_prp_1dl[13] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479, '\0'}; //1dl
-            for (uint8_t count = 0 ; count < 12 ; count++)
-            {
-                switch (fuellmenge)
-                {
-                case DL_1:
-                    pulse_prp[count] = pulse_prp_1dl[count];
-                    break;
-                case DL_3:
-                    pulse_prp[count] = pulse_prp_3dl[count];
-                    break;
-                case DL_5:
-                    pulse_prp[count] = pulse_prp_5dl[count];
-                    break;
-                }
-            }
-
-            // Berechne Menge, schalte Pumpe ein und beginne mit füllen
-            uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp[tmp_zut_Maschine_actual->stelle]) * (uint32_t)*(uint8_t *)(aktuellesGetraenk->mengen + i)/(uint16_t)100);
-
-            uint8_t fuellen = 1;
-            uint8_t newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
-
-            schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
-            while (fuellen)
-            {
-                // Polle PWM-Signal des Durchflusssensor
-                static uint8_t oldval=0;
-                static uint32_t count=0;
-
-                // Lese Sensor ein
-                newval = oldval ^ 0b00000001;
-//                  newval = lese_sensor(i);
-
-                // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
-                if( !oldval && newval)
-                {
-                    // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
-                    if(count++ > Menge)
-                    {
-                        schalte_pumpe_aus(tmp_zut_Maschine_actual->stelle);
-                        count = 0;
-                        fuellen = 0;
-                    }
-//*************************************************************************
-//                  Delay entfernen wenn mit Sensor gearbeitet wird.
-                    _delay_ms(1);
-                    if (check_Communication_Input_UART_1())
-                    {
-                        proceed_Communication_INPUT_UART_1();
-                        if (stop == 1)
-                        {
-                            for (int k = 0 ; k < 12 ; k++)
-                            {
-                                schalte_pumpe_aus(k);
-                            }
-                            nextion_change_page(ABBRUCHANZEIGE);
-                            _delay_ms(2000);
-                            lese_textfile_in_getraenk(head_getraenk_file_alle->file);
-                            nextion_change_page(STARTANZEIGE);
-                            setze_startanzeige(aktuellesGetraenk);
-                            count = 0;
-                            fuellen = 0;
-                        }
-                    }
-                }
-                // Aktueller Sensorwert speichern
-                oldval = newval;
-            }
-            _delay_ms(1000);
-        }
-        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
-    } while(tmp_zut_Maschine_actual != head_zutat_maschine_ohne);
-
+    Uart_Transmit_IT_PC("Name Zutat: ");
+    Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+    Uart_Transmit_IT_PC("\rStelle: ");
+    itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
+    Uart_Transmit_IT_PC(itoa_ptr);
     char ftoa_buff[20] = {'\0'};
     char * ftoa_ptr = ftoa_buff;
-
     Uart_Transmit_IT_PC("\rAktuelle Position: ");
-    float val = (float)tmc4671_getActualPosition(0)/1000;
     ftoa(val, ftoa_ptr, 4);
     Uart_Transmit_IT_PC(ftoa_ptr);
-    Uart_Transmit_IT_PC(")\r\r");
-
+    Uart_Transmit_IT_PC(")\r");
     char ftoa_buff_2[20] = {'\0'};
     char * ftoa_ptr_2 = ftoa_buff_2;
-
     Uart_Transmit_IT_PC("Zielposition: ");
-    float val2 = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung - tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
     ftoa(val2, ftoa_ptr_2, 4);
     Uart_Transmit_IT_PC(ftoa_ptr_2);
-    Uart_Transmit_IT_PC("\r\r");
+    Uart_Transmit_IT_PC("\r");
+}
 
-    calculateRamp(beschleunigung, geschwindigkeit, tmc4671_getActualPosition(0)/1000, 0, ramp);
-
-    while (ramp->ramp_enable && stop == 0)
-    {
-        periodic_jobs(ramp);
-    }
-
-    Uart_Transmit_IT_PC("Position: ");
+void debug_message_2()
+{
+    char itoa_buff[20] = {'\0'};
+    char * itoa_ptr = itoa_buff;
+    Uart_Transmit_IT_PC("Stelle: ");
     itoa(tmp_zut_Maschine_actual->stelle, itoa_ptr, 10);
     Uart_Transmit_IT_PC(itoa_ptr);
     Uart_Transmit_IT_PC(" erreicht. (");
-    my_itoa(tmc4671_getActualPosition(0), itoa_ptr);
-    Uart_Transmit_IT_PC(itoa_ptr);
-    Uart_Transmit_IT_PC(")\r");
 
-    tmc4671_setActualPosition(0,0);
-    tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION,                    0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 55 = 0x52(PHI_E_SELECTION)
+    char ftoa_buff_3[20] = {'\0'};
+    char * ftoa_ptr_3 = ftoa_buff_3;
+    float val = (float)tmc4671_getActualPosition(0)/1000;
+    ftoa(val, ftoa_ptr_3, 4);
+    Uart_Transmit_IT_PC(ftoa_ptr_3);
+    Uart_Transmit_IT_PC(")\r\r");
+}
+
+void check_stop()
+{
+    if (stop == 1)
+    {
+        ramp->ramp_enable = 0;
+        for (int k = 0 ; k < 12 ; k++)
+        {
+            schalte_pumpe_aus(k);
+        }
+    }
+}
+
+void wait_until_position_reached(linear_ramp_t *ramp)
+{
+    while (ramp->ramp_enable ==1 && stop == 0)
+    {
+        computeRamp(ramp);
+        if (check_Communication_Input_UART_1())             // Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+        {
+            proceed_Communication_INPUT_UART_1();               // Vollständige Übertragung des Displays verarbeiten
+            check_stop();
+        }
+    }
+}
+
+
+uint32_t * set_prp(uint32_t * prp, uint8_t fuellmenge)
+{
+    uint32_t pulse_prp_3dl[13] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501}; //3dl
+    uint32_t pulse_prp_5dl[13] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506}; //5dl
+    uint32_t pulse_prp_1dl[13] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479}; //1dl
+
+    for (uint8_t count = 0 ; count < 12 ; count++)
+    {
+        switch (fuellmenge)
+        {
+        case DL_1:
+            prp[count] = pulse_prp_1dl[count];
+            break;
+        case DL_3:
+            prp[count] = pulse_prp_3dl[count];
+            break;
+        case DL_5:
+            prp[count] = pulse_prp_5dl[count];
+            break;
+        }
+    }
+    return prp;
+}
+
+void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
+{
+    // Geschwindigkeit und Beschleunigung während Zubereitung
+    uint32_t geschwindigkeit = 100;
+    uint32_t beschleunigung = 100;
+
+    // Variabeln Positionsberechnung
+    float ende_der_bahn = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung;
+    float position_der_pumpe;
+    float val;
+    float val2;
+
+    // Variabeln Pumpenskalierung
+    uint32_t pulse_prp[12] = {'\0'};
+    uint32_t * ptr = pulse_prp;
+
+    // Setzen Pumpenskalierung
+    ptr = set_prp(ptr, fuellmenge);
+	
     tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION,              0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-    tmc4671_writeInt(0, TMC4671_PID_POSITION_ACTUAL,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-    tmc4671_setAbsolutTargetPosition(0, 0x00000000);
-    read_registers_TMC4671();
-    /*
-        Fahre zurück bis Home-Schalter betätigt wird
-    */
+	tmc4671_switchToMotionMode(0, TMC4671_MOTION_MODE_POSITION);
+	
+    // Aktueller Standort ist Beginn
+    tmc4671_setActualPosition(0,0);
+
+    // Iterationsbeginn am Kopf
+    tmp_zut_Maschine_actual = head_zutat_maschine_ohne;
+
     stop = 0;
 
-    if (externes_Getraenk_flag == 1)
+    // Switche durch alle Zutaten während stop == 0
+    do
     {
-        nextion_change_page(INFOANZEIGE);
-        nextion_setText("infotxt", "Bitte noochfülle extärn");
-        _delay_ms(2000);
+        // Falls die Zutat vorkommt
+        if (tmp_zut_Maschine_actual->menge > 0)
+        {
+
+
+            // Lese aktuelle Position Schlitten aus
+            val = (float)tmc4671_getActualPosition(0)/1000;
+
+
+
+            // Berechne Position der Pumpe
+            position_der_pumpe = tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
+            val2 =  ende_der_bahn - position_der_pumpe;
+            /*
+                         debug_message_1(val, val2);
+            */
+
+
+            // Fahre an berechnete Position
+            calculateRamp(beschleunigung, geschwindigkeit, val, val2, ramp);
+            wait_until_position_reached(ramp);
+            /*
+            //          debug_message_2();
+            */
+
+
+            if (stop == 0)
+            {
+
+
+                // Berechne Menge, Ermittle momentanen Sensorwert, schalte Pumpe ein
+                uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp[tmp_zut_Maschine_actual->stelle]) * (uint32_t)(tmp_zut_Maschine_actual->menge)/(uint16_t)100);
+                uint8_t fuellen = 1;
+                uint8_t newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
+                schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
+
+                // Während dem Füllvorgang
+                while (fuellen)
+                {
+                    // Polle PWM-Signal des Durchflusssensor
+                    static uint8_t oldval=0;
+                    static uint32_t count=0;
+
+
+
+
+
+                    newval = oldval ^ 0b00000001;
+
+
+
+
+//                  newval = lese_sensor(i);
+
+
+
+
+
+
+                    // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
+                    if( !oldval && newval)
+                    {
+                        // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
+                        if(count++ > Menge)
+                        {
+                            schalte_pumpe_aus(tmp_zut_Maschine_actual->stelle);
+                            count = 0;
+                            fuellen = 0;
+                        }
+
+
+
+
+
+//                  Delay entfernen wenn mit Sensor gearbeitet wird.
+                        _delay_ms(1);
+
+
+
+                        // Check Display-Kommunikation für möglichen Abbruch
+                        if (check_Communication_Input_UART_1())
+                        {
+                            proceed_Communication_INPUT_UART_1();
+                            check_stop();
+                        }
+                    }
+                    // Aktueller Sensorwert speichern
+                    oldval = newval;
+                }
+            }
+        }
+        tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
+    } while(tmp_zut_Maschine_actual != head_zutat_maschine_ohne && stop == 0);
+
+    val = (float)tmc4671_getActualPosition(0)/1000;
+
+    if (stop == 1)
+    {
+        stop = 0;
+        nextion_change_page(ABBRUCHANZEIGE);
+        calculateRamp(100, 100, tmc4671_getActualPosition(0), 0, ramp);
+        wait_until_position_reached(ramp);
+ 
+ 
+ // Switch to torque mode
+ tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
+
+ //Stop
+ tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
+
+        lese_textfile_in_getraenk(head_getraenk_file_alle->file);
+        nextion_change_page(STARTANZEIGE);
+        setze_startanzeige(aktuellesGetraenk);
+        stop = 0;
     }
+    else
+    {
+        /*
+           Fahre zurück
+        */
+
+        calculateRamp(beschleunigung, geschwindigkeit, val, 0, ramp);
+        wait_until_position_reached(ramp);
+
+        char string[256] = {'\0'};
+        char * string_ptr = string;
+        uint8_t externes_Getraenk_flag = 0;
+
+        strcpy(string_ptr, "Zutaten von Hand einfüllen:\\r");
+        tmp_zut_Maschine_actual = head_zutat_maschine_mit;
+        do
+        {
+            if (tmp_zut_Maschine_actual->menge > 0)
+            {
+                strcat(string_ptr, tmp_zut_Maschine_actual->name);
+                strcat(string_ptr, ": ");
+                float val = (float)tmp_zut_Maschine_actual->menge * (float)fuellmenge / (float)100;
+                char itoa_buff[10] = {'\0'};
+                char * itoa_ptr = itoa_buff;
+                ftoa(val, itoa_ptr, 1);
+                strcat(string_ptr, itoa_ptr);
+                strcat(string_ptr, "dl\\r");
+                externes_Getraenk_flag = 1;
+            }
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
+        } while (tmp_zut_Maschine_actual != head_zutat_maschine_mit);
+        if (externes_Getraenk_flag == 1)
+        {
+            nextion_change_page(INFOANZEIGE);
+            nextion_setText("infotxt", string_ptr);
+            _delay_ms(5000);
+        }
+
+    }
+
+
 }
 
 void schalte_pumpe_ein(uint8_t Pumpe)
@@ -1887,28 +1969,58 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
 //                  - Switche zur nächsten Zutat
 //
 //                  - Schreibe Zutatenkette in Textfeld
-    char buff[10] = {'\0'};
     char string[512] = {'\0'};
-
+    char buff[10] = {'\0'};
+    char * ftoa_ptr = buff;
+    uint8_t first = 1;
+    float val;
+    float val2;
     tmp_zut_Maschine_actual = tmp_zut_Maschine_head;
-
+    char * string_ptr = string;
     do
     {
         if (tmp_zut_Maschine_actual->menge > (uint8_t)0)
         {
-            strcat((char *)string, (const char *)tmp_zut_Maschine_actual->name);
-            for (int count2 = 0 ; count2<(20-strlen(tmp_zut_Maschine_actual->name)) ; count2++)
+
+            if ( first == 1)
             {
-                strcat((char *)string,(const char *)"-");
+                val = (((float)ceil(tmp_zut_Maschine_actual->menge * 3 / 10)) + (float)1)/(float)10 + 0.1;
+                val2 = (((float)ceil(tmp_zut_Maschine_actual->menge * 5 / 10)) + (float)1)/(float)10 ;
+                first = 0;
             }
-            strcat((char *)string, (const char *)"(");
-            itoa(tmp_zut_Maschine_actual->menge,(char *)buff, 10);
-            strcat((char *)string, (const char *)buff);
-            strcat((char *)string, (const char *)"%)\\r");
+            else
+            {
+                val = (float)round(tmp_zut_Maschine_actual->menge * 3 / 10)/(float)10;
+                val2 = (float)round(tmp_zut_Maschine_actual->menge * 5 / 10)/(float)10;
+            }
+            if (val < 1)
+            {
+                strcat(string_ptr, "0");
+            }
+
+
+            ftoa(val, ftoa_ptr, 1);
+            strcat(string_ptr, ftoa_ptr);
+            strcat(string_ptr, "dl / ");
+            if (val2 < 1)
+            {
+                strcat(string_ptr, "0");
+            }
+            ftoa(val2, ftoa_ptr, 1);
+            strcat(string_ptr, ftoa_ptr);
+            strcat(string_ptr, "dl");
+
+            for (int count2 = 0 ; count2<5 ; count2++)
+            {
+                strcat(string_ptr, "-");
+            }
+            strcat(string_ptr, tmp_zut_Maschine_actual->name);
+            strcat(string_ptr, "\\r");
+
         }
         tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
     } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_head);
-    nextion_setText("zutatenliste",string);
+    nextion_setText("zutatenliste",string_ptr);
     deconcentrace_zutat_maschine_list();
 }
 

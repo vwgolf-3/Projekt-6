@@ -1556,6 +1556,7 @@ void check_zubabfrage(uint8_t button)
         /*      0x03 = 0b03
                     - Setze Startanzeige
         */
+		nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
         break;
     }

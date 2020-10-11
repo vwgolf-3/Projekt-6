@@ -151,7 +151,7 @@ void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value)
 void initTMC6200(void)
 {
 	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
-	_delay_ms(1000);
+	_delay_ms(100);
 	
 	tmc6200_writeInt(1, TMC6200_GCONF, 0x00000010);		// current amplification: 10
 	tmc6200_writeInt(1, TMC6200_GSTAT, 0x00000000);

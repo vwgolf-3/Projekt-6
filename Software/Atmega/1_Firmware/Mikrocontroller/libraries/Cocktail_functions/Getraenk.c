@@ -80,11 +80,8 @@ void cocktails_init(void)
 getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, uint8_t kohlensaeure, uint8_t picture)
 {
     getraenk_t *newGetraenk = calloc(1,sizeof(getraenk_t));
-    size_t n1 = strlen((const char *)name)+1;
-    size_t n2 = 25;
 
-    newGetraenk->name = calloc(n1,sizeof(char));
-    newGetraenk->mengen = calloc(n2,sizeof(uint8_t));
+    newGetraenk->name = calloc(21,sizeof(char));
 
     newGetraenk->alkohol = alkohol;
 
@@ -94,19 +91,10 @@ getraenk_t *create_new_getraenk(char * name, uint8_t * mengen, uint8_t alkohol, 
 
     // Setze den Wert, auf den der Pointer newGetraenk->name an der Stelle i zeigt, auf den Wert, auf den der Pointer name an der Stelle i zeigt.
     int i = 0;
-    for (i=0; i<(n1-1); i++)
+    for (i=0; i<21; i++)
     {
-        *(char *)(newGetraenk->name + i) = *(char *)(name + i);
+        *(char *)(newGetraenk->name + i) = '\0';
     }
-    *(char *)(newGetraenk->name + (i+1)) = *(char *)(name + (i+1));
-
-    // Setze den Wert, auf den der Pointer newGetraenk->mengern an der Stelle i zeigt, auf den Wert, auf den der Pointer mengen an der Stelle i zeigt.
-    for (i=0; i<(n2-1); i++)
-    {
-        *(char *)(newGetraenk->mengen + i) = *(char *)(mengen + i);
-    }
-    *(char *)(newGetraenk->mengen + (i+1)) = '\0';
-
     return newGetraenk;
 }
 
