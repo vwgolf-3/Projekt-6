@@ -40,8 +40,9 @@ void cocktails_init(void)
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
         strcat((char *)buff, (const char *)".txt");
-        if(readFile(VERIFY, (unsigned char *)buff)==1)
+        if(verifyFile((uint8_t *)buff)==1)
         {
+			readFile((uint8_t *)buff);
             if(check_existence(count))
             {
 				insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);

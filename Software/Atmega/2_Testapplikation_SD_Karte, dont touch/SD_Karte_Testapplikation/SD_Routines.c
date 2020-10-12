@@ -37,7 +37,6 @@ do
 {
   
    response = SD_sendCommand(GO_IDLE_STATE, 0); //send 'reset & go idle' command
-   response = SD_sendCommand(SEND_OP_COND, 0); //send 'reset & go idle' command
    retry++;
    if(retry>0x20) 
    	  return 1;   //time out, card not detected

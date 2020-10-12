@@ -8,61 +8,60 @@
 #include "Cocktail_functions.h"
 
 
-
 //***********************************************//
 // Inits
 //***********************************************//
 
 void SD_startup(void)
 {
-    cardType = 0;
-
-    for (i=0; i<10; i++)
-    {
-        error = SD_init();
-        if(!error) break;
-    }
-
-    if(error)
-    {
-        if(error == 1) Uart_Transmit_IT_PC((char*)("SD card not detected..\r"));
-        if(error == 2) Uart_Transmit_IT_PC((char*)("Card Initialization failed..\r"));
-        nextion_change_page(FEHLERANZEIGE);
-        nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte erkannt.\\rBitte prüfen und\\rneu starten.");
-        while(1);  //wait here forever if error in SD init
-    } else {
-
-        switch (cardType)
-        {
-        case 1:
-            Uart_Transmit_IT_PC(("Standard Capacity Card (Ver 1.x) Detected!\r"));
-            break;
-        case 2:
-            Uart_Transmit_IT_PC(("High Capacity Card Detected!\r"));
-            break;
-        case 3:
-            Uart_Transmit_IT_PC(("Standard Capacity Card (Ver 2.x) Detected!\r"));
-            break;
-        default:
-            Uart_Transmit_IT_PC(("Unknown SD Card Detected!\r"));
-            break;
-        }
-    }
-
-    //  SPI_HIGH_SPEED; //SCK - 4 MHz
-    _delay_ms(1);   //some delay
-
-
-    FAT32_active = 1;
-    error = getBootSectorData (); //read boot sector and keep necessary data in global variables
-    if(error)
-    {
-        nextion_change_page(FEHLERANZEIGE);
-        nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte erkannt.\\rBitte prüfen und\\rneu starten.");
-        Uart_Transmit_IT_PC (("FAT32 not found!\r\n"));  //FAT32 incompatible drive
-        FAT32_active = 0;
-    }
-    //  findFiles(GET_LIST,0);
+//     cardType = 0;
+//
+//     for (i=0; i<10; i++)
+//     {
+//         error = SD_init();
+//         if(!error) break;
+//     }
+//
+//     if(error)
+//     {
+//         if(error == 1) Uart_Transmit_IT_PC((char*)("SD card not detected..\r"));
+//         if(error == 2) Uart_Transmit_IT_PC((char*)("Card Initialization failed..\r"));
+//         nextion_change_page(FEHLERANZEIGE);
+//         nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte erkannt.\\rBitte prüfen und\\rneu starten.");
+//         while(1);  //wait here forever if error in SD init
+//     } else {
+//
+//         switch (cardType)
+//         {
+//         case 1:
+//             Uart_Transmit_IT_PC(("Standard Capacity Card (Ver 1.x) Detected!\r"));
+//             break;
+//         case 2:
+//             Uart_Transmit_IT_PC(("High Capacity Card Detected!\r"));
+//             break;
+//         case 3:
+//             Uart_Transmit_IT_PC(("Standard Capacity Card (Ver 2.x) Detected!\r"));
+//             break;
+//         default:
+//             Uart_Transmit_IT_PC(("Unknown SD Card Detected!\r"));
+//             break;
+//         }
+//     }
+//
+//     //  SPI_HIGH_SPEED; //SCK - 4 MHz
+//     _delay_ms(1);   //some delay
+//
+//
+//     FAT32_active = 1;
+//     error = getBootSectorData (); //read boot sector and keep necessary data in global variables
+//     if(error)
+//     {
+//         nextion_change_page(FEHLERANZEIGE);
+//         nextion_setText("fehlertxt","Fehler festgestellt!\\rKeine SD-Karte erkannt.\\rBitte prüfen und\\rneu starten.");
+//         Uart_Transmit_IT_PC (("FAT32 not found!\r\n"));  //FAT32 incompatible drive
+//         FAT32_active = 0;
+//     }
+//     //  findFiles(GET_LIST,0);
 
 }
 
@@ -764,7 +763,7 @@ void setze_fluessgkeit_in_position_ohne(uint8_t nr, uint8_t status)
     // Aktualisieren des Maschinen-Files
     char buff98[20] = {'\0'};
     strcpy((char *)buff98, (const char *)"M.txt");
-    deleteFile((unsigned char *)buff98);
+    ffrm((unsigned char *)buff98);
     char buff_file[512] = {'\0'};
     char * ptr = buff_file;
 
@@ -900,7 +899,7 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
     // Aktualisieren des Maschinen-Files
     char buff98[20] = {'\0'};
     strcpy((char *)buff98, (const char *)"M.txt");
-    deleteFile((unsigned char *)buff98);
+//     deleteFile((unsigned char *)buff98);
     char buff_file[512] = {'\0'};
     char * ptr = buff_file;
 
@@ -908,7 +907,7 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
 
     char buff97[20] = {'\0'};
     strcpy((char *)buff97, (const char *)"M.txt");
-    writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
+//     writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
 }
 
 void setze_standardeinstellungen(void)
@@ -939,11 +938,11 @@ void setze_standardeinstellungen(void)
     // Lösche altes M.txt-file
     char buff5[20] = {'\0'};                            // Buffer für Filename "M.txt"
     strcpy((char *)buff5, (const char *)"M.txt");
-    deleteFile((unsigned char *)buff5);
+//     deleteFile((unsigned char *)buff5);
 
     // Schreibe neues M.txt-file
     strcpy((char *)buff5, (const char *)"M.txt");
-    writeFile((unsigned char *)buff5, (unsigned char *)buff_string);
+//     writeFile((unsigned char *)buff5, (unsigned char *)buff_string);
 
     char delimiter[] = ",\r\n";                         // Trennungszeichen definieren              (strtok)
     char *ptr;                                          // Pointer für Abschnitte initialisieren   (strtok)
@@ -1018,7 +1017,7 @@ void renew_list(void)
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
         strcat((char *)buff, (const char *)".txt");
-        if(readFile(VERIFY, (unsigned char *)buff)==1)
+        if(MMC_FILE_OPENED == ffopen((uint8_t *)buff,'r'))
         {
             if(check_existence(count))
             {
@@ -1116,14 +1115,14 @@ uint8_t check_existence(uint8_t file)
     //        1, if file is already existing and flag = VERIFY
     //        2, if file name is incompatible
 
-    readFile( READ, (unsigned char *)buff);
+    ffopen((unsigned char *)buff, 'r');
 
     // Trennungszeichen definieren, Pointer initialisiern für Abschnitte
     char delimiter[] = ":,{}\r\n";
     char *ptr;
     // initialisieren und ersten Abschnitt erstellen (1. Kopf)
 
-    ptr = strtok((char *)buffer, delimiter);
+    ptr = strtok((char *)fat.sector, delimiter);
 
     //  Abschnitt in buffer extrahieren:
     /*
@@ -1304,10 +1303,10 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 
     // Setzen Pumpenskalierung
     ptr = set_prp(ptr, fuellmenge);
-	
+
     tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION,              0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-	tmc4671_switchToMotionMode(0, TMC4671_MOTION_MODE_POSITION);
-	
+    tmc4671_switchToMotionMode(0, TMC4671_MOTION_MODE_POSITION);
+
     // Aktueller Standort ist Beginn
     tmc4671_setActualPosition(0,0);
 
@@ -1421,13 +1420,13 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         nextion_change_page(ABBRUCHANZEIGE);
         calculateRamp(100, 100, tmc4671_getActualPosition(0), 0, ramp);
         wait_until_position_reached(ramp);
- 
- 
- // Switch to torque mode
- tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
 
- //Stop
- tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
+
+// Switch to torque mode
+        tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
+
+//Stop
+        tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
 
         lese_textfile_in_getraenk(head_getraenk_file_alle->file);
         nextion_change_page(STARTANZEIGE);
@@ -1772,7 +1771,7 @@ void speichere_neuen_cocktail(void)
             strcat((char *)buff, (const char *)".txt");
 
             // Erstes nicht existierendes File suchen
-            if(readFile(VERIFY, (unsigned char *)buff)!=1)
+            if(verifyFile((uint8_t*)buff)!=1)
             {
                 // File speichern
                 erstelle_File(count, buff_name, alkohol, kohlensaeure);
@@ -2119,14 +2118,15 @@ void lese_textfile_in_getraenk(uint8_t file)
     //        1, if file is already existing and flag = VERIFY
     //        2, if file name is incompatible
 
-    readFile( READ, (unsigned char *)buff);
+    readFile((uint8_t *)buff);
 
     // Trennungszeichen definieren, Pointer initialisiern f?r Abschnitte
     char delimiter[] = ":\r\n";
     char *ptr;
     // initialisieren und ersten Abschnitt erstellen (1. Kopf)
 
-    ptr = strtok((char *)buffer, delimiter);
+    ptr = strtok((char *)fat.sector, delimiter);
+	
     //  Abschnitt in buffer extrahieren:
     /*
         Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:
@@ -2219,14 +2219,14 @@ void lese_textfile_in_zutat(uint8_t file)
     strcat((char *)buff_textfiles_zutat, (const char *)buff2_textfiles_zutat);
     strcat((char *)buff_textfiles_zutat, (const char *)".txt");
 
-    readFile(READ, (unsigned char *)buff_textfiles_zutat);
+    readFile((uint8_t *)buff_textfiles_zutat);
 
     // Trennungszeichen definieren, Pointer initialisiern f?r Abschnitte
     char delimiter[] = ":,{}\r\n";
     char *ptr;
 
     // initialisieren und ersten Abschnitt erstellen (1. Kopf)
-    ptr = strtok((char *)buffer, delimiter);
+    ptr = strtok((char *)fat.sector, delimiter);
 
     //  Abschnitt in buffer extrahieren:
 
@@ -2318,7 +2318,7 @@ void erstelle_File(uint8_t filename, char * name, uint8_t alkohol, uint8_t kohle
     char buff3[15] = {'\0'};
     itoa(filename, (char *)buff3, 10);
     strcat((char *)buff3, (const char *)".txt");
-    writeFile((unsigned char *)buff3,(unsigned char *)ptr);
+    writeFile((uint8_t *)buff3,(uint8_t *)ptr);
 
     deconcentrace_zutat_maschine_list();
 }
@@ -2329,7 +2329,6 @@ void loesche_FIle(uint8_t filename)
     itoa(filename, (char *)buff, 10);
     strcat((char *)buff,".txt");
     deleteFile((unsigned char *)buff);
-
 }
 
 
@@ -2536,18 +2535,18 @@ void Getraenk_erstellt()
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
         strcat((char *)buff, (const char *)".txt");
-        if(readFile(VERIFY, (unsigned char *)buff)!=1)
-        {
-            itoa(count, (char *)buff,10);
-            strcat((char *)buff, (const char *)".txt");
-            writeFile((unsigned char *)buff, (unsigned char *)ptr2);
-
-            if(check_existence(count))
-            {
-                insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
-            }
-            count = COUNT_UNTIL;
-        }
+//         if(readFile(VERIFY, (unsigned char *)buff)!=1)
+//         {
+//             itoa(count, (char *)buff,10);
+//             strcat((char *)buff, (const char *)".txt");
+//             writeFile((unsigned char *)buff, (unsigned char *)ptr2);
+//
+//             if(check_existence(count))
+//             {
+//                 insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
+//             }
+//             count = COUNT_UNTIL;
+//         }
     }
     actual_getraenk_file_alle = buffer2_getraenk_file_alle;
     lese_textfile_in_getraenk(actual_getraenk_file_alle->file);

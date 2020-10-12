@@ -15,7 +15,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
                               ramp1.o (__fixsfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                              LED.o (__fixunssfsi)
+                              ramp1.o (__fixunssfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
                               Cocktail_functions.o (__floatunsisf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
@@ -110,6 +110,8 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               Lists.o (malloc)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
                               Cocktail_functions.o (atoi)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+                              fat.o (toupper)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
                               Cocktail_functions.o (strtok)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
@@ -148,6 +150,7 @@ tmp_zut_Maschine_head
                     0x2               Cocktail_functions.o
 ptr_zutat_maschine_node
                     0x2               Cocktail_functions.o
+fat                 0x218             fat.o
 buffer_zut_in_Maschine_ohne_KS
                     0x2               Cocktail_functions.o
 Position            0x4               Cocktail_functions.o
@@ -161,7 +164,6 @@ number_list_zutaten_val
                     0x2               Cocktail_functions.o
 number_zutaten_mit_val
                     0x2               Cocktail_functions.o
-appendFileLocation  0x4               Cocktail_functions.o
 aktuelle_zutat      0x2               Cocktail_functions.o
 actual_list_node_zutat_maschine
                     0x2               Cocktail_functions.o
@@ -180,16 +182,12 @@ tail_list_node_zutaten
 buffer_zutat_file   0x2               Cocktail_functions.o
 tail_zutat_file_ohne
                     0x2               Cocktail_functions.o
-firstDataSector     0x4               Cocktail_functions.o
 INPUT_UART_0        0x80              main.o
 ptr_tx_completed_1  0x2               Cocktail_functions.o
-fileSize            0x4               Cocktail_functions.o
-bytesPerSector      0x2               Cocktail_functions.o
 number_zutaten_maschine_mit
                     0x2               Cocktail_functions.o
 actual_list_node_zutaten
                     0x2               Cocktail_functions.o
-totalClusters       0x4               Cocktail_functions.o
 option              0x1               Cocktail_functions.o
 aktuelles_Zutat_file_in_Maschine_ohne_KS
                     0x2               Cocktail_functions.o
@@ -200,19 +198,19 @@ ptr_file_node       0x2               Cocktail_functions.o
 Grossschreib        0x1               Cocktail_functions.o
 number_zutaten_maschine_mit_val
                     0x2               Cocktail_functions.o
-rootCluster         0x4               Cocktail_functions.o
 __brkval            0x2               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
 block_list_runter   0x1               Cocktail_functions.o
 new_list_node       0x2               Cocktail_functions.o
 head_zutat_maschine_mit
                     0x2               Cocktail_functions.o
 state               0x2               Cocktail_functions.o
+TimingDelay         0x1               Cocktail_functions.o
 light               0x1               Cocktail_functions.o
 rb_rx_ESP           0x101             Cocktail_functions.o
-startBlock          0x4               Cocktail_functions.o
 aktueller_tag       0x2               Cocktail_functions.o
 aktuelle_Zutat_in_Maschine_ohne_KS
                     0x2               Cocktail_functions.o
+file                0x19              file.o
 number_list_getraenke_alle_val
                     0x2               Cocktail_functions.o
 number_zutaten_ohne_val
@@ -230,47 +228,39 @@ number_zutaten_maschine_ohne_val
 buffer_getraenk_file_alle
                     0x2               Cocktail_functions.o
 tail_tag            0x2               Cocktail_functions.o
-buffer              0x200             Cocktail_functions.o
 tail_zutat_file_mit
                     0x2               Cocktail_functions.o
 SPI_Slave           0x1               Cocktail_functions.o
-sectorPerCluster    0x2               Cocktail_functions.o
 tail_list_node_zutat_maschine
                     0x2               Cocktail_functions.o
 ptr_tx_completed_2  0x2               Cocktail_functions.o
 states              0x1               Cocktail_functions.o
 block_list_hoch     0x1               Cocktail_functions.o
-unusedSectors       0x4               Cocktail_functions.o
 head_zutat_file_mit
                     0x2               Cocktail_functions.o
 number_list_zutat_maschine
                     0x2               Cocktail_functions.o
-SDHC_flag           0x1               Cocktail_functions.o
 INPUT_UART_1        0x80              main.o
 counter             0x1               Cocktail_functions.o
 buffer2_zutat_file  0x2               Cocktail_functions.o
 number_getraenk_alle
                     0x2               Cocktail_functions.o
-totalBlocks         0x4               Cocktail_functions.o
 data                0x1               Cocktail_functions.o
 buff_name           0x15              Cocktail_functions.o
-reservedSectorCount
-                    0x2               Cocktail_functions.o
 ptr_Uart_1          0x2               main.o
 kohlensaeure_mode   0x1               Cocktail_functions.o
 number_zutaten_ohne
                     0x2               Cocktail_functions.o
 ptr_tx_completed_3  0x2               Cocktail_functions.o
+chain               0xa               fat.o
 ptr_zutat_maschine_list_node
                     0x2               Cocktail_functions.o
 rb_rx_PC            0x101             Cocktail_functions.o
-appendStartCluster  0x4               Cocktail_functions.o
 number_list_getranke_alle
                     0x2               Cocktail_functions.o
 tmp_mit_KS_tail     0x2               Cocktail_functions.o
 test2               0x1               Cocktail_Statemachine.o
 ptr_list_node       0x2               Cocktail_functions.o
-cardType            0x1               Cocktail_functions.o
 error               0x1               Cocktail_functions.o
 tmp_ohne_KS_head    0x2               Cocktail_functions.o
 aktuelle_Zutat_ausser_Maschine_mit_KS
@@ -299,11 +289,8 @@ number_list_zutaten
 INPUT_UART_2        0x80              main.o
 head_list_node_zutaten
                     0x2               Cocktail_functions.o
-freeClusterCountUpdated
-                    0x1               Cocktail_functions.o
 stop                0x1               Cocktail_functions.o
 FAT32_active        0x1               Cocktail_functions.o
-appendFileSector    0x4               Cocktail_functions.o
 head_zutat_maschine_ohne
                     0x2               Cocktail_functions.o
 aktuellesGetraenk   0x2               Cocktail_functions.o
@@ -326,6 +313,8 @@ Discarded input sections
  .text          0x00000000        0x0 Cocktail_functions.o
  .data          0x00000000        0x0 Cocktail_functions.o
  .bss           0x00000000        0x0 Cocktail_functions.o
+ .text.SD_startup
+                0x00000000        0x2 Cocktail_functions.o
  .text.display_init
                 0x00000000       0x14 Cocktail_functions.o
  .text.debug_message_1
@@ -362,12 +351,13 @@ Discarded input sections
  .text          0x00000000        0x0 LED.o
  .data          0x00000000        0x0 LED.o
  .bss           0x00000000        0x0 LED.o
- .text.milliS_timer
-                0x00000000       0x42 LED.o
  .text.PWM_init
-                0x00000000       0xa0 LED.o
+                0x00000000       0x76 LED.o
  .text.init_LED
                 0x00000000       0x1c LED.o
+ .text.milliS_timer
+                0x00000000        0x2 LED.o
+ .text.rainbow  0x00000000      0x1c0 LED.o
  .text.PWM_BrightDim
                 0x00000000       0x1a LED.o
  .text          0x00000000        0x0 Lists.o
@@ -442,7 +432,7 @@ Discarded input sections
                 0x00000000       0x96 Main_Func.o
  .text.check_Communication_Input_UART
                 0x00000000       0x20 Main_Func.o
- .bss.cntrr.3531
+ .bss.cntrr.3567
                 0x00000000        0x1 Main_Func.o
  .text          0x00000000        0x0 Nextion_Display.o
  .data          0x00000000        0x0 Nextion_Display.o
@@ -453,16 +443,27 @@ Discarded input sections
  .text.RB_read  0x00000000       0x68 ring_buffer.o
  .text.RB_write
                 0x00000000       0x66 ring_buffer.o
- .text          0x00000000        0x0 FAT32.o
- .data          0x00000000        0x0 FAT32.o
- .bss           0x00000000        0x0 FAT32.o
- .text.memoryStatistics
-                0x00000000      0x248 FAT32.o
- .text          0x00000000        0x0 SD_routines.o
- .data          0x00000000        0x0 SD_routines.o
- .bss           0x00000000        0x0 SD_routines.o
- .text.SD_erase
-                0x00000000       0x62 SD_routines.o
+ .text          0x00000000        0x0 fat.o
+ .data          0x00000000        0x0 fat.o
+ .bss           0x00000000        0x0 fat.o
+ .text          0x00000000        0x0 file.o
+ .data          0x00000000        0x0 file.o
+ .bss           0x00000000        0x0 file.o
+ .text.ffcd     0x00000000       0x4a file.o
+ .text.ffcdLower
+                0x00000000       0x52 file.o
+ .text.ffmkdir  0x00000000      0x140 file.o
+ .text.ffread   0x00000000       0x9a file.o
+ .text          0x00000000        0x0 mmc.o
+ .data          0x00000000        0x0 mmc.o
+ .bss           0x00000000        0x0 mmc.o
+ .text.mmc_present
+                0x00000000        0xc mmc.o
+ .text.mmc_protected
+                0x00000000        0xa mmc.o
+ .text          0x00000000        0x0 SD_Karte.o
+ .data          0x00000000        0x0 SD_Karte.o
+ .bss           0x00000000        0x0 SD_Karte.o
  .text          0x00000000        0x0 ramp1.o
  .data          0x00000000        0x0 ramp1.o
  .bss           0x00000000        0x0 ramp1.o
@@ -488,6 +489,10 @@ Discarded input sections
  .bss           0x00000000        0x0 SPI.o
  .text.spi_transmit_IT
                 0x00000000       0x1e SPI.o
+ .text.spi_transmit
+                0x00000000        0xa SPI.o
+ .text.spi_receive
+                0x00000000        0xe SPI.o
  COMMON         0x00000000        0x2 SPI.o
  .text          0x00000000        0x0 tmc4671.o
  .data          0x00000000        0x0 tmc4671.o
@@ -496,6 +501,8 @@ Discarded input sections
                 0x00000000       0x2c tmc4671.o
  .text.initTMC4671_Openloop
                 0x00000000       0xb0 tmc4671.o
+ .text.read_registers_TMC4671
+                0x00000000       0x52 tmc4671.o
  .text.encoder_testdrive
                 0x00000000      0x108 tmc4671.o
  .text.tmc4671_readRegister16BitValue
@@ -548,6 +555,8 @@ Discarded input sections
                 0x00000000        0x8 tmc4671.o
  .text.tmc4671_getTargetPosition
                 0x00000000        0xa tmc4671.o
+ .text.initTMC4671_Encoder
+                0x00000000      0x33a tmc4671.o
  .text.tmc4671_setRelativeTargetPosition
                 0x00000000       0x3e tmc4671.o
  .text.tmc4671_getActualRampPosition
@@ -579,11 +588,35 @@ Discarded input sections
  .text          0x00000000        0x0 TMC6200.o
  .data          0x00000000        0x0 TMC6200.o
  .bss           0x00000000        0x0 TMC6200.o
+ .rodata.str1.1
+                0x00000000       0x32 TMC6200.o
+ .text.tmc6200_readInt
+                0x00000000      0x180 TMC6200.o
+ .text.tmc6200_writeInt
+                0x00000000      0x126 TMC6200.o
+ .text.initTMC6200
+                0x00000000       0x72 TMC6200.o
+ .text.read_registers_TMC6200
+                0x00000000       0x54 TMC6200.o
+ .debug_info    0x00000000      0xa34 TMC6200.o
+ .debug_abbrev  0x00000000      0x265 TMC6200.o
+ .debug_loc     0x00000000      0x530 TMC6200.o
+ .debug_aranges
+                0x00000000       0x38 TMC6200.o
+ .debug_ranges  0x00000000       0x28 TMC6200.o
+ .debug_line    0x00000000      0x3f0 TMC6200.o
+ .debug_str     0x00000000      0x3b5 TMC6200.o
+ .comment       0x00000000       0x31 TMC6200.o
+ .debug_frame   0x00000000       0xd8 TMC6200.o
  .text          0x00000000        0x0 UART.o
  .data          0x00000000        0x0 UART.o
  .bss           0x00000000        0x0 UART.o
  .text.receiveByte
                 0x00000000       0x16 UART.o
+ .text.transmitByte
+                0x00000000       0x10 UART.o
+ .text.transmitString
+                0x00000000       0x1e UART.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -995,6 +1028,9 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
@@ -1054,8 +1090,10 @@ LOAD Lists.o
 LOAD Main_Func.o
 LOAD Nextion_Display.o
 LOAD ring_buffer.o
-LOAD FAT32.o
-LOAD SD_routines.o
+LOAD fat.o
+LOAD file.o
+LOAD mmc.o
+LOAD SD_Karte.o
 LOAD ramp1.o
 LOAD Software_SPI.o
 LOAD SPI.o
@@ -1172,7 +1210,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0xc2a6
+.text           0x00000000     0xb458
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -1311,785 +1349,807 @@ END GROUP
                 0x00000326                __vector_20
                 0x00000328                . = ALIGN (0x2)
  *(.text.*)
- .text.SD_startup
-                0x00000328       0xe2 Cocktail_functions.o
-                0x00000328                SD_startup
  .text.concentrace_zutat_maschine_list
-                0x0000040a       0x8c Cocktail_functions.o
-                0x0000040a                concentrace_zutat_maschine_list
+                0x00000328       0x8c Cocktail_functions.o
+                0x00000328                concentrace_zutat_maschine_list
  .text.deconcentrace_zutat_maschine_list
-                0x00000496       0x52 Cocktail_functions.o
-                0x00000496                deconcentrace_zutat_maschine_list
+                0x000003b4       0x52 Cocktail_functions.o
+                0x000003b4                deconcentrace_zutat_maschine_list
  .text.delete_list_node_files
-                0x000004e8       0xba Cocktail_functions.o
-                0x000004e8                delete_list_node_files
+                0x00000406       0xba Cocktail_functions.o
+                0x00000406                delete_list_node_files
  .text.delete_list_node_zutat_maschine
-                0x000005a2       0x36 Cocktail_functions.o
-                0x000005a2                delete_list_node_zutat_maschine
+                0x000004c0       0x36 Cocktail_functions.o
+                0x000004c0                delete_list_node_zutat_maschine
  .text.delete_file_node_alle
-                0x000005d8      0x118 Cocktail_functions.o
-                0x000005d8                delete_file_node_alle
+                0x000004f6      0x118 Cocktail_functions.o
+                0x000004f6                delete_file_node_alle
  .text.setze_aktuelle_Zutat_in_Maschine
-                0x000006f0       0x2e Cocktail_functions.o
-                0x000006f0                setze_aktuelle_Zutat_in_Maschine
+                0x0000060e       0x2e Cocktail_functions.o
+                0x0000060e                setze_aktuelle_Zutat_in_Maschine
  .text.erstelle_liste_zutat
-                0x0000071e      0x2c2 Cocktail_functions.o
-                0x0000071e                erstelle_liste_zutat
+                0x0000063c      0x2c2 Cocktail_functions.o
+                0x0000063c                erstelle_liste_zutat
  .text.runterlist_zutat_maschine
-                0x000009e0       0x5c Cocktail_functions.o
-                0x000009e0                runterlist_zutat_maschine
+                0x000008fe       0x5c Cocktail_functions.o
+                0x000008fe                runterlist_zutat_maschine
  .text.rauflist_zutat_maschine
-                0x00000a3c       0x2e Cocktail_functions.o
-                0x00000a3c                rauflist_zutat_maschine
+                0x0000095a       0x2e Cocktail_functions.o
+                0x0000095a                rauflist_zutat_maschine
  .text.begin_erstelle_liste_alle_zutaten
-                0x00000a6a       0x94 Cocktail_functions.o
-                0x00000a6a                begin_erstelle_liste_alle_zutaten
+                0x00000988       0x94 Cocktail_functions.o
+                0x00000988                begin_erstelle_liste_alle_zutaten
  .text.write_M_file
-                0x00000afe      0x242 Cocktail_functions.o
-                0x00000afe                write_M_file
+                0x00000a1c      0x242 Cocktail_functions.o
+                0x00000a1c                write_M_file
  .text.check_existence
-                0x00000d40      0x1cc Cocktail_functions.o
-                0x00000d40                check_existence
- .text.set_prp  0x00000f0c      0x352 Cocktail_functions.o
-                0x00000f0c                set_prp
+                0x00000c5e      0x1cc Cocktail_functions.o
+                0x00000c5e                check_existence
+ .text.set_prp  0x00000e2a      0x352 Cocktail_functions.o
+                0x00000e2a                set_prp
  .text.schalte_pumpe_ein
-                0x0000125e       0x6e Cocktail_functions.o
-                0x0000125e                schalte_pumpe_ein
+                0x0000117c       0x6e Cocktail_functions.o
+                0x0000117c                schalte_pumpe_ein
  .text.schalte_pumpe_aus
-                0x000012cc       0x6e Cocktail_functions.o
-                0x000012cc                schalte_pumpe_aus
+                0x000011ea       0x6e Cocktail_functions.o
+                0x000011ea                schalte_pumpe_aus
  .text.check_stop
-                0x0000133a       0x24 Cocktail_functions.o
-                0x0000133a                check_stop
+                0x00001258       0x24 Cocktail_functions.o
+                0x00001258                check_stop
  .text.wait_until_position_reached
-                0x0000135e       0x30 Cocktail_functions.o
-                0x0000135e                wait_until_position_reached
+                0x0000127c       0x30 Cocktail_functions.o
+                0x0000127c                wait_until_position_reached
  .text.lese_sensor
-                0x0000138e       0x74 Cocktail_functions.o
-                0x0000138e                lese_sensor
+                0x000012ac       0x74 Cocktail_functions.o
+                0x000012ac                lese_sensor
  .text.schreibe_Menge_in_Getraenk
-                0x00001402      0x1d6 Cocktail_functions.o
-                0x00001402                schreibe_Menge_in_Getraenk
+                0x00001320      0x1d6 Cocktail_functions.o
+                0x00001320                schreibe_Menge_in_Getraenk
  .text.prepare_empty_getraenk
-                0x000015d8       0xba Cocktail_functions.o
-                0x000015d8                prepare_empty_getraenk
+                0x000014f6       0xba Cocktail_functions.o
+                0x000014f6                prepare_empty_getraenk
  .text.setze_startanzeige
-                0x00001692       0xae Cocktail_functions.o
-                0x00001692                setze_startanzeige
+                0x000015b0       0xae Cocktail_functions.o
+                0x000015b0                setze_startanzeige
  .text.erstelle_Zutatenliste
-                0x00001740      0x348 Cocktail_functions.o
-                0x00001740                erstelle_Zutatenliste
+                0x0000165e      0x348 Cocktail_functions.o
+                0x0000165e                erstelle_Zutatenliste
  .text.setze_Posanzeige_Rot_Gruen
-                0x00001a88       0xf8 Cocktail_functions.o
-                0x00001a88                setze_Posanzeige_Rot_Gruen
+                0x000019a6       0xf8 Cocktail_functions.o
+                0x000019a6                setze_Posanzeige_Rot_Gruen
  .text.lese_textfile_in_getraenk
-                0x00001b80      0x28c Cocktail_functions.o
-                0x00001b80                lese_textfile_in_getraenk
+                0x00001a9e      0x28a Cocktail_functions.o
+                0x00001a9e                lese_textfile_in_getraenk
  .text.setze_aktuelles_getraenk_in_maschine
-                0x00001e0c       0x2e Cocktail_functions.o
-                0x00001e0c                setze_aktuelles_getraenk_in_maschine
+                0x00001d28       0x2e Cocktail_functions.o
+                0x00001d28                setze_aktuelles_getraenk_in_maschine
  .text.erstelle_liste_cocktails
-                0x00001e3a      0x182 Cocktail_functions.o
-                0x00001e3a                erstelle_liste_cocktails
+                0x00001d56      0x182 Cocktail_functions.o
+                0x00001d56                erstelle_liste_cocktails
  .text.begin_erstelle_liste_cocktails
-                0x00001fbc       0x98 Cocktail_functions.o
-                0x00001fbc                begin_erstelle_liste_cocktails
+                0x00001ed8       0x98 Cocktail_functions.o
+                0x00001ed8                begin_erstelle_liste_cocktails
  .text.renew_list
-                0x00002054      0x12c Cocktail_functions.o
-                0x00002054                renew_list
+                0x00001f70      0x12c Cocktail_functions.o
+                0x00001f70                renew_list
  .text.setze_standardeinstellungen
-                0x00002180      0x26a Cocktail_functions.o
-                0x00002180                setze_standardeinstellungen
+                0x0000209c      0x234 Cocktail_functions.o
+                0x0000209c                setze_standardeinstellungen
  .text.fuelle_getraenk
-                0x000023ea      0x5d2 Cocktail_functions.o
-                0x000023ea                fuelle_getraenk
+                0x000022d0      0x5d2 Cocktail_functions.o
+                0x000022d0                fuelle_getraenk
  .text.zubereitung_getraenk
-                0x000029bc       0x68 Cocktail_functions.o
-                0x000029bc                zubereitung_getraenk
+                0x000028a2       0x68 Cocktail_functions.o
+                0x000028a2                zubereitung_getraenk
  .text.bearbeite_Cocktail
-                0x00002a24       0xb4 Cocktail_functions.o
-                0x00002a24                bearbeite_Cocktail
+                0x0000290a       0xb4 Cocktail_functions.o
+                0x0000290a                bearbeite_Cocktail
  .text.schreibe_Getraenk_in_tag
-                0x00002ad8      0x1cc Cocktail_functions.o
-                0x00002ad8                schreibe_Getraenk_in_tag
+                0x000029be      0x1cc Cocktail_functions.o
+                0x000029be                schreibe_Getraenk_in_tag
  .text.schiebe_file_next
-                0x00002ca4       0x64 Cocktail_functions.o
-                0x00002ca4                schiebe_file_next
+                0x00002b8a       0x64 Cocktail_functions.o
+                0x00002b8a                schiebe_file_next
  .text.schiebe_file_prev
-                0x00002d08       0x64 Cocktail_functions.o
-                0x00002d08                schiebe_file_prev
+                0x00002bee       0x64 Cocktail_functions.o
+                0x00002bee                schiebe_file_prev
  .text.lese_textfile_in_zutat
-                0x00002d6c      0x15a Cocktail_functions.o
-                0x00002d6c                lese_textfile_in_zutat
+                0x00002c52      0x158 Cocktail_functions.o
+                0x00002c52                lese_textfile_in_zutat
  .text.erstelle_liste_zutat_pos
-                0x00002ec6      0x346 Cocktail_functions.o
-                0x00002ec6                erstelle_liste_zutat_pos
+                0x00002daa      0x346 Cocktail_functions.o
+                0x00002daa                erstelle_liste_zutat_pos
  .text.runterlist_files
-                0x0000320c       0xe2 Cocktail_functions.o
-                0x0000320c                runterlist_files
+                0x000030f0       0xe2 Cocktail_functions.o
+                0x000030f0                runterlist_files
  .text.rauflist_files
-                0x000032ee       0x5a Cocktail_functions.o
-                0x000032ee                rauflist_files
+                0x000031d2       0x5a Cocktail_functions.o
+                0x000031d2                rauflist_files
  .text.begin_erstelle_liste_zutaten_maschine
-                0x00003348       0xc2 Cocktail_functions.o
-                0x00003348                begin_erstelle_liste_zutaten_maschine
+                0x0000322c       0xc2 Cocktail_functions.o
+                0x0000322c                begin_erstelle_liste_zutaten_maschine
  .text.setze_fluessgkeit_in_position_ohne
-                0x0000340a      0x2ce Cocktail_functions.o
-                0x0000340a                setze_fluessgkeit_in_position_ohne
+                0x000032ee      0x2ce Cocktail_functions.o
+                0x000032ee                setze_fluessgkeit_in_position_ohne
  .text.setze_fluessgkeit_in_position_mit
-                0x000036d8      0x3d8 Cocktail_functions.o
-                0x000036d8                setze_fluessgkeit_in_position_mit
+                0x000035bc      0x386 Cocktail_functions.o
+                0x000035bc                setze_fluessgkeit_in_position_mit
  .text.erstelle_File
-                0x00003ab0      0x2cc Cocktail_functions.o
-                0x00003ab0                erstelle_File
+                0x00003942      0x2cc Cocktail_functions.o
+                0x00003942                erstelle_File
  .text.speichere_neuen_cocktail
-                0x00003d7c      0x1f8 Cocktail_functions.o
-                0x00003d7c                speichere_neuen_cocktail
+                0x00003c0e      0x1f6 Cocktail_functions.o
+                0x00003c0e                speichere_neuen_cocktail
  .text.loesche_FIle
-                0x00003f74       0x66 Cocktail_functions.o
-                0x00003f74                loesche_FIle
+                0x00003e04       0x66 Cocktail_functions.o
+                0x00003e04                loesche_FIle
  .text.speichere_bearbeiteten_cocktail
-                0x00003fda       0xa2 Cocktail_functions.o
-                0x00003fda                speichere_bearbeiteten_cocktail
+                0x00003e6a       0xa2 Cocktail_functions.o
+                0x00003e6a                speichere_bearbeiteten_cocktail
  .text.send_List_Getraenke
-                0x0000407c      0x1a4 Cocktail_functions.o
-                0x0000407c                send_List_Getraenke
+                0x00003f0c      0x1a4 Cocktail_functions.o
+                0x00003f0c                send_List_Getraenke
  .text.send_List_Zutaten
-                0x00004220      0x160 Cocktail_functions.o
-                0x00004220                send_List_Zutaten
+                0x000040b0      0x160 Cocktail_functions.o
+                0x000040b0                send_List_Zutaten
  .text.ESP_Getraenk
-                0x00004380       0xee Cocktail_functions.o
-                0x00004380                ESP_Getraenk
+                0x00004210       0xee Cocktail_functions.o
+                0x00004210                ESP_Getraenk
  .text.Getraenk_erstellt
-                0x0000446e      0x3be Cocktail_functions.o
-                0x0000446e                Getraenk_erstellt
+                0x000042fe      0x356 Cocktail_functions.o
+                0x000042fe                Getraenk_erstellt
  .text.check_startseite
-                0x0000482c      0x1f8 Cocktail_Statemachine.o
-                0x0000482c                check_startseite
+                0x00004654      0x1f8 Cocktail_Statemachine.o
+                0x00004654                check_startseite
  .text.check_zutatenanzeige
-                0x00004a24       0x32 Cocktail_Statemachine.o
-                0x00004a24                check_zutatenanzeige
+                0x0000484c       0x32 Cocktail_Statemachine.o
+                0x0000484c                check_zutatenanzeige
  .text.check_listenanzeige
-                0x00004a56      0x14a Cocktail_Statemachine.o
-                0x00004a56                check_listenanzeige
+                0x0000487e      0x14a Cocktail_Statemachine.o
+                0x0000487e                check_listenanzeige
  .text.check_menuanzeige
-                0x00004ba0      0x166 Cocktail_Statemachine.o
-                0x00004ba0                check_menuanzeige
+                0x000049c8      0x166 Cocktail_Statemachine.o
+                0x000049c8                check_menuanzeige
  .text.check_bearbeitungsanzeige
-                0x00004d06       0x8a Cocktail_Statemachine.o
-                0x00004d06                check_bearbeitungsanzeige
+                0x00004b2e       0x8a Cocktail_Statemachine.o
+                0x00004b2e                check_bearbeitungsanzeige
  .text.check_ceinstanzeige
-                0x00004d90       0x96 Cocktail_Statemachine.o
-                0x00004d90                check_ceinstanzeige
+                0x00004bb8       0x96 Cocktail_Statemachine.o
+                0x00004bb8                check_ceinstanzeige
  .text.check_erstanzeige1
-                0x00004e26      0x7f8 Cocktail_Statemachine.o
-                0x00004e26                check_erstanzeige1
+                0x00004c4e      0x7f8 Cocktail_Statemachine.o
+                0x00004c4e                check_erstanzeige1
  .text.check_erstanzeige2
-                0x0000561e       0x46 Cocktail_Statemachine.o
-                0x0000561e                check_erstanzeige2
+                0x00005446       0x46 Cocktail_Statemachine.o
+                0x00005446                check_erstanzeige2
  .text.check_loeschanzeige
-                0x00005664      0x12e Cocktail_Statemachine.o
-                0x00005664                check_loeschanzeige
+                0x0000548c      0x128 Cocktail_Statemachine.o
+                0x0000548c                check_loeschanzeige
  .text.check_reinanzeige1
-                0x00005792       0x1a Cocktail_Statemachine.o
-                0x00005792                check_reinanzeige1
+                0x000055b4       0x1a Cocktail_Statemachine.o
+                0x000055b4                check_reinanzeige1
  .text.check_reinanzeige2
-                0x000057ac       0x8c Cocktail_Statemachine.o
-                0x000057ac                check_reinanzeige2
+                0x000055ce       0x8c Cocktail_Statemachine.o
+                0x000055ce                check_reinanzeige2
  .text.check_reinanzeige3
-                0x00005838       0x12 Cocktail_Statemachine.o
-                0x00005838                check_reinanzeige3
+                0x0000565a       0x12 Cocktail_Statemachine.o
+                0x0000565a                check_reinanzeige3
  .text.check_infoanzeige
-                0x0000584a        0xc Cocktail_Statemachine.o
-                0x0000584a                check_infoanzeige
+                0x0000566c        0xc Cocktail_Statemachine.o
+                0x0000566c                check_infoanzeige
  .text.check_RFIDFehler
-                0x00005856       0x12 Cocktail_Statemachine.o
-                0x00005856                check_RFIDFehler
+                0x00005678       0x12 Cocktail_Statemachine.o
+                0x00005678                check_RFIDFehler
  .text.check_zubbildschirm
-                0x00005868        0xa Cocktail_Statemachine.o
-                0x00005868                check_zubbildschirm
+                0x0000568a        0xa Cocktail_Statemachine.o
+                0x0000568a                check_zubbildschirm
  .text.check_zubabfrage
-                0x00005872       0x2e Cocktail_Statemachine.o
-                0x00005872                check_zubabfrage
+                0x00005694       0x2e Cocktail_Statemachine.o
+                0x00005694                check_zubabfrage
  .text.check_posanzeige
-                0x000058a0      0x13a Cocktail_Statemachine.o
-                0x000058a0                check_posanzeige
+                0x000056c2      0x13a Cocktail_Statemachine.o
+                0x000056c2                check_posanzeige
  .text.check_fluessanzeige1
-                0x000059da      0x12a Cocktail_Statemachine.o
-                0x000059da                check_fluessanzeige1
+                0x000057fc      0x12a Cocktail_Statemachine.o
+                0x000057fc                check_fluessanzeige1
  .text.check_fluessanzeige2
-                0x00005b04      0x166 Cocktail_Statemachine.o
-                0x00005b04                check_fluessanzeige2
+                0x00005926      0x166 Cocktail_Statemachine.o
+                0x00005926                check_fluessanzeige2
  .text.check_fluessanzeige3
-                0x00005c6a      0x30e Cocktail_Statemachine.o
-                0x00005c6a                check_fluessanzeige3
+                0x00005a8c      0x1a2 Cocktail_Statemachine.o
+                0x00005a8c                check_fluessanzeige3
  .text.check_fluessanzeige4
-                0x00005f78       0x46 Cocktail_Statemachine.o
-                0x00005f78                check_fluessanzeige4
+                0x00005c2e       0x46 Cocktail_Statemachine.o
+                0x00005c2e                check_fluessanzeige4
  .text.check_RFIDAnzeige1
-                0x00005fbe      0x5ac Cocktail_Statemachine.o
-                0x00005fbe                check_RFIDAnzeige1
+                0x00005c74      0x5ac Cocktail_Statemachine.o
+                0x00005c74                check_RFIDAnzeige1
  .text.check_RFIDAnzeige2
-                0x0000656a       0x72 Cocktail_Statemachine.o
-                0x0000656a                check_RFIDAnzeige2
+                0x00006220       0x72 Cocktail_Statemachine.o
+                0x00006220                check_RFIDAnzeige2
  .text.check_LED
-                0x000065dc      0x1ce Cocktail_Statemachine.o
-                0x000065dc                check_LED
+                0x00006292      0x1ce Cocktail_Statemachine.o
+                0x00006292                check_LED
  .text.check_ESP32
-                0x000067aa       0x2e Cocktail_Statemachine.o
-                0x000067aa                check_ESP32
+                0x00006460       0x2e Cocktail_Statemachine.o
+                0x00006460                check_ESP32
  .text.cocktail_check_command_display
-                0x000067d8       0xd4 Cocktail_Statemachine.o
-                0x000067d8                cocktail_check_command_display
+                0x0000648e       0xca Cocktail_Statemachine.o
+                0x0000648e                cocktail_check_command_display
  .text.create_new_getraenk
-                0x000068ac       0x56 Getraenk.o
-                0x000068ac                create_new_getraenk
+                0x00006558       0x56 Getraenk.o
+                0x00006558                create_new_getraenk
  .text.cocktails_init
-                0x00006902      0x160 Getraenk.o
-                0x00006902                cocktails_init
+                0x000065ae      0x162 Getraenk.o
+                0x000065ae                cocktails_init
  .text.create_new_tag
-                0x00006a62       0x52 TAGS.o
-                0x00006a62                create_new_tag
+                0x00006710       0x52 TAGS.o
+                0x00006710                create_new_tag
  .text.insert_tag_at_head
-                0x00006ab4       0x56 TAGS.o
-                0x00006ab4                insert_tag_at_head
+                0x00006762       0x56 TAGS.o
+                0x00006762                insert_tag_at_head
  .text.RFID_init
-                0x00006b0a       0x38 TAGS.o
-                0x00006b0a                RFID_init
+                0x000067b8       0x38 TAGS.o
+                0x000067b8                RFID_init
  .text.create_zutat
-                0x00006b42       0x44 Zutaten.o
-                0x00006b42                create_zutat
+                0x000067f0       0x44 Zutaten.o
+                0x000067f0                create_zutat
  .text.zutaten_init
-                0x00006b86      0x4e0 Zutaten.o
-                0x00006b86                zutaten_init
+                0x00006834      0x4e0 Zutaten.o
+                0x00006834                zutaten_init
  .text.__vector_17
-                0x00007066       0x16 LED.o
-                0x00007066                __vector_17
+                0x00006d14       0x16 LED.o
+                0x00006d14                __vector_17
  .text.__vector_18
-                0x0000707c       0x16 LED.o
-                0x0000707c                __vector_18
+                0x00006d2a       0x16 LED.o
+                0x00006d2a                __vector_18
  .text.__vector_32
-                0x00007092       0x16 LED.o
-                0x00007092                __vector_32
+                0x00006d40       0x16 LED.o
+                0x00006d40                __vector_32
  .text.__vector_33
-                0x000070a8       0x16 LED.o
-                0x000070a8                __vector_33
+                0x00006d56       0x16 LED.o
+                0x00006d56                __vector_33
  .text.__vector_42
-                0x000070be       0x16 LED.o
-                0x000070be                __vector_42
+                0x00006d6c       0x16 LED.o
+                0x00006d6c                __vector_42
  .text.__vector_43
-                0x000070d4       0x16 LED.o
-                0x000070d4                __vector_43
+                0x00006d82       0x16 LED.o
+                0x00006d82                __vector_43
  .text.__vector_47
-                0x000070ea       0x16 LED.o
-                0x000070ea                __vector_47
+                0x00006d98       0x16 LED.o
+                0x00006d98                __vector_47
  .text.__vector_48
-                0x00007100       0x16 LED.o
-                0x00007100                __vector_48
- .text.rainbow  0x00007116      0x1c0 LED.o
-                0x00007116                rainbow
- .text.__vector_21
-                0x000072d6      0x17a LED.o
-                0x000072d6                __vector_21
+                0x00006dae       0x16 LED.o
+                0x00006dae                __vector_48
  .text.create_file_node
-                0x00007450       0x30 Lists.o
-                0x00007450                create_file_node
+                0x00006dc4       0x30 Lists.o
+                0x00006dc4                create_file_node
  .text.insert_at_end
-                0x00007480       0xa0 Lists.o
-                0x00007480                insert_at_end
+                0x00006df4       0xa0 Lists.o
+                0x00006df4                insert_at_end
  .text.delete_node_position
-                0x00007520      0x122 Lists.o
-                0x00007520                delete_node_position
- .text.update   0x00007642       0x88 Lists.o
-                0x00007642                update
+                0x00006e94      0x122 Lists.o
+                0x00006e94                delete_node_position
+ .text.update   0x00006fb6       0x88 Lists.o
+                0x00006fb6                update
  .text.display_from_beg
-                0x000076ca       0xe4 Lists.o
-                0x000076ca                display_from_beg
+                0x0000703e       0xe4 Lists.o
+                0x0000703e                display_from_beg
  .text.create_zutat_maschine_node
-                0x000077ae       0x90 Lists.o
-                0x000077ae                create_zutat_maschine_node
+                0x00007122       0x90 Lists.o
+                0x00007122                create_zutat_maschine_node
  .text.insert_at_end_2
-                0x0000783e       0xd6 Lists.o
-                0x0000783e                insert_at_end_2
+                0x000071b2       0xd6 Lists.o
+                0x000071b2                insert_at_end_2
  .text.display_from_beg_2
-                0x00007914       0x92 Lists.o
-                0x00007914                display_from_beg_2
+                0x00007288       0x92 Lists.o
+                0x00007288                display_from_beg_2
  .text.create_list_node
-                0x000079a6       0x36 Lists.o
-                0x000079a6                create_list_node
+                0x0000731a       0x36 Lists.o
+                0x0000731a                create_list_node
  .text.insert_at_end_3
-                0x000079dc       0x98 Lists.o
-                0x000079dc                insert_at_end_3
+                0x00007350       0x98 Lists.o
+                0x00007350                insert_at_end_3
  .text.delete_node_position_3
-                0x00007a74      0x118 Lists.o
-                0x00007a74                delete_node_position_3
+                0x000073e8      0x118 Lists.o
+                0x000073e8                delete_node_position_3
  .text.update_3
-                0x00007b8c       0x8e Lists.o
-                0x00007b8c                update_3
+                0x00007500       0x8e Lists.o
+                0x00007500                update_3
  .text.display_from_beg_3
-                0x00007c1a       0xea Lists.o
-                0x00007c1a                display_from_beg_3
+                0x0000758e       0xea Lists.o
+                0x0000758e                display_from_beg_3
  .text.create_zutat_maschine_list_node
-                0x00007d04       0x36 Lists.o
-                0x00007d04                create_zutat_maschine_list_node
+                0x00007678       0x36 Lists.o
+                0x00007678                create_zutat_maschine_list_node
  .text.insert_at_end_4
-                0x00007d3a       0x98 Lists.o
-                0x00007d3a                insert_at_end_4
+                0x000076ae       0x98 Lists.o
+                0x000076ae                insert_at_end_4
  .text.delete_node_position_4
-                0x00007dd2      0x118 Lists.o
-                0x00007dd2                delete_node_position_4
+                0x00007746      0x118 Lists.o
+                0x00007746                delete_node_position_4
  .text.update_4
-                0x00007eea       0x8e Lists.o
-                0x00007eea                update_4
+                0x0000785e       0x8e Lists.o
+                0x0000785e                update_4
  .text.display_from_beg_4
-                0x00007f78       0x98 Lists.o
-                0x00007f78                display_from_beg_4
- .text.IO_init  0x00008010       0x4a Main_Func.o
-                0x00008010                IO_init
+                0x000078ec       0x98 Lists.o
+                0x000078ec                display_from_beg_4
+ .text.IO_init  0x00007984       0x4a Main_Func.o
+                0x00007984                IO_init
  .text.interfaces_init
-                0x0000805a        0xc Main_Func.o
-                0x0000805a                interfaces_init
+                0x000079ce        0xc Main_Func.o
+                0x000079ce                interfaces_init
  .text.devices_init
-                0x00008066       0x24 Main_Func.o
-                0x00008066                devices_init
+                0x000079da       0x14 Main_Func.o
+                0x000079da                devices_init
  .text.speicher_init
-                0x0000808a       0x48 Main_Func.o
-                0x0000808a                speicher_init
+                0x000079ee       0x48 Main_Func.o
+                0x000079ee                speicher_init
  .text.ramp_init
-                0x000080d2       0x16 Main_Func.o
-                0x000080d2                ramp_init
+                0x00007a36       0x16 Main_Func.o
+                0x00007a36                ramp_init
  .text.check_Communication_Input_UART_1
-                0x000080e8      0x112 Main_Func.o
-                0x000080e8                check_Communication_Input_UART_1
+                0x00007a4c      0x112 Main_Func.o
+                0x00007a4c                check_Communication_Input_UART_1
  .text.proceed_Communication_INPUT_UART_1
-                0x000081fa       0x94 Main_Func.o
-                0x000081fa                proceed_Communication_INPUT_UART_1
+                0x00007b5e       0x94 Main_Func.o
+                0x00007b5e                proceed_Communication_INPUT_UART_1
  .text.periodic_jobs
-                0x0000828e        0xc Main_Func.o
-                0x0000828e                periodic_jobs
+                0x00007bf2        0xc Main_Func.o
+                0x00007bf2                periodic_jobs
  .text.check_Communication_Input_UART_2
-                0x0000829a       0xde Main_Func.o
-                0x0000829a                check_Communication_Input_UART_2
+                0x00007bfe       0xde Main_Func.o
+                0x00007bfe                check_Communication_Input_UART_2
  .text.endConversation
-                0x00008378       0x2c Nextion_Display.o
-                0x00008378                endConversation
+                0x00007cdc       0x2c Nextion_Display.o
+                0x00007cdc                endConversation
  .text.nextion_change_page
-                0x000083a4       0x3e Nextion_Display.o
-                0x000083a4                nextion_change_page
+                0x00007d08       0x3e Nextion_Display.o
+                0x00007d08                nextion_change_page
  .text.nextion_setText
-                0x000083e2       0x30 Nextion_Display.o
-                0x000083e2                nextion_setText
+                0x00007d46       0x30 Nextion_Display.o
+                0x00007d46                nextion_setText
  .text.nextion_setValue
-                0x00008412       0x20 Nextion_Display.o
-                0x00008412                nextion_setValue
+                0x00007d76       0x20 Nextion_Display.o
+                0x00007d76                nextion_setValue
  .text.nextion_setPicture
-                0x00008432       0x4c Nextion_Display.o
-                0x00008432                nextion_setPicture
+                0x00007d96       0x4c Nextion_Display.o
+                0x00007d96                nextion_setPicture
  .text.nextion_getSliderValue
-                0x0000847e       0x8e Nextion_Display.o
-                0x0000847e                nextion_getSliderValue
+                0x00007de2       0x8e Nextion_Display.o
+                0x00007de2                nextion_getSliderValue
  .text.nextion_disableButton
-                0x0000850c       0x72 Nextion_Display.o
-                0x0000850c                nextion_disableButton
+                0x00007e70       0x72 Nextion_Display.o
+                0x00007e70                nextion_disableButton
  .text.nextion_enableButton
-                0x0000857e       0x72 Nextion_Display.o
-                0x0000857e                nextion_enableButton
+                0x00007ee2       0x72 Nextion_Display.o
+                0x00007ee2                nextion_enableButton
  .text.nextion_visible_off
-                0x000085f0       0x72 Nextion_Display.o
-                0x000085f0                nextion_visible_off
+                0x00007f54       0x72 Nextion_Display.o
+                0x00007f54                nextion_visible_off
  .text.nextion_visible_on
-                0x00008662       0x72 Nextion_Display.o
-                0x00008662                nextion_visible_on
- .text.RB_init  0x000086d4        0x8 ring_buffer.o
-                0x000086d4                RB_init
- .text.RB_free  0x000086dc       0x16 ring_buffer.o
-                0x000086dc                RB_free
+                0x00007fc6       0x72 Nextion_Display.o
+                0x00007fc6                nextion_visible_on
+ .text.RB_init  0x00008038        0x8 ring_buffer.o
+                0x00008038                RB_init
+ .text.RB_free  0x00008040       0x16 ring_buffer.o
+                0x00008040                RB_free
  .text.RB_length
-                0x000086f2       0x18 ring_buffer.o
-                0x000086f2                RB_length
+                0x00008056       0x18 ring_buffer.o
+                0x00008056                RB_length
  .text.RB_readByte
-                0x0000870a       0x28 ring_buffer.o
-                0x0000870a                RB_readByte
+                0x0000806e       0x28 ring_buffer.o
+                0x0000806e                RB_readByte
  .text.RB_writeByte
-                0x00008732       0x3a ring_buffer.o
-                0x00008732                RB_writeByte
- .text.getFirstSector
-                0x0000876c       0x42 FAT32.o
-                0x0000876c                getFirstSector
- .text.getSetNextCluster
-                0x000087ae       0xf2 FAT32.o
-                0x000087ae                getSetNextCluster
- .text.getSetFreeCluster
-                0x000088a0      0x124 FAT32.o
-                0x000088a0                getSetFreeCluster
- .text.getBootSectorData
-                0x000089c4      0x180 FAT32.o
-                0x000089c4                getBootSectorData
- .text.convertFileName
-                0x00008b44      0x120 FAT32.o
-                0x00008b44                convertFileName
- .text.searchNextFreeCluster
-                0x00008c64      0x144 FAT32.o
-                0x00008c64                searchNextFreeCluster
- .text.displayMemory
-                0x00008da8       0xc2 FAT32.o
-                0x00008da8                displayMemory
- .text.freeMemoryUpdate
-                0x00008e6a       0xdc FAT32.o
-                0x00008e6a                freeMemoryUpdate
- .text.findFiles
-                0x00008f46      0x3fc FAT32.o
-                0x00008f46                findFiles
- .text.readFile
-                0x00009342      0x19e FAT32.o
-                0x00009342                readFile
- .text.deleteFile
-                0x000094e0       0x18 FAT32.o
-                0x000094e0                deleteFile
+                0x00008096       0x3a ring_buffer.o
+                0x00008096                RB_writeByte
+ .text.fat_writeSector
+                0x000080d0        0xe fat.o
+                0x000080d0                fat_writeSector
+ .text.fat_loadSector
+                0x000080de       0x8a fat.o
+                0x000080de                fat_loadSector
+ .text.fat_getFreeRowsOfCluster
+                0x00008168       0x92 fat.o
+ .text.fat_clustToSec
+                0x000081fa       0x32 fat.o
+                0x000081fa                fat_clustToSec
+ .text.fat_secToClust
+                0x0000822c       0x36 fat.o
+                0x0000822c                fat_secToClust
+ .text.fat_loadRowOfSector
+                0x00008262       0x58 fat.o
+                0x00008262                fat_loadRowOfSector
+ .text.fat_loadFileDataFromCluster
+                0x000082ba      0x13e fat.o
+ .text.fat_makeSfnDataEntry
+                0x000083f8      0x10a fat.o
+                0x000083f8                fat_makeSfnDataEntry
+ .text.fat_getNextCluster
+                0x00008502       0xe8 fat.o
+                0x00008502                fat_getNextCluster
+ .text.fat_loadFileDataFromDir
+                0x000085ea       0xd4 fat.o
+                0x000085ea                fat_loadFileDataFromDir
+ .text.fat_getFatChainClustersInRow
+                0x000086be       0xf0 fat.o
+                0x000086be                fat_getFatChainClustersInRow
+ .text.fat_getFreeClustersInRow
+                0x000087ae       0xbc fat.o
+                0x000087ae                fat_getFreeClustersInRow
+ .text.fat_setCluster
+                0x0000886a       0xfe fat.o
+                0x0000886a                fat_setCluster
+ .text.fat_makeFileEntry
+                0x00008968      0x2b0 fat.o
+                0x00008968                fat_makeFileEntry
+ .text.fat_setClusterChain
+                0x00008c18       0xb8 fat.o
+                0x00008c18                fat_setClusterChain
+ .text.fat_delClusterChain
+                0x00008cd0       0xa4 fat.o
+                0x00008cd0                fat_delClusterChain
+ .text.fat_loadFatData
+                0x00008d74      0x168 fat.o
+                0x00008d74                fat_loadFatData
+ .text.ffopen   0x00008edc       0x7e file.o
+                0x00008edc                ffopen
+ .text.fflushFileData
+                0x00008f5a      0x17e file.o
+                0x00008f5a                fflushFileData
+ .text.ffclose  0x000090d8       0x16 file.o
+                0x000090d8                ffclose
+ .text.ffseek   0x000090ee       0xe4 file.o
+                0x000090ee                ffseek
+ .text.ffrm     0x000091d2       0xae file.o
+                0x000091d2                ffrm
+ .text.ffwrite  0x00009280      0x168 file.o
+                0x00009280                ffwrite
+ .text.ffwrites
+                0x000093e8       0x22 file.o
+                0x000093e8                ffwrites
+ .text.spi_write_byte
+                0x0000940a        0xa mmc.o
+ .text.spi_read_byte
+                0x00009414        0xe mmc.o
+ .text.mmc_wait_ready
+                0x00009422       0x1a mmc.o
+ .text.mmc_disable
+                0x0000943c        0x8 mmc.o
+ .text.mmc_send_cmd
+                0x00009444       0x7e mmc.o
+ .text.mmc_init
+                0x000094c2      0x174 mmc.o
+                0x000094c2                mmc_init
+ .text.mmc_write_sector
+                0x00009636       0x82 mmc.o
+                0x00009636                mmc_write_sector
+ .text.mmc_read_sector
+                0x000096b8       0x80 mmc.o
+                0x000096b8                mmc_read_sector
+ .text.timer0_init
+                0x00009738       0x1c SD_Karte.o
+                0x00009738                timer0_init
+ .text.SD_init  0x00009754       0x22 SD_Karte.o
+                0x00009754                SD_init
+ .text.__vector_21
+                0x00009776       0x2e SD_Karte.o
+                0x00009776                __vector_21
  .text.writeFile
-                0x000094f8      0x82e FAT32.o
-                0x000094f8                writeFile
- .text.SD_sendCommand
-                0x00009d26       0xb4 SD_routines.o
-                0x00009d26                SD_sendCommand
- .text.SD_init  0x00009dda      0x10e SD_routines.o
-                0x00009dda                SD_init
- .text.SD_readSingleBlock
-                0x00009ee8       0x52 SD_routines.o
-                0x00009ee8                SD_readSingleBlock
- .text.SD_writeSingleBlock
-                0x00009f3a       0x84 SD_routines.o
-                0x00009f3a                SD_writeSingleBlock
+                0x000097a4       0x56 SD_Karte.o
+                0x000097a4                writeFile
+ .text.readFile
+                0x000097fa       0x12 SD_Karte.o
+                0x000097fa                readFile
+ .text.deleteFile
+                0x0000980c        0x4 SD_Karte.o
+                0x0000980c                deleteFile
+ .text.verifyFile
+                0x00009810        0xe SD_Karte.o
+                0x00009810                verifyFile
  .text.linear_ramp_init
-                0x00009fbe       0xb4 ramp1.o
-                0x00009fbe                linear_ramp_init
+                0x0000981e       0xb4 ramp1.o
+                0x0000981e                linear_ramp_init
  .text.linear_ramp_set_defaults
-                0x0000a072       0xc4 ramp1.o
-                0x0000a072                linear_ramp_set_defaults
+                0x000098d2       0xc4 ramp1.o
+                0x000098d2                linear_ramp_set_defaults
  .text.calculateRamp
-                0x0000a136       0x5c ramp1.o
-                0x0000a136                calculateRamp
+                0x00009996       0x5c ramp1.o
+                0x00009996                calculateRamp
  .text.position_func
-                0x0000a192       0xe4 ramp1.o
-                0x0000a192                position_func
+                0x000099f2       0xe0 ramp1.o
+                0x000099f2                position_func
  .text.velocity_func
-                0x0000a276       0x48 ramp1.o
-                0x0000a276                velocity_func
+                0x00009ad2       0x46 ramp1.o
+                0x00009ad2                velocity_func
  .text.computeRamp
-                0x0000a2be      0x32c ramp1.o
-                0x0000a2be                computeRamp
+                0x00009b18      0x30a ramp1.o
+                0x00009b18                computeRamp
  .text.ramp_pwm_init
-                0x0000a5ea       0x26 ramp1.o
-                0x0000a5ea                ramp_pwm_init
+                0x00009e22       0x26 ramp1.o
+                0x00009e22                ramp_pwm_init
  .text.iterate_timer
-                0x0000a610       0x26 ramp1.o
-                0x0000a610                iterate_timer
+                0x00009e48       0x26 ramp1.o
+                0x00009e48                iterate_timer
  .text.__vector_13
-                0x0000a636       0x5e ramp1.o
-                0x0000a636                __vector_13
- .text.reverse  0x0000a694       0x2e ramp1.o
-                0x0000a694                reverse
+                0x00009e6e       0x5e ramp1.o
+                0x00009e6e                __vector_13
+ .text.reverse  0x00009ecc       0x2e ramp1.o
+                0x00009ecc                reverse
  .text.intToStr
-                0x0000a6c2       0x82 ramp1.o
-                0x0000a6c2                intToStr
- .text.ftoa     0x0000a744       0xc6 ramp1.o
-                0x0000a744                ftoa
+                0x00009efa       0x82 ramp1.o
+                0x00009efa                intToStr
+ .text.ftoa     0x00009f7c       0xc0 ramp1.o
+                0x00009f7c                ftoa
  .text.softspi_clk_low
-                0x0000a80a        0x4 Software_SPI.o
-                0x0000a80a                softspi_clk_low
+                0x0000a03c        0x4 Software_SPI.o
+                0x0000a03c                softspi_clk_low
  .text.softspi_clk_high
-                0x0000a80e        0x4 Software_SPI.o
-                0x0000a80e                softspi_clk_high
+                0x0000a040        0x4 Software_SPI.o
+                0x0000a040                softspi_clk_high
  .text.softspi_mosi_low
-                0x0000a812        0x4 Software_SPI.o
-                0x0000a812                softspi_mosi_low
+                0x0000a044        0x4 Software_SPI.o
+                0x0000a044                softspi_mosi_low
  .text.softspi_mosi_high
-                0x0000a816        0x4 Software_SPI.o
-                0x0000a816                softspi_mosi_high
+                0x0000a048        0x4 Software_SPI.o
+                0x0000a048                softspi_mosi_high
  .text.softspi_write_bit
-                0x0000a81a       0x2c Software_SPI.o
-                0x0000a81a                softspi_write_bit
+                0x0000a04c       0x2c Software_SPI.o
+                0x0000a04c                softspi_write_bit
  .text.softspi_write_uint8
-                0x0000a846       0x36 Software_SPI.o
-                0x0000a846                softspi_write_uint8
+                0x0000a078       0x36 Software_SPI.o
+                0x0000a078                softspi_write_uint8
  .text.softspi_read_bit
-                0x0000a87c       0x3e Software_SPI.o
-                0x0000a87c                softspi_read_bit
+                0x0000a0ae       0x3e Software_SPI.o
+                0x0000a0ae                softspi_read_bit
  .text.softspi_read_uint8
-                0x0000a8ba       0x58 Software_SPI.o
-                0x0000a8ba                softspi_read_uint8
- .text.spi_transmit
-                0x0000a912        0xa SPI.o
-                0x0000a912                spi_transmit
- .text.spi_receive
-                0x0000a91c        0xe SPI.o
-                0x0000a91c                spi_receive
+                0x0000a0ec       0x58 Software_SPI.o
+                0x0000a0ec                softspi_read_uint8
  .text.enable_Slave
-                0x0000a92a       0x30 SPI.o
-                0x0000a92a                enable_Slave
+                0x0000a144       0x30 SPI.o
+                0x0000a144                enable_Slave
  .text.disable_Slave
-                0x0000a95a       0x20 SPI.o
-                0x0000a95a                disable_Slave
+                0x0000a174       0x20 SPI.o
+                0x0000a174                disable_Slave
  .text.SPI_init
-                0x0000a97a       0x18 SPI.o
-                0x0000a97a                SPI_init
+                0x0000a194       0x18 SPI.o
+                0x0000a194                SPI_init
  .text.tmc40bit_writeInt
-                0x0000a992      0x112 tmc4671.o
-                0x0000a992                tmc40bit_writeInt
+                0x0000a1ac      0x112 tmc4671.o
+                0x0000a1ac                tmc40bit_writeInt
  .text.tmc4671_writeInt
-                0x0000aaa4        0x4 tmc4671.o
-                0x0000aaa4                tmc4671_writeInt
+                0x0000a2be        0x4 tmc4671.o
+                0x0000a2be                tmc4671_writeInt
  .text.tmc40bit_readInt
-                0x0000aaa8      0x16e tmc4671.o
-                0x0000aaa8                tmc40bit_readInt
+                0x0000a2c2      0x16c tmc4671.o
+                0x0000a2c2                tmc40bit_readInt
  .text.tmc4671_readInt
-                0x0000ac16        0x4 tmc4671.o
-                0x0000ac16                tmc4671_readInt
- .text.read_registers_TMC4671
-                0x0000ac1a       0x42 tmc4671.o
-                0x0000ac1a                read_registers_TMC4671
+                0x0000a42e        0x4 tmc4671.o
+                0x0000a42e                tmc4671_readInt
  .text.tmc4671_switchToMotionMode
-                0x0000ac5c       0x2c tmc4671.o
-                0x0000ac5c                tmc4671_switchToMotionMode
+                0x0000a432       0x2c tmc4671.o
+                0x0000a432                tmc4671_switchToMotionMode
  .text.tmc4671_setAbsolutTargetPosition
-                0x0000ac88       0x2c tmc4671.o
-                0x0000ac88                tmc4671_setAbsolutTargetPosition
+                0x0000a45e       0x2c tmc4671.o
+                0x0000a45e                tmc4671_setAbsolutTargetPosition
  .text.tmc4671_setActualPosition
-                0x0000acb4        0xc tmc4671.o
-                0x0000acb4                tmc4671_setActualPosition
- .text.initTMC4671_Encoder
-                0x0000acc0      0x2e2 tmc4671.o
-                0x0000acc0                initTMC4671_Encoder
+                0x0000a48a        0xc tmc4671.o
+                0x0000a48a                tmc4671_setActualPosition
  .text.tmc4671_getActualPosition
-                0x0000afa2        0x8 tmc4671.o
-                0x0000afa2                tmc4671_getActualPosition
- .text.tmc6200_readInt
-                0x0000afaa      0x16a TMC6200.o
-                0x0000afaa                tmc6200_readInt
- .text.tmc6200_writeInt
-                0x0000b114      0x112 TMC6200.o
-                0x0000b114                tmc6200_writeInt
- .text.initTMC6200
-                0x0000b226       0x66 TMC6200.o
-                0x0000b226                initTMC6200
- .text.read_registers_TMC6200
-                0x0000b28c       0x44 TMC6200.o
-                0x0000b28c                read_registers_TMC6200
+                0x0000a496        0x8 tmc4671.o
+                0x0000a496                tmc4671_getActualPosition
  .text.tx_completed
-                0x0000b2d0        0x6 UART.o
-                0x0000b2d0                tx_completed
+                0x0000a49e        0x6 UART.o
+                0x0000a49e                tx_completed
  .text.UART_init
-                0x0000b2d6       0xb0 UART.o
-                0x0000b2d6                UART_init
+                0x0000a4a4       0xb0 UART.o
+                0x0000a4a4                UART_init
  .text.Uart_Transmit_IT_PC
-                0x0000b386       0x2c UART.o
-                0x0000b386                Uart_Transmit_IT_PC
+                0x0000a554       0x2c UART.o
+                0x0000a554                Uart_Transmit_IT_PC
  .text.Uart_Transmit_IT_Display
-                0x0000b3b2       0x2c UART.o
-                0x0000b3b2                Uart_Transmit_IT_Display
+                0x0000a580       0x2c UART.o
+                0x0000a580                Uart_Transmit_IT_Display
  .text.Uart_Transmit_IT_ESP
-                0x0000b3de       0x2c UART.o
-                0x0000b3de                Uart_Transmit_IT_ESP
+                0x0000a5ac       0x2c UART.o
+                0x0000a5ac                Uart_Transmit_IT_ESP
  .text.__vector_25
-                0x0000b40a       0x58 UART.o
-                0x0000b40a                __vector_25
+                0x0000a5d8       0x58 UART.o
+                0x0000a5d8                __vector_25
  .text.__vector_36
-                0x0000b462       0x58 UART.o
-                0x0000b462                __vector_36
+                0x0000a630       0x58 UART.o
+                0x0000a630                __vector_36
  .text.__vector_51
-                0x0000b4ba       0x58 UART.o
-                0x0000b4ba                __vector_51
- .text.transmitByte
-                0x0000b512       0x10 UART.o
-                0x0000b512                transmitByte
- .text.transmitString
-                0x0000b522       0x1c UART.o
-                0x0000b522                transmitString
- .text.main     0x0000b53e       0x48 main.o
-                0x0000b53e                main
+                0x0000a688       0x58 UART.o
+                0x0000a688                __vector_51
+ .text.main     0x0000a6e0       0x48 main.o
+                0x0000a6e0                main
  .text.avr-libc.fplib
-                0x0000b586        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
-                0x0000b586                __subsf3
-                0x0000b588                __addsf3
+                0x0000a728        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
+                0x0000a728                __subsf3
+                0x0000a72a                __addsf3
  .text.avr-libc.fplib
-                0x0000b590       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
-                0x0000b5aa                __addsf3x
+                0x0000a732       0xc0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
+                0x0000a74c                __addsf3x
  .text.avr-libc.fplib
-                0x0000b650       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(ceil.o)
-                0x0000b650                ceil
+                0x0000a7f2       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(ceil.o)
+                0x0000a7f2                ceil
  .text.avr-libc.fplib
-                0x0000b676        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
-                0x0000b676                __nesf2
-                0x0000b676                __eqsf2
-                0x0000b676                __cmpsf2
-                0x0000b676                __ltsf2
-                0x0000b676                __lesf2
+                0x0000a818        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+                0x0000a818                __nesf2
+                0x0000a818                __eqsf2
+                0x0000a818                __cmpsf2
+                0x0000a818                __ltsf2
+                0x0000a818                __lesf2
  .text.avr-libc.fplib
-                0x0000b67e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
-                0x0000b67e                __divsf3
+                0x0000a820        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
+                0x0000a820                __divsf3
  .text.avr-libc.fplib
-                0x0000b682       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
-                0x0000b698                __divsf3x
-                0x0000b69c                __divsf3_pse
+                0x0000a824       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
+                0x0000a83a                __divsf3x
+                0x0000a83e                __divsf3_pse
  .text.avr-libc.fplib
-                0x0000b74e        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
-                0x0000b74e                __fixsfsi
+                0x0000a8f0        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+                0x0000a8f0                __fixsfsi
  .text.avr-libc.fplib
-                0x0000b758       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                0x0000b758                __fixunssfsi
+                0x0000a8fa       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+                0x0000a8fa                __fixunssfsi
  .text.avr-libc.fplib
-                0x0000b7b0       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
-                0x0000b7b0                __floatunsisf
-                0x0000b7b4                __floatsisf
+                0x0000a952       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
+                0x0000a952                __floatunsisf
+                0x0000a956                __floatsisf
  .text.avr-libc.fplib
-                0x0000b82a       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
-                0x0000b82a                __fp_cmp
+                0x0000a9cc       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+                0x0000a9cc                __fp_cmp
  .text.avr-libc.fplib
-                0x0000b872        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
-                0x0000b872                __fp_inf
+                0x0000aa14        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+                0x0000aa14                __fp_inf
  .text.avr-libc.fplib
-                0x0000b87e       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
-                0x0000b87e                __fp_mintl
+                0x0000aa20       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
+                0x0000aa20                __fp_mintl
  .text.avr-libc.fplib
-                0x0000b8b4       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
-                0x0000b8b4                __fp_mpack
-                0x0000b8b8                __fp_mpack_finite
+                0x0000aa56       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
+                0x0000aa56                __fp_mpack
+                0x0000aa5a                __fp_mpack_finite
  .text.avr-libc.fplib
-                0x0000b8d0        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
-                0x0000b8d0                __fp_nan
+                0x0000aa72        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+                0x0000aa72                __fp_nan
  .text.avr-libc.fplib
-                0x0000b8d6        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
-                0x0000b8d6                __fp_pscA
+                0x0000aa78        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+                0x0000aa78                __fp_pscA
  .text.avr-libc.fplib
-                0x0000b8e4        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
-                0x0000b8e4                __fp_pscB
+                0x0000aa86        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+                0x0000aa86                __fp_pscB
  .text.avr-libc.fplib
-                0x0000b8f2       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
-                0x0000b8f2                __fp_round
+                0x0000aa94       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
+                0x0000aa94                __fp_round
  .text.avr-libc.fplib
-                0x0000b914       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
-                0x0000b914                __fp_split3
-                0x0000b924                __fp_splitA
+                0x0000aab6       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+                0x0000aab6                __fp_split3
+                0x0000aac6                __fp_splitA
  .text.avr-libc.fplib
-                0x0000b958       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_trunc.o)
-                0x0000b958                __fp_trunc
+                0x0000aafa       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_trunc.o)
+                0x0000aafa                __fp_trunc
  .text.avr-libc.fplib
-                0x0000b986        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
-                0x0000b986                __fp_zero
-                0x0000b988                __fp_szero
+                0x0000ab28        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+                0x0000ab28                __fp_zero
+                0x0000ab2a                __fp_szero
  .text.avr-libc.fplib
-                0x0000b994        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
-                0x0000b994                __gesf2
-                0x0000b994                __gtsf2
+                0x0000ab36        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(gesf2.o)
+                0x0000ab36                __gesf2
+                0x0000ab36                __gtsf2
  .text.avr-libc.fplib
-                0x0000b99c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                0x0000b99c                __mulsf3
+                0x0000ab3e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+                0x0000ab3e                __mulsf3
  .text.avr-libc.fplib
-                0x0000b9a0       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x0000b9b4                __mulsf3x
-                0x0000b9b8                __mulsf3_pse
+                0x0000ab42       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x0000ab56                __mulsf3x
+                0x0000ab5a                __mulsf3_pse
  .text.avr-libc.fplib
-                0x0000ba62       0x98 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(pow.o)
-                0x0000ba62                pow
+                0x0000ac04       0x98 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(pow.o)
+                0x0000ac04                pow
  .text.avr-libc.fplib
-                0x0000bafa       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(round.o)
-                0x0000bafa                round
+                0x0000ac9c       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(round.o)
+                0x0000ac9c                round
  .text.avr-libc.fplib
-                0x0000bb3a       0x84 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(sqrt.o)
-                0x0000bb42                sqrtf
-                0x0000bb42                sqrt
+                0x0000acdc       0x84 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(sqrt.o)
+                0x0000ace4                sqrtf
+                0x0000ace4                sqrt
  .text.avr-libc.fplib
-                0x0000bbbe       0x62 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(exp.o)
-                0x0000bbc8                exp
+                0x0000ad60       0x62 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(exp.o)
+                0x0000ad6a                exp
  .text.avr-libc.fplib
-                0x0000bc20        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_norm2.o)
-                0x0000bc20                __fp_norm2
+                0x0000adc2        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_norm2.o)
+                0x0000adc2                __fp_norm2
  .text.avr-libc.fplib
-                0x0000bc2e       0x4a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
-                0x0000bc2e                __fp_powser
+                0x0000add0       0x4a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_powser.o)
+                0x0000add0                __fp_powser
  .text.avr-libc.fplib
-                0x0000bc78        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(inverse.o)
-                0x0000bc78                inverse
+                0x0000ae1a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(inverse.o)
+                0x0000ae1a                inverse
  .text.avr-libc.fplib
-                0x0000bc86       0x6c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(ldexp.o)
-                0x0000bc8a                ldexp
+                0x0000ae28       0x6c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(ldexp.o)
+                0x0000ae2c                ldexp
  .text.avr-libc.fplib
-                0x0000bcf2       0x8a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(log.o)
-                0x0000bcfc                log
+                0x0000ae94       0x8a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(log.o)
+                0x0000ae9e                log
  .text.avr-libc.fplib
-                0x0000bd7c       0x66 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(modf.o)
-                0x0000bd7c                modf
-                0x0000bd7c                modff
+                0x0000af1e       0x66 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(modf.o)
+                0x0000af1e                modf
+                0x0000af1e                modff
  .text.libgcc.mul
-                0x0000bde2       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
-                0x0000bde2                __mulsi3
+                0x0000af84       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
+                0x0000af84                __mulsi3
  .text.libgcc.div
-                0x0000be00       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
-                0x0000be00                _div
-                0x0000be00                __divmodhi4
+                0x0000afa2       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
+                0x0000afa2                _div
+                0x0000afa2                __divmodhi4
  .text.libgcc.div
-                0x0000be26       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
-                0x0000be26                __udivmodsi4
- .text.libgcc   0x0000be6a       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
-                0x0000be6a                __tablejump2__
+                0x0000afc8       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
+                0x0000afc8                __udivmodsi4
+ .text.libgcc   0x0000b00c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
+                0x0000b00c                __tablejump2__
  .text.libgcc.mul
-                0x0000be7a       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
-                0x0000be7a                __umulhisi3
+                0x0000b01c       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+                0x0000b01c                __umulhisi3
  .text.libgcc.mul
-                0x0000be98       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
-                0x0000be98                __muluhisi3
+                0x0000b03a       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+                0x0000b03a                __muluhisi3
  .text.libgcc.div
-                0x0000beac       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
-                0x0000beac                __udivmodhi4
+                0x0000b04e       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
+                0x0000b04e                __udivmodhi4
  .text.avr-libc
-                0x0000bed4       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
-                0x0000bed4                calloc
+                0x0000b076       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
+                0x0000b076                calloc
  .text.avr-libc
-                0x0000bf08      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
-                0x0000bf08                malloc
-                0x0000c038                free
+                0x0000b0aa      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+                0x0000b0aa                malloc
+                0x0000b1da                free
  .text.avr-libc
-                0x0000c14a       0x3a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
-                0x0000c14a                atoi
+                0x0000b2ec       0x3a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atoi.o)
+                0x0000b2ec                atoi
  .text.avr-libc
-                0x0000c184        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
-                0x0000c184                strtok
+                0x0000b326       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+                0x0000b326                toupper
  .text.avr-libc
-                0x0000c18a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
-                0x0000c18a                memset
+                0x0000b336        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
+                0x0000b336                strtok
  .text.avr-libc
-                0x0000c198       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcat.o)
-                0x0000c198                strcat
+                0x0000b33c        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
+                0x0000b33c                memset
  .text.avr-libc
-                0x0000c1ae       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
-                0x0000c1ae                strcmp
+                0x0000b34a       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcat.o)
+                0x0000b34a                strcat
  .text.avr-libc
-                0x0000c1c0        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
-                0x0000c1c0                strcpy
+                0x0000b360       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
+                0x0000b360                strcmp
  .text.avr-libc
-                0x0000c1ce       0x4e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok_r.o)
-                0x0000c1ce                strtok_r
+                0x0000b372        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+                0x0000b372                strcpy
  .text.avr-libc
-                0x0000c21c       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
-                0x0000c21c                __itoa_ncheck
+                0x0000b380       0x4e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok_r.o)
+                0x0000b380                strtok_r
  .text.avr-libc
-                0x0000c230       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mul10.o)
-                0x0000c230                __mulhi_const_10
+                0x0000b3ce       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
+                0x0000b3ce                __itoa_ncheck
  .text.avr-libc
-                0x0000c240       0x32 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
-                0x0000c240                __utoa_ncheck
-                0x0000c242                __utoa_common
+                0x0000b3e2       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mul10.o)
+                0x0000b3e2                __mulhi_const_10
  .text.avr-libc
-                0x0000c272       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
-                0x0000c272                strrev
+                0x0000b3f2       0x32 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
+                0x0000b3f2                __utoa_ncheck
+                0x0000b3f4                __utoa_common
  .text.avr-libc
-                0x0000c292       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
-                0x0000c292                eeprom_read_byte
-                0x0000c2a2                . = ALIGN (0x2)
+                0x0000b424       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
+                0x0000b424                strrev
+ .text.avr-libc
+                0x0000b444       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+                0x0000b444                eeprom_read_byte
+                0x0000b454                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000c2a2        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x0000c2a2                _exit
-                0x0000c2a2                exit
+ .fini9         0x0000b454        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x0000b454                _exit
+                0x0000b454                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -2108,11 +2168,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000c2a2        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x0000b454        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000c2a6                _etext = .
+                0x0000b458                _etext = .
 
-.data           0x00800200      0xb70 load address 0x0000c2a6
+.data           0x00800200      0x922 load address 0x0000b458
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
@@ -2126,200 +2186,192 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800207      0x4a4 Cocktail_functions.o
-                                0x4cc (size before relaxing)
+                0x00800207      0x37c Cocktail_functions.o
+                                0x3a4 (size before relaxing)
  .rodata.str1.1
-                0x008006ab      0x141 Cocktail_Statemachine.o
-                                0x1ad (size before relaxing)
+                0x00800583      0x11d Cocktail_Statemachine.o
+                                0x17c (size before relaxing)
  .rodata.str1.1
-                0x008007ec       0x21 Getraenk.o
+                0x008006a0       0x21 Getraenk.o
                                  0x28 (size before relaxing)
  .rodata.str1.1
-                0x0080080d        0x1 TAGS.o
+                0x008006c1        0x1 TAGS.o
  .rodata.str1.1
-                0x0080080d       0x38 Zutaten.o
+                0x008006c1       0x38 Zutaten.o
                                  0x45 (size before relaxing)
  .rodata.str1.1
-                0x00800845      0x2fd Lists.o
+                0x008006f9      0x2fd Lists.o
                                 0x302 (size before relaxing)
  .rodata.str1.1
-                0x00800b42       0x82 Main_Func.o
+                0x008009f6       0x82 Main_Func.o
                                  0x8e (size before relaxing)
  .rodata.str1.1
-                0x00800bc4       0x2f Nextion_Display.o
+                0x00800a78       0x2f Nextion_Display.o
  .rodata.str1.1
-                0x00800bf3      0x128 FAT32.o
+                0x00800aa7       0x42 mmc.o
  .rodata.str1.1
-                0x00800d1b       0x2c tmc4671.o
-                                 0x32 (size before relaxing)
+                0x00800ae9        0xc SD_Karte.o
+                                 0x10 (size before relaxing)
  .rodata.str1.1
-                0x00800d47       0x29 TMC6200.o
+                0x00800af5       0x2c tmc4671.o
                                  0x32 (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x00800d70                . = ALIGN (0x2)
-                0x00800d70                _edata = .
-                0x00800d70                PROVIDE (__data_end, .)
+                0x00800b22                . = ALIGN (0x2)
+ *fill*         0x00800b21        0x1 
+                0x00800b22                _edata = .
+                0x00800b22                PROVIDE (__data_end, .)
 
-.bss            0x00800d70      0x7e2
-                0x00800d70                PROVIDE (__bss_start, .)
+.bss            0x00800b22      0x7ee
+                0x00800b22                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800d70        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
+ .bss           0x00800b22        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
  *(.bss*)
- .bss.count.3958
-                0x00800d72        0x4 Cocktail_functions.o
- .bss.oldval.3957
-                0x00800d76        0x1 Cocktail_functions.o
+ .bss.count.3985
+                0x00800b24        0x4 Cocktail_functions.o
+ .bss.oldval.3984
+                0x00800b28        0x1 Cocktail_functions.o
+ .bss.match.1970
+                0x00800b29        0x1 fat.o
  .bss.cntr_End_UART_2
-                0x00800d77        0x1 main.o
-                0x00800d77                cntr_End_UART_2
+                0x00800b2a        0x1 main.o
+                0x00800b2a                cntr_End_UART_2
  .bss.cntr_UART_2
-                0x00800d78        0x1 main.o
-                0x00800d78                cntr_UART_2
+                0x00800b2b        0x1 main.o
+                0x00800b2b                cntr_UART_2
  .bss.cntr_End_UART_1
-                0x00800d79        0x1 main.o
-                0x00800d79                cntr_End_UART_1
+                0x00800b2c        0x1 main.o
+                0x00800b2c                cntr_End_UART_1
  .bss.cntr_UART_1
-                0x00800d7a        0x1 main.o
-                0x00800d7a                cntr_UART_1
+                0x00800b2d        0x1 main.o
+                0x00800b2d                cntr_UART_1
  *(COMMON)
- COMMON         0x00800d7b      0x651 Cocktail_functions.o
-                0x00800d7b                buffer2_getraenk_file_alle
-                0x00800d7d                number_zutaten_maschine_ohne
-                0x00800d7f                aktuelles_Zutat_file_ausser_Maschine_mit_KS
-                0x00800d81                new_zutat_maschine_list_node
-                0x00800d83                tmp_zut_Maschine_head
-                0x00800d85                ptr_zutat_maschine_node
-                0x00800d87                buffer_zut_in_Maschine_ohne_KS
-                0x00800d89                Position
-                0x00800d8d                number_getraenk_alle_
-                0x00800d8f                number_zutaten_mit
-                0x00800d91                rainbow_i
-                0x00800d93                Liste
-                0x00800d94                head_tag
-                0x00800d96                number_list_zutaten_val
-                0x00800d98                number_zutaten_mit_val
-                0x00800d9a                appendFileLocation
-                0x00800d9e                aktuelle_zutat
-                0x00800da0                actual_list_node_zutat_maschine
-                0x00800da2                tail_getraenk_file_alle
-                0x00800da4                count_bla
-                0x00800da8                compute
-                0x00800da9                fileName
-                0x00800db6                tmp_zut_Maschine_actual
-                0x00800db8                head_list_node_zutat_maschine
-                0x00800dba                new_file_node
-                0x00800dbc                tail_list_node_zutaten
-                0x00800dbe                buffer_zutat_file
-                0x00800dc0                tail_zutat_file_ohne
-                0x00800dc2                firstDataSector
-                0x00800dc6                ptr_tx_completed_1
-                0x00800dc8                fileSize
-                0x00800dcc                bytesPerSector
-                0x00800dce                number_zutaten_maschine_mit
-                0x00800dd0                actual_list_node_zutaten
-                0x00800dd2                totalClusters
-                0x00800dd6                option
-                0x00800dd7                aktuelles_Zutat_file_in_Maschine_ohne_KS
-                0x00800dd9                ramp
-                0x00800ddb                tmp_mit_KS_head
-                0x00800ddd                tmp_ohne_KS_tail
-                0x00800ddf                ptr_file_node
-                0x00800de1                Grossschreib
-                0x00800de2                number_zutaten_maschine_mit_val
-                0x00800de4                rootCluster
-                0x00800de8                block_list_runter
-                0x00800de9                new_list_node
-                0x00800deb                head_zutat_maschine_mit
-                0x00800ded                state
-                0x00800def                light
-                0x00800df0                rb_rx_ESP
-                0x00800ef1                startBlock
-                0x00800ef5                aktueller_tag
-                0x00800ef7                aktuelle_Zutat_in_Maschine_ohne_KS
-                0x00800ef9                number_list_getraenke_alle_val
-                0x00800efb                number_zutaten_ohne_val
-                0x00800efd                i
-                0x00800eff                head_getraenk_file_alle
-                0x00800f01                new_zutat_maschine_node
-                0x00800f03                address_Standardwiederherstellung
-                0x00800f05                rb_rx_Display
-                0x00801006                number_zutaten_maschine_ohne_val
-                0x00801008                buffer_getraenk_file_alle
-                0x0080100a                tail_tag
-                0x0080100c                buffer
-                0x0080120c                tail_zutat_file_mit
-                0x0080120e                SPI_Slave
-                0x0080120f                sectorPerCluster
-                0x00801211                tail_list_node_zutat_maschine
-                0x00801213                ptr_tx_completed_2
-                0x00801215                states
-                0x00801216                block_list_hoch
-                0x00801217                unusedSectors
-                0x0080121b                head_zutat_file_mit
-                0x0080121d                number_list_zutat_maschine
-                0x0080121f                SDHC_flag
-                0x00801220                counter
-                0x00801221                buffer2_zutat_file
-                0x00801223                number_getraenk_alle
-                0x00801225                totalBlocks
-                0x00801229                data
-                0x0080122a                buff_name
-                0x0080123f                reservedSectorCount
-                0x00801241                kohlensaeure_mode
-                0x00801242                number_zutaten_ohne
-                0x00801244                ptr_tx_completed_3
-                0x00801246                ptr_zutat_maschine_list_node
-                0x00801248                rb_rx_PC
-                0x00801349                appendStartCluster
-                0x0080134d                number_list_getranke_alle
-                0x0080134f                tmp_mit_KS_tail
-                0x00801351                ptr_list_node
-                0x00801353                cardType
-                0x00801354                error
-                0x00801355                tmp_ohne_KS_head
-                0x00801357                aktuelle_Zutat_ausser_Maschine_mit_KS
-                0x00801359                head_zutat_file_ohne
-                0x0080135b                actual_list_node_getraenk
-                0x0080135d                gui_pages
-                0x0080135e                head_list_node_getraenk
-                0x00801360                actual_getraenk_file_alle
-                0x00801362                tail_list_node_getraenk
-                0x00801364                tmp_zut_Maschine_tail
-                0x00801366                i_Liste
-                0x00801367                number_list_zutat_maschine_val
-                0x00801369                number_list_zutaten
-                0x0080136b                head_list_node_zutaten
-                0x0080136d                freeClusterCountUpdated
-                0x0080136e                stop
-                0x0080136f                FAT32_active
-                0x00801370                appendFileSector
-                0x00801374                head_zutat_maschine_ohne
-                0x00801376                aktuellesGetraenk
-                0x00801378                buffer_zutat_maschine
-                0x0080137a                aRamp
-                0x008013c3                ptr_tx_completed_0
-                0x008013c5                buffer_zut_ausser_Maschine_mit_KS
-                0x008013c7                tail_zutat_maschine_ohne
-                0x008013c9                SPI_State
-                0x008013ca                tail_zutat_maschine_mit
- COMMON         0x008013cc      0x182 main.o
-                0x008013cc                INPUT_UART_0
-                0x0080144c                INPUT_UART_1
-                0x008014cc                ptr_Uart_1
-                0x008014ce                INPUT_UART_2
- COMMON         0x0080154e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
-                0x0080154e                __brkval
-                0x00801550                __flp
-                0x00801552                PROVIDE (__bss_end, .)
-                0x0000c2a6                __data_load_start = LOADADDR (.data)
-                0x0000ce16                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800b2e      0x421 Cocktail_functions.o
+                0x00800b2e                buffer2_getraenk_file_alle
+                0x00800b30                number_zutaten_maschine_ohne
+                0x00800b32                aktuelles_Zutat_file_ausser_Maschine_mit_KS
+                0x00800b34                new_zutat_maschine_list_node
+                0x00800b36                tmp_zut_Maschine_head
+                0x00800b38                ptr_zutat_maschine_node
+                0x00800b3a                buffer_zut_in_Maschine_ohne_KS
+                0x00800b3c                Position
+                0x00800b40                number_getraenk_alle_
+                0x00800b42                number_zutaten_mit
+                0x00800b44                rainbow_i
+                0x00800b46                Liste
+                0x00800b47                head_tag
+                0x00800b49                number_list_zutaten_val
+                0x00800b4b                number_zutaten_mit_val
+                0x00800b4d                aktuelle_zutat
+                0x00800b4f                actual_list_node_zutat_maschine
+                0x00800b51                tail_getraenk_file_alle
+                0x00800b53                count_bla
+                0x00800b57                compute
+                0x00800b58                fileName
+                0x00800b65                tmp_zut_Maschine_actual
+                0x00800b67                head_list_node_zutat_maschine
+                0x00800b69                new_file_node
+                0x00800b6b                tail_list_node_zutaten
+                0x00800b6d                buffer_zutat_file
+                0x00800b6f                tail_zutat_file_ohne
+                0x00800b71                ptr_tx_completed_1
+                0x00800b73                number_zutaten_maschine_mit
+                0x00800b75                actual_list_node_zutaten
+                0x00800b77                option
+                0x00800b78                aktuelles_Zutat_file_in_Maschine_ohne_KS
+                0x00800b7a                ramp
+                0x00800b7c                tmp_mit_KS_head
+                0x00800b7e                tmp_ohne_KS_tail
+                0x00800b80                ptr_file_node
+                0x00800b82                Grossschreib
+                0x00800b83                number_zutaten_maschine_mit_val
+                0x00800b85                block_list_runter
+                0x00800b86                new_list_node
+                0x00800b88                head_zutat_maschine_mit
+                0x00800b8a                state
+                0x00800b8c                TimingDelay
+                0x00800b8d                light
+                0x00800b8e                rb_rx_ESP
+                0x00800c8f                aktueller_tag
+                0x00800c91                aktuelle_Zutat_in_Maschine_ohne_KS
+                0x00800c93                number_list_getraenke_alle_val
+                0x00800c95                number_zutaten_ohne_val
+                0x00800c97                i
+                0x00800c99                head_getraenk_file_alle
+                0x00800c9b                new_zutat_maschine_node
+                0x00800c9d                address_Standardwiederherstellung
+                0x00800c9f                rb_rx_Display
+                0x00800da0                number_zutaten_maschine_ohne_val
+                0x00800da2                buffer_getraenk_file_alle
+                0x00800da4                tail_tag
+                0x00800da6                tail_zutat_file_mit
+                0x00800da8                SPI_Slave
+                0x00800da9                tail_list_node_zutat_maschine
+                0x00800dab                ptr_tx_completed_2
+                0x00800dad                states
+                0x00800dae                block_list_hoch
+                0x00800daf                head_zutat_file_mit
+                0x00800db1                number_list_zutat_maschine
+                0x00800db3                counter
+                0x00800db4                buffer2_zutat_file
+                0x00800db6                number_getraenk_alle
+                0x00800db8                data
+                0x00800db9                buff_name
+                0x00800dce                kohlensaeure_mode
+                0x00800dcf                number_zutaten_ohne
+                0x00800dd1                ptr_tx_completed_3
+                0x00800dd3                ptr_zutat_maschine_list_node
+                0x00800dd5                rb_rx_PC
+                0x00800ed6                number_list_getranke_alle
+                0x00800ed8                tmp_mit_KS_tail
+                0x00800eda                ptr_list_node
+                0x00800edc                error
+                0x00800edd                tmp_ohne_KS_head
+                0x00800edf                aktuelle_Zutat_ausser_Maschine_mit_KS
+                0x00800ee1                head_zutat_file_ohne
+                0x00800ee3                actual_list_node_getraenk
+                0x00800ee5                gui_pages
+                0x00800ee6                head_list_node_getraenk
+                0x00800ee8                actual_getraenk_file_alle
+                0x00800eea                tail_list_node_getraenk
+                0x00800eec                tmp_zut_Maschine_tail
+                0x00800eee                i_Liste
+                0x00800eef                number_list_zutat_maschine_val
+                0x00800ef1                number_list_zutaten
+                0x00800ef3                head_list_node_zutaten
+                0x00800ef5                stop
+                0x00800ef6                FAT32_active
+                0x00800ef7                head_zutat_maschine_ohne
+                0x00800ef9                aktuellesGetraenk
+                0x00800efb                buffer_zutat_maschine
+                0x00800efd                aRamp
+                0x00800f46                ptr_tx_completed_0
+                0x00800f48                buffer_zut_ausser_Maschine_mit_KS
+                0x00800f4a                tail_zutat_maschine_ohne
+                0x00800f4c                SPI_State
+                0x00800f4d                tail_zutat_maschine_mit
+ COMMON         0x00800f4f      0x222 fat.o
+                0x00800f4f                fat
+                0x00801167                chain
+ COMMON         0x00801171       0x19 file.o
+                0x00801171                file
+ COMMON         0x0080118a      0x182 main.o
+                0x0080118a                INPUT_UART_0
+                0x0080120a                INPUT_UART_1
+                0x0080128a                ptr_Uart_1
+                0x0080128c                INPUT_UART_2
+ COMMON         0x0080130c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+                0x0080130c                __brkval
+                0x0080130e                __flp
+                0x00801310                PROVIDE (__bss_end, .)
+                0x0000b458                __data_load_start = LOADADDR (.data)
+                0x0000bd7a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00801552        0x0
+.noinit         0x00801310        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00801552                _end = .
-                0x00801552                PROVIDE (__heap_start, .)
+                0x00801310                _end = .
+                0x00801310                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -2371,13 +2423,14 @@ END GROUP
  .comment       0x00000030       0x31 Main_Func.o
  .comment       0x00000030       0x31 Nextion_Display.o
  .comment       0x00000030       0x31 ring_buffer.o
- .comment       0x00000030       0x31 FAT32.o
- .comment       0x00000030       0x31 SD_routines.o
+ .comment       0x00000030       0x31 fat.o
+ .comment       0x00000030       0x31 file.o
+ .comment       0x00000030       0x31 mmc.o
+ .comment       0x00000030       0x31 SD_Karte.o
  .comment       0x00000030       0x31 ramp1.o
  .comment       0x00000030       0x31 Software_SPI.o
  .comment       0x00000030       0x31 SPI.o
  .comment       0x00000030       0x31 tmc4671.o
- .comment       0x00000030       0x31 TMC6200.o
  .comment       0x00000030       0x31 UART.o
  .comment       0x00000030       0x31 main.o
  .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(calloc.o)
@@ -2404,7 +2457,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0xb68
+.debug_aranges  0x00000000      0xc30
  *(.debug_aranges)
  .debug_aranges
                 0x00000000      0x1c8 Cocktail_functions.o
@@ -2417,195 +2470,204 @@ END GROUP
  .debug_aranges
                 0x00000340       0x28 Zutaten.o
  .debug_aranges
-                0x00000368       0x88 LED.o
+                0x00000368       0x80 LED.o
  .debug_aranges
-                0x000003f0      0x178 Lists.o
+                0x000003e8      0x178 Lists.o
  .debug_aranges
-                0x00000568       0xa0 Main_Func.o
+                0x00000560       0xa0 Main_Func.o
  .debug_aranges
-                0x00000608       0x68 Nextion_Display.o
+                0x00000600       0x68 Nextion_Display.o
  .debug_aranges
-                0x00000670       0x50 ring_buffer.o
+                0x00000668       0x50 ring_buffer.o
  .debug_aranges
-                0x000006c0       0x80 FAT32.o
+                0x000006b8       0xa0 fat.o
  .debug_aranges
-                0x00000740       0x40 SD_routines.o
+                0x00000758       0x70 file.o
  .debug_aranges
-                0x00000780       0x90 ramp1.o
+                0x000007c8       0x68 mmc.o
  .debug_aranges
-                0x00000810       0x70 Software_SPI.o
+                0x00000830       0x50 SD_Karte.o
  .debug_aranges
-                0x00000880       0x48 SPI.o
+                0x00000880       0x90 ramp1.o
  .debug_aranges
-                0x000008c8      0x1b8 tmc4671.o
+                0x00000910       0x70 Software_SPI.o
  .debug_aranges
-                0x00000a80       0x38 TMC6200.o
+                0x00000980       0x48 SPI.o
  .debug_aranges
-                0x00000ab8       0x70 UART.o
+                0x000009c8      0x1b8 tmc4671.o
  .debug_aranges
-                0x00000b28       0x20 main.o
+                0x00000b80       0x70 UART.o
  .debug_aranges
-                0x00000b48       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+                0x00000bf0       0x20 main.o
+ .debug_aranges
+                0x00000c10       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x1cac4
+.debug_info     0x00000000    0x1b5e1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_info    0x00000bbc     0x6b38 Cocktail_functions.o
- .debug_info    0x000076f4     0x40e8 Cocktail_Statemachine.o
- .debug_info    0x0000b7dc     0x1443 Getraenk.o
- .debug_info    0x0000cc1f      0x2be TAGS.o
- .debug_info    0x0000cedd     0x12ae Zutaten.o
- .debug_info    0x0000e18b      0x365 LED.o
- .debug_info    0x0000e4f0     0x28b4 Lists.o
- .debug_info    0x00010da4     0x1934 Main_Func.o
- .debug_info    0x000126d8     0x1453 Nextion_Display.o
- .debug_info    0x00013b2b      0x318 ring_buffer.o
- .debug_info    0x00013e43     0x1972 FAT32.o
- .debug_info    0x000157b5      0x7c0 SD_routines.o
- .debug_info    0x00015f75      0xb5a ramp1.o
- .debug_info    0x00016acf      0x548 Software_SPI.o
- .debug_info    0x00017017      0x261 SPI.o
- .debug_info    0x00017278     0x38c7 tmc4671.o
- .debug_info    0x0001ab3f      0xa34 TMC6200.o
- .debug_info    0x0001b573      0x43b UART.o
- .debug_info    0x0001b9ae     0x107c main.o
- .debug_info    0x0001ca2a       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+ .debug_info    0x00000bbc     0x6795 Cocktail_functions.o
+ .debug_info    0x00007351     0x3cfa Cocktail_Statemachine.o
+ .debug_info    0x0000b04b     0x1329 Getraenk.o
+ .debug_info    0x0000c374      0x2be TAGS.o
+ .debug_info    0x0000c632     0x11d5 Zutaten.o
+ .debug_info    0x0000d807      0x32b LED.o
+ .debug_info    0x0000db32     0x28b4 Lists.o
+ .debug_info    0x000103e6     0x17a1 Main_Func.o
+ .debug_info    0x00011b87     0x1318 Nextion_Display.o
+ .debug_info    0x00012e9f      0x318 ring_buffer.o
+ .debug_info    0x000131b7      0xdb7 fat.o
+ .debug_info    0x00013f6e      0x825 file.o
+ .debug_info    0x00014793      0x885 mmc.o
+ .debug_info    0x00015018      0x5e9 SD_Karte.o
+ .debug_info    0x00015601      0xb5a ramp1.o
+ .debug_info    0x0001615b      0x548 Software_SPI.o
+ .debug_info    0x000166a3      0x261 SPI.o
+ .debug_info    0x00016904     0x38c7 tmc4671.o
+ .debug_info    0x0001a1cb      0x43b UART.o
+ .debug_info    0x0001a606      0xf41 main.o
+ .debug_info    0x0001b547       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
-.debug_abbrev   0x00000000     0x34d0
+.debug_abbrev   0x00000000     0x37fb
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_abbrev  0x00000b1a      0x3e7 Cocktail_functions.o
- .debug_abbrev  0x00000f01      0x306 Cocktail_Statemachine.o
- .debug_abbrev  0x00001207      0x24c Getraenk.o
- .debug_abbrev  0x00001453      0x122 TAGS.o
- .debug_abbrev  0x00001575      0x23b Zutaten.o
- .debug_abbrev  0x000017b0      0x176 LED.o
- .debug_abbrev  0x00001926      0x2db Lists.o
- .debug_abbrev  0x00001c01      0x370 Main_Func.o
- .debug_abbrev  0x00001f71      0x23a Nextion_Display.o
- .debug_abbrev  0x000021ab      0x12a ring_buffer.o
- .debug_abbrev  0x000022d5      0x214 FAT32.o
- .debug_abbrev  0x000024e9      0x154 SD_routines.o
- .debug_abbrev  0x0000263d      0x346 ramp1.o
- .debug_abbrev  0x00002983      0x15b Software_SPI.o
- .debug_abbrev  0x00002ade      0x11c SPI.o
- .debug_abbrev  0x00002bfa      0x3aa tmc4671.o
- .debug_abbrev  0x00002fa4      0x265 TMC6200.o
- .debug_abbrev  0x00003209      0x183 UART.o
- .debug_abbrev  0x0000338c      0x130 main.o
- .debug_abbrev  0x000034bc       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+ .debug_abbrev  0x00000b1a      0x421 Cocktail_functions.o
+ .debug_abbrev  0x00000f3b      0x2f6 Cocktail_Statemachine.o
+ .debug_abbrev  0x00001231      0x243 Getraenk.o
+ .debug_abbrev  0x00001474      0x122 TAGS.o
+ .debug_abbrev  0x00001596      0x247 Zutaten.o
+ .debug_abbrev  0x000017dd      0x11c LED.o
+ .debug_abbrev  0x000018f9      0x2db Lists.o
+ .debug_abbrev  0x00001bd4      0x367 Main_Func.o
+ .debug_abbrev  0x00001f3b      0x231 Nextion_Display.o
+ .debug_abbrev  0x0000216c      0x12a ring_buffer.o
+ .debug_abbrev  0x00002296      0x2b5 fat.o
+ .debug_abbrev  0x0000254b      0x230 file.o
+ .debug_abbrev  0x0000277b      0x26e mmc.o
+ .debug_abbrev  0x000029e9      0x1ed SD_Karte.o
+ .debug_abbrev  0x00002bd6      0x346 ramp1.o
+ .debug_abbrev  0x00002f1c      0x15b Software_SPI.o
+ .debug_abbrev  0x00003077      0x11c SPI.o
+ .debug_abbrev  0x00003193      0x3aa tmc4671.o
+ .debug_abbrev  0x0000353d      0x183 UART.o
+ .debug_abbrev  0x000036c0      0x127 main.o
+ .debug_abbrev  0x000037e7       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
-.debug_line     0x00000000     0xb352
+.debug_line     0x00000000     0xaf8d
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_line    0x000001f9     0x2b51 Cocktail_functions.o
- .debug_line    0x00002d4a     0x1d50 Cocktail_Statemachine.o
- .debug_line    0x00004a9a      0x659 Getraenk.o
- .debug_line    0x000050f3      0x195 TAGS.o
- .debug_line    0x00005288      0x490 Zutaten.o
- .debug_line    0x00005718      0x47c LED.o
- .debug_line    0x00005b94     0x1315 Lists.o
- .debug_line    0x00006ea9      0x9c3 Main_Func.o
- .debug_line    0x0000786c      0x5eb Nextion_Display.o
- .debug_line    0x00007e57      0x21d ring_buffer.o
- .debug_line    0x00008074      0xc8f FAT32.o
- .debug_line    0x00008d03      0x481 SD_routines.o
- .debug_line    0x00009184      0x6ac ramp1.o
- .debug_line    0x00009830      0x2ff Software_SPI.o
- .debug_line    0x00009b2f      0x1e8 SPI.o
- .debug_line    0x00009d17      0xacd tmc4671.o
- .debug_line    0x0000a7e4      0x3f0 TMC6200.o
- .debug_line    0x0000abd4      0x329 UART.o
- .debug_line    0x0000aefd      0x3db main.o
- .debug_line    0x0000b2d8       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+ .debug_line    0x000001f9     0x2a4f Cocktail_functions.o
+ .debug_line    0x00002c48     0x1c75 Cocktail_Statemachine.o
+ .debug_line    0x000048bd      0x6bd Getraenk.o
+ .debug_line    0x00004f7a      0x195 TAGS.o
+ .debug_line    0x0000510f      0x45c Zutaten.o
+ .debug_line    0x0000556b      0x351 LED.o
+ .debug_line    0x000058bc     0x1315 Lists.o
+ .debug_line    0x00006bd1      0x969 Main_Func.o
+ .debug_line    0x0000753a      0x5dd Nextion_Display.o
+ .debug_line    0x00007b17      0x21d ring_buffer.o
+ .debug_line    0x00007d34      0x77e fat.o
+ .debug_line    0x000084b2      0x563 file.o
+ .debug_line    0x00008a15      0x509 mmc.o
+ .debug_line    0x00008f1e      0x29f SD_Karte.o
+ .debug_line    0x000091bd      0x6ac ramp1.o
+ .debug_line    0x00009869      0x2ff Software_SPI.o
+ .debug_line    0x00009b68      0x1e8 SPI.o
+ .debug_line    0x00009d50      0xacd tmc4671.o
+ .debug_line    0x0000a81d      0x329 UART.o
+ .debug_line    0x0000ab46      0x3cd main.o
+ .debug_line    0x0000af13       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
-.debug_frame    0x00000000     0x31a4
+.debug_frame    0x00000000     0x33ec
  *(.debug_frame)
  .debug_frame   0x00000000      0xaec Cocktail_functions.o
- .debug_frame   0x00000aec      0x354 Cocktail_Statemachine.o
- .debug_frame   0x00000e40      0x108 Getraenk.o
- .debug_frame   0x00000f48       0x78 TAGS.o
- .debug_frame   0x00000fc0       0x98 Zutaten.o
- .debug_frame   0x00001058      0x19c LED.o
- .debug_frame   0x000011f4      0x7f0 Lists.o
- .debug_frame   0x000019e4      0x270 Main_Func.o
- .debug_frame   0x00001c54      0x198 Nextion_Display.o
- .debug_frame   0x00001dec       0xdc ring_buffer.o
- .debug_frame   0x00001ec8      0x3b8 FAT32.o
- .debug_frame   0x00002280       0xec SD_routines.o
- .debug_frame   0x0000236c      0x338 ramp1.o
- .debug_frame   0x000026a4      0x108 Software_SPI.o
- .debug_frame   0x000027ac       0x74 SPI.o
- .debug_frame   0x00002820      0x69c tmc4671.o
- .debug_frame   0x00002ebc       0xd8 TMC6200.o
- .debug_frame   0x00002f94      0x1ec UART.o
- .debug_frame   0x00003180       0x24 main.o
+ .debug_frame   0x00000aec      0x34c Cocktail_Statemachine.o
+ .debug_frame   0x00000e38      0x108 Getraenk.o
+ .debug_frame   0x00000f40       0x78 TAGS.o
+ .debug_frame   0x00000fb8       0x98 Zutaten.o
+ .debug_frame   0x00001050      0x144 LED.o
+ .debug_frame   0x00001194      0x7f0 Lists.o
+ .debug_frame   0x00001984      0x270 Main_Func.o
+ .debug_frame   0x00001bf4      0x198 Nextion_Display.o
+ .debug_frame   0x00001d8c       0xdc ring_buffer.o
+ .debug_frame   0x00001e68      0x460 fat.o
+ .debug_frame   0x000022c8      0x1ec file.o
+ .debug_frame   0x000024b4      0x130 mmc.o
+ .debug_frame   0x000025e4       0xa8 SD_Karte.o
+ .debug_frame   0x0000268c      0x338 ramp1.o
+ .debug_frame   0x000029c4      0x108 Software_SPI.o
+ .debug_frame   0x00002acc       0x74 SPI.o
+ .debug_frame   0x00002b40      0x69c tmc4671.o
+ .debug_frame   0x000031dc      0x1ec UART.o
+ .debug_frame   0x000033c8       0x24 main.o
 
-.debug_str      0x00000000     0x3c8f
+.debug_str      0x00000000     0x3acb
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6     0x1982 Cocktail_functions.o
-                               0x1adf (size before relaxing)
- .debug_str     0x00001d68      0x83f Cocktail_Statemachine.o
-                               0x1dae (size before relaxing)
- .debug_str     0x000025a7      0x117 Getraenk.o
-                               0x1140 (size before relaxing)
- .debug_str     0x000026be       0x68 TAGS.o
+ .debug_str     0x000003e6     0x18fa Cocktail_functions.o
+                               0x1a56 (size before relaxing)
+ .debug_str     0x00001ce0      0x83f Cocktail_Statemachine.o
+                               0x1c80 (size before relaxing)
+ .debug_str     0x0000251f      0x117 Getraenk.o
+                               0x1062 (size before relaxing)
+ .debug_str     0x00002636       0x68 TAGS.o
                                 0x263 (size before relaxing)
- .debug_str     0x00002726       0xb3 Zutaten.o
-                                0xb33 (size before relaxing)
- .debug_str     0x000027d9       0xca LED.o
-                                0x320 (size before relaxing)
- .debug_str     0x000028a3      0x22b Lists.o
+ .debug_str     0x0000269e       0xb3 Zutaten.o
+                                0xa68 (size before relaxing)
+ .debug_str     0x00002751       0xbe LED.o
+                                0x314 (size before relaxing)
+ .debug_str     0x0000280f      0x22b Lists.o
                                 0x741 (size before relaxing)
- .debug_str     0x00002ace      0x246 Main_Func.o
-                               0x125a (size before relaxing)
- .debug_str     0x00002d14       0x5e Nextion_Display.o
-                                0xff9 (size before relaxing)
- .debug_str     0x00002d72       0x5a ring_buffer.o
+ .debug_str     0x00002a3a      0x200 Main_Func.o
+                               0x1127 (size before relaxing)
+ .debug_str     0x00002c3a       0x5e Nextion_Display.o
+                                0xf10 (size before relaxing)
+ .debug_str     0x00002c98       0x5a ring_buffer.o
                                 0x1dd (size before relaxing)
- .debug_str     0x00002dcc      0x533 FAT32.o
-                                0x908 (size before relaxing)
- .debug_str     0x000032ff       0x69 SD_routines.o
-                                0x32f (size before relaxing)
- .debug_str     0x00003368      0x133 ramp1.o
+ .debug_str     0x00002cf2      0x2fa fat.o
+                                0x514 (size before relaxing)
+ .debug_str     0x00002fec       0xb6 file.o
+                                0x468 (size before relaxing)
+ .debug_str     0x000030a2       0xc1 mmc.o
+                                0x3db (size before relaxing)
+ .debug_str     0x00003163       0x43 SD_Karte.o
+                                0x3a8 (size before relaxing)
+ .debug_str     0x000031a6      0x133 ramp1.o
                                 0x63e (size before relaxing)
- .debug_str     0x0000349b      0x104 Software_SPI.o
+ .debug_str     0x000032d9      0x104 Software_SPI.o
                                 0x2c6 (size before relaxing)
- .debug_str     0x0000359f       0x5d SPI.o
+ .debug_str     0x000033dd       0x5b SPI.o
                                 0x250 (size before relaxing)
- .debug_str     0x000035fc      0x596 tmc4671.o
+ .debug_str     0x00003438      0x5ba tmc4671.o
                                 0x9a4 (size before relaxing)
- .debug_str     0x00003b92       0x40 TMC6200.o
-                                0x3b5 (size before relaxing)
- .debug_str     0x00003bd2       0x56 UART.o
+ .debug_str     0x000039f2       0x72 UART.o
                                 0x305 (size before relaxing)
- .debug_str     0x00003c28       0x67 main.o
-                               0x1090 (size before relaxing)
+ .debug_str     0x00003a64       0x67 main.o
+                                0xfa7 (size before relaxing)
 
-.debug_loc      0x00000000    0x13284
+.debug_loc      0x00000000    0x12c12
  *(.debug_loc)
- .debug_loc     0x00000000     0x4066 Cocktail_functions.o
- .debug_loc     0x00004066     0x16b9 Cocktail_Statemachine.o
- .debug_loc     0x0000571f      0x441 Getraenk.o
- .debug_loc     0x00005b60      0x1f7 TAGS.o
- .debug_loc     0x00005d57      0x3b2 Zutaten.o
- .debug_loc     0x00006109      0x26f LED.o
- .debug_loc     0x00006378     0x4109 Lists.o
- .debug_loc     0x0000a481      0x9d4 Main_Func.o
- .debug_loc     0x0000ae55      0x65a Nextion_Display.o
- .debug_loc     0x0000b4af      0x58d ring_buffer.o
- .debug_loc     0x0000ba3c     0x1e95 FAT32.o
- .debug_loc     0x0000d8d1      0x78d SD_routines.o
- .debug_loc     0x0000e05e      0xe13 ramp1.o
- .debug_loc     0x0000ee71      0x357 Software_SPI.o
- .debug_loc     0x0000f1c8       0x98 SPI.o
- .debug_loc     0x0000f260     0x3667 tmc4671.o
- .debug_loc     0x000128c7      0x530 TMC6200.o
- .debug_loc     0x00012df7      0x48d UART.o
+ .debug_loc     0x00000000     0x3fbe Cocktail_functions.o
+ .debug_loc     0x00003fbe     0x1685 Cocktail_Statemachine.o
+ .debug_loc     0x00005643      0x441 Getraenk.o
+ .debug_loc     0x00005a84      0x1f7 TAGS.o
+ .debug_loc     0x00005c7b      0x3b2 Zutaten.o
+ .debug_loc     0x0000602d      0x178 LED.o
+ .debug_loc     0x000061a5     0x4109 Lists.o
+ .debug_loc     0x0000a2ae      0x9d4 Main_Func.o
+ .debug_loc     0x0000ac82      0x65a Nextion_Display.o
+ .debug_loc     0x0000b2dc      0x58d ring_buffer.o
+ .debug_loc     0x0000b869     0x1802 fat.o
+ .debug_loc     0x0000d06b      0x78c file.o
+ .debug_loc     0x0000d7f7      0x59d mmc.o
+ .debug_loc     0x0000dd94      0x188 SD_Karte.o
+ .debug_loc     0x0000df1c      0xe13 ramp1.o
+ .debug_loc     0x0000ed2f      0x357 Software_SPI.o
+ .debug_loc     0x0000f086       0x98 SPI.o
+ .debug_loc     0x0000f11e     0x3667 tmc4671.o
+ .debug_loc     0x00012785      0x48d UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2625,27 +2687,28 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0xc80
+.debug_ranges   0x00000000      0xcf8
  *(.debug_ranges)
  .debug_ranges  0x00000000      0x328 Cocktail_functions.o
- .debug_ranges  0x00000328      0x148 Cocktail_Statemachine.o
- .debug_ranges  0x00000470       0x40 Getraenk.o
- .debug_ranges  0x000004b0       0x20 TAGS.o
- .debug_ranges  0x000004d0       0x18 Zutaten.o
- .debug_ranges  0x000004e8       0x78 LED.o
- .debug_ranges  0x00000560      0x180 Lists.o
- .debug_ranges  0x000006e0       0xe8 Main_Func.o
- .debug_ranges  0x000007c8       0x58 Nextion_Display.o
- .debug_ranges  0x00000820       0x40 ring_buffer.o
- .debug_ranges  0x00000860       0x98 FAT32.o
- .debug_ranges  0x000008f8       0x30 SD_routines.o
- .debug_ranges  0x00000928       0x80 ramp1.o
- .debug_ranges  0x000009a8       0x60 Software_SPI.o
- .debug_ranges  0x00000a08       0x38 SPI.o
- .debug_ranges  0x00000a40      0x1a8 tmc4671.o
- .debug_ranges  0x00000be8       0x28 TMC6200.o
- .debug_ranges  0x00000c10       0x60 UART.o
- .debug_ranges  0x00000c70       0x10 main.o
+ .debug_ranges  0x00000328      0x118 Cocktail_Statemachine.o
+ .debug_ranges  0x00000440       0x40 Getraenk.o
+ .debug_ranges  0x00000480       0x20 TAGS.o
+ .debug_ranges  0x000004a0       0x18 Zutaten.o
+ .debug_ranges  0x000004b8       0x70 LED.o
+ .debug_ranges  0x00000528      0x180 Lists.o
+ .debug_ranges  0x000006a8       0xe8 Main_Func.o
+ .debug_ranges  0x00000790       0x58 Nextion_Display.o
+ .debug_ranges  0x000007e8       0x40 ring_buffer.o
+ .debug_ranges  0x00000828       0xa8 fat.o
+ .debug_ranges  0x000008d0       0x60 file.o
+ .debug_ranges  0x00000930       0x58 mmc.o
+ .debug_ranges  0x00000988       0x40 SD_Karte.o
+ .debug_ranges  0x000009c8       0x80 ramp1.o
+ .debug_ranges  0x00000a48       0x60 Software_SPI.o
+ .debug_ranges  0x00000aa8       0x38 SPI.o
+ .debug_ranges  0x00000ae0      0x1a8 tmc4671.o
+ .debug_ranges  0x00000c88       0x60 UART.o
+ .debug_ranges  0x00000ce8       0x10 main.o
 
 .debug_macro
  *(.debug_macro)

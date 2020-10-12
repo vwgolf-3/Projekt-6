@@ -22,9 +22,13 @@ libraries\Nextion_Display\Nextion_Display.c
 
 libraries\RingBuffer\ring_buffer.c
 
-libraries\SD-Karte\FAT32.c
+libraries\SD-Karte\fat.c
 
-libraries\SD-Karte\SD_routines.c
+libraries\SD-Karte\file.c
+
+libraries\SD-Karte\mmc.c
+
+libraries\SD-Karte\SD_Karte.c
 
 libraries\Software_Ramp\ramp1.c
 

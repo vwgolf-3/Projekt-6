@@ -21,11 +21,6 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../UART/../RingBuffer/ring_buffer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- ../libraries/Cocktail_functions/../SD-Karte/FAT32.h \
- ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
- ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
- ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h \
- ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Cocktail_functions/../Lists/Lists.h \
  ../libraries/Cocktail_functions/../Lists/../UART/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
@@ -50,6 +45,7 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
@@ -65,13 +61,19 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat32.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\sd_karte.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc_config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\file.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h \
- ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/SD_Karte.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../LED/LED.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Software_Ramp/Ramp1.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Main_functions/Main_Func.h \
@@ -123,16 +125,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-../libraries/Cocktail_functions/../SD-Karte/FAT32.h:
-
-../libraries/Cocktail_functions/../SD-Karte/SD_routines.h:
-
-../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h:
-
-../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h:
-
-../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
-
 ../libraries/Cocktail_functions/../Lists/Lists.h:
 
 ../libraries/Cocktail_functions/../Lists/../UART/UART.h:
@@ -181,6 +173,8 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
 
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h:
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
@@ -211,7 +205,19 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat32.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\sd_karte.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc_config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\file.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc.h:
+
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h:
 
@@ -223,7 +229,7 @@ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontro
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../TMC6200/TMC6200.h:
 
-../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+../libraries/Cocktail_functions/../Cocktail_functions/../SD-Karte/SD_Karte.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../LED/LED.h:
 

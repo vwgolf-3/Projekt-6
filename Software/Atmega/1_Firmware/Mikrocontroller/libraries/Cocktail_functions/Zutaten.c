@@ -76,8 +76,9 @@ void zutaten_init(void)
         strcat((char *)buff_init_textfiles_zutat, (const char *)".txt");
 
         // Prüfen ob File existiert
-        if(readFile(VERIFY, (unsigned char *)buff_init_textfiles_zutat)==1)
+        if(verifyFile((uint8_t *)buff_init_textfiles_zutat))
         {
+			readFile((uint8_t *)buff_init_textfiles_zutat);
             // Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
             lese_textfile_in_zutat(count);
 
@@ -135,7 +136,7 @@ void zutaten_init(void)
     ******************************************************************************************************************/
 
     strcpy((char *)buff5, (const char *)"M.txt");
-    readFile(READ, (unsigned char *)buff5);
+    readFile((uint8_t *)buff5);
 
     /******************************************************************************************************************
 
@@ -148,7 +149,7 @@ void zutaten_init(void)
     ******************************************************************************************************************/
 
     // Extrahiere erstes Maschinen-Zutat aus File "M.txt"
-    ptr = strtok((char *)buffer, delimiter);                            // Abschnitt Name Zutat
+    ptr = strtok((char *)fat.sector, delimiter);                            // Abschnitt Name Zutat
     strcpy((char *)buff1,ptr);                                          // Kopiere Name in Buffer
     ptr = strtok(NULL, delimiter);                                      // Abschnitt Status
     buff2 = atoi(ptr);                                                  // Schreibe ASCI-Status in Integer-Buffer
@@ -252,10 +253,3 @@ zutat_t *create_zutat()
 
     return newZutat;
 }
-
-
-
-
-
-
-

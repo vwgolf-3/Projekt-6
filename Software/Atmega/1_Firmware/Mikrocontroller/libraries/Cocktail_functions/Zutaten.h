@@ -13,7 +13,7 @@
 #include <avr/eeprom.h>                                     // Wird benötigt um in das EEPROM zu schreiben
 #include <stdlib.h>                                         // Wird benötigt für Variabelnumwandlungen (z.B itoa(), atoi(), ...)
 #include <string.h>                                         // Wird benötigt würd Stringoperationen (z.B strcpy(), strcat(), ...)
-#include "../SD-Karte/FAT32.h"                              // Wird benötigt für Lese- und Schreiboperationen auf die SD-Karte
+#include "../SD-Karte/SD_Karte.h"                              // Wird benötigt für Lese- und Schreiboperationen auf die SD-Karte
 #include "../Lists/Lists.h"
 
 /******************************************************************************************************************************/

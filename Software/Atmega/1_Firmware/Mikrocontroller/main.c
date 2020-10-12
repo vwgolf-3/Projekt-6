@@ -9,6 +9,10 @@
 #include "utils/main_variables.h"                           // "Global" includbare Variabeln deklarieren
 #include "libraries/Main_functions/Main_Func.h"             // Wird benötigt für Funktionen, welche im Hauptprogrammfluss aufgerufen werden (z. B IO_init, Check_communication, SD_Startup(), zutaten_init(), cocktails_init()...)
 #include "libraries/Cocktail_functions/Cocktail_Statemachine.h"
+#include "libraries/SD-Karte/SD_Karte.h"
+
+// *****************************************************************************************************************
+
 
 // MainLoop
 int main(void)

@@ -188,13 +188,21 @@
       <SubType>compile</SubType>
       <Link>ring_buffer.c</Link>
     </Compile>
-    <Compile Include="libraries\SD-Karte\FAT32.c">
+    <Compile Include="libraries\SD-Karte\fat.c">
       <SubType>compile</SubType>
-      <Link>FAT32.c</Link>
+      <Link>fat.c</Link>
     </Compile>
-    <Compile Include="libraries\SD-Karte\SD_routines.c">
+    <Compile Include="libraries\SD-Karte\file.c">
       <SubType>compile</SubType>
-      <Link>SD_routines.c</Link>
+      <Link>file.c</Link>
+    </Compile>
+    <Compile Include="libraries\SD-Karte\mmc.c">
+      <SubType>compile</SubType>
+      <Link>mmc.c</Link>
+    </Compile>
+    <Compile Include="libraries\SD-Karte\SD_Karte.c">
+      <SubType>compile</SubType>
+      <Link>SD_Karte.c</Link>
     </Compile>
     <Compile Include="libraries\Software_Ramp\ramp1.c">
       <SubType>compile</SubType>

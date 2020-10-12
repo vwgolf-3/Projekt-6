@@ -67,14 +67,16 @@ void enable_Slave(uint8_t Slave)
     case TMC4671:
         SPCR |= (
                     (1<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
-                    (1<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
+                    (1<<CPHA)
+					);             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
         SPI_CS_TMC4671_PORT &= ~SPI_CS_TMC4671_BIT;
         break;
 
     case TMC6200:
         SPCR |= (
                     (1<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
-                    (1<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
+                    (1<<CPHA)
+					);             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
         SPI_CS_TMC6200_PORT &= ~SPI_CS_TMC6200_BIT;
         break;
 
@@ -85,7 +87,8 @@ void enable_Slave(uint8_t Slave)
     case SDCARD:
         SPCR |= (
                     (0<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
-                    (0<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
+                    (0<<CPHA)
+					);						// Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
         SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT;
         break;
     }

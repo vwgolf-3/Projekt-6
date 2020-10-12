@@ -1362,7 +1362,7 @@ void check_loeschanzeige(uint8_t button)
         itoa(actual_getraenk_file_alle->file, (char *)buff, 10);
         strcat((char *) buff,(const char *)".txt");
 
-        deleteFile((unsigned char *)buff);
+//         deleteFile((unsigned char *)buff);
 
         if (actual_getraenk_file_alle == tail_getraenk_file_alle)
         {
@@ -2023,25 +2023,25 @@ void check_fluessanzeige3(uint8_t button)
             strcat((char *)buff_filename, (const char *)".txt");
 
             // Sucher erste freie Stelle für Zutat
-            if(readFile(VERIFY, (unsigned char *)buff_filename)!=1)
-            {
-                // File abspeichern
-                strcpy((char *)buff_filename, (const char *)"Z");
-                itoa(count, (char *)buff_itoa, 10);
-                strcat((char *)buff_filename, (const char *)buff_itoa);
-                strcat((char *)buff_filename, (const char *)".txt");
-                writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
-
-                if (aktuelle_zutat->kohlensaeure == 0)
-                {
-                    insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
-                }
-                else
-                {
-                    insert_at_end(count, &number_zutaten_mit, &head_zutat_file_mit, &tail_zutat_file_mit);
-                }
-                stop_suche = 1;
-            }
+//             if(readFile(VERIFY, (unsigned char *)buff_filename)!=1)
+//             {
+//                 // File abspeichern
+//                 strcpy((char *)buff_filename, (const char *)"Z");
+//                 itoa(count, (char *)buff_itoa, 10);
+//                 strcat((char *)buff_filename, (const char *)buff_itoa);
+//                 strcat((char *)buff_filename, (const char *)".txt");
+//                 writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
+// 
+//                 if (aktuelle_zutat->kohlensaeure == 0)
+//                 {
+//                     insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
+//                 }
+//                 else
+//                 {
+//                     insert_at_end(count, &number_zutaten_mit, &head_zutat_file_mit, &tail_zutat_file_mit);
+//                 }
+//                 stop_suche = 1;
+//             }
             count++;
         }
 

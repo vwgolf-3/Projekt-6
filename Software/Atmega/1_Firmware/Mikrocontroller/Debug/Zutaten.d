@@ -15,13 +15,15 @@ Zutaten.d Zutaten.o: ../libraries/Cocktail_functions/Zutaten.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- ../libraries/Cocktail_functions/../SD-Karte/FAT32.h \
- ../libraries/Cocktail_functions/../SD-Karte/SD_routines.h \
- ../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h \
- ../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h \
+ ../libraries/Cocktail_functions/../SD-Karte/SD_Karte.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ ../libraries/Cocktail_functions/../SD-Karte/mmc_config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
+ ../libraries/Cocktail_functions/../SD-Karte/file.h \
+ ../libraries/Cocktail_functions/../SD-Karte/fat.h \
+ ../libraries/Cocktail_functions/../SD-Karte/mmc.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h \
  ../libraries/Cocktail_functions/../SD-Karte/../UART/../RingBuffer/ring_buffer.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  ../libraries/Cocktail_functions/../Lists/Lists.h \
  ../libraries/Cocktail_functions/../Lists/../UART/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
@@ -62,19 +64,23 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-../libraries/Cocktail_functions/../SD-Karte/FAT32.h:
+../libraries/Cocktail_functions/../SD-Karte/SD_Karte.h:
 
-../libraries/Cocktail_functions/../SD-Karte/SD_routines.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-../libraries/Cocktail_functions/../SD-Karte/../SPI/SPI.h:
+../libraries/Cocktail_functions/../SD-Karte/mmc_config.h:
 
-../libraries/Cocktail_functions/../SD-Karte/../SPI/../../utils/pin_defs.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
+
+../libraries/Cocktail_functions/../SD-Karte/file.h:
+
+../libraries/Cocktail_functions/../SD-Karte/fat.h:
+
+../libraries/Cocktail_functions/../SD-Karte/mmc.h:
 
 ../libraries/Cocktail_functions/../SD-Karte/../UART/UART.h:
 
 ../libraries/Cocktail_functions/../SD-Karte/../UART/../RingBuffer/ring_buffer.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 ../libraries/Cocktail_functions/../Lists/Lists.h:
 

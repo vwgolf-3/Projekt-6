@@ -12,8 +12,7 @@ SD_Routines.d SD_Routines.o: .././SD_Routines.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- .././SPI_routines.h .././SD_routines.h .././pin_defs.h \
- .././UART_routines.h
+ .././SPI_routines.h .././SD_routines.h .././UART_routines.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -44,7 +43,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././SPI_routines.h:
 
 .././SD_routines.h:
-
-.././pin_defs.h:
 
 .././UART_routines.h:

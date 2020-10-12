@@ -57,9 +57,12 @@ Cocktail_Statemachine.d Cocktail_Statemachine.o: \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
- ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h \
- ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_Karte.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/mmc_config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/file.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/fat.h \
+ ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/mmc.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
  ../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../Lists/Lists.h \
  c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
@@ -70,7 +73,7 @@ Cocktail_Statemachine.d Cocktail_Statemachine.o: \
  ../libraries/Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../TMC4671/TMC4671.h \
  ../libraries/Cocktail_functions/../TMC6200/TMC6200.h \
- ../libraries/Cocktail_functions/../SD-Karte/FAT32.h \
+ ../libraries/Cocktail_functions/../SD-Karte/SD_Karte.h \
  ../libraries/Cocktail_functions/../LED/LED.h \
  ../libraries/Cocktail_functions/../Software_Ramp/Ramp1.h \
  ../libraries/Cocktail_functions/../Main_functions/Main_Func.h \
@@ -192,11 +195,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
 
-../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/FAT32.h:
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_Karte.h:
 
-../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/SD_routines.h:
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/mmc_config.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/file.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/fat.h:
+
+../libraries/Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/../SD-Karte/mmc.h:
 
 c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
 
@@ -218,7 +227,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Cocktail_functions/../TMC6200/TMC6200.h:
 
-../libraries/Cocktail_functions/../SD-Karte/FAT32.h:
+../libraries/Cocktail_functions/../SD-Karte/SD_Karte.h:
 
 ../libraries/Cocktail_functions/../LED/LED.h:
 

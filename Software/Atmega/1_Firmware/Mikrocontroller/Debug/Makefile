@@ -47,8 +47,10 @@ C_SRCS +=  \
 ../libraries/Main_functions/Main_Func.c \
 ../libraries/Nextion_Display/Nextion_Display.c \
 ../libraries/RingBuffer/ring_buffer.c \
-../libraries/SD-Karte/FAT32.c \
-../libraries/SD-Karte/SD_routines.c \
+../libraries/SD-Karte/fat.c \
+../libraries/SD-Karte/file.c \
+../libraries/SD-Karte/mmc.c \
+../libraries/SD-Karte/SD_Karte.c \
 ../libraries/Software_Ramp/ramp1.c \
 ../libraries/Software_SPI/Software_SPI.c \
 ../libraries/SPI/SPI.c \
@@ -75,8 +77,10 @@ Lists.o \
 Main_Func.o \
 Nextion_Display.o \
 ring_buffer.o \
-FAT32.o \
-SD_routines.o \
+fat.o \
+file.o \
+mmc.o \
+SD_Karte.o \
 ramp1.o \
 Software_SPI.o \
 SPI.o \
@@ -96,8 +100,10 @@ Lists.o \
 Main_Func.o \
 Nextion_Display.o \
 ring_buffer.o \
-FAT32.o \
-SD_routines.o \
+fat.o \
+file.o \
+mmc.o \
+SD_Karte.o \
 ramp1.o \
 Software_SPI.o \
 SPI.o \
@@ -117,8 +123,10 @@ Lists.d \
 Main_Func.d \
 Nextion_Display.d \
 ring_buffer.d \
-FAT32.d \
-SD_routines.d \
+fat.d \
+file.d \
+mmc.d \
+SD_Karte.d \
 ramp1.d \
 Software_SPI.d \
 SPI.d \
@@ -138,8 +146,10 @@ Lists.d \
 Main_Func.d \
 Nextion_Display.d \
 ring_buffer.d \
-FAT32.d \
-SD_routines.d \
+fat.d \
+file.d \
+mmc.d \
+SD_Karte.d \
 ramp1.d \
 Software_SPI.d \
 SPI.d \
@@ -232,14 +242,28 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
-./FAT32.o: ../libraries/SD-Karte/FAT32.c
+./fat.o: ../libraries/SD-Karte/fat.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./SD_routines.o: ../libraries/SD-Karte/SD_routines.c
+./file.o: ../libraries/SD-Karte/file.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./mmc.o: ../libraries/SD-Karte/mmc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./SD_Karte.o: ../libraries/SD-Karte/SD_Karte.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000UL  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega2560" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
