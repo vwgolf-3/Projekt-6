@@ -1,9 +1,7 @@
 \subsubsection{RFID}
 \label{subsubsec:Inbetriebnahme_RFID}
 
-Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} um das MFRC522 Evaluierungsboard (Breakout-Board). Dieses Kommuniziert über SPI mit einem gewünschten Controller. Die Pinbelegung dazu ist in Abbildung \ref{fig:MFRC522} zu sehen. Der grosse Vorteil dieses Evaluirungsboard ist es, dass es dazu eine Arduino Library gibt mit vielen Beispielen.
-
-Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
+Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} beschrieben um das MFRC522 Evaluierungsboard (Breakout-Board). Dieses Kommuniziert über SPI mit einem gewünschten Controller. Die Pinbelegung dazu ist in Abbildung \ref{fig:MFRC522} zu sehen. Der grosse Vorteil dieses Evaluirungsboard ist es, dass es dazu eine Arduino Library gibt mit vielen Beispielen. Wie schon in Kapitel \ref{sec:Printaufbau} beschrieben, wurde das ESP schlussendlich nicht an den Mikrocontroller angeschlossen, sondern an das ESP32, welches dann wiederum mit dem Mikrocontroller kommuniziert. Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
 
 
 \begin{itemize}
@@ -18,7 +16,7 @@ Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
 
 \begin{figure}[h!]
 \center
-\includegraphics[width = 0.58\textwidth]{graphics/MFRC522}
+\includegraphics[width = 0.45\textwidth]{graphics/MFRC522}
 \caption{Anschauungsbild MFRC522 Evaluierungsboard \cite{nxp_bv_2010_antenna_2010}}
 \label{fig:MFRC522}
 \end{figure}

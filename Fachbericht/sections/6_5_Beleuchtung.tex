@@ -1,9 +1,9 @@
 \subsection{Beleuchtung}
 \label{subsec:Inbetriebnahme_Beleuchtung}
 
-Die Farbe und Helligkeit der Beleuchtung wird mit einem PWM-Signal geregelt. Das PWM-Signal wird erzeugt mittels Timer Interrupts, damit Regelung parallel neben dem Programfluss geschehen kann. Insgesamt benötigt es fünf Timer, um das LED-Band anzusteuern. Jeweils einen für jede Farbe und einen um durch den Rainbow-Modus zu interieren.
+Die Farbe und Helligkeit der Beleuchtung wird mit einem PWM-Signal geregelt. Das PWM-Signal wird erzeugt mittels Timer Interrupts, damit Regelung parallel neben dem Programfluss geschehen kann. Insgesamt benötigt es fünf Timer um das LED-Band anzusteuern. Jeweils einen für jede Farbe und einen um durch den Rainbow-Modus zu interieren.
 
-Die Inbetriebnahme wurde anhand des Datenblatts und des Tutorials von Atmel Mikrochip gemacht.\cite{mikrochip_makes_getting_2015}\cite{mikrochip_makes_getting_2015-1}\cite{mikrochip_makes_getting_2015-2}. Im Anhang Kapitel \ref{Appendix:Timer_PWM} ist der detailierte Vorgang zur Initialisierung des PWM-Signals beschrieben. Aus der Beschreibung geht hervor, dass das Signal mit einer Frequenz von 10kHz getaktet wird und der Duty-Cycle nicht über 95\% gehen sollte. Ausserdem wird im erwähnten Kapitel der Rainbow-Algorithmus beschrieben.
+Die Inbetriebnahme wurde anhand des Datenblatts und des Tutorials von Atmel Mikrochip gemacht \cite{mikrochip_makes_getting_2015}\cite{mikrochip_makes_getting_2015-1}\cite{mikrochip_makes_getting_2015-2}. Im Anhang Kapitel \ref{Appendix:Timer_PWM} ist der detailierte Vorgang zur Initialisierung des PWM-Signals beschrieben. Aus der Beschreibung geht hervor, dass das Signal mit einer Frequenz von 10kHz getaktet wird und der Duty-Cycle nicht über 95\% gehen sollte. Ausserdem wird im erwähnten Kapitel der Rainbow-Algorithmus beschrieben.
 
 
 

@@ -22,7 +22,7 @@ Damit der Mikrocontroller sich Programmieren lässt, müssen einige Grundeinstel
 \label{tab:Fuse_und_Lock-Bits}
 \end{table}
 
-Das Setzen der Fuse- und Lock-Bits sowie das brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Eine ausführliche Anleitung findet sich auf \textit{instructables.com}. \cite{vidmofollow_turn_2017}
+Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Eine ausführliche Anleitung findet sich auf \textit{instructables.com}. \cite{vidmofollow_turn_2017}
 
 Von seitens Software muss AVRdude in Atmel Studio eingebunden werden, was im folgenden Kapitel erklärt wird.
 
@@ -32,11 +32,13 @@ Von \textit{http://savannah.gnu.org/} kann eine Datei heruntergeladen welche \te
 
 Nachdem dies gemacht wurde, wird in AtmelStudio der Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählt und ein neues Tool hinzugefügt. Im Falle des Atmega2560 geben wir die Commands gemäss Tabelle \ref{tab:AVRdude_commands} ein:
 
+\todo{Titel im File auf PartyMixer ändern!}
+
 \begin{table}[h!]
 \center
 \begin{tabularx}{\textwidth}{|l|l|X|}
 \hline
-Title & : & Cocktailmixer \\
+Title & : & PartyMixer \\
 \hline
 Command & : & C:\textbackslash Tools\textbackslash avrdude-6.1-mingw32\textbackslash avrdude.exe \\
 \hline
@@ -66,12 +68,14 @@ Hier wird ein stk500v2-BL verwendet.\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Lock-Bits} (siehe Abbildung \ref{fig:AtmelStudio_Locks})\newline
 Diese sollten nicht mehr geändert werden. Bei jedem Brennen des BL wieder zu setzen.\newline
 %\item Ggf. USB-Firmware installieren auf dem USB-UART-Converter. (Nicht Teil dieses Projektes.)\newline
-\item Mikrocontroller mit der kompillierten Software (Cocktailmixer.HEX) programmieren.\newline
-\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Cocktailmixer}\newline
+\item Mikrocontroller mit der kompillierten Software (PartyMixer.HEX) programmieren.\newline
+\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow PartyMixer}\newline
 %Alternativ direkt mit ISP-Programmer wie in Schritt 2 (ohne Bootloader, Programmcode an start-Vektor des \textmu Cs.):\newline
 %\textcolor{magenta}{z.B C:\textbackslash Users\textbackslash DaU\textbackslash Software\textbackslash Cocktailmixer\textbackslash Cocktailmixer\textbackslash Debug\textbackslash Cocktailmixer.HEX}
 \end{enumerate}
 
-Wird der Mikrocontroller per Reset-Button neu gestartet, dauert es aufgrund des Bootloaders 2s, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Danach startet das Programm, sollten keine Daten kommen.
+\todo{Auch bei Punkt 4 PartyMixer! Nicht Cocktailmixer}
+
+Wird der Mikrocontroller per Reset-Button neu gestartet, dauert es aufgrund des Bootloaders 2s, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Danach startet das Programm, falls keine Daten kommen.
 
 Sämtliche Tabellen aus dem Datenblatt und Screenshots aus Programmierumgebung, welche mit dem Setzen der Fuse- und Lock-Bits oder Programmierung des \textmu C zusammenhängen, sind im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} angefügt.
