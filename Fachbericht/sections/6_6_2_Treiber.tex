@@ -3,7 +3,7 @@
 
 Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop. Welche Register wie beschrieben werden, ist im Anhang Kapitel \ref{Appendix:TMC4671_Register} zu entnehmen. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich.
 
-Das Setup, mit dem der Treiber softwareseitig in Betrieb genommen wurde, ist im Anhang Kapitel \ref{Appendix:TMC4671_Setup} gezeigt.
+Das Setup, mit welchem der Treiber softwareseitig in Betrieb genommen wurde, ist im Anhang Kapitel \ref{Appendix:TMC4671_Setup} gezeigt.
 
 Vorgehen:
 \begin{enumerate}
@@ -22,7 +22,9 @@ Vorgehen:
 }\\
 
 \item Software hochladen:\\
-\textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow Cocktailmixer}\\
+\textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
+
+\todo{Auch hier PartyMixer!}
 
 \item SPI-Kommunikation und ausgehende Gate-Signale vom FOC-Treiber zum Gate-Treiebr mit Oszilloskop überprüfen. Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind die Messbilder zur SPI- Kommunikation zu finden und in Anhang \ref{Appendix:TMC4671_Gate_Ctrl} die Messbilder zur Gate-Control vom TMC4671 zum TMC6200.
 \end{enumerate}
