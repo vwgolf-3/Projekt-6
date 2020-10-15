@@ -10,64 +10,64 @@
 \contentsline {subsection}{\numberline {4.1}Speisungen}{6}{subsection.4.1}
 \contentsline {subsubsection}{\numberline {4.1.1}48V Speisung}{6}{subsubsection.4.1.1}
 \contentsline {subsubsection}{\numberline {4.1.2}12V Speisung}{7}{subsubsection.4.1.2}
-\contentsline {paragraph}{Schema}{7}{section*.15}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{7}{section*.17}
+\contentsline {paragraph}{Schema}{7}{section*.12}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{7}{section*.14}
 \contentsline {subsubsection}{\numberline {4.1.3}5V Speisung}{8}{subsubsection.4.1.3}
-\contentsline {paragraph}{Schema}{9}{section*.18}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{9}{section*.20}
+\contentsline {paragraph}{Schema}{9}{section*.15}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{9}{section*.17}
 \contentsline {subsubsection}{\numberline {4.1.4}3.3V Speisung}{10}{subsubsection.4.1.4}
-\contentsline {paragraph}{Schema}{10}{section*.21}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{10}{section*.23}
+\contentsline {paragraph}{Schema}{10}{section*.18}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{10}{section*.20}
 \contentsline {subsection}{\numberline {4.2}Motor}{11}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}FOC-Treiber TMC4671}{11}{subsubsection.4.2.1}
-\contentsline {paragraph}{Schema}{12}{section*.26}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{13}{section*.28}
+\contentsline {paragraph}{Schema}{12}{section*.23}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{13}{section*.25}
 \contentsline {subsubsection}{\numberline {4.2.2}Gate-Treiber}{13}{subsubsection.4.2.2}
-\contentsline {paragraph}{Schema}{14}{section*.30}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.32}
+\contentsline {paragraph}{Schema}{14}{section*.27}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.29}
 \contentsline {subsubsection}{\numberline {4.2.3}H-Br\IeC {\"u}cke}{15}{subsubsection.4.2.3}
-\contentsline {paragraph}{Schaltungsaufbau}{15}{section*.33}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{16}{section*.35}
+\contentsline {paragraph}{Schaltungsaufbau}{15}{section*.30}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{16}{section*.32}
 \contentsline {subsubsection}{\numberline {4.2.4}BLDC}{16}{subsubsection.4.2.4}
-\contentsline {paragraph}{Schaltungsaufbau}{16}{section*.36}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.37}
+\contentsline {paragraph}{Schaltungsaufbau}{16}{section*.33}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.34}
 \contentsline {subsubsection}{\numberline {4.2.5}ABN-Encoder}{17}{subsubsection.4.2.5}
-\contentsline {paragraph}{Schaltungsaufbau}{17}{section*.38}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.39}
+\contentsline {paragraph}{Schaltungsaufbau}{17}{section*.35}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.36}
 \contentsline {subsection}{\numberline {4.3}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{18}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}Pumpen}{18}{subsubsection.4.3.1}
-\contentsline {paragraph}{Schema}{18}{section*.40}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{18}{section*.42}
+\contentsline {paragraph}{Schema}{18}{section*.37}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{18}{section*.39}
 \contentsline {subsubsection}{\numberline {4.3.2}Durchflussmessger\IeC {\"a}te}{19}{subsubsection.4.3.2}
-\contentsline {paragraph}{Schema}{19}{section*.43}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.45}
+\contentsline {paragraph}{Schema}{19}{section*.40}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.42}
 \contentsline {subsection}{\numberline {4.4}Programmierschnittstellen}{20}{subsection.4.4}
 \contentsline {subsubsection}{\numberline {4.4.1}Handshake ATMega2560}{20}{subsubsection.4.4.1}
 \contentsline {subsubsection}{\numberline {4.4.2}Handshake ESP32}{20}{subsubsection.4.4.2}
 \contentsline {subsubsection}{\numberline {4.4.3}USB-B}{21}{subsubsection.4.4.3}
-\contentsline {paragraph}{Schema}{21}{section*.48}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.50}
+\contentsline {paragraph}{Schema}{21}{section*.45}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.47}
 \contentsline {subsection}{\numberline {4.5}Benutzerschnittstellen}{23}{subsection.4.5}
 \contentsline {subsubsection}{\numberline {4.5.1}Display}{23}{subsubsection.4.5.1}
-\contentsline {paragraph}{Schema}{23}{section*.52}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.54}
+\contentsline {paragraph}{Schema}{23}{section*.49}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.51}
 \contentsline {subsubsection}{\numberline {4.5.2}ESP}{24}{subsubsection.4.5.2}
-\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{24}{section*.55}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{25}{section*.57}
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{25}{section*.58}
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{26}{section*.61}
+\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{24}{section*.52}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{25}{section*.54}
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{25}{section*.55}
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{26}{section*.58}
 \contentsline {subsubsection}{\numberline {4.5.3}RFID}{26}{subsubsection.4.5.3}
-\contentsline {paragraph}{Schema}{27}{section*.62}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.65}
+\contentsline {paragraph}{Schema}{27}{section*.59}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.62}
 \contentsline {subsection}{\numberline {4.6}Beleuchtung}{28}{subsection.4.6}
-\contentsline {paragraph}{Schema}{28}{section*.67}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.69}
+\contentsline {paragraph}{Schema}{28}{section*.64}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.66}
 \contentsline {subsection}{\numberline {4.7}Mikrocontroller}{29}{subsection.4.7}
-\contentsline {paragraph}{Schema}{29}{section*.70}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{30}{section*.72}
+\contentsline {paragraph}{Schema}{29}{section*.67}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{30}{section*.69}
 \contentsline {subsection}{\numberline {4.8}SD-Karte}{30}{subsection.4.8}
-\contentsline {paragraph}{Schema}{31}{section*.74}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.76}
+\contentsline {paragraph}{Schema}{31}{section*.71}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.73}
 \contentsline {section}{\numberline {5}Inbetriebnahme}{32}{section.5}
 \contentsline {subsection}{\numberline {5.1}Speisungen}{32}{subsection.5.1}
 \contentsline {subsubsection}{\numberline {5.1.1}12V Speisung}{32}{subsubsection.5.1.1}
@@ -97,9 +97,9 @@
 \contentsline {subsection}{\numberline {6.1}Atmega2560}{48}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{49}{subsubsection.6.1.1}
 \contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{50}{subsubsection.6.1.2}
-\contentsline {paragraph}{Bootloader-Section}{50}{section*.95}
-\contentsline {paragraph}{Init-Section}{50}{section*.96}
-\contentsline {paragraph}{Main-Loop}{50}{section*.98}
+\contentsline {paragraph}{Bootloader-Section}{50}{section*.92}
+\contentsline {paragraph}{Init-Section}{50}{section*.93}
+\contentsline {paragraph}{Main-Loop}{50}{section*.95}
 \contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{52}{subsubsection.6.1.3}
 \contentsline {subsection}{\numberline {6.2}ESP32}{52}{subsection.6.2}
 \contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{53}{subsubsection.6.2.1}
@@ -117,7 +117,7 @@
 \contentsline {subsection}{\numberline {8.1}Zielerreichung}{72}{subsection.8.1}
 \contentsline {section}{\numberline {9}Schlusswort}{72}{section.9}
 \contentsline {section}{\numberline {10}Ehrlichkeitserkl\IeC {\"a}rung}{72}{section.10}
-\contentsline {section}{Literatur}{74}{section*.126}
+\contentsline {section}{Literatur}{74}{section*.123}
 \contentsline {section}{\numberline {A}Programmierschnittstellen}{79}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Ger\IeC {\"a}te-Manager}{79}{subsection.A.1}
 \contentsline {subsection}{\numberline {A.2}Atmega2560}{79}{subsection.A.2}

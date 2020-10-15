@@ -7,7 +7,7 @@ Um das Anwenderprogramm auf dem Mikrocontroller (\textmu C) speichern zu können
 Atmel Studio kompiliert den geschriebenen C Code in Maschinencode und schreibt diesen in ein HEX-File. Das HEX-File wird von einem Programmiertool namens AVRdude hochgeladen.\cite{verschiedene_autoren_avrdude_2019}
 
 
-Damit der Mikrocontroller sich Programmieren lässt, müssen einige Grundeinstellungen vorgenommen werden. Dazu gehört das Setzen der Fuse- und Lock-Bits sowie das Schreiben des Bootloaders. Eine detailierte Beschreibung, wie diese gesetzt wurden, wird im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} erklärt. Aus der Beschreibung folgt für die Fuse- und Lock-Bits die Einstellungen gemäss Tabelle \ref{tab:Fuse_und_Lock-Bits}.
+Damit der Mikrocontroller sich Programmieren lässt, müssen einige Grundeinstellungen vorgenommen werden. Dazu gehört das Setzen der Fuse- und Lock-Bits sowie das Schreiben des Bootloaders. Eine detaillierte Beschreibung, wie diese gesetzt wurden, wird im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} erklärt. Aus der Beschreibung folgt für die Fuse- und Lock-Bits die Einstellungen gemäss Tabelle \ref{tab:Fuse_und_Lock-Bits}.
 
 \begin{table}[h!]
 \center
@@ -51,7 +51,7 @@ Arguments: & : & -D -P \textcolor{red}{ COMx} -p ATMEGA2560 -c wiring -b 115200 
 
 Der entsprechende \textcolor{red}{ COMx}-Port des zu flashenden Gerätes (Atmega2560) muss mit dem Geräte-Manager ermittelt werden. \cite{meier_mc1-skript_2017}
 
-Nun kann aus Atmel Studio das kompillierte HEX-File hochgeladen werden.
+Nun kann aus Atmel Studio das kompilierte HEX-File hochgeladen werden.
 \newpage
 Folgende Schritte wurden befolgt:
 
@@ -68,7 +68,7 @@ Hier wird ein stk500v2-BL verwendet.\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Lock-Bits} (siehe Abbildung \ref{fig:AtmelStudio_Locks})\newline
 Diese sollten nicht mehr geändert werden. Bei jedem Brennen des BL wieder zu setzen.\newline
 %\item Ggf. USB-Firmware installieren auf dem USB-UART-Converter. (Nicht Teil dieses Projektes.)\newline
-\item Mikrocontroller mit der kompillierten Software (PartyMixer.HEX) programmieren.\newline
+\item Mikrocontroller mit der kompilierten Software (PartyMixer.HEX) programmieren.\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow PartyMixer}\newline
 %Alternativ direkt mit ISP-Programmer wie in Schritt 2 (ohne Bootloader, Programmcode an start-Vektor des \textmu Cs.):\newline
 %\textcolor{magenta}{z.B C:\textbackslash Users\textbackslash DaU\textbackslash Software\textbackslash Cocktailmixer\textbackslash Cocktailmixer\textbackslash Debug\textbackslash Cocktailmixer.HEX}

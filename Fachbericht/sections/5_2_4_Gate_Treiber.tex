@@ -8,7 +8,7 @@ Der Motor wird über eine H-Brücke gesteuert. Dies bedingt pro Spule zwei MOSFE
 
 \paragraph{Schema}\mbox{}\\
 
-Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zusatzfunktionen wie Strommessung, Messverstärkung, Kurzschlussdetektion etc. genutzt werden können, wurde während des Entwicklungsprozesses ein Gate-Treiber von Trinamic ausgewählt. Das entsprechende Bauteil ist der TMC6200. Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:Schaltung_TMC6200} und \ref{Appendix:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der TMC6200 aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Spannungsversogrung besteht. Das Schema ist in Abbildung \ref{fig:Schema_Gate_Treiber} zu sehen.
+Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zusatzfunktionen wie Strommessung, Messverstärkung, Kurzschlussdetektion etc. genutzt werden können, wurde während des Entwicklungsprozesses ein Gate-Treiber von Trinamic ausgewählt. Das entsprechende Bauteil ist der TMC6200. Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:Schaltung_TMC6200} und \ref{Appendix:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der TMC6200 aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Spannungsversorgung besteht. Das Schema ist in Abbildung \ref{fig:Schema_Gate_Treiber} zu sehen.
 
 
 \begin{figure}[H]
@@ -72,7 +72,7 @@ Die Dimensionierung dieser Kondensatoren wird im Datenblatt mit einem Kapazität
 
 %\paragraph{Externer Gate-Spannungsregler}
 
-Aufgrund der hohen Versorgungsspannug (48V), treten im IC über den Gate- und 5V- Spannungsreglern erhebliche Verluste auf. Um diese Verluste zu reduzieren, wird gemäss Datenblatt \cite[S.11]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019} geraten, eine externe Gate-Spannung anzuhängen. Für beste Resultate wird eine Spannung von 12V $\pm$ 1V empfohlen.
+Aufgrund der hohen Versorgungsspannung (48V), treten im IC über den Gate- und 5V- Spannungsreglern erhebliche Verluste auf. Um diese Verluste zu reduzieren, wird gemäss Datenblatt \cite[S.11]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019} geraten, eine externe Gate-Spannung anzuhängen. Für beste Resultate wird eine Spannung von 12V $\pm$ 1V empfohlen.
 Die Dimensionierung der benötigten Kondensatoren ist im Anhang Kapitel \ref{Appendix:Gate_Spannungsversorgung} zu finden. Für den Kondensator C69 sollten 2.2\textmugreek F verwendet werden und für den Kondensator C73 100nF.
 
 %\begin{tabular}{lll}
