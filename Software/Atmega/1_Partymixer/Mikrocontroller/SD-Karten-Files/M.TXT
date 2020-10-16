@@ -1,0 +1,26 @@
+Orangensaft,1,0,0
+Limettensaft,1,0,0
+Zitronensaft,1,0,0
+Grenadinesirup,1,0,0
+Blue Curacao,1,1,0
+Gin,1,1,0
+Triple Sec,1,1,0
+Whisky,1,1,0
+Wodka,1,1,0
+Eistee,1,1,0
+Weisser Rum,1,1,0
+Zuckersirup,1,0,0
+;
+7Up,1,0,1
+Coca-Cola,1,0,1
+Ginger Ale,1,0,1
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+(keine),0,0,0
+;

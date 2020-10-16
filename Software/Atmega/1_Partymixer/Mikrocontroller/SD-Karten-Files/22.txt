@@ -1,0 +1,8 @@
+Name: Roy Rogers
+Mengen:
+Coca-Cola:95
+Grenadinesirup:5
+;
+Alkohol:0
+Kohlensaeure:0
+Bild:24

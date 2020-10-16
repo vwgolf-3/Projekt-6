@@ -1,0 +1,8 @@
+Name:7 & 7
+Mengen:
+7Up:75
+Whisky:25
+;
+Alkohol:1
+Kohlensaeure:1
+Bild:3

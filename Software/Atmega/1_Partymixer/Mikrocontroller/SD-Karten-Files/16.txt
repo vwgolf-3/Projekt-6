@@ -1,0 +1,8 @@
+Name:Highball
+Mengen:
+Ginger Ale:70
+Whisky:30
+;
+Alkohol:1
+Kohlensaeure:1
+Bild:18

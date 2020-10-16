@@ -32,8 +32,6 @@ Von \textit{http://savannah.gnu.org/} kann eine Datei heruntergeladen welche \te
 
 Nachdem dies gemacht wurde, wird in AtmelStudio der Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählt und ein neues Tool hinzugefügt. Im Falle des Atmega2560 geben wir die Commands gemäss Tabelle \ref{tab:AVRdude_commands} ein:
 
-\todo{Titel im File auf PartyMixer ändern!}
-
 \begin{table}[h!]
 \center
 \begin{tabularx}{\textwidth}{|l|l|X|}
@@ -49,7 +47,7 @@ Arguments: & : & -D -P \textcolor{red}{ COMx} -p ATMEGA2560 -c wiring -b 115200 
 \label{tab:AVRdude_commands}
 \end{table}
 
-Der entsprechende \textcolor{red}{ COMx}-Port des zu flashenden Gerätes (Atmega2560) muss mit dem Geräte-Manager ermittelt werden. \cite{meier_mc1-skript_2017}
+Der entsprechende \textcolor{red}{COMx}-Port des zu flashenden Gerätes (Silicon Labs CP210x USB to UART Bridge) muss mit dem Geräte-Manager ermittelt werden. \cite{meier_mc1-skript_2017}
 
 Nun kann aus Atmel Studio das kompilierte HEX-File hochgeladen werden.
 \newpage
@@ -57,24 +55,20 @@ Folgende Schritte wurden befolgt:
 
 \begin{enumerate}
 \item Als Erstes wurden die Fuse-Bits gesetzt. Dies geschah über den Reiter:\newline
-\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Fuses} (siehe Abbildung \ref{fig:AtmelStudio_Fuses}) \newline
+\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Fuses} \newline
 Es wurde darauf geachtet, dass der AVR mkII ausgewählt wurde und der Gerätecode des Atmega2560 ausgelesen werden konnte.\newline
 
 \item Als Zweites wurde der Bootloader installiert. Dies geschah unter:\newline
-\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Memory} (siehe Abbildung \ref{fig:AtmelStudio_Program_Bootloader}) \newline
+\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Memory} \newline
 Hier wird ein stk500v2-BL verwendet.\newline
 %Dies kann aber auch abweichen. (Entsprechende Anpassungen nötig, nicht Teil dieses Projektes.)\newline
 \item Als Drittes wurden die Lock-Bits gesetzt unter:\newline
-\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Lock-Bits} (siehe Abbildung \ref{fig:AtmelStudio_Locks})\newline
+\textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Lock-Bits}\newline
 Diese sollten nicht mehr geändert werden. Bei jedem Brennen des BL wieder zu setzen.\newline
 %\item Ggf. USB-Firmware installieren auf dem USB-UART-Converter. (Nicht Teil dieses Projektes.)\newline
-\item Mikrocontroller mit der kompilierten Software (PartyMixer.HEX) programmieren.\newline
+\item Mikrocontroller mit der kompilierten Software (Mikrocontroller.HEX) programmieren.\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow PartyMixer}\newline
-%Alternativ direkt mit ISP-Programmer wie in Schritt 2 (ohne Bootloader, Programmcode an start-Vektor des \textmu Cs.):\newline
-%\textcolor{magenta}{z.B C:\textbackslash Users\textbackslash DaU\textbackslash Software\textbackslash Cocktailmixer\textbackslash Cocktailmixer\textbackslash Debug\textbackslash Cocktailmixer.HEX}
 \end{enumerate}
-
-\todo{Auch bei Punkt 4 PartyMixer! Nicht Cocktailmixer}
 
 Wird der Mikrocontroller per Reset-Button neu gestartet, dauert es aufgrund des Bootloaders 2s, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Danach startet das Programm, falls keine Daten kommen.
 

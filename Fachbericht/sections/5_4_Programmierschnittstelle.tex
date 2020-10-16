@@ -12,9 +12,7 @@ Die beiden Programmierschnittstellen (ATMega2560 und ESP32) benötigen unterschi
 
 \subsubsection{Handshake ATMega2560}\label{subsubsec:Handshake_ATMega2560}
 
-Der Handshake zwischen Computer und ATMega2560 ist einfacher zu verstehen als der Handshake zwischen Computer und ESP32. Beim ATMega2560 wird jedes Mal, nachdem der Mikrocontroller neu gestartet wird, der Bootloader aufgerufen. Deswegen reicht es für die Übermittlung des Programmcodes die Reset-Leitung auf 0V zu ziehen. Dies wird erreicht, indem der wiring-Programmer verwendet wird, welcher auf den verwendeten Bootloader angepasst ist und vor dem Hochladen die DTR-Leitung toggelt. Nachdem das Programmiertool AVRdude die Device-Signatur (0x1E9801) verifiziert hat, sendet es das kompilierte HEX-File an den ATMega2560. Mehr zum Bootloader in Kapitel \ref{subsubsec:Inbetriebnahme Bootloader}.
-
-\todo{Welches Kapitel?}
+Der Handshake zwischen Computer und ATMega2560 ist einfacher zu verstehen als der Handshake zwischen Computer und ESP32. Beim ATMega2560 wird jedes Mal, nachdem der Mikrocontroller neu gestartet wird, der Bootloader aufgerufen. Deswegen reicht es für die Übermittlung des Programmcodes die Reset-Leitung auf 0V zu ziehen. Dies wird erreicht, indem der wiring-Programmer verwendet wird, welcher auf den verwendeten Bootloader angepasst ist und vor dem Hochladen die DTR-Leitung toggelt. Nachdem das Programmiertool AVRdude die Device-Signatur (0x1E9801) verifiziert hat, sendet es das kompilierte HEX-File an den ATMega2560. Mehr zum Bootloader in Kapitel \ref{Appendix:Inbetriebnahme_Bootloader}.
 
 %Um die Daten hochladen zu können, muss sichergestellt werden, dass avrdude mit dem stk500v2 programmer hochlädt und die DTR-Leitung toggelt, bevor der Programmiervorgang stattfindet. Die DTR-Leitung hängt über einen Kondensator an der Reset-Leitung und zieht diese auf GND, womit der Bootloader des ATMega2560 aktiv wird. Deswegen wird beim Hochladen in AVRdude als programming-id der \textit{wiring}-programmer angegeben, sichtbar in Kapitel \ref{Appendix:AVR_STK500} (-c wiring).
 

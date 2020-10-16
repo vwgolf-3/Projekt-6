@@ -1,9 +1,0 @@
-Name:Kamikaze
-Mengen:
-Limettensaft:35
-Triple Sec:35
-Wodka:30
-;
-Alkohol:1
-Kohlensaeure:0
-Bild:19

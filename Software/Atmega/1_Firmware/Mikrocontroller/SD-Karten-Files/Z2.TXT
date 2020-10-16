@@ -1,3 +1,0 @@
-Name:Coca-Cola
-Alkohol:0
-Kohlensaeure:1

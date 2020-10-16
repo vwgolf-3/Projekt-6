@@ -1,3 +1,0 @@
-Name:Whisky
-Alkohol:1
-Kohlensaeure:0

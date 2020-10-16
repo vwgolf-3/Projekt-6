@@ -198,8 +198,8 @@ Wird innerhalb dieser zwei Sekunden ein Anwenderprogramm in Form eines HEX-Files
 %Nach dem Laden in den Flash-Speicher wird das neu geladene Programm gestartet. 
 Aufgrund des BL geht es nach einem Reset des \textmu Cs zwei Sekunden, bis das eigentliche Programm startet. \cite{atmel_avr068_2006}
 
-Für den \textmu C des Cocktailmixers wird ein stk500v2-BL verwendet. Dieser kann über Github\footnote{https://github.com/arduino/Arduino-stk500v2-bootloader/blob/master/stk500boot.c
-} heruntergeladen werden. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Achtung, die Angaben haben im Falle des Cocktailmixers nur mit Abweichungen funktioniert (4096 words anstelle 1024). Durch Anpassen des start-Vektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern.
+Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann über Github\footnote{https://github.com/arduino/Arduino-stk500v2-bootloader/blob/master/stk500boot.c
+} heruntergeladen werden. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Durch Anpassen des start-Vektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern. Dies ist jedoch nicht Inhalt dieses Projektes.
 
 %Wie der Flash-Speicher grob organisiert ist wird in Abbildung \ref{fig:Flash_Speicher_uC} gezeicht. Der Flash-Speicher für den Bootloader, wird in eine No-Read-While-Write Section geschrieben. Das Anwendungsprogramm in die Read-While-Write Section.
 

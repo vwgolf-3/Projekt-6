@@ -1,0 +1,9 @@
+Name:Martini Lemon Drop
+Mengen:
+Zitronensaft:25
+Triple Sec:35
+Wodka:40
+;
+Alkohol:1
+Kohlensaeure:0
+Bild:20

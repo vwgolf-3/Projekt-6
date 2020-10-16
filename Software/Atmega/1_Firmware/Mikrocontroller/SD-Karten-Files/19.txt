@@ -1,9 +1,0 @@
-Name:Monkey Gland
-Mengen:
-Orangensaft:35
-Grenadinesirup:5
-Gin:60
-;
-Alkohol:1
-Kohlensaeure:0
-Bild:21

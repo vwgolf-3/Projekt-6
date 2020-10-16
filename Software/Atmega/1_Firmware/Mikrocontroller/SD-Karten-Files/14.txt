@@ -1,9 +1,0 @@
-Name:Gimlet
-Mengen:
-Limettensaft:20
-Gin:60
-Zuckersirup:20
-;
-Alkohol:1
-Kohlensaeure:0
-Bild:16

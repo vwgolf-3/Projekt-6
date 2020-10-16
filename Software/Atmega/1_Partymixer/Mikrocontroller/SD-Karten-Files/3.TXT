@@ -1,0 +1,8 @@
+Name:Arnold Palmer
+Mengen:
+Zitronensaft:30
+Eistee:70
+;
+Alkohol:0
+Kohlensaeure:1
+Bild:5

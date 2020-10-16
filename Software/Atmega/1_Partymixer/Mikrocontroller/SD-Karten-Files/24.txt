@@ -1,0 +1,9 @@
+Name:Shirley Temple
+Mengen:
+7Up:45
+Ginger Ale:45
+Grenadinesirup:10
+;
+Alkohol:0
+Kohlensaeure:1
+Bild:26
