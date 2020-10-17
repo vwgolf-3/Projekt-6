@@ -56,7 +56,7 @@
 %\caption{Bits High-Byte-Fuses.}
 %\end{table}
 
-Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher per USB zu beschreiben, muss beim Aufstarten der BL aufgerufen werden. Dazu muss das BOOTRST-Bit aktiviert werden. Der Speicherplatz für den BL wird auf 4096 words gesetzt (anders als stk500v2 Erklärung). Das EEPROM soll beim Löschen des \textmu C geschützt bleiben, weshalb das EESAVE-Bit aktiviert wird. Da die ISP-Schnittstelle benötigt wird, um den BL zu schreiben und Fuse-Bits zu setzen, wird das SPIEN-Bit gesetzt.
+Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher per USB zu beschreiben, muss beim Aufstarten der BL aufgerufen werden. Dazu muss das BOOTRST-Bit aktiviert werden. Der Speicherplatz für den BL wird auf 4096 words gesetzt. Das EEPROM soll beim Löschen des \textmu C geschützt bleiben, weshalb das EESAVE-Bit aktiviert wird. Da die ISP-Schnittstelle benötigt wird, um den BL zu schreiben und Fuse-Bits zu setzen, wird das SPIEN-Bit gesetzt.
 %
 %\begin{tabularx}{\textwidth}{ll|X}
 %
@@ -118,7 +118,7 @@ Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher pe
 %\caption{Bits Low-Byte-Fuses.}
 %\end{table}
 %
-Für den \textmu C verwenden wir einen 16MHz Full-Swing-Crystal-Oszillator, weshalb die Bits CKSEL3:1 auf 111 stehen müssen.
+Für den Mikrocontroller verwenden wir einen 16MHz Full-Swing-Crystal-Oszillator, weshalb die Bits CKSEL3:1 auf 111 stehen müssen.
 Die Aufstartzeit wird vorsorglich auf die längst mögliche Zeit eingestellt. Dies führt dazu, dass das Register CKSEL0 auf 0 und die Register SUT0:1 auf 00 gesetzt werden.
 %
 %
@@ -186,20 +186,19 @@ Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Fuses}
-	\caption{Fuse-Bits Atmega2560.}
+	\caption{Fuse-Bits Atmega2560 (Atmel Studio).}
 	\label{fig:AtmelStudio_Fuses}
 \end{figure}
 
 \subsubsection{Bootloader}\label{Appendix:Inbetriebnahme_Bootloader}
 
-Ein Bootloader (BL) ermöglicht seitens \textmu C den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des \textmu C gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
+Ein Bootloader (BL) ermöglicht seitens Mikrocontroller den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des Mikrocontrollers gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
 %Wenn innerhalb von ca. zwei Sekunden keine Daten ankommen, wird das Anwenderprogramm gestartet. 
 Wird innerhalb dieser zwei Sekunden ein Anwenderprogramm in Form eines HEX-Files an den Mikrocontroller gesendet, wird es gemäss stk500v2-Protokoll in den Flash-Speicher geladen.
 %Nach dem Laden in den Flash-Speicher wird das neu geladene Programm gestartet. 
 Aufgrund des BL geht es nach einem Reset des \textmu Cs zwei Sekunden, bis das eigentliche Programm startet. \cite{atmel_avr068_2006}
 
-Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann über Github\footnote{https://github.com/arduino/Arduino-stk500v2-bootloader/blob/master/stk500boot.c
-} heruntergeladen werden. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Durch Anpassen des start-Vektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern. Dies ist jedoch nicht Inhalt dieses Projektes.
+Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann bei Github heruntergeladen werden \cite{sproul_arduinoarduino-stk500v2-bootloader_2012}. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Durch Anpassen des Startvektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern. Dies ist jedoch nicht Inhalt dieses Projektes.
 
 %Wie der Flash-Speicher grob organisiert ist wird in Abbildung \ref{fig:Flash_Speicher_uC} gezeicht. Der Flash-Speicher für den Bootloader, wird in eine No-Read-While-Write Section geschrieben. Das Anwendungsprogramm in die Read-While-Write Section.
 
@@ -214,13 +213,13 @@ Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann �
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Program_Bootloader}
-	\caption{Bootloader brennen.}
+	\caption{Bootloader brennen (Atmel Studio).}
 	\label{fig:AtmelStudio_Program_Bootloader}
 \end{figure}
 
 \subsubsection{Lock-Bits}
 
-Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben wurde. ''SPM ist nicht erlaubt, in den Anwenderbereich zu schreiben und LPM ist nicht erlaubt aus dem Applikationssktor zu lesen, wenn LPM aus dem Urlader-Bereich ausgeführt wird.''
+Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben wurde. ''SPM ist nicht erlaubt, in den Anwenderbereich zu schreiben und LPM ist nicht erlaubt aus dem Applikationssktor zu lesen, wenn LPM aus dem Urlader-Bereich ausgeführt wird.''\cite{haftmann_programmierung_nodate}
 
 %\subsubsection{Memory-Lock Bootloader}
 
@@ -244,7 +243,7 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graphics/AtmelStudio_External_Tools}
-	\caption{External Tools Atmega2560.}
+	\caption{External Tools Atmega2560 (Atmel Studio).}
 	\label{fig:AtmelStudio_External_Tools}
 \end{figure}
 
@@ -256,45 +255,3 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 \caption{Schwingung des Oszillators}
 \label{fig:Crystal_Swing}
 \end{figure}
-
-\subsection{Speicherorganisation}
-
-\subsubsection{Doubly Dynamic Linked List}\label{Appendix:Lists}
-
-In Abbildung \ref{fig:Doubly_Linked_List_2_0} wird nur der start-Pointer (head) initialisiert, ohne auf ein Element zu zeigen (NULL). Sobald der benötigte Speicherplatz des Elementes alloziiert wurde, wird der Zeiger auf die angelegte Struktur (Element) gelegt. Dem Head-Zeiger wurde nun ein Element zugewiesen und der Beginn der Liste wurde definiert.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_0}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
-	\label{fig:Doubly_Linked_List_2_0}
-\end{figure}
-
-Abbildung \ref{fig:Doubly_Linked_List_2_1} zeigt eine bestehende Liste mit zwei Elementen. Ein drittes Element soll am Schluss eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente (in diesem Falle noch head und tail) umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden. Auch der tail-Zeiger muss nun auf das neue Element gelegt werden.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_1}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
-	\label{fig:Doubly_Linked_List_2_1}
-\end{figure}
-
-Abbildung \ref{fig:Doubly_Linked_List_2_2} zeigt ebenfalls eine bestehende Liste mit zwei Elementen. Ein drittes Element soll am Beginn eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente (in diesem Falle noch head und tail) umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden. Auch der head-Zeiger muss nun auf das neue Element gelegt werden.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_2}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
-	\label{fig:Doubly_Linked_List_2_2}
-\end{figure}
-
-
-Abbildung \ref{fig:Doubly_Linked_List_2_3} zeigt eine bestehende Liste mit vier Elementen. Ein fünftes Element soll in der Mitte eingefügt werden. Dazu muss zuerst der Speicherplatz für das neue Element alloziiert werden (Data, next, prev). Danach können die Zeiger der bestehenden Elemente umgelegt werden und die Zeiger des neuen Elementes auf das vorhergehende und nächste Element gelegt werden.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Doubly_Linked_List_2_3}
-	\caption{Doppelt verkettete Liste mit zwei Elementen.\cite{kumar_doubly_2017}}
-	\label{fig:Doubly_Linked_List_2_3}
-\end{figure}
-

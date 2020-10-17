@@ -1,7 +1,7 @@
 \subsubsection{RFID}
 \label{subsubsec:Inbetriebnahme_RFID}
 
-Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} beschrieben um das MFRC522 Evaluierungsboard (Breakout-Board). Dieses Kommuniziert über SPI mit einem gewünschten Controller. Die Pinbelegung dazu ist in Abbildung \ref{fig:MFRC522} zu sehen. Der grosse Vorteil dieses Evaluierungsboard ist es, dass es dazu eine Arduino Library gibt mit vielen Beispielen. Wie schon in Kapitel \ref{sec:Printaufbau} beschrieben, wurde das ESP schlussendlich nicht an den Mikrocontroller angeschlossen, sondern an das ESP32, welches dann wiederum mit dem Mikrocontroller kommuniziert. Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
+Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} beschrieben um das MFRC522 Evaluierungsboard (Breakout-Board). Dieses kommuniziert über SPI mit einem gewünschten Controller. Die Pinbelegung dazu ist in Abbildung \ref{fig:MFRC522} zu sehen. Der grosse Vorteil dieses Evaluierungsboard ist es, dass es dazu eine Arduino Library gibt mit vielen Beispielen. Wie schon in Kapitel \ref{sec:Printaufbau} beschrieben, wurde das ESP schlussendlich nicht an den Mikrocontroller angeschlossen, sondern an das ESP32, welches dann wiederum mit dem Mikrocontroller kommuniziert. Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
 
 
 \begin{itemize}
@@ -26,14 +26,14 @@ Diese Pinbelegung ist von der Arduino-Library gegeben und wird auch so bei der C
 Um das Lesegerät in Betrieb nehmen zu können, wurden nach dem Anschliessen des ESP32 an den Computer folgende Schritte unternommen: 
 
 \begin{enumerate}
-\item Einbinden der MFRC522 Library unter: \textcolor{blue}{Werkzeuge \textrightarrow Bibliotheken verwalten} \newline
-\item Öffnen des Beispiels DunmInfo unter: \textcolor{blue}{Datei \textrightarrow Beispiele \textrightarrow MFRC522 \textrightarrow DumpInfo} \newline
+\item Einbinden der MFRC522 Library unter:\newline\textcolor{blue}{Werkzeuge \textrightarrow Bibliotheken verwalten} \newline
+\item Öffnen des Beispiels DunmInfo unter:\newline\textcolor{blue}{Datei \textrightarrow Beispiele \textrightarrow MFRC522 \textrightarrow DumpInfo} \newline
 \item Einstellen des Reset und des SDA (SS) Pin's in den defines des Codes\newline
-\item Einbinden des ESP32-Boards unter: \textcolor{blue}{Werkzeuge \textrightarrow Board \textrightarrow Boardverwalter \textrightarrow esp32} \newline
-\item Einstellen des verwendeten Boards unter: \textcolor{blue}{Werkzeuge \textrightarrow Board \textrightarrow ESP32 Arduino \textrightarrow ESP32 Dev Module} \newline
-\item Einstellen des richtigen COM-Ports unter: \textcolor{blue}{Werkzeuge \textrightarrow Port} (Kann im Geräte-Manager des Computers nachgeschaut werden) \newline
+\item Einbinden des ESP32-Boards unter:\newline\textcolor{blue}{Werkzeuge \textrightarrow Board \textrightarrow Boardverwalter \textrightarrow esp32} \newline
+\item Einstellen des verwendeten Boards unter:\newline\textcolor{blue}{Werkzeuge \textrightarrow Board \textrightarrow ESP32 Arduino \textrightarrow ESP32 Dev Module} \newline
+\item Einstellen des richtigen COM-Ports unter:\newline\textcolor{blue}{Werkzeuge \textrightarrow Port} (Kann im Geräte-Manager des Computers nachgeschaut werden) \newline
 \item Upload des Pogrammes mittels Upload-Button \newline
-\item Öffnen des Serial Monitors unter: \textcolor{blue}{Werkzeuge \textrightarrow  Serieller Monitor} \newline
+\item Öffnen des Serial Monitors unter:\newline\textcolor{blue}{Werkzeuge \textrightarrow  Serieller Monitor} \newline
 \end{enumerate}
 
 Nun konnten die verschiedenen RFID-Tag's eingelesen werden und  die gelesenen Informationen wurden am seriellen Monitor ausgegeben. \cite{pcbreflux_esp32_2017}
@@ -41,3 +41,4 @@ Nun konnten die verschiedenen RFID-Tag's eingelesen werden und  die gelesenen In
 
 
 
+\todo{Reader/Writer/Transponder}

@@ -1,7 +1,7 @@
 \subsection{ESP32}
 \label{subsec:Software_ESP32}
 
-Bei der Inbetriebnahme in Kapitel \ref{subsubsec:ESP} wurde das ESP32 mittels eines Web-Servers getestet und in Betrieb genommen. Da jedoch dies für einen Benutzer relativ umständlich ist, wurde eine Android-App erstellt, mit welcher Befehle an das ESP32 gesendet werden können. Diese kommuniziert über Bluetooth und hat den Vorteil, dass eine App einiges Benutzerfreundlicher ist, da App's im Alltag fast jeder Person integriert sind. \cite{santos_esp32_2018}  
+Bei der Inbetriebnahme in Kapitel \ref{subsubsec:ESP} wurde das ESP32 mittels eines Web-Servers getestet und in Betrieb genommen. Da jedoch dies für einen Benutzer relativ umständlich ist, wurde eine Android-App erstellt, mit welcher Befehle an das ESP32 gesendet werden können. Diese kommuniziert über Bluetooth und hat den Vorteil, dass eine App einiges benutzerfreundlicher ist, da App's im Alltag fast jeder Person integriert sind. \cite{santos_esp32_2018}  
 
 Die Software für das ESP32 wurde komplett in Arduino IDE geschriben und beinhaltet folgende Bereiche:
 
@@ -22,6 +22,6 @@ Im Programm werden zuerst die notwendigen Bibliotheken  eingebunden. Dabei werde
 \item MFRC522.h
 \end{itemize}
 
-Dabei beinhaltet die \flqq Arduino.h\frqq~Bibliothek die Standardbefehle von Arduino, die \flqq BluetoothSerial.h\frqq~Bibliothek beinhaltet alle Kommunikationsbefehle um über Bluetooth kommunizieren zu können, die \flqq SPI.h\frqq~Bibliothek beinhaltet alle Kommunikationsbefehle um über SPI kommunizieren zu können und die \flqq MFRC522.h\frqq~Bibliothek beinhaltet alle Befehle um mit dem RFID-Modul arbeiten zu können.
+Dabei beinhaltet die \flqq Arduino.h\frqq~Bibliothek die Standardbefehle von Arduino, die \flqq BluetoothSerial.h\frqq~Bibliothek beinhaltet alle Kommunikationsbefehle um über Bluetooth kommunizieren zu können, die \flqq SPI.h\frqq~Bibliothek beinhaltet alle Kommunikationsbefehle um über SPI kommunizieren zu können und die \flqq MFRC522.h\frqq~Bibliothek beinhaltet alle Befehle, um mit dem RFID-Modul arbeiten zu können.
 
 Es wurde bei der Programmierung darauf geachtet, dass mit möglichst einfachen mitteln gearbeitet wird. Um zu Kommunizieren wurden die Datentypen String und Char verwendet. Für Zählvariablen wurde der Datentyp int verwendet. 

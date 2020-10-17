@@ -1,7 +1,7 @@
 \subsection{SD-Karte}
 \label{subsec:SD-Karte}
 
-Damit gespeicherte Getränke, Zutaten und Maschinenzustände bei einem Neustart der Cocktailmaschine erhalten bleiben, werden diese auf der SD-Karte abgelegt. Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Werden zu viel Getränke und Zutaten auf dem Mikrocontroller gespeichert, so führt dies zu einem Absturz des Mikrocontrollers. Es wurde daher entschieden, eine mikroSD-Karte zu verwenden. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gab.
+Damit gespeicherte Getränke, Zutaten und Maschinenzustände bei einem Neustart der Cocktailmaschine erhalten bleiben, werden diese auf der SD-Karte abgelegt. Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Werden zu viel Getränke und Zutaten auf dem Mikrocontroller gespeichert, so führt dies zu einem Absturz des Mikrocontrollers. Es wurde daher entschieden, eine mikroSD-Karte zu verwenden. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gibt.
 
 Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. Es ist erkennbar, dass sie über SPI kommuniziert. Für den Anschluss wird nur ein mikroSD-Sockel benötigt. So kann die mikroSD über einen Level-Shifter vom Mikrocontroller angesteuert werden. Der Level-Shifter wird verwendet, da der Mikrocontroller mit 5V-Signalen arbeitet und die SD-Karte mit 3,3V arbeitet.
 
@@ -25,7 +25,7 @@ Der Speicherbereich einer FAT32-formatierten Partition besteht aus fünf Bereich
 
 Im Anhang Kapitel \ref{Appendix:FAT32_Aufbau} sind die einzelnen Bereiche detailliert beschrieben.
 
-Für den PartyMixer wird softwareseitig eine Library benötigt, welche die FAT32-Commands  implementiert und gleichzeitig die Operationen auf der SD-Karte abhandelt. So ist die SD-Karte auch am Computer editierbar und die Befehlsliste reduziert sich auf readFile, writeFile und deleteFile.
+Für den PartyMixer wird softwareseitig eine Library benötigt, welche die FAT32-Commands  implementiert und gleichzeitig die Operationen auf der SD-Karte abhandelt. So ist die SD-Karte auch am Computer editierbar und die Befehlsliste reduziert sich mehr oder weniger auf readFile, writeFile und deleteFile.
 
 \paragraph{Schema}\mbox{}
 
@@ -37,7 +37,7 @@ In Abbildung \ref{fig:Schema_SD_Karte} ist das Schema der SD-Karte zu sehen. Dar
 \caption{Schema SD-Karte.}
 \label{fig:Schema_SD_Karte}
 \end{figure}
-
+\todo{anderes Bild}
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
 In der Schaltung ist erkennbar, dass die SPI-Leitungen an die Pins des Adapters führen, genauso die Spannungsleitungen. Da die SD-Karte stets vom Mikrocontroller angesteuert wird, gibt es keine weiteren erwähnenswerte Funktionen zu beschreiben.

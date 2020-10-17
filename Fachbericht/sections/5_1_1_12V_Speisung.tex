@@ -1,7 +1,7 @@
 \subsubsection{12V Speisung}
 \label{subsubsec:12V Speisung}
 
-Die Pumpen werden mit 12V betrieben, was zur folge hat, dass eine 12V Speisung implementiert werden musste. Dazu wird ein Schaltspannungsregler verwendet. Dieser wandelt mittels Step-Down Prinzip die 48V des Netzteils in eine konstante Spannung von 12V. Es handelt sich hierbei um einen Regler von Monolithic Power Systems. Genauer gesagt um den MP24943DN-LF. Die Auswahl ist auf dieses Bauteil gefallen, da mit 48V eine relativ hohe Eingangsspannung verarbeitet werden muss. Der MP24943DN-LF kann am Eingang mit Spannungen von 4.5-55V arbeiten und dabei eine Ausgangsspannung von 0.8-45V erzeugen. Dies bei einem maximalen Strom von bis zu 3A. Die Realisierung der 12V Speisung kann in Abbildung \ref{fig:Schema_Speisung_12V} betrachtet werden. \cite{aiyimaindustrial_store_us_nodate} \cite{mouser_mp24943dn-lf_nodate} \cite[S.355-370]{atmel_atmel_2014} \\
+Die Pumpen werden mit 12V betrieben, was der Grund ist, weshalb eine 12V Speisung implementiert werden musste. Dazu wird ein Schaltspannungsregler verwendet. Dieser wandelt mittels Step-Down Prinzip die 48V des Netzteils in eine konstante Spannung von 12V. Es handelt sich hierbei um einen Regler von Monolithic Power Systems. Genauer gesagt um den MP24943DN-LF. Die Auswahl ist auf dieses Bauteil gefallen, da mit 48V eine relativ hohe Eingangsspannung verarbeitet werden muss. Der MP24943DN-LF kann am Eingang mit Spannungen von 4.5-55V arbeiten und dabei eine Ausgangsspannung von 0.8-45V erzeugen. Dies bei einem maximalen Strom von bis zu 3A. Die Realisierung der 12V Speisung kann in Abbildung \ref{fig:Schema_Speisung_12V} betrachtet werden. \cite{aiyimaindustrial_store_us_nodate} \cite{mouser_mp24943dn-lf_nodate} \cite[S.355-370]{atmel_atmel_2014} \\
 
 
 \paragraph{Schema}\mbox{}\\
@@ -25,7 +25,7 @@ Die gewünschte Ausgangsspannung wird mittels Spannungsteiler R39 \& R40 eingest
 R40 &= \frac{R39}{\frac{Vout}{0.8}-1}
 \label{equ:Ausgangsspannung_12V}
 \end{align}
-
+\todo{R39 = +-300 Ohm für ''optimal transient response'' erwähnen}
 Bei einem Widerstandsverhältnis von R39=301k$\Omega$ \& R40=21.5k$\Omega$ entspricht dies einer Ausgangsspannung von 12V. \cite[S.10]{monolithic_power_systems_mp24943_2011}
 
 Um einer Überspannung vorbeugen zu können, wird am Eingang Voltage-Overshoot (VO) ein Spannungsteiler implementiert. Diese wird am VO-Eingang mit einer Referenzspannung von 0.9V verglichen. Übersteigt die Spannung an VO die Referenzspannung von 0.9V, so wird der Regler ausgeschaltet, bis die Spannung wieder unter 0.9V fällt. Als maximale Ausgangsspannung wurde hierbei eine Spannung von 13V gewählt. Diese Wahl wurde getroffen, da die 12V ausschliesslich für die Ansteuerung der Pumpen verwendet wird und diese eine Spannung von 13V verkraften können ohne Schaden zu nehmen. Der Spannungsteiler wird gemäss Datenblatt mit der Formel \ref{equ:Vovp_12V} berechnet. \cite[S.10]{monolithic_power_systems_mp24943_2011} \cite{aiyimaindustrial_store_us_nodate}
@@ -34,6 +34,7 @@ Um einer Überspannung vorbeugen zu können, wird am Eingang Voltage-Overshoot (
 R35 &= \frac{R34}{\frac{Vovp}{Vovref}-1}
 \label{equ:Vovp_12V}
 \end{align}
+\todo{R39 = +-300 Ohm für ''to reduce power dissipation'' erwähnen}
 
 Bei einem Widerstandsverhältnis von R34=301k$\Omega$ \& R35=22k$\Omega$ entspricht dies einer Überspannungsschutzschwelle von 13.21V. \cite{mouser_mp24943dn-lf_nodate} \cite[S.10]{monolithic_power_systems_mp24943_2011}
 

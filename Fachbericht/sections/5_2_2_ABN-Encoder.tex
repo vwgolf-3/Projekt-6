@@ -10,7 +10,7 @@ Nebst der 5V-Spannungsversorgung sind die Signalleitungen auf den Encoder gefüh
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
-Der ABN-Encoder kann wie gesagt eine einstellbar genaue Genauigkeit ausgeben. Dies zeigt sich in einer Form der Bitanzahl pro Umdrehung. Die maximale Auflösung liegt bei 4096 Schaltvorgänge pro Umdrehung, was einer Auflösung von 12 Bit entspricht. Dies ist wichtig für die Implementierung in den FOC-Treiber. Die Ausgangspins sind normale Header-Pins. Der Spannungsausgang wurde mit einem Stützkondesator C89 versehen.
+Der ABN-Encoder kann wie gesagt eine einstellbar genaue Genauigkeit ausgeben. Dies zeigt sich in einer Form der Bitanzahl pro Umdrehung. Die maximale Auflösung liegt bei 4096 Schaltvorgänge pro Umdrehung, was einer Auflösung von 12 Bit entspricht. Dies ist wichtig für die Implementierung in den FOC-Treiber. Es ist darauf zu achten, dass dies die Auflösung einer Signalleitung ist. In der TMCL-IDE entspricht dies 8192PPR (A \& B = 2 '$\cdot$ 4096Bits). Die Ausgangspins sind normale Header-Pins. Der Spannungsausgang wurde mit einem Stützkondesator C89 versehen.
 
 %\begin{figure}[h!]
 %	\centering

@@ -1,10 +1,10 @@
 \subsubsection{USB-B}\label{subsubsec:USB-B}
 
-Im Folgenden wird der in Kapitel \ref{subsec:Programmierschnittstellen} erwähnte USB-Anschluss beschrieben. Es handelt sich dabei um einen USB-UART-Converter mit zugehöriger Beschaltung wie z.B USB-B-Buchse, ESD-Schutz und weitere passive Komponenten.
+Im Folgenden wird die Hardware für den USB-Anschluss beschrieben. Es handelt sich dabei um einen USB-UART-Converter mit zugehöriger Beschaltung wie z.B USB-B-Buchse, ESD-Schutz und weitere passive Komponenten.
 
 \paragraph{Schema}\mbox{}
 
-Auf dem Schema ist die USB-Buchse mit J2 gekennzeichnet. Der dazugehörige ESD-Schutz bildet die Diodenschaltung D2-D4. Der Converter hat die Bezeichnung IC2. Die Widerstände R12 und R13 bilden einen Spannungsteiler, welcher an die 5V-Eingangsspannung der Buchse und an dem VBUS-Eingang des Converters hängt. Die Widerstände R16, R19, R10 und R11 reduzieren den Kurzschlussstrom zwischen dem USB-UART-Converter und dem ESP32. Der Widerstand R14 ist ein Pull-Up Widerstand, welcher verhindert, dass der Reset-Pin einen ungewünschten Zustand annimmt. Die Widerstände R17 und R18 reduzieren den Strom durch die LED's.
+Auf dem Schema ist die USB-Buchse mit J2 gekennzeichnet. Der dazugehörige ESD-Schutz bildet die Diodenschaltung D2-D4. Der Converter hat die Bezeichnung IC2. Die Widerstände R12 und R13 bilden einen Spannungsteiler, welcher an die 5V-Eingangsspannung der Buchse und an dem VBUS-Eingang des Converters hängt. Die Widerstände R16, R19, R10 und R11 reduzieren den Kurzschlussstrom zwischen dem USB-UART-Converter und dem Target (ESP32 oder Atmega2560). Der Widerstand R14 ist ein Pull-Up Widerstand, welcher verhindert, dass der Reset-Pin einen ungewünschten Zustand annimmt. Die Widerstände R17 und R18 reduzieren den Strom durch die LED's.
 
 \begin{figure}[h!]
 	\centering

@@ -2,12 +2,12 @@
 \subsection{Mikrocontroller}
 \label{subsec:Inbetriebnahme_Mikrocontroller}
 
-Um das Anwenderprogramm auf dem Mikrocontroller (\textmu C) speichern zu können, ist es am angenehmsten, wenn dies direkt aus der Programmierumgebung geschehen kann. Als Programmierumgebung wird aufgrund des AVR-Chips die Software Atmel Studio 7.0 ausgewählt.
+Um das Anwenderprogramm auf dem Mikrocontroller speichern zu können, ist es am angenehmsten, wenn dies direkt aus der Programmierumgebung geschehen kann. Als Programmierumgebung wird aufgrund des AVR-Chips die Software Atmel Studio 7.0 ausgewählt.
 
-Atmel Studio kompiliert den geschriebenen C Code in Maschinencode und schreibt diesen in ein HEX-File. Das HEX-File wird von einem Programmiertool namens AVRdude hochgeladen.\cite{verschiedene_autoren_avrdude_2019}
+Atmel Studio kompiliert den geschriebenen C-Code in Maschinencode und schreibt diesen in ein HEX-File. Das HEX-File wird von einem Programmiertool namens AVRdude hochgeladen.\cite{verschiedene_autoren_avrdude_2019}
 
 
-Damit der Mikrocontroller sich Programmieren lässt, müssen einige Grundeinstellungen vorgenommen werden. Dazu gehört das Setzen der Fuse- und Lock-Bits sowie das Schreiben des Bootloaders. Eine detaillierte Beschreibung, wie diese gesetzt wurden, wird im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} erklärt. Aus der Beschreibung folgt für die Fuse- und Lock-Bits die Einstellungen gemäss Tabelle \ref{tab:Fuse_und_Lock-Bits}.
+Damit der Mikrocontroller sich programmieren lässt, müssen einige Grundeinstellungen vorgenommen werden. Dazu gehört das Setzen der Fuse- und Lock-Bits sowie das Schreiben des Bootloaders. Eine detaillierte Beschreibung, wie diese gesetzt wurden, ist im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} zu finden. Aus der Beschreibung folgt für die Fuse- und Lock-Bits die Einstellungen gemäss Tabelle \ref{tab:Fuse_und_Lock-Bits}.
 
 \begin{table}[h!]
 \center
@@ -22,15 +22,15 @@ Damit der Mikrocontroller sich Programmieren lässt, müssen einige Grundeinstel
 \label{tab:Fuse_und_Lock-Bits}
 \end{table}
 
-Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Eine ausführliche Anleitung findet sich auf \textit{instructables.com}. \cite{vidmofollow_turn_2017}
+Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Eine ausführliche Anleitung findet sich auf \textit{https://www.instructables.com/}. \cite{vidmofollow_turn_2017}
 
-Von seitens Software muss AVRdude in Atmel Studio eingebunden werden, was im folgenden Kapitel erklärt wird.
+AVRdude kann in Atmel Studio eingebunden werden, was im folgenden Kapitel erklärt wird.
 
 \subsubsection{AVRdude in Atmel Studio einbinden}\label{subsubsec:avrdude_in_atmelstudio_einbinden}
 
 Von \textit{http://savannah.gnu.org/} kann eine Datei heruntergeladen welche \textcolor{blue}{avrdude-6.3-mingw32.zip} heisst. Der gleichnahmige Ordner wird im Ordner \textcolor{blue}{C:\textbackslash Tools} gespeichert. \cite{savannahgnuorg_index_2016}
 
-Nachdem dies gemacht wurde, wird in AtmelStudio der Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählt und ein neues Tool hinzugefügt. Im Falle des Atmega2560 geben wir die Commands gemäss Tabelle \ref{tab:AVRdude_commands} ein:
+Nachdem dies gemacht wurde, wird in AtmelStudio der Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählt und ein neues Tool hinzugefügt. Im Falle des Atmega2560 werden die Commands gemäss Tabelle \ref{tab:AVRdude_commands} eingegeben:
 
 \begin{table}[h!]
 \center
@@ -60,7 +60,8 @@ Es wurde darauf geachtet, dass der AVR mkII ausgewählt wurde und der Gerätecod
 
 \item Als Zweites wurde der Bootloader installiert. Dies geschah unter:\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Memory} \newline
-Hier wird ein stk500v2-BL verwendet.\newline
+Hier wird ein stk500v2-BL verwendet, welcher im folgenden Ordner zu finden ist:\newline
+\textcolor{magenta}{Software\textrightarrow Atmega\textrightarrow 6\_HEX-Files \textrightarrow 1\_Bootloader\_STK500V2}\newline
 %Dies kann aber auch abweichen. (Entsprechende Anpassungen nötig, nicht Teil dieses Projektes.)\newline
 \item Als Drittes wurden die Lock-Bits gesetzt unter:\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Lock-Bits}\newline
@@ -70,6 +71,6 @@ Diese sollten nicht mehr geändert werden. Bei jedem Brennen des BL wieder zu se
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow PartyMixer}\newline
 \end{enumerate}
 
-Wird der Mikrocontroller per Reset-Button neu gestartet, dauert es aufgrund des Bootloaders 2s, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Danach startet das Programm, falls keine Daten kommen.
+Befindet sich ein Bootloader im Flash-Speicher, dauert es nach einem Reset zwei Sekunden, bis der Programmcode gestartet wird. Während dieser Zeit wartet der Bootloader auf einkommende Daten, welche auf den Flash-Speicher geschrieben werden sollen. Falls keine Daten kommen, wird das Anwenderprogramm gestartet (sofern ein Programm hochgeladen wurde).
 
-Sämtliche Tabellen aus dem Datenblatt und Screenshots aus Programmierumgebung, welche mit dem Setzen der Fuse- und Lock-Bits oder Programmierung des \textmu C zusammenhängen, sind im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} angefügt.
+Sämtliche Tabellen aus dem Datenblatt und Screenshots aus Programmierumgebung, welche mit dem Setzen der Fuse- und Lock-Bits oder Programmierung des Mikrocontrollers zusammenhängen, sind im Anhang Kapitel \ref{Appendix:Inbetriebnahme_uC} angefügt.

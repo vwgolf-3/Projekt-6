@@ -17,14 +17,14 @@ OCR_{nA} = \frac{f_{clk_{I/O}}}{N \cdot f_{OC_{nA}PWM}} - 1 = \frac{16MHz}{1 \cd
 
 Damit das Hochzählen des Counters nach erreichen von OCRnA wieder bei null beginnt, wird der Timer im CTC-Mode betrieben. Das Register OCRnA stellt so den maximalen Wert des Counters dar. Dies ist in Abbildung \ref {fig:Timer_CTC_Mode} und \ref{fig:Timer_CTC_Timing_Diagram} zu sehen.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/Timer_CTC_Mode}
 	\caption{Timing-Diagramm CTC-Mode. OCnx nicht angeschlossen, Pin wird softwaremässig getoggelt.\cite[S.145]{atmel_atmel_2014}}
 	\label{fig:Timer_CTC_Mode}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/Timer_CTC_Timing_Diagram}
 	\caption{Timing-Diagramm CTC-Mode. OCnx nicht angeschlossen, Pin wird softwaremässig getoggelt.\cite[S.146]{atmel_atmel_2014}}
@@ -33,7 +33,7 @@ Damit das Hochzählen des Counters nach erreichen von OCRnA wieder bei null begi
 
 Der Duty-Cycle wird Prozentual zum OCRnA-Register gesetzt. Wird für den berechneten Wert ein Duty-Cycle von 50\% vorgegeben, ergibt sich für das OCRnB-Register den Wert $(1600 / 2) -1 \approx 799$. So wird nach der Hälfte der Hochzählzeit ein zweiter Compare-Interrupt ausgelöst, welcher jedoch kein Einfluss auf das Counter-Register hat. Das Verhalten ist dann wie im Fast-PWM-Mode, welcher in Abbildung \ref{fig:Timer_Fast_PWM_Timing_Diagram} zu sehen ist. Nur dass anstelle von toggeln des OCnx-Pins softwaremässig ein Pin getoggelt wird. Die Inbetriebnahme hat gezeigt, dass ein Duty-Cycle von 95\% nicht überschritten werden sollte.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/Timer_Fast_PWM_Timing_Diagram}
 	\caption{Timing-Diagramm Fast-PWM-Mode. OCnx nicht angeschlossen, Pin wird softwaremässig getoggelt.\cite[S.147]{atmel_atmel_2014}}

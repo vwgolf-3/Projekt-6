@@ -10,7 +10,7 @@ Vorgehen:
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow PartyMixer}\\
 
 \item Programm für Kommunikation über die serielle Schnittstelle downloaden (z.B HTerm 0.8.1beta.)\cite{hammer_hterm_nodate}\\
-\item Verbindung mit Mikrocontroller herstellen und Neustart über Button DTR auslösen.\\
+\item Verbindung mit Mikrocontroller herstellen und Neustart über Button DTR auslösen. Damit wird der DTR-Pin getoggelt und der Mikrocontroller neu gestartet\\
 
 \begin{table}[h!]
 \center
@@ -24,6 +24,6 @@ Stop & = & 1 \\
 
 Der Port \textcolor{red}{COMx} ist aus dem Geräte-Manager zu entnehmen. Es ist derselbe Port, welcher verwendet wird um die Software hochzuladen.\\
 
-\item Ob eine SD-Karte gefunden wurde ist erkennbar, wenn im seriellen Display ''Boot...OK!'' steht. Mit der Testapplikation wird bei erfolgreichem Booten ein File namens \textit{TEST.txt} erstellt mit dem Inhalt \textit{Hallo File}.
+\item Wird eine SD-Karte gefunde, wird im seriellen Display ''Boot...OK!'' angezeigt. Mit der Testapplikation wird bei erfolgreichem Booten ein File namens \textit{TEST.txt} mit dem Textinhalt \textit{Hallo File} erstellt.
 
 \end{enumerate}

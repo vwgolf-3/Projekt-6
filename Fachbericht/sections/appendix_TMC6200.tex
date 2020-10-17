@@ -33,29 +33,33 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[angle=270,width=\textwidth]{graphics/1_komplett}
+	\includegraphics[angle=270,width=\textwidth]{graphics/2_komplett1}
 	\caption{Gesamtansicht Setup.}
+	\label{fig:2_komplett1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle=180,width=\textwidth]{graphics/2_komplett2}
+	\caption{Gesamtansicht Setup Wiring.}
 	\label{fig:1_komplett}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{graphics/1_Arduino}
+	\includegraphics[angle = 270,width=\textwidth]{graphics/2_Arduino}
 	\caption{Setup mit Fokus auf Arduino.}
-	\label{fig:1_Arduino}
+	\label{fig:2_Arduino}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[angle=180,width=\textwidth]{graphics/1_EVAL}
+	\includegraphics[angle = 180,width=\textwidth]{graphics/2_EVAL}
 	\caption{Setup mit Fokus auf TMC4674-EVAL.}
-	\label{fig:1_EVAL}
+	\label{fig:2_EVAL}
 \end{figure}
 
-\subsubsection{Inbetriebnahme Parameter}\label{Appendix:TMC6200_SPI}
-
-
-\subsubsection{Register}\label{Appendix:TMC6200_Register}
+\subsection{Register Gate-Treiber}\label{Appendix:TMC6200_Register}
 
 \begin{table}[H]
 \centering
@@ -116,14 +120,14 @@
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/TMC6200_EventTable_Beschreiben_Bild}
-\caption{Event-Table Inbetriebnahme TMC6200.}
+\caption{Event-Table Inbetriebnahme TMC6200 write.}
 \label{fig:TMC6200_EventTable_Beschreiben_Bild}
 \end{figure}
 
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/TMC6200_EventTable_Lesen_Bild}
-\caption{Event-Table Inbetriebnahme TMC6200.}
+\caption{Event-Table Inbetriebnahme TMC6200 read.}
 \label{fig:TMC6200_EventTable_Lesen_Bild}
 \end{figure}
 
@@ -132,13 +136,13 @@
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/TMC6200_Gate_Signal_H}
-\caption{Steuersignale PWM 48V von TMC6200 auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
+\caption{High-Steuersignale PWM 48V von TMC6200 auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
 \label{fig:TMC6200_Gate_Signal_H}
 \end{figure}
 
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/TMC6200_Gate_Signal_L}
-\caption{Steuersignale PWM 0V von TMC6200 auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
+\caption{Low-Steuersignale PWM 0V von TMC6200 auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
 \label{fig:TMC6200_Gate_Signal_L}
 \end{figure}

@@ -87,6 +87,8 @@ Der Pin IO0 gibt vor, ob das ESP32 vom internen SPI-flash bootet (IO0 = 1) oder 
 
 Über die Pins IO15 und IO5 kann das Übertragungsprotokoll des SDIO-Slaves festgelegt werden. Dabei kommt es darauf an, ob das Sampling auf eine fallende Flanke (IO15 = 0) oder steigende Flanke (IO15 = 1) geschehen soll, und ob der Output auf eine fallende Flanke (IO5 = 0) oder steigende Flanke (IO5 = 1) geschehen soll.
 
+\cite{espressif_systems_esp32_2020} \cite{various_contributors_espressifesptool_2020}
+
 \footnotetext[18]{Da das ESP32-WROOM-32U einen 3.3V SPI flash integriert hat, kann der MTDI nicht auf 1 gesetzt werden, wenn die Module aufgestartet sind.}
 \footnotetext{FF = Fallende Flanke, SF = Steigende Flanke}
 
@@ -125,6 +127,6 @@ Der Pin IO0 gibt vor, ob das ESP32 vom internen SPI-flash bootet (IO0 = 1) oder 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/ESP32_Webserver}
-	\caption{ESP32 als Host.}
+	\caption{ESP32 als Host (Browseransicht).}
 	\label{fig:ESP32_Webserver}
 \end{figure}

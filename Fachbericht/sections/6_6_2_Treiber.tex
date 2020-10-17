@@ -1,8 +1,8 @@
 \subsubsection{FOC-Treiber}
 \label{subsubsec:Inbetriebnahme_FOC_Treiber}
 
-Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop. Welche Register wie beschrieben werden, ist im Anhang Kapitel \ref{Appendix:TMC4671_Register} zu entnehmen. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich, welche im Softwareordner auf dem USB-Stick zu finden ist.
-
+Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop. Welche Register wie beschrieben werden, ist im Anhang Kapitel \ref{Appendix:TMC4671_Register} zu ersichtlich. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich, welche im Softwareordner auf dem USB-Stick zu finden ist.
+\todo{Abgabe USB-Stick/Github-Account ??}
 Das Setup, mit welchem der Treiber softwareseitig in Betrieb genommen wurde, ist im Anhang Kapitel \ref{Appendix:TMC4671_Setup} gezeigt.
 
 Vorgehen:
@@ -26,3 +26,5 @@ Vorgehen:
 
 \item SPI-Kommunikation und ausgehende Gate-Signale vom FOC-Treiber zum Gate-Treiebr mit Oszilloskop überprüfen. Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind die Messbilder zur SPI- Kommunikation zu finden und in Anhang \ref{Appendix:TMC4671_Gate_Ctrl} die Messbilder zur Gate-Control vom TMC4671 zum TMC6200.
 \end{enumerate}
+\todo{Abgabe USB-Stick/Github-Account ??}
+\todo{FOC-Treiber/TMC4671, Gate-Treiber/TMC6200, konsistenz?}

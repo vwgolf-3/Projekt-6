@@ -66,9 +66,9 @@ IO\_15 & <== & über Widerstand & === & CTS \\
 
 \subsubsection{Handshake}\label{Appendix:Handshake_ESP_Messung}
 
-Im Getting Started Guide vom ESP32 steht geschrieben, dass wenn während die beiden Pins IO0 und EN GND gezogen werden, das Modul in den Download-Modus versetzt wird, die Firmware über den UART-Port herunterlädt und diese in den Flash-Speicher schreibt. Um dies über die DTR- und RTS-Leitung machen zu können, braucht es eine zusätzliche Programmierlogik.
+Im Getting Started Guide vom ESP32 steht geschrieben, dass wenn während die beiden Pins IO0 und EN GND gezogen werden, das Modul in den Download-Modus versetzt wird, die Firmware über den UART-Port herunterlädt und diese in den Flash-Speicher schreibt. Um dies automatisch über die DTR- und RTS-Leitung machen zu können, braucht es eine zusätzliche Programmierlogik.
 
-Mit der Schaltung, wie sie in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} ersichtlich ist, kann das ESP32-Modul mit einer bestimmten Signalabfolge an den Leitungen DTR und RTS in diesen Download-Boot-Modus gesetzt werden. Die Auswirkung der Schaltung auf IO0 und den EN-Pin kann in Tabelle \ref{tab:Einfluss_Boot_Schaltung} entnommen werden.
+Mit der Schaltung, wie sie in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} ersichtlich ist, kann das ESP32-Modul mit einer bestimmten Signalabfolge an den Leitungen DTR und RTS in diesen Download-Boot-Modus gesetzt werden. Die Auswirkung der Schaltung auf IO0 und den EN-Pin kann aus Tabelle \ref{tab:Einfluss_Boot_Schaltung} entnommen werden.
 
 \begin{table}[H]
 \center
@@ -88,7 +88,7 @@ Mit der Schaltung, wie sie in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} ersi
 \hline
 \end{tabular}
 
-\caption{Strapping pins des ESP32 und deren Auswirkung auf den Boot- und Download-Modus beim aufstarten.}
+\caption{RTS- und DTR-Signale und deren Auswirkung auf IO0 und EN.}
 \label{tab:Einfluss_Boot_Schaltung}
 \end{table}
 
@@ -109,7 +109,7 @@ Bei der Interpretation des Codes ist darauf zu achten, dass die beiden Pins DTR 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/ESP32_Boot_Code}
-	\caption{Codeausschnitt aus dem Programmier-Tool. Auf diese Weise werden der DTR- und der RTS-Pin angesteuert während dem Programmiervorgang.}
+	\caption{Codeausschnitt aus dem Programmier-Tool \textit{esptool.py}. Auf diese Weise werden der DTR- und der RTS-Pin angesteuert während dem Programmiervorgang.}
 	\label{fig:ESP32_Boot_Code}
 \end{figure}
 
@@ -142,9 +142,16 @@ Schritt & Beschreibung & DTR & RTS & EN & IO0\\
 \begin{figure}[H]
 \center
 \includegraphics[width = 0.8\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
-\caption{Handshake zum Hochladen des Programmcodes auf das ESP32. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
+\caption{Handshake zum Hochladen des Programmcodes auf das ESP32. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR (Schritt 2 und 3).\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_2}
 \end{figure}
+
+
+In Kapitel \ref{sec:Inbetriebnahme_Programmierschnittstellen} wurde erwähnt, dass beim Handshake die Praxis der Theorie widerspricht. Eine Recherche ergab, dass einige User zum Ergebnis kamen wie bei der Inbetriebnahme. Nämlich, dass es nach dem Reset eine Zeit dauert, bis im Startprozess die Pins geprüft werden. Dazu gehört auch der Pin IO0. Somit ist es möglich, den Pin IO0 kurz nach dem Reset auf 0 zu ziehen.
+Im selben Forum wurde auch die in Abbildung \ref{fig:ESP32_Handshake_Forum} gezeigte Darstellung gefunden. Ein Kommentar weist darauf hin, das mit dem esptool.py der EN-Pin des ESP32 direkt auf RTS gehängt werden kann. So lassen sich die Zeitpunkte, zu der die Pins auf 0 sind, näher zusammenschieben. \cite{liudr_trying_2017}
+
+Die Messung nach dem Einlöten der Brücke bestätigt dies. Abbildung \ref{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1} zeigt, dass das Umschalten von EN und GPIO0 gleichzeitig passiert. Allerdings spielt der Kondensator jetzt nicht mehr so eine grosse Rolle, was auch nicht nötig ist. Auf das Hochladen des Codes hat die Brücke keinen Einfluss. Die Funktioniert wie bei der Schaltung ohne Brücke einwandfrei.
+
 
 \begin{figure}[H]
 \center
@@ -159,8 +166,3 @@ Schritt & Beschreibung & DTR & RTS & EN & IO0\\
 \caption{Handshake zum Hochladen des Programmcodes auf das ESP32. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.}
 \label{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
 \end{figure}
-
-Eine Recherche ergab, dass einige User zum Ergebnis kamen wie bei der Inbetriebnahme. Nämlich, dass es nach dem Reset eine Zeit dauert, bis im Startprozess die Pins geprüft werden. Dazu gehört auch der Pin IO0. Somit ist es möglich, den Pin IO0 kurz nach dem Reset auf 0 zu ziehen.
-Im selben Forum wurde auch die in Abbildung \ref{fig:ESP32_Handshake_Forum} gezeigte Darstellung gefunden. Ein Kommentar weist darauf hin, das mit dem esptool.py der EN-Pin des ESP32 direkt auf RTS gehängt werden kann. So lassen sich die Zeitpunkte, zu der die Pins auf 0 sind, näher zusammenschieben. \cite{liudr_trying_2017}
-
-Die Messung nach dem Einlöten der Brücke bestätigt dies. Abbildung \ref{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1} zeigt, dass das Umschalten von EN und GPIO0 gleichzeitig passiert. Allerdings spielt der Kondensator jetzt nicht mehr so eine grosse Rolle, was auch nicht nötig ist. Auf das Hochladen des Codes hat die Brücke keinen Einfluss. Die Funktioniert wie bei der Schaltung ohne Brücke einwandfrei.

@@ -1,12 +1,12 @@
 \subsubsection{ESP}
 \label{subsubsec:Inbetriebnahme_ESP}
 
-Die Inbetriebnahme des ESP32-WROOM-32U geschieht mit der Programmierumgebung Arduino IDE. Um diesen in Betrieb nehmen zu können, waren einige Einstellungen und Downloads nötig, welche dann in der Arduino IDE eingebunden werden mussten. Im Folgenden wird beschrieben, wie vorgegangen werden kann damit sich dieses im vorgegebenen Netz anmeldet und als Webhost dient. Es wurde getestet, ob bei Klicken auf ein Button im Explorer ein Event ausgelöst wird und ob die Kommunikation zwischen \textmu C und ESP funktioniert.
+Die Inbetriebnahme des ESP32-WROOM-32U geschieht mit der Programmierumgebung Arduino IDE. Um die Hardware in Betrieb nehmen zu können, waren einige Einstellungen und Downloads nötig, welche dann in der Arduino IDE eingebunden werden mussten. Im Folgenden wird beschrieben wie vorgegangen werden kann, damit sich dieses im vorgegebenen Netz anmeldet und als Webhost dient. Es wurde getestet, ob bei Klicken auf ein Button im Explorer ein Event ausgelöst wird und ob die Kommunikation zwischen Atmega2560 und ESP funktioniert.
 
 Folgende Schritte wurden befolgt:
 \begin{enumerate}
 \item Benötigte ESP32-Bibliotheken vom \textit{espressif}-Github-Account runterladen.\cite{grokhotkov_espressifarduino-esp32_2020} \newline
-\textcolor{orange}{Github search: espressif/arduino-esp32}
+\textcolor{orange}{Github search: espressif/arduino-esp32} \cite{grokhotkov_espressifarduino-esp32_2020}
 \newline
 %\item Dateien Entpacken und speichern unter:\newline
 %\textcolor{magenta}{C:\textbackslash Users\textbackslash ''Benutzer''\textbackslash Documents\textbackslash Arduino\textbackslash hardware\textbackslash espressif\textbackslash esp32}\newline
@@ -16,7 +16,7 @@ Folgende Schritte wurden befolgt:
 \textcolor{blue}{.../Dokumente/Arduino/hardware/espressif/esp32/\textit{(Inhalt: cores, docs, libraries, ...)}}\newline
 %\item Arduino IDE starten und Einbinden des ESP32-Dev-Kit's unter:\newline
 %\textcolor{blue} {Werkzeuge \textrightarrow Board \textrightarrow Boardverwalter \textrightarrow esp32} \newline
-Danach sollte das ESP32 Arduino erscheinen (in sketchbook). Dort kann nun das ESP32 Dev Module angewählt werden.\newline
+Danach sollte das ESP32 in der Arduino-IDE erscheinen (im sketchbook). Dort kann nun das ESP32 Dev Module angewählt werden.\newline
 \textcolor{blue} {Werkzeuge \textrightarrow Board}\newline
 %\item Arduino IDE starten und folgenden Reiter öffnen:\newline
 %\textcolor{blue}{Arduino IDE \textrightarrow Werkzeuge \textrightarrow Board}\newline
@@ -35,7 +35,7 @@ PSRAM & : & disabled\\
 Port & : & \textcolor{red}{COMx}\\
 \end{tabular}
 
-Wobei der Port \textcolor{red}{COMx} im Geräte-Manager ermittelt werden muss. Das ESP32 ist jetzt flashbar.\newpage
+Wobei der Port \textcolor{red}{COMx} im Geräte-Manager ermittelt werden muss. Das ESP32 ist jetzt computerseitig flashbar.\newpage
 
 \item Testprogramm aus dem Blog-Post von Randomnerdtutorials.com herunterladen, leicht modifizieren und hochladen. \cite{santos_esp32_2018}\newline
 \textcolor{blue}{Arduino IDE \textrightarrow Verify and Upload Button} \newline

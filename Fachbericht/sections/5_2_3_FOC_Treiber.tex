@@ -2,7 +2,7 @@
 \label{subsubsec:FOC-Treiber_TMC4671}
 
 %Wie dem Grobkonzept in Kapitel \ref{subsec:Blockschaldbild} entnommen werden kann, wird für die Ansteuerung des BLDC-Motors eine Steuerlogik (Motor Control Unit) benötigt, welche die Gate-Ctrl-Signale erzeugt. Dabei handelt es sich um den TMC4671.
-Der FOC-Treiber berechnet den Modulationsindex für die H-Brücke anhand des Drehmoments, der Geschwindigkeit oder der Position, welche der Mikrocontroller dem FOC-Treiber vorgibt. Als Feedback benötigt der FOC-Treiber den momentanen Strom durch zwei der drei Spulen und eine Information über die momentane Lage des Rotors. Die vom FOC-Treiber ausgehenden PWM-Leitungen gehen direkt auf den Gate-Treiber, welcher dann wiederum die MOSFETs ansteuert.
+Der FOC-Treiber berechnet den Modulationsindex für die Kommutierung der H-Brücke anhand des Drehmoments, der Geschwindigkeit oder der Position, welche der Mikrocontroller dem FOC-Treiber vorgibt. Als Feedback benötigt der FOC-Treiber den momentanen Strom durch zwei der drei Spulen und eine Information über die momentane Lage des Rotors. Die vom FOC-Treiber ausgehenden PWM-Leitungen gehen direkt auf den Gate-Treiber, welcher dann wiederum die MOSFETs ansteuert.
 %Der dritte Strom wird mit dem Knotengesetz berechnet. Da der BLDC in Stern geschaltet ist gilt:
 %\begin{equation}
 %I_U + I_V + I_W = 0
@@ -40,7 +40,7 @@ Im Folgenden werden kurz die Teilsysteme auf dem TMC4671-BOB beschrieben, welche
 
 %\subparagraph{Kommunikation Input (SPI)}
 
-Der SPI-Kommunikationseingang ist nicht speziell geschützt. Hier ist für das eigene Layout darauf zu achten, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4671 gewährleistet.
+Der SPI-Kommunikationseingang ist nicht speziell geschützt. Im Layout wurde darauf geachtet, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4671 gewährleistet.
 
 %\subparagraph{Ströme Input (ADC)}
 
@@ -52,7 +52,7 @@ Der Eingang zur Strommessung ist mit einem Tiefpass geschützt. Dieser hat die Z
 
 %\subparagraph{Encoder Input (ENC)}
 
-Um den Eingang der Encoder-Pins zu schützen, wird ein Schmitt-Trigger mit eingebautem Level-Shifter verwendet. Zudem wird mit dem Widerstandsnetzwerk ein entprellen der Encoder-Signale erreicht. Wird der Input auf 0V gezogen, so entlädt sich der Kondensator über die Widerstände R200-R202 mit der Zeitkonstante:
+Um den Eingang der Encoder-Pins zu schützen, wird ein Schmitt-Trigger mit eingebautem Level-Shifter verwendet. Zudem wird mit dem vorgeschalteten Kondensator- und Widerstandsnetzwerk ein Entprellen der Encoder-Signale erreicht. Wird der Input auf 0V gezogen, so entlädt sich der Kondensator über die Widerstände R200-R202 mit der Zeitkonstante:
 
 \begin{equation}
 \tau = R200 \cdot C204 = 1k\Omega \cdot 100pF = 100ns

@@ -1,17 +1,17 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'Fachbericht.blg'
-[103] biber-MSWIN32:322> INFO - === 
-[125] Biber.pm:415> INFO - Reading 'Fachbericht.bcf'
-[308] Biber.pm:943> INFO - Found 67 citekeys in bib section 0
-[329] Biber.pm:4256> INFO - Processing section 0
-[329] Utils.pm:75> INFO - Globbing data source 'literature/bibliography.bib'
-[340] Utils.pm:91> INFO - Globbed data source 'literature/bibliography.bib' to literature/bibliography.bib
-[356] Biber.pm:4455> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
-[369] bibtex.pm:1653> INFO - LaTeX decoding ...
-[625] bibtex.pm:1471> INFO - Found BibTeX data source 'literature/bibliography.bib'
-[990] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[990] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[990] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
-[990] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[1060] bbl.pm:652> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
-[1097] bbl.pm:755> INFO - Output to Fachbericht.bbl
+[90] biber-MSWIN32:322> INFO - === 
+[111] Biber.pm:415> INFO - Reading 'Fachbericht.bcf'
+[305] Biber.pm:943> INFO - Found 68 citekeys in bib section 0
+[326] Biber.pm:4256> INFO - Processing section 0
+[326] Utils.pm:75> INFO - Globbing data source 'literature/bibliography.bib'
+[337] Utils.pm:91> INFO - Globbed data source 'literature/bibliography.bib' to literature/bibliography.bib
+[353] Biber.pm:4455> INFO - Looking for bibtex format file 'literature/bibliography.bib' for section 0
+[362] bibtex.pm:1653> INFO - LaTeX decoding ...
+[577] bibtex.pm:1471> INFO - Found BibTeX data source 'literature/bibliography.bib'
+[919] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[920] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[920] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'de-DE'
+[920] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[982] bbl.pm:652> INFO - Writing 'Fachbericht.bbl' with encoding 'UTF-8'
+[1020] bbl.pm:755> INFO - Output to Fachbericht.bbl

@@ -1,4 +1,4 @@
-\subsubsection{Gate-Treiber}
+\subsubsection{Gate-Treiber, H-Brücke und BLDC}
 \label{subsubsec:Inbetriebnahme_Gate_Treiber}
 
 Der Gate-Treiber wird ebenfalls über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche in der TMCL-IDE verwendet wurden. Eine detaillierte Auflistung der beschriebenen Register ist im Anhang Kapitel \ref{Appendix:TMC6200_Register} zu finden. Mit den Standardparametern muss am Motoranschluss die selbe Signalfolge anliegen wie am sie auch am FOC-Treiber anliegen (Verstärkt durch H-Brücke). Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich.
@@ -30,3 +30,9 @@ Vorgehen:
 \item SPI-Kommunikation und Signale an der H-Brücke überprüfen. Im Anhang Kapitel \ref{Appendix:TMC6200_SPI} sind die Messbilder zur SPI-Kommunikation zu finden und in Anhang \ref{Appendix:TMC6200_Gate_Ctrl} die Bilder zur Gate-Ctrl vom TMC6200 zur H-Brücke.
 
 \end{enumerate}
+
+Bei der H-Brücke geht es darum, die Schaltsignale der MOSFETs zu überprüfen, bevor der Motor angeschlossen wird. Sind die Signale gut, kann der Motor angeschlossen werden.
+
+Das Setup mit dem Motor ist im Anhang Kapitel \ref{Appendix:H_Bruecke_Setup} und die Messung der Schaltsignale im Anhang Kapitel \ref{Appendix:H_Bruecke_Schaltsignale} ersichtlich.
+
+Wird jetzt der Motor angeschlossen, dreht sich dieser mit der vorgegebenen Geschwindigkeit.
