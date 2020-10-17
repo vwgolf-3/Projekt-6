@@ -36,6 +36,8 @@ int main(void)
         // Wird ein CR eingegeben durch dücken der Enter-Taste, inkrementiert die Position
         // Wird '0' eingegeben, so Springt der Motor auf Position 0 wie zu Beginn.
         // WIrd '1' eingegeben, so läuft ein Testskript durch 12 Positionen und dann wieder an die Startposition.
+        // WIrd '2' eingegeben, so wird die Variable Position = 1 gesetzt und die Software-Ramp in der Main-Routine aktiviert.
+		// Wird nur ein '\r' eingegeben, so springt der Motor jeweils um 10000000 Schritte.
 
         if ((Position == 1) && (ramp->ramp_enable == 0))
         {

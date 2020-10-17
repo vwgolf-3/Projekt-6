@@ -143,10 +143,6 @@
       <SubType>compile</SubType>
       <Link>SPI.c</Link>
     </Compile>
-    <Compile Include="libraries\TMC-API\tmc\ramp\LinearRamp1.c">
-      <SubType>compile</SubType>
-      <Link>LinearRamp1.c</Link>
-    </Compile>
     <Compile Include="libraries\TMC4671\tmc4671.c">
       <SubType>compile</SubType>
       <Link>tmc4671.c</Link>

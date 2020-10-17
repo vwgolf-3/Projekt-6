@@ -1,8 +1,7 @@
 \subsubsection{Software-Ramp}
 \label{subsubsec:Software_Ramp}
 
-Mit den in Kapitel \ref{subsubsec:Inbetriebnahme_ABN-Encoder} ermittelten Werte ist es nur schwierig realisierbar, den Schlitten mit einer kontrollierten Bewegung fortzubewegen. Um dennoch gezielt Positionen anzufahren, wurde eine Software-Ramp geschrieben. Diese berechnet den gewünschten Weg unter Berücksichtigung der maximalen Beschleunigung und der maximalen Geschwindigkeit. Durch eine periodische Iteration in Millisekunden-Schritten über die Zeit gibt die Ramp dem FOC-Treiber schrittweise die berechnete Position vor. Die Endposition, die Geschwindigkeit und die Beschleunigung der Ramp sind einfach skalierbar, was eine schnellere Einbettung in das Gesamtsystem ermöglicht.
-
+Mit den in Kapitel \ref{subsubsec:Inbetriebnahme_ABN-Encoder} ermittelten Werte ist es nur schwierig realisierbar, den Schlitten mit einer kontrollierten Bewegung fortzubewegen. Um dennoch gezielt Positionen anzufahren, wurde eine Software-Ramp geschrieben. Diese berechnet den gewünschten Weg unter Berücksichtigung der maximalen Beschleunigung und der maximalen Geschwindigkeit. Durch eine periodische Iteration in Millisekunden-Schritten über die Zeit gibt die Ramp dem FOC-Treiber schrittweise die berechnete Position vor. Die Endposition, die Geschwindigkeit und die Beschleunigung der Ramp sind einfach skalierbar, was eine schnellere Einbettung in das Gesamtsystem ermöglicht. Ein Matlab-Script war Inspiration für die Software Ramp. Da dieses Script Funktionen enthält, welche nur schwer mit dem Mikrocontroller umgesetzt werden können. Deshalb wurde zur Vorbereitung ein eigenes Matlab-Script geschrieben, mit welchem der Algorithmus in C übersetzt werden kann. Dieses ist im Anhang Kapitel \ref{Appendix:Ramp_Matlab_Script} zu sehen. Es ist zu beachten, dass der Jerk nicht in die Software des Atmega2560 implementiert wurde. \cite{bearee_gentrajm_2007}
 
 Vorgehen:
 \begin{enumerate}
@@ -12,8 +11,6 @@ Vorgehen:
 \item Software hochladen:\\
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 
-\item Über die serielle Schnittstelle können nun 
+\item Über die serielle Schnittstelle kann nun der Motor mit diversen Eingaben bewegt werden. Im File sind weitere Informationen zu finden.
 
 \end{enumerate}
-\todo{Cite: GenTraj}
-\todo{Fertig schreiben Ramp implementierung}

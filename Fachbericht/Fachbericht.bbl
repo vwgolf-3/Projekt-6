@@ -1350,6 +1350,45 @@
       \verb https://edoc.sub.uni-hamburg.de//haw/volltexte/2015/2884/pdf/Bachelorarbeit_Patrick_Stahl.pdf
       \endverb
     \endentry
+    \entry{bearee_gentrajm_2007}{online}{}
+      \name{author}{1}{}{%
+        {{hash=647a6ff0590664aa1466446e386c9aba}{%
+           family={Bearee},
+           familyi={B\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{647a6ff0590664aa1466446e386c9aba}
+      \strng{fullhash}{647a6ff0590664aa1466446e386c9aba}
+      \strng{bibnamehash}{647a6ff0590664aa1466446e386c9aba}
+      \strng{authorbibnamehash}{647a6ff0590664aa1466446e386c9aba}
+      \strng{authornamehash}{647a6ff0590664aa1466446e386c9aba}
+      \strng{authorfullhash}{647a6ff0590664aa1466446e386c9aba}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Trajectory generation for point to point motion with velocity, acceleration, jerk and snap constrain}
+      \field{day}{18}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{title}{{GenTraj}.m}
+      \field{urlday}{17}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\LQNB4VIM\\15310-gentraj-m.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://de.mathworks.com/matlabcentral/fileexchange/15310-gentraj-m
+      \endverb
+      \verb{url}
+      \verb https://de.mathworks.com/matlabcentral/fileexchange/15310-gentraj-m
+      \endverb
+    \endentry
     \entry{geisler_was_2018}{online}{}
       \name{author}{1}{}{%
         {{hash=3357c8f7b4d30351aa7226de42eb6188}{%
@@ -1746,8 +1785,8 @@
       \strng{authornamehash}{f2903832e48ccc2033b555c8c6ab10c2}
       \strng{authorfullhash}{f2903832e48ccc2033b555c8c6ab10c2}
       \field{extraname}{3}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Smarter Shopping, Better Living! Aliexpress.com}

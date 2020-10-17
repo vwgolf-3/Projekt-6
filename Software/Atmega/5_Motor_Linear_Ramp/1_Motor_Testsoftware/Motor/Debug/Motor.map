@@ -58,8 +58,6 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(pow.o) (log)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(modf.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(exp.o) (modf)
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
-                              LinearRamp1.o (__mulsi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
                               ramp1.o (__divmodhi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodsi4.o)
@@ -189,73 +187,6 @@ Discarded input sections
  .data          0x00000000        0x0 SPI.o
  .bss           0x00000000        0x0 SPI.o
  COMMON         0x00000000        0x2 SPI.o
- .text          0x00000000        0x0 LinearRamp1.o
- .data          0x00000000        0x0 LinearRamp1.o
- .bss           0x00000000        0x0 LinearRamp1.o
- .text.tmc_ramp_linear_init
-                0x00000000       0x6c LinearRamp1.o
- .text.tmc_ramp_linear_set_enabled
-                0x00000000        0x6 LinearRamp1.o
- .text.tmc_ramp_linear_set_maxVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_targetPosition
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_rampPosition
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_targetVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_rampVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_acceleration
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_mode
-                0x00000000        0x6 LinearRamp1.o
- .text.tmc_ramp_linear_set_homingDistance
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_set_stopVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_enabled
-                0x00000000        0x6 LinearRamp1.o
- .text.tmc_ramp_linear_get_maxVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_targetPosition
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_rampPosition
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_targetVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_rampVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_acceleration
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_dx
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_state
-                0x00000000        0x6 LinearRamp1.o
- .text.tmc_ramp_linear_get_mode
-                0x00000000        0x6 LinearRamp1.o
- .text.tmc_ramp_linear_get_homingDistance
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_get_stopVelocity
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_reset_dx
-                0x00000000        0xc LinearRamp1.o
- .text.tmc_ramp_linear_compute_velocity
-                0x00000000      0x22e LinearRamp1.o
- .text.tmc_ramp_linear_compute_position
-                0x00000000      0x28a LinearRamp1.o
- .text.tmc_ramp_linear_compute
-                0x00000000       0x2e LinearRamp1.o
- .debug_info    0x00000000      0x83a LinearRamp1.o
- .debug_abbrev  0x00000000      0x156 LinearRamp1.o
- .debug_loc     0x00000000      0x5ea LinearRamp1.o
- .debug_aranges
-                0x00000000       0xf0 LinearRamp1.o
- .debug_ranges  0x00000000       0xe0 LinearRamp1.o
- .debug_line    0x00000000      0x55a LinearRamp1.o
- .debug_str     0x00000000      0x6dd LinearRamp1.o
- .comment       0x00000000       0x31 LinearRamp1.o
- .debug_frame   0x00000000      0x25c LinearRamp1.o
  .text          0x00000000        0x0 tmc4671.o
  .data          0x00000000        0x0 tmc4671.o
  .bss           0x00000000        0x0 tmc4671.o
@@ -497,22 +428,6 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(modf.o)
  .text.avr-libc.fplib
                 0x00000000       0x68 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(modf.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc.mul
-                0x00000000       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc.div
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc.prologue
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc.builtins
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc.fmul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
- .text.libgcc.fixed
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_mulsi3.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o)
@@ -804,7 +719,6 @@ LOAD ring_buffer.o
 LOAD ramp1.o
 LOAD Software_SPI.o
 LOAD SPI.o
-LOAD LinearRamp1.o
 LOAD tmc4671.o
 LOAD TMC6200.o
 LOAD UART.o
