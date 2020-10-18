@@ -37,9 +37,11 @@ void devices_init(void)
     nextion_setText("fehlertxt", "SD-Initialisieren");
     SD_init();                                           // SD-Karte initialisieren
 
-    initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
+
+	// Als erstes wird der Gate-Treiber initialisiert, dann der FOC-Treiber
+	
     initTMC6200();                                          // Gate-Treiber initialisieren
-	encoder_testdrive();
+	initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 }
 
 void speicher_init()
@@ -69,12 +71,12 @@ void ramp_init(void)
 
 void periodic_jobs(linear_ramp_t * ramp)
 {
-//     check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
-	computeRamp(ramp);
-    if (check_Communication_Input_UART_1())             // Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
-    {
-	    proceed_Communication_INPUT_UART_1();               // Vollständige Übertragung des Displays verarbeiten
-    }
+    check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
+// 	computeRamp(ramp);
+//     if (check_Communication_Input_UART_1())             // Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+//     {
+// 	    proceed_Communication_INPUT_UART_1();               // Vollständige Übertragung des Displays verarbeiten
+//     }
 }
 
 void heartbeat_LED(void)

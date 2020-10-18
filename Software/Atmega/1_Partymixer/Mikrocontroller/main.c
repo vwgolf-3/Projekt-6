@@ -28,7 +28,8 @@ int main(void)
     speicher_init();
 
     ramp_init();
-    ramp_pwm_init();
+	
+//     ramp_pwm_init();
 
     Position = 0;
     compute = 0;

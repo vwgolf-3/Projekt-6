@@ -1304,9 +1304,6 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
     // Setzen Pumpenskalierung
     ptr = set_prp(ptr, fuellmenge);
 
-    tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION,              0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-    tmc4671_switchToMotionMode(0, TMC4671_MOTION_MODE_POSITION);
-
     // Aktueller Standort ist Beginn
     tmc4671_setActualPosition(0,0);
 
@@ -1322,11 +1319,8 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         if (tmp_zut_Maschine_actual->menge > 0)
         {
 
-
             // Lese aktuelle Position Schlitten aus
             val = (float)tmc4671_getActualPosition(0)/1000;
-
-
 
             // Berechne Position der Pumpe
             position_der_pumpe = tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
@@ -1334,6 +1328,8 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
             /*
                          debug_message_1(val, val2);
             */
+
+
 
 
             // Fahre an berechnete Position

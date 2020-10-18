@@ -95,8 +95,8 @@ void tmc40bit_writeInt(unsigned int debug_message, unsigned char address, unsign
     // Transmit address and data
     for (int count = 0 ; count < 5; count ++)
     {
-//         softspi_write_uint8(tbuf[count]);
-     spi_transmit(tbuf[count]);
+        softspi_write_uint8(tbuf[count]);
+//      spi_transmit(tbuf[count]);
     }
 
     // CS TMC6200 HIGH

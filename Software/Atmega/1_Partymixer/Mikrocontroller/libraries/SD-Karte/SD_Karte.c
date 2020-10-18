@@ -122,7 +122,6 @@ void readFile(uint8_t * file_name)
 	// read file complete and print via uart!
 	if( MMC_FILE_OPENED == ffopen(file_name,'r') )
 	{
-		Uart_Transmit_IT_PC((char *)fat.sector);
 		ffclose();
 	}
 }

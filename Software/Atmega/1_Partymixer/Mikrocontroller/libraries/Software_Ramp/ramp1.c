@@ -251,6 +251,7 @@ void ramp_pwm_init(void)
 	TCCR2B |= (1 << CS22);
 	TIMSK2 |= (1 << OCIE2A);
 	OCR2A = 250;
+	sei();
 }
 
 ISR(TIMER2_COMPA_vect)
