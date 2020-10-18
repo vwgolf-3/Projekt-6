@@ -37,11 +37,9 @@ void devices_init(void)
     nextion_setText("fehlertxt", "SD-Initialisieren");
     SD_init();                                           // SD-Karte initialisieren
 
-//     initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
-//     initTMC6200();                                          // Gate-Treiber initialisieren
-//     read_registers_TMC6200();
-//     read_registers_TMC4671();
-//     encoder_testdrive();
+    initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
+    initTMC6200();                                          // Gate-Treiber initialisieren
+	encoder_testdrive();
 }
 
 void speicher_init()

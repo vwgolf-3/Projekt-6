@@ -29,46 +29,46 @@ Getraenk.d Getraenk.o: ../libraries/Cocktail_functions/Getraenk.c \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/Main_Func.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../UART/UART.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\api_header.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Config.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Constants.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Types.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\api_header.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Config.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Constants.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Macros.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Bits.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\CRC.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\RegisterAccess.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Macros.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Bits.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\CRC.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\RegisterAccess.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Register.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Constants.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\spi\spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\software_spi\software_spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\spi\spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\software_spi\software_spi.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../LED/LED.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc4671\tmc4671.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\sd_karte.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc_config.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\sd_karte.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\mmc_config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\file.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h \
- c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\file.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\fat.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\mmc.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h \
+ c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\lists\lists.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../../libraries/UART/UART.h \
  ../libraries/Cocktail_functions/../Cocktail_functions/../TMC4671/TMC4671.h \
@@ -141,85 +141,85 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../UART/UART.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\api_header.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\api_header.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Config.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Config.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Constants.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Constants.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Types.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Macros.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Macros.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\Bits.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\Bits.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\CRC.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\CRC.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\RegisterAccess.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\RegisterAccess.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Register.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Constants.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc-api\tmc\helpers\constants.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC4671/TMC4671_Fields.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\spi\spi.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\software_spi\software_spi.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\spi\spi.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\spi\spi.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\software_spi\software_spi.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\software_spi\software_spi.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../LED/LED.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\utils\pin_defs.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\utils\pin_defs.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\tmc4671\tmc4671.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\tmc4671\tmc4671.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\sd_karte.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\sd_karte.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc_config.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\mmc_config.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\file.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\file.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\fat.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\fat.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\sd-karte\mmc.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\sd-karte\mmc.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\uart\uart.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\uart\uart.h:
 
-c:\users\kimsc\documents\github\projekt_6\software\atmega\1_firmware\mikrocontroller\libraries\lists\lists.h:
+c:\users\kimsc\documents\github\projekt_6\software\atmega\1_partymixer\mikrocontroller\libraries\lists\lists.h:
 
 ../libraries/Cocktail_functions/../Cocktail_functions/../Nextion_Display/../Main_functions/../Cocktail_functions/Getraenk.h:
 
