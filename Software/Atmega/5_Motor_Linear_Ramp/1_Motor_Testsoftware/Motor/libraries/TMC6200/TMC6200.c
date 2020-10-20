@@ -27,7 +27,7 @@ int tmc6200_readInt(uint8_t debug_message, uint8_t address)
 
 	// write address
 	spi_transmit(address);
-	
+
 	// read 4 Bytes data
 	for(int k = 1 ; k<5 ; k++)
 	{
@@ -137,24 +137,28 @@ void tmc6200_writeInt(uint8_t debug_message, uint8_t address, uint32_t value)
 	// CS TMC6200 LOW
 	enable_Slave(TMC6200);
 	
-	// Transmit address and data
-	spi_transmit_IT((unsigned char *)tbuf, 5, TMC6200);
+    // Transmit address and data
+    for (int count = 0 ; count < 5; count ++)
+    {
+//          softspi_write_uint8(tbuf[count]);
+	    spi_transmit(tbuf[count]);
+    }
 	
 	// CS TMC6200 HIGH
 	disable_Slave(TMC6200);
 }
 
 void initTMC6200(void)
-{
-	EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
-	_delay_ms(100);
-	
-	tmc6200_writeInt(0, TMC6200_GCONF, 0x00000010);		// current amplification: 10
-	tmc6200_writeInt(0, TMC6200_GSTAT, 0x00000000);
-	tmc6200_writeInt(0, TMC6200_OTP_PROG, 0x00000000);     //
-	tmc6200_writeInt(0, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
-	tmc6200_writeInt(0, TMC6200_SHORT_CONF, 0x13010606);	// default
-	tmc6200_writeInt(0, TMC6200_DRV_CONF, 0x00080004);		// DRVSTRENGTH = 2 (medium), BBMCLKS: 4
+{	
+	tmc6200_writeInt(1, TMC6200_GCONF, 0x00000010);		// current amplification: 10
+	tmc6200_writeInt(1, TMC6200_GSTAT, 0x00000000);
+	tmc6200_writeInt(1, TMC6200_OTP_PROG, 0x00000000);     //
+	tmc6200_writeInt(1, TMC6200_FACTORY_CONF, 0x0000000F); // clock frequency: 12MHz
+	tmc6200_writeInt(1, TMC6200_SHORT_CONF, 0x13010606);	// default
+	tmc6200_writeInt(1, TMC6200_DRV_CONF, 0x00000004);		// DRVSTRENGTH = 2 (medium), BBMCLKS: 4
+	read_registers_TMC6200();
+		EN_TMC6200_PORT |= EN_TMC6200_BIT;						// Enable TMC6200 (Active High)
+
 }
 
 void read_registers_TMC6200(void)

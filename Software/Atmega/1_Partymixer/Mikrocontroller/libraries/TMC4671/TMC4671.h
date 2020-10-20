@@ -20,6 +20,7 @@
 #include "../SPI/SPI.h"
 #include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
+void encoder_testdrive(void);
 
 // SPI-Wrapper
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4);

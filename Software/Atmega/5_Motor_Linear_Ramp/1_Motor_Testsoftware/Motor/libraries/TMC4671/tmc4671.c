@@ -7,9 +7,7 @@
 #include "TMC4671.h"
 
 
-//************************************************************//
-// SPI
-//************************************************************//
+// ===>>SPI-Wrapper
 
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4)
 {
@@ -88,7 +86,7 @@ void tmc40bit_writeInt(unsigned int debug_message, unsigned char address, unsign
         Uart_Transmit_IT_PC("\r");
     }
 
-
+    cli();
     // CS TMC6200 LOW
     enable_Slave(TMC4671);
 
@@ -96,11 +94,11 @@ void tmc40bit_writeInt(unsigned int debug_message, unsigned char address, unsign
     for (int count = 0 ; count < 5; count ++)
     {
         softspi_write_uint8(tbuf[count]);
-//      spi_transmit(tbuf[count]);
     }
 
     // CS TMC6200 HIGH
     disable_Slave(TMC4671);
+    sei();
 }
 
 int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
@@ -117,22 +115,21 @@ int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
     rbuf[0] = (char)address;
 
     // CS TMC6200 LOW
+    cli();
     enable_Slave(TMC4671);
 
     // write address
-//     softspi_write_uint8(address);
- spi_transmit(address);
+    softspi_write_uint8(address);
 
     // read 4 Bytes data
     for(int k = 1 ; k<5 ; k++)
     {
-//         rbuf[k] = softspi_read_uint8();
-     rbuf[k] = spi_receive();
+        rbuf[k] = softspi_read_uint8();
     }
 
     // CS TMC600 HIGH
     disable_Slave(TMC4671);
-
+    sei();
     // Generate uint32_t return value
     value |= rbuf[1];
     value <<= 8;
@@ -180,54 +177,86 @@ int32_t tmc40bit_readInt(unsigned int debug_message, unsigned char address)
 }
 
 
-//************************************************************//
-// Init
-//************************************************************//
 void initTMC4671_Openloop(void)
 {
-	uint8_t deb = 1;
-	// Motor type &  PWM configuration
-	tmc4671_writeInt(deb, TMC4671_PWM_POLARITIES, 0x00000000);
-	tmc4671_writeInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
-	tmc4671_writeInt(deb, TMC4671_PWM_MAXCNT, 0x00000F9F);
-	tmc4671_writeInt(deb, TMC4671_PWM_BBM_H_BBM_L, 0x00001919);
-	tmc4671_writeInt(deb, TMC4671_PWM_SV_CHOP, 0x00000007);
+// Motor type &  PWM configuration
+    tmc4671_writeInt(0, TMC4671_PWM_POLARITIES, 0x00000000);
+    tmc4671_writeInt(0, TMC4671_MOTOR_TYPE_N_POLE_PAIRS, 0x00030003);
+    tmc4671_writeInt(0, TMC4671_PWM_MAXCNT, 0x00000F9F);
+    tmc4671_writeInt(0, TMC4671_PWM_BBM_H_BBM_L, 0x00001919);
+    tmc4671_writeInt(0, TMC4671_PWM_SV_CHOP, 0x00000007);
 
-	// ADC configuration
-	tmc4671_writeInt(0, TMC4671_ADC_I_SELECT, 0x24000100);
-	tmc4671_writeInt(0, TMC4671_dsADC_MCFG_B_MCFG_A, 0x00100010);
-	tmc4671_writeInt(0, TMC4671_dsADC_MCLK_A, 0x20000000);
-	tmc4671_writeInt(0, TMC4671_dsADC_MCLK_B, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_dsADC_MDEC_B_MDEC_A, 0x014E014E);
-	tmc4671_writeInt(0, TMC4671_ADC_I0_SCALE_OFFSET, 0xFF0080CF);
-	tmc4671_writeInt(0, TMC4671_ADC_I1_SCALE_OFFSET, 0xFF008E04);
+// Open loop settings
+    tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
+    tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
+    tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
 
-	// Open loop settings
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFFB);
+// Feedback selection
+    tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
+    tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
 
-	// Feedback selection
-	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
+// ===== Open loop test drive =====
 
-	// ===== Open loop test drive =====
+// Switch to open loop velocity mode
+    tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
 
-	// Switch to open loop velocity mode
-	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
+// Rotate right
+    tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
+    _delay_ms(2000);
 
-	// Rotate right
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
-	_delay_ms(2000);
+// Rotate left
+    tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
+    _delay_ms(4000);
 
-	// Rotate left
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
-	_delay_ms(4000);
+// Stop
+    tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
+    _delay_ms(2000);
+    tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
+}
 
-	// Stop
-	tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
-	_delay_ms(2000);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);
+void read_registers_TMC4671(void)
+{
+    uint8_t deb = 1;
+    tmc4671_readInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS);
+    tmc4671_readInt(deb, TMC4671_PWM_POLARITIES);
+    tmc4671_readInt(deb, TMC4671_PWM_MAXCNT);
+    tmc4671_readInt(deb, TMC4671_PWM_BBM_H_BBM_L);
+    tmc4671_readInt(deb, TMC4671_PWM_SV_CHOP);
+    tmc4671_readInt(deb, TMC4671_OPENLOOP_MODE);
+    tmc4671_readInt(deb, TMC4671_OPENLOOP_ACCELERATION);
+    tmc4671_readInt(deb, TMC4671_OPENLOOP_VELOCITY_TARGET);
+}
+
+void encoder_testdrive(void)
+{
+// ===== ABN encoder test drive =====
+
+// Init encoder (mode 0)
+    tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);				// Uq / Ud Ext
+    tmc4671_writeInt(0, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
+    tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000001);					// Phi E Ext
+    tmc4671_writeInt(0, TMC4671_PHI_E_EXT, 0x00000000);
+    tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x000007D0);							// Uq / Ud Ext = 2000 == Anfangsspinner 1s
+    _delay_ms(1000);
+    tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);					// Zurücksetzen Count
+
+// Feedback selection
+    tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000003);					// Phi E ABN
+    tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000009);				// Phi M ABN
+
+// Switch to torque mode
+    tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);				// Torque Mode
+
+// Rotate right
+    tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x03E80000);			// Torque to right side
+    _delay_ms(500);
+
+// Rotate left
+    tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0xFC180000);			// Torque to left side
+    _delay_ms(500);
+
+//Stop
+    tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);			// Stop
 }
 
 void initTMC4671_Encoder(void)
@@ -246,12 +275,11 @@ void initTMC4671_Encoder(void)
 // Motor type &  PWM configuration
 //====================================================================================================//
 
-        tmc4671_writeInt(deb, TMC4671_PWM_POLARITIES,                     0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 15 = 0x17(PWM_POLARITIES)
-        tmc4671_writeInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS,            0x00030003);        // writing value 0x00030003 = 196611 = 0.0 to address 19 = 0x1B(MOTOR_TYPE_N_POLE_PAIRS)
-        tmc4671_writeInt(deb, TMC4671_PWM_MAXCNT,                         0x00000F9F);        // writing value 0x00000F9F = 3999 = 0.0 to address 16 = 0x18(PWM_MAXCNT)
-        tmc4671_writeInt(deb, TMC4671_PWM_BBM_H_BBM_L,                    0x00001919);        // writing value 0x00001919 = 6425 = 0.0 to address 17 = 0x19(PWM_BBM_H_BBM_L)
-        tmc4671_writeInt(deb, TMC4671_PWM_SV_CHOP,                        0x00000007);        // writing value 0x00000007 = 7 = 0.0 to address 18 = 0x1A(PWM_SV_CHOP)
-        _delay_ms(100);
+    tmc4671_writeInt(deb, TMC4671_PWM_POLARITIES,                     0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 15 = 0x17(PWM_POLARITIES)
+    tmc4671_writeInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS,            0x00030003);        // writing value 0x00030003 = 196611 = 0.0 to address 19 = 0x1B(MOTOR_TYPE_N_POLE_PAIRS)
+    tmc4671_writeInt(deb, TMC4671_PWM_MAXCNT,                         0x00000F9F);        // writing value 0x00000F9F = 3999 = 0.0 to address 16 = 0x18(PWM_MAXCNT)
+    tmc4671_writeInt(deb, TMC4671_PWM_BBM_H_BBM_L,                    0x00001919);        // writing value 0x00001919 = 6425 = 0.0 to address 17 = 0x19(PWM_BBM_H_BBM_L)
+    tmc4671_writeInt(deb, TMC4671_PWM_SV_CHOP,                        0x00000007);        // writing value 0x00000007 = 7 = 0.0 to address 18 = 0x1A(PWM_SV_CHOP)
 
 //====================================================================================================//
 // General settings
@@ -270,15 +298,14 @@ void initTMC4671_Encoder(void)
 // ADC configuration
 //====================================================================================================//
 
-        tmc4671_writeInt(deb, TMC4671_ADC_I_SELECT,                       0x24000100);        // writing value 0x24000100 = 603980032 = 0.0 to address 8 = 0x0A(ADC_I_SELECT)
-        tmc4671_writeInt(deb, TMC4671_dsADC_MCFG_B_MCFG_A,                0x00100010);        // writing value 0x00100010 = 1048592 = 0.0 to address 2 = 0x04(dsADC_MCFG_B_MCFG_A)
-        tmc4671_writeInt(deb, TMC4671_dsADC_MCLK_A,                       0x20000000);        // writing value 0x20000000 = 536870912 = 0.0 to address 3 = 0x05(dsADC_MCLK_A)
-        tmc4671_writeInt(deb, TMC4671_dsADC_MCLK_B,                       0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 4 = 0x06(dsADC_MCLK_B)
-        tmc4671_writeInt(deb, TMC4671_dsADC_MDEC_B_MDEC_A,                0x014E014E);        // writing value 0x014E014E = 21889358 = 0.0 to address 5 = 0x07(dsADC_MDEC_B_MDEC_A)
-        tmc4671_writeInt(deb, TMC4671_ADC_I0_SCALE_OFFSET,                0xFF008073);        // writing value 0xFF008234 = 0 = 0.0 to address 7 = 0x09(ADC_I0_SCALE_OFFSET)
-        tmc4671_writeInt(deb, TMC4671_ADC_I1_SCALE_OFFSET,                0xFF008E1B);        // writing value 0xFF00890A = 0 = 0.0 to address 6 = 0x08(ADC_I1_SCALE_OFFSET)
-        _delay_ms(100);
-		
+    tmc4671_writeInt(deb, TMC4671_ADC_I_SELECT,                       0x24000100);        // writing value 0x24000100 = 603980032 = 0.0 to address 8 = 0x0A(ADC_I_SELECT)
+    tmc4671_writeInt(deb, TMC4671_dsADC_MCFG_B_MCFG_A,                0x00100010);        // writing value 0x00100010 = 1048592 = 0.0 to address 2 = 0x04(dsADC_MCFG_B_MCFG_A)
+    tmc4671_writeInt(deb, TMC4671_dsADC_MCLK_A,                       0x20000000);        // writing value 0x20000000 = 536870912 = 0.0 to address 3 = 0x05(dsADC_MCLK_A)
+    tmc4671_writeInt(deb, TMC4671_dsADC_MCLK_B,                       0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 4 = 0x06(dsADC_MCLK_B)
+    tmc4671_writeInt(deb, TMC4671_dsADC_MDEC_B_MDEC_A,                0x014E014E);        // writing value 0x014E014E = 21889358 = 0.0 to address 5 = 0x07(dsADC_MDEC_B_MDEC_A)
+    tmc4671_writeInt(deb, TMC4671_ADC_I0_SCALE_OFFSET,                0xFF008073);        // writing value 0xFF008234 = 0 = 0.0 to address 7 = 0x09(ADC_I0_SCALE_OFFSET)
+    tmc4671_writeInt(deb, TMC4671_ADC_I1_SCALE_OFFSET,                0xFF008E1B);        // writing value 0xFF00890A = 0 = 0.0 to address 6 = 0x08(ADC_I1_SCALE_OFFSET)
+
 //  tmc4671_writeInt(deb, TMC4671_ADC_RAW_ADDR,                       0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 1 = 0x03(ADC_RAW_ADDR)
 //  tmc4671_writeInt(deb, TMC4671_ADC_I1_I0_EXT,                      0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 9 = 0x0B(ADC_I1_I0_EXT)
 //  tmc4671_writeInt(deb, TMC4671_DS_ANALOG_INPUT_STAGE_CFG,          0x00044400);        // writing value 0x00044400 = 279552 = 0.0 to address 10 = 0x0C(DS_ANALOG_INPUT_STAGE_CFG)
@@ -304,12 +331,15 @@ void initTMC4671_Encoder(void)
 // ABN encoder settings
 //====================================================================================================//
 
-        tmc4671_writeInt(deb, TMC4671_ABN_DECODER_MODE,                   0x0000100A);        // writing value 0x00001000 = 4096 = 0.0 to address 29 = 0x25(ABN_DECODER_MODE)
-        tmc4671_writeInt(deb, TMC4671_ABN_DECODER_PPR,                    0x00002000);        // writing value 0x00002000 = 8192 = 0.0 to address 30 = 0x26(ABN_DECODER_PPR)
-        tmc4671_writeInt(deb, TMC4671_ABN_DECODER_COUNT,                  0x00000000);        // writing value 0x000013A9 = 5033 = 0.0 to address 31 = 0x27(ABN_DECODER_COUNT)
-        tmc4671_writeInt(deb, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET,     0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 33 = 0x29(ABN_DECODER_PHI_E_PHI_M_OFFSET)
-        _delay_ms(100);
-//  tmc4671_writeInt(deb, TMC4671_ABN_DECODER_COUNT_N,                0x00001FE7);        // writing value 0x00001FE7 = 8167 = 0.0 to address 32 = 0x28(ABN_DECODER_COUNT_N)
+	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000000);			// Stopped Mode
+
+
+    tmc4671_writeInt(deb, TMC4671_ABN_DECODER_MODE,                   0x0000100A);        // writing value 0x00001000 = 4096 = 0.0 to address 29 = 0x25(ABN_DECODER_MODE)
+    tmc4671_writeInt(deb, TMC4671_ABN_DECODER_PPR,                    0x00002000);        // writing value 0x00002000 = 8192 = 0.0 to address 30 = 0x26(ABN_DECODER_PPR)
+    tmc4671_writeInt(deb, TMC4671_ABN_DECODER_COUNT,                  0x00000000);        // writing value 0x000013A9 = 5033 = 0.0 to address 31 = 0x27(ABN_DECODER_COUNT)
+    tmc4671_writeInt(deb, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET,     0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 33 = 0x29(ABN_DECODER_PHI_E_PHI_M_OFFSET)
+    tmc4671_writeInt(deb, TMC4671_ABN_DECODER_COUNT_N,                0x00000000);        // writing value 0x00001FE7 = 8167 = 0.0 to address 32 = 0x28(ABN_DECODER_COUNT_N)
+    _delay_ms(100);
 
 //====================================================================================================//
 // ABN2 encoder settings
@@ -354,14 +384,15 @@ void initTMC4671_Encoder(void)
 // Limits
 //====================================================================================================//
 
-        tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET_DDT_LIMITS,  0x00007FFF);        // writing value 0x00007FFF = 32767 = 0.0 to address 60 = 0x5C(PID_TORQUE_FLUX_TARGET_DDT_LIMITS)
-        tmc4671_writeInt(deb, TMC4671_PIDOUT_UQ_UD_LIMITS,                0x00005A81);        // writing value 0x00005A81 = 23169 = 0.0 to address 61 = 0x5D(PIDOUT_UQ_UD_LIMITS)
-        tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_LIMITS,             0x000009C4);        // writing value 0x000007D0 = 2000 = 0.0 to address 62 = 0x5E(PID_TORQUE_FLUX_LIMITS)
-        tmc4671_writeInt(deb, TMC4671_PID_ACCELERATION_LIMIT,             0x000000C8);        // writing value 0x0000001E = 30 = 0.0 to address 63 = 0x5F(PID_ACCELERATION_LIMIT)
-        tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_LIMIT,                 0x000005DC);        // writing value 0x000000C8 = 200 = 0.0 to address 64 = 0x60(PID_VELOCITY_LIMIT)
-        tmc4671_writeInt(deb, TMC4671_PID_POSITION_LIMIT_LOW,             0x80000001);        // writing value 0x80000001 = 0 = 0.0 to address 65 = 0x61(PID_POSITION_LIMIT_LOW)
-        tmc4671_writeInt(deb, TMC4671_PID_POSITION_LIMIT_HIGH,            0x7FFFFFFF);        // writing value 0x7FFFFFFF = 2147483647 = 0.0 to address 66 = 0x62(PID_POSITION_LIMIT_HIGH)
-        _delay_ms(100);
+    tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET_DDT_LIMITS,  0x00007FFF);        // writing value 0x00007FFF = 32767 = 0.0 to address 60 = 0x5C(PID_TORQUE_FLUX_TARGET_DDT_LIMITS)
+    tmc4671_writeInt(deb, TMC4671_PIDOUT_UQ_UD_LIMITS,                0x00005A81);        // writing value 0x00005A81 = 23169 = 0.0 to address 61 = 0x5D(PIDOUT_UQ_UD_LIMITS)
+    tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_LIMITS,             0x000009C4);        // writing value 0x000007D0 = 2000 = 0.0 to address 62 = 0x5E(PID_TORQUE_FLUX_LIMITS)
+    tmc4671_writeInt(deb, TMC4671_PID_ACCELERATION_LIMIT,             0x000000C8);        // writing value 0x0000001E = 30 = 0.0 to address 63 = 0x5F(PID_ACCELERATION_LIMIT)
+    tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_LIMIT,                 0x000005DC);        // writing value 0x000000C8 = 200 = 0.0 to address 64 = 0x60(PID_VELOCITY_LIMIT)
+    tmc4671_writeInt(deb, TMC4671_PID_POSITION_LIMIT_LOW,             0x80000001);        // writing value 0x80000001 = 0 = 0.0 to address 65 = 0x61(PID_POSITION_LIMIT_LOW)
+    tmc4671_writeInt(deb, TMC4671_PID_POSITION_LIMIT_HIGH,            0x7FFFFFFF);        // writing value 0x7FFFFFFF = 2147483647 = 0.0 to address 66 = 0x62(PID_POSITION_LIMIT_HIGH)
+    _delay_ms(100);
+
 //====================================================================================================//
 // PI settings
 //====================================================================================================//
@@ -369,8 +400,8 @@ void initTMC4671_Encoder(void)
         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_P_TORQUE_I,              0x00642EE0);        // writing value 0x01F403E8 = 32769000 = 0.0 to address 57 = 0x56(PID_TORQUE_P_TORQUE_I)
         tmc4671_writeInt(deb, TMC4671_PID_FLUX_P_FLUX_I,                  0x00642EE0);        // writing value 0x01F403E8 = 32769000 = 0.0 to address 56 = 0x54(PID_FLUX_P_FLUX_I)
         tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_P_VELOCITY_I,          0x07D001F4);        // writing value 0x05DC01F4 = 98304500 = 0.0 to address 58 = 0x58(PID_VELOCITY_P_VELOCITY_I)
-        tmc4671_writeInt(deb, TMC4671_PID_POSITION_P_POSITION_I,          0x00C80000);        // writing value 0x01F40000 = 32768000 = 0.0 to address 59 = 0x5A(PID_POSITION_P_POSITION_I)
-        _delay_ms(100);
+        tmc4671_writeInt(deb, TMC4671_PID_POSITION_P_POSITION_I,          0x01F40000);        // writing value 0x01F40000 = 32768000 = 0.0 to address 59 = 0x5A(PID_POSITION_P_POSITION_I)
+    _delay_ms(100);
 
 //  tmc4671_writeInt(deb, TMC4671_CONFIG_DATA,                        0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 51 = 0x4D(CONFIG_DATA)
 //  tmc4671_writeInt(deb, TMC4671_CONFIG_ADDR,                        0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 52 = 0x4E(CONFIG_ADDR)
@@ -384,76 +415,21 @@ void initTMC4671_Encoder(void)
 //  tmc4671_writeInt(deb, TMC4671_INTERIM_DATA,                       0xFF030085);        // writing value 0xFF030085 = 0 = 0.0 to address 75 = 0x6E(INTERIM_DATA)
 //  tmc4671_writeInt(deb, TMC4671_INTERIM_ADDR,                       0x00000011);        // writing value 0x00000011 = 17 = 0.0 to address 76 = 0x6F(INTERIM_ADDR)
 
-//====================================================================================================//
-// Position-Mode and Encoder selection
-//====================================================================================================//
+// Feedback selection
+tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000003);					// Phi E ABN
+tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000009);				// Phi M ABN
+tmc4671_writeInt(0, TMC4671_POSITION_SELECTION, 0x00000009);				// Phi M ABN
 
-        encoder_testdrive();
-        tmc4671_writeInt(deb, TMC4671_PHI_E_SELECTION,                    0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 55 = 0x52(PHI_E_SELECTION)
-        tmc4671_writeInt(deb, TMC4671_MODE_RAMP_MODE_MOTION,              0x00000003);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-        tmc4671_writeInt(deb, TMC4671_PID_POSITION_ACTUAL,                0x00000000);        // writing value 0x00000003 = 3 = 0.0 to address 67 = 0x63(MODE_RAMP_MODE_MOTION)
-        tmc4671_setAbsolutTargetPosition(deb, 0x00000000);
+tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000003);				// Position Mode
+
+// Init encoder (mode 0)
+tmc4671_setActualPosition(0,0);
+tmc4671_setAbsolutTargetPosition(0,0);
+
+read_registers_TMC4671();
 }
 
 
-//************************************************************//
-// Testdrive
-//************************************************************//
-
-void encoder_testdrive(void)
-{
-	// ===== ABN encoder test drive =====
-
-	// Init encoder (mode 0)
-	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
-	tmc4671_writeInt(0, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000001);
-	tmc4671_writeInt(0, TMC4671_PHI_E_EXT, 0x00000000);
-	tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x000007D0);
-	_delay_ms(1000);
-	tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);
-
-	// Feedback selection
-	tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000003);
-	tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000009);
-
-	// Switch to torque mode
-	tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
-	//
-	// // Rotate right
-	// tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x03E80000);
-	// _delay_ms(500);
-	//
-	// // Rotate left
-	// tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0xFC180000);
-	// _delay_ms(500);
-
-	//Stop
-	tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
-}
-
-
-//************************************************************//
-// Debug
-//************************************************************//
-
-void read_registers_TMC4671(void)
-{
-	uint8_t deb = 1;
-	tmc4671_readInt(deb, TMC4671_MOTOR_TYPE_N_POLE_PAIRS);
-	tmc4671_readInt(deb, TMC4671_PWM_POLARITIES);
-	tmc4671_readInt(deb, TMC4671_PWM_MAXCNT);
-	tmc4671_readInt(deb, TMC4671_PWM_BBM_H_BBM_L);
-	tmc4671_readInt(deb, TMC4671_PWM_SV_CHOP);
-	tmc4671_readInt(deb, TMC4671_OPENLOOP_MODE);
-	tmc4671_readInt(deb, TMC4671_OPENLOOP_ACCELERATION);
-	tmc4671_readInt(deb, TMC4671_OPENLOOP_VELOCITY_TARGET);
-}
-
-
-//************************************************************//
-// TMC4671-Specific-Commands (tmc4671_eval.h)
-//************************************************************//
 uint16_t tmc4671_readRegister16BitValue(uint8_t motor, uint8_t address, uint8_t channel)
 {
     int32_t registerValue = tmc4671_readInt(motor, address);
@@ -693,197 +669,6 @@ int32_t tmc4671_getActualRampPosition(uint8_t motor)
     return 0;
 }
 
-// encoder initialization
-void tmc4671_doEncoderInitializationMode0(uint8_t motor, uint8_t *initState, uint16_t initWaitTime, uint16_t *actualInitWaitTime, uint16_t startVoltage)
-{
-    static uint16_t last_Phi_E_Selection = 0;
-    static uint32_t last_UQ_UD_EXT = 0;
-    static int16_t last_PHI_E_EXT = 0;
-
-    switch (*initState)
-    {
-    case STATE_NOTHING_TO_DO:
-        *actualInitWaitTime = 0;
-        break;
-    case STATE_START_INIT: // started by writing 1 to initState
-
-        // save actual set values for PHI_E_SELECTION, UQ_UD_EXT, and PHI_E_EXT
-        last_Phi_E_Selection = (uint16_t) tmc4671_readRegister16BitValue(motor, TMC4671_PHI_E_SELECTION, BIT_0_TO_15);
-        last_UQ_UD_EXT = (uint32_t) tmc4671_readInt(motor, TMC4671_UQ_UD_EXT);
-        last_PHI_E_EXT = (int16_t) tmc4671_readRegister16BitValue(motor, TMC4671_PHI_E_EXT, BIT_0_TO_15);
-
-        // set ABN_DECODER_PHI_E_OFFSET to zero
-        tmc4671_writeRegister16BitValue(motor, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, BIT_16_TO_31, 0);
-
-        // select phi_e_ext
-        tmc4671_writeRegister16BitValue(motor, TMC4671_PHI_E_SELECTION, BIT_0_TO_15, 1);
-
-        // set an initialization voltage on UD_EXT (to the flux, not the torque!)
-        tmc4671_writeRegister16BitValue(motor, TMC4671_UQ_UD_EXT, BIT_16_TO_31, 0);
-        tmc4671_writeRegister16BitValue(motor, TMC4671_UQ_UD_EXT, BIT_0_TO_15, startVoltage);
-
-        // set the "zero" angle
-        tmc4671_writeRegister16BitValue(motor, TMC4671_PHI_E_EXT, BIT_0_TO_15, 0);
-
-        *initState = STATE_WAIT_INIT_TIME;
-        break;
-    case STATE_WAIT_INIT_TIME:
-        // wait until initialization time is over (until no more vibration on the motor)
-        (*actualInitWaitTime)++;
-        if(*actualInitWaitTime >= initWaitTime)
-        {
-            // set internal encoder value to zero
-            tmc4671_writeInt(motor, TMC4671_ABN_DECODER_COUNT, 0);
-
-            // switch back to last used UQ_UD_EXT setting
-            tmc4671_writeInt(motor, TMC4671_UQ_UD_EXT, last_UQ_UD_EXT);
-
-            // set PHI_E_EXT back to last value
-            tmc4671_writeRegister16BitValue(motor, TMC4671_PHI_E_EXT, BIT_0_TO_15, last_PHI_E_EXT);
-
-            // switch back to last used PHI_E_SELECTION setting
-            tmc4671_writeRegister16BitValue(motor, TMC4671_PHI_E_SELECTION, BIT_0_TO_15, last_Phi_E_Selection);
-
-            // go to next state
-            *initState = STATE_ESTIMATE_OFFSET;
-        }
-        break;
-    case STATE_ESTIMATE_OFFSET:
-        // you can do offset estimation here (wait for N-Channel if available and save encoder value)
-
-        // go to ready state
-        *initState = 0;
-        break;
-    default:
-        *initState = 0;
-        break;
-    }
-}
-
-int16_t tmc4671_getS16CircleDifference(int16_t newValue, int16_t oldValue)
-{
-    return (newValue - oldValue);
-}
-
-void tmc4671_doEncoderInitializationMode2(uint8_t motor, uint8_t *initState, uint16_t *actualInitWaitTime)
-{
-    static int16_t hall_phi_e_old = 0;
-    static int16_t hall_phi_e_new = 0;
-    static int16_t actual_coarse_offset = 0;
-
-    switch (*initState)
-    {
-    case STATE_NOTHING_TO_DO:
-        *actualInitWaitTime = 0;
-        break;
-    case STATE_START_INIT: // started by writing 1 to initState
-        // turn hall_mode interpolation off (read, clear bit 8, write back)
-        tmc4671_writeInt(motor, TMC4671_HALL_MODE, tmc4671_readInt(motor, TMC4671_HALL_MODE) & 0xFFFFFEFF);
-
-        // set ABN_DECODER_PHI_E_OFFSET to zero
-        tmc4671_writeRegister16BitValue(motor, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, BIT_16_TO_31, 0);
-
-        // read actual hall angle
-        hall_phi_e_old = (int16_t) tmc4671_readRegister16BitValue(motor, TMC4671_HALL_PHI_E_INTERPOLATED_PHI_E, BIT_0_TO_15);
-
-        // read actual abn_decoder angle and compute difference to actual hall angle
-        actual_coarse_offset = tmc4671_getS16CircleDifference(hall_phi_e_old, (int16_t) tmc4671_readRegister16BitValue(motor, TMC4671_ABN_DECODER_PHI_E_PHI_M, BIT_16_TO_31));
-
-        // set ABN_DECODER_PHI_E_OFFSET to actual hall-abn-difference, to use the actual hall angle for coarse initialization
-        tmc4671_writeRegister16BitValue(motor, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, BIT_16_TO_31, actual_coarse_offset);
-
-        *initState = STATE_WAIT_INIT_TIME;
-        break;
-    case STATE_WAIT_INIT_TIME:
-        // read actual hall angle
-        hall_phi_e_new = (int16_t) tmc4671_readRegister16BitValue(motor, TMC4671_HALL_PHI_E_INTERPOLATED_PHI_E, BIT_0_TO_15);
-
-        // wait until hall angle changed
-        if(hall_phi_e_old != hall_phi_e_new)
-        {
-            // estimated value = old value + diff between old and new (handle int16_t overrun)
-            int16_t hall_phi_e_estimated = hall_phi_e_old + tmc4671_getS16CircleDifference(hall_phi_e_new, hall_phi_e_old)/2;
-
-            // read actual abn_decoder angle and consider last set abn_decoder_offset
-            int16_t abn_phi_e_actual = (int16_t) tmc4671_readRegister16BitValue(motor, TMC4671_ABN_DECODER_PHI_E_PHI_M, BIT_16_TO_31) - actual_coarse_offset;
-
-            // set ABN_DECODER_PHI_E_OFFSET to actual estimated angle - abn_phi_e_actual difference
-            tmc4671_writeRegister16BitValue(motor, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, BIT_16_TO_31, tmc4671_getS16CircleDifference(hall_phi_e_estimated, abn_phi_e_actual));
-
-            // go to ready state
-            *initState = 0;
-        }
-        break;
-    default:
-        *initState = 0;
-        break;
-    }
-}
-
-void tmc4671_checkEncderInitialization(uint8_t motor, uint32_t actualSystick, uint8_t initMode, uint8_t *initState, uint16_t initWaitTime, uint16_t *actualInitWaitTime, uint16_t startVoltage)
-{
-    // use the systick as 1ms timer for encoder initialization
-    static uint32_t lastSystick = 0;
-    if(actualSystick != lastSystick)
-    {
-        // needs timer to use the wait time
-        if(initMode == 0)
-        {
-            tmc4671_doEncoderInitializationMode0(motor, initState, initWaitTime, actualInitWaitTime, startVoltage);
-        }
-        lastSystick = actualSystick;
-    }
-
-    // needs no timer
-    if(initMode == 2)
-    {
-        tmc4671_doEncoderInitializationMode2(motor, initState, actualInitWaitTime);
-    }
-}
-
-void tmc4671_periodicJob(uint8_t motor, uint32_t actualSystick, uint8_t initMode, uint8_t *initState, uint16_t initWaitTime, uint16_t *actualInitWaitTime, uint16_t startVoltage)
-{
-    tmc4671_checkEncderInitialization(motor, actualSystick, initMode, initState, initWaitTime, actualInitWaitTime, startVoltage);
-}
-
-void tmc4671_startEncoderInitialization(uint8_t mode, uint8_t *initMode, uint8_t *initState)
-{
-    // allow only a new initialization if no actual initialization is running
-    if(*initState == STATE_NOTHING_TO_DO)
-    {
-        if(mode == 0) // estimate offset
-        {
-            // set mode
-            *initMode = 0;
-
-            // start initialization
-            *initState = 1;
-        }
-        else if(mode == 2) // use hall sensor signals
-        {
-            // set mode
-            *initMode = 2;
-
-            // start initialization
-            *initState = 1;
-        }
-    }
-}
-
-void tmc4671_updatePhiSelectionAndInitialize(uint8_t motor, uint8_t actualPhiESelection, uint8_t desiredPhiESelection, uint8_t initMode, uint8_t *initState)
-{
-    if (actualPhiESelection != desiredPhiESelection)
-    {
-        tmc4671_writeInt(motor, TMC4671_PHI_E_SELECTION, desiredPhiESelection);
-
-        switch(desiredPhiESelection)
-        {
-        case 3:
-            tmc4671_startEncoderInitialization(initMode, &initMode, initState);
-            break;
-        }
-    }
-}
 
 // =====
 
@@ -946,18 +731,4 @@ void tmc4671_setVelocityPI(uint8_t motor, uint16_t pParameter, uint16_t iParamet
 void tmc4671_setPositionPI(uint8_t motor, uint16_t pParameter, uint16_t iParameter)
 {
     tmc4671_writeInt(motor, TMC4671_PID_POSITION_P_POSITION_I, ((uint32_t)pParameter << 16) | (uint32_t)iParameter);
-}
-
-int32_t tmc4671_readFieldWithDependency(uint8_t motor, uint8_t reg, uint8_t dependsReg, uint32_t dependsValue, uint32_t mask, uint8_t shift)
-{
-    // remember old depends value
-    uint32_t lastDependsValue = tmc4671_readInt(motor, dependsReg);
-
-    // set needed depends value
-    tmc4671_writeInt(motor, dependsReg, dependsValue);
-    uint32_t value = FIELD_GET(tmc4671_readInt(motor, reg), mask, shift);
-
-    // set old depends value
-    tmc4671_writeInt(motor, dependsReg, lastDependsValue);
-    return value;
 }

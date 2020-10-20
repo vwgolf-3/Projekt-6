@@ -64,11 +64,12 @@
 #define SPI_PORT PORTB                          // Namensgebung Ausgaberegister B
 #define SPI_DDR DDRB                            // Namensgebung DataDirection Register
 #define SPI_PIN PINB
-//
-#define SPI_CS_TMC4671_BIT (1<<0)               // Bit-Zuweisung PB5 (Arduino: 53, Pinnr: 23)
-#define SPI_CS_TMC4671_PORT PORTB               // SPI_CS_RC522 PORTB
-#define SPI_CS_TMC4671_DDR DDRB                 // SPI_CS_RC522 DDRB
-#define SPI_CS_TMC4671_PIN PINB                 // SPI_CS_RC522 PINB
+
+
+#define SPI_CS_TMC6200_BIT (1<<0)               // SPI_CS_TMC6200 PIN6
+#define SPI_CS_TMC6200_PORT PORTB               // SPI_CS_TMC6200 PORTH
+#define SPI_CS_TMC6200_DDR DDRB                 // SPI_CS_TMC6200 DDRH
+#define SPI_CS_TMC6200_PIN PINB                 // SPI_CS_TMC6200 PINH
 //
 #define SPI_CLK_BIT (1<<1)                      // Bit-Zuweisung PB1 (Arduino: 52, Pinnr: 20)
 #define SPI_CLK_PORT PORTB                      // SPI_CS_RC522 PORTB
@@ -85,13 +86,18 @@
 #define SPI_MISO_DDR DDRB                       // SPI_CS_RC522 DDRB
 #define SPI_MISO_PIN PINB                       // SPI_CS_RC522 PINB
 //
-
-#define HEARTBEAT_LED_BIT (1<<7)                // Bit-Zuweisung PB7 (Arduino: 13, Pinnr: 26)
-#define HEARTBEAT_LED_PORT PORTB                // SPI_CS_RC522 PORTB
-#define HEARTBEAT_LED_DDR DDRB                  // SPI_CS_RC522 DDRB
-#define HEARTBEAT_LED_PIN PINB                  // SPI_CS_RC522 PINB
+#define SOFTSPI_CLK_BIT (1<<6)                  // FLUSS4 PIN0
+#define SOFTSPI_CLK_PORT PORTB                  // FLUSS4 PORTK
+#define SOFTSPI_CLK_DDR DDRB                    // FLUSS4 DDRK
+#define SOFTSPI_CLK_PIN PINB                    // FLUSS4 PINK
 //
-#define SPI_OUTPUT_MASK (SPI_CS_TMC4671_BIT|SPI_CLK_BIT|SPI_MOSI_BIT|HEARTBEAT_LED_BIT)
+#define EN_TMC6200_BIT (1<<7)                   // EN_TMC6200 PIN3
+#define EN_TMC6200_PORT PORTB                   // EN_TMC6200 PORTH
+#define EN_TMC6200_DDR DDRB                     // EN_TMC6200 DDRH
+#define EN_TMC6200_PIN PINB                     // EN_TMC6200 PINH
+
+//
+#define SPI_OUTPUT_MASK (SPI_CS_TMC6200_BIT|SPI_CLK_BIT|SPI_MOSI_BIT|SOFTSPI_CLK_BIT|EN_TMC6200_BIT)
 //
 // ************************    C       ***************************************//
 //
@@ -105,6 +111,32 @@
 #define SPI_CS_RC522_PIN PINC                   // SPI_CS_RC522 PINC
 
 #define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT)
+
+
+//
+// ************************    E       ***************************************//
+//
+#define SOFTSPI_PORT PORTE                      // Namensgebung Durchflusssensoren
+#define SOFTSPI_DDR DDRE                        // Namensgebung
+#define SOFTSPI_PIN PINE
+
+#define SPI_CS_TMC4671_BIT (1<<7)               // Bit-Zuweisung PB5 (Arduino: 53, Pinnr: 23)
+#define SPI_CS_TMC4671_PORT PORTE               // SPI_CS_RC522 PORTB
+#define SPI_CS_TMC4671_DDR DDRE                 // SPI_CS_RC522 DDRB
+#define SPI_CS_TMC4671_PIN PINE                 // SPI_CS_RC522 PINB
+
+#define SOFTSPI_MOSI_BIT (1<<3)                 // FLUSS2 PIN0
+#define SOFTSPI_MOSI_PORT PORTE                 // FLUSS2 PORTK
+#define SOFTSPI_MOSI_DDR DDRE                   // FLUSS2 DDRK
+#define SOFTSPI_MOSI_PIN PINE                   // FLUSS2 PINK
+
+#define SOFTSPI_MISO_BIT (1<<5)                 // FLUSS3 PIN0
+#define SOFTSPI_MISO_PORT PORTE                 // FLUSS3 PORTK
+#define SOFTSPI_MISO_DDR DDRE                   // FLUSS3 DDRK
+#define SOFTSPI_MISO_PIN PINE                   // FLUSS3 PINK
+
+#define SOFTSPI_OUTPUT_MASK (SPI_CS_TMC4671_BIT|SOFTSPI_MOSI_BIT)
+
 //
 // ************************    F       ***************************************//
 #define LED_PORT PORTF                          // Namensgebung LED/Durchfluss/Referenzschalter
@@ -278,43 +310,6 @@
 #define FLUSS8_DDR DDRK                         // FLUSS8 DDRK
 #define FLUSS8_PIN PINK                         // FLUSS8 PINK
 
-//
-// ************************    L       ***************************************//
-//
-#define SOFTSPI_PORT PORTK						// Namensgebung Durchflusssensoren
-#define SOFTSPI_DDR DDRK						// Namensgebung
-#define SOFTSPI_PIN PINK
 
-#define SOFTSPI_CS_BIT (1<<0)					// FLUSS1 PIN0
-#define SOFTSPI_CS_PORT PORTK					// FLUSS1 PORTK
-#define SOFTSPI_CS_DDR DDRK						// FLUSS1 DDRK
-#define SOFTSPI_CS_PIN PINK						// FLUSS1 PINK
-
-#define SPI_CS_TMC6200_BIT (1<<0)               // SPI_CS_TMC6200 PIN6
-#define SPI_CS_TMC6200_PORT PORTK               // SPI_CS_TMC6200 PORTH
-#define SPI_CS_TMC6200_DDR DDRK                 // SPI_CS_TMC6200 DDRH
-#define SPI_CS_TMC6200_PIN PINK                 // SPI_CS_TMC6200 PINH
-
-#define SOFTSPI_MOSI_BIT (1<<1)					// FLUSS2 PIN0
-#define SOFTSPI_MOSI_PORT PORTK					// FLUSS2 PORTK
-#define SOFTSPI_MOSI_DDR DDRK					// FLUSS2 DDRK
-#define SOFTSPI_MOSI_PIN PINK					// FLUSS2 PINK
-
-#define SOFTSPI_MISO_BIT (1<<2)					// FLUSS3 PIN0
-#define SOFTSPI_MISO_PORT PORTK					// FLUSS3 PORTK
-#define SOFTSPI_MISO_DDR DDRK					// FLUSS3 DDRK
-#define SOFTSPI_MISO_PIN PINK					// FLUSS3 PINK
-
-#define SOFTSPI_CLK_BIT (1<<3)					// FLUSS4 PIN0
-#define SOFTSPI_CLK_PORT PORTK					// FLUSS4 PORTK
-#define SOFTSPI_CLK_DDR DDRK					// FLUSS4 DDRK
-#define SOFTSPI_CLK_PIN PINK					// FLUSS4 PINK
-
-#define EN_TMC6200_BIT (1<<4)                   // EN_TMC6200 PIN3
-#define EN_TMC6200_PORT PORTK                   // EN_TMC6200 PORTH
-#define EN_TMC6200_DDR DDRK                     // EN_TMC6200 DDRH
-#define EN_TMC6200_PIN PINK                     // EN_TMC6200 PINH
-
-#define SOFTSPI_OUTPUT_MASK (SPI_CS_TMC6200_BIT|SOFTSPI_MOSI_BIT|SOFTSPI_CLK_BIT|EN_TMC6200_BIT)
 
 #endif /* PIN_DEFS_H_ */

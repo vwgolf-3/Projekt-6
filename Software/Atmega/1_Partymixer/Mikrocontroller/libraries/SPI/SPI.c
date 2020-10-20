@@ -25,8 +25,6 @@ void SPI_init(void)
     disable_Slave(SDCARD);
     disable_Slave(TMC4671);
     disable_Slave(TMC6200);
-    disable_Slave(MFRC522);
-
 }
 
 void spi_transmit_IT( unsigned char *data, unsigned char nbytes, uint8_t Slave)

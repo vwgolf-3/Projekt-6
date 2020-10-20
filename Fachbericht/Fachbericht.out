@@ -35,7 +35,7 @@
 \BOOKMARK [2][-]{subsection.8.1}{8.1 Zielerreichung}{section.8}% 35
 \BOOKMARK [1][-]{section.9}{9 Schlusswort}{}% 36
 \BOOKMARK [1][-]{section.10}{10 Ehrlichkeitserkl\344rung}{}% 37
-\BOOKMARK [1][-]{section*.126}{Literatur}{}% 38
+\BOOKMARK [1][-]{section*.127}{Literatur}{}% 38
 \BOOKMARK [1][-]{appendix.A}{A Programmierschnittstellen}{}% 39
 \BOOKMARK [2][-]{subsection.A.1}{A.1 Ger\344te-Manager}{appendix.A}% 40
 \BOOKMARK [2][-]{subsection.A.2}{A.2 Atmega2560}{appendix.A}% 41
@@ -70,6 +70,7 @@
 \BOOKMARK [1][-]{appendix.J}{J PI-Regler}{}% 70
 \BOOKMARK [2][-]{subsection.J.1}{J.1 TMCL-IDE}{appendix.J}% 71
 \BOOKMARK [1][-]{appendix.K}{K Software Ramp}{}% 72
-\BOOKMARK [2][-]{subsection.K.1}{K.1 Matlab-Script}{appendix.K}% 73
-\BOOKMARK [1][-]{appendix.L}{L Print}{}% 74
-\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 75
+\BOOKMARK [2][-]{subsection.K.1}{K.1 Implementierung}{appendix.K}% 73
+\BOOKMARK [2][-]{subsection.K.2}{K.2 Matlab-Script}{appendix.K}% 74
+\BOOKMARK [1][-]{appendix.L}{L Print}{}% 75
+\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 76

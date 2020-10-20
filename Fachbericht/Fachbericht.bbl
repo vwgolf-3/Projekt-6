@@ -2518,6 +2518,113 @@
       \verb https://www.youtube.com/watch?v=uQTPZoDbfUs
       \endverb
     \endentry
+    \entry{abb_application_2012}{online}{}
+      \name{author}{1}{}{%
+        {{hash=8c0d39874f7284349b7a1ba8e5063e84}{%
+           family={{ABB}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8c0d39874f7284349b7a1ba8e5063e84}
+      \strng{fullhash}{8c0d39874f7284349b7a1ba8e5063e84}
+      \strng{bibnamehash}{8c0d39874f7284349b7a1ba8e5063e84}
+      \strng{authorbibnamehash}{8c0d39874f7284349b7a1ba8e5063e84}
+      \strng{authornamehash}{8c0d39874f7284349b7a1ba8e5063e84}
+      \strng{authorfullhash}{8c0d39874f7284349b7a1ba8e5063e84}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{AN}00118-002}
+      \field{langid}{english}
+      \field{title}{Application {noteLinear} and s-ramped velocity profiles}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb AN00118-002 Linear and s-ramped velocity profiles.pdf:C\:\\Users\\kimsc\\Zotero\\storage\\RXZQLXF4\\AN00118-002 Linear and s-ramped velocity profiles.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.abbmotion.com/support/SupportMe/Downloads/DocsLib/AN00118-002%20Linear%20and%20s-ramped%20velocity%20profiles.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.abbmotion.com/support/SupportMe/Downloads/DocsLib/AN00118-002%20Linear%20and%20s-ramped%20velocity%20profiles.pdf
+      \endverb
+    \endentry
+    \entry{collins_how_2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e76cc85528c9cfd502b841c6ca6cb7f5}{%
+           family={Collins},
+           familyi={C\bibinitperiod},
+           given={Danielle},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e76cc85528c9cfd502b841c6ca6cb7f5}
+      \strng{fullhash}{e76cc85528c9cfd502b841c6ca6cb7f5}
+      \strng{bibnamehash}{e76cc85528c9cfd502b841c6ca6cb7f5}
+      \strng{authorbibnamehash}{e76cc85528c9cfd502b841c6ca6cb7f5}
+      \strng{authornamehash}{e76cc85528c9cfd502b841c6ca6cb7f5}
+      \strng{authorfullhash}{e76cc85528c9cfd502b841c6ca6cb7f5}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Just as acceleration is the rate of change (derivative) of velocity, jerk is the rate of change of acceleration.}
+      \field{day}{2}
+      \field{langid}{american}
+      \field{month}{5}
+      \field{title}{How to reduce jerk in linear motion systems}
+      \field{titleaddon}{Linear Motion Tips}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\kimsc\\Zotero\\storage\\ABEK76XF\\how-to-reduce-jerk-in-linear-motion-systems.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.linearmotiontips.com/how-to-reduce-jerk-in-linear-motion-systems/
+      \endverb
+      \verb{url}
+      \verb https://www.linearmotiontips.com/how-to-reduce-jerk-in-linear-motion-systems/
+      \endverb
+    \endentry
+    \entry{lewin_s-curve_nodate}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b1b35a85fd6d4f870d0c60d7f27ab1df}{%
+           family={Lewin},
+           familyi={L\bibinitperiod},
+           given={Chuck},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1b35a85fd6d4f870d0c60d7f27ab1df}
+      \strng{fullhash}{b1b35a85fd6d4f870d0c60d7f27ab1df}
+      \strng{bibnamehash}{b1b35a85fd6d4f870d0c60d7f27ab1df}
+      \strng{authorbibnamehash}{b1b35a85fd6d4f870d0c60d7f27ab1df}
+      \strng{authornamehash}{b1b35a85fd6d4f870d0c60d7f27ab1df}
+      \strng{authorfullhash}{b1b35a85fd6d4f870d0c60d7f27ab1df}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{S-Curve Motion Profiles - A Deep Dive}
+      \field{titleaddon}{S-Curve Profiles Deep Dive}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://store.pmdcorp.com/resources/get/s-curve-profiles-deep-dive-article
+      \endverb
+      \verb{url}
+      \verb https://store.pmdcorp.com/resources/get/s-curve-profiles-deep-dive-article
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

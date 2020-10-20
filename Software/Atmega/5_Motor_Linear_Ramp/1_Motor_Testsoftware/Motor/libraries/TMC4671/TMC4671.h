@@ -21,30 +21,18 @@
 #include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
 
-//************************************************************//
-// SPI
-//************************************************************//
+// SPI-Wrapper
 void tmc4671_writeDatagram(unsigned int motor, unsigned char address, unsigned int x1, unsigned int x2, unsigned int x3, unsigned int x4);
 void tmc4671_writeInt(unsigned int motor, unsigned char address, unsigned long value);
 int32_t tmc4671_readInt(unsigned int motor, unsigned char address);
 void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long value);
 int32_t tmc40bit_readInt(unsigned int motor, unsigned char address);
-//************************************************************//
-// Init
-//************************************************************//
-void initTMC4671_Openloop(void);
+void TMC4671_init(void);
 void initTMC4671_Encoder(void);
-//************************************************************//
-// Testdrive
-//************************************************************//
-void encoder_testdrive(void);
-//************************************************************//
-// Debug
-//************************************************************//
+void initTMC4671_Openloop(void);
+// SPI
+
 void read_registers_TMC4671(void);
-//************************************************************//
-// TMC4671-Specific-Commands (tmc4671_eval.h)
-//************************************************************//
 
 
 
@@ -134,7 +122,5 @@ void tmc4671_setAdcI1Offset(uint8_t motor, uint16_t offset);
 void tmc4671_setTorqueFluxPI(uint8_t motor, uint16_t pParameter, uint16_t iParameter);
 void tmc4671_setVelocityPI(uint8_t motor, uint16_t pParameter, uint16_t iParameter);
 void tmc4671_setPositionPI(uint8_t motor, uint16_t pParameter, uint16_t iParameter);
-
-int32_t tmc4671_readFieldWithDependency(uint8_t motor, uint8_t reg, uint8_t dependsReg, uint32_t dependsValue, uint32_t mask, uint8_t shift);
 
 #endif /* TMC_IC_TMC4671_H_ */

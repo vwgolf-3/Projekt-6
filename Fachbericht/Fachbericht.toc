@@ -95,9 +95,9 @@
 \contentsline {subsection}{\numberline {6.1}Atmega2560}{46}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{46}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{47}{subsubsection.6.1.2}%
-\contentsline {paragraph}{Bootloader-Section}{47}{section*.94}%
-\contentsline {paragraph}{Init-Section}{47}{section*.95}%
-\contentsline {paragraph}{Main-Loop}{48}{section*.96}%
+\contentsline {paragraph}{Bootloader-Section}{47}{section*.95}%
+\contentsline {paragraph}{Init-Section}{47}{section*.96}%
+\contentsline {paragraph}{Main-Loop}{48}{section*.97}%
 \contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{50}{subsubsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.2}ESP32}{50}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{51}{subsubsection.6.2.1}%
@@ -115,7 +115,7 @@
 \contentsline {subsection}{\numberline {8.1}Zielerreichung}{70}{subsection.8.1}%
 \contentsline {section}{\numberline {9}Schlusswort}{70}{section.9}%
 \contentsline {section}{\numberline {10}Ehrlichkeitserklärung}{70}{section.10}%
-\contentsline {section}{Literatur}{72}{section*.126}%
+\contentsline {section}{Literatur}{72}{section*.127}%
 \contentsline {section}{\numberline {A}Programmierschnittstellen}{77}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Geräte-Manager}{77}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Atmega2560}{77}{subsection.A.2}%
@@ -180,6 +180,7 @@
 \contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{126}{subsubsection.J.1.2}%
 \contentsline {subsubsection}{\numberline {J.1.3}Position}{127}{subsubsection.J.1.3}%
 \contentsline {section}{\numberline {K}Software Ramp}{128}{appendix.K}%
-\contentsline {subsection}{\numberline {K.1}Matlab-Script}{128}{subsection.K.1}%
-\contentsline {section}{\numberline {L}Print}{132}{appendix.L}%
-\contentsline {subsection}{\numberline {L.1}KiCad Schema}{132}{subsection.L.1}%
+\contentsline {subsection}{\numberline {K.1}Implementierung}{128}{subsection.K.1}%
+\contentsline {subsection}{\numberline {K.2}Matlab-Script}{130}{subsection.K.2}%
+\contentsline {section}{\numberline {L}Print}{134}{appendix.L}%
+\contentsline {subsection}{\numberline {L.1}KiCad Schema}{134}{subsection.L.1}%
