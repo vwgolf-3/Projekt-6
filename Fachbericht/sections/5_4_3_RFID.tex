@@ -6,7 +6,7 @@ Eine vorgesehene Funktion der Maschine ist, dass der User ohne Suchen sein Liebl
 Um schnell ein funktionierendes Teilsystem testen zu können, soll ein Breakout-Board verwendet werden. Ein Eingrenzungskriterium war, dass es es für den ausgewählten IC eine bestehende Library gibt, welche mit Arduino oder besser C kompatibel ist. Der Chip, welcher diese Anforderungen erfüllt, ist der \textbf{Mifare MFRC522}. Dieses Brakeout-Board kann ausserdem an der Verschalung der Maschine angeschraubt werden. Somit kann er sich an einer Stelle befinden, welche weiter weg von der Hauptplatine ist.
 Das Modul arbeitet auf 13.56MHz und gilt somit als kurzwelliges System (HF). \cite{nxp_semiconductors_nv_mfrc522_2017}
 
-Der MFRC522 ist der Reader im RFID-System. Er kann Daten lesen und schreiben. Er erzeugt ein hochfrequentes, elektromagnetisches Wechselsignal mit einer Frequenz von 13.56MHz. Das Wechselfeld induziert beim Empfänger eine Spannung, welche als Energieversorgung dient. Durch Kurzschliessen der Tag-Antenne wird ein Teil der Energie des vom Reader ausgehenden Wechselfeldes verbraucht. Diese Energiedifferenz kann ein Reader detektieren.
+Das RFID-Modul ist der Reader im RFID-System. Er kann Daten lesen und schreiben. Er erzeugt ein hochfrequentes, elektromagnetisches Wechselsignal mit einer Frequenz von 13.56MHz. Das Wechselfeld induziert beim Empfänger eine Spannung, welche als Energieversorgung dient. Durch Kurzschliessen der Tag-Antenne wird ein Teil der Energie des vom Reader ausgehenden Wechselfeldes verbraucht. Diese Energiedifferenz kann ein Reader detektieren.
 
 Der Sender kann jedoch auch ein Datensignal über das Energiesignal modulieren. Die Informationen werden im Tag demoduliert und verwertet. Bei den Befehlen für den Tag geht es hauptsächlich um Lese- und Schreibmethoden. Bei einer Lesemethode des RFID wird ein Teil des Speichers abgefragt, bei Schreibmethoden wird der Speicher beschrieben. Die Reichweite für ein solches System, welches als Passivsystem deklariert ist, beträgt maximal 5cm. \cite{rfid-basisde_aufbau_2018}
 
@@ -23,12 +23,10 @@ Bild \ref{fig:Schema_RFID} zeigt den Schaltungsaufbau des RFID-Moduls. Darin ers
 
 \begin{figure}[!h]
 \center
-\includegraphics[width = 0.6 \textwidth]{graphics/Schema_RFID}
+\includegraphics[width = \textwidth]{graphics/Schema_RFID}
 \caption{Schema des RFID Sender/Empfänger}
 \label{fig:Schema_RFID}
 \end{figure}
-
-\todo{Wo ist die Antene im Schema?}
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}\\
 
@@ -36,5 +34,3 @@ Das RFID-Modul steuert den Ablauf, damit die Datenübertragung stattfinden kann.
 
 Die Anschlüsse sind so gestaltet, dass falls eine eine gelayoutete Antenne verwendet wird, die Kommunikation zwischen UART und SPI gewählt werden kann. Aus Zeit- und Backupgründen wurde für die Cocktailmaschine ein Breakout-Board verwendet, welches nur einen SPI-Anschluss hat.
 %In erster Linie damit keine Zeit gebraucht wird, sich mit einem Antennendesign auseinandersetzen zu müssen. Aber auch, weil der IC in ein TQFP28-Gehäuse gepackt ist, und deshalb Schwierigkeiten auftreten könnten beim Löten.
-
-\todo{Reader/Writer/Transponder?}

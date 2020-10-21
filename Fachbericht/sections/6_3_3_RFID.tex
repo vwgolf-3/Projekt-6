@@ -1,17 +1,17 @@
 \subsubsection{RFID}
 \label{subsubsec:Inbetriebnahme_RFID}
 
-Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} beschrieben um das MFRC522 Evaluierungsboard (Breakout-Board). Dieses kommuniziert über SPI mit einem gewünschten Controller. Die Pinbelegung dazu ist in Abbildung \ref{fig:MFRC522} zu sehen. Der grosse Vorteil dieses Evaluierungsboard ist es, dass es dazu eine Arduino Library gibt mit vielen Beispielen. Wie schon in Kapitel \ref{sec:Printaufbau} beschrieben, wurde das ESP schlussendlich nicht an den Mikrocontroller angeschlossen, sondern an das ESP32, welches dann wiederum mit dem Mikrocontroller kommuniziert. Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
+Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} beschrieben um das MFRC522 Evaluierungsboard (Breakout-Board). Dieses kommuniziert über SPI mit einem gewünschten Controller. Die Pinbelegung dazu ist in Abbildung \ref{fig:MFRC522} zu sehen. Der grosse Vorteil dieses Evaluierungsboard ist es, dass es dazu eine Arduino Library gibt mit vielen Beispielen. Wie schon in Kapitel \ref{sec:Printaufbau} beschrieben, wurde das RFID-Modul nicht an den Mikrocontroller angeschlossen, sondern an das WiFi-Modul, welches dann wiederum mit dem Mikrocontroller kommuniziert. Um den Leser in Betrieb nehmen zu können, wurde dieser wie folgt angeschlossen:
 
 
 \begin{itemize}
-\item Vcc: An 3.3V vom ESP32
-\item GND: An GND vom ESP32
-\item SDA: An IO5 vom ESP32
-\item SCK: An IO18 vom ESP32
-\item MISO: AN IO19 vom ESP32
-\item Reset: AN IO22 vom ESP32
-\item MOSI: AN IO23 vom ESP32
+\item Vcc: An 3.3V vom WiFi-Modul
+\item GND: An GND vom WiFi-Modul
+\item SDA: An IO5 vom WiFi-Modul
+\item SCK: An IO18 vom WiFi-Modul
+\item MISO: AN IO19 vom WiFi-Modul
+\item Reset: AN IO22 vom WiFi-Modul
+\item MOSI: AN IO23 vom WiFi-Modul
 \end{itemize}
 
 \begin{figure}[h!]
@@ -23,7 +23,7 @@ Beim RFID-Leser handelt es sich wie in Kapitel \ref{subsubsec:RFID} beschrieben 
 
 Diese Pinbelegung ist von der Arduino-Library gegeben und wird auch so bei der Cocktailmaschine eingesetzt, da es keinen Grund gibt diese direkt in der Library zu ändern. Lediglich die beiden Pin's \flqq SDA\frqq~und \flqq Reset\frqq~können flexibel festgelegt werden.
 
-Um das Lesegerät in Betrieb nehmen zu können, wurden nach dem Anschliessen des ESP32 an den Computer folgende Schritte unternommen: 
+Um das Lesegerät in Betrieb nehmen zu können, wurden nach dem Anschliessen des WiFi-Moduls an den Computer folgende Schritte unternommen: 
 
 \begin{enumerate}
 \item Einbinden der MFRC522 Library unter:\newline\textcolor{blue}{Werkzeuge \textrightarrow Bibliotheken verwalten} \newline
@@ -37,8 +37,3 @@ Um das Lesegerät in Betrieb nehmen zu können, wurden nach dem Anschliessen des
 \end{enumerate}
 
 Nun konnten die verschiedenen RFID-Tag's eingelesen werden und  die gelesenen Informationen wurden am seriellen Monitor ausgegeben. \cite{pcbreflux_esp32_2017}
-
-
-
-
-\todo{Reader/Writer/Transponder}

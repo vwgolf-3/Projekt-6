@@ -1,4 +1,4 @@
-\subsubsection{FOC-Treiber TMC4671}
+\subsubsection{FOC-Treiber}
 \label{subsubsec:FOC-Treiber_TMC4671}
 
 %Wie dem Grobkonzept in Kapitel \ref{subsec:Blockschaldbild} entnommen werden kann, wird für die Ansteuerung des BLDC-Motors eine Steuerlogik (Motor Control Unit) benötigt, welche die Gate-Ctrl-Signale erzeugt. Dabei handelt es sich um den TMC4671.
@@ -8,7 +8,7 @@ Der FOC-Treiber berechnet den Modulationsindex für die Kommutierung der H-Brüc
 %I_U + I_V + I_W = 0
 %\end{equation}
 
-Da das Gehäuse des IC's nur schwierig lötbar ist, wird ein Breakout-Board (BOB) verwendet.
+Wie erwähnt wird ein TMC4671 als FOC-Treiber verwendet. Da das Gehäuse des IC's nur schwierig lötbar ist, wird ein Breakout-Board (BOB) eingesetzt.
 Auf das Board und die darauf vorhandenen Schaltungen wird im Funktionsbeschrieb eingegangen.
 \newpage
 \paragraph{Schema}\label{par:Schaltungsaufbau_TMC4671}\mbox{}\\
@@ -23,7 +23,7 @@ Auf dem Breakout-Board sind diverse Anschlussmöglichkeiten vorhanden. Für den 
 \item Steuersignale Output
 \end{itemize}
 
-In der schon gezeigten Abbildung \ref{fig:Blockdiagramm_Motorengruppe} ist zu erkennen, welche Funktionen im Treiber vorhanden sind und wie diese zusammenhängen. Im wesentlichen kann daraus entnommen werden, dass der TMC4671 aus einer FOC-Logik\footnote{FOC= \textbf{F}ield \textbf{O}riented \textbf{C}ontrol}, einer Servo-Logik, einem SPI-Interface und diversen Engines (PWM, ADC, Encoder) besteht. Im Anhang Kapitel \ref{Appendix:Schaltung_TMC4671} wird eine Standard-Anwendungsschaltung gezeigt, worin erkennbar ist, dass der Treiber sehr universell aufgebaut ist und für mehrere Motorentypen verwendet werden können. Die für den PartyMixer essentiellen Ein- und Ausgänge wurden schon genannt.
+In der schon gezeigten Abbildung \ref{fig:Blockdiagramm_Motorengruppe} ist zu erkennen, welche Funktionen im Treiber vorhanden sind und wie diese zusammenhängen. Im wesentlichen kann daraus entnommen werden, dass der er aus einer FOC-Logik\footnote{FOC= \textbf{F}ield \textbf{O}riented \textbf{C}ontrol}, einer Servo-Logik, einem SPI-Interface und diversen Engines (PWM, ADC, Encoder) besteht. Im Anhang Kapitel \ref{Appendix:Schaltung_TMC4671} wird eine Standard-Anwendungsschaltung gezeigt, worin erkennbar ist, dass der Treiber sehr universell aufgebaut ist und für mehrere Motorentypen verwendet werden können. Die für den PartyMixer essentiellen Ein- und Ausgänge wurden schon genannt.
 
 In Abbildung \ref{fig:Schema_FOC_Treiber} ist erkennbar, welche Pins für den PartyMixer verwendet werden. Es handelt sich dabei um die schon aufgelisteten Komponenten, nämlich Kommunikationsleitung zwischen Treiber und Mikrocontroller (SPI), Phasenströme (ADC), Encoder Input (ENC), Motorspannung (48V) und das Gate-Ctrl-Signal (PWM).
 
@@ -36,11 +36,11 @@ In Abbildung \ref{fig:Schema_FOC_Treiber} ist erkennbar, welche Pins für den Pa
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}\\
 
-Im Folgenden werden kurz die Teilsysteme auf dem TMC4671-BOB beschrieben, welche für den Partymixer gebraucht werden. Dazu wird auf das Layout vom Trinamic TMC4671-BOB zurückgegriffen. Sämtliche Teilschemas sind im Anhang Kapitel \ref{Appendix:BOB} aufgezeigt. \cite{trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020}
+Im Folgenden werden kurz die Teilsysteme auf dem TMC4671-BOB beschrieben, welche für den Partymixer gebraucht werden. Dazu wird auf das Layout vom Trinamic zurückgegriffen. Sämtliche Teilschemas sind im Anhang Kapitel \ref{Appendix:BOB} aufgezeigt. \cite{trinamicmotion_control_gmbh__co_kg_tmc4671-bob_2020}
 
 %\subparagraph{Kommunikation Input (SPI)}
 
-Der SPI-Kommunikationseingang ist nicht speziell geschützt. Im Layout wurde darauf geachtet, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und TMC4671 gewährleistet.
+Der SPI-Kommunikationseingang ist nicht speziell geschützt. Im Layout wurde darauf geachtet, dass die angelegte Spannung nicht über 3.3V steigt. Dies wird mit einem Level-Shifter zwischen Mikrocontroller und FOC-Treiber gewährleistet.
 
 %\subparagraph{Ströme Input (ADC)}
 
@@ -69,15 +69,20 @@ Jetzt geht es bedeutend länger, bis der Kondensator wieder geladen wird. Sobald
 %\subparagraph{Motorspannung Input (48V)}
 
 Die Motorspannung ist wichtig, um den Kommuntierungsvorgang zu berechnen. Wichtiger als die Zeitkonstante ist hier ein Spannungsteiler, welcher die Motorspannung auf unter 3.3V bringt. Dazu wird folgende Formel angewendet:
-\todo{Filter vorhanden, siehe datenblatt}
 
 \begin{equation}
 U_{TMC} = U_M \cdot \frac{R310}{R310 + R311} = 48V \cdot \frac{1k\Omega}{1k\Omega + 100k\Omega} = 0.7V
 \end{equation}
 
+Ausserdem ergibt sich aus er Schaltung ein Eingangsfilter:
+\begin{equation}
+\tau = C302 \cdot \frac{R310 \cdot R311}{R310 + R311} = 10nF \cdot \frac{1.5k\Omega \cdot 100k\Omega}{1.5k\Omega + 100k\Omega}
+\end{equation}
+\cite{andy_aka_capacitor_2013}
+
 %\subparagraph{Gate-Ctrl-Signale Output (PWM)}
 
-Die Ausgangssignale für den Gate-Treiber gehen direkt auf die Header-Pins des TMC4671-BOB.
+Die Ausgangssignale für den Gate-Treiber gehen direkt auf die Header-Pins des BOBs.
 
 %\subsubsection{Encoder-Input}\label{subsubsec:Encoder_Input}
 %

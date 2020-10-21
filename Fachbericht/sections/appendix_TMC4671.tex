@@ -1,11 +1,11 @@
-\section{TMC4671}\label{Appendix:TMC4671}
+\section{FOC-Treiber}\label{Appendix:TMC4671}
 
 \subsection{Standard-Schaltkreis}\label{Appendix:Schaltung_TMC4671}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/Standard_Application_Cirquit_TMC4671}
-	\caption{Standard-Anwendungs-Schaltung. \cite[S.138]{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}}
+	\caption{Standard-Anwendungs-Schaltung FOC-Treiber. \cite[S.138]{trinamicmotion_control_gmbh__co_kg_tmc4671_2019}}
 	\label{fig:Schaltung_TMC4671}
 \end{figure}
 
@@ -60,7 +60,7 @@
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|l|l|l|X|}
 \hline
-\multicolumn{4}{|c|}{\textbf{TMC4671 Register}}               \\ \hline
+\multicolumn{4}{|c|}{\textbf{FOC-Treiber Register}}               \\ \hline
 \textbf{Nr. }& \textbf{Register-Name   }   & \textbf{Wert }      & \textbf{Was} \\ \hline
 \multicolumn{4}{|l|}{\textbf{Motor type \&  PWM configuration}}        \\ \hline
 0x17         & PWM\_POLARITIES             & 0x00000000 & MOSFETs polarity ''off''    \\ \hline
@@ -129,7 +129,7 @@
 \caption{SPI-Übertragung Read (Hier Motor Pole Pairs).}
 \label{fig:TMC4671_Lesen_1}
 \end{figure}
-\todo{evt. neue Bilder mit eigenem Aufbau Print}
+
 \newpage
 \begin{figure}[H]
 \center
@@ -141,14 +141,14 @@
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/TMC4671_TimeTable_Beschreiben1_Bild}
-\caption{Event-Table Inbetriebnahme TMC4671.}
+\caption{Event-Table Inbetriebnahme FOC-Treiber.}
 \label{fig:TMC4671_TimeTable_Beschreiben1_Bild}
 \end{figure}
 
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/TMC4671_TimeTable_Lesen_Bild}
-\caption{Event-Table Inbetriebnahme TMC4671.}
+\caption{Event-Table Inbetriebnahme FOC-Treiber.}
 \label{fig:TMC4671_TimeTable_Lesen_Bild}
 \end{figure}
 

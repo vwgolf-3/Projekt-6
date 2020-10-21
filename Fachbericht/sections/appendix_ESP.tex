@@ -1,4 +1,4 @@
-\section{ESP32}\label{Appendix:ESP_32}
+\section{WiFi-Modul}\label{Appendix:ESP_32}
 
 \subsection{Tabellarischer Vergleich zwischen ESP32 und ESP8266}\label{Appendix:ESP32_vs_ESP8266}
 
@@ -73,11 +73,11 @@ CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
 
 \textbf{Spannung des internen Spannungsgeglers (VDD\_SDIO)}
 
-Das ESP32 hat einen eingebauten host controller für SD/SDIO/MMC-Speichergeräte. Dieser kann mit 3.3V (IO12 = 0) oder 1.8V (IO12 = 1) betrieben werden. Wird der Pin auf 1 gesetzt, könnte ein Brown-out der IO-Versorgungspannung VCC\_IO ausgelöst werden.
+Das WiFi-Modul hat einen eingebauten host controller für SD/SDIO/MMC-Speichergeräte. Dieser kann mit 3.3V (IO12 = 0) oder 1.8V (IO12 = 1) betrieben werden. Wird der Pin auf 1 gesetzt, könnte ein Brown-out der IO-Versorgungspannung VCC\_IO ausgelöst werden.
 
 \textbf{Booting Mode}
 
-Der Pin IO0 gibt vor, ob das ESP32 vom internen SPI-flash bootet (IO0 = 1) oder ob neuer Code in den flash Speicher geschrieben wird (IO0 = 0). Soll das ESP vom Flash-Speicher booten, so hat der Pin IO2 kein Einfluss, um jedoch den Code speichern zu können, muss der Pin auf 0 sein.
+Der Pin IO0 gibt vor, ob das WiFi-Modul vom internen SPI-flash bootet (IO0 = 1) oder ob neuer Code in den flash Speicher geschrieben wird (IO0 = 0). Soll das WiFi-Modul vom Flash-Speicher booten, so hat der Pin IO2 kein Einfluss, um jedoch den Code speichern zu können, muss der Pin auf 0 sein.
 
 \textbf{De-/Aktivieren vom Debug-Log über U0TXD während dem Bootvorgang}
 
@@ -113,20 +113,20 @@ Der Pin IO0 gibt vor, ob das ESP32 vom internen SPI-flash bootet (IO0 = 1) oder 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{graphics/ESP32_Verbundene_Geraete}
-	\caption{ESP32 verbindet sich nach Hochladen des Codes mit dem WiFi.}
+	\caption{WiFi-Modul verbindet sich nach Hochladen des Codes mit dem WiFi.}
 	\label{fig:ESP32_Verbundene_Geraete}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/ESP32_Serial_Monitor}
-	\caption{ESP32 erkennt Netzwerk und Client (Browser).}
+	\caption{WiFi-Modul erkennt Netzwerk und Client (Browser).}
 	\label{fig:ESP32_Serial_Monitor}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/ESP32_Webserver}
-	\caption{ESP32 als Host (Browseransicht).}
+	\caption{WiFi-Modul als Host (Browseransicht).}
 	\label{fig:ESP32_Webserver}
 \end{figure}

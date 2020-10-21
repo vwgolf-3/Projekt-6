@@ -5,9 +5,11 @@ Der Gate-Treiber wird ebenfalls über die SPI-Schnittstelle in Betrieb genommen.
 
 Das Setup, welches in Kapitel \ref{subsubsec:Inbetriebnahme_FOC_Treiber} erwähnt wurde, ist jetzt um einen Baustein erweitert worden und in Anhang Kapitel \ref{Appendix:TMC4671_Setup} ersichtlich.
 
+Achtung, wenn die Scripts auf den Mikrocontroller des PartyMixers geladen werden ist darauf zu achten, dass die Achse des Motors frei beweglich ist und das Förderband nicht mit der Achse mitdreht, da ansonsten Schäden an der Maschine entstehen können. Es wird empfohlen die Scripts mit Mikrocontroller und EVAL-Boards zu testen.
+
 Vorgehen:
 \begin{enumerate}
-\item Benötigte Applikation aus dem Software-Ordner auf dem USB-Stick in Atmel Studio öffnen.\\
+\item Benötigte Applikation, welche im Software-Ordner auf dem USB-Stick oder Github \cite{aebi_projekt-6softwareatmega_2020} zu finden ist, in Atmel Studio öffnen.\\
 \textcolor{magenta}{Software\textrightarrow Atmega\textrightarrow 3\underline{ }Motor\underline{ }Openloop\textrightarrow 1\underline{ }Motor\underline{ }Testsoftware\textrightarrow Motor}\\
 
 
@@ -27,7 +29,7 @@ Vorgehen:
 \item Software hochladen:\\
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 
-\item SPI-Kommunikation und Signale an der H-Brücke überprüfen. Im Anhang Kapitel \ref{Appendix:TMC6200_SPI} sind die Messbilder zur SPI-Kommunikation zu finden und in Anhang \ref{Appendix:TMC6200_Gate_Ctrl} die Bilder zur Gate-Ctrl vom TMC6200 zur H-Brücke.
+\item SPI-Kommunikation und Signale an der H-Brücke überprüfen. Im Anhang Kapitel \ref{Appendix:TMC6200_SPI} sind die Messbilder zur SPI-Kommunikation zu finden und in Anhang \ref{Appendix:TMC6200_Gate_Ctrl} die Bilder zur Gate-Ctrl vom Gate-Treiber zur H-Brücke.
 
 \end{enumerate}
 

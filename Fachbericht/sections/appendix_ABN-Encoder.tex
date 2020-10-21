@@ -1,4 +1,4 @@
-\section{CUI AMT332S-V ABN-Encoder}\label{Appendix:ABC_Ecoder}
+\section{ABN-Encoder}\label{Appendix:ABC_Ecoder}
 
 \subsection{Pinout and Interface}
 
@@ -13,42 +13,12 @@
 
 \subsection{Inbetriebnahme}
 
-\subsubsection{Inbetriebnahme Setup}\label{Appendix:ABN_Setup}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Encoder_Motor}
-	\caption{Encoder-Interface Pinout-Table.}
-	\label{fig:4_Encoder_Motor}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Antriebskette}
-	\caption{Encoder-Interface Pinout-Table.}
-	\label{fig:4_Antriebskette}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_komplett}
-	\caption{Encoder-Interface Pinout-Table.}
-	\label{fig:4_komplett}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Elektronik}
-	\caption{Encoder-Interface Pinout-Table.}
-	\label{fig:4_Elektronik}
-\end{figure}
-
 \subsubsection{Register Closed-Loop}\label{Appendix:ABN_Register}
 
 \begin{table}[H]
 \begin{tabularx}{\linewidth}{|l|l|l|X|}
 \hline
-\multicolumn{4}{|c|}{\textbf{TMC4671 Register}}               \\ \hline
+\multicolumn{4}{|c|}{\textbf{FOC-Treiber Register}}               \\ \hline
 \textbf{Nr. }& \textbf{Register-Name   }   & \textbf{Wert }      & \textbf{Was} \\ \hline
 \multicolumn{4}{|l|}{\textbf{Motor type \&  PWM configuration}}        \\ \hline
 0x17         & PWM\_POLARITIES             & 0x00000000 & MOSFETs polarity ''off''    \\ \hline
@@ -85,6 +55,35 @@
 \end{tabularx}
 \end{table}
 
+\subsubsection{Inbetriebnahme Setup}\label{Appendix:ABN_Setup}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Encoder_Motor}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_Encoder_Motor}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Antriebskette}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_Antriebskette}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_komplett}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_komplett}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Elektronik}
+	\caption{Encoder-Interface Pinout-Table.}
+	\label{fig:4_Elektronik}
+\end{figure}
 
 \subsubsection{Encoder-Signale}\label{Appendix:ABN_Signale}
 

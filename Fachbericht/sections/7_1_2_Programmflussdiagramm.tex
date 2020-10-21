@@ -2,7 +2,7 @@
 \label{subsubsec:Programmflussdiagramm}
 
 \paragraph{Bootloader-Section}\mbox{}\\
-In Abbildung \ref{fig:Programmfluss_Atmega2560} wird der Programmfluss der Atmega2560-Software aufgezeigt. Beim einschalten des Mikrocontrollers wird in der Bootloader-Section zuerst der Bootloader gestartet (Boot Loader Flash Section). Sofern keine neue Software über die UART0-Schnittstelle kommt, so beginnt das Cocktail spezifische Programm (Application Flash Section). Sofern eine neue Software über die UART0-Schnittstelle gesendet wird, wird die kommende Software in diese Application Flash Section geschrieben und das Programm nach der Übertragung gestartet.
+In Abbildung \ref{fig:Programmfluss_Atmega2560} wird der Programmfluss der Mikrocontroller-Software aufgezeigt. Beim einschalten des Mikrocontrollers wird in der Bootloader-Section zuerst der Bootloader gestartet (Boot Loader Flash Section). Sofern keine neue Software über die UART0-Schnittstelle kommt, so beginnt das Cocktail spezifische Programm (Application Flash Section). Sofern eine neue Software über die UART0-Schnittstelle gesendet wird, wird die kommende Software in diese Application Flash Section geschrieben und das Programm nach der Übertragung gestartet.
 
 \paragraph{Init-Section}\mbox{}\\
 Wird das Programm gestartet, beginnt die Init-Section. Hier werden die zuerst die Main-Variablen initialisiert. Danach werden die Adressen der Funktionen ins Programm geladen mittels den h-Files. Die Interfaces (SPI, Uart, I/O's) müssen als erstes initialisiert werden, damit die Initialisierung der SPI-Devices stattfinden kann und Boot-Informationen über eine gewünschte Schnittstelle angezeigt werden können (z.B Uart0 ==> Computer). Sobald die Schnittstellen initialisiert wurden, werden die Devices initialisiert. Dazu gehören die SD-Karte, der FOC-Treiber und der Gate-Treiber. Daraufhin werden die Speicher-Strukturen initialisiert, welche für die User-Applikation (Tabelle \ref{fig:Softwareuebersicht_Atmega2560} in Kapitel \ref{subsubsec:Strukturplan_Atmega}) gebraucht werden. Zu guter Letzt wird die Startanzeige des Displays geladen.
@@ -15,7 +15,7 @@ Da die Maschine nur auf Inputs reagieren muss, werden im Main-Loop nur die Buffe
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{graphics/Programmfluss_Atmega2560.pdf}
-	\caption{Programflussdiagramm Atmega2560.}
+	\caption{Programflussdiagramm Mikrocontroller.}
 	\label{fig:Programmfluss_Atmega2560}
 \end{figure}
 \newpage

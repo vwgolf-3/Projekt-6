@@ -21,7 +21,7 @@ Damit der Mikrocontroller sich programmieren lässt, müssen einige Grundeinstel
 \label{tab:Fuse_und_Lock-Bits}
 \end{table}
 
-Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (Atmega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Eine ausführliche Anleitung findet sich auf \textit{https://www.instructables.com/}. \cite{vidmofollow_turn_2017}
+Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (ATMega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. Für die Inbetriebnahme des Mikrocontrollers wurde der Alternativweg gewählt. Eine ausführliche Anleitung findet sich auf \textit{https://www.instructables.com/}. \cite{vidmofollow_turn_2017}
 
 AVRdude kann in Atmel Studio eingebunden werden, was im folgenden Kapitel erklärt wird.
 
@@ -29,7 +29,7 @@ AVRdude kann in Atmel Studio eingebunden werden, was im folgenden Kapitel erklä
 
 Von \textit{http://savannah.gnu.org/} kann eine Datei heruntergeladen welche \textcolor{blue}{avrdude-6.3-mingw32.zip} heisst. Der gleichnahmige Ordner wird im Ordner \textcolor{blue}{C:\textbackslash Tools} gespeichert. \cite{savannahgnuorg_index_2016}
 
-Nachdem dies gemacht wurde, wird in AtmelStudio der Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählt und ein neues Tool hinzugefügt. Im Falle des Atmega2560 werden die Commands gemäss Tabelle \ref{tab:AVRdude_commands} eingegeben:
+Nachdem dies gemacht wurde, wird in AtmelStudio der Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählt und ein neues Tool hinzugefügt. Im Falle des ATMega2560 werden die Commands gemäss Tabelle \ref{tab:AVRdude_commands} eingegeben:
 
 \begin{table}[h!]
 \center
@@ -55,7 +55,7 @@ Folgende Schritte wurden befolgt:
 \begin{enumerate}
 \item Als Erstes wurden die Fuse-Bits gesetzt. Dies geschah über den Reiter:\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Fuses} \newline
-Es wurde darauf geachtet, dass der AVR mkII ausgewählt wurde und der Gerätecode des Atmega2560 ausgelesen werden konnte.\newline
+Es wurde darauf geachtet, dass der AVR mkII ausgewählt wurde und der Gerätecode des ATMega2560 ausgelesen werden konnte.\newline
 
 \item Als Zweites wurde der Bootloader installiert. Dies geschah unter:\newline
 \textcolor{blue}{AtmelStudio \textrightarrow Tools \textrightarrow Device programming \textrightarrow Memory} \newline

@@ -1,7 +1,7 @@
-\subsection{Atmega2560}
+\subsection{Mikrocontroller}
 \label{subsec:Software_Atmega2560}
 
-Die Software für den Atmega2560 ist wie folgt aufgebaut: 
+Die Software für den Mikrocontrollers ist wie folgt aufgebaut: 
 Im \textbf{Init/Main} werden die Variablen deklariert, welche im Programm benutzt werden, um die aus den Kommunikationsbuffern geholten Daten zur Verarbeitung zu Speichern.
 Zudem werden hier die Adressen auf die Funktionen deklariert, welche die Module (z.B IO, Speicher, Devices, Interfaces) initialisieren und die Buffer in der main-Schleife prüfen.
 Durch Aufrufen des h-Files ''Cocktail\_Statemachine.h'' werden die Adressen der projektspezifischen Funktionen deklariert und somit die \textbf{User-Applikation} eingebunden. Darunter befinden sich die Libraries, welche die Registernummern oder Befehlssätze beinhalten, um die Devices anzusteuern.

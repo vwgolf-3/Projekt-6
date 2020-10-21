@@ -118,7 +118,7 @@ Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher pe
 %\caption{Bits Low-Byte-Fuses.}
 %\end{table}
 %
-Für den Mikrocontroller verwenden wir einen 16MHz Full-Swing-Crystal-Oszillator, weshalb die Bits CKSEL3:1 auf 111 stehen müssen.
+Für den Mikrocontroller wird ein 16MHz Full-Swing-Crystal-Oszillator verwendet, weshalb die Bits CKSEL3:1 auf 111 stehen müssen.
 Die Aufstartzeit wird vorsorglich auf die längst mögliche Zeit eingestellt. Dies führt dazu, dass das Register CKSEL0 auf 0 und die Register SUT0:1 auf 00 gesetzt werden.
 %
 %
@@ -147,7 +147,7 @@ Die Aufstartzeit wird vorsorglich auf die längst mögliche Zeit eingestellt. Di
 %\end{tabularx}
 %\todo{cite: Siehe Cites auskommentiert in Tabelle}
 %
-Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung unter einen Wert fällt. Wenn der Mikrocontroller ausfällt, während der TMC4671 noch aktiv ist, wird der Motor weiter gefahren. Dieses Risiko soll eingeschränkt werden, indem dieser Modus ausgeschaltet wird.\cite{haftmann_programmierung_nodate}
+Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung unter einen Wert fällt. Wenn der Mikrocontroller ausfällt, während der FOC-Treiber noch aktiv ist, wird der Motor weiter gefahren. Dieses Risiko soll eingeschränkt werden, indem dieser Modus ausgeschaltet wird.\cite{haftmann_programmierung_nodate}
 
 %\subsubsection{Brown-out-Detection}\label{Appendix:Brown-out-Detection}
 
@@ -186,7 +186,7 @@ Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Fuses}
-	\caption{Fuse-Bits Atmega2560 (Atmel Studio).}
+	\caption{Fuse-Bits ATMega2560 (Atmel Studio).}
 	\label{fig:AtmelStudio_Fuses}
 \end{figure}
 
@@ -233,7 +233,7 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Locks}
-	\caption{Lock-Bits Atmega2560.}
+	\caption{Lock-Bits ATMega2560.}
 	\label{fig:AtmelStudio_Locks}
 \end{figure}
 
@@ -243,7 +243,7 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{graphics/AtmelStudio_External_Tools}
-	\caption{External Tools Atmega2560 (Atmel Studio).}
+	\caption{External Tools ATMega2560 (Atmel Studio).}
 	\label{fig:AtmelStudio_External_Tools}
 \end{figure}
 

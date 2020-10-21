@@ -1,13 +1,14 @@
 \subsubsection{FOC-Treiber}
 \label{subsubsec:Inbetriebnahme_FOC_Treiber}
 
-Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop. Welche Register wie beschrieben werden, ist im Anhang Kapitel \ref{Appendix:TMC4671_Register} zu ersichtlich. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich, welche im Softwareordner auf dem USB-Stick zu finden ist.
-\todo{Abgabe USB-Stick/Github-Account ??}
+Der FOC-Treiber wird über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche aus der TMCL-IDE verwendet werden. Die Standardparameter beinhalten Informationen zum Motor, zwei Sekunden Linksdrehung im Open-Loop, 2 Sekunden Rechtsdrehung im Open-Loop und dann Stop. Welche Register wie beschrieben werden, ist im Anhang Kapitel \ref{Appendix:TMC4671_Register} zu ersichtlich. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich, welche im Softwareordner auf dem USB-Stick oder auf Github \cite{aebi_projekt-6softwareatmega_2020} zu finden ist.
 Das Setup, mit welchem der Treiber softwareseitig in Betrieb genommen wurde, ist im Anhang Kapitel \ref{Appendix:TMC4671_Setup} gezeigt.
+\newpage
+Achtung, wenn die Scripts auf den Mikrocontroller des PartyMixers geladen werden ist darauf zu achten, dass die Achse des Motors frei beweglich ist und das Förderband nicht mit der Achse mitdreht, da ansonsten Schäden an der Maschine entstehen können. Es wird empfohlen die Scripts mit Mikrocontroller und EVAL-Boards zu testen.
 
 Vorgehen:
 \begin{enumerate}
-\item Benötigte Applikation aus dem Software-Ordner auf dem USB-Stick in Atmel Studio öffnen.\\
+\item Benötigte Applikation, welche im Software-Ordner auf dem USB-Stick oder Github \cite{aebi_projekt-6softwareatmega_2020} zu finden ist, in Atmel Studio öffnen.\\
 \textcolor{magenta}{Software\textrightarrow Atmega\textrightarrow 3\underline{ }Motor\underline{ }Openloop\textrightarrow 1\underline{ }Motor\underline{ }Testsoftware\textrightarrow Motor}\\
 
 \item Software anpassen: Zeile 23 bis 32\\
@@ -24,7 +25,5 @@ Vorgehen:
 \item Software hochladen:\\
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 
-\item SPI-Kommunikation und ausgehende Gate-Signale vom FOC-Treiber zum Gate-Treiebr mit Oszilloskop überprüfen. Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind die Messbilder zur SPI- Kommunikation zu finden und in Anhang \ref{Appendix:TMC4671_Gate_Ctrl} die Messbilder zur Gate-Control vom TMC4671 zum TMC6200.
+\item SPI-Kommunikation und ausgehende Gate-Signale vom FOC-Treiber zum Gate-Treiebr mit Oszilloskop überprüfen. Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind die Messbilder zur SPI- Kommunikation zu finden und in Anhang \ref{Appendix:TMC4671_Gate_Ctrl} die Messbilder zur Gate-Control vom FOC-Treiber zum Gate-Treiber.
 \end{enumerate}
-
-\todo{Skripts nicht benutzen in der Maschine.}
