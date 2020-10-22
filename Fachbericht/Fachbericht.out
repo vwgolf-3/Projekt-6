@@ -49,27 +49,28 @@
 \BOOKMARK [1][-]{appendix.D}{D LED}{}% 49
 \BOOKMARK [2][-]{subsection.D.1}{D.1 PWM-Signale}{appendix.D}% 50
 \BOOKMARK [1][-]{appendix.E}{E Mikrocontroller}{}% 51
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Inbetriebnahme}{appendix.E}% 52
-\BOOKMARK [2][-]{subsection.E.2}{E.2 Speicherorganisation}{appendix.E}% 53
-\BOOKMARK [1][-]{appendix.F}{F FOC-Treiber}{}% 54
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Standard-Schaltkreis}{appendix.F}% 55
-\BOOKMARK [2][-]{subsection.F.2}{F.2 BOB}{appendix.F}% 56
-\BOOKMARK [2][-]{subsection.F.3}{F.3 Inbetriebnahme}{appendix.F}% 57
-\BOOKMARK [1][-]{appendix.G}{G Gate-Treiber}{}% 58
-\BOOKMARK [2][-]{subsection.G.1}{G.1 Standard-Schaltkreis}{appendix.G}% 59
-\BOOKMARK [2][-]{subsection.G.2}{G.2 Blockdiagramm}{appendix.G}% 60
-\BOOKMARK [2][-]{subsection.G.3}{G.3 Externe Gate-Spannungsversorgung}{appendix.G}% 61
-\BOOKMARK [2][-]{subsection.G.4}{G.4 Inbetriebnahme}{appendix.G}% 62
-\BOOKMARK [1][-]{appendix.H}{H H-Br\374cke}{}% 63
-\BOOKMARK [2][-]{subsection.H.1}{H.1 Referenzschema}{appendix.H}% 64
-\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 65
-\BOOKMARK [1][-]{appendix.I}{I ABN-Encoder}{}% 66
-\BOOKMARK [2][-]{subsection.I.1}{I.1 Pinout and Interface}{appendix.I}% 67
-\BOOKMARK [2][-]{subsection.I.2}{I.2 Inbetriebnahme}{appendix.I}% 68
-\BOOKMARK [1][-]{appendix.J}{J PI-Regler}{}% 69
-\BOOKMARK [2][-]{subsection.J.1}{J.1 TMCL-IDE}{appendix.J}% 70
-\BOOKMARK [1][-]{appendix.K}{K Software Ramp}{}% 71
-\BOOKMARK [2][-]{subsection.K.1}{K.1 Implementierung}{appendix.K}% 72
-\BOOKMARK [2][-]{subsection.K.2}{K.2 Matlab-Script}{appendix.K}% 73
-\BOOKMARK [1][-]{appendix.L}{L Print}{}% 74
-\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 75
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Pinout}{appendix.E}% 52
+\BOOKMARK [2][-]{subsection.E.2}{E.2 Inbetriebnahme}{appendix.E}% 53
+\BOOKMARK [2][-]{subsection.E.3}{E.3 Speicherorganisation}{appendix.E}% 54
+\BOOKMARK [1][-]{appendix.F}{F FOC-Treiber}{}% 55
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Standard-Schaltkreis}{appendix.F}% 56
+\BOOKMARK [2][-]{subsection.F.2}{F.2 BOB}{appendix.F}% 57
+\BOOKMARK [2][-]{subsection.F.3}{F.3 Inbetriebnahme}{appendix.F}% 58
+\BOOKMARK [1][-]{appendix.G}{G Gate-Treiber}{}% 59
+\BOOKMARK [2][-]{subsection.G.1}{G.1 Standard-Schaltkreis}{appendix.G}% 60
+\BOOKMARK [2][-]{subsection.G.2}{G.2 Blockdiagramm}{appendix.G}% 61
+\BOOKMARK [2][-]{subsection.G.3}{G.3 Externe Gate-Spannungsversorgung}{appendix.G}% 62
+\BOOKMARK [2][-]{subsection.G.4}{G.4 Inbetriebnahme}{appendix.G}% 63
+\BOOKMARK [1][-]{appendix.H}{H H-Br\374cke}{}% 64
+\BOOKMARK [2][-]{subsection.H.1}{H.1 Referenzschema}{appendix.H}% 65
+\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 66
+\BOOKMARK [1][-]{appendix.I}{I ABN-Encoder}{}% 67
+\BOOKMARK [2][-]{subsection.I.1}{I.1 Pinout and Interface}{appendix.I}% 68
+\BOOKMARK [2][-]{subsection.I.2}{I.2 Inbetriebnahme}{appendix.I}% 69
+\BOOKMARK [1][-]{appendix.J}{J PI-Regler}{}% 70
+\BOOKMARK [2][-]{subsection.J.1}{J.1 TMCL-IDE}{appendix.J}% 71
+\BOOKMARK [1][-]{appendix.K}{K Software Ramp}{}% 72
+\BOOKMARK [2][-]{subsection.K.1}{K.1 Implementierung}{appendix.K}% 73
+\BOOKMARK [2][-]{subsection.K.2}{K.2 Matlab-Script}{appendix.K}% 74
+\BOOKMARK [1][-]{appendix.L}{L Print}{}% 75
+\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 76

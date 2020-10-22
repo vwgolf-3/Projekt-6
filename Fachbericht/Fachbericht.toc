@@ -136,51 +136,53 @@
 \contentsline {subsection}{\numberline {D.1}PWM-Signale}{91}{subsection.D.1}%
 \contentsline {subsubsection}{\numberline {D.1.1}Rainbow-Funktion}{93}{subsubsection.D.1.1}%
 \contentsline {section}{\numberline {E}Mikrocontroller}{94}{appendix.E}%
-\contentsline {subsection}{\numberline {E.1}Inbetriebnahme}{94}{subsection.E.1}%
-\contentsline {subsubsection}{\numberline {E.1.1}Fuse-Bits}{94}{subsubsection.E.1.1}%
-\contentsline {subsubsection}{\numberline {E.1.2}Bootloader}{95}{subsubsection.E.1.2}%
-\contentsline {subsubsection}{\numberline {E.1.3}Lock-Bits}{96}{subsubsection.E.1.3}%
-\contentsline {subsubsection}{\numberline {E.1.4}Einbinden AVRdude und stk500v2 (wiring)}{97}{subsubsection.E.1.4}%
-\contentsline {subsubsection}{\numberline {E.1.5}Schwingung 16MHz Quarz}{98}{subsubsection.E.1.5}%
-\contentsline {subsection}{\numberline {E.2}Speicherorganisation}{99}{subsection.E.2}%
-\contentsline {subsubsection}{\numberline {E.2.1}Doubly Dynamic Linked List}{99}{subsubsection.E.2.1}%
-\contentsline {section}{\numberline {F}FOC-Treiber}{101}{appendix.F}%
-\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{101}{subsection.F.1}%
-\contentsline {subsection}{\numberline {F.2}BOB}{101}{subsection.F.2}%
-\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{104}{subsection.F.3}%
-\contentsline {subsubsection}{\numberline {F.3.1}Register Openloop}{104}{subsubsection.F.3.1}%
-\contentsline {subsubsection}{\numberline {F.3.2}Setup}{105}{subsubsection.F.3.2}%
-\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{106}{subsubsection.F.3.3}%
-\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{110}{subsubsection.F.3.4}%
-\contentsline {section}{\numberline {G}Gate-Treiber}{111}{appendix.G}%
-\contentsline {subsection}{\numberline {G.1}Standard-Schaltkreis}{111}{subsection.G.1}%
-\contentsline {subsection}{\numberline {G.2}Blockdiagramm}{111}{subsection.G.2}%
-\contentsline {subsection}{\numberline {G.3}Externe Gate-Spannungsversorgung}{112}{subsection.G.3}%
-\contentsline {subsection}{\numberline {G.4}Inbetriebnahme}{112}{subsection.G.4}%
-\contentsline {subsubsection}{\numberline {G.4.1}Register Gate-Treiber}{112}{subsubsection.G.4.1}%
-\contentsline {subsubsection}{\numberline {G.4.2}Inbetriebnahme Setup}{112}{subsubsection.G.4.2}%
-\contentsline {subsubsection}{\numberline {G.4.3}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{114}{subsubsection.G.4.3}%
-\contentsline {subsubsection}{\numberline {G.4.4}Gate-Vorwiderstand}{115}{subsubsection.G.4.4}%
-\contentsline {subsubsection}{\numberline {G.4.5}Inbetriebnahme SPI-Kommunikation}{115}{subsubsection.G.4.5}%
-\contentsline {subsubsection}{\numberline {G.4.6}Inbetriebnahme Gate-Ctrl}{118}{subsubsection.G.4.6}%
-\contentsline {section}{\numberline {H}H-Brücke}{119}{appendix.H}%
-\contentsline {subsection}{\numberline {H.1}Referenzschema}{119}{subsection.H.1}%
-\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{119}{subsection.H.2}%
-\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{119}{subsubsection.H.2.1}%
-\contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{120}{subsubsection.H.2.2}%
-\contentsline {section}{\numberline {I}ABN-Encoder}{121}{appendix.I}%
-\contentsline {subsection}{\numberline {I.1}Pinout and Interface}{121}{subsection.I.1}%
-\contentsline {subsection}{\numberline {I.2}Inbetriebnahme}{122}{subsection.I.2}%
-\contentsline {subsubsection}{\numberline {I.2.1}Register Closed-Loop}{122}{subsubsection.I.2.1}%
-\contentsline {subsubsection}{\numberline {I.2.2}Inbetriebnahme Setup}{123}{subsubsection.I.2.2}%
-\contentsline {subsubsection}{\numberline {I.2.3}Encoder-Signale}{125}{subsubsection.I.2.3}%
-\contentsline {section}{\numberline {J}PI-Regler}{126}{appendix.J}%
-\contentsline {subsection}{\numberline {J.1}TMCL-IDE}{126}{subsection.J.1}%
-\contentsline {subsubsection}{\numberline {J.1.1}Drehmoment}{126}{subsubsection.J.1.1}%
-\contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{127}{subsubsection.J.1.2}%
-\contentsline {subsubsection}{\numberline {J.1.3}Position}{128}{subsubsection.J.1.3}%
-\contentsline {section}{\numberline {K}Software Ramp}{129}{appendix.K}%
-\contentsline {subsection}{\numberline {K.1}Implementierung}{129}{subsection.K.1}%
-\contentsline {subsection}{\numberline {K.2}Matlab-Script}{131}{subsection.K.2}%
-\contentsline {section}{\numberline {L}Print}{135}{appendix.L}%
-\contentsline {subsection}{\numberline {L.1}KiCad Schema}{135}{subsection.L.1}%
+\contentsline {subsection}{\numberline {E.1}Pinout}{94}{subsection.E.1}%
+\contentsline {subsection}{\numberline {E.2}Inbetriebnahme}{96}{subsection.E.2}%
+\contentsline {subsubsection}{\numberline {E.2.1}Fuse-Bits}{96}{subsubsection.E.2.1}%
+\contentsline {subsubsection}{\numberline {E.2.2}Bootloader}{97}{subsubsection.E.2.2}%
+\contentsline {subsubsection}{\numberline {E.2.3}Lock-Bits}{98}{subsubsection.E.2.3}%
+\contentsline {subsubsection}{\numberline {E.2.4}Einbinden AVRdude und stk500v2 (wiring)}{99}{subsubsection.E.2.4}%
+\contentsline {subsubsection}{\numberline {E.2.5}Schwingung 16MHz Quarz}{100}{subsubsection.E.2.5}%
+\contentsline {subsubsection}{\numberline {E.2.6}Pinout}{100}{subsubsection.E.2.6}%
+\contentsline {subsection}{\numberline {E.3}Speicherorganisation}{101}{subsection.E.3}%
+\contentsline {subsubsection}{\numberline {E.3.1}Doubly Dynamic Linked List}{101}{subsubsection.E.3.1}%
+\contentsline {section}{\numberline {F}FOC-Treiber}{103}{appendix.F}%
+\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{103}{subsection.F.1}%
+\contentsline {subsection}{\numberline {F.2}BOB}{103}{subsection.F.2}%
+\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{106}{subsection.F.3}%
+\contentsline {subsubsection}{\numberline {F.3.1}Register Openloop}{106}{subsubsection.F.3.1}%
+\contentsline {subsubsection}{\numberline {F.3.2}Setup}{107}{subsubsection.F.3.2}%
+\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{108}{subsubsection.F.3.3}%
+\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{112}{subsubsection.F.3.4}%
+\contentsline {section}{\numberline {G}Gate-Treiber}{113}{appendix.G}%
+\contentsline {subsection}{\numberline {G.1}Standard-Schaltkreis}{113}{subsection.G.1}%
+\contentsline {subsection}{\numberline {G.2}Blockdiagramm}{113}{subsection.G.2}%
+\contentsline {subsection}{\numberline {G.3}Externe Gate-Spannungsversorgung}{114}{subsection.G.3}%
+\contentsline {subsection}{\numberline {G.4}Inbetriebnahme}{114}{subsection.G.4}%
+\contentsline {subsubsection}{\numberline {G.4.1}Register Gate-Treiber}{114}{subsubsection.G.4.1}%
+\contentsline {subsubsection}{\numberline {G.4.2}Inbetriebnahme Setup}{114}{subsubsection.G.4.2}%
+\contentsline {subsubsection}{\numberline {G.4.3}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{116}{subsubsection.G.4.3}%
+\contentsline {subsubsection}{\numberline {G.4.4}Gate-Vorwiderstand}{117}{subsubsection.G.4.4}%
+\contentsline {subsubsection}{\numberline {G.4.5}Inbetriebnahme SPI-Kommunikation}{117}{subsubsection.G.4.5}%
+\contentsline {subsubsection}{\numberline {G.4.6}Inbetriebnahme Gate-Ctrl}{120}{subsubsection.G.4.6}%
+\contentsline {section}{\numberline {H}H-Brücke}{121}{appendix.H}%
+\contentsline {subsection}{\numberline {H.1}Referenzschema}{121}{subsection.H.1}%
+\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{121}{subsection.H.2}%
+\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{121}{subsubsection.H.2.1}%
+\contentsline {subsubsection}{\numberline {H.2.2}Inbetriebnahme Schaltsignale}{122}{subsubsection.H.2.2}%
+\contentsline {section}{\numberline {I}ABN-Encoder}{123}{appendix.I}%
+\contentsline {subsection}{\numberline {I.1}Pinout and Interface}{123}{subsection.I.1}%
+\contentsline {subsection}{\numberline {I.2}Inbetriebnahme}{124}{subsection.I.2}%
+\contentsline {subsubsection}{\numberline {I.2.1}Register Closed-Loop}{124}{subsubsection.I.2.1}%
+\contentsline {subsubsection}{\numberline {I.2.2}Inbetriebnahme Setup}{125}{subsubsection.I.2.2}%
+\contentsline {subsubsection}{\numberline {I.2.3}Encoder-Signale}{127}{subsubsection.I.2.3}%
+\contentsline {section}{\numberline {J}PI-Regler}{128}{appendix.J}%
+\contentsline {subsection}{\numberline {J.1}TMCL-IDE}{128}{subsection.J.1}%
+\contentsline {subsubsection}{\numberline {J.1.1}Drehmoment}{128}{subsubsection.J.1.1}%
+\contentsline {subsubsection}{\numberline {J.1.2}Geschwindigkeit}{129}{subsubsection.J.1.2}%
+\contentsline {subsubsection}{\numberline {J.1.3}Position}{130}{subsubsection.J.1.3}%
+\contentsline {section}{\numberline {K}Software Ramp}{131}{appendix.K}%
+\contentsline {subsection}{\numberline {K.1}Implementierung}{131}{subsection.K.1}%
+\contentsline {subsection}{\numberline {K.2}Matlab-Script}{133}{subsection.K.2}%
+\contentsline {section}{\numberline {L}Print}{137}{appendix.L}%
+\contentsline {subsection}{\numberline {L.1}KiCad Schema}{137}{subsection.L.1}%
