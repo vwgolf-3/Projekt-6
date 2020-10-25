@@ -5,112 +5,112 @@
 \contentsline {section}{\numberline {1}Einleitung}{1}{section.1}%
 \contentsline {section}{\numberline {2}Ausgangslage}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Blockschaltbild}{3}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Printaufbau}{4}{section.3}%
-\contentsline {section}{\numberline {4}Teilsysteme}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Speisungen}{6}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}48V Speisung}{6}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}12V Speisung}{7}{subsubsection.4.1.2}%
-\contentsline {paragraph}{Schema}{7}{section*.13}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{7}{section*.15}%
-\contentsline {subsubsection}{\numberline {4.1.3}5V Speisung}{8}{subsubsection.4.1.3}%
-\contentsline {paragraph}{Schema}{9}{section*.18}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{9}{section*.20}%
-\contentsline {subsubsection}{\numberline {4.1.4}3.3V Speisung}{10}{subsubsection.4.1.4}%
-\contentsline {paragraph}{Schema}{10}{section*.21}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{10}{section*.23}%
-\contentsline {subsection}{\numberline {4.2}Motor}{11}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}FOC-Treiber}{11}{subsubsection.4.2.1}%
-\contentsline {paragraph}{Schema}{12}{section*.26}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{13}{section*.28}%
-\contentsline {subsubsection}{\numberline {4.2.2}Gate-Treiber}{14}{subsubsection.4.2.2}%
-\contentsline {paragraph}{Schema}{14}{section*.29}%
+\contentsline {section}{\numberline {3}Mechanik}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Rahmen}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Getränkeschlitten}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Verkleidung}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Unterbringung der Elektronik}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Kühlbox}{7}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Printaufbau}{9}{section.4}%
+\contentsline {section}{\numberline {5}Teilsysteme}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Speisungen}{11}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{11}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{12}{subsubsection.5.1.2}%
+\contentsline {paragraph}{Schema}{12}{section*.21}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{12}{section*.23}%
+\contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{13}{subsubsection.5.1.3}%
+\contentsline {paragraph}{Schema}{14}{section*.26}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.28}%
+\contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{15}{subsubsection.5.1.4}%
+\contentsline {paragraph}{Schema}{15}{section*.29}%
 \contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{15}{section*.31}%
-\contentsline {subsubsection}{\numberline {4.2.3}H-Brücke}{16}{subsubsection.4.2.3}%
-\contentsline {paragraph}{Schaltungsaufbau}{16}{section*.32}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{17}{section*.34}%
-\contentsline {subsubsection}{\numberline {4.2.4}BLDC}{17}{subsubsection.4.2.4}%
-\contentsline {paragraph}{Schaltungsaufbau}{17}{section*.35}%
+\contentsline {subsection}{\numberline {5.2}Motor}{16}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}FOC-Treiber}{16}{subsubsection.5.2.1}%
+\contentsline {paragraph}{Schema}{17}{section*.34}%
 \contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{18}{section*.36}%
-\contentsline {subsubsection}{\numberline {4.2.5}ABN-Encoder}{18}{subsubsection.4.2.5}%
-\contentsline {paragraph}{Schaltungsaufbau}{18}{section*.37}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{18}{section*.38}%
-\contentsline {subsection}{\numberline {4.3}Flüssigkeitsbeförderung}{19}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Pumpen}{19}{subsubsection.4.3.1}%
-\contentsline {paragraph}{Schema}{19}{section*.39}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.41}%
-\contentsline {subsubsection}{\numberline {4.3.2}Durchflussmessgeräte}{20}{subsubsection.4.3.2}%
-\contentsline {paragraph}{Schema}{20}{section*.42}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{20}{section*.45}%
-\contentsline {subsection}{\numberline {4.4}Programmierschnittstellen}{21}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Handshake Mikrocontroller}{21}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Handshake WiFi-Modul}{21}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}USB-B}{22}{subsubsection.4.4.3}%
-\contentsline {paragraph}{Schema}{22}{section*.47}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.49}%
-\contentsline {subsection}{\numberline {4.5}Benutzerschnittstellen}{24}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Display}{24}{subsubsection.4.5.1}%
-\contentsline {paragraph}{Schema}{24}{section*.50}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.52}%
-\contentsline {subsubsection}{\numberline {4.5.2}WiFi-Modul}{25}{subsubsection.4.5.2}%
-\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{25}{section*.53}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{26}{section*.56}%
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{27}{section*.57}%
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{27}{section*.59}%
-\contentsline {subsubsection}{\numberline {4.5.3}RFID}{28}{subsubsection.4.5.3}%
-\contentsline {paragraph}{Schema}{28}{section*.60}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{28}{section*.62}%
-\contentsline {subsection}{\numberline {4.6}Beleuchtung}{29}{subsection.4.6}%
-\contentsline {paragraph}{Schema}{29}{section*.64}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{31}{section*.66}%
-\contentsline {subsection}{\numberline {4.7}Mikrocontroller}{31}{subsection.4.7}%
-\contentsline {paragraph}{Schema}{31}{section*.67}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{32}{section*.69}%
-\contentsline {subsection}{\numberline {4.8}SD-Karte}{32}{subsection.4.8}%
-\contentsline {paragraph}{Schema}{33}{section*.71}%
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{33}{section*.73}%
-\contentsline {section}{\numberline {5}Inbetriebnahme}{34}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Speisungen}{34}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}12V Speisung}{34}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}5V Speisung}{34}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}3.3V Speisung}{34}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Programmierschnittstellen}{35}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Benutzerschnittstellen}{37}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Touch-Display}{37}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}WiFi-Modul}{37}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}RFID}{38}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}Mikrocontroller}{39}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}AVRdude in Atmel Studio einbinden}{40}{subsubsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.5}Datenspeicherung}{41}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}mikroSD-Karte}{41}{subsubsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.6}Flüssigkeitsbeförderung}{42}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}Pumpen}{42}{subsubsection.5.6.1}%
-\contentsline {subsubsection}{\numberline {5.6.2}Durchflussmessgeräte}{42}{subsubsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.7}Beleuchtung}{42}{subsection.5.7}%
-\contentsline {subsection}{\numberline {5.8}Motor}{43}{subsection.5.8}%
-\contentsline {subsubsection}{\numberline {5.8.1}FOC-Treiber}{43}{subsubsection.5.8.1}%
-\contentsline {subsubsection}{\numberline {5.8.2}Gate-Treiber, H-Brücke und BLDC}{44}{subsubsection.5.8.2}%
-\contentsline {subsubsection}{\numberline {5.8.3}ABN-Encoder}{45}{subsubsection.5.8.3}%
-\contentsline {subsubsection}{\numberline {5.8.4}Software-Ramp}{47}{subsubsection.5.8.4}%
-\contentsline {section}{\numberline {6}Software}{48}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Mikrocontroller}{48}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Strukturplan}{48}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Programmflussdiagramm}{49}{subsubsection.6.1.2}%
-\contentsline {paragraph}{Bootloader-Section}{49}{section*.85}%
-\contentsline {paragraph}{Init-Section}{49}{section*.86}%
-\contentsline {paragraph}{Main-Loop}{50}{section*.87}%
-\contentsline {subsubsection}{\numberline {6.1.3}Speicherorganisation}{52}{subsubsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.2}WiFi-Modul}{52}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Programmflussdiagramm}{53}{subsubsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.3}Displaysoftware}{53}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Displaymenu}{54}{subsubsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.4}Android App}{63}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}PartyMixer App}{65}{subsubsection.6.4.1}%
-\contentsline {section}{\numberline {7}Mechanik}{67}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Rahmen}{68}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Getränkeschlitten}{68}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Verkleidung}{69}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Unterbringung der Elektronik}{70}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Kühlbox}{70}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {5.2.2}Gate-Treiber}{19}{subsubsection.5.2.2}%
+\contentsline {paragraph}{Schema}{19}{section*.37}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{20}{section*.39}%
+\contentsline {subsubsection}{\numberline {5.2.3}H-Brücke}{21}{subsubsection.5.2.3}%
+\contentsline {paragraph}{Schaltungsaufbau}{21}{section*.40}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.42}%
+\contentsline {subsubsection}{\numberline {5.2.4}BLDC}{22}{subsubsection.5.2.4}%
+\contentsline {paragraph}{Schaltungsaufbau}{22}{section*.43}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.44}%
+\contentsline {subsubsection}{\numberline {5.2.5}ABN-Encoder}{23}{subsubsection.5.2.5}%
+\contentsline {paragraph}{Schaltungsaufbau}{23}{section*.45}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.46}%
+\contentsline {subsection}{\numberline {5.3}Flüssigkeitsbeförderung}{24}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Pumpen}{24}{subsubsection.5.3.1}%
+\contentsline {paragraph}{Schema}{24}{section*.47}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.49}%
+\contentsline {subsubsection}{\numberline {5.3.2}Durchflussmessgeräte}{25}{subsubsection.5.3.2}%
+\contentsline {paragraph}{Schema}{25}{section*.50}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{25}{section*.53}%
+\contentsline {subsection}{\numberline {5.4}Programmierschnittstellen}{26}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Handshake Mikrocontroller}{26}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Handshake WiFi-Modul}{26}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}USB-B}{27}{subsubsection.5.4.3}%
+\contentsline {paragraph}{Schema}{27}{section*.55}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.57}%
+\contentsline {subsection}{\numberline {5.5}Benutzerschnittstellen}{29}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Display}{29}{subsubsection.5.5.1}%
+\contentsline {paragraph}{Schema}{29}{section*.58}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.60}%
+\contentsline {subsubsection}{\numberline {5.5.2}WiFi-Modul}{30}{subsubsection.5.5.2}%
+\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{30}{section*.61}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{31}{section*.64}%
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{32}{section*.65}%
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{32}{section*.67}%
+\contentsline {subsubsection}{\numberline {5.5.3}RFID}{33}{subsubsection.5.5.3}%
+\contentsline {paragraph}{Schema}{33}{section*.68}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{33}{section*.70}%
+\contentsline {subsection}{\numberline {5.6}Beleuchtung}{34}{subsection.5.6}%
+\contentsline {paragraph}{Schema}{34}{section*.72}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{36}{section*.74}%
+\contentsline {subsection}{\numberline {5.7}Mikrocontroller}{36}{subsection.5.7}%
+\contentsline {paragraph}{Schema}{36}{section*.75}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.77}%
+\contentsline {subsection}{\numberline {5.8}SD-Karte}{37}{subsection.5.8}%
+\contentsline {paragraph}{Schema}{38}{section*.79}%
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{38}{section*.81}%
+\contentsline {section}{\numberline {6}Inbetriebnahme}{39}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Speisungen}{39}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}12V Speisung}{39}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}5V Speisung}{39}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}3.3V Speisung}{39}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Programmierschnittstellen}{40}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Benutzerschnittstellen}{42}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Touch-Display}{42}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}WiFi-Modul}{42}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}RFID}{43}{subsubsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.4}Mikrocontroller}{44}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}AVRdude in Atmel Studio einbinden}{45}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}Datenspeicherung}{46}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}mikroSD-Karte}{46}{subsubsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.6}Flüssigkeitsbeförderung}{47}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Pumpen}{47}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Durchflussmessgeräte}{47}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Beleuchtung}{47}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Motor}{48}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}FOC-Treiber}{48}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Gate-Treiber, H-Brücke und BLDC}{49}{subsubsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.3}ABN-Encoder}{50}{subsubsection.6.8.3}%
+\contentsline {subsubsection}{\numberline {6.8.4}Software-Ramp}{52}{subsubsection.6.8.4}%
+\contentsline {section}{\numberline {7}Software}{53}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Mikrocontroller}{53}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{53}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Programmflussdiagramm}{54}{subsubsection.7.1.2}%
+\contentsline {paragraph}{Bootloader-Section}{54}{section*.93}%
+\contentsline {paragraph}{Init-Section}{54}{section*.94}%
+\contentsline {paragraph}{Main-Loop}{55}{section*.95}%
+\contentsline {subsubsection}{\numberline {7.1.3}Speicherorganisation}{57}{subsubsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.2}WiFi-Modul}{57}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{58}{subsubsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.3}Displaysoftware}{58}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Displaymenu}{59}{subsubsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.4}Android App}{68}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{70}{subsubsection.7.4.1}%
 \contentsline {section}{\numberline {8}Fazit}{72}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Zielerreichung}{72}{subsection.8.1}%
 \contentsline {section}{\numberline {9}Schlusswort}{72}{section.9}%
