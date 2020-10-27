@@ -4,12 +4,30 @@
 %Nebst dem TMC4671, welcher für die Ansteuerung benötigt wird, braucht es für die Magnetisierung der Spulen des BLDC-Motors eine Schaltlogik. Dabei Handelt es sich um den TMC6200. Dieser ist eine umfangreiche Ergänzung zum TMC4671. Auf den TMC6200 und weitere benötigte Komponenten wird im folgenden eingegangen.
 %\subsubsection{Problem}\label{subsubsec:Problem_TMC6200}
 
-Der Motor wird über eine H-Brücke gesteuert. Dies bedingt pro Spule zwei MOSFET's, um diese entsprechend magnetisieren zu können. Um einen MOSFET in einen leitenden Zustand zu bringen, muss das Gate des MOSFET's mit einer elektrischen Ladung gefüllt werden. Während diesem Vorgang hat das Gate ein kapazitives Verhalten, was bedeutet, dass bei jedem Schaltvorgang Ströme fliessen. Um ein optimales Schaltverhalten zu erreichen, die Umschaltverluste zu verkleinern und somit die daraus entstehende Abwärme zu verringern, ist es vorteilhaft die Gates so schnell wie möglich laden und entladen zu können. Da kommt der Gate-Treiber ins Spiel. Dieser ladet und entladet das Gate schnell genug und stellt die dazu benötigte Energie für das Gate zur Verfügung. Ausserdem hebt der Gate-Treiber die Gate-Spannungen der High-Level-MOSFETS auf die Motorspannung plus Gatespannung, damit der MOSFET sicher durchschaltet.
+Die Gate-CTRL-Signale werden vom Gate-Treiber aufbereitet. Das entsprechende Bauteil ist der TMC6200. Er verarbeitet die Signale so, dass die H-Brücke angesteuert werden kann. Die H-Brücke besteht aus sechs MOSFETs, die gemäss den Gate-CTRL-Signalen die Zwischenkreisspannung (48VDC) schalten.
+%Um einen MOSFET in einen leitenden Zustand zu bringen, muss das Gate des MOSFET's mit einer elektrischen Ladung gefüllt werden. Während dieses Vorgangs verhält sich das Gate kapazitiv. Dies bedeutet, dass bei jedem Schaltvorgang Ströme fliessen.
 
-\paragraph{Schema}\mbox{}\\
+Um ein optimales Schaltverhalten zu erreichen, die Umschaltverluste zu verkleinern und somit die daraus entstehende Abwärme zu verringern, ist es vorteilhaft, die Gates so schnell wie möglich zu laden und zu entladen. Ein Gate-Treiber löst dieses Problem, indem die benötigte Energie zur Verfügung stellt. Ausserdem hebt der Gate-Treiber mit einer Bootstrap-Schaltung die Gate-Spannungen der High-Level-MOSFETS auf die Motorspannung plus Gatespannung, damit der MOSFET sicher durchschaltet.
 
-Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zusatzfunktionen wie Strommessung, Messverstärkung, Kurzschlussdetektion etc. genutzt werden können, wurde während des Entwicklungsprozesses ein Gate-Treiber von Trinamic ausgewählt. Das entsprechende Bauteil ist der TMC6200. Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:Schaltung_TMC6200} und \ref{Appendix:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der Gate-Treiber aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Gate-Spannungsversorgung besteht. Das Schema ist in Abbildung \ref{fig:Schema_Gate_Treiber} zu sehen.
+Das Blockdiagramm und eine Beispielschaltung befinden sich im Anhang Kapitel \ref{Appendix:Schaltung_TMC6200} und \ref{Appendix:Blockdiagramm_TMC6200}. Das Blockdiagramm zeigt, dass der Gate-Treiber aus einer Treiber-Logik für den Motor, einem SPI-/Pinsettings-Interface, einer Diagnosenlogik, Strommessschaltung und diversen unterstützenden Schaltungen wie Gate-Spannungsversorgung besteht. Weiter hat der ausgewählte Gate-Treiber folgende Features integriert:
+\begin{itemize}
+\item Strommessung und -Verstärkung
+\item Kurzschlussdetektion
+\item Schaltkontrolle
+\item Thermische Begrenzung
+\end{itemize}
 
+\paragraph{Schema}\mbox{}
+
+Der Treiber und dessen Beschaltung ist als Breakoutboard erhältlich. Daran sind diverse Anschlussmöglichkeiten vorhanden. In Abbildung \ref{fig:Schema_Gate_Treiber} ist zu sehen, welche Pins verwendet werden:
+
+\begin{itemize}
+\item SPI Input
+\item Phasenströme Input und Output
+\item Motorspannung Input
+\item Gate-HIGH und -Low-Signale Output
+\item Messung Schaltspannung Input
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
@@ -31,21 +49,18 @@ Damit ein Aufbau mit mehreren Gate-Treibern vermieden werden kann und einige Zus
 %	\label{fig:Schema_TMC6200}
 %\end{figure}
 
-\paragraph{Funktionsbeschrieb der Schaltung}\mbox{}\\
+Im Schema sind die Korrekturen Rot gekennzeichnet. Im Layout wurden die Pins fälschlicherweise vertauscht. Weiter ist zu beachten, dass die Gate-Treiber-Schaltung sich nicht mehr auf der Leiterplatine befindet, sondern auf einem externen Breakout-Board. Die SPI-Pins werden nicht mehr über die vorgesehenen Leitungen angesteuert, sondern über die ursprünglichen Header-Pins des FOC-Treibers.
+
+\paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
 %\subparagraph{Shunt-Widerstände $\mathrm{\mathbf{R_{Sense}}}$}
-Für die Messung des Stromes wird ein Shunt in Serie mit der Spule des BLDC-Motors geschaltet. Die Shunts R89 - R91 sind in Abbildung \ref{fig:Schema_H_Bruecke_und_BLDC} zu sehen. Durch den fliessenden Strom liegt eine Spannung über dem Shunt an, welche dann vom Gate-Treiber verstärkt wird und aufbereitet an den FOC-Treiber ausgegeben wird. Die Verstärkung sowie Offset auf das Signal sind über SPI programmierbar.
-Die Dimensionierung der Widerstände und die darauf folgende Programmierung des Gate-Treibers sind schon von Trinamic ermittelt worden. Es wird empfohlen, die Widerstände nach dem Maximalstrom des Motors auszuwählen. Im Falle des AKM22h sind dies 5A. Darüber hinaus wird empfohlen, eine Überdimensionierung von 25-50\% vorzunehmen. Die Schaltung für den PartyMixer wird auf 10A ausgelegt. Eine von Trinamic erstellte Tabelle  empfiehlt einen Widerstand von 10m\textOmega\ für die Shunt-Widerstände und einen Verstärkungsfaktor der Phasenströme von 10x. Die zugehörige Tabelle aus dem Datenblatt ist im Anhang Kapitel \ref{Appendix:Shunt} zu finden. \cite[S.31]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
-
 %\begin{tabular}{lll}
 %$\mathbf{R_{Sense}}$ =  \textbf{10m\textOmega}\\
 %\textbf{Verstärkungsfaktor}= \textbf{10x}   
 %\end{tabular}
-
 %\paragraph{Gate Vorwiderstände $\mathrm{\mathbf{R_{Gate}}}$}
-
-Da das Gate ein kapazitives Verhalten zeigt, ist der Strom, welcher zu Beginn ins Gate fliesst, sehr hoch. Der Gate-Vorwiderstand begrenzt diesen, um das Gate und den Pin des Gate-Treibers vor Überströmen zu schützen. Die Vorwiderstände R82 - R83 und R85 - R88 sind in Abbildung \ref{fig:Schema_Gate_Treiber} zu sehen.
-Die Dimensionierung der Gate-Widerständen wurde an die MOSFET Gate-Drain-Ladung (Miller charge) angelehnt. Auch in diesem Falle wurden von Trinamic schon einige Parameter ermittelt. Die Tabelle mit den ermittelten Parameter ist im Anhang Kapitel \ref{Appendix:Gate_Vorwiderstand} dargestellt. Die Gate-Ladung des ausgewählten MOSFET's beträgt 61nC. Aus der Tabelle kann somit ausgelesen werden, dass der Vorwiderstand R$_{Gate}\leq$2.5\textOmega\ sein sollte und das programmierbare Register DRV\_STRENGTH auf 1 bis 3 gesetzt werden muss. \cite[S.13]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
+Da das Gate ein kapazitives Verhalten zeigt, ist der Strom, welcher zu Beginn ins Gate fliesst, sehr hoch. Die \textbf{Gate-Vorwiderstände} R82, R83 und R85 bis R88 in Abbildung \ref{fig:Schema_Gate_Treiber} begrenzen diesen.
+Die Dimensionierung der Gate-Widerständen lehnt an die MOSFET Gate-Drain-Ladung (Miller charge) an. Aus dem Datenblatt ist einer Tabelle zu entnehmen, wie gross der Widerstand bei gegebener Miller charge sein muss. Die Tabelle mit den ermittelten Parameter ist im Anhang Kapitel \ref{Appendix:Gate_Vorwiderstand} zu finden. Die Gate-Ladung des ausgewählten MOSFET's beträgt 61nC. Gemäss der Tabelle muss der Vorwiderstand mit R$_{Gate}\leq$2.5\textOmega\ dimensioniert werden. Dies bedingt, dass programmierbare Register DRV\_STRENGTH auf 1 bis 3 gesetzt ist. \cite[S.13]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
 
 %\begin{tabular}{lll}
 %$\mathrm{\mathbf{R_{Gate}}}$ & \textbf{=} & $\mathrm{\mathbf{R_{Gate}\leq2.5\Omega}}$ \\
@@ -54,7 +69,7 @@ Die Dimensionierung der Gate-Widerständen wurde an die MOSFET Gate-Drain-Ladung
 
 %\paragraph{Schutzwiderstände Messeingang $\mathrm{\mathbf{R_{Protect}}}$}
 
-Wird von einem High-Zustand in einen Low-Zustand gewechselt, kann aufgrund von Induktivitäten die Spannung unterschiessen. Der Schutzwiderstand schützt den Messeingang des Gate-Treibers vor diesem Effekt. Die Schutzwiderstände R80, R81 und R84 sind in Abbildung \ref{fig:Schema_Gate_Treiber} zu finden.
+Wird von einem High-Zustand in einen Low-Zustand gewechselt, kann aufgrund von Induktivitäten die Spannung unterschiessen. Die \textbf{Schutzwiderstände} R80, R81 und R84 in Abbildung \ref{fig:Schema_Gate_Treiber} schützen die Messeingänge des Gate-Treibers vor diesem Effekt.
 Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Widerstandswert zwischen 10\textOmega\ und 22\textOmega\ angegeben.\cite[S.10]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
 
 %\begin{tabular}{lll}
@@ -63,7 +78,7 @@ Die Dimensionierung dieses Widerstands wird im Datenblatt mit einem Widerstandsw
 
 %\paragraph{Bootstrap Kondensatoren $\mathrm{\mathbf{C_{Bootstrap}}}$}
 
-Die Bootstrap-Kondensatoren C76 - C78 in Abb. \ref{fig:Schema_Gate_Treiber} werden benutzt, um die Gate-Spannung am High-Side-MOSFET auf die Schaltspannung (48V) plus die Gatespannung anzuheben.
+Die \textbf{Bootstrap-Kondensatoren} C76 - C78 in Abbildung \ref{fig:Schema_Gate_Treiber} werden eingesetzt, um die Gate-Spannung am High-Side-MOSFET auf die anliegende Schaltspannung plus die Gatespannung anzuheben.
 Die Dimensionierung dieser Kondensatoren wird im Datenblatt mit einem Kapazitätswert zwischen 470nF und 1\textmugreek F angegeben, bei einer Nennspannung von 16V oder 25V. Weiter gilt gemäss Datenblatt, dass bei MOSFET's mit einem $\mathrm{Q_G \geq 40nC}$ die Gatekapazität 1\textmugreek F sein soll. Da die Kapazität 61nF beträgt, ist dies der Fall. \cite[S.10]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019}
 
 %\begin{tabular}{lll}
@@ -72,8 +87,8 @@ Die Dimensionierung dieser Kondensatoren wird im Datenblatt mit einem Kapazität
 
 %\paragraph{Externer Gate-Spannungsregler}
 
-Aufgrund der hohen Versorgungsspannung (48V), treten im IC über den Gate- und 5V- Spannungsreglern erhebliche Verluste auf. Um diese Verluste zu reduzieren, wird gemäss Datenblatt \cite[S.11]{trinamicmotion_control_gmbh__co_kg_tmc6200_2019} geraten, eine externe Gate-Spannung anzuhängen. Für beste Resultate wird eine Spannung von 12V $\pm$ 1V empfohlen.
-Ein Beispielschema, welches im Anhang Kapitel \ref{Appendix:Gate_Spannungsversorgung} zu finden ist, zeigt, dass für den Kondensator C69 2.2\textmugreek F und für den Kondensator C73 100nF verwendet werden.
+Aufgrund der hohen Versorgungsspannung (48V), treten im IC über den Gate- und 5V- Spannungsreglern erhebliche Verluste auf. Um diese Verluste zu reduzieren, wird laut Datenblatt geraten, eine externe Gate-Spannung anzuhängen. Für beste Resultate wird eine Spannung von 12V $\pm$ 1V empfohlen.
+Ein Beispielschema, welches im Anhang Kapitel \ref{Appendix:Gate_Spannungsversorgung} zu sehen ist, zeigt, dass für den Kondensator C69 2.2\textmugreek F und für den Kondensator C73 100nF verwendet werden. Beide sind in Abbildung \ref{fig:Schema_Gate_Treiber} zu sehen. Der Kondensator C73 sowie die Kondensatoren C72 und C74 sind \textbf{Stützkondensatoren} und glätten die Versogrungsspannungen auf den jeweiligens Spannungsebenen.
 
 %\begin{tabular}{lll}
 %$\mathrm{\mathbf{C_{69}}}$ & \textbf{=} & \textbf{2.2\textmugreek F}\\

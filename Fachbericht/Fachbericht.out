@@ -19,9 +19,9 @@
 \BOOKMARK [2][-]{subsection.5.8}{5.8 SD-Karte}{section.5}% 19
 \BOOKMARK [1][-]{section.6}{6 Inbetriebnahme}{}% 20
 \BOOKMARK [2][-]{subsection.6.1}{6.1 Speisungen}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.2}{6.2 Programmierschnittstellen}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.3}{6.3 Benutzerschnittstellen}{section.6}% 23
-\BOOKMARK [2][-]{subsection.6.4}{6.4 Mikrocontroller}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.2}{6.2 Mikrocontroller}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.3}{6.3 Programmierschnittstellen}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.4}{6.4 Benutzerschnittstellen}{section.6}% 24
 \BOOKMARK [2][-]{subsection.6.5}{6.5 Datenspeicherung}{section.6}% 25
 \BOOKMARK [2][-]{subsection.6.6}{6.6 Fl\374ssigkeitsbef\366rderung}{section.6}% 26
 \BOOKMARK [2][-]{subsection.6.7}{6.7 Beleuchtung}{section.6}% 27
@@ -35,7 +35,7 @@
 \BOOKMARK [2][-]{subsection.8.1}{8.1 Zielerreichung}{section.8}% 35
 \BOOKMARK [1][-]{section.9}{9 Schlusswort}{}% 36
 \BOOKMARK [1][-]{section.10}{10 Ehrlichkeitserkl\344rung}{}% 37
-\BOOKMARK [1][-]{section*.117}{Literatur}{}% 38
+\BOOKMARK [1][-]{section*.125}{Literatur}{}% 38
 \BOOKMARK [1][-]{appendix.A}{A Programmierschnittstellen}{}% 39
 \BOOKMARK [2][-]{subsection.A.1}{A.1 Ger\344te-Manager}{appendix.A}% 40
 \BOOKMARK [2][-]{subsection.A.2}{A.2 Mikrocontroller}{appendix.A}% 41
@@ -53,24 +53,23 @@
 \BOOKMARK [2][-]{subsection.E.2}{E.2 Inbetriebnahme}{appendix.E}% 53
 \BOOKMARK [2][-]{subsection.E.3}{E.3 Speicherorganisation}{appendix.E}% 54
 \BOOKMARK [1][-]{appendix.F}{F FOC-Treiber}{}% 55
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Standard-Schaltkreis}{appendix.F}% 56
-\BOOKMARK [2][-]{subsection.F.2}{F.2 BOB}{appendix.F}% 57
-\BOOKMARK [2][-]{subsection.F.3}{F.3 Inbetriebnahme}{appendix.F}% 58
-\BOOKMARK [1][-]{appendix.G}{G Gate-Treiber}{}% 59
-\BOOKMARK [2][-]{subsection.G.1}{G.1 Standard-Schaltkreis}{appendix.G}% 60
-\BOOKMARK [2][-]{subsection.G.2}{G.2 Blockdiagramm}{appendix.G}% 61
-\BOOKMARK [2][-]{subsection.G.3}{G.3 Externe Gate-Spannungsversorgung}{appendix.G}% 62
-\BOOKMARK [2][-]{subsection.G.4}{G.4 Inbetriebnahme}{appendix.G}% 63
-\BOOKMARK [1][-]{appendix.H}{H H-Br\374cke}{}% 64
-\BOOKMARK [2][-]{subsection.H.1}{H.1 Referenzschema}{appendix.H}% 65
-\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 66
-\BOOKMARK [1][-]{appendix.I}{I ABN-Encoder}{}% 67
-\BOOKMARK [2][-]{subsection.I.1}{I.1 Pinout and Interface}{appendix.I}% 68
-\BOOKMARK [2][-]{subsection.I.2}{I.2 Inbetriebnahme}{appendix.I}% 69
-\BOOKMARK [1][-]{appendix.J}{J PI-Regler}{}% 70
-\BOOKMARK [2][-]{subsection.J.1}{J.1 TMCL-IDE}{appendix.J}% 71
-\BOOKMARK [1][-]{appendix.K}{K Software Ramp}{}% 72
-\BOOKMARK [2][-]{subsection.K.1}{K.1 Implementierung}{appendix.K}% 73
-\BOOKMARK [2][-]{subsection.K.2}{K.2 Matlab-Script}{appendix.K}% 74
-\BOOKMARK [1][-]{appendix.L}{L Print}{}% 75
-\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 76
+\BOOKMARK [2][-]{subsection.F.1}{F.1 BOB}{appendix.F}% 56
+\BOOKMARK [2][-]{subsection.F.2}{F.2 Inbetriebnahme}{appendix.F}% 57
+\BOOKMARK [1][-]{appendix.G}{G Gate-Treiber}{}% 58
+\BOOKMARK [2][-]{subsection.G.1}{G.1 Standard-Schaltkreis}{appendix.G}% 59
+\BOOKMARK [2][-]{subsection.G.2}{G.2 Blockdiagramm}{appendix.G}% 60
+\BOOKMARK [2][-]{subsection.G.3}{G.3 Externe Gate-Spannungsversorgung}{appendix.G}% 61
+\BOOKMARK [2][-]{subsection.G.4}{G.4 Inbetriebnahme}{appendix.G}% 62
+\BOOKMARK [1][-]{appendix.H}{H H-Br\374cke}{}% 63
+\BOOKMARK [2][-]{subsection.H.1}{H.1 Referenzschema}{appendix.H}% 64
+\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 65
+\BOOKMARK [1][-]{appendix.I}{I ABN-Encoder}{}% 66
+\BOOKMARK [2][-]{subsection.I.1}{I.1 Pinout and Interface}{appendix.I}% 67
+\BOOKMARK [2][-]{subsection.I.2}{I.2 Inbetriebnahme}{appendix.I}% 68
+\BOOKMARK [1][-]{appendix.J}{J PI-Regler}{}% 69
+\BOOKMARK [2][-]{subsection.J.1}{J.1 TMCL-IDE}{appendix.J}% 70
+\BOOKMARK [1][-]{appendix.K}{K Software Ramp}{}% 71
+\BOOKMARK [2][-]{subsection.K.1}{K.1 Implementierung}{appendix.K}% 72
+\BOOKMARK [2][-]{subsection.K.2}{K.2 Matlab-Script}{appendix.K}% 73
+\BOOKMARK [1][-]{appendix.L}{L Print}{}% 74
+\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 75

@@ -1,19 +1,18 @@
 \subsubsection{Display}
 \label{subsubsec:Display}
 
-Über das Display geschehen die Hauptinteraktionen mit dem Benutzer. Für die Bereitstellung des GUIs wird auf ein Nextion-Display zurückgegriffen. Die Kommunikation findet über UART statt.
+Der Benutzer bedient den PartyMixer via Display. Dabei handelt es sich um das Display NX8048T070 vom Hersteller Nextion. Das GUI basiert dabei auf den Funktionen, die in der Software Nextion Editor zur Verfügung gestellt werden. Die Funktionen umfassen:
+\begin{itemize}
+\item Erstellen von Seiten, die auf dem Display angezeigt werden.
+\item Setzen von Buttons, Slider und Textfeldern auf den Seiten.
+\item Speichern von Grafiken, die auf den Seiten angezeigt werden.
+\item Kommunizieren über UART um Aktionen auszulösen.
+\end{itemize}
 
 \paragraph{Schema}\mbox{}
 
-Das Schema gestaltet sich eher einfach, da die Logik auf dem Display schon vorhanden ist. Es braucht lediglich einen Stecker, welcher mit J43 beschriftet ist und einen Stützkondensator nahe der Pins am Spannungsausgang.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/Schema_Display}
-	\caption{Schema Display-Stecker.}
-	\label{fig:Schema_Display}
-\end{figure}
+Um das Display mit der Leiterplatine zu verbinden, braucht es einen Stecker und einen Stützkondensator nahe der Pins am Spannungsausgang, um die Versorgungsspannung zu glätten. Auf eine Abbildung wird verzichtet, der Stecker für das Display ist jedoch im Schema auf Seite 7 zu sehen, welches im Anhang Kapitel \ref{Appendix:Schema_Print} eingefügt ist.
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
-Die mehr oder weniger einzige Funktion, welche im Schema erkennbar ist, wird durch das Stützen der Versorgungsspannung mit dem Kondensator gegeben. Der Stecker ermöglicht den Anschluss des Displays an die Leiterplatine.
+Die Funktionen werden durch das Stützen der Versorgungsspannung mit dem Kondensator und der Anbindung des Displays an die Leiterplatine gegeben.
