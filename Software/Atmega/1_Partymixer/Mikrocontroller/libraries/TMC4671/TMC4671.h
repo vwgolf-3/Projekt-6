@@ -13,6 +13,13 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
+#define DEFAULT_MOTOR  0
+#define TMC4671_MOTORS 1
+#define USE_LINEAR_RAMP
+#define POSITION_SCALE_MAX  (int32_t)65536
+
+
+
 #include "../TMC-API/tmc/helpers/API_Header.h"
 #include "TMC4671_Register.h"
 #include "TMC4671_Constants.h"
@@ -20,6 +27,26 @@
 #include "../SPI/SPI.h"
 #include "../Software_SPI/Software_SPI.h"
 #include "../UART/UART.h"
+
+typedef struct
+{
+	uint16_t  startVoltage;
+	uint16_t  initWaitTime;
+	uint16_t  actualInitWaitTime;
+	uint8_t   initState;
+	uint8_t   initMode;
+	uint16_t  torqueMeasurementFactor;  // uint8_t.uint8_t
+	uint8_t	  motionMode;
+	int32_t   actualVelocityPT1;
+	int64_t	  akkuActualVelocity;
+	int16_t   actualTorquePT1;
+	int64_t   akkuActualTorque;
+	int32_t   positionScaler;
+} TMinimalMotorConfig;
+
+TMinimalMotorConfig motorConfig[TMC4671_MOTORS];
+
+
 void encoder_testdrive(void);
 
 // SPI-Wrapper

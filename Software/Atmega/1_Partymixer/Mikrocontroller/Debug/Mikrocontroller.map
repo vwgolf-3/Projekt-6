@@ -211,6 +211,7 @@ aktueller_tag       0x2               Cocktail_functions.o
 aktuelle_Zutat_in_Maschine_ohne_KS
                     0x2               Cocktail_functions.o
 file                0x19              file.o
+motorConfig         0x25              Cocktail_functions.o
 number_list_getraenke_alle_val
                     0x2               Cocktail_functions.o
 number_zutaten_ohne_val
@@ -422,7 +423,7 @@ Discarded input sections
  .text.my_itoa  0x00000000      0x184 Main_Func.o
  .text.read_Position_TMC4671
                 0x00000000       0xb4 Main_Func.o
- .bss.cntrr.3569
+ .bss.cntrr.3584
                 0x00000000        0x1 Main_Func.o
  .text          0x00000000        0x0 Nextion_Display.o
  .data          0x00000000        0x0 Nextion_Display.o
@@ -539,12 +540,26 @@ Discarded input sections
                 0x00000000        0xa tmc4671.o
  .text.tmc4671_getActualRampVelocity
                 0x00000000        0x8 tmc4671.o
+ .text.tmc4671_setRelativeTargetPosition
+                0x00000000       0x44 tmc4671.o
  .text.tmc4671_getTargetPosition
                 0x00000000        0xa tmc4671.o
- .text.tmc4671_setRelativeTargetPosition
-                0x00000000       0x3e tmc4671.o
  .text.tmc4671_getActualRampPosition
                 0x00000000        0x8 tmc4671.o
+ .text.tmc4671_doEncoderInitializationMode0
+                0x00000000      0x120 tmc4671.o
+ .text.tmc4671_getS16CircleDifference
+                0x00000000        0x6 tmc4671.o
+ .text.tmc4671_doEncoderInitializationMode2
+                0x00000000       0xf2 tmc4671.o
+ .text.tmc4671_checkEncderInitialization
+                0x00000000       0x96 tmc4671.o
+ .text.tmc4671_periodicJob
+                0x00000000       0x26 tmc4671.o
+ .text.tmc4671_startEncoderInitialization
+                0x00000000       0x28 tmc4671.o
+ .text.tmc4671_updatePhiSelectionAndInitialize
+                0x00000000       0x4e tmc4671.o
  .text.tmc4671_disablePWM
                 0x00000000       0x10 tmc4671.o
  .text.tmc4671_getMotorType
@@ -569,6 +584,20 @@ Discarded input sections
                 0x00000000       0x44 tmc4671.o
  .text.tmc4671_setPositionPI
                 0x00000000       0x44 tmc4671.o
+ .text.tmc4671_readFieldWithDependency
+                0x00000000       0xb6 tmc4671.o
+ .bss.lastSystick.2615
+                0x00000000        0x4 tmc4671.o
+ .bss.actual_coarse_offset.2598
+                0x00000000        0x2 tmc4671.o
+ .bss.hall_phi_e_old.2596
+                0x00000000        0x2 tmc4671.o
+ .bss.last_PHI_E_EXT.2580
+                0x00000000        0x2 tmc4671.o
+ .bss.last_UQ_UD_EXT.2579
+                0x00000000        0x4 tmc4671.o
+ .bss.last_Phi_E_Selection.2578
+                0x00000000        0x2 tmc4671.o
  .text          0x00000000        0x0 TMC6200.o
  .data          0x00000000        0x0 TMC6200.o
  .bss           0x00000000        0x0 TMC6200.o
@@ -2176,7 +2205,7 @@ END GROUP
                 0x00800202                __malloc_heap_start
                 0x00800204                __malloc_margin
  *(.data*)
- .data.forward.2459
+ .data.forward.2474
                 0x00800206        0x1 ramp1.o
  *(.gnu.linkonce.d*)
  *(.rodata)
@@ -2219,14 +2248,14 @@ END GROUP
                 0x00800b4a                _edata = .
                 0x00800b4a                PROVIDE (__data_end, .)
 
-.bss            0x00800b4a      0x7f0
+.bss            0x00800b4a      0x815
                 0x00800b4a                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800b4a        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtok.o)
  *(.bss*)
- .bss.count.3987
+ .bss.count.4002
                 0x00800b4c        0x4 Cocktail_functions.o
- .bss.oldval.3986
+ .bss.oldval.4001
                 0x00800b50        0x1 Cocktail_functions.o
  .bss.match.1970
                 0x00800b51        0x1 fat.o
@@ -2249,7 +2278,7 @@ END GROUP
                 0x00800b57        0x1 main.o
                 0x00800b57                cntr_UART_0
  *(COMMON)
- COMMON         0x00800b58      0x421 Cocktail_functions.o
+ COMMON         0x00800b58      0x446 Cocktail_functions.o
                 0x00800b58                buffer2_getraenk_file_alle
                 0x00800b5a                number_zutaten_maschine_ohne
                 0x00800b5c                aktuelles_Zutat_file_ausser_Maschine_mit_KS
@@ -2297,85 +2326,86 @@ END GROUP
                 0x00800bb8                rb_rx_ESP
                 0x00800cb9                aktueller_tag
                 0x00800cbb                aktuelle_Zutat_in_Maschine_ohne_KS
-                0x00800cbd                number_list_getraenke_alle_val
-                0x00800cbf                number_zutaten_ohne_val
-                0x00800cc1                i
-                0x00800cc3                head_getraenk_file_alle
-                0x00800cc5                new_zutat_maschine_node
-                0x00800cc7                address_Standardwiederherstellung
-                0x00800cc9                rb_rx_Display
-                0x00800dca                number_zutaten_maschine_ohne_val
-                0x00800dcc                buffer_getraenk_file_alle
-                0x00800dce                tail_tag
-                0x00800dd0                tail_zutat_file_mit
-                0x00800dd2                SPI_Slave
-                0x00800dd3                tail_list_node_zutat_maschine
-                0x00800dd5                ptr_tx_completed_2
-                0x00800dd7                states
-                0x00800dd8                block_list_hoch
-                0x00800dd9                head_zutat_file_mit
-                0x00800ddb                number_list_zutat_maschine
-                0x00800ddd                counter
-                0x00800dde                buffer2_zutat_file
-                0x00800de0                number_getraenk_alle
-                0x00800de2                data
-                0x00800de3                buff_name
-                0x00800df8                kohlensaeure_mode
-                0x00800df9                number_zutaten_ohne
-                0x00800dfb                ptr_tx_completed_3
-                0x00800dfd                ptr_zutat_maschine_list_node
-                0x00800dff                rb_rx_PC
-                0x00800f00                number_list_getranke_alle
-                0x00800f02                tmp_mit_KS_tail
-                0x00800f04                ptr_list_node
-                0x00800f06                error
-                0x00800f07                tmp_ohne_KS_head
-                0x00800f09                aktuelle_Zutat_ausser_Maschine_mit_KS
-                0x00800f0b                head_zutat_file_ohne
-                0x00800f0d                actual_list_node_getraenk
-                0x00800f0f                gui_pages
-                0x00800f10                head_list_node_getraenk
-                0x00800f12                actual_getraenk_file_alle
-                0x00800f14                tail_list_node_getraenk
-                0x00800f16                tmp_zut_Maschine_tail
-                0x00800f18                i_Liste
-                0x00800f19                number_list_zutat_maschine_val
-                0x00800f1b                number_list_zutaten
-                0x00800f1d                head_list_node_zutaten
-                0x00800f1f                stop
-                0x00800f20                FAT32_active
-                0x00800f21                head_zutat_maschine_ohne
-                0x00800f23                aktuellesGetraenk
-                0x00800f25                buffer_zutat_maschine
-                0x00800f27                aRamp
-                0x00800f70                ptr_tx_completed_0
-                0x00800f72                buffer_zut_ausser_Maschine_mit_KS
-                0x00800f74                tail_zutat_maschine_ohne
-                0x00800f76                SPI_State
-                0x00800f77                tail_zutat_maschine_mit
- COMMON         0x00800f79      0x222 fat.o
-                0x00800f79                fat
-                0x00801191                chain
- COMMON         0x0080119b       0x19 file.o
-                0x0080119b                file
- COMMON         0x008011b4      0x182 main.o
-                0x008011b4                INPUT_UART_0
-                0x00801234                INPUT_UART_1
-                0x008012b4                ptr_Uart_1
-                0x008012b6                INPUT_UART_2
- COMMON         0x00801336        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
-                0x00801336                __brkval
-                0x00801338                __flp
-                0x0080133a                PROVIDE (__bss_end, .)
+                0x00800cbd                motorConfig
+                0x00800ce2                number_list_getraenke_alle_val
+                0x00800ce4                number_zutaten_ohne_val
+                0x00800ce6                i
+                0x00800ce8                head_getraenk_file_alle
+                0x00800cea                new_zutat_maschine_node
+                0x00800cec                address_Standardwiederherstellung
+                0x00800cee                rb_rx_Display
+                0x00800def                number_zutaten_maschine_ohne_val
+                0x00800df1                buffer_getraenk_file_alle
+                0x00800df3                tail_tag
+                0x00800df5                tail_zutat_file_mit
+                0x00800df7                SPI_Slave
+                0x00800df8                tail_list_node_zutat_maschine
+                0x00800dfa                ptr_tx_completed_2
+                0x00800dfc                states
+                0x00800dfd                block_list_hoch
+                0x00800dfe                head_zutat_file_mit
+                0x00800e00                number_list_zutat_maschine
+                0x00800e02                counter
+                0x00800e03                buffer2_zutat_file
+                0x00800e05                number_getraenk_alle
+                0x00800e07                data
+                0x00800e08                buff_name
+                0x00800e1d                kohlensaeure_mode
+                0x00800e1e                number_zutaten_ohne
+                0x00800e20                ptr_tx_completed_3
+                0x00800e22                ptr_zutat_maschine_list_node
+                0x00800e24                rb_rx_PC
+                0x00800f25                number_list_getranke_alle
+                0x00800f27                tmp_mit_KS_tail
+                0x00800f29                ptr_list_node
+                0x00800f2b                error
+                0x00800f2c                tmp_ohne_KS_head
+                0x00800f2e                aktuelle_Zutat_ausser_Maschine_mit_KS
+                0x00800f30                head_zutat_file_ohne
+                0x00800f32                actual_list_node_getraenk
+                0x00800f34                gui_pages
+                0x00800f35                head_list_node_getraenk
+                0x00800f37                actual_getraenk_file_alle
+                0x00800f39                tail_list_node_getraenk
+                0x00800f3b                tmp_zut_Maschine_tail
+                0x00800f3d                i_Liste
+                0x00800f3e                number_list_zutat_maschine_val
+                0x00800f40                number_list_zutaten
+                0x00800f42                head_list_node_zutaten
+                0x00800f44                stop
+                0x00800f45                FAT32_active
+                0x00800f46                head_zutat_maschine_ohne
+                0x00800f48                aktuellesGetraenk
+                0x00800f4a                buffer_zutat_maschine
+                0x00800f4c                aRamp
+                0x00800f95                ptr_tx_completed_0
+                0x00800f97                buffer_zut_ausser_Maschine_mit_KS
+                0x00800f99                tail_zutat_maschine_ohne
+                0x00800f9b                SPI_State
+                0x00800f9c                tail_zutat_maschine_mit
+ COMMON         0x00800f9e      0x222 fat.o
+                0x00800f9e                fat
+                0x008011b6                chain
+ COMMON         0x008011c0       0x19 file.o
+                0x008011c0                file
+ COMMON         0x008011d9      0x182 main.o
+                0x008011d9                INPUT_UART_0
+                0x00801259                INPUT_UART_1
+                0x008012d9                ptr_Uart_1
+                0x008012db                INPUT_UART_2
+ COMMON         0x0080135b        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+                0x0080135b                __brkval
+                0x0080135d                __flp
+                0x0080135f                PROVIDE (__bss_end, .)
                 0x0000bbb2                __data_load_start = LOADADDR (.data)
                 0x0000c4fc                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080133a        0x0
+.noinit         0x0080135f        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080133a                _end = .
-                0x0080133a                PROVIDE (__heap_start, .)
+                0x0080135f                _end = .
+                0x0080135f                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -2462,7 +2492,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0xc68
+.debug_aranges  0x00000000      0xca8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000      0x1c8 Cocktail_functions.o
@@ -2499,98 +2529,98 @@ END GROUP
  .debug_aranges
                 0x00000980       0x48 SPI.o
  .debug_aranges
-                0x000009c8      0x1b8 tmc4671.o
+                0x000009c8      0x1f8 tmc4671.o
  .debug_aranges
-                0x00000b80       0x38 TMC6200.o
+                0x00000bc0       0x38 TMC6200.o
  .debug_aranges
-                0x00000bb8       0x70 UART.o
+                0x00000bf8       0x70 UART.o
  .debug_aranges
-                0x00000c28       0x20 main.o
+                0x00000c68       0x20 main.o
  .debug_aranges
-                0x00000c48       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+                0x00000c88       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x1be77
+.debug_info     0x00000000    0x1d02a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_info    0x00000bbc     0x6742 Cocktail_functions.o
- .debug_info    0x000072fe     0x3cfa Cocktail_Statemachine.o
- .debug_info    0x0000aff8     0x1329 Getraenk.o
- .debug_info    0x0000c321      0x2be TAGS.o
- .debug_info    0x0000c5df     0x11d5 Zutaten.o
- .debug_info    0x0000d7b4      0x32b LED.o
- .debug_info    0x0000dadf     0x28b4 Lists.o
- .debug_info    0x00010393     0x179d Main_Func.o
- .debug_info    0x00011b30     0x1318 Nextion_Display.o
- .debug_info    0x00012e48      0x318 ring_buffer.o
- .debug_info    0x00013160      0xdb7 fat.o
- .debug_info    0x00013f17      0x825 file.o
- .debug_info    0x0001473c      0x885 mmc.o
- .debug_info    0x00014fc1      0x528 SD_Karte.o
- .debug_info    0x000154e9      0xba5 ramp1.o
- .debug_info    0x0001608e      0x548 Software_SPI.o
- .debug_info    0x000165d6      0x24e SPI.o
- .debug_info    0x00016824     0x37d9 tmc4671.o
- .debug_info    0x00019ffd      0xa08 TMC6200.o
- .debug_info    0x0001aa05      0x43b UART.o
- .debug_info    0x0001ae40      0xf9d main.o
- .debug_info    0x0001bddd       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+ .debug_info    0x00000bbc     0x6841 Cocktail_functions.o
+ .debug_info    0x000073fd     0x3df9 Cocktail_Statemachine.o
+ .debug_info    0x0000b1f6     0x1428 Getraenk.o
+ .debug_info    0x0000c61e      0x2be TAGS.o
+ .debug_info    0x0000c8dc     0x11d5 Zutaten.o
+ .debug_info    0x0000dab1      0x32b LED.o
+ .debug_info    0x0000dddc     0x28b4 Lists.o
+ .debug_info    0x00010690     0x1891 Main_Func.o
+ .debug_info    0x00011f21     0x1417 Nextion_Display.o
+ .debug_info    0x00013338      0x318 ring_buffer.o
+ .debug_info    0x00013650      0xdb7 fat.o
+ .debug_info    0x00014407      0x825 file.o
+ .debug_info    0x00014c2c      0x885 mmc.o
+ .debug_info    0x000154b1      0x528 SD_Karte.o
+ .debug_info    0x000159d9      0xcaf ramp1.o
+ .debug_info    0x00016688      0x548 Software_SPI.o
+ .debug_info    0x00016bd0      0x24e SPI.o
+ .debug_info    0x00016e1e     0x4293 tmc4671.o
+ .debug_info    0x0001b0b1      0xa08 TMC6200.o
+ .debug_info    0x0001bab9      0x43b UART.o
+ .debug_info    0x0001bef4     0x109c main.o
+ .debug_info    0x0001cf90       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
-.debug_abbrev   0x00000000     0x3a9f
+.debug_abbrev   0x00000000     0x3b1d
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_abbrev  0x00000b1a      0x421 Cocktail_functions.o
- .debug_abbrev  0x00000f3b      0x2f6 Cocktail_Statemachine.o
- .debug_abbrev  0x00001231      0x243 Getraenk.o
- .debug_abbrev  0x00001474      0x122 TAGS.o
- .debug_abbrev  0x00001596      0x247 Zutaten.o
- .debug_abbrev  0x000017dd      0x11c LED.o
- .debug_abbrev  0x000018f9      0x2db Lists.o
- .debug_abbrev  0x00001bd4      0x367 Main_Func.o
- .debug_abbrev  0x00001f3b      0x231 Nextion_Display.o
- .debug_abbrev  0x0000216c      0x12a ring_buffer.o
- .debug_abbrev  0x00002296      0x2b5 fat.o
- .debug_abbrev  0x0000254b      0x230 file.o
- .debug_abbrev  0x0000277b      0x26e mmc.o
- .debug_abbrev  0x000029e9      0x1c4 SD_Karte.o
- .debug_abbrev  0x00002bad      0x346 ramp1.o
- .debug_abbrev  0x00002ef3      0x15b Software_SPI.o
- .debug_abbrev  0x0000304e      0x11c SPI.o
- .debug_abbrev  0x0000316a      0x3aa tmc4671.o
- .debug_abbrev  0x00003514      0x265 TMC6200.o
- .debug_abbrev  0x00003779      0x183 UART.o
- .debug_abbrev  0x000038fc      0x18f main.o
- .debug_abbrev  0x00003a8b       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+ .debug_abbrev  0x00000b1a      0x42e Cocktail_functions.o
+ .debug_abbrev  0x00000f48      0x303 Cocktail_Statemachine.o
+ .debug_abbrev  0x0000124b      0x250 Getraenk.o
+ .debug_abbrev  0x0000149b      0x122 TAGS.o
+ .debug_abbrev  0x000015bd      0x247 Zutaten.o
+ .debug_abbrev  0x00001804      0x11c LED.o
+ .debug_abbrev  0x00001920      0x2db Lists.o
+ .debug_abbrev  0x00001bfb      0x374 Main_Func.o
+ .debug_abbrev  0x00001f6f      0x23e Nextion_Display.o
+ .debug_abbrev  0x000021ad      0x12a ring_buffer.o
+ .debug_abbrev  0x000022d7      0x2b5 fat.o
+ .debug_abbrev  0x0000258c      0x230 file.o
+ .debug_abbrev  0x000027bc      0x26e mmc.o
+ .debug_abbrev  0x00002a2a      0x1c4 SD_Karte.o
+ .debug_abbrev  0x00002bee      0x353 ramp1.o
+ .debug_abbrev  0x00002f41      0x15b Software_SPI.o
+ .debug_abbrev  0x0000309c      0x11c SPI.o
+ .debug_abbrev  0x000031b8      0x3cd tmc4671.o
+ .debug_abbrev  0x00003585      0x265 TMC6200.o
+ .debug_abbrev  0x000037ea      0x183 UART.o
+ .debug_abbrev  0x0000396d      0x19c main.o
+ .debug_abbrev  0x00003b09       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
-.debug_line     0x00000000     0xb441
+.debug_line     0x00000000     0xb7d1
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_line    0x000001f9     0x2a43 Cocktail_functions.o
- .debug_line    0x00002c3c     0x1c75 Cocktail_Statemachine.o
- .debug_line    0x000048b1      0x6c1 Getraenk.o
- .debug_line    0x00004f72      0x195 TAGS.o
- .debug_line    0x00005107      0x45c Zutaten.o
- .debug_line    0x00005563      0x351 LED.o
- .debug_line    0x000058b4     0x1315 Lists.o
- .debug_line    0x00006bc9      0x99d Main_Func.o
- .debug_line    0x00007566      0x5dd Nextion_Display.o
- .debug_line    0x00007b43      0x21d ring_buffer.o
- .debug_line    0x00007d60      0x77e fat.o
- .debug_line    0x000084de      0x563 file.o
- .debug_line    0x00008a41      0x509 mmc.o
- .debug_line    0x00008f4a      0x299 SD_Karte.o
- .debug_line    0x000091e3      0x6c4 ramp1.o
- .debug_line    0x000098a7      0x2ff Software_SPI.o
- .debug_line    0x00009ba6      0x1e2 SPI.o
- .debug_line    0x00009d88      0xaf1 tmc4671.o
- .debug_line    0x0000a879      0x3ec TMC6200.o
- .debug_line    0x0000ac65      0x329 UART.o
- .debug_line    0x0000af8e      0x439 main.o
- .debug_line    0x0000b3c7       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
+ .debug_line    0x00002c3c     0x1cd2 Cocktail_Statemachine.o
+ .debug_line    0x0000490e      0x734 Getraenk.o
+ .debug_line    0x00005042      0x195 TAGS.o
+ .debug_line    0x000051d7      0x45c Zutaten.o
+ .debug_line    0x00005633      0x351 LED.o
+ .debug_line    0x00005984     0x1315 Lists.o
+ .debug_line    0x00006c99      0x99d Main_Func.o
+ .debug_line    0x00007636      0x624 Nextion_Display.o
+ .debug_line    0x00007c5a      0x21d ring_buffer.o
+ .debug_line    0x00007e77      0x77e fat.o
+ .debug_line    0x000085f5      0x563 file.o
+ .debug_line    0x00008b58      0x509 mmc.o
+ .debug_line    0x00009061      0x299 SD_Karte.o
+ .debug_line    0x000092fa      0x6c4 ramp1.o
+ .debug_line    0x000099be      0x2ff Software_SPI.o
+ .debug_line    0x00009cbd      0x1e2 SPI.o
+ .debug_line    0x00009e9f      0xd34 tmc4671.o
+ .debug_line    0x0000abd3      0x3ec TMC6200.o
+ .debug_line    0x0000afbf      0x329 UART.o
+ .debug_line    0x0000b2e8      0x46f main.o
+ .debug_line    0x0000b757       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6\libatmega2560.a(eerd_byte.o)
 
-.debug_frame    0x00000000     0x34c4
+.debug_frame    0x00000000     0x3670
  *(.debug_frame)
  .debug_frame   0x00000000      0xaec Cocktail_functions.o
  .debug_frame   0x00000aec      0x34c Cocktail_Statemachine.o
@@ -2609,58 +2639,58 @@ END GROUP
  .debug_frame   0x0000268c      0x338 ramp1.o
  .debug_frame   0x000029c4      0x108 Software_SPI.o
  .debug_frame   0x00002acc       0x74 SPI.o
- .debug_frame   0x00002b40      0x69c tmc4671.o
- .debug_frame   0x000031dc       0xd8 TMC6200.o
- .debug_frame   0x000032b4      0x1ec UART.o
- .debug_frame   0x000034a0       0x24 main.o
+ .debug_frame   0x00002b40      0x848 tmc4671.o
+ .debug_frame   0x00003388       0xd8 TMC6200.o
+ .debug_frame   0x00003460      0x1ec UART.o
+ .debug_frame   0x0000364c       0x24 main.o
 
-.debug_str      0x00000000     0x3b28
+.debug_str      0x00000000     0x3e00
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6     0x18d9 Cocktail_functions.o
-                               0x1a3d (size before relaxing)
- .debug_str     0x00001cbf      0x83f Cocktail_Statemachine.o
-                               0x1c82 (size before relaxing)
- .debug_str     0x000024fe      0x117 Getraenk.o
-                               0x1064 (size before relaxing)
- .debug_str     0x00002615       0x68 TAGS.o
+ .debug_str     0x000003e6     0x19b9 Cocktail_functions.o
+                               0x1b2d (size before relaxing)
+ .debug_str     0x00001d9f      0x83f Cocktail_Statemachine.o
+                               0x1d72 (size before relaxing)
+ .debug_str     0x000025de      0x117 Getraenk.o
+                               0x1154 (size before relaxing)
+ .debug_str     0x000026f5       0x68 TAGS.o
                                 0x265 (size before relaxing)
- .debug_str     0x0000267d       0xb3 Zutaten.o
+ .debug_str     0x0000275d       0xb3 Zutaten.o
                                 0xa6a (size before relaxing)
- .debug_str     0x00002730       0xbe LED.o
+ .debug_str     0x00002810       0xbe LED.o
                                 0x316 (size before relaxing)
- .debug_str     0x000027ee      0x22b Lists.o
+ .debug_str     0x000028ce      0x22b Lists.o
                                 0x743 (size before relaxing)
- .debug_str     0x00002a19      0x220 Main_Func.o
-                               0x113d (size before relaxing)
- .debug_str     0x00002c39       0x5e Nextion_Display.o
-                                0xf12 (size before relaxing)
- .debug_str     0x00002c97       0x5a ring_buffer.o
+ .debug_str     0x00002af9      0x218 Main_Func.o
+                               0x1225 (size before relaxing)
+ .debug_str     0x00002d11       0x5e Nextion_Display.o
+                               0x1002 (size before relaxing)
+ .debug_str     0x00002d6f       0x5a ring_buffer.o
                                 0x1df (size before relaxing)
- .debug_str     0x00002cf1      0x2fa fat.o
+ .debug_str     0x00002dc9      0x2fa fat.o
                                 0x516 (size before relaxing)
- .debug_str     0x00002feb       0xb6 file.o
+ .debug_str     0x000030c3       0xaf file.o
                                 0x46a (size before relaxing)
- .debug_str     0x000030a1       0xc1 mmc.o
+ .debug_str     0x00003172       0xc1 mmc.o
                                 0x3dd (size before relaxing)
- .debug_str     0x00003162       0x43 SD_Karte.o
+ .debug_str     0x00003233       0x43 SD_Karte.o
                                 0x34e (size before relaxing)
- .debug_str     0x000031a5      0x133 ramp1.o
-                                0x640 (size before relaxing)
- .debug_str     0x000032d8      0x104 Software_SPI.o
+ .debug_str     0x00003276      0x133 ramp1.o
+                                0x739 (size before relaxing)
+ .debug_str     0x000033a9      0x104 Software_SPI.o
                                 0x2c8 (size before relaxing)
- .debug_str     0x000033dc       0x5b SPI.o
+ .debug_str     0x000034ad       0x5b SPI.o
                                 0x252 (size before relaxing)
- .debug_str     0x00003437      0x5c1 tmc4671.o
-                                0x9a6 (size before relaxing)
- .debug_str     0x000039f8       0x57 TMC6200.o
+ .debug_str     0x00003508      0x7c8 tmc4671.o
+                                0xc8d (size before relaxing)
+ .debug_str     0x00003cd0       0x57 TMC6200.o
                                 0x3b7 (size before relaxing)
- .debug_str     0x00003a4f       0x72 UART.o
+ .debug_str     0x00003d27       0x72 UART.o
                                 0x307 (size before relaxing)
- .debug_str     0x00003ac1       0x67 main.o
-                                0xfd6 (size before relaxing)
+ .debug_str     0x00003d99       0x67 main.o
+                               0x10c6 (size before relaxing)
 
-.debug_loc      0x00000000    0x130e2
+.debug_loc      0x00000000    0x13e27
  *(.debug_loc)
  .debug_loc     0x00000000     0x3fbe Cocktail_functions.o
  .debug_loc     0x00003fbe     0x1685 Cocktail_Statemachine.o
@@ -2679,10 +2709,10 @@ END GROUP
  .debug_loc     0x0000df1c      0xe13 ramp1.o
  .debug_loc     0x0000ed2f      0x357 Software_SPI.o
  .debug_loc     0x0000f086       0x98 SPI.o
- .debug_loc     0x0000f11e     0x3607 tmc4671.o
- .debug_loc     0x00012725      0x4e8 TMC6200.o
- .debug_loc     0x00012c0d      0x48d UART.o
- .debug_loc     0x0001309a       0x48 main.o
+ .debug_loc     0x0000f11e     0x434c tmc4671.o
+ .debug_loc     0x0001346a      0x4e8 TMC6200.o
+ .debug_loc     0x00013952      0x48d UART.o
+ .debug_loc     0x00013ddf       0x48 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2702,7 +2732,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0xd20
+.debug_ranges   0x00000000      0xd60
  *(.debug_ranges)
  .debug_ranges  0x00000000      0x328 Cocktail_functions.o
  .debug_ranges  0x00000328      0x118 Cocktail_Statemachine.o
@@ -2721,10 +2751,10 @@ END GROUP
  .debug_ranges  0x000009c8       0x80 ramp1.o
  .debug_ranges  0x00000a48       0x60 Software_SPI.o
  .debug_ranges  0x00000aa8       0x38 SPI.o
- .debug_ranges  0x00000ae0      0x1a8 tmc4671.o
- .debug_ranges  0x00000c88       0x28 TMC6200.o
- .debug_ranges  0x00000cb0       0x60 UART.o
- .debug_ranges  0x00000d10       0x10 main.o
+ .debug_ranges  0x00000ae0      0x1e8 tmc4671.o
+ .debug_ranges  0x00000cc8       0x28 TMC6200.o
+ .debug_ranges  0x00000cf0       0x60 UART.o
+ .debug_ranges  0x00000d50       0x10 main.o
 
 .debug_macro
  *(.debug_macro)
