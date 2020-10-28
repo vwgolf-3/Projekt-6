@@ -237,7 +237,7 @@ void encoder_testdrive(void)
     tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000001);					// Phi E Ext
     tmc4671_writeInt(0, TMC4671_PHI_E_EXT, 0x00000000);
     tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x000007D0);							// Uq / Ud Ext = 2000 == Anfangsspinner 1s
-    _delay_ms(1000);
+    _delay_ms(4000);
     tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);					// Zurücksetzen Count
 
 // Feedback selection
@@ -386,9 +386,9 @@ void initTMC4671_Encoder(void)
 
     tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET_DDT_LIMITS,  0x00007FFF);        // writing value 0x00007FFF = 32767 = 0.0 to address 60 = 0x5C(PID_TORQUE_FLUX_TARGET_DDT_LIMITS)
     tmc4671_writeInt(deb, TMC4671_PIDOUT_UQ_UD_LIMITS,                0x00005A81);        // writing value 0x00005A81 = 23169 = 0.0 to address 61 = 0x5D(PIDOUT_UQ_UD_LIMITS)
-    tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_LIMITS,             0x000009C4);        // writing value 0x000007D0 = 2000 = 0.0 to address 62 = 0x5E(PID_TORQUE_FLUX_LIMITS)
-    tmc4671_writeInt(deb, TMC4671_PID_ACCELERATION_LIMIT,             0x000000C8);        // writing value 0x0000001E = 30 = 0.0 to address 63 = 0x5F(PID_ACCELERATION_LIMIT)
-    tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_LIMIT,                 0x000005DC);        // writing value 0x000000C8 = 200 = 0.0 to address 64 = 0x60(PID_VELOCITY_LIMIT)
+    tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_LIMITS,             0x000007D0);        // writing value 0x000007D0 = 2000 = 0.0 to address 62 = 0x5E(PID_TORQUE_FLUX_LIMITS)
+    tmc4671_writeInt(deb, TMC4671_PID_ACCELERATION_LIMIT,             0x0000001E);        // writing value 0x0000001E = 30 = 0.0 to address 63 = 0x5F(PID_ACCELERATION_LIMIT)
+    tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_LIMIT,                 0x000000C8);        // writing value 0x000000C8 = 200 = 0.0 to address 64 = 0x60(PID_VELOCITY_LIMIT)
     tmc4671_writeInt(deb, TMC4671_PID_POSITION_LIMIT_LOW,             0x80000001);        // writing value 0x80000001 = 0 = 0.0 to address 65 = 0x61(PID_POSITION_LIMIT_LOW)
     tmc4671_writeInt(deb, TMC4671_PID_POSITION_LIMIT_HIGH,            0x7FFFFFFF);        // writing value 0x7FFFFFFF = 2147483647 = 0.0 to address 66 = 0x62(PID_POSITION_LIMIT_HIGH)
     _delay_ms(100);
@@ -421,6 +421,8 @@ tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000009);				// Phi M ABN
 tmc4671_writeInt(0, TMC4671_POSITION_SELECTION, 0x00000009);				// Phi M ABN
 
 tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000003);				// Position Mode
+
+encoder_testdrive();
 
 // Init encoder (mode 0)
 tmc4671_setActualPosition(0,0);

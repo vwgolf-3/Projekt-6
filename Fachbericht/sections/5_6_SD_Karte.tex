@@ -1,9 +1,10 @@
 \subsection{SD-Karte}
 \label{subsec:SD-Karte}
 
-Damit gespeicherte Getränke, Zutaten und Maschinenzustände bei einem Neustart der Cocktailmaschine erhalten bleiben, werden diese auf der SD-Karte abgelegt. Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Werden zu viel Getränke und Zutaten auf dem Mikrocontroller gespeichert, so führt dies zu einem Absturz des Mikrocontrollers. Es wurde daher entschieden, eine mikroSD-Karte zu verwenden. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gibt.
+Die SD-Karte speichert die Getränke, Zutaten und Maschinenzustände, damit diese bei einem Neustart wieder aufgerufen werden können und die Maschine auf den letzten Stand gesetzt wird.
+Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Füllt sich der Speicher des Mikrocontrollers zu sehr, so führt dies zu einem Absturz des. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gibt.
 
-Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. Es ist erkennbar, dass sie über SPI kommuniziert. Für den Anschluss wird nur ein mikroSD-Sockel benötigt. So kann die mikroSD über einen Level-Shifter vom Mikrocontroller angesteuert werden. Der Level-Shifter wird verwendet, da der Mikrocontroller mit 5V-Signalen arbeitet und die SD-Karte mit 3,3V arbeitet.
+Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. Es ist erkennbar, dass sie über SPI kommuniziert. Für den Anschluss wird nur ein mikroSD-Sockel benötigt. Ein Level-Shifter wandelt die 5V-Spannungssignale des Mikrocontrollers mit in 3,3V-Spannungssignale für die SD-Karte.
 
 \begin{figure}[H]
 	\centering
@@ -12,7 +13,7 @@ Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. E
 	\label{fig:micro_sd_pinout}
 \end{figure}
 
-Als Dateisystem wird FAT32 verwendet. FAT32 steht für File Allocation Table mit 32Bit Datenbreite. Es ist ein von Micosoft entwickeltes System, dessen Wurzeln bis ins Jahr 1977 zurückreichen und heute noch der Industriestandard unter den Dateisystemen ist. \cite{ionosde_fat32_2020}
+FAT32 steht für File Allocation Table mit 32Bit Datenbreite. Es ist ein von Micosoft entwickeltes System, dessen Wurzeln bis ins Jahr 1977 zurückreichen und heute noch der Industriestandard unter den Dateisystemen ist. \cite{ionosde_fat32_2020}
 
 Der Speicherbereich einer FAT32-formatierten Partition besteht aus fünf Bereichen. \cite{milsch_aufbau_2009}
 \begin{enumerate}

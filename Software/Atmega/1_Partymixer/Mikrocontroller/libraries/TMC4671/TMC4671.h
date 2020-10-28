@@ -56,6 +56,7 @@ int32_t tmc4671_readInt(unsigned int motor, unsigned char address);
 void tmc40bit_writeInt(unsigned int motor, unsigned char address, unsigned long value);
 int32_t tmc40bit_readInt(unsigned int motor, unsigned char address);
 void TMC4671_init(void);
+void resetTMC4671_Encoder(void);
 void initTMC4671_Encoder(void);
 void initTMC4671_Openloop(void);
 // SPI

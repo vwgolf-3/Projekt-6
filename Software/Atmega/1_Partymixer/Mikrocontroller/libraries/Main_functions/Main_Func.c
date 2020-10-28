@@ -9,16 +9,24 @@
 //Init_IO
 
 void IO_init(void)
-{
-    LED_DDR = LED_OUTPUT_MASK;
-    SPI_DDR = SPI_OUTPUT_MASK;
-    SPI2_DDR = SPI2_OUTPUT_MASK;
+{	
+    PUMPE_DDR = 0b00000000;			// Register A
     PUMPE_DDR = PUMPE_OUTPUT_MASK;
-    PUMPE_DDR2 = PUMPE2_OUTPUT_MASK;
-    PUMPE_DDR3 = PUMPE3_OUTPUT_MASK;
-    RFID_DDR = RFID_OUTPUT_MASK;
-    FLUSS_DDR = 0b00000000;
+    SPI_DDR = 0b00000000;			// Register B
+    SPI_DDR = SPI_OUTPUT_MASK;
+    PUMPE_DDR4 = 0b00000000;			// Register B
+    PUMPE_DDR4 = PUMPE4_OUTPUT_MASK;
+    SOFTSPI_DDR = 0b00000000;		// Register E
     SOFTSPI_DDR = SOFTSPI_OUTPUT_MASK;
+    LED_DDR = 0b00000000;			// Register F
+    LED_DDR = LED_OUTPUT_MASK;
+    PUMPE_DDR2 = 0b00000000;		// Register G
+    PUMPE_DDR2 = PUMPE2_OUTPUT_MASK;
+	SPI2_DDR = 0b00000000;			// Register H
+    PUMPE_DDR3 = 0b00000000;		// Register J
+    PUMPE_DDR3 = PUMPE3_OUTPUT_MASK;
+    FLUSS_DDR = 0b00000000;			// Register K
+	
     Position = 0;
     count_bla =0;
 }
@@ -27,6 +35,13 @@ void interfaces_init(void)
 {
 // Initialisierungen Interfaces
     IO_init();                                              // Ein-/Ausgangspins initialisieren
+
+    EN_TMC6200_PORT &= ~EN_TMC6200_BIT;                     // Disable TMC6200 (Active High)
+    for (int count = 0 ; count < 12 ; count++)
+    {
+        schalte_pumpe_aus(count);
+    }
+
     SPI_init();                                             // SPI-Schnittstelle initialisieren
     UART_init();                                            // UART-Schnittstelle initialisieren
 }
@@ -38,10 +53,10 @@ void devices_init(void)
     SD_init();                                           // SD-Karte initialisieren
 
 
-	// Als erstes wird der Gate-Treiber initialisiert, dann der FOC-Treiber
-	
+    // Als erstes wird der Gate-Treiber initialisiert, dann der FOC-Treiber
+
     initTMC6200();                                          // Gate-Treiber initialisieren
-	initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
+    initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 }
 
 void speicher_init()
@@ -72,10 +87,10 @@ void ramp_init(void)
 void periodic_jobs(linear_ramp_t * ramp)
 {
     check_Communication_Input_UART();                   // Prüfen. ob über UART einen Befehl geesendet wurde
-// 	computeRamp(ramp);
+//  computeRamp(ramp);
 //     if (check_Communication_Input_UART_1())             // Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
 //     {
-// 	    proceed_Communication_INPUT_UART_1();               // Vollständige Übertragung des Displays verarbeiten
+//      proceed_Communication_INPUT_UART_1();               // Vollständige Übertragung des Displays verarbeiten
 //     }
 }
 

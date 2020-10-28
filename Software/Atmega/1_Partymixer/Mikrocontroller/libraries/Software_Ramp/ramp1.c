@@ -75,8 +75,8 @@ void linear_ramp_set_defaults(volatile linear_ramp_t * ramp)
     ramp->ramp_position = 0.0;          // Ramp position actual
 
     ramp->motor_faktor_eine_umdrehung = 196.635/3;
-    ramp->motor_umdrehungen_komplette_verschiebung = 19.6291;
-    ramp->motor_umdrehungen_teilverschiebung = 1.4801;
+    ramp->motor_umdrehungen_komplette_verschiebung = 19;
+    ramp->motor_umdrehungen_teilverschiebung = 1.335;
 }
 
 

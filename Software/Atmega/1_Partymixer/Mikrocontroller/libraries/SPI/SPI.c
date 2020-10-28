@@ -78,10 +78,6 @@ void enable_Slave(uint8_t Slave)
         SPI_CS_TMC6200_PORT &= ~SPI_CS_TMC6200_BIT;
         break;
 
-    case MFRC522:
-        SPI_CS_RC522_PORT &= ~SPI_CS_RC522_BIT;
-        break;
-
     case SDCARD:
         SPCR |= (
                     (0<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
@@ -102,10 +98,6 @@ void disable_Slave(uint8_t Slave)
 
     case TMC6200:
         SPI_CS_TMC6200_PORT |= SPI_CS_TMC6200_BIT;
-        break;
-
-    case MFRC522:
-        SPI_CS_RC522_PORT |= SPI_CS_RC522_BIT;
         break;
 
     case SDCARD:

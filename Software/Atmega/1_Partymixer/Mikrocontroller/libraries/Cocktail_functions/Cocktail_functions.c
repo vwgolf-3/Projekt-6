@@ -1263,9 +1263,9 @@ void wait_until_position_reached(linear_ramp_t *ramp)
 
 uint32_t * set_prp(uint32_t * prp, uint8_t fuellmenge)
 {
-    uint32_t pulse_prp_3dl[13] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501}; //3dl
-    uint32_t pulse_prp_5dl[13] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506}; //5dl
-    uint32_t pulse_prp_1dl[13] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479}; //1dl
+    uint32_t pulse_prp_3dl[12] = {499, 496, 499, 499, 499, 496, 500, 500, 496, 499, 502, 501}; //3dl
+    uint32_t pulse_prp_5dl[12] = {501, 500, 501, 500, 502, 500, 500, 502, 498, 501, 503, 506}; //5dl
+    uint32_t pulse_prp_1dl[12] = {477, 474, 483, 479, 486, 474, 479, 483, 474, 466, 477, 479}; //1dl
 
     for (uint8_t count = 0 ; count < 12 ; count++)
     {
@@ -1288,8 +1288,8 @@ uint32_t * set_prp(uint32_t * prp, uint8_t fuellmenge)
 void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 {
     // Geschwindigkeit und Beschleunigung während Zubereitung
-    uint32_t geschwindigkeit = 100;
-    uint32_t beschleunigung = 100;
+    uint32_t geschwindigkeit = 1200;
+    uint32_t beschleunigung = 1000;
 
     // Variabeln Positionsberechnung
     float ende_der_bahn = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung;
@@ -1345,7 +1345,14 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 
 
                 // Berechne Menge, Ermittle momentanen Sensorwert, schalte Pumpe ein
-                uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)pulse_prp[tmp_zut_Maschine_actual->stelle]) * (uint32_t)(tmp_zut_Maschine_actual->menge)/(uint16_t)100);
+                uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)(*ptr+tmp_zut_Maschine_actual->stelle)) * (uint32_t)(tmp_zut_Maschine_actual->menge)/(uint16_t)100);
+                char buff[20] = {'\0'};
+                my_itoa(Menge, (char *) buff);
+                Uart_Transmit_IT_PC("Menge ");
+                Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+                Uart_Transmit_IT_PC(": ");
+                Uart_Transmit_IT_PC((char *) buff);
+                Uart_Transmit_IT_PC("\r");
                 uint8_t fuellen = 1;
                 uint8_t newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
                 schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
@@ -1357,21 +1364,7 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                     static uint8_t oldval=0;
                     static uint32_t count=0;
 
-
-
-
-
-                    newval = oldval ^ 0b00000001;
-
-
-
-
-//                  newval = lese_sensor(i);
-
-
-
-
-
+                    newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
 
                     // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
                     if( !oldval && newval)
@@ -1384,12 +1377,15 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                             fuellen = 0;
                         }
 
-
+                        Uart_Transmit_IT_PC("Sensor: ");
+                        itoa(count, (char *)buff, 10);
+                        Uart_Transmit_IT_PC((char *) buff);
+                        Uart_Transmit_IT_PC("\r");
 
 
 
 //                  Delay entfernen wenn mit Sensor gearbeitet wird.
-                        _delay_ms(1);
+//                         _delay_ms(1);
 
 
 
@@ -2122,7 +2118,7 @@ void lese_textfile_in_getraenk(uint8_t file)
     // initialisieren und ersten Abschnitt erstellen (1. Kopf)
 
     ptr = strtok((char *)fat.sector, delimiter);
-	
+
     //  Abschnitt in buffer extrahieren:
     /*
         Dazu muss im Textfile jeweils in folgendem Format geschrieben werden:

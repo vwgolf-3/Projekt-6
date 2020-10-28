@@ -17,14 +17,12 @@
 // MainLoop
 int main(void)
 {
-    EN_TMC6200_PORT &= ~EN_TMC6200_BIT;                     // Disable TMC6200 (Active High)
-//     init_LED();
-
     interfaces_init();
-	_delay_ms(1000);
+
+    init_LED();
 
     devices_init();
-
+	
     speicher_init();
 
     ramp_init();

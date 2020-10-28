@@ -90,28 +90,21 @@
 #define SOFTSPI_CLK_PORT PORTB                  // FLUSS4 PORTK
 #define SOFTSPI_CLK_DDR DDRB                    // FLUSS4 DDRK
 #define SOFTSPI_CLK_PIN PINB                    // FLUSS4 PINK
-//
-#define EN_TMC6200_BIT (1<<7)                   // EN_TMC6200 PIN3
-#define EN_TMC6200_PORT PORTB                   // EN_TMC6200 PORTH
-#define EN_TMC6200_DDR DDRB                     // EN_TMC6200 DDRH
-#define EN_TMC6200_PIN PINB                     // EN_TMC6200 PINH
+
 
 //
-#define SPI_OUTPUT_MASK (SPI_CS_TMC6200_BIT|SPI_CLK_BIT|SPI_MOSI_BIT|SOFTSPI_CLK_BIT|EN_TMC6200_BIT)
-//
-// ************************    C       ***************************************//
-//
-#define RFID_PORT PORTC
-#define RFID_DDR DDRC
-#define RFID_PIN PINC
+#define SPI_OUTPUT_MASK (SPI_CS_TMC6200_BIT|SPI_CLK_BIT|SPI_MOSI_BIT|SOFTSPI_CLK_BIT)
 
-#define SPI_CS_RC522_BIT (1<<0)                 // SPI_CS_RC522 PIN0
-#define SPI_CS_RC522_PORT PORTC                 // SPI_CS_RC522 PORTC
-#define SPI_CS_RC522_DDR DDRC                   // SPI_CS_RC522 DDRC
-#define SPI_CS_RC522_PIN PINC                   // SPI_CS_RC522 PINC
+#define PUMPE_PORT4 PORTC                          // Namensgebung Ausgaberegister B
+#define PUMPE_DDR4 DDRC                            // Namensgebung DataDirection Register
+#define PUMPE_PIN4 PINC
 
-#define RFID_OUTPUT_MASK (SPI_CS_RC522_BIT)
+#define PUMPE10_BIT (1<<0)                      // PUMPE10 PIN3
+#define PUMPE10_PORT PORTC                      // PUMPE10 PORTJ
+#define PUMPE10_DDR DDRC                        // PUMPE10 DDRJ
+#define PUMPE10_PIN PINC                        // PUMPE10 PINJ
 
+#define PUMPE4_OUTPUT_MASK (PUMPE10_BIT)
 
 //
 // ************************    E       ***************************************//
@@ -209,22 +202,10 @@
 #define SPI2_DDR DDRH                           // Namensgebung Timer Register
 #define SPI2_PIN PINH
 
-// #define EN_TMC6200_BIT (1<<3)                   // EN_TMC6200 PIN3
-// #define EN_TMC6200_PORT PORTH                   // EN_TMC6200 PORTH
-// #define EN_TMC6200_DDR DDRH                     // EN_TMC6200 DDRH
-// #define EN_TMC6200_PIN PINH                     // EN_TMC6200 PINH
-
 #define FAULT_TMC6200_BIT (1<<4)                // DIGITAL1 PIN4
 #define FAULT_TMC6200_PORT PORTH                // DIGITAL1 PORTH
 #define FAULT_TMC6200_DDR DDRH                  // DIGITAL1 DDRH
 #define FAULT_TMC6200_PIN PINH                  // DIGITAL1 PINH
-
-// #define SPI_CS_TMC6200_BIT (1<<6)               // SPI_CS_TMC6200 PIN6
-// #define SPI_CS_TMC6200_PORT PORTH               // SPI_CS_TMC6200 PORTH
-// #define SPI_CS_TMC6200_DDR DDRH                 // SPI_CS_TMC6200 DDRH
-// #define SPI_CS_TMC6200_PIN PINH                 // SPI_CS_TMC6200 PINH
-
-#define SPI2_OUTPUT_MASK (EN_TMC6200_BIT|SPI_CS_TMC6200_BIT)
 
 // ************************    J       ***************************************//
 
@@ -232,22 +213,23 @@
 #define PUMPE_DDR3 DDRJ                         // Namensgebung Timer Register
 #define PUMPE_PIN3 PINJ
 
+//
+#define EN_TMC6200_BIT (1<<0)                   // EN_TMC6200 PIN3
+#define EN_TMC6200_PORT PORTJ                   // EN_TMC6200 PORTH
+#define EN_TMC6200_DDR DDRJ                     // EN_TMC6200 DDRH
+#define EN_TMC6200_PIN PINJ                     // EN_TMC6200 PINH
+
 #define PUMPE11_BIT (1<<2)                      // PUMPE11 PIN2
 #define PUMPE11_PORT PORTJ                      // PUMPE11 PORTJ
 #define PUMPE11_DDR DDRJ                        // PUMPE11 DDRJ
 #define PUMPE11_PIN PINJ                        // PUMPE11 PINJ
 
-#define PUMPE10_BIT (1<<3)                      // PUMPE10 PIN3
-#define PUMPE10_PORT PORTJ                      // PUMPE10 PORTJ
-#define PUMPE10_DDR DDRJ                        // PUMPE10 DDRJ
-#define PUMPE10_PIN PINJ                        // PUMPE10 PINJ
-
-#define PUMPE9_BIT (1<<4)                       // PUMPE9 PIN4
+#define PUMPE9_BIT (1<<1)                       // PUMPE9 PIN4
 #define PUMPE9_PORT PORTJ                       // PUMPE9 PORTJ
 #define PUMPE9_DDR DDRJ                         // PUMPE9 DDRJ
 #define PUMPE9_PIN PINJ                         // PUMPE9 PINJ
 
-#define PUMPE8_BIT (1<<5)                       // PUMPE8 PIN5
+#define PUMPE8_BIT (1<<5)                        // PUMPE8 PIN5
 #define PUMPE8_PORT PORTJ                       // PUMPE8 PORTJ
 #define PUMPE8_DDR DDRJ                         // PUMPE8 DDRJ
 #define PUMPE8_PIN PINJ                         // PUMPE8 PINJ
@@ -257,12 +239,12 @@
 #define PUMPE7_DDR DDRJ                         // PUMPE7 DDRJ
 #define PUMPE7_PIN PINJ                         // PUMPE7 PINJ
 
-#define FLUSS9_BIT (1<<7)                       // FLUSS9 PIN7
+#define FLUSS9_BIT (1<<7)                       // FLUSS9 PfflIN7
 #define FLUSS9_PORT PORTJ                       // FLUSS9 PORTJ
 #define FLUSS9_DDR DDRJ                         // FLUSS9 DDRJ
 #define FLUSS9_PIN PINJ                         // FLUSS9 PINJ
 
-#define PUMPE3_OUTPUT_MASK (PUMPE11_BIT|PUMPE10_BIT|PUMPE9_BIT|PUMPE8_BIT|PUMPE7_BIT)
+#define PUMPE3_OUTPUT_MASK (PUMPE11_BIT|PUMPE9_BIT|PUMPE8_BIT|PUMPE7_BIT|EN_TMC6200_BIT)
 //
 // ************************    K       ***************************************//
 //
@@ -309,7 +291,5 @@
 #define FLUSS8_PORT PORTK                       // FLUSS8 PORTK
 #define FLUSS8_DDR DDRK                         // FLUSS8 DDRK
 #define FLUSS8_PIN PINK                         // FLUSS8 PINK
-
-
 
 #endif /* PIN_DEFS_H_ */

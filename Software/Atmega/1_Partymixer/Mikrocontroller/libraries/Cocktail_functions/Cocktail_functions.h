@@ -121,6 +121,6 @@ void delete_file_node_alle(uint8_t art);
 
 enum Zutat_in_Maschine_Status {KEINGETRAENK, VOLL, LEER};
 enum file_art {ZUTAT, COCKTAIL, ZUTAT_MIT, ZUTAT_OHNE};
-enum mengen {DL_1, DL_3, DL_5};
+enum mengen {DL_1 = 1, DL_3 = 3, DL_5 = 5};
 	
 #endif /* COCKTAIL_FUNCTIONS_H_ */

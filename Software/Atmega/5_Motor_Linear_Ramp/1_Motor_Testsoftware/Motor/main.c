@@ -20,7 +20,7 @@ int main(void)
     SPI_init();                                             // SPI-Schnittstelle initialisieren
     UART_init();                                            // UART-Schnittstelle initialisieren
     initTMC6200();                                          // Gate-Treiber initialisieren
-    initTMC4671_Openloop();                                  // FOC-Treiber initialisieren
+    initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 
     Position = 0;
 
@@ -52,6 +52,7 @@ int main(void)
 	       tmc4671_setAbsolutTargetPosition(0, (uint32_t)(ramp->ramp_position * 1000));
 		}
 		read_registers_TMC4671();
+		read_registers_TMC6200();
         check_Communication_Input_UART();
 		_delay_ms(2000);
     }

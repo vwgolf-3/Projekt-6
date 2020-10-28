@@ -1,7 +1,7 @@
 \subsection{Beleuchtung}
 \label{subsec:Beleuchtung_2}
 
-Damit die Maschine erkennbar ist und auch Eindruck schindet, wurde ein auffallendes Mittel benötigt. Dazu eignet sich ein LED-Band, am besten, wenn es noch verschiedenfarbig ist. Der Aufbau eines LED-Bandes ähnelt dann dem in Abbildung \ref{fig:LED1} gezeigten Schaltung. Der Streifen ist Rot eingerahmt, die LED's und Widerstände befinden sich auf dem Band und die zu sehenden Fähnchen für R, G, B und W führen über die Leistungs-MOSFETS zum Mikrocontroller. Es können auch mehrere Bänder parallel geschaltet werden, wie in Abbildung \ref{fig:LED1} ersichtlich ist.
+Damit die Maschine von weitem erkennbar ist und auch Eindruck schindet, eignet sich ein LED-Band. Am Besten, wenn es noch verschiedenfarbig ist. Der Aufbau eines LED-Bandes ähnelt dann dem in Abbildung \ref{fig:LED1} gezeigten Schaltung. Der Streifen ist Rot eingerahmt, die LED's und Widerstände befinden sich auf dem Band und die zu sehenden Fähnchen für R, G, B und W führen über die Leistungs-MOSFETS. Die MOSFETs wiederum werden vom Mikrocontroller angesteuert.
 
 \begin{figure}[H]
 \center
@@ -23,4 +23,4 @@ Bei Licht handelt es sich um elektromagnetische Wellen, welche im sichtbaren Wel
 
 \paragraph{Funktionsbeschrieb der Schaltung}\mbox{}
 
-Damit die LED's angesteuert werden können, braucht es ein Bauteil welches mit einer 5V-Eingangssignal 12V schalten können. Dazu wird der selbe MOSFET verwendet wie schon bei den Pumpen in Kapitel \ref{subsubsec:Pumpen}. Über die Widerstände an den Gates wird der Strom zum Schutz des Gates begrenzt. Ausserdem verhindern sie ein allfälliges Oszillieren. Die Leitungen führen direkt auf den Klemmblock für die LED-Streifen. Parallel dazu wurde noch für jede Lichtfarbe ein Kontroll-LED installiert, welches es ermöglicht auch ohne LED-Band etwas zu programmieren und ersichtlich zu machen.
+Damit die LED's angesteuert werden können, braucht es ein Bauteil welches mit einer 5V-Eingangssignal 12V schalten können. Dazu wird der selbe MOSFET Q22 bis Q25 verwendet wie schon bei den Pumpen in Kapitel \ref{subsubsec:Pumpen}. Über die Widerstände an den Gates wird der Strom zum Schutz des Gates begrenzt. Ausserdem verhindern sie ein allfälliges Oszillieren. Die Leitungen führen direkt auf den Klemmblock für die LED-Streifen. Die parallel geschalteten LEDs LED12 bis LED15 sind zum Debuggen ohne LED-Streifen.
