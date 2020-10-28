@@ -11,19 +11,20 @@
 
 #include <stdint.h>
 
-// Verbindungsbibliotheken Software/Hardware
-#include "../Nextion_Display/Nextion_Display.h"
-#include "../TMC4671/TMC4671.h"
-#include "../TMC6200/TMC6200.h"
-#include "../SD-Karte/SD_Karte.h"
-#include "../LED/LED.h"
-#include "../Software_Ramp/Ramp1.h"
-#include "../Main_functions/Main_Func.h"
-
 // Speicherstrukturen
 #include "Zutaten.h"
 #include "Getraenk.h"
 #include "TAGS.h"
+
+// Verbindungsbibliotheken Software/Hardware
+#include "../TMC4671/TMC4671.h"
+#include "../TMC6200/TMC6200.h"
+#include "../SD-Karte/SD_Karte.h"
+#include "../Nextion_Display/Nextion_Display.h"
+#include "../LED/LED.h"
+#include "../Software_Ramp/Ramp1.h"
+
+
 
 // #include "../Lists/Lists.h"
 

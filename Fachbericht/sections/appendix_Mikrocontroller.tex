@@ -1,13 +1,17 @@
 \section{Mikrocontroller}\label{Appendix:Mikrocontroller}
 
-\subsection{Pinout}
+%\subsection{Inbetriebnahme}\label{Appendix:Inbetriebnahme_uC}
 
-\includepdf[angle = 90, fitpaper]{appendix/Pinout_Mikrocontroller}
+\subsection{Einbinden AVRdude und stk500v2 (wiring)}\label{Appendix:AVR_STK500}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{graphics/AtmelStudio_External_Tools}
+	\caption{External Tools ATMega2560 (Atmel Studio).}
+	\label{fig:AtmelStudio_External_Tools}
+\end{figure}
 
-\subsection{Inbetriebnahme}\label{Appendix:Inbetriebnahme_uC}
-
-\subsubsection{Fuse-Bits}
+\subsection{Fuse-Bits}
 
 %\begin{table}[h!]
 %\center
@@ -60,7 +64,7 @@
 %\caption{Bits High-Byte-Fuses.}
 %\end{table}
 
-Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher per USB zu beschreiben, muss beim Aufstarten der BL aufgerufen werden. Dazu muss das BOOTRST-Bit aktiviert werden. Der Speicherplatz für den BL wird auf 4096 words gesetzt. Das EEPROM soll beim Löschen des \textmu C geschützt bleiben, weshalb das EESAVE-Bit aktiviert wird. Da die ISP-Schnittstelle benötigt wird, um den BL zu schreiben und Fuse-Bits zu setzen, wird das SPIEN-Bit gesetzt.
+Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher per USB zu beschreiben, muss beim Aufstarten der BL aufgerufen werden. Dazu muss das BOOTRST-Bit aktiviert werden. Der Speicherplatz für den BL wird auf 4096 words gesetzt, was mit dem Bootloader (SKT500v2) übereinstimmen muss. Das EEPROM soll beim Löschen des \textmu C geschützt bleiben, weshalb das EESAVE-Bit aktiviert wird. Da die ISP-Schnittstelle benötigt wird, um den BL zu schreiben und Fuse-Bits zu setzen, wird das SPIEN-Bit gesetzt.
 %
 %\begin{tabularx}{\textwidth}{ll|X}
 %
@@ -194,15 +198,15 @@ Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung 
 	\label{fig:AtmelStudio_Fuses}
 \end{figure}
 
-\subsubsection{Bootloader}\label{Appendix:Inbetriebnahme_Bootloader}
-
-Ein Bootloader (BL) ermöglicht seitens Mikrocontroller den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des Mikrocontrollers gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
-%Wenn innerhalb von ca. zwei Sekunden keine Daten ankommen, wird das Anwenderprogramm gestartet. 
-Wird innerhalb dieser zwei Sekunden ein Anwenderprogramm in Form eines HEX-Files an den Mikrocontroller gesendet, wird es gemäss stk500v2-Protokoll in den Flash-Speicher geladen.
-%Nach dem Laden in den Flash-Speicher wird das neu geladene Programm gestartet. 
-Aufgrund des BL geht es nach einem Reset des \textmu Cs zwei Sekunden, bis das eigentliche Programm startet. \cite{atmel_avr068_2006}
-
-Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann bei Github heruntergeladen werden \cite{sproul_arduinoarduino-stk500v2-bootloader_2012}. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Durch Anpassen des Startvektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern. Dies ist jedoch nicht Inhalt dieses Projektes.
+\subsection{Bootloader}\label{Appendix:Inbetriebnahme_Bootloader}
+%
+%Ein Bootloader (BL) ermöglicht seitens Mikrocontroller den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des Mikrocontrollers gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
+%%Wenn innerhalb von ca. zwei Sekunden keine Daten ankommen, wird das Anwenderprogramm gestartet. 
+%Wird innerhalb dieser zwei Sekunden ein Anwenderprogramm in Form eines HEX-Files an den Mikrocontroller gesendet, wird es gemäss stk500v2-Protokoll in den Flash-Speicher geladen.
+%%Nach dem Laden in den Flash-Speicher wird das neu geladene Programm gestartet. 
+%Aufgrund des BL geht es nach einem Reset des \textmu Cs zwei Sekunden, bis das eigentliche Programm startet. \cite{atmel_avr068_2006}
+%
+%Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann bei Github heruntergeladen werden \cite{sproul_arduinoarduino-stk500v2-bootloader_2012}. Im File stk500v2.c befinden sich einige Anweisungen, welche Fuse- und Lock-Bits wann gesetzt werden müssen. Durch Anpassen des Startvektors auf den Programmspeicher und Setzen der korrekten Bootloader-Fuses wäre es möglich, den BL-Speicherplatz zu verkleinern um den Programmspeicher zu vergrössern. Dies ist jedoch nicht Inhalt dieses Projektes.
 
 %Wie der Flash-Speicher grob organisiert ist wird in Abbildung \ref{fig:Flash_Speicher_uC} gezeicht. Der Flash-Speicher für den Bootloader, wird in eine No-Read-While-Write Section geschrieben. Das Anwendungsprogramm in die Read-While-Write Section.
 
@@ -221,7 +225,7 @@ Für den \textmu C des Partymixers wird ein stk500v2-BL verwendet. Dieser kann b
 	\label{fig:AtmelStudio_Program_Bootloader}
 \end{figure}
 
-\subsubsection{Lock-Bits}
+\subsection{Lock-Bits}
 
 Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben wurde. ''SPM ist nicht erlaubt, in den Anwenderbereich zu schreiben und LPM ist nicht erlaubt aus dem Applikationssktor zu lesen, wenn LPM aus dem Urlader-Bereich ausgeführt wird.''\cite{haftmann_programmierung_nodate}
 
@@ -241,16 +245,6 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 	\label{fig:AtmelStudio_Locks}
 \end{figure}
 
-
-\subsubsection{Einbinden AVRdude und stk500v2 (wiring)}\label{Appendix:AVR_STK500}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/AtmelStudio_External_Tools}
-	\caption{External Tools ATMega2560 (Atmel Studio).}
-	\label{fig:AtmelStudio_External_Tools}
-\end{figure}
-
 \subsubsection{Schwingung 16MHz Quarz}
 
 \begin{figure}[H]
@@ -261,3 +255,5 @@ Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben
 \end{figure}
 
 \subsubsection{Pinout}\label{Appendix:AVR_Pinout}
+
+\includepdf[angle = 90, fitpaper]{appendix/Pinout_Mikrocontroller}

@@ -2,7 +2,7 @@
 \label{subsec:SD-Karte}
 
 Die SD-Karte speichert die Getränke, Zutaten und Maschinenzustände, damit diese bei einem Neustart wieder aufgerufen werden können und die Maschine auf den letzten Stand gesetzt wird.
-Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Füllt sich der Speicher des Mikrocontrollers zu sehr, so führt dies zu einem Absturz des. Im Folgenden wird erklärt, was es Hard- und Softwaretechnisch zu beachten gibt.
+Nebst dem Erhalten der Informationen ist die SD-Karte wichtig für den Betrieb der Maschine. Füllt sich der Speicher des Mikrocontrollers zu sehr, führt dies zu einem Absturz.
 
 Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. Es ist erkennbar, dass sie über SPI kommuniziert. Für den Anschluss wird nur ein mikroSD-Sockel benötigt. Ein Level-Shifter wandelt die 5V-Spannungssignale des Mikrocontrollers mit in 3,3V-Spannungssignale für die SD-Karte.
 
@@ -13,20 +13,20 @@ Abbildung \ref{fig:micro_sd_pinout} zeigt die Pinbelegung einer mikroSD-Karte. E
 	\label{fig:micro_sd_pinout}
 \end{figure}
 
-FAT32 steht für File Allocation Table mit 32Bit Datenbreite. Es ist ein von Micosoft entwickeltes System, dessen Wurzeln bis ins Jahr 1977 zurückreichen und heute noch der Industriestandard unter den Dateisystemen ist. \cite{ionosde_fat32_2020}
+Die sdKarte ist mit FAT32 formatiert. FAT32 steht für File Allocation Table mit 32Bit Datenbreite. Es ist ein von Micosoft entwickeltes System, dessen Wurzeln bis ins Jahr 1977 zurückreichen und heute noch der Industriestandard unter den Dateisystemen ist. \cite{ionosde_fat32_2020}
 
 Der Speicherbereich einer FAT32-formatierten Partition besteht aus fünf Bereichen. \cite{milsch_aufbau_2009}
 \begin{enumerate}
-\item Master Boot Record (LBA Sektor 0 des Laufwerks)
-\item Volume Boot Record, Partition Boot Sektor (LBA Sektor 0 der Partition)
-\item File Allocation Table (i.d.R 2 mal hintereinander vorhanden, direkt nach dem PBR)
-\item Directory Table (mit den Ordner und File-Einträgen)
+\item Master Boot Record (LBA Sektor 0 des Laufwerks, Startprogramm)
+\item Volume Boot Record, Partition Boot Sektor (LBA Sektor 0 der Partition, Bootcode, Beginn der Daten, Fehlermeldungen)
+\item File Allocation Table (i.d.R 2 mal hintereinander vorhanden, direkt nach dem PBR, Organisation der belegten oder freien Cluster oder Partitionen)
+\item Directory Table (mit den Ordner und File-Einträgen, Wurzelverzeichnis)
 \item Datenbereich (Fileinhalt)
 \end{enumerate}
 
-Im Anhang Kapitel \ref{Appendix:FAT32_Aufbau} sind die einzelnen Bereiche detailliert beschrieben.
+%Im Anhang Kapitel \ref{Appendix:FAT32_Aufbau} sind die einzelnen Bereiche detailliert beschrieben.
 
-Für den PartyMixer wird softwareseitig eine Library benötigt, welche die FAT32-Commands  implementiert und gleichzeitig die Operationen auf der SD-Karte abhandelt. So ist die SD-Karte auch am Computer editierbar und die Befehlsliste reduziert sich mehr oder weniger auf readFile, writeFile und deleteFile.
+%Für den PartyMixer wird softwareseitig eine Library benötigt, welche die FAT32-Commands  implementiert und gleichzeitig die Operationen auf der SD-Karte abhandelt. So ist die SD-Karte auch am Computer editierbar und die Befehlsliste reduziert sich mehr oder weniger auf readFile, writeFile und deleteFile.
 
 \paragraph{Schema}\mbox{}
 

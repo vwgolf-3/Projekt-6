@@ -16,8 +16,8 @@
 #include "file.h"
 #include "fat.h"
 #include "mmc.h"		// Hardware abhaengig
-#include "../UART/UART.h"
 
+extern void Uart_Transmit_IT_PC(char * data);
 void SD_init();
 
 void readFile(uint8_t * file_name);

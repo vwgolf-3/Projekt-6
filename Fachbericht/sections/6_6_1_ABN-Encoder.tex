@@ -1,9 +1,9 @@
 \subsubsection{ABN-Encoder}
 \label{subsubsec:Inbetriebnahme_ABN-Encoder}
 
-Der ABN-Encoder wird an den FOC-Treiber angeschlossen. Daher wird die Schnittstelle für den ABN-Encoder am FOC-Treiber initialisiert. Dazu werden die Parameter verwendet, welche in der TMCL-IDE verwendet wurden. Die zu schreibenden Parameter sind im Anhang Kapitel \ref{Appendix:ABN_Register} angehängt. Das Einlesen der PWM-Signale wird getestet, indem der Treiber in den Positionsmodus versetzt wird, wozu das Feedback des Rotors nötig ist. Hat die Initialisierung funktioniert, dreht sich der Motor an eine gewünschte Position und haltet dort. Zur Initialisierung gehören auch einige Einstellungen zu den PI-Reglern. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{4\underline{ }Motor\underline{ }ABN\underline{ }Encoder}'' möglich.
+Der ABN-Encoder wird mit einem Testprogramm in Betrieb genommen. Das Programm initialisiert die benötigte Hardware des Mikrocontrollers (UART, SPI, Pins), enthält die Library des FOC- und Gate-Treibers und ermöglicht das Debugen über die serielle Schnittstelle. Da der ABN-Encoder am FOC-Treiber angeschlossen ist, wird die Schnittstelle für den ABN-Encoder am FOC-Treiber initialisiert. Dazu müssen weitere Register gesetzt werden, worunter auch die Register für die PI-Regler fallen. Die Software TMCL-IDE hilft bei der Bestimmung der Parameter für den ABN-Encoder und PI-Regler. Welche Register wie beschrieben wurden ist im Anhang Kapitel \ref{Appendix:ABN_Register} zu sehen. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{4\underline{ }Motor\underline{ }ABN\underline{ }Encoder}'' möglich.
 
-
+Es wird erwartet, dass der FOC-Treiber im Positionsmodus im ersten Moment stehen bleibt. Wird jetzt der Rotor gedreht, muss der FOC-Treiber die Abweichung nachkorrigieren. Wird dem Motor eine andere Position vorgegeben, muss der Motor sich an die gewünschte Position fahren und dort halten.
 
 Die Werte der PI-Regler wurden Experimentell bestimmt. Folgende Werte wurden dabei ermittelt:
 
@@ -37,9 +37,14 @@ Geschwindigkeit & 1500 &  & \\
 
 Die Regler wurden so bestimmt, dass die Regelkreise in unbelasteten Zustand ihre Sollwerte schnellst möglich erreichen, ohne überzuschiessen. Dies betrifft den Regler für den Stromregelkreis und den Regler für den Geschwindigkeitsregelkreis. Die zugehörigen Parameter wurden in der TMCL-IDE ermittelt. 
 
-Das bisherige Setup hat sich nun um den ABN-Encoder erweitert und ist im Anhang Kapitel \ref{Appendix:ABN_Setup} ersichtlich.
-
-Achtung, wenn die Scripts auf den Mikrocontroller des PartyMixers geladen werden ist darauf zu achten, dass die Achse des Motors frei beweglich ist und das Förderband nicht mit der Achse mitdreht, da ansonsten Schäden an der Maschine entstehen können. Es wird empfohlen die Scripts mit Mikrocontroller und EVAL-Boards zu testen.
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle = 270, width=\textwidth]{graphics/4_komplett}
+	\caption{Komplettansicht mit Mikrocontroller, Level-Shifter, FOC-Treiber, Gate-Treiber, H-Brücke, ABN-Encoder und Motor.}
+	\label{fig:4_komplett}
+\end{figure}
+\newpage
+\textbf{Achtung}, wenn die Scripts auf den Mikrocontroller des PartyMixers geladen werden ist darauf zu achten, dass die Achse des Motors frei beweglich ist und das Förderband nicht mit der Achse mitdreht, da ansonsten Schäden an der Maschine entstehen können. Es wird empfohlen die Scripts mit Mikrocontroller und EVAL-Boards zu testen.
 
 Vorgehen:
 \begin{enumerate}
@@ -49,6 +54,9 @@ Vorgehen:
 \item Software hochladen:\\
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 
-\item Ausgehende Signale des ABN-Encoders überprüfen. Im Anhang Kapitel \ref{Appendix:ABN_Signale} ist das Messbild des ABN-Encoder-Ausgangs zu sehen.
 
 \end{enumerate}
+
+Ergebnis: Nach der Initialisierung wird zuerst ein Testdrive ausgeführt, welcher den Rotor mit hoher Geschwindigkeit eine Sekund nach links und eine Sekunde nach Rechts drehen lässt. Danach wird der Motor in den Positionsmodus versetzt, wordurch der FOC-Treiber bei einer Störung von ausserhalb nachkorrigiert, um wieder auf die Ursprungsposition zu kommen. Wird über den seriellen Monitor '1' eingegeben, fährt der Motor 12 verschiedene Positionen an und dann wieder zurück zur Ursprungsposition. Wird Enter gedrückt, wird die Position inkrementiert. Wird '0' gedrückt, fährt der Motor an die Ursprungsposition zurück.
+
+Die Problematik besteht in der Kontrolle des Motors. So wie die Regler ausgelegt sind, kann der Schlitten, welcher vom Motor bewegt wird, nicht sorgfältig genug bewegt werden. Abhilfe schafft eine Software-Ramp, welche den Weg unter Vorgabe einer Höchstgeschwindigkeit und -Beschleunigung berechnet. Die Ramp gibt dem FOC-Treiber schrittweise die Positionen vor, wodurch dur Motor für den Bruchteil einer Sekunde wartet, bis die nächste Position vorgegeben wird.

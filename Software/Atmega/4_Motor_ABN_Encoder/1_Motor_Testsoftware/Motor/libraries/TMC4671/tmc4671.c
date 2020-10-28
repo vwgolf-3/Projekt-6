@@ -231,11 +231,11 @@ void encoder_testdrive(void)
 
         // Rotate right
         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0x03E80000);
-        _delay_ms(3000);
+        _delay_ms(1000);
 
         // Rotate left
         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0xFC180000);
-        _delay_ms(3000);
+        _delay_ms(1000);
 
         // Stop
         tmc4671_writeInt(deb, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);

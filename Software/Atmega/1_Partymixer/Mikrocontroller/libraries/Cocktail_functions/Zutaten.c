@@ -78,10 +78,6 @@ void zutaten_init(void)
         // Prüfen ob File existiert
         if(verifyFile((uint8_t *)buff_init_textfiles_zutat))
         {
-			readFile((uint8_t *)buff_init_textfiles_zutat);
-            // Nummer des Existierenden Files in der Liste ablegen (head_zutat = letzt hinzugefügtes Getränk)
-            lese_textfile_in_zutat(count);
-
             if (aktuelle_zutat->kohlensaeure == 0)
             {
                 insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);

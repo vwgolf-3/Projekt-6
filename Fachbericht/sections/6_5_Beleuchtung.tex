@@ -1,9 +1,13 @@
 \subsection{Beleuchtung}
 \label{subsec:Inbetriebnahme_Beleuchtung}
 
+Die Inbetriebnahme der Beleuchtung geschieht mit einem Testprogramm. Das Programm initialisiert die benötigte Hardware des Mikrocontrollers (UART, Pins, Interrupts), enthält eine LED-Library und ermöglicht das Debugen über die serielle Schnittstelle.
+
 Die Farbe und Helligkeit der Beleuchtung wird mit einem PWM-Signal geregelt. Das PWM-Signal wird erzeugt mittels Timer Interrupts, damit Regelung parallel neben dem Programfluss geschehen kann. Insgesamt benötigt es fünf Timer um das LED-Band anzusteuern. Jeweils einen für jede Farbe und einen um durch den Rainbow-Modus zu interieren.
 
-Die Inbetriebnahme wurde anhand des Datenblatts und des Tutorials von Atmel Mikrochip gemacht \cite{mikrochip_makes_getting_2015}\cite{mikrochip_makes_getting_2015-1}\cite{mikrochip_makes_getting_2015-2}. Im Anhang Kapitel \ref{Appendix:Timer_PWM} ist der detailierte Vorgang zur Initialisierung des PWM-Signals beschrieben. Aus der Beschreibung geht hervor, dass das Signal mit einer Frequenz von 10kHz getaktet wird und der Duty-Cycle nicht über 95\% gehen sollte. Ausserdem wird im erwähnten Kapitel der Rainbow-Algorithmus beschrieben.
+Die Inbetriebnahme wurde anhand des Datenblatts und des Tutorials von Atmel Mikrochip gemacht, welches auf Youtube zu finden ist.\cite{mikrochip_makes_getting_2015}\cite{mikrochip_makes_getting_2015-1}\cite{mikrochip_makes_getting_2015-2}. Im Anhang Kapitel \ref{Appendix:Timer_PWM} sind Auszüge aus dem Datenblatt zu finden. Das Kapitel zeigt, nach welchem Prinzip das PWM-Signal mit einer Frequenz von 10kHz getaktet.
+
+Es wird erwartet, dass das LED-Band zu Beginn Rot leuchtet und dann durch alle Farben wechselt. Wird über den seriellen Port eine '1' geschrieben, so muss das Licht vom Rainbow-Modus zu Weiss wechseln. Wird eine '0' geschrieben, so muss das Licht von Weiss zum Rainbow-Modus wechseln.
 
 Vorgehen:
 
@@ -15,3 +19,6 @@ Vorgehen:
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 
 \end{enumerate}
+
+Ergebnis: Die LEDs leuchten zu Beginn Rot und wechseln dann durch die Farben. Wird eine '1' eingegeben, wechselt das Licht von Rainbow zu Weiss, wird eine '0' eingegeben, wechselt das Licht von Weiss nach Rainbow.
+Die Inbetriebnahme hat gezeigt, dass der Duty-Cycle nicht über 95\% gehen sollte, da die LEDs ansonsten flimmern.

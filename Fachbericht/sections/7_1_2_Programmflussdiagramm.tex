@@ -1,3 +1,4 @@
+\newpage
 \subsubsection{Programmflussdiagramm}
 \label{subsubsec:Programmflussdiagramm}
 
@@ -10,23 +11,14 @@ Wird das Programm gestartet, beginnt die Init-Section. Hier werden die zuerst di
 \paragraph{Main-Loop}\mbox{}\\
 Da die Maschine nur auf Inputs reagieren muss, werden im Main-Loop nur die Buffer der Devices abgefragt. Sobald ein Terminator-Zeichen ankommt (z.B ein carriage return '\textbackslash r' der UART0-Schnitstelle oder 0xFF 0xFF 0xFF der UART1-Schnittstelle), werden die zuvor empfangenen Daten interpretiert und verarbeitet.
 
-\newpage
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{graphics/Programmfluss_Atmega2560.pdf}
-	\caption{Programflussdiagramm Mikrocontroller.}
-	\label{fig:Programmfluss_Atmega2560}
-\end{figure}
-\newpage
-
+\includepdf[pages={1}]{graphics/Programmfluss_Atmega2560}
 
 \subsubsection{Speicherorganisation}\label{subsubsec:Speicherorganisation}
 
 Da im Programmfluss viel mit Listen gearbeitet wird, wird auf \textit{Doubly Dynamic Linked Lists} zurückgegriffen.
-Eine Doppelt verkettete Liste ist eine gängige Datenstruktur, um sich einfach und effizient in einer Liste hoch und runter zu bewegen. Weiter können der Liste ohne grossen Aufwand sogenannte Nodes\footnote{Nodes = Knoten} hinzugefügt werden. Im Folgenden wird von Elementen statt von Nodes gesprochen. Für jedes Element werden zwei Pointer initialisiert, welche auf das nächste (next) oder auf das vorherige (prev) Element zeigen. Nebst den Pointern auf die umliegenden Elemente enthält das Element die gewünschten Daten. Um zu wissen, ob das Ende oder der Beginn erreicht wurde, werden zwei zusätzliche Pointer initialisiert, welche auf das erste und/oder letzte Element zeigen (Head und Tail). Im Anhang Kapitel \ref{Appendix:Lists} können weitere Details zu Dynamic Linked Lists entnommen werden.\cite{lenz_artikel_2016}
-
-Abbildung \ref{fig:Doubly_Linked_List_2_00} zeigt eine Struktur der beschriebenen Liste mit next, prev, head, tail und Elementen.
+Eine Doppelt verkettete Liste ist eine gängige Datenstruktur, um sich einfach und effizient in einer Liste hoch und runter zu bewegen. Weiter können der Liste ohne grossen Aufwand sogenannte Nodes\footnote{Nodes = Knoten} hinzugefügt werden. Im Folgenden wird von Elementen statt von Nodes gesprochen. Für jedes Element werden zwei Pointer initialisiert, welche auf das nächste (next) oder auf das vorherige (prev) Element zeigen. Nebst den Pointern auf die umliegenden Elemente enthält das Element die gewünschten Daten. Um zu wissen, ob das Ende oder der Beginn erreicht wurde, werden zwei zusätzliche Pointer initialisiert, welche auf das erste und/oder letzte Element zeigen (Head und Tail).
+%Im Anhang Kapitel \ref{Appendix:Lists} können weitere Details zu Dynamic Linked Lists entnommen werden.
+Abbildung \ref{fig:Doubly_Linked_List_2_00} zeigt eine Struktur der beschriebenen Liste mit next, prev, head, tail und Elementen. \cite{lenz_artikel_2016}
 
 \begin{figure}[h!]
 	\centering
@@ -36,7 +28,7 @@ Abbildung \ref{fig:Doubly_Linked_List_2_00} zeigt eine Struktur der beschriebene
 \end{figure}
 
 
-Die Elemente sind in Structs organisiert, welche die Pointer und die Daten enthalten. In der Software werden verschiedene Struct-Typen verwendet. Für jeden Struct-Typ lässt sich eine Liste mit mehreren Structs erstellen. Es werden für die folgenden vier Elemente Listen angelegt:
+Die Elemente sind in Structs organisiert, welche die Pointer und die Daten enthalten. In der Software werden verschiedene Struct-Typen verwendet. Für jeden Struct-Typ lässt sich eine Liste mit mehreren Structs erstellen. Es werden für die folgenden fünf Elemente Listen angelegt:
 
 \begin{itemize}
 \item Cocktail-Liste (SD-Files)
@@ -46,6 +38,6 @@ Die Elemente sind in Structs organisiert, welche die Pointer und die Daten entha
 \item Listen-Pointer
 \end{itemize}
 
-Da während der Entwicklung der Programmspeicher mit zu vielen Daten gefüllt wurde, stürzte der Mikrocontroller ab. Die Cocktail- und die Zutaten-Liste beinhalten deshalb nur die Nummer ein zugehöriges Files, welches sich auf der SD-Karte befindet. Wird ein Cocktail oder eine Zutat benötigt, so werden die Daten temporär von der SD-Karte in einen Struct im Programmspeicher geladen und überschrieben, sobald ein neues Element geladen wird.
+Die Cocktail- und die Zutaten-Liste beinhalten nur die Nummer eines zugehöriges Files, welches sich auf der SD-Karte befindet. Wird ein Cocktail oder eine Zutat benötigt, so werden die Daten temporär von der SD-Karte in einen Struct im Programmspeicher geladen und überschrieben, sobald eine andere Zutat oder ein anderer Cocktail geladen wird.
 
-Die Tag-Liste sowie die Liste der Zutaten in der Maschine werden komplett in den Programmspeicher geladen. Die beiden Listen werden bei einer Veränderung als Backup jeweils in einem File gespeichert, damit diese bei einem Neustart der Maschine wieder in den Programmspeicher geladen werden können.
+Die Cocktails sind folglich separat gepseichert, genauso die Zutaten. Die Liste, welche Informationen zu den Zutaten in der Maschine beinhaltet, wird als ein einziges File auf der SD-Karte gespeichert.

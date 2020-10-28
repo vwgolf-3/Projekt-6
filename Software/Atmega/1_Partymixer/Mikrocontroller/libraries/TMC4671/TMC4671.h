@@ -18,6 +18,7 @@
 #define USE_LINEAR_RAMP
 #define POSITION_SCALE_MAX  (int32_t)65536
 
+#include <avr/interrupt.h>
 
 
 #include "../TMC-API/tmc/helpers/API_Header.h"
@@ -26,7 +27,6 @@
 #include "TMC4671_Fields.h"
 #include "../SPI/SPI.h"
 #include "../Software_SPI/Software_SPI.h"
-#include "../UART/UART.h"
 
 typedef struct
 {
@@ -62,7 +62,7 @@ void initTMC4671_Openloop(void);
 // SPI
 
 void read_registers_TMC4671(void);
-
+extern void Uart_Transmit_IT_PC(char * data);
 
 
 // TMC4671 Direktbefehle

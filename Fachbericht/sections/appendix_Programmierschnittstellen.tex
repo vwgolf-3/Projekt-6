@@ -15,14 +15,14 @@
 \subsubsection{Handshake}\label{Appendix:Handshake_uc_Messung}
 \begin{figure}[H]
 \center
-\includegraphics[width = \textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_gesamt}
+\includegraphics[width = 0.9\textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_gesamt}
 \caption{Hochladen des Programmcodes auf den Mikrocontroller.\\\hspace{\textwidth}1: Gelb = DTR; 2: Blau = Reset; 3: Violett = RX; 4: Grün = TX}
 \label{fig:ATMega2560_DTR_RESET_RX_TX_gesamt}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[width =  \textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_1}
+\includegraphics[width =  0.9\textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_1}
 \caption{Handshake zum Hochladen des Programmcodes auf den Mikrocontroller. Zoom auf den Moment des Resets.\\\hspace{\textwidth}1: Gelb = DTR; 2: Blau = Reset; 3: Violett = RX; 4: Grün = TX}
 \label{fig:ATMega2560_DTR_RESET_RX_TX_1}
 \end{figure}
@@ -30,7 +30,7 @@
 
 \subsection{WiFi-Modul}\label{Appendix:Handshake_ESP}
 
-%\subsubsection{Handshake}\label{Appendix:Handshake_ESP_Messung}
+\subsubsection{Handshake}\label{Appendix:Handshake_ESP_Messung}
 %
 %Im Getting Started Guide vom WiFi-Modul steht geschrieben, dass wenn während die beiden Pins IO0 und EN GND gezogen werden, das Modul in den Download-Modus versetzt wird, die Firmware über den UART-Port herunterlädt und diese in den Flash-Speicher schreibt. Um dies automatisch über die DTR- und RTS-Leitung machen zu können, braucht es eine zusätzliche Programmierlogik.
 %
@@ -107,7 +107,7 @@
 
 \begin{figure}[H]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
+\includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
 \caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR (Schritt 2 und 3).\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_2}
 \end{figure}

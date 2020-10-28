@@ -1,7 +1,9 @@
 \subsubsection{WiFi-Modul}
 \label{subsubsec:Inbetriebnahme_ESP}
 
-Die Inbetriebnahme des WiFi-Moduls geschieht mit der Programmierumgebung Arduino IDE. Um die Hardware in Betrieb nehmen zu können, waren einige Einstellungen und Downloads nötig, welche dann in der Arduino IDE eingebunden werden mussten. Im Folgenden wird beschrieben wie vorgegangen werden kann, damit sich dieses im vorgegebenen Netz anmeldet und als Webhost dient. Es wurde getestet, ob bei Klicken auf ein Button im Explorer ein Event ausgelöst wird und ob die Kommunikation zwischen Mikrocontroller und WiFi-Modul funktioniert.
+Die Inbetriebnahme des WiFi-Moduls geschieht mit der Programmierumgebung Arduino IDE. Damit das WiFi-Modul programmiert werden kann, muss es in der Arduino IDE bekannt gemacht werden. Das Programmer-Tool \textit{esptool.py} ist von espressif und muss ebenfalls in die IDE gelinkt werden.
+
+Im Folgenden wird beschrieben wie vorgegangen wird, damit sich das WiFi-Modul programmieren lässt. Es wird ein Code hochgeladen mit dem sich das ESP als Webhost im vorgegebenen Netz anmeldet. Es wurde getestet, ob ein Klicken auf ein Button im Explorer ein Event auslöst und ob die Kommunikation zwischen Mikrocontroller und WiFi-Modul funktioniert.
 
 Folgende Schritte wurden befolgt:
 \begin{enumerate}
@@ -47,4 +49,4 @@ Für die Inbetriebnahme wurde das Testprogramm so modifiziert, dass das WiFi-Mod
 Im Testprogramm wird hier angezeigt, wenn ein neuer Client die IP-Adresse aufruft und wenn im Internetexplorer ein Button gedrückt wird. Erste Versuche nach dem Hochladen waren erfolgreich. Das WiFi-Modul hat eine IP-Adresse zugeordnet bekommen.
 \end{enumerate}
 
-Über die zweite serielle Schnittstelle findet die Kommunikation zwischen WiFi-Modul und Mikrocontroller statt. Sobald über den Webserver eine Aktion ausgelöst wird, sendet das WiFi-Modul die gleiche Zeichenfolge, welche auch das Display ausgibt. Der Test zeigt, dass das Drücken auf den Button im Internetexplorer die gleiche Aktion auslöst, wie das Drücken auf das Touch-Display. Es werden Bilder neu gesetzt und Texte geändert. Die Implementierung des EPS ist folglich erfolgreich. Im Anhang Kapitel \ref{Appendix:ESP32_Arduino_IDE} sind einige Auszüge aus der Arduino IDE aufgelistet.
+Ergebins: Der Klick auf das Display bewirkt, dass eine Kommunikation zwschen WiFi-Modul und Mikrocontroller stattfindet. Der Test zeigt, dass das Drücken auf den Button im Internetexplorer die gleiche Aktion auslöst, wie das Drücken auf das Touch-Display. Es werden Bilder neu gesetzt und Texte geändert. Die Implementierung des EPS ist folglich erfolgreich. Im Anhang Kapitel \ref{Appendix:ESP32_Arduino_IDE} sind einige Auszüge aus der Arduino IDE aufgelistet.

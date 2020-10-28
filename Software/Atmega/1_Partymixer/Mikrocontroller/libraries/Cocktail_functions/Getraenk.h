@@ -12,8 +12,7 @@
 #include <avr/eeprom.h>
 #include <stdlib.h>
 #include <util/delay.h>
-#include "../UART/UART.h"
-// #include "../SD-Karte/FAT32.h"
+#include "../SD-Karte/SD_Karte.h"                              // Wird benötigt für Lese- und Schreiboperationen auf die SD-Karte
 #include "../Lists/Lists.h"
 
 
@@ -46,4 +45,6 @@ file_list_node_t *create_new_list_node_file(file_node_t * getraenk_to_point_on);
 file_list_node_t *insert_list_node_at_head(file_list_node_t **head, file_list_node_t *file_to_insert);
 file_list_node_t *delete_head_list_node_getraenk(file_list_node_t **head);
 
+extern uint8_t check_existence(uint8_t file);
+extern void lese_textfile_in_getraenk(uint8_t file);
 #endif /* GETRAENK_H_ */

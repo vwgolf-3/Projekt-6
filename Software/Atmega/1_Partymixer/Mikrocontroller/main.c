@@ -9,7 +9,6 @@
 #include "utils/main_variables.h"                           // "Global" includbare Variabeln deklarieren
 #include "libraries/Main_functions/Main_Func.h"             // Wird benötigt für Funktionen, welche im Hauptprogrammfluss aufgerufen werden (z. B IO_init, Check_communication, SD_Startup(), zutaten_init(), cocktails_init()...)
 #include "libraries/Cocktail_functions/Cocktail_Statemachine.h"
-#include "libraries/SD-Karte/SD_Karte.h"
 
 // *****************************************************************************************************************
 
@@ -17,16 +16,12 @@
 // MainLoop
 int main(void)
 {
-    interfaces_init();
+    interfaces_init();			// IO, UART, SPI
+    init_LED();					// PWM
+    devices_init();				// SD-Card, Motor
+    speicher_init();			// Cocktails, Zutaten Tags
+    ramp_init();				// Software-Ramp
 
-    init_LED();
-
-    devices_init();
-	
-    speicher_init();
-
-    ramp_init();
-	
 //     ramp_pwm_init();
 
     Position = 0;
@@ -34,7 +29,8 @@ int main(void)
 
     nextion_change_page(STARTANZEIGE);
     setze_startanzeige(aktuellesGetraenk);                  // Startanzeige des Displays setzen
-
+	Liste = ALLE;
+	
     // Mainroutine
     while (1)
     {

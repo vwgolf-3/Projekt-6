@@ -49,46 +49,9 @@ void proceed_Communication_Input_UART_0(void)
 	char * ch = "Proceed UART 0: \n\r";
 	Uart_Transmit_IT_PC(ch);
 	
-	
-	if (INPUT_UART_0[0]=='0')
-	{
-		tmc4671_setAbsolutTargetPosition(0,0);
-		Position = 0;
-	}
-	else if (INPUT_UART_0[0]=='1')
-
-	{
-		uint32_t Position = 1000000;
-		for (int i = 1 ; i <= 12 ; i++)
-		{
-			tmc4671_setAbsolutTargetPosition(0, i * Position);
-			while(((tmc4671_getActualPosition(0) <= (i* Position-200))||(tmc4671_getActualPosition(0)>= (i*Position+200))))
-			{
-				read_Position_TMC4671();
-			}
-			
-			Uart_Transmit_IT_PC("Position ");
-			char buff[5] = {'\0'};
-			itoa(i, (char *)buff, 10);
-			Uart_Transmit_IT_PC((char *)buff);
-			Uart_Transmit_IT_PC(" erreicht\r");
-			_delay_ms(1000);
-		}
-		tmc4671_setAbsolutTargetPosition(0,0);
-			while((tmc4671_getActualPosition(0) >= (200)))
-			{
-				read_Position_TMC4671();
-			}
-		Uart_Transmit_IT_PC("Ausgangspunkt erreicht.");
-	}
-	else if (INPUT_UART_0[0] == '2')
+	if (INPUT_UART_0[0] == 0)
 	{
 		Position = 1;
-	}
-	else if (INPUT_UART_0[0] == 0)
-	{
-		Position += 10000000;
-		tmc4671_setAbsolutTargetPosition(0,Position);
 	}
 }
 

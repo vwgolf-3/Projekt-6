@@ -8,7 +8,8 @@
 #include "mmc.h"
 #include "../../utils/pin_defs.h"
 #include "../SPI/SPI.h"
-#include "../UART/UART.h"
+
+extern void Uart_Transmit_IT_PC(char * data);
 
 // Definitions for MMC/SDC command
 #define CMD0    (0)         // GO_IDLE_STATE 
@@ -48,7 +49,7 @@ static uint8_t  mmc_send_cmd (  uint8_t cmd,    uint32_t arg);
 #define MMC_CS_LOW      SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT       // Set pin B2 to 0
 #define MMC_CS_HIGH     SPI_CS_SD_CARD_PORT |= SPI_CS_SD_CARD_BIT        // Set pin B2 to 1
 
-static void             spi_maxSpeed(void);
+void             spi_maxSpeed(void);
 static void             spi_write_byte(uint8_t byte);
 static uint8_t  spi_read_byte(void);
 

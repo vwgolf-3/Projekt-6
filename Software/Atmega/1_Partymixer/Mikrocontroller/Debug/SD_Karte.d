@@ -15,10 +15,7 @@ SD_Karte.d SD_Karte.o: ../libraries/SD-Karte/SD_Karte.c \
  ../libraries/SD-Karte/mmc_config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
  ../libraries/SD-Karte/file.h ../libraries/SD-Karte/fat.h \
- ../libraries/SD-Karte/mmc.h ../libraries/SD-Karte/../UART/UART.h \
- ../libraries/SD-Karte/../UART/../RingBuffer/ring_buffer.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
+ ../libraries/SD-Karte/mmc.h
 
 ../libraries/SD-Karte/SD_Karte.h:
 
@@ -55,11 +52,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/SD-Karte/fat.h:
 
 ../libraries/SD-Karte/mmc.h:
-
-../libraries/SD-Karte/../UART/UART.h:
-
-../libraries/SD-Karte/../UART/../RingBuffer/ring_buffer.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:

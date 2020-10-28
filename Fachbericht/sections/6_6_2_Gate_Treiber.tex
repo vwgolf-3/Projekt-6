@@ -1,11 +1,20 @@
 \subsubsection{Gate-Treiber, H-Brücke und BLDC}
 \label{subsubsec:Inbetriebnahme_Gate_Treiber}
 
-Der Gate-Treiber wird ebenfalls über die SPI-Schnittstelle in Betrieb genommen. Dazu werden die Parameter verwendet, welche in der TMCL-IDE verwendet wurden. Eine detaillierte Auflistung der beschriebenen Register ist im Anhang Kapitel \ref{Appendix:TMC6200_Register} zu finden. Mit den Standardparametern muss am Motoranschluss die selbe Signalfolge anliegen wie am sie auch am FOC-Treiber anliegen (Verstärkt durch H-Brücke). Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich.
+Der Gate-Treiber wird mit einem Testprogramm in Betrieb genommen. Das Programm initialisiert die benötigte Hardware des Mikrocontrollers (UART, SPI, Pins), enthält die Library des FOC- und Gate-Treibers und ermöglicht das Debugen über die serielle Schnittstelle. Die Software TMCL-IDE hilft bei der Bestimmung der Parameter für den Gate-Treiber. Welche Register wie beschrieben wurden ist im Anhang Kapitel \ref{Appendix:TMC6200_Register} zu sehen. Die Initialisierung sowie das Auslesen gewisser Register ist ebenfalls mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich. Dazu müssen einige Zeilen auskommentiert werden.
 
-Das Setup, welches in Kapitel \ref{subsubsec:Inbetriebnahme_FOC_Treiber} erwähnt wurde, ist jetzt um einen Baustein erweitert worden und in Anhang Kapitel \ref{Appendix:TMC4671_Setup} ersichtlich.
+Es wird erwartet, dass die Gate-CTRL-Signale vom Gate-Treiber aufbereitet werden und jetzt eine Spannung an den High- und Lowside-MOSFETs anliegt und die H-Brücke den Motor steuern kann.
+\newpage
+\paragraph{Setup}\mbox{}
 
-Achtung, wenn die Scripts auf den Mikrocontroller des PartyMixers geladen werden ist darauf zu achten, dass die Achse des Motors frei beweglich ist und das Förderband nicht mit der Achse mitdreht, da ansonsten Schäden an der Maschine entstehen können. Es wird empfohlen die Scripts mit Mikrocontroller und EVAL-Boards zu testen.
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle=270,width=\textwidth]{graphics/2_komplett1}
+	\caption{Gesamtansicht Setup.}
+	\label{fig:2_komplett1}
+\end{figure}
+
+\textbf{Achtung}, wenn die Scripts auf den Mikrocontroller des PartyMixers geladen werden ist darauf zu achten, dass die Achse des Motors frei beweglich ist und das Förderband nicht mit der Achse mitdreht, da ansonsten Schäden an der Maschine entstehen können. Es wird empfohlen die Scripts mit Mikrocontroller und EVAL-Boards zu testen.
 
 Vorgehen:
 \begin{enumerate}
@@ -28,13 +37,10 @@ Vorgehen:
 }\newline
 \item Software hochladen:\\
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
-
-\item SPI-Kommunikation und Signale an der H-Brücke überprüfen. Im Anhang Kapitel \ref{Appendix:TMC6200_SPI} sind die Messbilder zur SPI-Kommunikation zu finden und in Anhang \ref{Appendix:TMC6200_Gate_Ctrl} die Bilder zur Gate-Ctrl vom Gate-Treiber zur H-Brücke.
-
 \end{enumerate}
 
-Bei der H-Brücke geht es darum, die Schaltsignale der MOSFETs zu überprüfen, bevor der Motor angeschlossen wird. Sind die Signale gut, kann der Motor angeschlossen werden.
+Ergebnis: Die Gate-CTRL-Signale liegen an und die H-Brücke schaltet den Leistungsteil, woran der Motor jetzt angeschlossen werden kann.
 
-Das Setup mit dem Motor ist im Anhang Kapitel \ref{Appendix:H_Bruecke_Setup} und die Messung der Schaltsignale im Anhang Kapitel \ref{Appendix:H_Bruecke_Schaltsignale} ersichtlich.
+Im Anhang Kapitel \ref{Appendix:TMC6200_Gate_Ctrl} sind die aufbereiteten Gate-CTRL-Signale zu sehen und in Kapitel\ref{Appendix:H_Bruecke_Schaltsignale} die Messung der Schaltsignale.
 
-Wird jetzt der Motor angeschlossen, dreht sich dieser mit der vorgegebenen Geschwindigkeit.
+Wird der Motor angeschlossen und der Mikrocontroller neu gestartet, der Motor sich mit der vorgegebenen Open-Loop-Geschwindigkeit.

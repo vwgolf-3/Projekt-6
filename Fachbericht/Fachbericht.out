@@ -19,57 +19,52 @@
 \BOOKMARK [2][-]{subsection.5.8}{5.8 SD-Karte}{section.5}% 19
 \BOOKMARK [1][-]{section.6}{6 Inbetriebnahme}{}% 20
 \BOOKMARK [2][-]{subsection.6.1}{6.1 Speisungen}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.2}{6.2 Mikrocontroller}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.3}{6.3 Programmierschnittstellen}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.2}{6.2 Programmierschnittstellen}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.3}{6.3 Mikrocontroller}{section.6}% 23
 \BOOKMARK [2][-]{subsection.6.4}{6.4 Benutzerschnittstellen}{section.6}% 24
-\BOOKMARK [2][-]{subsection.6.5}{6.5 Datenspeicherung}{section.6}% 25
-\BOOKMARK [2][-]{subsection.6.6}{6.6 Fl\374ssigkeitsbef\366rderung}{section.6}% 26
-\BOOKMARK [2][-]{subsection.6.7}{6.7 Beleuchtung}{section.6}% 27
-\BOOKMARK [2][-]{subsection.6.8}{6.8 Motor}{section.6}% 28
-\BOOKMARK [1][-]{section.7}{7 Software}{}% 29
-\BOOKMARK [2][-]{subsection.7.1}{7.1 Mikrocontroller}{section.7}% 30
-\BOOKMARK [2][-]{subsection.7.2}{7.2 WiFi-Modul}{section.7}% 31
-\BOOKMARK [2][-]{subsection.7.3}{7.3 Displaysoftware}{section.7}% 32
-\BOOKMARK [2][-]{subsection.7.4}{7.4 Android App}{section.7}% 33
-\BOOKMARK [1][-]{section.8}{8 Fazit}{}% 34
-\BOOKMARK [2][-]{subsection.8.1}{8.1 Zielerreichung}{section.8}% 35
-\BOOKMARK [1][-]{section.9}{9 Schlusswort}{}% 36
-\BOOKMARK [1][-]{section.10}{10 Ehrlichkeitserkl\344rung}{}% 37
-\BOOKMARK [1][-]{section*.125}{Literatur}{}% 38
-\BOOKMARK [1][-]{appendix.A}{A Programmierschnittstellen}{}% 39
-\BOOKMARK [2][-]{subsection.A.1}{A.1 Ger\344te-Manager}{appendix.A}% 40
-\BOOKMARK [2][-]{subsection.A.2}{A.2 Mikrocontroller}{appendix.A}% 41
-\BOOKMARK [2][-]{subsection.A.3}{A.3 WiFi-Modul}{appendix.A}% 42
-\BOOKMARK [1][-]{appendix.B}{B SD-Karte}{}% 43
-\BOOKMARK [2][-]{subsection.B.1}{B.1 FAT32}{appendix.B}% 44
-\BOOKMARK [1][-]{appendix.C}{C WiFi-Modul}{}% 45
-\BOOKMARK [2][-]{subsection.C.1}{C.1 Tabellarischer Vergleich zwischen ESP32 und ESP8266}{appendix.C}% 46
-\BOOKMARK [2][-]{subsection.C.2}{C.2 Strapping-Pins}{appendix.C}% 47
-\BOOKMARK [2][-]{subsection.C.3}{C.3 Inbetriebnahme}{appendix.C}% 48
-\BOOKMARK [1][-]{appendix.D}{D LED}{}% 49
-\BOOKMARK [2][-]{subsection.D.1}{D.1 PWM-Signale}{appendix.D}% 50
-\BOOKMARK [1][-]{appendix.E}{E Mikrocontroller}{}% 51
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Pinout}{appendix.E}% 52
-\BOOKMARK [2][-]{subsection.E.2}{E.2 Inbetriebnahme}{appendix.E}% 53
-\BOOKMARK [2][-]{subsection.E.3}{E.3 Speicherorganisation}{appendix.E}% 54
-\BOOKMARK [1][-]{appendix.F}{F FOC-Treiber}{}% 55
-\BOOKMARK [2][-]{subsection.F.1}{F.1 BOB}{appendix.F}% 56
+\BOOKMARK [2][-]{subsection.6.5}{6.5 Fl\374ssigkeitsbef\366rderung}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.6}{6.6 Beleuchtung}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.7}{6.7 Motor}{section.6}% 27
+\BOOKMARK [1][-]{section.7}{7 Software}{}% 28
+\BOOKMARK [2][-]{subsection.7.1}{7.1 Mikrocontroller}{section.7}% 29
+\BOOKMARK [2][-]{subsection.7.2}{7.2 WiFi-Modul}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.3}{7.3 Displaysoftware}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.4}{7.4 Android App}{section.7}% 32
+\BOOKMARK [1][-]{section.8}{8 Fazit}{}% 33
+\BOOKMARK [2][-]{subsection.8.1}{8.1 Zielerreichung}{section.8}% 34
+\BOOKMARK [1][-]{section.9}{9 Schlusswort}{}% 35
+\BOOKMARK [1][-]{section.10}{10 Ehrlichkeitserkl\344rung}{}% 36
+\BOOKMARK [1][-]{section*.127}{Literatur}{}% 37
+\BOOKMARK [1][-]{appendix.A}{A Programmierschnittstellen}{}% 38
+\BOOKMARK [2][-]{subsection.A.1}{A.1 Ger\344te-Manager}{appendix.A}% 39
+\BOOKMARK [2][-]{subsection.A.2}{A.2 Mikrocontroller}{appendix.A}% 40
+\BOOKMARK [2][-]{subsection.A.3}{A.3 WiFi-Modul}{appendix.A}% 41
+\BOOKMARK [1][-]{appendix.B}{B WiFi-Modul}{}% 42
+\BOOKMARK [2][-]{subsection.B.1}{B.1 Strapping-Pins}{appendix.B}% 43
+\BOOKMARK [2][-]{subsection.B.2}{B.2 Inbetriebnahme}{appendix.B}% 44
+\BOOKMARK [1][-]{appendix.C}{C LED}{}% 45
+\BOOKMARK [2][-]{subsection.C.1}{C.1 PWM-Signale}{appendix.C}% 46
+\BOOKMARK [1][-]{appendix.D}{D Mikrocontroller}{}% 47
+\BOOKMARK [2][-]{subsection.D.1}{D.1 Einbinden AVRdude und stk500v2 \(wiring\)}{appendix.D}% 48
+\BOOKMARK [2][-]{subsection.D.2}{D.2 Fuse-Bits}{appendix.D}% 49
+\BOOKMARK [2][-]{subsection.D.3}{D.3 Bootloader}{appendix.D}% 50
+\BOOKMARK [2][-]{subsection.D.4}{D.4 Lock-Bits}{appendix.D}% 51
+\BOOKMARK [1][-]{appendix.E}{E FOC-Treiber}{}% 52
+\BOOKMARK [2][-]{subsection.E.1}{E.1 BOB}{appendix.E}% 53
+\BOOKMARK [2][-]{subsection.E.2}{E.2 Inbetriebnahme}{appendix.E}% 54
+\BOOKMARK [1][-]{appendix.F}{F Gate-Treiber}{}% 55
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Externe Gate-Spannungsversorgung}{appendix.F}% 56
 \BOOKMARK [2][-]{subsection.F.2}{F.2 Inbetriebnahme}{appendix.F}% 57
-\BOOKMARK [1][-]{appendix.G}{G Gate-Treiber}{}% 58
-\BOOKMARK [2][-]{subsection.G.1}{G.1 Standard-Schaltkreis}{appendix.G}% 59
-\BOOKMARK [2][-]{subsection.G.2}{G.2 Blockdiagramm}{appendix.G}% 60
-\BOOKMARK [2][-]{subsection.G.3}{G.3 Externe Gate-Spannungsversorgung}{appendix.G}% 61
-\BOOKMARK [2][-]{subsection.G.4}{G.4 Inbetriebnahme}{appendix.G}% 62
-\BOOKMARK [1][-]{appendix.H}{H H-Br\374cke}{}% 63
-\BOOKMARK [2][-]{subsection.H.1}{H.1 Referenzschema}{appendix.H}% 64
-\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 65
-\BOOKMARK [1][-]{appendix.I}{I ABN-Encoder}{}% 66
-\BOOKMARK [2][-]{subsection.I.1}{I.1 Pinout and Interface}{appendix.I}% 67
-\BOOKMARK [2][-]{subsection.I.2}{I.2 Inbetriebnahme}{appendix.I}% 68
-\BOOKMARK [1][-]{appendix.J}{J PI-Regler}{}% 69
-\BOOKMARK [2][-]{subsection.J.1}{J.1 TMCL-IDE}{appendix.J}% 70
-\BOOKMARK [1][-]{appendix.K}{K Software Ramp}{}% 71
-\BOOKMARK [2][-]{subsection.K.1}{K.1 Implementierung}{appendix.K}% 72
-\BOOKMARK [2][-]{subsection.K.2}{K.2 Matlab-Script}{appendix.K}% 73
-\BOOKMARK [1][-]{appendix.L}{L Print}{}% 74
-\BOOKMARK [2][-]{subsection.L.1}{L.1 KiCad Schema}{appendix.L}% 75
+\BOOKMARK [1][-]{appendix.G}{G H-Br\374cke}{}% 58
+\BOOKMARK [2][-]{subsection.G.1}{G.1 Referenzschema}{appendix.G}% 59
+\BOOKMARK [2][-]{subsection.G.2}{G.2 Inbetriebnahme}{appendix.G}% 60
+\BOOKMARK [1][-]{appendix.H}{H ABN-Encoder}{}% 61
+\BOOKMARK [2][-]{subsection.H.1}{H.1 Pinout and Interface}{appendix.H}% 62
+\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 63
+\BOOKMARK [1][-]{appendix.I}{I PI-Regler}{}% 64
+\BOOKMARK [2][-]{subsection.I.1}{I.1 TMCL-IDE}{appendix.I}% 65
+\BOOKMARK [1][-]{appendix.J}{J Software Ramp}{}% 66
+\BOOKMARK [2][-]{subsection.J.1}{J.1 Implementierung}{appendix.J}% 67
+\BOOKMARK [2][-]{subsection.J.2}{J.2 Matlab-Script}{appendix.J}% 68
+\BOOKMARK [1][-]{appendix.K}{K Print}{}% 69
+\BOOKMARK [2][-]{subsection.K.1}{K.1 KiCad Schema}{appendix.K}% 70

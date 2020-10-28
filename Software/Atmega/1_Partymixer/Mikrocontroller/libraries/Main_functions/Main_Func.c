@@ -35,13 +35,7 @@ void interfaces_init(void)
 {
 // Initialisierungen Interfaces
     IO_init();                                              // Ein-/Ausgangspins initialisieren
-
     EN_TMC6200_PORT &= ~EN_TMC6200_BIT;                     // Disable TMC6200 (Active High)
-    for (int count = 0 ; count < 12 ; count++)
-    {
-        schalte_pumpe_aus(count);
-    }
-
     SPI_init();                                             // SPI-Schnittstelle initialisieren
     UART_init();                                            // UART-Schnittstelle initialisieren
 }
@@ -51,10 +45,6 @@ void devices_init(void)
     nextion_change_page(25);
     nextion_setText("fehlertxt", "SD-Initialisieren");
     SD_init();                                           // SD-Karte initialisieren
-
-
-    // Als erstes wird der Gate-Treiber initialisiert, dann der FOC-Treiber
-
     initTMC6200();                                          // Gate-Treiber initialisieren
     initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 }

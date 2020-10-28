@@ -87,6 +87,7 @@
 	extern void 				mmc_multi_block_read_sector (uint8_t *Buffer);	// hiermit werden nacheinander die bloecke gelesen
 	extern uint8_t 		mmc_multi_block_start_write (uint32_t addr);	// hier wird das kommando um mehrere bloecke am stueck zu schreiben gesendet, ab addr
 	extern uint8_t		mmc_multi_block_write_sector (uint8_t *Buffer);	// hiermit werden nacheinander die bloecke geschrieben
+void             spi_maxSpeed(void);
 
 	#if(MMC_STATUS_INFO==TRUE)
 		#define MMC_OK			0

@@ -6,14 +6,12 @@
  */
 
 #include "Getraenk.h"
-#include "../Cocktail_functions/Cocktail_functions.h"
 
 // https://www.youtube.com/watch?v=VOpjAHCee7c
 
 
 void cocktails_init(void)
 {
-    Liste = ALLE;
     number_getraenk_alle_ = 0;
     number_getraenk_alle = &number_getraenk_alle_;
 	

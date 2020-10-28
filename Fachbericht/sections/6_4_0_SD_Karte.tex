@@ -1,6 +1,10 @@
 \subsubsection{mikroSD-Karte}
 \label{subsubsec:Inbetriebnahme_mikroSD_Karte}
 
+Die Inbetriebnahme der mikroSD-Karte geschieht mit einem Testprogramm. Das Programm initialisiert die benötigte Hardware (SPI, UART, Pins), enthält eine FAT32-Library und ermöglicht das Debugen über die serielle Schnittstelle.
+
+Sobald die interne Hardware der Mikrocontrollers initialisiert ist, wird die SD-Karte gebootet. Hat dies funktioniert, wird ein File namens \textit{TEST.txt} erstellt, welches den String \textit{Hallo File} enthält.
+
 Vorgehen:
 \begin{enumerate}
 \item Benötigte Applikation, welche im Software-Ordner auf dem USB-Stick oder Github \cite{aebi_projekt-6softwareatmega_2020} zu finden ist, in Atmel Studio öffnen.\\
@@ -24,6 +28,6 @@ Stop & = & 1 \\
 
 Der Port \textcolor{red}{COMx} ist aus dem Geräte-Manager zu entnehmen. Es ist derselbe Port, welcher verwendet wird um die Software hochzuladen.\\
 
-\item Wird eine SD-Karte gefunde, wird im seriellen Display ''Boot...OK!'' angezeigt. Mit der Testapplikation wird bei erfolgreichem Booten ein File namens \textit{TEST.txt} mit dem Textinhalt \textit{Hallo File} erstellt.
-
 \end{enumerate}
+
+Ergebnis: Die mikroSD-Karte wird erfolgreich gebootet, was im seriellen Monitor mit ''Boot...OK!'' angezeigt wird. Das File namens \textit{TEST.txt} mit dem Textinhalt \textit{Hallo File} ist jetzt auf der SD-Karte vorhanden.

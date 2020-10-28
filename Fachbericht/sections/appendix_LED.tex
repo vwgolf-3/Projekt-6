@@ -44,29 +44,29 @@ Nun muss in beiden der erwähnten Interrupt-Routinen das gewünschte LED getogge
 
 Möchte man nun die Helligkeit angepasst werden, kann ein Wert zwischen 0 und OCRnA ausgewählt werden und damit das Register OCRnB beschrieben werden.
 
-\subsubsection{Rainbow-Funktion}
-
-Die Farbe der RGB-LED soll nun jeweils fünf Sekunden brauchen, um einen Farbteil komplett ein- oder auszuschalten, was einen sanften Übergang im Farbkreis ermöglicht.
-
-Inspiration für den Rainbow-Algorithmus war ein Blog von Łukasz Podkalicki. \cite{podkalicki_attiny13_2016}
-
-Im Rainbow-Loop gibt es sechs States. Zubeginn muss die grüne LED schon voll leuchten.
-\begin{enumerate}
-\item Start ==> Grün
-\item Hochzählen des Rot-Anteils ==> Yellow
-\item Runterzählen des Grün-Anteils ==> Rot
-\item Hochzählen des Blau-Anteils ==> Magenta
-\item Runterzählen des Rot-Anteils ==> Blau
-\item Hochzählen des Grün-Anteils ==> Cyan
-\item Runterzählen des Blau-Anteils ==> Grün
-\item Repeat 2 - 7
-\end{enumerate}
-
-Es benötigt 1600 Schritte um einen Farbteil komplett ein- und auszuschalten. Pro Interrupt wird ein Schritt hochgezählt. Mit Formel \ref{equ:Milli_S} kann direkt berechnet werden, mit welchem Wert das Compare-Register beschrieben werden muss, sodass es fünf Sekunden geht, bis 1600 Schritte hochgezählt wurden.
-
-\begin{equation}
-OCR_{nx} = \frac{f_{clk_{I/O}}}{N \cdot f_{OC_{max}}} - 1 = \frac{16MHz}{1024 \cdot \frac{1600 Schritte}{5s}} - 1 \approx 48
-\label{equ:Milli_S}
-\end{equation}
-
-Die Iteration durch den Rainbow-Modus wird folglich mit einer Frequenz von 160Hz initialisiert. In der Routine wird demnach alle 6.25ms der Duty-Cytle einer Farbe hoch oder runtergezählt, und das Timer-Compare-Register des entsprechenden LED-Timers angepasst.
+%\subsubsection{Rainbow-Funktion}
+%
+%Die Farbe der RGB-LED soll nun jeweils fünf Sekunden brauchen, um einen Farbteil komplett ein- oder auszuschalten, was einen sanften Übergang im Farbkreis ermöglicht.
+%
+%Inspiration für den Rainbow-Algorithmus war ein Blog von Łukasz Podkalicki. \cite{podkalicki_attiny13_2016}
+%
+%Im Rainbow-Loop gibt es sechs States. Zubeginn muss die grüne LED schon voll leuchten.
+%\begin{enumerate}
+%\item Start ==> Grün
+%\item Hochzählen des Rot-Anteils ==> Yellow
+%\item Runterzählen des Grün-Anteils ==> Rot
+%\item Hochzählen des Blau-Anteils ==> Magenta
+%\item Runterzählen des Rot-Anteils ==> Blau
+%\item Hochzählen des Grün-Anteils ==> Cyan
+%\item Runterzählen des Blau-Anteils ==> Grün
+%\item Repeat 2 - 7
+%\end{enumerate}
+%
+%Es benötigt 1600 Schritte um einen Farbteil komplett ein- und auszuschalten. Pro Interrupt wird ein Schritt hochgezählt. Mit Formel \ref{equ:Milli_S} kann direkt berechnet werden, mit welchem Wert das Compare-Register beschrieben werden muss, sodass es fünf Sekunden geht, bis 1600 Schritte hochgezählt wurden.
+%
+%\begin{equation}
+%OCR_{nx} = \frac{f_{clk_{I/O}}}{N \cdot f_{OC_{max}}} - 1 = \frac{16MHz}{1024 \cdot \frac{1600 Schritte}{5s}} - 1 \approx 48
+%\label{equ:Milli_S}
+%\end{equation}
+%
+%Die Iteration durch den Rainbow-Modus wird folglich mit einer Frequenz von 160Hz initialisiert. In der Routine wird demnach alle 6.25ms der Duty-Cytle einer Farbe hoch oder runtergezählt, und das Timer-Compare-Register des entsprechenden LED-Timers angepasst.

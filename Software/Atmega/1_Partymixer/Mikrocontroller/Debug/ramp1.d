@@ -37,8 +37,7 @@ ramp1.d ramp1.o: ../libraries/Software_Ramp/ramp1.c \
  ../libraries/Software_Ramp/../TMC4671/../SPI/SPI.h \
  ../libraries/Software_Ramp/../TMC4671/../SPI/../../utils/pin_defs.h \
  ../libraries/Software_Ramp/../TMC4671/../Software_SPI/Software_SPI.h \
- ../libraries/Software_Ramp/../TMC4671/../Software_SPI/../../utils/pin_defs.h \
- ../libraries/Software_Ramp/../TMC4671/../UART/UART.h
+ ../libraries/Software_Ramp/../TMC4671/../Software_SPI/../../utils/pin_defs.h
 
 ../libraries/Software_Ramp/Ramp1.h:
 
@@ -117,5 +116,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Software_Ramp/../TMC4671/../Software_SPI/Software_SPI.h:
 
 ../libraries/Software_Ramp/../TMC4671/../Software_SPI/../../utils/pin_defs.h:
-
-../libraries/Software_Ramp/../TMC4671/../UART/UART.h:
