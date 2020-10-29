@@ -30,44 +30,44 @@
 %\label{tab:ESP}
 %\end{table}
 
-\subsection{Strapping-Pins}\label{Appendix:ESP32_Strapping}
-
-\begin{table}[H]
-\center
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-\multicolumn{7}{|c|}{\textbf{Ausgangsspannung internen Spannungsregler (VDD\_SDIO)}}\\
-\hline
-RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{3.3V}} & \multicolumn{2}{|c|}{\textbf{1.8V}}\\
-\hline
-\sout{RTS} & \sout{IO12} & Pull-down & \multicolumn{2}{|c|}{\sout{\textcolor{red}{0}}\footnotemark} & \multicolumn{2}{|c|}{\sout{1}}\\
-\hline
-\multicolumn{7}{|c|}{\textbf{Boot-Modus}}\\
-\hline
-RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{SPI-flash Boot}} & \multicolumn{2}{|c|}{\textbf{Download Boot}}\\
-\hline
-DTR & IO0 & Pull-up & \multicolumn{2}{|c|}{1} & \multicolumn{2}{|c|}{0}\\
-\hline
-- & IO2 & Pull-down & \multicolumn{2}{|c|}{Egal} & \multicolumn{2}{|c|}{0}\\
-\hline
-\multicolumn{7}{|c|}{\textbf{Debugging Log Print über U0TXD während Booten}}\\
-\hline
-RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{U0TXD Active}} & \multicolumn{2}{|c|}{\textbf{U0TXD Silent}}\\
-\hline
-RTS & IO12 & Pull-down & \multicolumn{2}{|c|}{\textcolor{red}{1}} & \multicolumn{2}{|c|}{0}\\
-\hline
-\multicolumn{7}{|c|}{\textbf{Timing\footnotemark des SDIO}}\\
-\hline
-RS232 & ESP & default & \shortstack{FF Sampling \\ FF Output} & \shortstack{FF Sampling \\ SF Output} & \shortstack{SF Sampling \\ FF Output} & \shortstack{SF Sampling \\ SF Output} \\
-\hline
-CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
-\hline
-- & GPIO5 & Pull-up & 0 & 1 & 0 & 1 \\
-\hline
-\end{tabular}
-\caption{Tabelle Pinkonfiguration für Strapping-Pins.\cite[S.13]{espressif_systems_esp32_2020}}
-\label{tab:Strapping_pins}
-\end{table}
+%\subsection{Strapping-Pins}\label{Appendix:ESP32_Strapping}
+%
+%\begin{table}[H]
+%\center
+%\begin{tabular}{|c|c|c|c|c|c|c|}
+%\hline
+%\multicolumn{7}{|c|}{\textbf{Ausgangsspannung internen Spannungsregler (VDD\_SDIO)}}\\
+%\hline
+%RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{3.3V}} & \multicolumn{2}{|c|}{\textbf{1.8V}}\\
+%\hline
+%\sout{RTS} & \sout{IO12} & Pull-down & \multicolumn{2}{|c|}{\sout{\textcolor{red}{0}}\footnotemark} & \multicolumn{2}{|c|}{\sout{1}}\\
+%\hline
+%\multicolumn{7}{|c|}{\textbf{Boot-Modus}}\\
+%\hline
+%RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{SPI-flash Boot}} & \multicolumn{2}{|c|}{\textbf{Download Boot}}\\
+%\hline
+%DTR & IO0 & Pull-up & \multicolumn{2}{|c|}{1} & \multicolumn{2}{|c|}{0}\\
+%\hline
+%- & IO2 & Pull-down & \multicolumn{2}{|c|}{Egal} & \multicolumn{2}{|c|}{0}\\
+%\hline
+%\multicolumn{7}{|c|}{\textbf{Debugging Log Print über U0TXD während Booten}}\\
+%\hline
+%RS232 & ESP & default & \multicolumn{2}{|c|}{\textbf{U0TXD Active}} & \multicolumn{2}{|c|}{\textbf{U0TXD Silent}}\\
+%\hline
+%RTS & IO12 & Pull-down & \multicolumn{2}{|c|}{\textcolor{red}{1}} & \multicolumn{2}{|c|}{0}\\
+%\hline
+%\multicolumn{7}{|c|}{\textbf{Timing\footnotemark des SDIO}}\\
+%\hline
+%RS232 & ESP & default & \shortstack{FF Sampling \\ FF Output} & \shortstack{FF Sampling \\ SF Output} & \shortstack{SF Sampling \\ FF Output} & \shortstack{SF Sampling \\ SF Output} \\
+%\hline
+%CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
+%\hline
+%- & GPIO5 & Pull-up & 0 & 1 & 0 & 1 \\
+%\hline
+%\end{tabular}
+%\caption{Tabelle Pinkonfiguration für Strapping-Pins.\cite[S.13]{espressif_systems_esp32_2020}}
+%\label{tab:Strapping_pins}
+%\end{table}
 %
 %\textbf{Spannung des internen Spannungsgeglers (VDD\_SDIO)}
 %
@@ -93,13 +93,13 @@ CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
 \subsection{Inbetriebnahme}
 
 \subsubsection{Arduino IDE}\label{Appendix:ESP32_Arduino_IDE}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.2\textwidth]{graphics/ESP32_Ordner}
-	\caption{Ordnerstruktur Boards Arduino IDE.}
-	\label{fig:ESP32_Ordner}
-\end{figure}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.2\textwidth]{graphics/ESP32_Ordner}
+%	\caption{Ordnerstruktur Boards Arduino IDE.}
+%	\label{fig:ESP32_Ordner}
+%\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -107,13 +107,13 @@ CTS & IO15 & Pull-up & 0 & 0 & 1 & 1 \\
 	\caption{ESP32 auswählen in der Arduino IDEs.}
 	\label{fig:ESP32_Arduino_IDE}
 \end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{graphics/ESP32_Verbundene_Geraete}
-	\caption{WiFi-Modul verbindet sich nach Hochladen des Codes mit dem WiFi.}
-	\label{fig:ESP32_Verbundene_Geraete}
-\end{figure}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{graphics/ESP32_Verbundene_Geraete}
+%	\caption{WiFi-Modul verbindet sich nach Hochladen des Codes mit dem WiFi.}
+%	\label{fig:ESP32_Verbundene_Geraete}
+%\end{figure}
 
 \begin{figure}[H]
 	\centering

@@ -23,7 +23,7 @@ Beim FOC-Treiber handelt es sich um den TMC4671. Abbildung \ref{fig:FOC} zeigt d
 	\label{fig:FOC_2}
 \end{figure}
 
-Die Sollwerte für die Stärke des Drehmoments kann im Drehmoment-Modus manuell vorgegeben werden oder im Geschwindigkeits- oder Positionsmodus auch vom überlagerten Geschwindigkeitsregelkreis. Im Gegensatz zu einem Motor, dem nur eine Spannung vorgegeben wird, kann bei diesem Regelverfahren bei einer Abweichung des vorgegebenen Parameters nachgeregelt werden. So kann beispielsweise bei grösserer Belastung die angelegte Spannung erhöht werden, sodass die vorgegebene Geschwindigkeit gehalten werden kann.
+Die Sollwerte für die Stärke des Drehmoments kann im Drehmoment-Modus manuell vorgegeben werden oder im Geschwindigkeits- oder Positionsmodus vom überlagerten Geschwindigkeitsregelkreis. Im Gegensatz zu einem Motor, dem nur eine Spannung vorgegeben wird, kann bei diesem Regelverfahren bei einer Abweichung des vorgegebenen Parameters nachgeregelt werden. So kann beispielsweise bei grösserer Belastung die angelegte Spannung erhöht werden, sodass die vorgegebene Geschwindigkeit gehalten werden kann.
 
 Dies führt zur Kaskadenregelung, der PI-Regelstruktur im FOC-Treiber. Eine Kaskadenregelung besteht in der Regel aus drei überlagerten Regelkreisen. Der innerste Regelkreis ist der Stromregelkreis. Dieser ist dem Geschwindigkeitsregelkreis unterlagert. Der Geschwindigkeitsregelkreis ist wiederum dem Positionsregelkreis unterlagert. Bei einer Kaskadenregelung ist die Ausgangsgrösse des überlagerten Regelkreises die Eingangsgrösse des unterlagerten Regelkreises. Aus Stabilitätsgründen ist darauf zu achten, dass die Nachstellzeit der äusseren Regelkreise grösser ist, als die der Inneren.
 

@@ -1,5 +1,6 @@
 \section{LED}
-\subsection{PWM-Signale}\label{Appendix:Timer_PWM}
+\subsection{Inbetriebnahme}
+\subsubsection{PWM-Signale}\label{Appendix:Timer_PWM}
 
 Das PWM-Signal für die LEDs wird mit einer Frequenz von 10 kHz initialisiert. Um dies zu erreichen, wird Formel \ref{equ:Timer_Max_1} umgestellt nach \ref{equ:Timer_Max_2}. Der Prescaler ist N = 1. Das Ergebnis wird im Register OCRnA gespeichert, wodurch der Timer $1/10kHz = 100\mu s$ benötigt, bis ein Timer\_nA Compare-Interrupt ausgelöst wird. \cite[S.148]{atmel_atmel_2014}
 

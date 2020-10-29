@@ -1,18 +1,27 @@
 
 \section{Programmierschnittstellen}\label{Appendix:Programmierschnittstellen}
+\subsection{Inbetriebnahme}
+%\subsection{Geräte-Manager}\label{Appendix:Geraete_Manager}
 
-\subsection{Geräte-Manager}\label{Appendix:Geraete_Manager}
+%\begin{figure}[H]
+%\center
+%\includegraphics[width = 0.6 \textwidth]{graphics/USB_Devices_Ger_Man}
+%\caption{Geräte-Manager mit den aufgelisteten USB-UART-Converter (Mikrocontroller und WiFi-Modul).}
+%\label{fig:USB_Devices_Ger_Man}
+%\end{figure}
+
+\subsubsection{AVRdude und stk500v2 (wiring)}\mbox{}
 
 \begin{figure}[H]
-\center
-\includegraphics[width = 0.6 \textwidth]{graphics/USB_Devices_Ger_Man}
-\caption{Geräte-Manager mit den aufgelisteten USB-UART-Converter (Mikrocontroller und WiFi-Modul).}
-\label{fig:USB_Devices_Ger_Man}
+	\centering
+	\includegraphics[width=0.5\textwidth]{graphics/AtmelStudio_External_Tools}
+	\caption{External Tools ATMega2560 (Atmel Studio).}
+	\label{fig:AtmelStudio_External_Tools}
 \end{figure}
 
-\subsection{Mikrocontroller}\label{Appendix:Handshake_uC}
+\subsubsection{Mikrocontroller}\label{Appendix:Handshake_uC}
 
-\subsubsection{Handshake}\label{Appendix:Handshake_uc_Messung}
+%\subsubsection{Handshake}\label{Appendix:Handshake_uc_Messung}
 \begin{figure}[H]
 \center
 \includegraphics[width = 0.9\textwidth]{graphics/ATMega2560_DTR_RESET_RX_TX_gesamt}
@@ -28,9 +37,9 @@
 \end{figure}
 
 
-\subsection{WiFi-Modul}\label{Appendix:Handshake_ESP}
+\subsubsection{WiFi-Modul}\label{Appendix:Handshake_ESP}
 
-\subsubsection{Handshake}\label{Appendix:Handshake_ESP_Messung}
+
 %
 %Im Getting Started Guide vom WiFi-Modul steht geschrieben, dass wenn während die beiden Pins IO0 und EN GND gezogen werden, das Modul in den Download-Modus versetzt wird, die Firmware über den UART-Port herunterlädt und diese in den Flash-Speicher schreibt. Um dies automatisch über die DTR- und RTS-Leitung machen zu können, braucht es eine zusätzliche Programmierlogik.
 %
@@ -100,14 +109,14 @@
 
 \begin{figure}[H]
 \center
-\includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_gesamt}
+\includegraphics[width = 0.9\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_gesamt}
 \caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. \\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_gesamt}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
+\includegraphics[width = 0.9\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
 \caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR (Schritt 2 und 3).\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_2}
 \end{figure}
@@ -121,14 +130,14 @@ Die Messung nach dem Einlöten der Brücke bestätigt dies. Abbildung \ref{fig:E
 
 \begin{figure}[H]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/ESP32_Handshake_Forum}
+\includegraphics[width = \textwidth]{graphics/ESP32_Handshake_Forum}
 \caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR. \cite{liudr_trying_2017}}
 \label{fig:ESP32_Handshake_Forum}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[width = 0.8\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
+\includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
 \caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.}
 \label{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
 \end{figure}

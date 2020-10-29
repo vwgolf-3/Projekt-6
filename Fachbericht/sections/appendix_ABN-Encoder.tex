@@ -12,22 +12,22 @@
 \newpage
 
 \subsection{Inbetriebnahme}
-
-\subsubsection{Inbetriebnahme Setup}\label{Appendix:ABN_Setup}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Encoder_Motor}
-	\caption{Motor mit Encoder.}
-	\label{fig:4_Encoder_Motor}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Antriebskette}
-	\caption{Blick auf ABN-Leitungen.}
-	\label{fig:4_Antriebskette}
-\end{figure}
+%
+%\subsubsection{Inbetriebnahme Setup}\label{Appendix:ABN_Setup}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Encoder_Motor}
+%	\caption{Motor mit Encoder.}
+%	\label{fig:4_Encoder_Motor}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Antriebskette}
+%	\caption{Blick auf ABN-Leitungen.}
+%	\label{fig:4_Antriebskette}
+%\end{figure}
 
 %\begin{figure}[H]
 %	\centering
@@ -36,12 +36,12 @@
 %	\label{fig:4_komplett}
 %\end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Elektronik}
-	\caption{Blick auf Antriebsgruppe.}
-	\label{fig:4_Elektronik}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[angle = 270, width=\textwidth]{graphics/4_Elektronik}
+%	\caption{Blick auf Antriebsgruppe.}
+%	\label{fig:4_Elektronik}
+%\end{figure}
 
 \subsubsection{Encoder-Signale}\label{Appendix:ABN_Signale}
 
@@ -51,6 +51,7 @@
 	\caption{Encoder-Interface Pinout-Table. Gelb = A, Blau = B, N = Magenta}
 	\label{fig:AMT322S-V_Signal}
 \end{figure}
+
 
 
 \subsubsection{Register Closed-Loop}\label{Appendix:ABN_Register}
@@ -94,3 +95,46 @@
 0x5A         & POSITION\_P\_POSITION\_I  & 0x00C80000 & Position : P = 200 / I = 0    \\ \hline
 \end{tabularx}
 \end{table}
+
+\subsection{PI-Regler}
+
+\subsubsection{Drehmoment}\label{Appendix:PI_Torque}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.9\textwidth]{graphics/PI_Torque_Graph_0}
+\caption{Drehmoment-Graph bei einem Sprung von 0 bis 2000 mA.}
+\label{fig:PI_Torque_Graph_0}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.9\textwidth]{graphics/PI_Torque_Graph_1}
+\caption{Drehmoment-Graph bei einem Sprung von 2000 bis 0 mA.}
+\label{fig:PI_Torque_Graph_1}
+\end{figure}
+
+\subsubsection{Geschwindigkeit}\label{Appendix:PI_Velocity}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = \textwidth]{graphics/PI_Velocity_Graph_0}
+\caption{Geschwindigkeits-Graph bei einem Sprung von 0 bis 1000 Umdrehungen pro Minute.}
+\label{fig:PI_Velocity_Graph_0}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = \textwidth]{graphics/PI_Velocity_Graph_1}
+\caption{Geschwindigkeits-Graph bei einem Sprung von 1000 bis 0 Umdrehungen pro Minute.}
+\label{fig:PI_Velocity_Graph_1}
+\end{figure}
+
+\subsubsection{Position}\label{Appendix:PI_Position_0}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = \textwidth]{graphics/PI_Position_graph_0}
+\caption{Positions-Graph bei einem Sprung von jeweils 100000 Schritten.}
+\label{fig:PI_Position_graph_0}
+\end{figure}

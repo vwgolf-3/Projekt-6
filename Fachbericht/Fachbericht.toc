@@ -85,18 +85,18 @@
 \contentsline {subsubsection}{\numberline {6.4.1}Touch-Display}{43}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}WiFi-Modul}{43}{subsubsection.6.4.2}%
 \contentsline {subsubsection}{\numberline {6.4.3}RFID}{44}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}mikroSD-Karte}{45}{subsubsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.5}Flüssigkeitsbeförderung}{46}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Pumpen}{46}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Durchflussmessgeräte}{46}{subsubsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.6}Beleuchtung}{47}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Motor}{48}{subsection.6.7}%
-\contentsline {subsubsection}{\numberline {6.7.1}FOC-Treiber}{48}{subsubsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.5}SD-Karte}{45}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Flüssigkeitsbeförderung}{46}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Pumpen}{46}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Durchflussmessgeräte}{46}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Beleuchtung}{47}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Motor}{48}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}FOC-Treiber}{48}{subsubsection.6.8.1}%
 \contentsline {paragraph}{Setup}{48}{section*.97}%
-\contentsline {subsubsection}{\numberline {6.7.2}Gate-Treiber, H-Brücke und BLDC}{49}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.8.2}Gate-Treiber, H-Brücke und BLDC}{49}{subsubsection.6.8.2}%
 \contentsline {paragraph}{Setup}{50}{section*.99}%
-\contentsline {subsubsection}{\numberline {6.7.3}ABN-Encoder}{51}{subsubsection.6.7.3}%
-\contentsline {subsubsection}{\numberline {6.7.4}Software-Ramp}{52}{subsubsection.6.7.4}%
+\contentsline {subsubsection}{\numberline {6.8.3}ABN-Encoder}{51}{subsubsection.6.8.3}%
+\contentsline {subsubsection}{\numberline {6.8.4}Software-Ramp}{52}{subsubsection.6.8.4}%
 \contentsline {section}{\numberline {7}Software}{54}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Mikrocontroller}{54}{subsection.7.1}%
 \contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{54}{subsubsection.7.1.1}%
@@ -116,59 +116,50 @@
 \contentsline {section}{\numberline {9}Schlusswort}{73}{section.9}%
 \contentsline {section}{\numberline {10}Ehrlichkeitserklärung}{73}{section.10}%
 \contentsline {section}{Literatur}{75}{section*.127}%
-\contentsline {section}{\numberline {A}Programmierschnittstellen}{80}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Geräte-Manager}{80}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Mikrocontroller}{80}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Handshake}{80}{subsubsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.3}WiFi-Modul}{81}{subsection.A.3}%
-\contentsline {subsubsection}{\numberline {A.3.1}Handshake}{81}{subsubsection.A.3.1}%
-\contentsline {section}{\numberline {B}WiFi-Modul}{84}{appendix.B}%
-\contentsline {subsection}{\numberline {B.1}Strapping-Pins}{84}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Inbetriebnahme}{84}{subsection.B.2}%
-\contentsline {subsubsection}{\numberline {B.2.1}Arduino IDE}{84}{subsubsection.B.2.1}%
-\contentsline {section}{\numberline {C}LED}{87}{appendix.C}%
-\contentsline {subsection}{\numberline {C.1}PWM-Signale}{87}{subsection.C.1}%
-\contentsline {section}{\numberline {D}Mikrocontroller}{89}{appendix.D}%
-\contentsline {subsection}{\numberline {D.1}Einbinden AVRdude und stk500v2 (wiring)}{89}{subsection.D.1}%
-\contentsline {subsection}{\numberline {D.2}Fuse-Bits}{89}{subsection.D.2}%
-\contentsline {subsection}{\numberline {D.3}Bootloader}{91}{subsection.D.3}%
-\contentsline {subsection}{\numberline {D.4}Lock-Bits}{92}{subsection.D.4}%
-\contentsline {subsubsection}{\numberline {D.4.1}Schwingung 16MHz Quarz}{93}{subsubsection.D.4.1}%
-\contentsline {subsubsection}{\numberline {D.4.2}Pinout}{93}{subsubsection.D.4.2}%
-\contentsline {section}{\numberline {E}FOC-Treiber}{95}{appendix.E}%
-\contentsline {subsection}{\numberline {E.1}BOB}{95}{subsection.E.1}%
-\contentsline {subsection}{\numberline {E.2}Inbetriebnahme}{96}{subsection.E.2}%
-\contentsline {subsubsection}{\numberline {E.2.1}Setup}{96}{subsubsection.E.2.1}%
-\contentsline {subsubsection}{\numberline {E.2.2}Inbetriebnahme SPI-Kommunikation}{97}{subsubsection.E.2.2}%
-\contentsline {subsubsection}{\numberline {E.2.3}Inbetriebnahme Gate-Ctrl}{100}{subsubsection.E.2.3}%
-\contentsline {subsubsection}{\numberline {E.2.4}Register Openloop}{101}{subsubsection.E.2.4}%
-\contentsline {section}{\numberline {F}Gate-Treiber}{102}{appendix.F}%
-\contentsline {subsection}{\numberline {F.1}Externe Gate-Spannungsversorgung}{102}{subsection.F.1}%
-\contentsline {subsection}{\numberline {F.2}Inbetriebnahme}{102}{subsection.F.2}%
-\contentsline {subsubsection}{\numberline {F.2.1}Inbetriebnahme Setup}{102}{subsubsection.F.2.1}%
-\contentsline {subsubsection}{\numberline {F.2.2}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{104}{subsubsection.F.2.2}%
-\contentsline {subsubsection}{\numberline {F.2.3}Gate-Vorwiderstand}{104}{subsubsection.F.2.3}%
-\contentsline {subsubsection}{\numberline {F.2.4}Inbetriebnahme SPI-Kommunikation}{105}{subsubsection.F.2.4}%
-\contentsline {subsubsection}{\numberline {F.2.5}Inbetriebnahme Gate-Ctrl}{107}{subsubsection.F.2.5}%
-\contentsline {subsubsection}{\numberline {F.2.6}Register Gate-Treiber}{108}{subsubsection.F.2.6}%
-\contentsline {section}{\numberline {G}H-Brücke}{109}{appendix.G}%
-\contentsline {subsection}{\numberline {G.1}Referenzschema}{109}{subsection.G.1}%
-\contentsline {subsection}{\numberline {G.2}Inbetriebnahme}{109}{subsection.G.2}%
-\contentsline {subsubsection}{\numberline {G.2.1}Inbetriebnahme Setup}{109}{subsubsection.G.2.1}%
-\contentsline {subsubsection}{\numberline {G.2.2}Inbetriebnahme Schaltsignale}{110}{subsubsection.G.2.2}%
-\contentsline {section}{\numberline {H}ABN-Encoder}{111}{appendix.H}%
-\contentsline {subsection}{\numberline {H.1}Pinout and Interface}{111}{subsection.H.1}%
-\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{112}{subsection.H.2}%
-\contentsline {subsubsection}{\numberline {H.2.1}Inbetriebnahme Setup}{112}{subsubsection.H.2.1}%
-\contentsline {subsubsection}{\numberline {H.2.2}Encoder-Signale}{113}{subsubsection.H.2.2}%
-\contentsline {subsubsection}{\numberline {H.2.3}Register Closed-Loop}{114}{subsubsection.H.2.3}%
-\contentsline {section}{\numberline {I}PI-Regler}{115}{appendix.I}%
-\contentsline {subsection}{\numberline {I.1}TMCL-IDE}{115}{subsection.I.1}%
-\contentsline {subsubsection}{\numberline {I.1.1}Drehmoment}{115}{subsubsection.I.1.1}%
-\contentsline {subsubsection}{\numberline {I.1.2}Geschwindigkeit}{116}{subsubsection.I.1.2}%
-\contentsline {subsubsection}{\numberline {I.1.3}Position}{117}{subsubsection.I.1.3}%
-\contentsline {section}{\numberline {J}Software Ramp}{118}{appendix.J}%
-\contentsline {subsection}{\numberline {J.1}Implementierung}{118}{subsection.J.1}%
-\contentsline {subsection}{\numberline {J.2}Matlab-Script}{120}{subsection.J.2}%
-\contentsline {section}{\numberline {K}Print}{124}{appendix.K}%
-\contentsline {subsection}{\numberline {K.1}KiCad Schema}{124}{subsection.K.1}%
+\contentsline {section}{\numberline {A}Programmierschnittstellen (so lassen)}{80}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Inbetriebnahme}{80}{subsection.A.1}%
+\contentsline {subsubsection}{\numberline {A.1.1}AVRdude und stk500v2 (wiring)}{80}{subsubsection.A.1.1}%
+\contentsline {subsubsection}{\numberline {A.1.2}Mikrocontroller}{81}{subsubsection.A.1.2}%
+\contentsline {subsubsection}{\numberline {A.1.3}WiFi-Modul}{82}{subsubsection.A.1.3}%
+\contentsline {section}{\numberline {B}Mikrocontroller}{84}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Inbetriebnahme}{84}{subsection.B.1}%
+\contentsline {subsubsection}{\numberline {B.1.1}Fuse- und Lock-Bits}{84}{subsubsection.B.1.1}%
+\contentsline {subsubsection}{\numberline {B.1.2}Pinout}{87}{subsubsection.B.1.2}%
+\contentsline {section}{\numberline {C}WiFi-Modul}{89}{appendix.C}%
+\contentsline {subsection}{\numberline {C.1}Inbetriebnahme}{89}{subsection.C.1}%
+\contentsline {subsubsection}{\numberline {C.1.1}Arduino IDE}{89}{subsubsection.C.1.1}%
+\contentsline {section}{\numberline {D}LED}{91}{appendix.D}%
+\contentsline {subsection}{\numberline {D.1}Inbetriebnahme}{91}{subsection.D.1}%
+\contentsline {subsubsection}{\numberline {D.1.1}PWM-Signale}{91}{subsubsection.D.1.1}%
+\contentsline {section}{\numberline {E}FOC-Treiber}{93}{appendix.E}%
+\contentsline {subsection}{\numberline {E.1}Teilschemae Breakout-Board}{93}{subsection.E.1}%
+\contentsline {subsection}{\numberline {E.2}Inbetriebnahme}{95}{subsection.E.2}%
+\contentsline {subsubsection}{\numberline {E.2.1}Inbetriebnahme SPI-Kommunikation}{95}{subsubsection.E.2.1}%
+\contentsline {subsubsection}{\numberline {E.2.2}Inbetriebnahme Gate-Ctrl}{96}{subsubsection.E.2.2}%
+\contentsline {subsubsection}{\numberline {E.2.3}Register Openloop}{97}{subsubsection.E.2.3}%
+\contentsline {section}{\numberline {F}Gate-Treiber}{98}{appendix.F}%
+\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{98}{subsection.F.1}%
+\contentsline {subsection}{\numberline {F.2}Blockdiagramm}{98}{subsection.F.2}%
+\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{99}{subsection.F.3}%
+\contentsline {subsubsection}{\numberline {F.3.1}Verstärkungsfaktor, Strommessung, Strommesswiderstand}{99}{subsubsection.F.3.1}%
+\contentsline {subsubsection}{\numberline {F.3.2}Gate-Vorwiderstand}{99}{subsubsection.F.3.2}%
+\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{100}{subsubsection.F.3.3}%
+\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{101}{subsubsection.F.3.4}%
+\contentsline {subsubsection}{\numberline {F.3.5}Register Gate-Treiber}{102}{subsubsection.F.3.5}%
+\contentsline {section}{\numberline {G}H-Brücke}{103}{appendix.G}%
+\contentsline {subsection}{\numberline {G.1}Inbetriebnahme}{103}{subsection.G.1}%
+\contentsline {subsubsection}{\numberline {G.1.1}Inbetriebnahme Schaltsignale}{103}{subsubsection.G.1.1}%
+\contentsline {section}{\numberline {H}ABN-Encoder}{104}{appendix.H}%
+\contentsline {subsection}{\numberline {H.1}Pinout and Interface}{104}{subsection.H.1}%
+\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{105}{subsection.H.2}%
+\contentsline {subsubsection}{\numberline {H.2.1}Encoder-Signale}{105}{subsubsection.H.2.1}%
+\contentsline {subsubsection}{\numberline {H.2.2}Register Closed-Loop}{106}{subsubsection.H.2.2}%
+\contentsline {subsection}{\numberline {H.3}PI-Regler}{107}{subsection.H.3}%
+\contentsline {subsubsection}{\numberline {H.3.1}Drehmoment}{107}{subsubsection.H.3.1}%
+\contentsline {subsubsection}{\numberline {H.3.2}Geschwindigkeit}{108}{subsubsection.H.3.2}%
+\contentsline {subsubsection}{\numberline {H.3.3}Position}{109}{subsubsection.H.3.3}%
+\contentsline {section}{\numberline {I}Software Ramp}{110}{appendix.I}%
+\contentsline {subsection}{\numberline {I.1}Implementierung}{110}{subsection.I.1}%
+\contentsline {subsection}{\numberline {I.2}Matlab-Script}{112}{subsection.I.2}%
+\contentsline {section}{\numberline {J}Print}{116}{appendix.J}%
+\contentsline {subsection}{\numberline {J.1}KiCad Schema}{116}{subsection.J.1}%

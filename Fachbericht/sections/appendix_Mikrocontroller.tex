@@ -2,16 +2,8 @@
 
 %\subsection{Inbetriebnahme}\label{Appendix:Inbetriebnahme_uC}
 
-\subsection{Einbinden AVRdude und stk500v2 (wiring)}\label{Appendix:AVR_STK500}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{graphics/AtmelStudio_External_Tools}
-	\caption{External Tools ATMega2560 (Atmel Studio).}
-	\label{fig:AtmelStudio_External_Tools}
-\end{figure}
-
-\subsection{Fuse-Bits}
+\subsection{Inbetriebnahme}
+\subsubsection{Fuse- und Lock-Bits}\label{Appendix:Fuse_Bits}
 
 %\begin{table}[h!]
 %\center
@@ -64,7 +56,7 @@
 %\caption{Bits High-Byte-Fuses.}
 %\end{table}
 
-Da während dem Entwickeln die Möglichkeit bestehen soll, den Flash-Speicher per USB zu beschreiben, muss beim Aufstarten der BL aufgerufen werden. Dazu muss das BOOTRST-Bit aktiviert werden. Der Speicherplatz für den BL wird auf 4096 words gesetzt, was mit dem Bootloader (SKT500v2) übereinstimmen muss. Das EEPROM soll beim Löschen des \textmu C geschützt bleiben, weshalb das EESAVE-Bit aktiviert wird. Da die ISP-Schnittstelle benötigt wird, um den BL zu schreiben und Fuse-Bits zu setzen, wird das SPIEN-Bit gesetzt.
+Da während die Möglichkeit bestehen soll, den Flash-Speicher per USB zu beschreiben, muss beim Aufstarten der BL aufgerufen werden. Dazu muss das BOOTRST-Bit aktiviert werden. Der Speicherplatz für den BL wird auf 4096 words gesetzt, was mit dem Bootloader (SKT500v2) übereinstimmen muss. Das EEPROM soll beim Löschen des \textmu C geschützt bleiben, weshalb das EESAVE-Bit aktiviert wird. Da die ISP-Schnittstelle benötigt wird, um den BL zu schreiben und Fuse-Bits zu setzen, wird das SPIEN-Bit gesetzt.
 %
 %\begin{tabularx}{\textwidth}{ll|X}
 %
@@ -157,6 +149,9 @@ Die Aufstartzeit wird vorsorglich auf die längst mögliche Zeit eingestellt. Di
 %
 Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung unter einen Wert fällt. Wenn der Mikrocontroller ausfällt, während der FOC-Treiber noch aktiv ist, wird der Motor weiter gefahren. Dieses Risiko soll eingeschränkt werden, indem dieser Modus ausgeschaltet wird.\cite{haftmann_programmierung_nodate}
 
+Sind die Fuse-Bits gesetzt, wird via ISP-Programmer der Bootloader hochgeladen.
+
+Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben wurde. ''SPM ist nicht erlaubt, in den Anwenderbereich zu schreiben und LPM ist nicht erlaubt aus dem Applikationssktor zu lesen, wenn LPM aus dem Urlader-Bereich ausgeführt wird.''\cite{haftmann_programmierung_nodate}
 %\subsubsection{Brown-out-Detection}\label{Appendix:Brown-out-Detection}
 
 \begin{figure}[H]
@@ -193,12 +188,29 @@ Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung 
 
 \begin{figure}[H]
 	\centering
+	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_Memory_Lock}
+	\caption{Tabelle Memory Lock.\cite[S.326]{atmel_atmel_2014}}
+	\label{fig:Tabelle_Memory_Lock}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
 	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Fuses}
 	\caption{Fuse-Bits ATMega2560 (Atmel Studio).}
 	\label{fig:AtmelStudio_Fuses}
 \end{figure}
 
-\subsection{Bootloader}\label{Appendix:Inbetriebnahme_Bootloader}
+%\subsubsection{Memory-Lock Bootloader}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Locks}
+	\caption{Lock-Bits ATMega2560.}
+	\label{fig:AtmelStudio_Locks}
+\end{figure}
+
+%\subsection{Bootloader}\label{Appendix:Inbetriebnahme_Bootloader}
 %
 %Ein Bootloader (BL) ermöglicht seitens Mikrocontroller den Programmiervorgang über USB und stellt sicher, dass der frisch kompilierte Code in den Programmspeicher des Mikrocontrollers gelangt. Im Grunde ist der BL ein Code am Beginn des Programmablaufs, welcher entsprechend nach einem Reset aufgerufen wird. Innerhalb des BL-Codes wird für zwei Sekunden auf eingehende Daten der UART0-Schnittstelle gewartet.
 %%Wenn innerhalb von ca. zwei Sekunden keine Daten ankommen, wird das Anwenderprogramm gestartet. 
@@ -225,35 +237,16 @@ Der Brown-out-Detektor setzt den internen Reset, sobald die Versorgungsspannung 
 	\label{fig:AtmelStudio_Program_Bootloader}
 \end{figure}
 
-\subsection{Lock-Bits}
-
-Die Lock-Bits müssen gesetzt werden, nachdem der BL in den Speicher geschrieben wurde. ''SPM ist nicht erlaubt, in den Anwenderbereich zu schreiben und LPM ist nicht erlaubt aus dem Applikationssktor zu lesen, wenn LPM aus dem Urlader-Bereich ausgeführt wird.''\cite{haftmann_programmierung_nodate}
-
-%\subsubsection{Memory-Lock Bootloader}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{graphics/Tabelle_Memory_Lock}
-	\caption{Tabelle Memory Lock.\cite[S.326]{atmel_atmel_2014}}
-	\label{fig:Tabelle_Memory_Lock}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{graphics/AtmelStudio_Locks}
-	\caption{Lock-Bits ATMega2560.}
-	\label{fig:AtmelStudio_Locks}
-\end{figure}
-
-\subsubsection{Schwingung 16MHz Quarz}
-
-\begin{figure}[H]
-\center
-\includegraphics[width = 0.8\textwidth]{graphics/Crystal_Swing}
-\caption{Schwingung des Oszillators}
-\label{fig:Crystal_Swing}
-\end{figure}
+%
+%\subsubsection{Schwingung 16MHz Quarz}
+%
+%\begin{figure}[H]
+%\center
+%\includegraphics[width = 0.8\textwidth]{graphics/Crystal_Swing}
+%\caption{Schwingung des Oszillators}
+%\label{fig:Crystal_Swing}
+%\end{figure}
 
 \subsubsection{Pinout}\label{Appendix:AVR_Pinout}
 
-\includepdf[angle = 90, fitpaper]{appendix/Pinout_Mikrocontroller}
+\includepdf[fitpaper]{appendix/Pinout_Mikrocontroller}
