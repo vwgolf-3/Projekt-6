@@ -1289,8 +1289,8 @@ uint32_t * set_prp(uint32_t * prp, uint8_t fuellmenge)
 void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 {
     // Geschwindigkeit und Beschleunigung während Zubereitung
-    uint32_t geschwindigkeit = 400;
-    uint32_t beschleunigung = 400;
+    uint32_t geschwindigkeit = 800;
+    uint32_t beschleunigung = 600;
 
     // Variabeln Positionsberechnung
     float ende_der_bahn = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung;

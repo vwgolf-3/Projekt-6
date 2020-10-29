@@ -269,8 +269,8 @@ void check_startseite(uint8_t button)
                     - Erstelle ersten Listenabschnitt mit Cocktailnamen
         */
 
-    buffer_getraenk_file_alle = actual_getraenk_file_alle;
-    actual_getraenk_file_alle = head_getraenk_file_alle;
+        buffer_getraenk_file_alle = actual_getraenk_file_alle;
+        actual_getraenk_file_alle = head_getraenk_file_alle;
         begin_erstelle_liste_cocktails(LISTENANZEIGE, "cocktail");
         break;
 
@@ -456,9 +456,9 @@ void check_menuanzeige(uint8_t button)
                     - Setze Listenabschnitt auf 1. Abschnitt
                     - Erstelle ersten Listenabschnitt mit Cocktailnamen
         */
-     buffer_getraenk_file_alle = actual_getraenk_file_alle;
-     actual_getraenk_file_alle = head_getraenk_file_alle;
-       begin_erstelle_liste_cocktails(BEARBEITUNGSANZEIGE, "cocktail");
+        buffer_getraenk_file_alle = actual_getraenk_file_alle;
+        actual_getraenk_file_alle = head_getraenk_file_alle;
+        begin_erstelle_liste_cocktails(BEARBEITUNGSANZEIGE, "cocktail");
 
         break;
 
@@ -1438,28 +1438,69 @@ void check_reinanzeige2(uint8_t button)
                     - Während des Durchspül-Prozesses die Kommunikation prüfen auf einkommende Befehle
                     - Erstes Getränk setzen und Startanzeige anzeigen
         */
-        nextion_change_page(REINANZEIGE3);
-        for (int i = 0 ; i < 12 ; i++)
+        // Aktueller Standort ist Beginn
+        tmc4671_setActualPosition(0,0);
+
+        // Geschwindigkeit und Beschleunigung während Zubereitung
+        uint32_t geschwindigkeit = 800;
+        uint32_t beschleunigung = 600;
+
+        float val;
+        float val2;
+
+        float ende_der_bahn = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung;
+        float position_der_pumpe;
+
+        tmp_zut_Maschine_actual = head_zutat_maschine_ohne;
+
+        do
         {
+            // Lese aktuelle Position Schlitten aus
+            val = (float)tmc4671_getActualPosition(0)/1000;
+
+            // Berechne Position der Pumpe
+            position_der_pumpe = tmp_zut_Maschine_actual->stelle * ramp->motor_faktor_eine_umdrehung * ramp->motor_umdrehungen_teilverschiebung;
+            val2 =  ende_der_bahn - position_der_pumpe;
+            /*
+                         debug_message_1(val, val2);
+            */
+
+        nextion_change_page(REINANZEIGE3);
+
+            Uart_Transmit_IT_PC("Pos calc\r");
+
+            // Fahre an berechnete Position
+            calculateRamp(beschleunigung, geschwindigkeit, val, val2, ramp);
+            Uart_Transmit_IT_PC("Pos wait\r");
+            wait_until_position_reached(ramp);
+            /*
+            //          debug_message_2();
+            */
+            Uart_Transmit_IT_PC("Pos erreicht\r");
             if (stop == 0)
             {
-                schalte_pumpe_ein(i);
-                uint16_t cnt = 0;
-                while ((cnt < 2000))
-                {
-                    if(check_Communication_Input_UART_1())
-                    {
-                        proceed_Communication_INPUT_UART_1();
-                    }
-                    cnt++;
-                    _delay_ms(1);
-                }
+	            schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
+	            uint16_t cnt = 0;
+	            while ((cnt < 2000))
+	            {
+		            if(check_Communication_Input_UART_1())
+		            {
+			            proceed_Communication_INPUT_UART_1();
+		            }
+		            cnt++;
+		            _delay_ms(1);
+	            }
             }
-            schalte_pumpe_aus(i);
-        }
+            schalte_pumpe_aus(tmp_zut_Maschine_actual->stelle);
+            tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
+        } while (tmp_zut_Maschine_actual != head_zutat_maschine_ohne);
+		    val = (float)tmc4671_getActualPosition(0)/1000;
+        calculateRamp(beschleunigung, geschwindigkeit, val, 0, ramp);
+        wait_until_position_reached(ramp);
+		
         stop = 0;
         nextion_change_page(STARTANZEIGE);
-        actual_getraenk_file_alle = tail_getraenk_file_alle;
+        actual_getraenk_file_alle = head_getraenk_file_alle;
         lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
         setze_startanzeige(aktuellesGetraenk);
         break;
@@ -1556,7 +1597,7 @@ void check_zubabfrage(uint8_t button)
         /*      0x03 = 0b03
                     - Setze Startanzeige
         */
-		nextion_change_page(STARTANZEIGE);
+        nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
         break;
     }
@@ -2031,7 +2072,7 @@ void check_fluessanzeige3(uint8_t button)
 //                 strcat((char *)buff_filename, (const char *)buff_itoa);
 //                 strcat((char *)buff_filename, (const char *)".txt");
 //                 writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
-// 
+//
 //                 if (aktuelle_zutat->kohlensaeure == 0)
 //                 {
 //                     insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
@@ -2460,7 +2501,7 @@ void check_RFIDAnzeige2(uint8_t button)
         block_list_runter = 0;
         i_Liste = 0;
         nextion_change_page(RFIDANZEIGE1);
-		delete_list_node_files(COCKTAIL);
+        delete_list_node_files(COCKTAIL);
         break;
     }
 }

@@ -39,14 +39,15 @@ main.d main.o: .././main.c .././utils/main_variables.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ .././libraries/Main_functions/../TMC4671/../Software_Ramp/ramp1.h \
+ .././libraries/Main_functions/../TMC4671/../Software_Ramp/../UART/UART.h \
+ .././libraries/Main_functions/../TMC4671/../Software_Ramp/../TMC4671/TMC4671.h \
  .././libraries/Main_functions/../TMC6200/TMC6200.h \
  .././libraries/Main_functions/../TMC6200/TMC6200_Register.h \
  .././libraries/Main_functions/../TMC6200/../SPI/SPI.h \
  .././libraries/Main_functions/../LED/LED.h \
  .././libraries/Main_functions/../LED/../../utils/pin_defs.h \
  .././libraries/Main_functions/../Software_Ramp/ramp1.h \
- .././libraries/Main_functions/../Software_Ramp/../UART/UART.h \
- .././libraries/Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
  .././libraries/Main_functions/../Nextion_Display/Nextion_Display.h \
  .././libraries/Main_functions/../Nextion_Display/../Main_functions/Main_Func.h \
  .././libraries/Main_functions/../Nextion_Display/../../libraries/UART/UART.h \
@@ -157,6 +158,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
+.././libraries/Main_functions/../TMC4671/../Software_Ramp/ramp1.h:
+
+.././libraries/Main_functions/../TMC4671/../Software_Ramp/../UART/UART.h:
+
+.././libraries/Main_functions/../TMC4671/../Software_Ramp/../TMC4671/TMC4671.h:
+
 .././libraries/Main_functions/../TMC6200/TMC6200.h:
 
 .././libraries/Main_functions/../TMC6200/TMC6200_Register.h:
@@ -168,10 +175,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././libraries/Main_functions/../LED/../../utils/pin_defs.h:
 
 .././libraries/Main_functions/../Software_Ramp/ramp1.h:
-
-.././libraries/Main_functions/../Software_Ramp/../UART/UART.h:
-
-.././libraries/Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
 
 .././libraries/Main_functions/../Nextion_Display/Nextion_Display.h:
 

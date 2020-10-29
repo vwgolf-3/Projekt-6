@@ -27,6 +27,7 @@
 #include "TMC4671_Fields.h"
 #include "../SPI/SPI.h"
 #include "../Software_SPI/Software_SPI.h"
+#include "../Software_Ramp/ramp1.h"
 
 typedef struct
 {

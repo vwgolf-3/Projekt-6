@@ -41,14 +41,15 @@ Nextion_Display.d Nextion_Display.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_Ramp/ramp1.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_Ramp/../UART/UART.h \
+ ../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_Ramp/../TMC4671/TMC4671.h \
  ../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200.h \
  ../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h \
  ../libraries/Nextion_Display/../Main_functions/../TMC6200/../SPI/SPI.h \
  ../libraries/Nextion_Display/../Main_functions/../LED/LED.h \
  ../libraries/Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h \
  ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h \
- ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h \
- ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h \
  ../libraries/Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h \
  ../libraries/Nextion_Display/../Main_functions/../Cocktail_functions/Zutaten.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
@@ -147,6 +148,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
+../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_Ramp/ramp1.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_Ramp/../UART/UART.h:
+
+../libraries/Nextion_Display/../Main_functions/../TMC4671/../Software_Ramp/../TMC4671/TMC4671.h:
+
 ../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200.h:
 
 ../libraries/Nextion_Display/../Main_functions/../TMC6200/TMC6200_Register.h:
@@ -158,10 +165,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../libraries/Nextion_Display/../Main_functions/../LED/../../utils/pin_defs.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Software_Ramp/ramp1.h:
-
-../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../UART/UART.h:
-
-../libraries/Nextion_Display/../Main_functions/../Software_Ramp/../TMC4671/TMC4671.h:
 
 ../libraries/Nextion_Display/../Main_functions/../Nextion_Display/Nextion_Display.h:
 

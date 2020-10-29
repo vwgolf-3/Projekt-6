@@ -32,7 +32,12 @@ tmc4671.d tmc4671.o: ../libraries/TMC4671/tmc4671.c \
  ../libraries/TMC4671/../Software_SPI/../../utils/pin_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ ../libraries/TMC4671/../Software_Ramp/ramp1.h \
+ ../libraries/TMC4671/../Software_Ramp/../UART/UART.h \
+ ../libraries/TMC4671/../Software_Ramp/../UART/../RingBuffer/ring_buffer.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
+ ../libraries/TMC4671/../Software_Ramp/../TMC4671/TMC4671.h
 
 ../libraries/TMC4671/TMC4671.h:
 
@@ -103,3 +108,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+../libraries/TMC4671/../Software_Ramp/ramp1.h:
+
+../libraries/TMC4671/../Software_Ramp/../UART/UART.h:
+
+../libraries/TMC4671/../Software_Ramp/../UART/../RingBuffer/ring_buffer.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
+../libraries/TMC4671/../Software_Ramp/../TMC4671/TMC4671.h:

@@ -18,9 +18,6 @@ int main(void)
 {
     interfaces_init();			// IO, UART, SPI
 //     init_LED();					// PWM
-	schalte_pumpe_ein(0);
-	_delay_ms(500);
-	schalte_pumpe_aus(0);
     devices_init();				// SD-Card, Motor
     speicher_init();			// Cocktails, Zutaten Tags
     ramp_init();				// Software-Ramp
@@ -34,7 +31,6 @@ int main(void)
     nextion_change_page(STARTANZEIGE);
     setze_startanzeige(aktuellesGetraenk);                  // Startanzeige des Displays setzen
 	Liste = ALLE;
-	
     // Mainroutine
     while (1)
     {
