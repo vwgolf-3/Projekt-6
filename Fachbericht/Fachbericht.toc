@@ -4,8 +4,8 @@
 \babel@toc {ngerman}{}
 \contentsline {section}{\numberline {1}Einleitung}{1}{section.1}
 \contentsline {section}{\numberline {2}Ausgangslage und Erweiterungen}{2}{section.2}
-\contentsline {paragraph}{Projekt 5}{2}{section*.5}
-\contentsline {paragraph}{Projekt 6}{2}{section*.6}
+\contentsline {paragraph}{Projekt 5}{2}{section*.6}
+\contentsline {paragraph}{Projekt 6}{2}{section*.7}
 \contentsline {section}{\numberline {3}Mechanik}{4}{section.3}
 \contentsline {subsection}{\numberline {3.1}Rahmen}{4}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Getr\IeC {\"a}nkeschlitten}{5}{subsection.3.2}
@@ -17,63 +17,63 @@
 \contentsline {subsection}{\numberline {5.1}Speisungen}{11}{subsection.5.1}
 \contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{11}{subsubsection.5.1.1}
 \contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{12}{subsubsection.5.1.2}
-\contentsline {paragraph}{Schema}{12}{section*.20}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{12}{section*.22}
+\contentsline {paragraph}{Schema}{12}{section*.21}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{12}{section*.23}
 \contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{13}{subsubsection.5.1.3}
-\contentsline {paragraph}{Schema}{14}{section*.25}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.27}
+\contentsline {paragraph}{Schema}{14}{section*.26}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.28}
 \contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{15}{subsubsection.5.1.4}
-\contentsline {paragraph}{Schema}{15}{section*.28}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{15}{section*.30}
+\contentsline {paragraph}{Schema}{15}{section*.29}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{15}{section*.31}
 \contentsline {subsection}{\numberline {5.2}Motor}{16}{subsection.5.2}
 \contentsline {subsubsection}{\numberline {5.2.1}FOC-Treiber}{16}{subsubsection.5.2.1}
-\contentsline {paragraph}{Schema}{18}{section*.34}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.36}
+\contentsline {paragraph}{Schema}{18}{section*.35}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.37}
 \contentsline {subsubsection}{\numberline {5.2.2}Gate-Treiber}{20}{subsubsection.5.2.2}
-\contentsline {paragraph}{Schema}{20}{section*.39}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.41}
+\contentsline {paragraph}{Schema}{20}{section*.40}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.42}
 \contentsline {subsubsection}{\numberline {5.2.3}H-Br\IeC {\"u}cke}{22}{subsubsection.5.2.3}
-\contentsline {paragraph}{Schema}{22}{section*.42}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.44}
+\contentsline {paragraph}{Schema}{22}{section*.43}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.45}
 \contentsline {subsubsection}{\numberline {5.2.4}BLDC}{23}{subsubsection.5.2.4}
-\contentsline {paragraph}{Schema}{23}{section*.45}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.46}
+\contentsline {paragraph}{Schema}{23}{section*.46}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.47}
 \contentsline {subsubsection}{\numberline {5.2.5}ABN-Encoder}{24}{subsubsection.5.2.5}
-\contentsline {paragraph}{Schema}{24}{section*.47}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.48}
+\contentsline {paragraph}{Schema}{24}{section*.48}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.49}
 \contentsline {subsection}{\numberline {5.3}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{24}{subsection.5.3}
 \contentsline {subsubsection}{\numberline {5.3.1}Pumpen}{25}{subsubsection.5.3.1}
-\contentsline {paragraph}{Schema}{25}{section*.49}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{25}{section*.51}
+\contentsline {paragraph}{Schema}{25}{section*.50}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{25}{section*.52}
 \contentsline {subsubsection}{\numberline {5.3.2}Durchflussmessger\IeC {\"a}te}{26}{subsubsection.5.3.2}
-\contentsline {paragraph}{Schema}{26}{section*.52}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{26}{section*.55}
+\contentsline {paragraph}{Schema}{26}{section*.53}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{26}{section*.56}
 \contentsline {subsection}{\numberline {5.4}Programmierschnittstellen}{26}{subsection.5.4}
-\contentsline {paragraph}{Handshake Mikrocontroller}{27}{section*.56}
-\contentsline {paragraph}{Handshake WiFi-Modul}{27}{section*.57}
-\contentsline {paragraph}{Schema}{28}{section*.60}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.62}
+\contentsline {paragraph}{Handshake Mikrocontroller}{27}{section*.57}
+\contentsline {paragraph}{Handshake WiFi-Modul}{27}{section*.58}
+\contentsline {paragraph}{Schema}{28}{section*.61}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.63}
 \contentsline {subsection}{\numberline {5.5}Benutzerschnittstellen}{29}{subsection.5.5}
 \contentsline {subsubsection}{\numberline {5.5.1}Display}{29}{subsubsection.5.5.1}
-\contentsline {paragraph}{Schema}{29}{section*.63}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.64}
+\contentsline {paragraph}{Schema}{29}{section*.64}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.65}
 \contentsline {subsubsection}{\numberline {5.5.2}WiFi-Modul}{30}{subsubsection.5.5.2}
-\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{30}{section*.65}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{32}{section*.70}
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{32}{section*.71}
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{32}{section*.73}
+\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{30}{section*.66}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{32}{section*.71}
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{32}{section*.72}
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{32}{section*.74}
 \contentsline {subsubsection}{\numberline {5.5.3}RFID}{33}{subsubsection.5.5.3}
-\contentsline {paragraph}{Schema}{33}{section*.74}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{34}{section*.76}
+\contentsline {paragraph}{Schema}{33}{section*.75}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{34}{section*.77}
 \contentsline {subsection}{\numberline {5.6}Beleuchtung}{34}{subsection.5.6}
-\contentsline {paragraph}{Schema}{34}{section*.78}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{35}{section*.80}
+\contentsline {paragraph}{Schema}{34}{section*.79}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{35}{section*.81}
 \contentsline {subsection}{\numberline {5.7}Mikrocontroller}{35}{subsection.5.7}
-\contentsline {paragraph}{Schema}{35}{section*.81}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{36}{section*.83}
+\contentsline {paragraph}{Schema}{35}{section*.82}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{36}{section*.84}
 \contentsline {subsection}{\numberline {5.8}SD-Karte}{36}{subsection.5.8}
-\contentsline {paragraph}{Schema}{37}{section*.85}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.87}
+\contentsline {paragraph}{Schema}{37}{section*.86}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.88}
 \contentsline {section}{\numberline {6}Inbetriebnahme}{38}{section.6}
 \contentsline {subsection}{\numberline {6.1}Speisungen}{38}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {6.1.1}12V Speisung}{38}{subsubsection.6.1.1}
@@ -93,18 +93,18 @@
 \contentsline {subsection}{\numberline {6.7}Beleuchtung}{47}{subsection.6.7}
 \contentsline {subsection}{\numberline {6.8}Motor}{48}{subsection.6.8}
 \contentsline {subsubsection}{\numberline {6.8.1}FOC-Treiber}{48}{subsubsection.6.8.1}
-\contentsline {paragraph}{Setup}{48}{section*.96}
+\contentsline {paragraph}{Setup}{48}{section*.97}
 \contentsline {subsubsection}{\numberline {6.8.2}Gate-Treiber, H-Br\IeC {\"u}cke und BLDC}{49}{subsubsection.6.8.2}
-\contentsline {paragraph}{Setup}{50}{section*.98}
+\contentsline {paragraph}{Setup}{50}{section*.99}
 \contentsline {subsubsection}{\numberline {6.8.3}ABN-Encoder}{51}{subsubsection.6.8.3}
 \contentsline {subsubsection}{\numberline {6.8.4}Software-Ramp}{52}{subsubsection.6.8.4}
 \contentsline {section}{\numberline {7}Software}{54}{section.7}
 \contentsline {subsection}{\numberline {7.1}Mikrocontroller}{54}{subsection.7.1}
 \contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{54}{subsubsection.7.1.1}
 \contentsline {subsubsection}{\numberline {7.1.2}Programmflussdiagramm}{56}{subsubsection.7.1.2}
-\contentsline {paragraph}{Bootloader-Section}{56}{section*.102}
-\contentsline {paragraph}{Init-Section}{56}{section*.103}
-\contentsline {paragraph}{Main-Loop}{56}{section*.104}
+\contentsline {paragraph}{Bootloader-Section}{56}{section*.103}
+\contentsline {paragraph}{Init-Section}{56}{section*.104}
+\contentsline {paragraph}{Main-Loop}{56}{section*.105}
 \contentsline {subsubsection}{\numberline {7.1.3}Speicherorganisation}{58}{subsubsection.7.1.3}
 \contentsline {subsection}{\numberline {7.2}WiFi-Modul}{58}{subsection.7.2}
 \contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{59}{subsubsection.7.2.1}
@@ -116,7 +116,7 @@
 \contentsline {subsection}{\numberline {8.1}Zielerreichung}{73}{subsection.8.1}
 \contentsline {section}{\numberline {9}Schlusswort}{73}{section.9}
 \contentsline {section}{\numberline {10}Ehrlichkeitserkl\IeC {\"a}rung}{73}{section.10}
-\contentsline {section}{Literatur}{75}{section*.126}
+\contentsline {section}{Literatur}{75}{section*.127}
 \contentsline {section}{\numberline {A}Programmierschnittstellen}{80}{appendix.A}
 \contentsline {subsection}{\numberline {A.1}Inbetriebnahme}{80}{subsection.A.1}
 \contentsline {subsubsection}{\numberline {A.1.1}AVRdude und stk500v2 (wiring)}{80}{subsubsection.A.1.1}
