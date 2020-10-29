@@ -1251,6 +1251,7 @@ void wait_until_position_reached(linear_ramp_t *ramp)
 {
     while (ramp->ramp_enable ==1 && stop == 0)
     {
+		Uart_Transmit_IT_PC("\r");
         computeRamp(ramp);
         if (check_Communication_Input_UART_1())             // Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
         {
@@ -1288,8 +1289,8 @@ uint32_t * set_prp(uint32_t * prp, uint8_t fuellmenge)
 void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 {
     // Geschwindigkeit und Beschleunigung während Zubereitung
-    uint32_t geschwindigkeit = 1200;
-    uint32_t beschleunigung = 1000;
+    uint32_t geschwindigkeit = 400;
+    uint32_t beschleunigung = 400;
 
     // Variabeln Positionsberechnung
     float ende_der_bahn = ramp->motor_umdrehungen_komplette_verschiebung * ramp->motor_faktor_eine_umdrehung;
@@ -1331,13 +1332,16 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 
 
 
+			Uart_Transmit_IT_PC("Pos calc\r");
 
             // Fahre an berechnete Position
             calculateRamp(beschleunigung, geschwindigkeit, val, val2, ramp);
-            wait_until_position_reached(ramp);
+ 			Uart_Transmit_IT_PC("Pos wait\r");
+           wait_until_position_reached(ramp);
             /*
             //          debug_message_2();
             */
+			Uart_Transmit_IT_PC("Pos erreicht\r");
 
 
             if (stop == 0)

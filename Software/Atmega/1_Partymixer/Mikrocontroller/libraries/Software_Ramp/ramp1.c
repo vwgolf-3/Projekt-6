@@ -190,7 +190,6 @@ void computeRamp(volatile linear_ramp_t * ramp)
 			case ACCELERATING:
 			position_func(ramp);
 			velocity_func(ramp);
-			iterate_timer(ramp);
 			if (ramp->ramp_timer >= (ramp->ramp_acceleration_time))
 			{
 				states = FULLSPEED;
@@ -204,7 +203,6 @@ void computeRamp(volatile linear_ramp_t * ramp)
 			case FULLSPEED:
 			position_func(ramp);
 			velocity_func(ramp);
-			iterate_timer(ramp);
 			if (ramp->ramp_timer >= (ramp->ramp_fullspeed_time))
 			{
 				states = BREAKING;
@@ -226,7 +224,6 @@ void computeRamp(volatile linear_ramp_t * ramp)
 			case BREAKING:
 			position_func(ramp);
 			velocity_func(ramp);
-			iterate_timer(ramp);
 			if (ramp->ramp_timer >= (ramp->ramp_acceleration_time))
 			{
 				states = IDLE;

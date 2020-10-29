@@ -17,12 +17,16 @@
 int main(void)
 {
     interfaces_init();			// IO, UART, SPI
-    init_LED();					// PWM
+//     init_LED();					// PWM
+	schalte_pumpe_ein(0);
+	_delay_ms(500);
+	schalte_pumpe_aus(0);
     devices_init();				// SD-Card, Motor
     speicher_init();			// Cocktails, Zutaten Tags
     ramp_init();				// Software-Ramp
 
-//     ramp_pwm_init();
+
+    ramp_pwm_init();
 
     Position = 0;
     compute = 0;
