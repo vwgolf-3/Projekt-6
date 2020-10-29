@@ -380,6 +380,7 @@ resetTMC4671_Encoder();
 //  tmc4671_writeInt(deb, TMC4671_INTERIM_DATA,                       0xFF030085);        // writing value 0xFF030085 = 0 = 0.0 to address 75 = 0x6E(INTERIM_DATA)
 //  tmc4671_writeInt(deb, TMC4671_INTERIM_ADDR,                       0x00000011);        // writing value 0x00000011 = 17 = 0.0 to address 76 = 0x6F(INTERIM_ADDR)
 
+// Openloop für finden von NULL:
 
 // Open loop settings
 tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
@@ -396,19 +397,18 @@ tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
 tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
 
 
-// Nac Links fahren bis endswit
-
-
+// Nach Links fahren bis endswitch
 // Rotate left
     tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
+	
+// Schnelles Abbremsen ermöglichen
+tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000AA3C);
 
 while (REF2_PIN & REF2_BIT)
 {
 	Uart_Transmit_IT_PC("While\r");
 }
 
-// Schnelles Abbremsen ermöglichen
-tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000AA3C);
 // Abbremsen
 tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
 _delay_ms(1000);
@@ -432,6 +432,11 @@ _delay_ms(1000);
 
 tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);					// Justieren des ABN-Encoders mit Feld
 tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);							// Uq / Ud Ext = 2000 == Anfangsspinner 1s
+
+// Feedback selection
+tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000003);					// Phi E ABN
+tmc4671_writeInt(0, TMC4671_VELOCITY_SELECTION, 0x00000009);				// Phi M ABN
+tmc4671_writeInt(0, TMC4671_POSITION_SELECTION, 0x00000009);				// Phi M ABN
 
 tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000003);             // Position Mode
 
