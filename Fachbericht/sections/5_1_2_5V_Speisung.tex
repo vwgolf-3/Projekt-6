@@ -18,7 +18,7 @@ Das Schema in Abbildung \ref{fig:Schema_Speisung_5V} ist wie bei der 12V Speisun
 
 Bei der 5V-Speisung wurde mittels R29 \& R31 ein Spannungsteiler realisiert, welcher das IC gemäss Kapitel \ref{subsubsec:12V Speisung} auf aktiv setzt.
 
-Das Widerstandsverhältnis von R41 \& R42, das die Ausgangsspannung definiert, ist gemäss Formel \ref{equ:Ausgangsspannung_12V} berechnet. Daraus resultiert für R41=301k$\Omega$ und für R42=57.6k$\Omega$, was einer Ausgangsspannung von 4.98V entspricht. Die Widerstände sollten in der Grössenordnung > 10k$\Omega$ gewählt werden, um unnötige Verluste zu vermeiden.  
+Das Widerstandsverhältnis von R41 \& R42, das die Ausgangsspannung definiert, ist gemäss Formel \ref{equ:Ausgangsspannung_12V} berechnet. Daraus resultiert für R41=301k$\Omega$ und für R42=57.6k$\Omega$, was einer Ausgangsspannung von 4.98V entspricht. 
 
 Beim Überspannungsschutz ist darauf geachtet worden, dass der Mikrocontroller nur in einem Spannungsbereich von 4.5V-5.5V betrieben werden darf. Die maximal verträgliche Eingangsspannung liegt laut Datenblatt bei 6V. Somit muss der Überspannungsschutz so gestaltet werden, dass die Schwelle von 6V nicht überschritten werden kann. Um dies zu erreichen, ist für R36=301k$\Omega$ und R37=53k$\Omega$ gewählt worden. Gemäss Formel \ref{equ:Vovp_12V} erhält man so eine Überspannungsschutzschwelle von 6V \cite[S.1]{atmel_atmel_2014}.
 
