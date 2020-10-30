@@ -14,7 +14,7 @@ void SD_init()
     // denn da wird der timer benoetigt!
     timer0_init();
 
-    Uart_Transmit_IT_PC("\nBootSD");
+    Uart_Transmit_IT_PC("\nBootSD\r");
 
     // sd/mmc config  **************************************************
     if( FALSE == mmc_init() ) {

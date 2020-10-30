@@ -78,6 +78,7 @@ void zutaten_init(void)
         // Prüfen ob File existiert
         if(verifyFile((uint8_t *)buff_init_textfiles_zutat))
         {
+			lese_textfile_in_zutat(count);
             if (aktuelle_zutat->kohlensaeure == 0)
             {
                 insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
@@ -222,9 +223,11 @@ void zutaten_init(void)
 
     insert_at_end_3(head_zutat_file_ohne, &number_list_zutaten, &head_list_node_zutaten, &tail_list_node_zutaten);
     display_from_beg_3(number_list_zutaten, &head_list_node_zutaten, &tail_list_node_zutaten);
+    Uart_Transmit_IT_PC("\r");
 
     insert_at_end_4(head_zutat_maschine_ohne, &number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
     display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+    Uart_Transmit_IT_PC("\r");
 }
 
 zutat_t *create_zutat()

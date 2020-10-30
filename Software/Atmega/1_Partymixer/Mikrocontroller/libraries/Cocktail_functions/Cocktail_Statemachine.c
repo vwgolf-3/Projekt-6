@@ -9,6 +9,7 @@
 
 void cocktail_check_command_display(int8_t page, int8_t button)
 {
+    nextion_disableButton("255");
     switch (page)
     {
     /*0x01 = 0d01*/
@@ -145,6 +146,7 @@ void cocktail_check_command_display(int8_t page, int8_t button)
         check_fluessanzeige4(button);
         break;
     }
+    nextion_enableButton("255");
 }
 
 void cocktail_check_command_ESP(int8_t page, int8_t button)
@@ -1148,7 +1150,10 @@ void check_erstanzeige1(uint8_t button)
                     - Counter vorverschieben
                     - String-Terminator setzen
         */
-        counter--;
+        if (counter > 0)
+        {
+            counter--;
+        }
         buff_name[counter] = '\0';
         break;
 
@@ -1185,6 +1190,7 @@ void check_erstanzeige1(uint8_t button)
                     - Listenabschnitt auf den Ersten setzen
                     - Zutaten in Liste schreiben
         */
+        buffer_getraenk_file_alle = actual_getraenk_file_alle;
 
         if (strlen(buff_name) == 0)
         {
@@ -1192,53 +1198,30 @@ void check_erstanzeige1(uint8_t button)
         }
         else
         {
+            nextion_change_page(RFIDFEHLER);
+
             // Aneinanderreihen zweier Listen
-            nextion_setText("nameeingtxt", "Überprüfe, ob Getränk exisiert.");
+            nextion_setText("fehlertxt", "Überprüfe, ob der Name des Cocktails schon exisiert.");
 
             // Pointer Beginn/Anfang/Aktuell/Return-(zutat_maschine_node_t)
-            file_node_t * tmp_zut_Maschine_head;
-            file_node_t * tmp_zut_file_actual;
+            actual_getraenk_file_alle = head_getraenk_file_alle;
 
-            // Speichern der Momentanen Pointer.
-            file_node_t * tmp_ohne_KS_head = head_zutat_file_ohne->prev;
-            file_node_t * tmp_mit_KS_head = head_zutat_file_mit->prev;
-            file_node_t * tmp_ohne_KS_tail = tail_zutat_file_ohne->next;
-            file_node_t * tmp_mit_KS_tail = tail_zutat_file_mit->next;
-
-            // Anfang und Ende der gesamten Liste
-            tmp_zut_Maschine_head = head_zutat_file_ohne;
-
-            // Äussere Verbindungen
-            tail_zutat_file_ohne->next = head_zutat_file_mit;
-            head_zutat_file_mit->prev = tail_zutat_file_ohne;
-
-            // Innere Verbindungen
-            tail_zutat_file_mit->next = head_zutat_file_ohne;
-            head_zutat_file_ohne->prev = tail_zutat_file_mit;
-
-            tmp_zut_file_actual = tmp_zut_Maschine_head;
             do
             {
-                lese_textfile_in_zutat(tmp_zut_file_actual->file);
-                if (strcmp(aktuelle_zutat->name, (char *)buff_name)==0)
+                lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
+                if (strcmp(aktuellesGetraenk->name, (char *)buff_name)==0 && vorhanden == 0)
                 {
+                    nextion_change_page(ERSTANZEIGE1);
                     vorhanden = 1;
-                    nextion_setText("neuefluesstxt", "Name schon vorhanden.");
+                    nextion_setText("nameeingtxt", "Name schon vorhanden.");
 
                 }
-                tmp_zut_file_actual = tmp_zut_file_actual->next;
-            } while (tmp_zut_file_actual != tmp_zut_Maschine_head);
-
-            head_zutat_file_ohne->prev =tmp_ohne_KS_head;
-            head_zutat_file_mit->prev = tmp_mit_KS_head;
-            tail_zutat_file_ohne->next = tmp_ohne_KS_tail;
-            tail_zutat_file_mit->next = tmp_mit_KS_tail;
-
+                actual_getraenk_file_alle = actual_getraenk_file_alle->next;
+            } while (actual_getraenk_file_alle != head_getraenk_file_alle);
         }
 
         if (vorhanden == 0)
         {
-            buffer_getraenk_file_alle = actual_getraenk_file_alle;
 
             concentrace_zutat_maschine_list();
 
@@ -1258,7 +1241,10 @@ void check_erstanzeige1(uint8_t button)
             begin_erstelle_liste_alle_zutaten(ERSTANZEIGE2, "zutat");
 
         }
+        actual_getraenk_file_alle = buffer_getraenk_file_alle;
+
         break;
+
     }
 
     /*      Immer ausführen
@@ -1362,7 +1348,7 @@ void check_loeschanzeige(uint8_t button)
         itoa(actual_getraenk_file_alle->file, (char *)buff, 10);
         strcat((char *) buff,(const char *)".txt");
 
-//         deleteFile((unsigned char *)buff);
+        deleteFile((unsigned char *)buff);
 
         if (actual_getraenk_file_alle == tail_getraenk_file_alle)
         {
@@ -1465,7 +1451,7 @@ void check_reinanzeige2(uint8_t button)
                          debug_message_1(val, val2);
             */
 
-        nextion_change_page(REINANZEIGE3);
+            nextion_change_page(REINANZEIGE3);
 
             Uart_Transmit_IT_PC("Pos calc\r");
 
@@ -1479,25 +1465,25 @@ void check_reinanzeige2(uint8_t button)
             Uart_Transmit_IT_PC("Pos erreicht\r");
             if (stop == 0)
             {
-	            schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
-	            uint16_t cnt = 0;
-	            while ((cnt < 2000))
-	            {
-		            if(check_Communication_Input_UART_1())
-		            {
-			            proceed_Communication_INPUT_UART_1();
-		            }
-		            cnt++;
-		            _delay_ms(1);
-	            }
+                schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
+                uint16_t cnt = 0;
+                while ((cnt < 2000))
+                {
+                    if(check_Communication_Input_UART_1())
+                    {
+                        proceed_Communication_INPUT_UART_1();
+                    }
+                    cnt++;
+                    _delay_ms(1);
+                }
             }
             schalte_pumpe_aus(tmp_zut_Maschine_actual->stelle);
             tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
         } while (tmp_zut_Maschine_actual != head_zutat_maschine_ohne);
-		    val = (float)tmc4671_getActualPosition(0)/1000;
+        val = (float)tmc4671_getActualPosition(0)/1000;
         calculateRamp(beschleunigung, geschwindigkeit, val, 0, ramp);
         wait_until_position_reached(ramp);
-		
+
         stop = 0;
         nextion_change_page(STARTANZEIGE);
         actual_getraenk_file_alle = head_getraenk_file_alle;
@@ -1777,7 +1763,6 @@ void check_fluessanzeige1(uint8_t button)
         }
         if (kohlensaeure_mode == 1)
         {
-            block_list_runter = 0;
             setze_fluessgkeit_in_position_mit(0, VOLL);
         }
         break;
@@ -1969,31 +1954,43 @@ void check_fluessanzeige2(uint8_t button)
             tail_zutat_file_mit->next = head_zutat_file_ohne;
             head_zutat_file_ohne->prev = tail_zutat_file_mit;
 
-            tmp_zut_file_actual = tmp_zut_file_tail;
-            do
+            if (strlen(buff_name) == 0)
             {
-                lese_textfile_in_zutat(tmp_zut_file_actual->file);
-                if (strcmp(aktuelle_zutat->name, (char *)buff_name)==0)
+                nextion_setText("neuefluesstxt", "Bitte mindestens ein Zeichen eingeben.");
+            }
+            else
+            {
+                nextion_change_page(RFIDFEHLER);
+
+                // Aneinanderreihen zweier Listen
+                nextion_setText("fehlertxt", "Überprüfe, ob der Name der Zutat schon exisiert.");
+
+                tmp_zut_file_actual = tmp_zut_file_tail;
+                do
                 {
-                    vorhanden = 1;
-                    nextion_setText("neuefluesstxt", "Name schon vorhanden.");
+                    lese_textfile_in_zutat(tmp_zut_file_actual->file);
+                    if (strcmp(aktuelle_zutat->name, (char *)buff_name)==0)
+                    {
+						nextion_change_page(FLUESSANZEIGE2);
+                        vorhanden = 1;
+                        nextion_setText("neuefluesstxt", "Name schon vorhanden.");
 
-                }
-                tmp_zut_file_actual = tmp_zut_file_actual->prev;
-            } while (tmp_zut_file_actual != tmp_zut_file_tail);
+                    }
+                    tmp_zut_file_actual = tmp_zut_file_actual->prev;
+                } while (tmp_zut_file_actual != tmp_zut_file_tail);
 
-            head_zutat_file_ohne->prev =tmp_ohne_KS_head;
-            head_zutat_file_mit->prev = tmp_mit_KS_head;
-            tail_zutat_file_ohne->next = tmp_ohne_KS_tail;
-            tail_zutat_file_mit->next = tmp_mit_KS_tail;
+                head_zutat_file_ohne->prev =tmp_ohne_KS_head;
+                head_zutat_file_mit->prev = tmp_mit_KS_head;
+                tail_zutat_file_ohne->next = tmp_ohne_KS_tail;
+                tail_zutat_file_mit->next = tmp_mit_KS_tail;
+            }
 
-        }
-
-        if (vorhanden == 0)
-            // Weiter zur nächsten Seite, der Name wird in der aktuellen Zutat gespeichert.
-        {
-            nextion_change_page(FLUESSANZEIGE4-1);
-            strcpy(aktuelle_zutat->name,(const char *)buff_name);
+            if (vorhanden == 0)
+                // Weiter zur nächsten Seite, der Name wird in der aktuellen Zutat gespeichert.
+            {
+                nextion_change_page(FLUESSANZEIGE4-1);
+                strcpy(aktuelle_zutat->name,(const char *)buff_name);
+            }
         }
         break;
     }
@@ -2064,25 +2061,25 @@ void check_fluessanzeige3(uint8_t button)
             strcat((char *)buff_filename, (const char *)".txt");
 
             // Sucher erste freie Stelle für Zutat
-//             if(readFile(VERIFY, (unsigned char *)buff_filename)!=1)
-//             {
-//                 // File abspeichern
-//                 strcpy((char *)buff_filename, (const char *)"Z");
-//                 itoa(count, (char *)buff_itoa, 10);
-//                 strcat((char *)buff_filename, (const char *)buff_itoa);
-//                 strcat((char *)buff_filename, (const char *)".txt");
-//                 writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
-//
-//                 if (aktuelle_zutat->kohlensaeure == 0)
-//                 {
-//                     insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
-//                 }
-//                 else
-//                 {
-//                     insert_at_end(count, &number_zutaten_mit, &head_zutat_file_mit, &tail_zutat_file_mit);
-//                 }
-//                 stop_suche = 1;
-//             }
+            if(verifyFile( (unsigned char *)buff_filename)!=1)
+            {
+                // File abspeichern
+                strcpy((char *)buff_filename, (const char *)"Z");
+                itoa(count, (char *)buff_itoa, 10);
+                strcat((char *)buff_filename, (const char *)buff_itoa);
+                strcat((char *)buff_filename, (const char *)".txt");
+                writeFile((unsigned char *)buff_filename, (unsigned char *)ptr);
+
+                if (aktuelle_zutat->kohlensaeure == 0)
+                {
+                    insert_at_end(count, &number_zutaten_ohne, &head_zutat_file_ohne, &tail_zutat_file_ohne);
+                }
+                else
+                {
+                    insert_at_end(count, &number_zutaten_mit, &head_zutat_file_mit, &tail_zutat_file_mit);
+                }
+                stop_suche = 1;
+            }
             count++;
         }
 
@@ -2111,18 +2108,20 @@ void check_fluessanzeige3(uint8_t button)
         {
             if (aktuelle_zutat->kohlensaeure == 1)
             {
-                nextion_change_page(FLUESSANZEIGE1);
+				nextion_change_page(FLUESSANZEIGE1);
                 nextion_setText("fluessbfrage", "Wird geprüft.");
                 setze_fluessgkeit_in_position_mit(8, VOLL);
                 block_list_runter = 0;
-                erstelle_liste_zutat_pos(actual_list_node_zutaten->_file, "fluessigkeit");
+                 block_list_hoch = 0;
+               erstelle_liste_zutat_pos(actual_list_node_zutaten->_file, "fluessigkeit");
             }
             else
             {
-                nextion_change_page(FLUESSANZEIGE1);
-                nextion_setText("fluessbfrage", "Bitte separat setzen.");
+				nextion_change_page(FLUESSANZEIGE1);
+                nextion_setText("fluessbfrage", "Bitte in Position setzen.");
                 block_list_runter = 0;
-                erstelle_liste_zutat_pos(actual_list_node_zutaten->_file, "fluessigkeit");
+                block_list_hoch = 0;
+               erstelle_liste_zutat_pos(actual_list_node_zutaten->_file, "fluessigkeit");
             }
         }
         break;

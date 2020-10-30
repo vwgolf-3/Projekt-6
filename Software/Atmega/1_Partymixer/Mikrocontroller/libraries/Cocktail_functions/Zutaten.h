@@ -16,6 +16,8 @@
 #include "../SD-Karte/SD_Karte.h"                              // Wird benötigt für Lese- und Schreiboperationen auf die SD-Karte
 #include "../Lists/Lists.h"
 
+extern void lese_textfile_in_zutat(uint8_t file);
+
 /******************************************************************************************************************************/
 // Physikalisch vorhandener Speicher für eine Zutat (Wird nur 1x initialisiert)
 /******************************************************************************************************************************/

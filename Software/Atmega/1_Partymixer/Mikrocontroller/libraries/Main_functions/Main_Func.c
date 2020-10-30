@@ -43,8 +43,9 @@ void interfaces_init(void)
 void devices_init(void)
 {
     nextion_change_page(25);
-    nextion_setText("fehlertxt", "SD-Initialisieren");
+    nextion_setText("fehlertxt", "SD Initialisieren");
     SD_init();                                           // SD-Karte initialisieren
+    nextion_setText("fehlertxt", "Motor initialisieren");
     initTMC6200();                                          // Gate-Treiber initialisieren
     initTMC4671_Encoder();                                  // FOC-Treiber initialisieren
 }

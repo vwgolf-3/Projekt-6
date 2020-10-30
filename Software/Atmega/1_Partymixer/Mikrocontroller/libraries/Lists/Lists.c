@@ -956,8 +956,8 @@ void display_from_beg_3(int * number, file_list_node_t ** first, file_list_node_
         Uart_Transmit_IT_PC("Die List-Noden für die Getraenke sind:\r");
         for (ptr_list_node = *first, i = 0; i < *number; i++,ptr_list_node = ptr_list_node->next)
         {
-            char buff[5] = {'\0'};
-            itoa(ptr_list_node->_file->file, (char *)buff, 10);
+			char buff[5] = {'\0'};
+			itoa(ptr_list_node->_file->file, (char *)buff, 10);
             Uart_Transmit_IT_PC((char *)buff);
             Uart_Transmit_IT_PC("\r");
         }

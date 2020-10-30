@@ -380,57 +380,59 @@ resetTMC4671_Encoder();
 //  tmc4671_writeInt(deb, TMC4671_INTERIM_DATA,                       0xFF030085);        // writing value 0xFF030085 = 0 = 0.0 to address 75 = 0x6E(INTERIM_DATA)
 //  tmc4671_writeInt(deb, TMC4671_INTERIM_ADDR,                       0x00000011);        // writing value 0x00000011 = 17 = 0.0 to address 76 = 0x6F(INTERIM_ADDR)
 
-// Openloop für finden von NULL:
+// Openloop, damit der Anfang der Schiene gefunden werden kann.
+    nextion_setText("fehlertxt", "Motor positionieren");
 
-// Open loop settings
+// Open loop settings (Mode, Acceleration, Velocity)
 tmc4671_writeInt(0, TMC4671_OPENLOOP_MODE, 0x00000000);
 tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
 tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFF6);
 
-// Feedback selection
+// Feedback selection (Phi_E Openloop, Nur Fluss wird initialisiert (U_d))
 tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000002);
 tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000FA0);
-
-// ===== Open loop test drive =====
 
 // Switch to open loop velocity mode
 tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);
 
-
-// Nach Links fahren bis endswitch
-// Rotate left
+// Rotate left towards endswitch
     tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0xFFFFFFC4);
 	
-// Schnelles Abbremsen ermöglichen
+// Schnelles Abbremsen ermöglichen für nach Erreichen des Endswitches
 tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000AA3C);
 
-while (REF2_PIN & REF2_BIT)
-{
-	Uart_Transmit_IT_PC("While\r");
-}
+// Warten bis Endswitch getätigt wurde.
+while (REF2_PIN & REF2_BIT);
 
-// Abbremsen
+// Abbremsen (schnell)
 tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
-_delay_ms(1000);
+_delay_ms(500);
+
+// Langsamere Berschleunigung einstellen
 tmc4671_writeInt(0, TMC4671_OPENLOOP_ACCELERATION, 0x0000003C);
-// Rotate left
+
+// Rotate left away from endswitch
 tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x0000003C);
 _delay_ms(500);
+
 // Stop
 tmc4671_writeInt(0, TMC4671_OPENLOOP_VELOCITY_TARGET, 0x00000000);
 _delay_ms(500);
-// Dann wird die Achse und ABN-Encoder genullt
+
+
+
+// Ist der Schlitten am Anfang der Schiene, ist dies die 0-Posution
 
 // Init encoder (mode 0)
 tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000008);				// Uq / Ud Ext
 tmc4671_writeInt(0, TMC4671_ABN_DECODER_PHI_E_PHI_M_OFFSET, 0x00000000);
 tmc4671_writeInt(0, TMC4671_PHI_E_SELECTION, 0x00000001);					// Phi E Ext
 tmc4671_writeInt(0, TMC4671_PHI_E_EXT, 0x00000000);
-tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00001770);							// Uq / Ud Ext = 2000 == Anfangsspinner 1s
+tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00001770);							// Uq / Ud Ext = 2000 = Rotor dem Fluss ausrichten. ==> Nullung des Rotors (ABN-Encoder) im Verhältnis zum Fluss.
 
-_delay_ms(1000);
+_delay_ms(1000);															// Warten bis der Rotor sich nicht mehr bewegt.
 
-tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);					// Justieren des ABN-Encoders mit Feld
+tmc4671_writeInt(0, TMC4671_ABN_DECODER_COUNT, 0x00000000);					// ==> Bei Angelegtem Fluss ABN-Encoder Nullen
 tmc4671_writeInt(0, TMC4671_UQ_UD_EXT, 0x00000000);							// Uq / Ud Ext = 2000 == Anfangsspinner 1s
 
 // Feedback selection

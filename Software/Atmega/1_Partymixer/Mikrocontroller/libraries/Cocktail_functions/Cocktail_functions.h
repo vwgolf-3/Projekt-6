@@ -77,6 +77,7 @@ void lese_textfile_in_zutat(uint8_t file);
 void setze_Posanzeige_Rot_Gruen(void);
 void setze_fluessgkeit_in_position_ohne(uint8_t nr, uint8_t status);
 void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status);
+void wait_until_position_reached(linear_ramp_t *ramp);
 
 void setze_aktuelle_Zutat_in_Maschine(uint8_t nr);
 uint8_t check_existence(uint8_t file);

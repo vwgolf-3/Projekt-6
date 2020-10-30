@@ -223,13 +223,14 @@ void rauflist_zutat_maschine(void)
 
 void delete_list_node_zutat_maschine(void)
 {
-    while (*number_list_zutat_maschine > 1)
-    {
-        delete_node_position_4(1, number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
-//      display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
-    }
-//  display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+	while (*number_list_zutat_maschine > 1)
+	{
+		delete_node_position_4(1, number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+		//      display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+	}
+	//  display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
 }
+
 
 
 void delete_file_node_alle(uint8_t art)
@@ -525,7 +526,7 @@ zutat_maschine_node_t * erstelle_liste_zutat(zutat_maschine_node_t * beginn_Masc
 
 file_node_t * erstelle_liste_zutat_pos(file_node_t * beginn_file, char * name_button)
 {
-    char buff[5] = {'\0'};
+//     char buff[5] = {'\0'};
 
     if (kohlensaeure_mode ==0 )
     {
@@ -563,8 +564,15 @@ file_node_t * erstelle_liste_zutat_pos(file_node_t * beginn_file, char * name_bu
             block_list_hoch = 1;
         }
 
+        char buff[5] = {'\0'};
+        itoa(tmp_file_actual->file, (char *)buff, 10);
+        Uart_Transmit_IT_PC((char *)buff);
+
         // Beginn-File einlesen.
         lese_textfile_in_zutat(tmp_file_actual->file);
+
+        Uart_Transmit_IT_PC(aktuelle_zutat->name);
+        Uart_Transmit_IT_PC("\r");
 
         // Schreibe Zahl und Name des Buttons in String
         itoa((count + 1),buff,10);
@@ -750,12 +758,11 @@ void setze_fluessgkeit_in_position_ohne(uint8_t nr, uint8_t status)
         nextion_setText("zubabfrage",buff);
     }
 
-
-
     // Setze Status der Zahlen
     setze_Posanzeige_Rot_Gruen();
-    delete_file_node_alle(ZUTAT_OHNE);
+    delete_list_node_files(ZUTAT);
     asm("nop");
+	
     // Initialisieren Listen-Variabeln
     block_list_hoch = 0;
     block_list_runter = 0;
@@ -772,7 +779,6 @@ void setze_fluessgkeit_in_position_ohne(uint8_t nr, uint8_t status)
     char buff97[20] = {'\0'};
     strcpy((char *)buff97, (const char *)"M.txt");
     writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
-
 }
 
 void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
@@ -835,7 +841,7 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
                 if (strcmp(tmp->name, aktuelle_zutat->name)==0)
                 {
                     strcpy(string_ptr, tmp->name);
-                    strcat(string_ptr, " entfernt.");
+                    strcat(string_ptr, " entfernt. Speichere.");
                     nextion_setText("fluessbfrage", string_ptr);
                     nextion_setText("zubabfrage", string_ptr);
 
@@ -870,7 +876,7 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
                     tmp->alkohol = aktuelle_zutat->alkohol;
                     tmp->kohlensaeure = aktuelle_zutat->kohlensaeure;
                     strcpy(string_ptr, tmp->name);
-                    strcat(string_ptr, " hinzugefügt.");
+                    strcat(string_ptr, " hinzugefügt. Speichere.");
                     nextion_setText("fluessbfrage", string_ptr);
                     nextion_setText("zubabfrage", string_ptr);
                     run = 0;
@@ -899,7 +905,7 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
     // Aktualisieren des Maschinen-Files
     char buff98[20] = {'\0'};
     strcpy((char *)buff98, (const char *)"M.txt");
-//     deleteFile((unsigned char *)buff98);
+    deleteFile((unsigned char *)buff98);
     char buff_file[512] = {'\0'};
     char * ptr = buff_file;
 
@@ -907,7 +913,9 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
 
     char buff97[20] = {'\0'};
     strcpy((char *)buff97, (const char *)"M.txt");
-//     writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
+    writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
+                    nextion_setText("fluessbfrage", "Bitte Flüssigkeit wählen.");
+
 }
 
 void setze_standardeinstellungen(void)
@@ -938,11 +946,11 @@ void setze_standardeinstellungen(void)
     // Lösche altes M.txt-file
     char buff5[20] = {'\0'};                            // Buffer für Filename "M.txt"
     strcpy((char *)buff5, (const char *)"M.txt");
-//     deleteFile((unsigned char *)buff5);
+    deleteFile((unsigned char *)buff5);
 
     // Schreibe neues M.txt-file
     strcpy((char *)buff5, (const char *)"M.txt");
-//     writeFile((unsigned char *)buff5, (unsigned char *)buff_string);
+    writeFile((unsigned char *)buff5, (unsigned char *)buff_string);
 
     char delimiter[] = ",\r\n";                         // Trennungszeichen definieren              (strtok)
     char *ptr;                                          // Pointer für Abschnitte initialisieren   (strtok)
@@ -1189,10 +1197,6 @@ void zubereitung_getraenk(uint8_t Menge)
     nextion_setText("zufallstxt", "Do stoht denn irgend e Text zum Getränk.");
     _delay_ms(1000);
     fuelle_getraenk(Menge, ramp);
-    nextion_change_page(BEREITANZEIGE);
-    _delay_ms(2000);
-    nextion_change_page(STARTANZEIGE);
-    setze_startanzeige(aktuellesGetraenk);
 }
 
 void debug_message_1(float val, float val2)
@@ -1249,13 +1253,15 @@ void check_stop()
 
 void wait_until_position_reached(linear_ramp_t *ramp)
 {
+    nextion_enableButton("255");
     while (ramp->ramp_enable ==1 && stop == 0)
     {
-		Uart_Transmit_IT_PC("\r");
+        Uart_Transmit_IT_PC("\r");
         computeRamp(ramp);
-        if (check_Communication_Input_UART_1())             // Check UART_1 (Nextion-Display), ob vollständige Übertragung stattgefunden hat (Ende = "0xFF 0xFF 0xFF")
+        if (check_Communication_Input_UART_1())
         {
-            proceed_Communication_INPUT_UART_1();               // Vollständige Übertragung des Displays verarbeiten
+            proceed_Communication_INPUT_UART_1();
+            nextion_enableButton("255");
             check_stop();
         }
     }
@@ -1313,6 +1319,7 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 
     stop = 0;
 
+    nextion_enableButton("255");
     // Switche durch alle Zutaten während stop == 0
     do
     {
@@ -1330,19 +1337,12 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                          debug_message_1(val, val2);
             */
 
-
-
-			Uart_Transmit_IT_PC("Pos calc\r");
-
             // Fahre an berechnete Position
             calculateRamp(beschleunigung, geschwindigkeit, val, val2, ramp);
- 			Uart_Transmit_IT_PC("Pos wait\r");
-           wait_until_position_reached(ramp);
+            wait_until_position_reached(ramp);
             /*
             //          debug_message_2();
             */
-			Uart_Transmit_IT_PC("Pos erreicht\r");
-
 
             if (stop == 0)
             {
@@ -1350,13 +1350,13 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 
                 // Berechne Menge, Ermittle momentanen Sensorwert, schalte Pumpe ein
                 uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)(*ptr+tmp_zut_Maschine_actual->stelle)) * (uint32_t)(tmp_zut_Maschine_actual->menge)/(uint16_t)100);
-                char buff[20] = {'\0'};
-                my_itoa(Menge, (char *) buff);
-                Uart_Transmit_IT_PC("Menge ");
-                Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
-                Uart_Transmit_IT_PC(": ");
-                Uart_Transmit_IT_PC((char *) buff);
-                Uart_Transmit_IT_PC("\r");
+//                 char buff[20] = {'\0'};
+//                 my_itoa(Menge, (char *) buff);
+//                 Uart_Transmit_IT_PC("Menge ");
+//                 Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+//                 Uart_Transmit_IT_PC(": ");
+//                 Uart_Transmit_IT_PC((char *) buff);
+//                 Uart_Transmit_IT_PC("\r");
                 uint8_t fuellen = 1;
                 uint8_t newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
                 schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
@@ -1368,7 +1368,8 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                     static uint8_t oldval=0;
                     static uint32_t count=0;
 
-                    newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
+//                     newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
+                    newval = newval ^ 0b00000001;
 
                     // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
                     if( !oldval && newval)
@@ -1381,15 +1382,15 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                             fuellen = 0;
                         }
 
-                        Uart_Transmit_IT_PC("Sensor: ");
-                        itoa(count, (char *)buff, 10);
-                        Uart_Transmit_IT_PC((char *) buff);
-                        Uart_Transmit_IT_PC("\r");
+//                         Uart_Transmit_IT_PC("Sensor: ");
+//                         itoa(count, (char *)buff, 10);
+//                         Uart_Transmit_IT_PC((char *) buff);
+//                         Uart_Transmit_IT_PC("\r");
 
 
 
 //                  Delay entfernen wenn mit Sensor gearbeitet wird.
-//                         _delay_ms(1);
+                        _delay_ms(5);
 
 
 
@@ -1397,6 +1398,7 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                         if (check_Communication_Input_UART_1())
                         {
                             proceed_Communication_INPUT_UART_1();
+                            nextion_enableButton("255");
                             check_stop();
                         }
                     }
@@ -1413,21 +1415,21 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
     if (stop == 1)
     {
         stop = 0;
-        nextion_change_page(ABBRUCHANZEIGE);
-        calculateRamp(100, 100, tmc4671_getActualPosition(0), 0, ramp);
+        nextion_setText("zufallstxt","Abbruch");
+        nextion_setText("abbruchzub","Motor stop");
+        calculateRamp(100, 100, val, 0, ramp);
         wait_until_position_reached(ramp);
 
-
-// Switch to torque mode
-        tmc4671_writeInt(0, TMC4671_MODE_RAMP_MODE_MOTION, 0x00000001);
-
-//Stop
-        tmc4671_writeInt(0, TMC4671_PID_TORQUE_FLUX_TARGET, 0x00000000);
-
-        lese_textfile_in_getraenk(head_getraenk_file_alle->file);
+        if (stop == 1)
+        {
+            nextion_setText("zufallstxt","Motor stop");
+            _delay_ms(5000);
+            nextion_setText("zufallstxt","Maschine neu starten");
+            while(1);
+        }
+        _delay_ms(100);
         nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
-        stop = 0;
     }
     else
     {
@@ -1438,8 +1440,29 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         calculateRamp(beschleunigung, geschwindigkeit, val, 0, ramp);
         wait_until_position_reached(ramp);
 
+        if (stop == 1)
+        {
+            stop = 0;
+            nextion_setText("zufallstxt","Abbruch");
+            nextion_setText("abbruchzub","Motor stop");
+            calculateRamp(100, 100, 1000, 0, ramp);
+            stop = 0;
+            wait_until_position_reached(ramp);
+            if (stop == 1)
+            {
+                nextion_setText("zufallstxt","Motor stop");
+                val = tmc4671_getActualPosition(0);
+                tmc4671_setAbsolutTargetPosition(0,val);
+                nextion_setText("zufallstxt","Maschine neu starten");
+                _delay_ms(5000);
+            }
+            nextion_change_page(STARTANZEIGE);
+            setze_startanzeige(aktuellesGetraenk);
+        }
         char string[256] = {'\0'};
         char * string_ptr = string;
+        char buff[10] = {'\0'};
+        char * ftoa_ptr = buff;
         uint8_t externes_Getraenk_flag = 0;
 
         strcpy(string_ptr, "Zutaten von Hand einfüllen:\\r");
@@ -1448,14 +1471,22 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         {
             if (tmp_zut_Maschine_actual->menge > 0)
             {
+                val=(float)((uint32_t)round(fuellmenge * tmp_zut_Maschine_actual->menge *10))/1000 + 0.001;
+                if (val < 1)
+                {
+                    strcat(string_ptr, "0");
+                }
+
+                ftoa(val, ftoa_ptr, 2);
+                strcat(string_ptr, ftoa_ptr);
+                strcat(string_ptr, "dl");
+
+                for (int count2 = 0 ; count2<5 ; count2++)
+                {
+                    strcat(string_ptr, "-");
+                }
                 strcat(string_ptr, tmp_zut_Maschine_actual->name);
-                strcat(string_ptr, ": ");
-                float val = (float)tmp_zut_Maschine_actual->menge * (float)fuellmenge / (float)100;
-                char itoa_buff[10] = {'\0'};
-                char * itoa_ptr = itoa_buff;
-                ftoa(val, itoa_ptr, 1);
-                strcat(string_ptr, itoa_ptr);
-                strcat(string_ptr, "dl\\r");
+                strcat(string_ptr, "\\r");
                 externes_Getraenk_flag = 1;
             }
             tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
@@ -1465,6 +1496,11 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
             nextion_change_page(INFOANZEIGE);
             nextion_setText("infotxt", string_ptr);
             _delay_ms(5000);
+            nextion_change_page(BEREITANZEIGE);
+            _delay_ms(2000);
+            nextion_change_page(STARTANZEIGE);
+            setze_startanzeige(aktuellesGetraenk);
+            stop = 0;
         }
 
     }
@@ -1967,41 +2003,29 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
     char string[512] = {'\0'};
     char buff[10] = {'\0'};
     char * ftoa_ptr = buff;
-    uint8_t first = 1;
-    float val;
-    float val2;
+    float val = 0;
+    float val2 = 0;
     tmp_zut_Maschine_actual = tmp_zut_Maschine_head;
     char * string_ptr = string;
     do
     {
         if (tmp_zut_Maschine_actual->menge > (uint8_t)0)
         {
-
-            if ( first == 1)
-            {
-                val = (((float)ceil(tmp_zut_Maschine_actual->menge * 3 / 10)) + (float)1)/(float)10 + 0.1;
-                val2 = (((float)ceil(tmp_zut_Maschine_actual->menge * 5 / 10)) + (float)1)/(float)10 ;
-                first = 0;
-            }
-            else
-            {
-                val = (float)round(tmp_zut_Maschine_actual->menge * 3 / 10)/(float)10;
-                val2 = (float)round(tmp_zut_Maschine_actual->menge * 5 / 10)/(float)10;
-            }
+            val=(float)((uint32_t)round(3 * (float)tmp_zut_Maschine_actual->menge/(float)100 *1000))/1000 + 0.001;
+            val2=(float)((uint32_t)round(5 * (float)tmp_zut_Maschine_actual->menge/(float)100 *1000))/1000 + 0.001;
             if (val < 1)
             {
                 strcat(string_ptr, "0");
             }
 
-
-            ftoa(val, ftoa_ptr, 1);
+            ftoa(val, ftoa_ptr, 2);
             strcat(string_ptr, ftoa_ptr);
             strcat(string_ptr, "dl / ");
             if (val2 < 1)
             {
                 strcat(string_ptr, "0");
             }
-            ftoa(val2, ftoa_ptr, 1);
+            ftoa(val2, ftoa_ptr, 2);
             strcat(string_ptr, ftoa_ptr);
             strcat(string_ptr, "dl");
 
@@ -2011,7 +2035,6 @@ void erstelle_Zutatenliste(getraenk_t * anzeige_getraenk)
             }
             strcat(string_ptr, tmp_zut_Maschine_actual->name);
             strcat(string_ptr, "\\r");
-
         }
         tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->prev;
     } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_head);
@@ -2429,14 +2452,13 @@ void ESP_Getraenk(void)
     Uart_Transmit_IT_PC("\rCocktail: ");
     Uart_Transmit_IT_PC(ptr);
 
-    actual_getraenk_file_alle = tail_getraenk_file_alle;
+    actual_getraenk_file_alle = head_getraenk_file_alle;
     lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
 
     while (strcmp(aktuellesGetraenk->name, ptr)!=0)
     {
-        actual_getraenk_file_alle = actual_getraenk_file_alle->prev;
+        actual_getraenk_file_alle = actual_getraenk_file_alle->next;
         lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
-        Uart_Transmit_IT_PC("While\r");
     }
     nextion_change_page(ZUBABFRAGE);
 }
@@ -2531,18 +2553,18 @@ void Getraenk_erstellt()
         char buff[15] = {'\0'};
         itoa(count, (char *)buff,10);
         strcat((char *)buff, (const char *)".txt");
-//         if(readFile(VERIFY, (unsigned char *)buff)!=1)
-//         {
-//             itoa(count, (char *)buff,10);
-//             strcat((char *)buff, (const char *)".txt");
-//             writeFile((unsigned char *)buff, (unsigned char *)ptr2);
-//
-//             if(check_existence(count))
-//             {
-//                 insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
-//             }
-//             count = COUNT_UNTIL;
-//         }
+        if(verifyFile((unsigned char *)buff)!=1)
+        {
+            itoa(count, (char *)buff,10);
+            strcat((char *)buff, (const char *)".txt");
+            writeFile((unsigned char *)buff, (unsigned char *)ptr2);
+
+            if(check_existence(count))
+            {
+                insert_at_end(count, &number_getraenk_alle, &head_getraenk_file_alle, & tail_getraenk_file_alle);
+            }
+            count = COUNT_UNTIL;
+        }
     }
     actual_getraenk_file_alle = buffer2_getraenk_file_alle;
     lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
