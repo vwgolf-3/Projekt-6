@@ -19,11 +19,11 @@ Damit der Mikrocontroller sich mit avrdude programmieren lässt, müssen einige 
 \label{tab:Fuse_und_Lock-Bits}
 \end{table}
 
-Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (ATMega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann. \textit{https://www.instructables.com/}. \cite{vidmofollow_turn_2017}
+Das Setzen der Fuse- und Lock-Bits sowie das Brennen des Bootloaders kann mit einem AVR MKII Programmer in Atmel Studio gemacht werden. Alternativ gibt es einen Weg, den USB-Treiber (ATMega16U2) eines Arduino Uno mit einer entsprechenden Firmware zu laden, sodass dieser als Programmer verwendet werden kann  \cite{vidmofollow_turn_2017}.
 
 \subsubsection{AVRdude in Atmel Studio einbinden}\label{subsubsec:avrdude_in_atmelstudio_einbinden}
 
-Von \textit{http://savannah.gnu.org/} kann eine Datei heruntergeladen welche \textcolor{blue}{avrdude-6.3-mingw32.zip} heisst. Der gleichnahmige Ordner wird im Ordner \textcolor{blue}{C:\textbackslash Tools} gespeichert. \cite{savannahgnuorg_index_2016}
+Von \textit{http://savannah.gnu.org/} kann eine Datei heruntergeladen welche \textcolor{blue}{avrdude-6.3-mingw32.zip} heisst \cite{savannahgnuorg_index_2016}. Der gleichnahmige Ordner wird im Ordner \textcolor{blue}{C:\textbackslash Tools} gespeichert. 
 
 In AtmelStudio den Reiter ''\textcolor{blue}{Tools\textrightarrow External Tools}'' ausgewählen und ein neues Tool hinzugefügen. Im Falle des ATMega2560 werden die Commands gemäss Tabelle \ref{tab:AVRdude_commands} eingegeben:
 

@@ -36,7 +36,7 @@
 \BOOKMARK [2][-]{subsection.8.3}{8.3 Zielerreichung}{section.8}% 36
 \BOOKMARK [1][-]{section.9}{9 Pers\366nliches Schlusswort}{}% 37
 \BOOKMARK [1][-]{section.10}{10 Ehrlichkeitserkl\344rung}{}% 38
-\BOOKMARK [1][-]{section*.122}{Literatur}{}% 39
+\BOOKMARK [1][-]{section*.131}{Literatur}{}% 39
 \BOOKMARK [1][-]{appendix.A}{A Programmierschnittstellen}{}% 40
 \BOOKMARK [2][-]{subsection.A.1}{A.1 Inbetriebnahme}{appendix.A}% 41
 \BOOKMARK [1][-]{appendix.B}{B Mikrocontroller}{}% 42
@@ -46,20 +46,18 @@
 \BOOKMARK [1][-]{appendix.D}{D LED}{}% 46
 \BOOKMARK [2][-]{subsection.D.1}{D.1 Inbetriebnahme}{appendix.D}% 47
 \BOOKMARK [1][-]{appendix.E}{E FOC-Treiber}{}% 48
-\BOOKMARK [2][-]{subsection.E.1}{E.1 Teilschemae Breakout-Board}{appendix.E}% 49
+\BOOKMARK [2][-]{subsection.E.1}{E.1 Teilschemas Breakout-Board}{appendix.E}% 49
 \BOOKMARK [2][-]{subsection.E.2}{E.2 Inbetriebnahme}{appendix.E}% 50
-\BOOKMARK [1][-]{appendix.F}{F Gate-Treiber}{}% 51
-\BOOKMARK [2][-]{subsection.F.1}{F.1 Standard-Schaltkreis}{appendix.F}% 52
-\BOOKMARK [2][-]{subsection.F.2}{F.2 Blockdiagramm}{appendix.F}% 53
-\BOOKMARK [2][-]{subsection.F.3}{F.3 Inbetriebnahme}{appendix.F}% 54
-\BOOKMARK [1][-]{appendix.G}{G H-Br\374cke}{}% 55
-\BOOKMARK [2][-]{subsection.G.1}{G.1 Inbetriebnahme}{appendix.G}% 56
-\BOOKMARK [1][-]{appendix.H}{H ABN-Encoder}{}% 57
-\BOOKMARK [2][-]{subsection.H.1}{H.1 Pinout and Interface}{appendix.H}% 58
-\BOOKMARK [2][-]{subsection.H.2}{H.2 Inbetriebnahme}{appendix.H}% 59
-\BOOKMARK [2][-]{subsection.H.3}{H.3 PI-Regler}{appendix.H}% 60
-\BOOKMARK [1][-]{appendix.I}{I Software Ramp}{}% 61
-\BOOKMARK [2][-]{subsection.I.1}{I.1 Implementierung}{appendix.I}% 62
-\BOOKMARK [2][-]{subsection.I.2}{I.2 Matlab-Script}{appendix.I}% 63
-\BOOKMARK [1][-]{appendix.J}{J Print}{}% 64
-\BOOKMARK [2][-]{subsection.J.1}{J.1 KiCad Schema}{appendix.J}% 65
+\BOOKMARK [2][-]{subsection.E.3}{E.3 Register Openloop}{appendix.E}% 51
+\BOOKMARK [1][-]{appendix.F}{F Gate-Treiber}{}% 52
+\BOOKMARK [2][-]{subsection.F.1}{F.1 Standard-Schaltkreis}{appendix.F}% 53
+\BOOKMARK [2][-]{subsection.F.2}{F.2 Blockdiagramm}{appendix.F}% 54
+\BOOKMARK [2][-]{subsection.F.3}{F.3 Inbetriebnahme}{appendix.F}% 55
+\BOOKMARK [2][-]{subsection.F.4}{F.4 Register Gate-Treiber}{appendix.F}% 56
+\BOOKMARK [1][-]{appendix.G}{G ABN-Encoder}{}% 57
+\BOOKMARK [2][-]{subsection.G.1}{G.1 Register Closed-Loop}{appendix.G}% 58
+\BOOKMARK [1][-]{appendix.H}{H Software Ramp}{}% 59
+\BOOKMARK [2][-]{subsection.H.1}{H.1 Implementierung}{appendix.H}% 60
+\BOOKMARK [2][-]{subsection.H.2}{H.2 Matlab-Script}{appendix.H}% 61
+\BOOKMARK [1][-]{appendix.I}{I Print}{}% 62
+\BOOKMARK [2][-]{subsection.I.1}{I.1 KiCad Schema}{appendix.I}% 63

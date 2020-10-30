@@ -6,22 +6,24 @@ Der ABN-Encoder wird mit einem Testprogramm in Betrieb genommen. Das Programm in
 Es wird erwartet, dass der FOC-Treiber im Positionsmodus im ersten Moment stehen bleibt. Wird jetzt der Rotor gedreht, muss der FOC-Treiber die Abweichung nachkorrigieren. Wird dem Motor eine andere Position vorgegeben, muss der Motor sich an die gewünschte Position fahren und dort halten.
 
 Die Werte der PI-Regler wurden Experimentell bestimmt. Folgende Werte wurden dabei ermittelt:
-
-\begin{tabularx}{\linewidth}{|l|X|X|l|}
+\begin{table}
+\begin{tabularx}{\linewidth}{|l|X|X|}
 \hline
-\textbf{Regelkreis} & \textbf{P-Anteil} & \textbf{I-Anteil} & \textbf{Nachstellzeit}\\
+\textbf{Regelkreis} & \textbf{P-Anteil} & \textbf{I-Anteil}\\
 \hline
-Drehmoment & 100 & 1200 & \\
+Drehmoment & 700 & 1000\\
 \hline
-Fluss & 100 & 1200 & \\
+Fluss & 700 & 1000\\
 \hline
-Geschwindigkeit & 2000 & 300 & \\
+Geschwindigkeit & 2000 & 300\\
 \hline
-Position & 100 & 0 & \\
+Position & 2000 & 0\\
 \hline
 \end{tabularx}
+\caption{PI-Werte}
+\label{tab:PI}
+\end{table}
 
-\todo{Nachstellzeit noch eintragen und Werte anpassen}
 
 Die Limits wurden folgendermassen gesetzt:
 
@@ -57,6 +59,39 @@ Vorgehen:
 
 \end{enumerate}
 
-Ergebnis: Nach der Initialisierung wird zuerst ein Testdrive ausgeführt, welcher den Rotor mit hoher Geschwindigkeit eine Sekund nach links und eine Sekunde nach Rechts drehen lässt. Danach wird der Motor in den Positionsmodus versetzt, wordurch der FOC-Treiber bei einer Störung von ausserhalb nachkorrigiert, um wieder auf die Ursprungsposition zu kommen. Wird über den seriellen Monitor '1' eingegeben, fährt der Motor 12 verschiedene Positionen an und dann wieder zurück zur Ursprungsposition. Wird Enter gedrückt, wird die Position inkrementiert. Wird '0' gedrückt, fährt der Motor an die Ursprungsposition zurück.
+Ergebnis: Nach der Initialisierung wird zuerst ein Testdrive ausgeführt, welcher den Rotor mit hoher Geschwindigkeit eine Sekund nach links und eine Sekunde nach Rechts drehen lässt. Danach wird der Motor in den Positionsmodus versetzt, wordurch der FOC-Treiber bei einer Störung von ausserhalb nachkorrigiert, um wieder auf die Ursprungsposition zu kommen. Wird über den seriellen Monitor '1' eingegeben, fährt der Motor 12 verschiedene Positionen an und dann wieder zurück zur Ursprungsposition. Wird Enter gedrückt, wird die Position inkrementiert. Wird '0' gedrückt, fährt der Motor an die Ursprungsposition zurück. Abbildung \ref{fig:AMT322S-V_Signal} zeigt die Signale des Encoders während der Bewegung.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{graphics/AMT322S-V_Signal}
+	\caption{Encoder-Interface Pinout-Table. Gelb = A, Blau = B, N = Magenta}
+	\label{fig:AMT322S-V_Signal}
+\end{figure}
+
+Die Regler wurden in der TMCL-IDE ermittelt. Eine Tabelle mit den genauen Parametern und Registern ist im Anhang Kapitel \ref{Appendix:ABN_Register} zu finden. Die zu diesem Zeitpunkt ermittelten PI-Werte waren gut für eine erste Inbetriebnahme, mussten jedoch für den Partymixer angepasst werden. Tabelle \ref{tab:PI} zeigt die Werte, wie sie im Partymixer sind.
+
+Für die folgenden Bilder ist zu beachten, dass sie mit den Werten aus dem Anhang Kapitel \ref{Appendix:ABN_Register} gemacht wurden, so wurde an die Werte herangetastet. Abbildung \ref{fig:PI_Position_graph_0} zeigt einen Sprung des Stromes von 0mA nach 2000mA. Der aktuelle Strom wird so vom Stromregelkreis geregelt, dass er schnell in die Höhe schiesst und keine Überschwinger hat. In Abbildung \ref{fig:PI_Velocity_Graph_0} ist das selbe Verhalten für die Geschwindigkeit zu sehen. Der Geschwindigkeitsregelkreis lässt die Geschwindigkeit hochschnellen und hat keine Überschwinger. Da der Geschwindigkeitsregelkreis ein reiner P-Regler ist, können gar keine Überschwinger entstehen, was sich in Abbildung \ref{fig:PI_Position_graph_0} zeigt. Je näher der Rotor der Endposition kommt, desto weniger hat er das Verlangen nachzukorrigieren.
+
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.8\textwidth]{graphics/PI_Torque_Graph_0}
+\caption{Drehmoment-Graph bei einem Sprung von 0 bis 2000 mA.}
+\label{fig:PI_Torque_Graph_0}
+\end{figure}
+
+
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.8\textwidth]{graphics/PI_Velocity_Graph_0}
+\caption{Geschwindigkeits-Graph bei einem Sprung von 0 bis 1000 Umdrehungen pro Minute.}
+\label{fig:PI_Velocity_Graph_0}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.8\textwidth]{graphics/PI_Position_graph_0}
+\caption{Positions-Graph bei einem Sprung von jeweils 100000 Schritten.}
+\label{fig:PI_Position_graph_0}
+\end{figure}
 
 Die Problematik besteht in der Kontrolle des Motors. So wie die Regler ausgelegt sind, kann der Schlitten, welcher vom Motor bewegt wird, nicht sorgfältig genug bewegt werden. Abhilfe schafft eine Software-Ramp, welche den Weg unter Vorgabe einer Höchstgeschwindigkeit und -Beschleunigung berechnet. Die Ramp gibt dem FOC-Treiber schrittweise die Positionen vor, wodurch dur Motor für den Bruchteil einer Sekunde wartet, bis die nächste Position vorgegeben wird.

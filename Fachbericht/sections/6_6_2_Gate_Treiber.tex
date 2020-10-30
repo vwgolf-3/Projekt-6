@@ -39,8 +39,29 @@ Vorgehen:
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 \end{enumerate}
 
-Ergebnis: Die Gate-CTRL-Signale liegen an und die H-Brücke schaltet den Leistungsteil, woran der Motor jetzt angeschlossen werden kann.
+Ergebnis: Die Gate-CTRL-Signale liegen an. Abbildung \ref{fig:TMC6200_Gate_Signal_H} zeigt die High-Side-Gatesignale, Abbildung \ref{fig:TMC6200_Gate_Signal_L} die Low-Side-Gatesignale. Sie führen auf die MOSFET-Gates, welche die H-Brücke bilden und den Leistungsteil schalten.
 
-Im Anhang Kapitel \ref{Appendix:TMC6200_Gate_Ctrl} sind die aufbereiteten Gate-CTRL-Signale zu sehen und in Kapitel \ref{Appendix:H_Bruecke_Schaltsignale} die Messung der Schaltsignale. Alle Signale sind sauber.
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.8\textwidth]{graphics/TMC6200_Gate_Signal_H}
+\caption{High-Side-Gatesignale von Gate-Treiber auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC6200_Gate_Signal_H}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = 0.8\textwidth]{graphics/TMC6200_Gate_Signal_L}
+\caption{Low-Side-Gatesignale von Gate-Treiber auf H-Brücke. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC6200_Gate_Signal_L}
+\end{figure}
+\newpage
+Die Abbildung \ref{fig:OpenLoop_TestDrive2} zeigt die Schaltsignale am Ausgang der H-Brücke.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{graphics/OpenLoop_TestDrive2}
+	\caption{Schaltsignale während dem Openloop Testdrive. Gelb = U, Blau = V, Magenta = W}
+	\label{fig:OpenLoop_TestDrive2}
+\end{figure}
 
 Wird der Motor angeschlossen und der Mikrocontroller neu gestartet, der Motor sich mit der vorgegebenen Open-Loop-Geschwindigkeit.

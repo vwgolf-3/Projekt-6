@@ -1556,7 +1556,7 @@ void check_zubbildschirm(uint8_t button)
                 - Setze stop-Flag = 1 im Zubereitungsprozess
     */
     case ABBRUCHZUB:
-        stop = 1;
+//         stop = 1;
         break;
     }
 }

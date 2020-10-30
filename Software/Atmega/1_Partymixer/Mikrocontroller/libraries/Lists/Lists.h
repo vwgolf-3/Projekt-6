@@ -15,7 +15,7 @@
 
 #include <stdlib.h>
 
-#define COUNT_UNTIL 40
+#define COUNT_UNTIL 100
 
 /******************************************************************************************************************************/
 // Die Zutaten Files werden auch nach Kohensäure sortiert.

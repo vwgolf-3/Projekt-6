@@ -50,7 +50,7 @@ In Abbildung \ref{fig:Schema_ESP32_Devkit} ist eine Backup-Lösung zu sehen, wo 
 \end{figure}
 
 Die Korrekturen an der Hardware wurden Rot eingezeichnet. Die SPI-Verbindung vom Mikrocontroller zum Wireless-/Bluetoothmodul, welche in Abbildung \ref{fig:Schema_ESP32} zu sehen ist, ist aufgetrennt, da die Leitungen den Bootvorgang des Wireless-/Bluetoothmoduls stören. Aufgrund der funktionierenden Schaltung des ESP32-Wroom und den Störungen, die das RFID-Modul auf dem SPI-Bus verursachte, ist das RFID-Modul am ESP32 über einen separaten SPI-Bus eingesteckt. Deswegen wird die Kommunikation mit dem RFID-Modul vom ESP32 übernommen. Aus dem selben Grund werden die Header-Pins dazu verwendet, eine steckbare Schnittstelle zwischen Mikrocontroller und FOC-Treiber zu bilden. Dazu sind die Leitungen zum ESP32 aufgetrennt und die Pins mit dem Mikrocontroller verbunden.
-\newpage
+
 \paragraph{Funktionsbeschrieb der Schaltung (Wireless-/Bluetoothmodul)}\mbox{}
 
 Das Wireless-/Bluetoothmodul ESP32 ist mit MOD1 beschriftet. Die Kondensatoren C9 und C10 dienen zur Glättung der Eingangsspannung. Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high), der Pull-Up-Widerstand R7 zieht diese Leitung defaultmässig auf 5V. Die Widerstände R8, R9, R10 und R11 sind an die Strapping-Pins angeschlossen.

@@ -365,7 +365,7 @@ resetTMC4671_Encoder();
 
     tmc4671_writeInt(deb, TMC4671_PID_TORQUE_P_TORQUE_I,              0x02BC03E8);        // writing value 0x01F403E8 = 32769000 = 0.0 to address 57 = 0x56(PID_TORQUE_P_TORQUE_I)
     tmc4671_writeInt(deb, TMC4671_PID_FLUX_P_FLUX_I,                  0x02BC03E8);        // writing value 0x01F403E8 = 32769000 = 0.0 to address 56 = 0x54(PID_FLUX_P_FLUX_I)
-    tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_P_VELOCITY_I,          0x07D001C2);        // writing value 0x05DC01F4 = 98304500 = 0.0 to address 58 = 0x58(PID_VELOCITY_P_VELOCITY_I)
+    tmc4671_writeInt(deb, TMC4671_PID_VELOCITY_P_VELOCITY_I,          0x07D0012C);        // writing value 0x05DC01F4 = 98304500 = 0.0 to address 58 = 0x58(PID_VELOCITY_P_VELOCITY_I)
     tmc4671_writeInt(deb, TMC4671_PID_POSITION_P_POSITION_I,          0x07D00000);        // writing value 0x01F40000 = 32768000 = 0.0 to address 59 = 0x5A(PID_POSITION_P_POSITION_I)
 
 //  tmc4671_writeInt(deb, TMC4671_CONFIG_DATA,                        0x00000000);        // writing value 0x00000000 = 0 = 0.0 to address 51 = 0x4D(CONFIG_DATA)

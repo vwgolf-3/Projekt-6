@@ -29,6 +29,8 @@
 #include "../Software_SPI/Software_SPI.h"
 #include "../Software_Ramp/ramp1.h"
 
+extern void nextion_setText(char * object, char * text);
+
 typedef struct
 {
 	uint16_t  startVoltage;

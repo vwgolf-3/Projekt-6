@@ -5,7 +5,7 @@
 Die Software-Ramp wird mit einem Testprogramm in Betrieb genommen. Das Programm initialisiert die benötigte Hardware des Mikrocontrollers (UART, SPI, Pins), enthält die Library des FOC-Treibers, des Gate-Treibers und der Software-Ramp und ermöglicht das Debugen über die serielle Schnittstelle. Durch eine periodische Iteration über die Zeit gibt die Ramp dem FOC-Treiber schrittweise die berechnete Position vor. Die Endposition, die Geschwindigkeit und die Beschleunigung der Ramp sind einfach skalierbar, was eine schnellere Einbettung in das Gesamtsystem ermöglicht. Das Matlab-Script \textit{GenTraj.m} von Richard Bearee war Grundlage für die Software Ramp. Das Script enthält Funktionen, welche nur schwer mit dem Mikrocontroller umzusetzen sind. Deshalb wurde zur Vorbereitung ein eigenes Matlab-Script geschrieben, mit welchem der Algorithmus in C übersetzt werden kann. Dieses ist im Anhang Kapitel \ref{Appendix:Ramp_Matlab_Script} zu sehen. Es ist zu beachten, dass der Jerk nicht in die Software des Mikrocontrollers implementiert wurde. Einen theoretischen Teil zur Software Ramp ist im Anhang Kapitel \ref{Appendix:Software_Ramp_Theorie} zu finden.
 
 Es wird erwartet, dass sich der Motor mit der Software-Ramp langsam und kontrolliert dreht. Dazu muss über den seriellen Monitor bei leerem Textfeld Enter eingegeben werden.
-
+\newpage
 Vorgehen:
 \begin{enumerate}
 \item Benötigte Applikation, welche im Software-Ordner auf dem USB-Stick oder Github \cite{aebi_projekt-6softwareatmega_2020} zu finden ist, in Atmel Studio öffnen.\\

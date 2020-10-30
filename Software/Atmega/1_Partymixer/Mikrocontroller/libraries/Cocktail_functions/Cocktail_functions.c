@@ -223,12 +223,12 @@ void rauflist_zutat_maschine(void)
 
 void delete_list_node_zutat_maschine(void)
 {
-	while (*number_list_zutat_maschine > 1)
-	{
-		delete_node_position_4(1, number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
-		//      display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
-	}
-	//  display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+    while (*number_list_zutat_maschine > 1)
+    {
+        delete_node_position_4(1, number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+        //      display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
+    }
+    //  display_from_beg_4(number_list_zutat_maschine, &head_list_node_zutat_maschine, &tail_list_node_zutat_maschine);
 }
 
 
@@ -762,7 +762,7 @@ void setze_fluessgkeit_in_position_ohne(uint8_t nr, uint8_t status)
     setze_Posanzeige_Rot_Gruen();
     delete_list_node_files(ZUTAT);
     asm("nop");
-	
+
     // Initialisieren Listen-Variabeln
     block_list_hoch = 0;
     block_list_runter = 0;
@@ -914,7 +914,7 @@ void setze_fluessgkeit_in_position_mit(uint8_t nr, uint8_t status)
     char buff97[20] = {'\0'};
     strcpy((char *)buff97, (const char *)"M.txt");
     writeFile((unsigned char *)buff97, (unsigned char *)buff_file);
-                    nextion_setText("fluessbfrage", "Bitte Flüssigkeit wählen.");
+    nextion_setText("fluessbfrage", "Bitte Flüssigkeit wählen.");
 
 }
 
@@ -1239,7 +1239,7 @@ void debug_message_2()
     Uart_Transmit_IT_PC(")\r\r");
 }
 
-void check_stop()
+uint8_t check_stop(void)
 {
     if (stop == 1)
     {
@@ -1248,7 +1248,9 @@ void check_stop()
         {
             schalte_pumpe_aus(k);
         }
+		return 0;
     }
+	return 1;
 }
 
 void wait_until_position_reached(linear_ramp_t *ramp)
@@ -1256,7 +1258,6 @@ void wait_until_position_reached(linear_ramp_t *ramp)
     nextion_enableButton("255");
     while (ramp->ramp_enable ==1 && stop == 0)
     {
-        Uart_Transmit_IT_PC("\r");
         computeRamp(ramp);
         if (check_Communication_Input_UART_1())
         {
@@ -1350,13 +1351,6 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 
                 // Berechne Menge, Ermittle momentanen Sensorwert, schalte Pumpe ein
                 uint32_t Menge = (((uint32_t)fuellmenge * (uint32_t)(*ptr+tmp_zut_Maschine_actual->stelle)) * (uint32_t)(tmp_zut_Maschine_actual->menge)/(uint16_t)100);
-//                 char buff[20] = {'\0'};
-//                 my_itoa(Menge, (char *) buff);
-//                 Uart_Transmit_IT_PC("Menge ");
-//                 Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
-//                 Uart_Transmit_IT_PC(": ");
-//                 Uart_Transmit_IT_PC((char *) buff);
-//                 Uart_Transmit_IT_PC("\r");
                 uint8_t fuellen = 1;
                 uint8_t newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
                 schalte_pumpe_ein(tmp_zut_Maschine_actual->stelle);
@@ -1368,12 +1362,16 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                     static uint8_t oldval=0;
                     static uint32_t count=0;
 
-//                     newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
-                    newval = newval ^ 0b00000001;
+                    newval = lese_sensor(tmp_zut_Maschine_actual->stelle);
+//                     newval = newval ^ 0b00000001;
 
                     // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
                     if( !oldval && newval)
                     {
+						char buff[5] = {'\0'};
+							itoa(count, (char *)buff, 10);
+							Uart_Transmit_IT_PC((char *)buff);
+							Uart_Transmit_IT_PC("\r");
                         // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
                         if(count++ > Menge)
                         {
@@ -1382,15 +1380,8 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                             fuellen = 0;
                         }
 
-//                         Uart_Transmit_IT_PC("Sensor: ");
-//                         itoa(count, (char *)buff, 10);
-//                         Uart_Transmit_IT_PC((char *) buff);
-//                         Uart_Transmit_IT_PC("\r");
-
-
-
 //                  Delay entfernen wenn mit Sensor gearbeitet wird.
-                        _delay_ms(5);
+//                         _delay_ms(5);
 
 
 
@@ -1399,7 +1390,7 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                         {
                             proceed_Communication_INPUT_UART_1();
                             nextion_enableButton("255");
-                            check_stop();
+                            fuellen = check_stop();
                         }
                     }
                     // Aktueller Sensorwert speichern
@@ -1410,14 +1401,16 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
     } while(tmp_zut_Maschine_actual != head_zutat_maschine_ohne && stop == 0);
 
-    val = (float)tmc4671_getActualPosition(0)/1000;
-
+    val = (float)tmc4671_getActualPosition(0)/1000;	
+	
+	// Abbruch:
     if (stop == 1)
     {
+		Uart_Transmit_IT_PC("STOP\r");
         stop = 0;
         nextion_setText("zufallstxt","Abbruch");
         nextion_setText("abbruchzub","Motor stop");
-        calculateRamp(100, 100, val, 0, ramp);
+        calculateRamp(beschleunigung/3, geschwindigkeit/3, val, 0, ramp);
         wait_until_position_reached(ramp);
 
         if (stop == 1)
@@ -1431,6 +1424,10 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
     }
+	
+	
+	
+	// Normalbetrieb: stop = 0;
     else
     {
         /*
@@ -1496,11 +1493,14 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
             nextion_change_page(INFOANZEIGE);
             nextion_setText("infotxt", string_ptr);
             _delay_ms(5000);
+        }
+
+        if (stop == 0)
+        {
             nextion_change_page(BEREITANZEIGE);
             _delay_ms(2000);
             nextion_change_page(STARTANZEIGE);
             setze_startanzeige(aktuellesGetraenk);
-            stop = 0;
         }
 
     }

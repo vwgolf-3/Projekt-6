@@ -3,7 +3,7 @@
 Der FOC-Treiber wird mit einem Testprogramm in Betrieb genommen. Das Programm initialisiert die benötigte Hardware des Mikrocontrollers (UART, SPI, Pins), enthält die Library des FOC-Treibers und ermöglicht das Debugen über die serielle Schnittstelle. Die Software TMCL-IDE hilft bei der Bestimmung der Parameter für den FOC-Treiber. Welche Register wie beschrieben sind ist im Anhang Kapitel \ref{Appendix:TMC4671_Register} zu sehen. Die Initialisierung sowie das Auslesen gewisser Register ist mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich. Sie ist im Softwareordner auf dem USB-Stick oder auf Github \cite{aebi_projekt-6softwareatmega_2020} zu finden.
 
 Es wird erwartet, dass der FOC-Treiber die Gate-CTRL-Signale erzeugt. Der Duty-Cycle muss sich ändern, sobald der FOC-Treiber die Open-Loop-Drehung startet.
-
+\newpage
 \paragraph{Setup}\mbox{}
 
 \begin{figure}[H]
@@ -35,6 +35,20 @@ Vorgehen:
 \textcolor{blue}{AtmelStudio\textrightarrow Tools\textrightarrow PartyMixer}\\
 \end{enumerate}
 
-Ergebnis: Nach Hochladen der Software liegen die gewünschten Signale an. Da kein Motor angeschlossen ist, müssen die Signale gemessen werden. Nach dem Testdrive werden im 10 Sekunden-Takt diverse aus dem FOC-Treiber ausgelesene Register ausgegeben.
+Ergebnis: Nach Hochladen der Software liegen die gewünschten Signale an. Da kein Motor angeschlossen ist, müssen die Signale gemessen werden. Nach dem Testdrive werden im 10 Sekunden-Takt diverse aus dem FOC-Treiber ausgelesene Register ausgegeben. Abbildung \ref{fig:TMC4671_Gate_Signal_H} zeigt die High-Side-GateCTRL-Signale und Abbildung \ref{fig:TMC4671_Gate_Signal_L} die Low-Side-GateCTRL-Signale. Beide entsprechen den Erwartungen.
 
-Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind die Messbilder zur SPI- Kommunikation zu finden und in Anhang \ref{Appendix:TMC4671_Gate_Ctrl} die Messbilder zur Gate-Control vom FOC-Treiber zum Gate-Treiber während des Closed-Loops. Beide Signale sind sauber.
+\begin{figure}[H]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC4671_Gate_Signal_H}
+\caption{igh-Side-GateCTRL-Signale. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC4671_Gate_Signal_H}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[width = \textwidth]{graphics/TMC4671_Gate_Signal_L}
+\caption{ow-Side-GateCTRL-Signale. Gelb = U, Blau = V, Magenta = W}
+\label{fig:TMC4671_Gate_Signal_L}
+\end{figure}
+
+Im Anhang Kapitel \ref{Appendix:TMC4671_SPI} sind ergänzende Bilder zur Inbetriebnahme der SPI- Kommunikation zu finden.

@@ -1,7 +1,7 @@
 \subsection{Programmierschnittstellen}
 \label{subsec:Programmierschnittstellen}
 
-Auf der Leiterplatte des PartyMixers sind der Mikrocontroller und das Wireless-/Bluetoothmodul (Targets), welche programmiert werden müssen. Damit die Software vom Computer (Host) auf die Komponenten geladen werden kann, braucht es eine Programmierschnittstelle. Computerseitig geschieht dies über USB.
+Auf der Leiterplatte des PartyMixers sind der Mikrocontroller und das Wireless-/Bluetooth- modul (Targets), welche programmiert werden müssen. Damit die Software vom Computer (Host) auf die Komponenten geladen werden kann, braucht es eine Programmierschnittstelle. Computerseitig geschieht dies über USB.
 Die Übermittlung von Daten über die USB-Schnittstelle geschieht über ein differentielles Verfahren und benötigt zwei Kommunikationsleitungen (D+ und D-), welche innerhalb des USB-Kabels verdrillt sind. Das differentielle Verfahren zeichnet sich dadurch aus, dass elektromagnetische Störungen von ausserhalb zu einem grossen Teil eliminiert werden können, da sie sich auf beide Leitungen gleich auswirken. Die Targets werden jedoch über eine serielle Schnittstelle programmiert und benötigen zusätzliche Steuerleitungen um in einen Programmiermodus zu kommen. Deswegen wird ein USB-UART-Konverter verwendet, der das USB-Signal in ein UART-Signal wandelt und die entsprechenden Steuerleitungen zur Verfügung stellt. 
 
 Die beiden Programmierschnittstellen benötigen unterschiedlich viele Steuerleitungen, da sie sich im Verfahren zum Aufruf des Download-Boot-Modus unterscheiden. Die Verfahren sind vom Hersteller des Targets gegeben und können nicht beeinflusst werden.
