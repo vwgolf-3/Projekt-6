@@ -3,8 +3,8 @@
 
 Der Gate-Treiber wird mit einem Testprogramm in Betrieb genommen. Das Programm initialisiert die benötigte Hardware des Mikrocontrollers (UART, SPI, Pins), enthält die Library des FOC- und Gate-Treibers und ermöglicht das Debugen über die serielle Schnittstelle. Die Software TMCL-IDE hilft bei der Bestimmung der Parameter für den Gate-Treiber. Welche Register wie beschrieben wurden ist im Anhang Kapitel \ref{Appendix:TMC6200_Register} zu sehen. Die Initialisierung sowie das Auslesen gewisser Register ist ebenfalls mit der Testapplikation ''\textit{3\underline{ }Motor\underline{ }Openloop}'' möglich. Dazu müssen einige Zeilen auskommentiert werden.
 
-Es wird erwartet, dass die Gate-CTRL-Signale vom Gate-Treiber aufbereitet werden und jetzt eine Spannung an den High- und Lowside-MOSFETs anliegt und die H-Brücke den Motor steuern kann.
-\newpage
+Es wird erwartet, dass die Gate-CTRL-Signale vom Gate-Treiber aufbereitet werden und eine Spannung an den High- und Lowside-MOSFETs anliegt und die H-Brücke den Motor steuert.
+
 \paragraph{Setup}\mbox{}
 
 \begin{figure}[H]

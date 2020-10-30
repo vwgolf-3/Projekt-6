@@ -1,3 +1,55 @@
 \subsection{Zielerreichung}
 \label{subsec:Zielerreichung}
 
+
+\textbf{Detailkonzpt:}
+
+Alle im Detailkonzept erwähnten Komponenten wurden erfolgreich implementiert. Es wurde sogar eine zusätzliche Komponente in das System integriert - Die SD-Karte.\\
+
+\textbf{Design der Leiterplatte:} 
+
+Die Leiterplatte umfasst alle im Detailkonzept erwähnten Schaltungen. Ausserdem sind für das WiFi-, RFID-, und FOC-Treibermodul Development-Boards verwendet worden. Das gelayoutete RFID-Modul wurde nicht in Betrieb genommen. Jedoch funktioniert das Development-Board einwandfrei. Das eigens gelayoutete Wireless-/Bluetoothmodul funktioniert reibungslos, wodurch auf dem DevKit verzichtet werden kann. Der FOC-Treiber sowie der Gate-Treiber inkl H-Brücke mussten aufgrund layouttechnischen Problemen extern platziert werden. Die Funktion ist jedoch voll umfänglich gewährleistet.\\
+
+\textbf{Mechanischer Aufbau der Maschine inkl. Achsensystem:}
+
+Alle mechanische Komponenten sind implementiert worden. Für die Überlaufwanne wurde Platz geschaffen. Ausserdem wurde ein Kühlsystem entwickelt, welches die Getränke für 8 Stunden konstant bei 4-5$^\circ$C kühl hält gemäss \ref{subsec:Kuehlbox}. Weiter wurde eine Wartungsklappe für die Pumpen und Durchflussmessgeräte implementiert. Das Schlittensystem verfügt zur besseren Justierung über einen Riemenspanner.\\
+
+\textbf{Regler, Parametrisierung des Achsensystems:}
+
+Die Regler im System sind so ausgelegt, dass der Motor schnellst möglich eine Änderung annehmen kann. Dies ist für das System nicht optimal. Die Software-Ramp, welche den Weg unter Berücksichtigung einer Maximalgeschwindigkeit und -Beschleunigung im Voraus berechnet, schafft hier Abhilfe.\\
+
+\textbf{Bediensoftware:}
+
+Die Software beinhaltet standardmässig 23 alkoholische und 6 alkoholfreie Cocktails. Diese Liste kann beliebig im Menu oder per App auf 100 Cocktails ergänzt werden. Die Getränkeinfo zeigt nicht nur das beinhaltende Getränk, sondern auch die vorhandene Menge in dl. Es kann zwischen 3dl und 5dl ausgewählt werden. Per Android-App oder Display kann ein RFID-Tag einem Getränk zugewiesen werden, welches am PartyMixer direkt herausgelassen werden kann.\\
+
+\textbf{Funktionstest und Analyse bezüglich der Skalierbarkeit:}
+
+Der Print wurde erfolgreich in Betrieb genommen und die Funktionen getestet.\\
+
+\textbf{Software:}
+
+Die Software ist in C geschrieben und das ESP wurde mit Arduino programmiert.\\
+
+\textbf{Getränkezubereitung:}
+
+Die maximale Abweichung der Flüssigkeitsausgabe beträgt gemäss Kapitel \ref{subsubsec:Durchflussmessgeraete} 3.8\%.\\
+
+\textbf{Lichtkonzept:}
+
+Die Maschine verfügt über einen RBG-LED-Controller, welcher am Display sogar individuell vom Benutzer parametrisiert werden kann.\\
+
+\textbf{Software:}
+
+Die Software für das ESP32 wurde nicht in C geschrieben. Der Benutzer kann am Display selber entscheiden, welches Getränk wo steht und kann auch neue Flüssigkeiten erstellten und zuweisen. Ausserdem kann der Benutzer selbst Cocktails am Display erstellen.\\
+
+\textbf{Android-App:}
+
+Es wurde erfolgreich eine Andoid-App implementeiert, mit welcher der Benutzer RFID-Tags zuweisen und eigene Cocktails erstellen kann. Ausserdem können die Maschineninfos aufgerufen werden.\\
+
+\textbf{Regler Parametrisierung Achsensystems:}
+
+Wenn alle Pumpen eingesetzt werden und die maximale Zeit für die Erstellung eines Cocktails ausgereizt wird, benötigt die Maschine 57 Sekunden. Wenn weniger Pumpen eingesetzt werden, sinkt diese Zeit. Da es jedoch keinen Cocktail gibt, der alle Zutaten enthält,ist dies kein realistischer Fall. Die Maschine kann jedoch einen Cocktail mit maximal vier Zutaten in unter 40 Sekunden erstellen.
+
+\textbf{Getränkezubereitung:}
+
+Die Abweichung der Flüssigkeitsausgabe beträgt bei einer Cocktailerstellung mehr als einer Flüssigkeit über 1\%.

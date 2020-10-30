@@ -1,7 +1,7 @@
 \subsection{Programmierschnittstellen}
 \label{subsec:Programmierschnittstellen}
 
-Auf der Leiterplatte des PartyMixers sind der Mikrocontroller und das WiFi-Modul (Targets), welche programmiert werden müssen. Damit die Software vom Computer (Host) auf die Komponenten geladen werden kann, braucht es eine Programmierschnittstelle. Computerseitig geschieht dies über USB.
+Auf der Leiterplatte des PartyMixers sind der Mikrocontroller und das Wireless-/Bluetoothmodul (Targets), welche programmiert werden müssen. Damit die Software vom Computer (Host) auf die Komponenten geladen werden kann, braucht es eine Programmierschnittstelle. Computerseitig geschieht dies über USB.
 Die Übermittlung von Daten über die USB-Schnittstelle geschieht über ein differentielles Verfahren und benötigt zwei Kommunikationsleitungen (D+ und D-), welche innerhalb des USB-Kabels verdrillt sind. Das differentielle Verfahren zeichnet sich dadurch aus, dass elektromagnetische Störungen von ausserhalb zu einem grossen Teil eliminiert werden können, da sie sich auf beide Leitungen gleich auswirken. Die Targets werden jedoch über eine serielle Schnittstelle programmiert und benötigen zusätzliche Steuerleitungen um in einen Programmiermodus zu kommen. Deswegen wird ein USB-UART-Konverter verwendet, der das USB-Signal in ein UART-Signal wandelt und die entsprechenden Steuerleitungen zur Verfügung stellt. 
 
 Die beiden Programmierschnittstellen benötigen unterschiedlich viele Steuerleitungen, da sie sich im Verfahren zum Aufruf des Download-Boot-Modus unterscheiden. Die Verfahren sind vom Hersteller des Targets gegeben und können nicht beeinflusst werden.
@@ -17,9 +17,9 @@ Um Download-Boot-Modus des Mikrocontrollers zu starten, reicht es, die Reset-Lei
 
 %Um die Daten hochladen zu können, muss sichergestellt werden, dass avrdude mit dem stk500v2 programmer hochlädt und die DTR-Leitung toggelt, bevor der Programmiervorgang stattfindet. Die DTR-Leitung hängt über einen Kondensator an der Reset-Leitung und zieht diese auf GND, womit der Bootloader des ATMega2560 aktiv wird. Deswegen wird beim Hochladen in AVRdude als programming-id der \textit{wiring}-programmer angegeben, sichtbar in Kapitel \ref{Appendix:AVR_STK500} (-c wiring).
 
-\paragraph{Handshake WiFi-Modul}\mbox{}
+\paragraph{Handshake Wireless-/Bluetoothmodul}\mbox{}
 
-Um Download-Boot-Modus des WiFi-Moduls zu starten, sind die Strapping Pîns relevant. Sie werden nach einem Neustart des WiFi-Moduls als Erstes gelesen und bestimmen den Grundzustand des WiFi-Moduls. Die Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} zeigt die Strapping-Pins und deren Einfluss auf den Boot-Modus. Aufgrund der defaultmässigen Pull-up und -down Widerstände kann aus dieser interpretiert werden, dass wenn U0TXD, IO2 und IO5 ''floating'' sind, IO0 den Boot-Modus bestimmt \cite[S.12-S.14]{espressif_systems_esp32_2016}. Mittels Handshake wird die Resetleitung getoggelt und die Strapping-Pins so gesetzt, dass der Download-Boot-Modus gestartet wird.
+Um Download-Boot-Modus des Wireless-/Bluetoothmodul zu starten, sind die Strapping Pîns relevant. Sie werden nach einem Neustart des Wireless-/Bluetoothmoduls als Erstes gelesen und bestimmen den Grundzustand des Wireless-/Bluetoothmoduls. Die Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} zeigt die Strapping-Pins und deren Einfluss auf den Boot-Modus. Aufgrund der defaultmässigen Pull-up und -down Widerstände kann aus dieser interpretiert werden, dass wenn U0TXD, IO2 und IO5 ''floating'' sind, IO0 den Boot-Modus bestimmt \cite[S.12-S.14]{espressif_systems_esp32_2016}. Mittels Handshake wird die Resetleitung getoggelt und die Strapping-Pins so gesetzt, dass der Download-Boot-Modus gestartet wird.
 
 %Im Anhang Kapitel \ref{Appendix:ESP32_Strapping} sind die erwähnten Strapping-Pins aufgelistet. Mit diesen Pins kann nebst dem Bootmodus die Ausgangsspannung des internen Spannungsregler für VDD\_SDIO, der Debug-Log-Print während dem Booten sowie das SPI-Timing der Kommunikation mit der SDIO-Schnittstelle des WiFi-Moduls konfiguriert werden. Eine genauere Beschreibung der Pins befindet sich im selben Kapitel.
 
@@ -46,7 +46,7 @@ IO5 & 1 & 1 & Don't care \\
 \label{tab:Einfluss_Pins_auf_Boot_Modus}
 \end{table}
 
-Im Folgenden wird die Hardware für die Programmierschnittstellen beschrieben. Es ist darauf zu achten, dass in Abbildung \ref{fig:Schema_USB_B} nur das Schema für die Programmierschnittstelle des WiFi-Moduls zu sehen ist. Vorab: Bei den Leitungen DTR, DSR, RTC, CTS, RXD und TXD handelt es sich um die Kommunikationsleitungen zwischen dem USB-UART-Konverter und dem Target. In Tabelle \ref{tab:USB_ESP} sind die Unterschiede tabellarisch aufgelistet.
+Im Folgenden wird die Hardware für die Programmierschnittstellen beschrieben. Es ist darauf zu achten, dass in Abbildung \ref{fig:Schema_USB_B} nur das Schema für die Programmierschnittstelle des Wireless-/Bluetoothmoduls zu sehen ist. Vorab: Bei den Leitungen DTR, DSR, RTC, CTS, RXD und TXD handelt es sich um die Kommunikationsleitungen zwischen dem USB-UART-Konverter und dem Target. In Tabelle \ref{tab:USB_ESP} sind die Unterschiede tabellarisch aufgelistet.
 
 \begin{table}[H]
 \center
@@ -56,12 +56,12 @@ Im Folgenden wird die Hardware für die Programmierschnittstellen beschrieben. E
 RXD & <== & über Widerstand & === & TX & beide \\
 TXD & === & über WIderstand & ==> & RX & beide\\
 IO\_0 / Reset & <== & über Transistor & === & DTR & beide\\
-EN & <== & über Transistor & === & RTS & nur WiFi-Modul\\
-IO\_13 & <== & über Widerstand & === & RTS & nur WiFi-Modul\\
-IO\_15 & <== & über Widerstand & === & CTS & nur WiFi-Modul\\
+EN & <== & über Transistor & === & RTS & nur BT-Modul\\
+IO\_13 & <== & über Widerstand & === & RTS & nur BT-Modul\\
+IO\_15 & <== & über Widerstand & === & CTS & nur BT-Modul\\
 \hline
 \end{tabular}
-\caption{Verbindung zwischen USB und WiFi-Modul.}
+\caption{Verbindung zwischen USB und Wireless-/Bluetoothmodul.}
 \label{tab:USB_ESP}
 \end{table}
 

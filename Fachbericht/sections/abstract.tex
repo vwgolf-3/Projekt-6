@@ -10,24 +10,25 @@ Da diese Arbeit zur Zeit des Corona bedingten Lockdowns entstanden ist und keine
 \begin{abstract}
 
 Der technologische Fortschritt ist seit Jahren am explodieren. Das Internet der Dinge, oder auf Englisch auch Internet of things, kurz IoT, ist ein Produkt aus diesem Fortschritt. Es beschreibt ein Netz aus physikalischen und virtuellen Komponenten, welche miteinander kommunizieren, um einem Grösseren ganzen zu dienen. Im Zentrum steht nebst der Interaktion zwischen Mensch und elektronischen Systemen die Interaktion zwischen verschiedenen Systemen. In dieser Bachelorthesis wird anhand der Entwicklung einer IoT-Cocktailmaschine demonstriert, welche Teilsysteme wie genutzt werden können, um ein fertiges Produkt zu entwickeln.
-Die Herausforderung liegt im gesamten Produktentwicklungsprozess, welcher
+Die Herausforderung liegt im gesamten Produktentwicklungsprozess und umfasst:\\
+
 \begin{itemize}
-\item die Projektauswahl, -Planung und -Abgrenzung,
-\item das Erstellen der Anforderungen an das Gesamtsystem und die enthaltenen Teilsysteme,
-\item die Wahl, das Testen, Implementieren der Komponenten,
-\item die Evaluation des Gesamtsystems umfasst.
+\item die Projektauswahl, -Planung und -Abgrenzung
+\item das Erstellen der Anforderungen an das Gesamtsystem und der darin enthaltenen Teilsysteme
+\item die Wahl, das Testen, Implementieren der Komponenten
+\item die Evaluation des Gesamtsystems
 \end{itemize}
 \mbox{}\\
-Für die Umsetzung benötigt es einen mechanischen, einen elektronischen, einen Hardware und einen Software-Teil.
-Der mechanische Teil beinhaltet die Unterbringung der Zutaten und Elektronik, die Beförderung und Messung der Flüssigkeiten mittels Pumpen und Durchflusssensoren sowie die Bewegung des Glases mit einem bürstenlosen Gleichstrommotor. Die Verschalung rundet die Maschine ab und verhindert, dass sensible Teile angefasst oder nass werden können.
-Zum elektrotechnischen Teil gehört unter anderem ein Display, über welches der Benutzer die Cocktails auswählen, erstellen oder bearbeiten kann. Eine mikroSD-Karte ermöglicht Cocktails, Zutaten und maschinenspezifische Zustände zu speichern. Ein RFID-Reader liest Tags aus, was ermöglicht Lieblingsgetränke zu hinterlegen und direkt in der Maschine anzuwählen.
-Für die Verbindung zwischen Android-Applikation und Cocktailmaschine wird ein WiFi-/Bluetoothmodul verwendet. Mittels MOSFET-Schaltungen werden während der Erstellung von Cocktails die Pumpen vom Mikrocontroller ein- und ausgeschaltet. Die Ansteuerung und Regelung des bürstenlosen Gleichstrommotors ergibt sich aus einem FOC-Treiber und einem Gate-Treiber. Der ABN-Encoder liefert das Feedback zur Lage des Rotors, welche benötigt wird als Regelparameter für den FOC-Treiber.
-Die entwickelte Leiterplatine gehört zum Hardware-Teil und bildet das Bindeglied zwischen Mechanik und Elektronik.
-Der Softwareteil wird in drei Teilsoftwares geteilt. Alle Teile werden in verschiedenen Sprachen geschrieben. Die Firmware auf dem Mikrocontroller, welche in C geschrieben wurde, regelt den Programmfluss der gesamten Maschine. Die Firmware auf dem WiFi-Modul, welche in Arduino geschrieben wurde, bildet die Schnittstelle zwischen den Signalen der Android-Applikation und der Firmware. Die Android-Applikation wurde mit dem Online-Tool App-Inventor entwickelt und ermöglicht dem Anwender Cocktails über Fernzugriff zu erstellen und einem RFID-Tag zu zu weisen.
+
+Für die Umsetzung benötigt es einen Software- , einen elektronischen und einen mechanischen Teil.
+Der mechanische Teil beinhaltet die Unterbringung der Zutaten und der Elektronik, der Beförderung und Messung der Flüssigkeiten mittels Pumpen und Durchflusssensoren sowie die Bewegung des Glases mit einem bürstenlosen Gleichstrommotor. Die Verschalung rundet die Maschine ab und verhindert, dass sensible Teile angefasst oder nass werden können.
+Zum elektrotechnischen Teil gehört unter anderem ein Display, über welches der Benutzer die Cocktails auswählen, erstellen oder bearbeiten kann. Eine mikroSD-Karte ermöglicht Cocktails, Zutaten und maschinenspezifische Zustände zu speichern. Ein RFID-Reader liest Tags aus, was es ermöglicht Lieblingsgetränke zu hinterlegen und direkt in der Maschine anzuwählen.
+Für die Verbindung zwischen Android-Applikation und Cocktailmaschine wird ein Wireless-/Bluetoothmodul verwendet. Mittels MOSFET-Schaltungen werden während der Erstellung von Cocktails die Pumpen vom Mikrocontroller ein- und ausgeschaltet. Die Ansteuerung und Regelung des bürstenlosen Gleichstrommotors ergibt sich aus einem FOC-Treiber und einem Gate-Treiber. Der ABN-Encoder liefert das Feedback zur Lage des Rotors, welches benötigt wird als Regelparameter für den FOC-Treiber.
+Die entwickelte Leiterplatine gehört zum Elektronikteil und bildet das Bindeglied zwischen Mechanik und Elektronik.
+Der Softwareteil wird in vier Teilsoftwares geteilt. Alle Teile werden in verschiedenen Sprachen geschrieben. Die Firmware auf dem Mikrocontroller, welche in C geschrieben wurde, regelt den Programmfluss der gesamten Maschine. Die Firmware auf dem Wireless-/Bluetoothmodul, welche in Arduino geschrieben wurde, bildet die Schnittstelle zwischen den Signalen der Android-Applikation und der Firmware. Die Android-Applikation wurde mit dem Online-Tool App-Inventor entwickelt und ermöglicht dem Anwender Cocktails über Fernzugriff zu erstellen und einem RFID-Tag zu zu weisen. Bei der letzten Programmierumgebung handelt es scih um den Nextion Editor, mit welchem Nextion Displays Programmiert werden können.
 
 
-Damit alle Komponenten ansteuerbar sind, mussten einige Anpassungen an der Hardware vorgenommen werden. Dazu gehören aufgrund von Störungen auf dem SPI-Bus das Umlegen der SPI-Leitungen des RFID-Readers vom Mikrocontroller auf das WiFi-Modul und das Umlegen der SPI-Leitungen des TMC4671 auf ein separates Software-SPI. Die Motorengruppe läuft aufgrund von Defekten auf der Leiterplatine mit externen Boards. Die Firmware läuft bis auf ein paar
-\todo{Resultate fertig schreiben wenn alles evaluiert.}
+Damit alle Komponenten ansteuerbar sind, mussten einige Anpassungen an der Hardware vorgenommen werden. Dazu gehören aufgrund von Störungen auf dem SPI-Bus das Umlegen der SPI-Leitungen des RFID-Readers vom Mikrocontroller auf das Wireless-/Bluetoothmodul und das Umlegen der SPI-Leitungen des FOC-Treibers auf ein separates Software-SPI. Die Motorengruppe läuft aufgrund von Defekten auf der Leiterplatine mit externen Boards. Die Firmware läuft bis auf wenige Punkte sauber. Dazu gehört zum Beispiel, dass der Abbruchprozess beim Erstellen eines Getränkes nicht wunschgemäss Funktioniert. Die gesetzten Ziele wurden alle erreicht werden. Ausserdem wurden fast alle Pflichtziele erfüllt.
 
 
 

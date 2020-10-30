@@ -1,101 +1,98 @@
 \clearpage
-\section{Fazit}
-\label{sec:Fazit}
+\section{Zielerreichung}
+\label{sec:Zielerreichung}
 
-Der gesamte IoT-
 
-Im Fazit ist der gesamte Bericht rekapituliert. Fokus liegt auf den Teilschaltungen und deren Inbetriebnahme sowie der Vergleich zwischen den Soll- und Ist-Zustand.
 
-\subsection{Rekapitulation}
-\label{subsec:Was_wurde_erreicht_und_was_nicht}
 
-Um aufzuzeigen, was alles erreicht wurde, werden nun alle Blöcke einzeln betrachtet und analysiert.
 
-\subsubsection{Speisungen}
-\label{subsubsec:Fazit_Speisungen}
-
-Es sind vier verschiedene Speisungen aufgebaut worden, welche allesamt erfolgreich auf ihre Funktion getestet wurden. Dazu gehört das 48V Netzgerät, welches als fertiges Netzteil eingekauft wurde. Danach folgt die 12V Speisung für die Pumpen, sowie die 5V Speisung für die integrierten Schaltkreise, das Display und die Durchflusssensoren. Auch der 3,3V Linearregler für die Treiber wurde erfolgreich getestet. 
-
-\subsubsection{Mikrokontroller}
-\label{subsubsec:Fazit_Mikrokontroller}
-
-Alle Testprogramme sind erfolgreich in C erstellt worden und mittels ATmega2560 Evaluation Board geprüft. Dazu gehört die Kommunikation mit dem Display über die UART-Schnittstelle, das Ein- und Ausschalten der Pumpen, die Messung eines Duchflusses mittels Durchflussmessgerät und die Kommunikation über SPI mit dem Motor.
-
-\subsubsection{Motor}
-\label{subsubsec:Fazit_Motor}
-
-Der Motor kann ohne Feedback im Openloop betrieben werden. Das Feedback vom Resolver des Motors konnte nicht richtig dargestellt werden, weshalb ein ABN-Encoder verwedent wurde. Mit dem ABN-Encoder war es dann möglich, den Motor im Geschwindigkeits- und Positionsmodus anzusteuern. Da während dem Testen Komplikationen auftraten, konnte jedoch nicht weitergemacht werden.
-
-\subsubsection{Pumpen}
-\label{subsubsec:Fazit_Pumpen}
-
-Die Pumpen arbeiten zuverlässig mit der 12V-Speisung und dem Mikrocontroller zusammen. Bei Ansteuerung durch den Mikrocontroller werden diese über die Pumpenansteuerung sauber ein- und ausgeschaltet.
-
-\subsubsection{Durchflussmessgeräte}
-\label{subsubsec:Fazit_Durchflussmessgeräte}
-
-Mit Hilfe der Durchflussmessgeräte kann zuverlässig die beförderte Menge an Flüssigkeit bestimmt werden. Diese ist auf unter 3.3\% genau. Dies konnte jedoch nur in einem kürzeren Testlauf getestet werden, da das zu testende Durchflussmessgerät durch einen Handhabungsfehler zerstört wurde und kein Ersatz auf die Schnelle aufgetrieben werden konnte. Die Erfüllung dieses Ziels wird daher im Projekt 6 noch einmal sauber dokumentiert. 
-
-\subsubsection{Display}
-\label{subsubsec:Fazit_Display}
-
-Das Display kann erfolgreich betrieben werden. Es ist gelungen, eine grafische Oberfläche zu schaffen, welche auch wie gewünscht auf Befehle reagiert. Ausserdem kann erfolgreich mit dem Mikrocontroller kommuniziert werden. Es ist möglich Befehle an den Mikrocontroller zu senden und auch solche zu erhalten. Ausserdem können Textinhalte vom Mikrocontroller auf das Display übertragen werden. Dies funktioniert auch zuverlässig anders rum. 
-
-\subsection{Vergleich der gesetzten Ziele mit den erreichten Zielen}
-\label{subsec:Zielerreichung}
-
-In diesem Abschnitt wird aufgezeigt, welche Ziele erreicht wurden und welche Ziele nicht. Ausserdem wird erläutert, welche Ziele wesshalb nicht erreicht wurden. Dies wird einmal für die Pflichtziele, sowie für die Wunschziele durchgeführt.
-
-\subsubsection{Pflichzielerfüllung}
+\subsection{Pflichzielerfüllung}
 \label{subsubsec:Pflichtzielerfüllung}
 
 \begin{figure}[H]
 	\begin{flushleft}
 	\small
-		\begin{tabular}{|p{3cm}|p{2.5cm}|p{10.6cm}|}%{|c|l|l|}
+		\begin{tabular}{|p{3cm}|p{3.25cm}|p{9.85cm}|}%{|c|l|l|}
 \hline
 \multicolumn{1}{|l|}{\textbf{Nummer}} & \textbf{Pflichtziele}  & \textbf{Anforderungen}                                                                                                                                            \\ \hline
 
-\multicolumn{1}{|c|}{\text{\cellcolor{green}1}} & \cellcolor{green} Recherche & \cellcolor{green}Die Recherche muss die Beschreibung drei verschiedener Cocktailmaschen enthalten. Damit eine Entscheidung für den Aufbau gefällt werden kann, müssen diese verglichen werden. \\ \hline
+\multicolumn{1}{|c|}{\text{\cellcolor{green}1}} & \cellcolor{green} 
 
-\multicolumn{1}{|c|}{\cellcolor{green}2}                                 & \cellcolor{green}Konzept & \cellcolor{green}Das Konzept muss sich komplett auf die Recherche abstützen und im Grunde die Fragen beinhalten, welche sich mit den Projektzielen auseinandersetzen. Diese sind:\newline
-\textbullet Wie sieht der mechanische Aufbau der Maschine aus?\newline
-\textbullet Welche Pumpen werden für die Flüssigkeitsbeförderung verwendet?\newline
-\textbullet Wie wird die Menge der durchfliessenden Flüssigkeit gemessen? \newline
-\textbullet Welcher Umfang umfasst die Benutzeroberfläche?\newline
-\textbullet Welcher Microkontroller ist weshalb für die Anwendung geeignet?\newline
-\textbullet Wie ist es möglich, die Maschine zu reinigen?\newline
-\textbullet Wie kann erreicht werden, dass die Gläser nicht überlaufen?
+Detailkonzept & \cellcolor{green}Das Detailkonzept besteht aus folgenden Komponenten:
+\begin{itemize}
+\item Speisungen (48V, 12V, 5V, 3.3V)
+\item Motor
+\item ABN-Encoder
+\item Endschalten
+\item Motorentreiber
+\item Gate-Treiber
+\item Durchflussmessungen
+\item Pumpen
+\item Display
+\item Mikrocontroller
+\item Programmierschnittstellen
+\item Bluetooth-/Wirelessmodul
+\item Beleuchtung
+\end{itemize} \\ \hline
+
+\multicolumn{1}{|c|}{\cellcolor{green}2} & \cellcolor{green}Design der Leiterplatte & \cellcolor{green}Soll alle Teile des Detailkonzeptes umfassen. Für das Wifi-/RFID- und Motorentreibermodul wird eine Development-Board verwendet. Zusätzlich zu WiFi- und RFID-Modul wird eine eigen gelayoutete Variante miteinbezogen, welche bei genügend Kapazität implementiert wird anstelle des Moduls.\newline
 \\ \hline
 
-\multicolumn{1}{|c|}{\cellcolor{orange}3} & \cellcolor{orange}Fördertechnik & \cellcolor{orange}Die Ansteuerung der Fördertechnik muss so geschehen, dass der Inhalt beim Fahren mit dem Schlitten nicht überlauft. Ein Brushless DC-Motor oder Steppermotor ist erwünscht. Die Dimensionen des Förderbands soll folgende Kriterien erfüllen:
+\multicolumn{1}{|c|}{\cellcolor{green}3} & \cellcolor{green}Mechanischer Aufbau der Maschine inkl. Achsensystem. & \cellcolor{green}Der mechanische Aufbau beinhaltet folgende Teile:
 
-\begin{tabbing}
-\textbullet \textbf{Länge:} \hspace{3cm}
-\=$90\pm10cm$ (Unter Annahme 10cm pro \\ \>Flasche)\\
-\textbullet \textbf{Geschwindigkeit:} \> min. 6cm/sek\\
-\textbullet \textbf{Belastbarkeit:} \> 9.81N	 (1kg auf Schlitten)\\
-\textbullet \textbf{Oberfläche:} \> Rutschfest\\
-\textbullet \textbf{Führungen:} \> 2 Führungsstangen mit Gewinde-\\ \> stange um den Schlitten zu bewegen\\
-\textbullet \textbf{Schlitten:} \> 3D-Druck
-\end{tabbing}\\
-\hline
+\begin{itemize}
+\item Rahmen
+\item Getränkehalterung
+\item Flüssigkeitsbeförderung
+\item Gehäuse für Elektronik
+\item Befestigung für Display
+\item Glasbeförderungssystem
+\item Überlaufwanne
+\item Beleuchtung
+\end{itemize} \\ \hline
 
-\multicolumn{1}{|c|}{\cellcolor{green}4} & \cellcolor{green}Pumpen & \cellcolor{green}Für die Flüssigkeitsbeförderung sollen Pumpen verwendet werden. Die Dauer deren Ansteuerung regelt die Menge der durchfliessenden Flüssigkeit auf eine Genauigkeit von 10ml bei einem Inhalt von 3dl. Die Regelung darf demnach eine Toleranz von 3.3\% aufweisen.\newline Weiter sollen die Getränke von einer Menge von 3dl in unter einer Minute fertiggestellt werden. Daraus folgt eine Mindestdurchflussrate von 0.6l pro Minute\\ \hline
+\multicolumn{1}{|c|}{\cellcolor{green}4} & \cellcolor{green}Regler Parametrisierung des Achsensystems & \cellcolor{green}Die Regelung des Achsensystems wird mit dem FOC-Treiber gewährleistet. Die Regler werden so ausgelegt, dass das Glas während dem Fahren nicht überläuft. Die Bewegungsgeschwindigkeit soll trotzdem genügend schnell sein, dass der Drink in unter einer Minute hergestellt wird.\\ \hline
 
-\multicolumn{1}{|c|}{\cellcolor{green}5} & \cellcolor{green}Microkontroller & \cellcolor{green}Der Microkontroller muss alle Komponenten ansteuern können, damit auf Multiplexer oder Schieberegister verzichtet werden kann. Dazu gehören die Pumpen sowie die Flüssigkeitsmessung.
-Zudem soll er alle benötigten Schnittstellen (SPI, UART) unterstützen, damit eine Kommunikation mit allen Komponenten stattfinden kann. Dies umfasst den Treiber des DC-Motors (SPI) und das Display (SPI) und zu einem späteren Zeitpunkt den Bluetooth- oder WiFi-Chip (UART).\\ \hline	
-
-\multicolumn{1}{|c|}{\cellcolor{orange}6} & \cellcolor{orange}Display & \cellcolor{orange}Das Display soll über SPI angesteuert werden. Der Benutzer soll mittels Touch-Eingabe das Gerät bedienen können und sämtliche Eingaben ermöglichen. Dies umfasst das Auslösen der Getränkezubereitung, den Reinigungsmodus und speichern von Getränke. \\ \hline	
-
-\multicolumn{1}{|c|}{\cellcolor{green}7} & \cellcolor{green}Software & \cellcolor{green}Die Software für den Mikrocontroller soll in C geschrieben sein. \\ \hline	
+\multicolumn{1}{|c|}{\cellcolor{green}5} & \cellcolor{green}Bediensoftware & \cellcolor{green}Die Bediensoftware auf dem Mikrocontroller ermöglicht dem Benutzer folgende Eingabe:
+\begin{itemize}
+\item Getränkeliste mit 5 alkoholischen und 5 nichtalkoholischen Getränken, welche zur Auswahl stehen.
+\item Infos zu den Getränken
+\item Auswahl der Zubereitungsgrösse von 3 oder 5dl
+\item Nachfüllen des per Webservers (oder vorzugsweise per Android-App gemäss Wunschziel) eingestellten Getränkes mittels RFID.
+\item Reinigungsmodus
+\end{itemize} 
+Über einen Webserver (oder Android-App gemäss Wunschziel) kann der User folgende Einstellungen vornehmen:
+\begin{itemize}
+\item Zuweisung eines RFID-Tags zu einem Benutzer
+\item Auswahl des nächsten Getränkes gemäss der Getränkeliste
+\end{itemize}
 		\end{tabular}
 	\end{flushleft}
 	\label{table:Pflichtziele}
 	
 \end{figure}
 
-\subsubsection{Wunschzielerfüllung}
+\begin{figure}[H]
+	\begin{flushleft}
+	\small
+		\begin{tabular}{|p{3cm}|p{3.25cm}|p{9.85cm}|}%{|c|l|l|}
+\hline
+\multicolumn{1}{|l|}{\textbf{Nummer}} & \textbf{Pflichtziele}  & \textbf{Anforderungen}                                                                                                                                            \\ \hline
+
+\multicolumn{1}{|c|}{\cellcolor{green}6} & \cellcolor{green}Funktionstest und Analyse bezüglich der Skalierbarkeit & \cellcolor{green} In einer ersten wird der Print in Betrieb genommen. Dies bedeutet, dass die einzelnen Systeme mit Sonderprogrammen auf ihre Funktion geprüft werden. Dies beinhaltet die Systeme des Detailkonzeptes.
+
+In einer zweiten Phase wird die Maschine auf ihre Funktion geprüft. Dies soll die Funktionen beinhalten, welche in der Bediensoftware aufgelistet sind. \\ \hline	
+
+\multicolumn{1}{|c|}{\cellcolor{green}7} & \cellcolor{green}Software & \cellcolor{green}Die Software für den Mikrocontroller soll in C geschrieben sein, für das ESP wird vorerst Arduino verwendet. \\ \hline
+
+\multicolumn{1}{|c|}{\cellcolor{green}8} & \cellcolor{green}Getränkezubereitung & \cellcolor{green}Die Abweichung der Flüssigkeitsausgabe darf höchstens 4\% betragen. \\ \hline	
+		\end{tabular}
+	\end{flushleft}
+	\label{table:Pflichtziele2}
+	
+\end{figure}
+
+\subsection{Wunschzielerfüllung}
 \label{subsubsec:Wunschzielerfüllung}
 
 \begin{figure}[H]
@@ -105,40 +102,33 @@ Zudem soll er alle benötigten Schnittstellen (SPI, UART) unterstützen, damit e
 \hline
 \multicolumn{1}{|l|}{\textbf{Nummer}} & \textbf{Wunschziele}  & \textbf{Anforderungen}                                                                                                                                         \\ \hline
 		
-\multicolumn{1}{|c|}{\cellcolor{red}1} & \cellcolor{red}Reinigung & \cellcolor{red}Das System soll einen Selbstreinigungsmodus haben, der jedoch nur unter Aufsicht des Benutzers geschehen kann. Die Aufsicht verhindert unkontrolliertes Reinigen. \\ \hline
+\multicolumn{1}{|c|}{\cellcolor{green}1} & \cellcolor{green}Lichtkonzept & \cellcolor{green} Die Maschine bietet einen gewissen Showeffekt. Dazu wird ein LED-Band montiert, welcher die Maschine beleuchtet. Für die Maschine werden RGB-LEDs verwendet, was eine entsprechende Ansteuerung Hard- und Softwareseitig benötigt. \\ \hline
 
-\multicolumn{1}{|c|}{\cellcolor{red}2} & \cellcolor{red}Durchflussmessung & \cellcolor{red}Die Menge der durchfliessenden Flüssigkeit muss auf 1ml genau sein bei einem Inhalt von 3dl. Dies entspricht einer Toleranz von 0.33\%. Weiter soll ein Getränk mit einer Menge von 3dl in unter einer halben Minute fertiggestellt sein. Dies entspricht unter Berücksichtigung der Bewegung zwischen den Getränken einer Mindestdurchflussrate von 1.2l pro Minute. \\ \hline
+\multicolumn{1}{|c|}{\cellcolor{orange}2} & \cellcolor{orange}Software & \cellcolor{orange}
+\begin{itemize}
+\item Die Software für das ESP soll in C geschrieben sein. 
+\item Es soll vom Nutzer konfigurierbar sein, wo welches Getränk steht.
+\item Der Benutzer soll selber Cocktails individuell erstellen können.
+\item Individuelle Anpassungen der Mischverhältnisse der gespeicherten Getränke.
+\end{itemize} \\ \hline
 
-\multicolumn{1}{|c|}{\cellcolor{red}4} & \cellcolor{red}Messstation & \cellcolor{red}Das System soll den Füllstand im Glas erkennen, um ein Überlaufen zu verhindern.\\ \hline
+\multicolumn{1}{|c|}{\cellcolor{green}3} & \cellcolor{green}Android-Applikation & \cellcolor{green}\begin{itemize}
+\item Anstelle des Webservers soll eine Android-App erstellt werden, welche über Bluetooth kommuniziert.
+\item Individuelle Erstellung von Cocktails in der App, gemäss Flüssigkeitsliste.
+\end{itemize} \\ \hline
 			
-\multicolumn{1}{|c|}{\cellcolor{red}5} & \cellcolor{red}Software & \cellcolor{red}Die Software soll nach dem MVC-Prinzip funktionieren. \\ 
+\multicolumn{1}{|c|}{\cellcolor{green}4} & \cellcolor{green}Regler Parametrisierung des Achsensystems & \cellcolor{green}\begin{itemize}
+\item Das gewünschte Getränk soll in unter 40s zubereitet werden.
+\end{itemize} \\ 
+			\hline
+			
+			\multicolumn{1}{|c|}{\cellcolor{red}5} & \cellcolor{red}Getränkezubereitung& \cellcolor{red}\begin{itemize}
+\item Die Abweichung der Flüssigkeitsabweichung darf höchstens 1\% betragen.
+\end{itemize} \\ 
 			\hline
 		\end{tabular}
 	\end{flushleft}
 
 	\label{table:Wunschziele}
 \end{figure}
-
-\textbf{Fördertechnik:}
-
-Für das Förderband wurde ein BLDC-Motor (Brushless-DC-Motor) ausgewählt. Auch der Aufbau des Förderbandes wurde festgelegt und in Kapitel \ref{subsubsec:Foerderband} spezifiziert. Allerdings wurde entschieden, dieses erst im Projekt 6 gemäss den Anforderungen aufzubauen. Somit wird auch der Motor in Kombination mit dem Förderband erst im Projekt 6 getestet, wenn dieser komplett implementiert ist und ein Feedback erhalten werden kann. Ein sanftes Anfahren des Motors ist jedoch schon im Projekt 5 erreicht worden. Dieses sanfte Anfahren wird durch einen PI-Controller ermöglicht.
-
-\textbf{Display:} 
-
-Das gesetzte Ziel für das Display wurde insofern nicht erreicht, dass die Ansteuerung nicht über SPI realisiert wurde, sondern über UART gemäss Kapitel \ref{subsec:Hardware_Display}. Dies wurde jedoch mit dem Fachdozenten besprochen. Alle anderen Punkte wurden erreicht. 
-
-\textbf{Reinigung:}
-
-Ein Reinigungsmodus wurde gemäss Kapitel \ref{subsubsec:Detailkonzept_UserInterface} erarbeitet. Da jedoch die Cocktailmaschine erst in Projekt 6 aufgebaut wird, wurde auch kein fertiger Reinigungsmodus implementiert.
-
-\textbf{Durchflussmessung:}
-
-Mit dem getesteten Durchflussmessgerät konnte eine Skalierungsgenauigkeit von 2.7\% und eine Wiederholungsgenauigkeit von 0.5\% in einem Prüfzyklus festgestellt werden. Allerdings konnte nicht genauer getestet werden aus den in Kapitel \ref{subsec:Hardware_Durchflussmessgeraete} genannten Gründen. Somit konnte dieses Wunschziel nicht erreicht werden.
-
-\textbf{Messstation:}
-
-Es wurde keine Füllstandserkennung implementiert. Es wurde jedoch durch eine Abfrage dem Benutzer überlassen, das jeweils richtige Glas zu platzieren. Durch die Durchflussmessgeräte wird sichergestellt, dass nur die bestätigte Flüssigkeitsmenge abgefüllt wird.  
-
-\textbf{Software:}
-
-Die Software wurde nicht nach dem MVC-Prinzip erstellt.
+\newpage

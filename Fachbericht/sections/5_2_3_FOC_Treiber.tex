@@ -107,12 +107,10 @@ Die \textbf{Motorspannung} ist wichtig, um den Kommuntierungsvorgang zu berechne
 U_{TMC} = U_M \cdot \frac{R310}{R310 + R311} = 48V \cdot \frac{1k\Omega}{1k\Omega + 100k\Omega} = 0.7V
 \end{equation}
 
-Ausserdem ergibt sich aus er Schaltung ein Eingangsfilter:
+Ausserdem ergibt sich aus er Schaltung ein Eingangsfilter \cite{andy_aka_capacitor_2013}:
 \begin{equation}
-\tau = C302 \cdot \frac{R310 \cdot R311}{R310 + R311} = 10nF \cdot \frac{1.5k\Omega \cdot 100k\Omega}{1.5k\Omega + 100k\Omega}
+\tau = C302 \cdot \frac{R310 \cdot R311}{R310 + R311} = 10nF \cdot \frac{1.5k\Omega \cdot 100k\Omega}{1.5k\Omega + 100k\Omega} = 147us
 \end{equation}
-\todo{Stimmt das? Bi mr nid 100\% sicher}
-\cite{andy_aka_capacitor_2013}
 
 %\subparagraph{Gate-Ctrl-Signale Output (PWM)}
 

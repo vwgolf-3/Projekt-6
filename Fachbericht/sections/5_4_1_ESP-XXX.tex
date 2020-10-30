@@ -1,9 +1,9 @@
-\subsubsection{WiFi-Modul}
+\subsubsection{Wireless-/Bluetoothmodul}
 \label{subsubsec:ESP}
 
 %Aufgrund schon bestehender Erfahrungen wurde für die Wifi-/Bluetooth-Kommunikation ein Espressif ESP-Modul ausgewählt. Grundsätzlich standen zwei Modelle zur Auswahl. Das ESP8266 und das ESP32. Für die Cocktailmaschine wurde das ESP32 ausgewählt, da diese leistungsstärker ist. Die genauen Datenvergleiche sind im Anhang Kapitel \ref{Appendix:ESP32_vs_ESP8266} ersichtlich. Das ESP32 unterstützt das Protokoll nach ISO 802.11 b/g/n und kann somit auf 2.4GHz sowie 5GHz arbeiten. Mit dem n-Protokoll und einer Antenne kann so bis zu 150MBit übertragen werden bei einer Bandbreite von 20MHz.
 
-Das WiFi-/Bluetooth-Modul ist in die Maschine eingebettet, damit der drahtlose Zugriff via Android-Applikation gewährleistet ist. Es handelt sich bei dem Bauteil um das ESP32 vom Hersteller Espressif. Da sich das Bauteil in einer Box befindet, ist es vorteilhaft ein ESP32-Typ zu verwenden, der die Möglichkeit bietet, eine abgesetzte Antenne anzuschliessen, im Falle das Signal zu schwach ist. Dazu eignet sich das Espressif ESP32-32U.
+Das Wireless-/Bluetoothmodul ist in die Maschine eingebettet, damit der drahtlose Zugriff via Android-Applikation gewährleistet ist. Es handelt sich bei dem Bauteil um das ESP32 vom Hersteller Espressif. Da sich das Bauteil in einer Box befindet, ist es vorteilhaft ein ESP32-Typ zu verwenden, der die Möglichkeit bietet, eine abgesetzte Antenne anzuschliessen, im Falle das Signal zu schwach ist. Dazu eignet sich das Espressif ESP32-32U.
 
 Über den entfernten Zugriff werden folgende Funktionen zur Verfügung gestellt:
 \begin{itemize}
@@ -27,12 +27,11 @@ Das WiFi-/Bluetooth-Modul ist in die Maschine eingebettet, damit der drahtlose Z
 %\label{fig:Produktbild_ESP32_32U_DevKit}
 %\end{figure}
 
-\paragraph{Schema (Bluetooth- / Wifimodul)}\mbox{}
-\todo{WiFi-Modul? Bluetooth-Modul? WiFi-Bluetooth-Modul??}
+\paragraph{Schema Wireless-/Bluetoothmodul}\mbox{}
 
-Empfängt das WiFi-Modul Daten über Bluetooth, so werden diese Interpretiert und aufbereitet über die zweite serielle Schnittstelle an den Mikrocontroller weitergeleitet. Dieser Vorgang wird mittels Firmware gesteuert. \todo{Evt Referenz auf Beschreibung der App bzw. Software ESP32?}
+Empfängt das Wireless-/Bluetoothmodul Daten über Bluetooth, so werden diese Interpretiert und aufbereitet über die zweite serielle Schnittstelle an den Mikrocontroller weitergeleitet. Dieser Vorgang wird mittels Firmware gesteuert.
 
-In Abbildung \ref{fig:Schema_ESP32} ist das Schema des WiFi-Moduls zu sehen. Es beinhaltet Stützkondensatoren, die die Versorgungsspannung glätten sowie die Pull-up- und Pull-down-Widerstände, welche dazu da sind, einen eindeutigen Zustand an den Strapping-Pins zu behalten, während das WiFi-Modul bootet.
+In Abbildung \ref{fig:Schema_ESP32} ist das Schema des Wireless-/Bluetoothmoduls zu sehen. Es beinhaltet Stützkondensatoren, die die Versorgungsspannung glätten sowie die Pull-up- und Pull-down-Widerstände, welche dazu da sind, einen eindeutigen Zustand an den Strapping-Pins zu behalten, während das Wireless-/Bluetoothmodul bootet.
 
 In Abbildung \ref{fig:Schema_ESP32_Devkit} ist eine Backup-Lösung zu sehen, wo ein ESP32-Devkit in Header-Pins eingesteckt werden kann. Da die Backup-Lösung nicht gebraucht wird, können die Header-Pins in Abbildung \ref{fig:Schema_ESP32_Devkit} für Korrekturen verwendet werden und dienen so als Backup-Pins für andere Systeme.
 
@@ -50,11 +49,12 @@ In Abbildung \ref{fig:Schema_ESP32_Devkit} ist eine Backup-Lösung zu sehen, wo 
 	\label{fig:Schema_ESP32_Devkit}
 \end{figure}
 
-Die Korrekturen an der Hardware wurden Rot eingezeichnet. Die SPI-Verbindung vom Mikrocontroller zum WiFi-Modul, welche in Abbildung \ref{fig:Schema_ESP32} zu sehen ist, ist aufgetrennt, da die Leitungen den Bootvorgang des WiFi-Moduls stören. Aufgrund der funktionierenden Schaltung des ESP32-Wroom und den Störungen, die das RFID-Modul auf dem SPI-Bus verursachte, ist das RFID-Modul am ESP32 über einen separaten SPI-Bus eingesteckt. Deswegen wird die Kommunikation mit dem RFID-Modul vom ESP32 übernommen. Aus dem selben Grund werden die Header-Pins dazu verwendet, eine steckbare Schnittstelle zwischen Mikrocontroller und FOC-Treiber zu bilden. Dazu sind die Leitungen zum ESP32 aufgetrennt und die Pins mit dem Mikrocontroller verbunden.
+Die Korrekturen an der Hardware wurden Rot eingezeichnet. Die SPI-Verbindung vom Mikrocontroller zum Wireless-/Bluetoothmodul, welche in Abbildung \ref{fig:Schema_ESP32} zu sehen ist, ist aufgetrennt, da die Leitungen den Bootvorgang des Wireless-/Bluetoothmoduls stören. Aufgrund der funktionierenden Schaltung des ESP32-Wroom und den Störungen, die das RFID-Modul auf dem SPI-Bus verursachte, ist das RFID-Modul am ESP32 über einen separaten SPI-Bus eingesteckt. Deswegen wird die Kommunikation mit dem RFID-Modul vom ESP32 übernommen. Aus dem selben Grund werden die Header-Pins dazu verwendet, eine steckbare Schnittstelle zwischen Mikrocontroller und FOC-Treiber zu bilden. Dazu sind die Leitungen zum ESP32 aufgetrennt und die Pins mit dem Mikrocontroller verbunden.
 \newpage
-\paragraph{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}\mbox{}
+\paragraph{Funktionsbeschrieb der Schaltung (Wireless-/Bluetoothmodul)}\mbox{}
 
-Das WiFi-Modul ESP32 ist mit MOD1 beschriftet. Die Kondensatoren C9 und C10 dienen zur Glättung der Eingangsspannung. Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high), der Pull-Up-Widerstand R7 zieht diese Leitung defaultmässig auf 5V. Die Widerstände R8, R9, R10 und R11 sind an die Strapping-Pins angeschlossen.
+Das Wireless-/Bluetoothmodul ESP32 ist mit MOD1 beschriftet. Die Kondensatoren C9 und C10 dienen zur Glättung der Eingangsspannung. Über den EN-Pin wird das Modul ein- und ausgeschaltet (acitve high), der Pull-Up-Widerstand R7 zieht diese Leitung defaultmässig auf 5V. Die Widerstände R8, R9, R10 und R11 sind an die Strapping-Pins angeschlossen.
+
 %Über diese werden beim Aufstarten des ESP32 der Boot-Modus, die Versorgungsspannung von VDD\_SDIO\footnote{Secure Digital Input Output}-Slave (Erweiterung der SD-Spezifikationen) und andere Initialisierungseinstellungen konfiguriert.
 %Details zu den Konfigurationen sind im Anhang Kapitel \ref{Appendix:ESP32_Strapping} aufgelistet.
 Aus Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} ist ersichtlich, dass U0TXD für den normalen Boot-Modus auf HIGH sein muss, weswegen der Widerstand R15 platziert wurde. Mit dem Kondensator C7 wird sichergestellt, dass nach einem Reset automatisch der Download-Boot-Modus gestartet werden kann.
@@ -63,7 +63,7 @@ Aus Tabelle \ref{tab:Einfluss_Pins_auf_Boot_Modus} ist ersichtlich, dass U0TXD f
 
 \paragraph{Schema (Automatische Boot-Logik)}\mbox{}
 
-Die automatischen Bootlogik, welche in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} zu sehein ist, steuert die Pins EN und IO0 so an, dass das WiFi-Modul beim Hochladen eines Programms automatisch neu gestartet wird und die Spannung an den Pins so anliegt, dass der Download-Boot-Modus gestartet wird.
+Die automatischen Bootlogik, welche in Abbildung \ref{fig:Schema_ESP32_Flashbuttons} zu sehein ist, steuert die Pins EN und IO0 so an, dass das Wireless-/Bluetoothmodul beim Hochladen eines Programms automatisch neu gestartet wird und die Spannung an den Pins so anliegt, dass der Download-Boot-Modus gestartet wird.
 
 \begin{figure}[H]
 	\centering
@@ -74,5 +74,5 @@ Die automatischen Bootlogik, welche in Abbildung \ref{fig:Schema_ESP32_Flashbutt
 
 \paragraph{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}\mbox{}
 
-Für die Beschaltung der automatischen Boot-Logik benötigt es die Leitungen DTR und RTS, welche vom USB-UART-Konverter gesteuert werden und EN und IO0 als Outputs auf das WiFi-Modul. Die Buttons sind dazu da, das ESP manuell in den Download-Boot-Modus zu setzen.
+Für die Beschaltung der automatischen Boot-Logik benötigt es die Leitungen DTR und RTS, welche vom USB-UART-Konverter gesteuert werden und EN und IO0 als Outputs auf das Wireless-/Bluetoothmodul. Die Buttons sind dazu da, das ESP manuell in den Download-Boot-Modus zu setzen.
 Die Widerstände R20 und R21 sind Vorwiderstände an der Basis der Transistoren Q1 und Q2. R22 und R23 sind Pull-Up-Widerstände für die EN- und IO0-Leitung. Die Kondensatoren C13 und C12 dienen dem Entprellen der Buttons. Die Widerstände R25 und R24 begrenzen den Strom bei Drücken der Buttons S1 oder S2.

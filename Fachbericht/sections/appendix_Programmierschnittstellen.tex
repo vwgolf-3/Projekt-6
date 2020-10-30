@@ -37,7 +37,7 @@
 \end{figure}
 
 
-\subsubsection{WiFi-Modul}\label{Appendix:Handshake_ESP}
+\subsubsection{Wireless-/Bluetoothmodul}\label{Appendix:Handshake_ESP}
 
 
 %
@@ -110,20 +110,20 @@
 \begin{figure}[H]
 \center
 \includegraphics[width = 0.9\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_gesamt}
-\caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. \\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
+\caption{Handshake zum Hochladen des Programmcodes auf das Wireless-/Bluetoothmodul. \\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_gesamt}
 \end{figure}
 
 \begin{figure}[H]
 \center
 \includegraphics[width = 0.9\textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_2}
-\caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR (Schritt 2 und 3).\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
+\caption{Handshake zum Hochladen des Programmcodes auf das Wireless-/Bluetoothmodul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR (Schritt 2 und 3).\\\hspace{\textwidth}1: Gelb = RTS; 2: Blau = DTR; 3: Violett = EN; 4: Grün = IO0;}
 \label{fig:ESP32_RTS_DTR_EN_IO0_2}
 \end{figure}
 
 
 In Kapitel \ref{sec:Inbetriebnahme_Programmierschnittstellen} wurde erwähnt, dass beim Handshake die Praxis der Theorie widerspricht. Eine Recherche ergab, dass einige User zum Ergebnis kamen wie bei der Inbetriebnahme. Nämlich, dass es nach dem Reset eine Zeit dauert, bis im Startprozess die Pins geprüft werden. Dazu gehört auch der Pin IO0. Somit ist es möglich, den Pin IO0 kurz nach dem Reset auf 0 zu ziehen.
-Im selben Forum wurde auch die in Abbildung \ref{fig:ESP32_Handshake_Forum} gezeigte Darstellung gefunden. Ein Kommentar weist darauf hin, das mit dem esptool.py der EN-Pin des WiFi-Moduls direkt auf RTS gehängt werden kann. So lassen sich die Zeitpunkte, zu der die Pins auf 0 sind, näher zusammenschieben. \cite{liudr_trying_2017}
+Im selben Forum wurde auch die in Abbildung \ref{fig:ESP32_Handshake_Forum} gezeigte Darstellung gefunden. Ein Kommentar weist darauf hin, das mit dem esptool.py der EN-Pin des Wireless-/Bluetoothmoduls direkt auf RTS gehängt werden kann. So lassen sich die Zeitpunkte, zu der die Pins auf 0 sind, näher zusammenschieben. \cite{liudr_trying_2017}
 
 Die Messung nach dem Einlöten der Brücke bestätigt dies. Abbildung \ref{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1} zeigt, dass das Umschalten von EN und GPIO0 gleichzeitig passiert. Allerdings spielt der Kondensator jetzt nicht mehr so eine grosse Rolle, was auch nicht nötig ist. Auf das Hochladen des Codes hat die Brücke keinen Einfluss. Die Funktioniert wie bei der Schaltung ohne Brücke einwandfrei.
 
@@ -131,13 +131,13 @@ Die Messung nach dem Einlöten der Brücke bestätigt dies. Abbildung \ref{fig:E
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/ESP32_Handshake_Forum}
-\caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR. \cite{liudr_trying_2017}}
+\caption{Handshake zum Hochladen des Programmcodes auf das Wireless-/Bluetoothmodul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR. \cite{liudr_trying_2017}}
 \label{fig:ESP32_Handshake_Forum}
 \end{figure}
 
 \begin{figure}[H]
 \center
 \includegraphics[width = \textwidth]{graphics/ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
-\caption{Handshake zum Hochladen des Programmcodes auf das WiFi-Modul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.}
+\caption{Handshake zum Hochladen des Programmcodes auf das Wireless-/Bluetoothmodul. Zoom auf gleichzeitiger Flankenwechsel RTS und DTR.}
 \label{fig:ESP32_RTS_DTR_EN_IO0_mit_Bruecke_1}
 \end{figure}

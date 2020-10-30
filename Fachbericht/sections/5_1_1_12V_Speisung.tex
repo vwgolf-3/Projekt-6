@@ -25,8 +25,8 @@ Die gewünschte Ausgangsspannung wird mittels Spannungsteiler R39 \& R40 eingest
 R40 &= \frac{R39}{\frac{Vout}{0.8}-1}
 \label{equ:Ausgangsspannung_12V}
 \end{align}
-\todo{R39 = +-300 Ohm für ''optimal transient response'' erwähnen}
-Bei einem Widerstandsverhältnis von R39=301k$\Omega$ \& R40=21.5k$\Omega$ entspricht dies einer Ausgangsspannung von 12V.
+
+Bei einem Widerstandsverhältnis von R39=301k$\Omega$ \& R40=21.5k$\Omega$ entspricht dies einer Ausgangsspannung von 12V. Gemäss Datenblatt solten die Widerstände > 10k$\Omega$ sein, um die Verluste niedrig zu halten.
 
 Um einer Überspannung vorbeugen zu können, wird am Eingang Voltage-Overshoot (VO) ein Spannungsteiler implementiert. Diese wird am VO-Eingang mit einer Referenzspannung von 0.9V verglichen. Übersteigt die Spannung an VO die Referenzspannung von 0.9V, so wird der Regler ausgeschaltet, bis die Spannung wieder unter 0.9V fällt. Als maximale Ausgangsspannung wurde hierbei eine Spannung von 13V gewählt. Diese Wahl wurde getroffen, da die 12V ausschliesslich für die Ansteuerung der Pumpen verwendet wird und diese eine Spannung von 13V verkraften können ohne Schaden zu nehmen. Der Spannungsteiler wird gemäss Datenblatt mit der Formel \ref{equ:Vovp_12V} berechnet  \cite{aiyimaindustrial_store_us_nodate}.
 
@@ -34,9 +34,9 @@ Um einer Überspannung vorbeugen zu können, wird am Eingang Voltage-Overshoot (
 R35 &= \frac{R34}{\frac{Vovp}{Vovref}-1}
 \label{equ:Vovp_12V}
 \end{align}
-\todo{R39 = +-300 Ohm für ''to reduce power dissipation'' erwähnen}
 
-Bei einem Widerstandsverhältnis von R34=301k$\Omega$ \& R35=22k$\Omega$ entspricht dies einer Überspannungsschutzschwelle von 13.21V  \cite{mouser_mp24943dn-lf_nodate}.
+
+Bei einem Widerstandsverhältnis von R34=301k$\Omega$ \& R35=22k$\Omega$ entspricht dies einer Überspannungsschutzschwelle von 13.21V.Gemäss Datenblatt solten die Widerstände > 10k$\Omega$ sein, um die Verluste niedrig zu halten.  \cite{mouser_mp24943dn-lf_nodate}.
 
 Der Rippel des Spulenstroms lässt sich gemäss Formel \ref{equ:12V_Spulenberechnung} berechnen. Dieser sollte gemäss Datenblatt ca. 30\% des maximalen Ausgangsstroms von 3A betragen. 
 

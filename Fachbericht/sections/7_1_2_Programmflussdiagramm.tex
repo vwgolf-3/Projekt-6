@@ -11,7 +11,12 @@ Wird das Programm gestartet, beginnt die Init-Section. Hier werden die zuerst di
 \paragraph{Main-Loop}\mbox{}\\
 Da die Maschine nur auf Inputs reagieren muss, werden im Main-Loop nur die Buffer der Devices abgefragt. Sobald ein Terminator-Zeichen ankommt (z.B ein carriage return '\textbackslash r' der UART0-Schnitstelle oder 0xFF 0xFF 0xFF der UART1-Schnittstelle), werden die zuvor empfangenen Daten interpretiert und verarbeitet.
 
-\includepdf[pages={1}]{graphics/Programmfluss_Atmega2560}
+\begin{figure}[H]
+	\centering
+	\includegraphics[angle = 270, width=0.6\textwidth]{graphics/ProgrammflussMikrokontroller}
+	\caption{Programmfluss Mikrocontroller}
+	\label{fig:Programmfluss_Atmega2560}
+\end{figure}
 
 \subsubsection{Speicherorganisation}\label{subsubsec:Speicherorganisation}
 
