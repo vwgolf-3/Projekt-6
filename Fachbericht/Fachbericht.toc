@@ -13,166 +13,166 @@
 \contentsline {subsection}{\numberline {3.3}Verkleidung}{6}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Unterbringung der Elektronik}{6}{subsection.3.4}
 \contentsline {subsection}{\numberline {3.5}K\IeC {\"u}hlbox}{7}{subsection.3.5}
-\contentsline {section}{\numberline {4}Printaufbau}{9}{section.4}
-\contentsline {paragraph}{Legende zu Abbildung \ref {fig:Print_3D}}{10}{section*.20}
-\contentsline {section}{\numberline {5}Teilsysteme}{11}{section.5}
-\contentsline {subsection}{\numberline {5.1}Speisungen}{11}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{11}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{12}{subsubsection.5.1.2}
-\contentsline {paragraph}{Schema}{12}{section*.22}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{12}{section*.24}
-\contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{13}{subsubsection.5.1.3}
-\contentsline {paragraph}{Schema}{14}{section*.27}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{14}{section*.29}
-\contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{14}{subsubsection.5.1.4}
-\contentsline {paragraph}{Schema}{15}{section*.30}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{15}{section*.32}
-\contentsline {subsection}{\numberline {5.2}Motor}{16}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}FOC-Treiber}{16}{subsubsection.5.2.1}
-\contentsline {paragraph}{Schema}{18}{section*.36}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{19}{section*.38}
-\contentsline {subsubsection}{\numberline {5.2.2}Gate-Treiber}{20}{subsubsection.5.2.2}
-\contentsline {paragraph}{Schema}{20}{section*.41}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{21}{section*.43}
-\contentsline {subsubsection}{\numberline {5.2.3}H-Br\IeC {\"u}cke}{22}{subsubsection.5.2.3}
-\contentsline {paragraph}{Schema}{22}{section*.44}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.46}
-\contentsline {subsubsection}{\numberline {5.2.4}BLDC}{23}{subsubsection.5.2.4}
-\contentsline {paragraph}{Schema}{23}{section*.47}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{23}{section*.48}
-\contentsline {subsubsection}{\numberline {5.2.5}ABN-Encoder}{24}{subsubsection.5.2.5}
-\contentsline {paragraph}{Schema}{24}{section*.49}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.50}
-\contentsline {subsection}{\numberline {5.3}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{24}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Pumpen}{25}{subsubsection.5.3.1}
-\contentsline {paragraph}{Schema}{25}{section*.51}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{25}{section*.53}
-\contentsline {subsubsection}{\numberline {5.3.2}Durchflussmessger\IeC {\"a}te}{26}{subsubsection.5.3.2}
-\contentsline {paragraph}{Schema}{26}{section*.54}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{26}{section*.57}
-\contentsline {subsection}{\numberline {5.4}Programmierschnittstellen}{26}{subsection.5.4}
-\contentsline {paragraph}{Handshake Mikrocontroller}{27}{section*.58}
-\contentsline {paragraph}{Handshake WiFi-Modul}{27}{section*.59}
-\contentsline {paragraph}{Schema}{28}{section*.62}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.64}
-\contentsline {subsection}{\numberline {5.5}Benutzerschnittstellen}{29}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}Display}{29}{subsubsection.5.5.1}
-\contentsline {paragraph}{Schema}{29}{section*.65}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{29}{section*.66}
-\contentsline {subsubsection}{\numberline {5.5.2}WiFi-Modul}{30}{subsubsection.5.5.2}
-\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{30}{section*.67}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{32}{section*.72}
-\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{32}{section*.73}
-\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{32}{section*.75}
-\contentsline {subsubsection}{\numberline {5.5.3}RFID}{33}{subsubsection.5.5.3}
-\contentsline {paragraph}{Schema}{33}{section*.76}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{34}{section*.78}
-\contentsline {subsection}{\numberline {5.6}Beleuchtung}{34}{subsection.5.6}
-\contentsline {paragraph}{Schema}{34}{section*.80}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{35}{section*.82}
-\contentsline {subsection}{\numberline {5.7}Mikrocontroller}{35}{subsection.5.7}
-\contentsline {paragraph}{Schema}{35}{section*.83}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{36}{section*.85}
-\contentsline {subsection}{\numberline {5.8}SD-Karte}{36}{subsection.5.8}
-\contentsline {paragraph}{Schema}{37}{section*.87}
-\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.89}
-\contentsline {section}{\numberline {6}Inbetriebnahme}{38}{section.6}
-\contentsline {subsection}{\numberline {6.1}Speisungen}{38}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}12V Speisung}{38}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}5V Speisung}{38}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}3.3V Speisung}{38}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}Programmierschnittstellen}{39}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Mikrocontroller}{41}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}AVRdude in Atmel Studio einbinden}{41}{subsubsection.6.3.1}
-\contentsline {subsection}{\numberline {6.4}Benutzerschnittstellen}{43}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Touch-Display}{43}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}WiFi-Modul}{43}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}RFID}{44}{subsubsection.6.4.3}
-\contentsline {subsection}{\numberline {6.5}SD-Karte}{45}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{46}{subsection.6.6}
-\contentsline {subsubsection}{\numberline {6.6.1}Pumpen}{46}{subsubsection.6.6.1}
-\contentsline {subsubsection}{\numberline {6.6.2}Durchflussmessger\IeC {\"a}te}{46}{subsubsection.6.6.2}
-\contentsline {subsection}{\numberline {6.7}Beleuchtung}{47}{subsection.6.7}
-\contentsline {subsection}{\numberline {6.8}Motor}{48}{subsection.6.8}
-\contentsline {subsubsection}{\numberline {6.8.1}FOC-Treiber}{48}{subsubsection.6.8.1}
-\contentsline {paragraph}{Setup}{48}{section*.98}
-\contentsline {subsubsection}{\numberline {6.8.2}Gate-Treiber, H-Br\IeC {\"u}cke und BLDC}{49}{subsubsection.6.8.2}
-\contentsline {paragraph}{Setup}{50}{section*.100}
-\contentsline {subsubsection}{\numberline {6.8.3}ABN-Encoder}{51}{subsubsection.6.8.3}
-\contentsline {subsubsection}{\numberline {6.8.4}Software-Ramp}{52}{subsubsection.6.8.4}
-\contentsline {section}{\numberline {7}Software}{54}{section.7}
-\contentsline {subsection}{\numberline {7.1}Mikrocontroller}{54}{subsection.7.1}
-\contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{54}{subsubsection.7.1.1}
-\contentsline {subsubsection}{\numberline {7.1.2}Programmflussdiagramm}{56}{subsubsection.7.1.2}
-\contentsline {paragraph}{Bootloader-Section}{56}{section*.104}
-\contentsline {paragraph}{Init-Section}{56}{section*.105}
-\contentsline {paragraph}{Main-Loop}{56}{section*.106}
-\contentsline {subsubsection}{\numberline {7.1.3}Speicherorganisation}{58}{subsubsection.7.1.3}
-\contentsline {subsection}{\numberline {7.2}WiFi-Modul}{58}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{59}{subsubsection.7.2.1}
-\contentsline {subsection}{\numberline {7.3}Displaysoftware}{59}{subsection.7.3}
-\contentsline {subsubsection}{\numberline {7.3.1}Displaymenu}{60}{subsubsection.7.3.1}
-\contentsline {subsection}{\numberline {7.4}Android App}{69}{subsection.7.4}
-\contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{71}{subsubsection.7.4.1}
-\contentsline {section}{\numberline {8}Fazit}{74}{section.8}
-\contentsline {subsection}{\numberline {8.1}Rekapitulation}{74}{subsection.8.1}
-\contentsline {subsubsection}{\numberline {8.1.1}Speisungen}{74}{subsubsection.8.1.1}
-\contentsline {subsubsection}{\numberline {8.1.2}Mikrokontroller}{74}{subsubsection.8.1.2}
-\contentsline {subsubsection}{\numberline {8.1.3}Motor}{74}{subsubsection.8.1.3}
-\contentsline {subsubsection}{\numberline {8.1.4}Pumpen}{74}{subsubsection.8.1.4}
-\contentsline {subsubsection}{\numberline {8.1.5}Durchflussmessger\IeC {\"a}te}{74}{subsubsection.8.1.5}
-\contentsline {subsubsection}{\numberline {8.1.6}Display}{75}{subsubsection.8.1.6}
-\contentsline {subsection}{\numberline {8.2}Vergleich der gesetzten Ziele mit den erreichten Zielen}{75}{subsection.8.2}
-\contentsline {subsubsection}{\numberline {8.2.1}Pflichzielerf\IeC {\"u}llung}{76}{subsubsection.8.2.1}
-\contentsline {subsubsection}{\numberline {8.2.2}Wunschzielerf\IeC {\"u}llung}{77}{subsubsection.8.2.2}
-\contentsline {subsection}{\numberline {8.3}Zielerreichung}{78}{subsection.8.3}
-\contentsline {section}{\numberline {9}Pers\IeC {\"o}nliches Schlusswort}{78}{section.9}
-\contentsline {section}{\numberline {10}Ehrlichkeitserkl\IeC {\"a}rung}{78}{section.10}
-\contentsline {section}{Literatur}{79}{section*.130}
-\contentsline {section}{\numberline {A}Programmierschnittstellen}{84}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Inbetriebnahme}{84}{subsection.A.1}
-\contentsline {subsubsection}{\numberline {A.1.1}AVRdude und stk500v2 (wiring)}{84}{subsubsection.A.1.1}
-\contentsline {subsubsection}{\numberline {A.1.2}Mikrocontroller}{85}{subsubsection.A.1.2}
-\contentsline {subsubsection}{\numberline {A.1.3}WiFi-Modul}{86}{subsubsection.A.1.3}
-\contentsline {section}{\numberline {B}Mikrocontroller}{88}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}Inbetriebnahme}{88}{subsection.B.1}
-\contentsline {subsubsection}{\numberline {B.1.1}Fuse- und Lock-Bits}{88}{subsubsection.B.1.1}
-\contentsline {subsubsection}{\numberline {B.1.2}Pinout}{91}{subsubsection.B.1.2}
-\contentsline {section}{\numberline {C}WiFi-Modul}{93}{appendix.C}
-\contentsline {subsection}{\numberline {C.1}Inbetriebnahme}{93}{subsection.C.1}
-\contentsline {subsubsection}{\numberline {C.1.1}Arduino IDE}{93}{subsubsection.C.1.1}
-\contentsline {section}{\numberline {D}LED}{95}{appendix.D}
-\contentsline {subsection}{\numberline {D.1}Inbetriebnahme}{95}{subsection.D.1}
-\contentsline {subsubsection}{\numberline {D.1.1}PWM-Signale}{95}{subsubsection.D.1.1}
-\contentsline {section}{\numberline {E}FOC-Treiber}{97}{appendix.E}
-\contentsline {subsection}{\numberline {E.1}Teilschemae Breakout-Board}{97}{subsection.E.1}
-\contentsline {subsection}{\numberline {E.2}Inbetriebnahme}{99}{subsection.E.2}
-\contentsline {subsubsection}{\numberline {E.2.1}Inbetriebnahme SPI-Kommunikation}{99}{subsubsection.E.2.1}
-\contentsline {subsubsection}{\numberline {E.2.2}Inbetriebnahme Gate-Ctrl}{100}{subsubsection.E.2.2}
-\contentsline {subsubsection}{\numberline {E.2.3}Register Openloop}{101}{subsubsection.E.2.3}
-\contentsline {section}{\numberline {F}Gate-Treiber}{102}{appendix.F}
-\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{102}{subsection.F.1}
-\contentsline {subsection}{\numberline {F.2}Blockdiagramm}{102}{subsection.F.2}
-\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{103}{subsection.F.3}
-\contentsline {subsubsection}{\numberline {F.3.1}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{103}{subsubsection.F.3.1}
-\contentsline {subsubsection}{\numberline {F.3.2}Gate-Vorwiderstand}{103}{subsubsection.F.3.2}
-\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{104}{subsubsection.F.3.3}
-\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{105}{subsubsection.F.3.4}
-\contentsline {subsubsection}{\numberline {F.3.5}Register Gate-Treiber}{106}{subsubsection.F.3.5}
-\contentsline {section}{\numberline {G}H-Br\IeC {\"u}cke}{107}{appendix.G}
-\contentsline {subsection}{\numberline {G.1}Inbetriebnahme}{107}{subsection.G.1}
-\contentsline {subsubsection}{\numberline {G.1.1}Inbetriebnahme Schaltsignale}{107}{subsubsection.G.1.1}
-\contentsline {section}{\numberline {H}ABN-Encoder}{108}{appendix.H}
-\contentsline {subsection}{\numberline {H.1}Pinout and Interface}{108}{subsection.H.1}
-\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{109}{subsection.H.2}
-\contentsline {subsubsection}{\numberline {H.2.1}Encoder-Signale}{109}{subsubsection.H.2.1}
-\contentsline {subsubsection}{\numberline {H.2.2}Register Closed-Loop}{110}{subsubsection.H.2.2}
-\contentsline {subsection}{\numberline {H.3}PI-Regler}{111}{subsection.H.3}
-\contentsline {subsubsection}{\numberline {H.3.1}Drehmoment}{111}{subsubsection.H.3.1}
-\contentsline {subsubsection}{\numberline {H.3.2}Geschwindigkeit}{112}{subsubsection.H.3.2}
-\contentsline {subsubsection}{\numberline {H.3.3}Position}{113}{subsubsection.H.3.3}
-\contentsline {section}{\numberline {I}Software Ramp}{114}{appendix.I}
-\contentsline {subsection}{\numberline {I.1}Implementierung}{114}{subsection.I.1}
-\contentsline {subsection}{\numberline {I.2}Matlab-Script}{116}{subsection.I.2}
-\contentsline {section}{\numberline {J}Print}{120}{appendix.J}
-\contentsline {subsection}{\numberline {J.1}KiCad Schema}{120}{subsection.J.1}
+\contentsline {section}{\numberline {4}Printaufbau}{10}{section.4}
+\contentsline {paragraph}{Legende zu Abbildung \ref {fig:Print_3D}}{11}{section*.20}
+\contentsline {section}{\numberline {5}Teilsysteme}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}Speisungen}{12}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}48V Speisung}{12}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}12V Speisung}{13}{subsubsection.5.1.2}
+\contentsline {paragraph}{Schema}{13}{section*.22}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{13}{section*.24}
+\contentsline {subsubsection}{\numberline {5.1.3}5V Speisung}{14}{subsubsection.5.1.3}
+\contentsline {paragraph}{Schema}{15}{section*.27}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{15}{section*.29}
+\contentsline {subsubsection}{\numberline {5.1.4}3.3V Speisung}{15}{subsubsection.5.1.4}
+\contentsline {paragraph}{Schema}{16}{section*.30}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{16}{section*.32}
+\contentsline {subsection}{\numberline {5.2}Motor}{17}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}FOC-Treiber}{17}{subsubsection.5.2.1}
+\contentsline {paragraph}{Schema}{19}{section*.36}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{20}{section*.38}
+\contentsline {subsubsection}{\numberline {5.2.2}Gate-Treiber}{21}{subsubsection.5.2.2}
+\contentsline {paragraph}{Schema}{21}{section*.41}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{22}{section*.43}
+\contentsline {subsubsection}{\numberline {5.2.3}H-Br\IeC {\"u}cke}{23}{subsubsection.5.2.3}
+\contentsline {paragraph}{Schema}{23}{section*.44}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.46}
+\contentsline {subsubsection}{\numberline {5.2.4}BLDC}{24}{subsubsection.5.2.4}
+\contentsline {paragraph}{Schema}{24}{section*.47}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{24}{section*.48}
+\contentsline {subsubsection}{\numberline {5.2.5}ABN-Encoder}{25}{subsubsection.5.2.5}
+\contentsline {paragraph}{Schema}{25}{section*.49}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{25}{section*.50}
+\contentsline {subsection}{\numberline {5.3}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{25}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Pumpen}{26}{subsubsection.5.3.1}
+\contentsline {paragraph}{Schema}{26}{section*.51}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{26}{section*.53}
+\contentsline {subsubsection}{\numberline {5.3.2}Durchflussmessger\IeC {\"a}te}{27}{subsubsection.5.3.2}
+\contentsline {paragraph}{Schema}{27}{section*.54}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{27}{section*.57}
+\contentsline {subsection}{\numberline {5.4}Programmierschnittstellen}{27}{subsection.5.4}
+\contentsline {paragraph}{Handshake Mikrocontroller}{28}{section*.58}
+\contentsline {paragraph}{Handshake WiFi-Modul}{28}{section*.59}
+\contentsline {paragraph}{Schema}{29}{section*.62}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{30}{section*.64}
+\contentsline {subsection}{\numberline {5.5}Benutzerschnittstellen}{30}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Display}{30}{subsubsection.5.5.1}
+\contentsline {paragraph}{Schema}{30}{section*.65}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{30}{section*.66}
+\contentsline {subsubsection}{\numberline {5.5.2}WiFi-Modul}{31}{subsubsection.5.5.2}
+\contentsline {paragraph}{Schema (Bluetooth- / Wifimodul)}{31}{section*.67}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung (Bluetooth- / Wifimodul)}{33}{section*.72}
+\contentsline {paragraph}{Schema (Automatische Boot-Logik)}{33}{section*.73}
+\contentsline {paragraph}{Funtionsbeschrieb der Schaltung (Automatische Bootlogik)}{33}{section*.75}
+\contentsline {subsubsection}{\numberline {5.5.3}RFID}{34}{subsubsection.5.5.3}
+\contentsline {paragraph}{Schema}{34}{section*.76}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{35}{section*.78}
+\contentsline {subsection}{\numberline {5.6}Beleuchtung}{35}{subsection.5.6}
+\contentsline {paragraph}{Schema}{35}{section*.80}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{36}{section*.82}
+\contentsline {subsection}{\numberline {5.7}Mikrocontroller}{36}{subsection.5.7}
+\contentsline {paragraph}{Schema}{36}{section*.83}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{37}{section*.85}
+\contentsline {subsection}{\numberline {5.8}SD-Karte}{37}{subsection.5.8}
+\contentsline {paragraph}{Schema}{38}{section*.87}
+\contentsline {paragraph}{Funktionsbeschrieb der Schaltung}{38}{section*.89}
+\contentsline {section}{\numberline {6}Inbetriebnahme}{39}{section.6}
+\contentsline {subsection}{\numberline {6.1}Speisungen}{39}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}12V Speisung}{39}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}5V Speisung}{39}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}3.3V Speisung}{39}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}Programmierschnittstellen}{40}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Mikrocontroller}{42}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}AVRdude in Atmel Studio einbinden}{42}{subsubsection.6.3.1}
+\contentsline {subsection}{\numberline {6.4}Benutzerschnittstellen}{44}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Touch-Display}{44}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}WiFi-Modul}{44}{subsubsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.3}RFID}{45}{subsubsection.6.4.3}
+\contentsline {subsection}{\numberline {6.5}SD-Karte}{46}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Fl\IeC {\"u}ssigkeitsbef\IeC {\"o}rderung}{47}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Pumpen}{47}{subsubsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.2}Durchflussmessger\IeC {\"a}te}{47}{subsubsection.6.6.2}
+\contentsline {subsection}{\numberline {6.7}Beleuchtung}{48}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}Motor}{49}{subsection.6.8}
+\contentsline {subsubsection}{\numberline {6.8.1}FOC-Treiber}{49}{subsubsection.6.8.1}
+\contentsline {paragraph}{Setup}{49}{section*.98}
+\contentsline {subsubsection}{\numberline {6.8.2}Gate-Treiber, H-Br\IeC {\"u}cke und BLDC}{50}{subsubsection.6.8.2}
+\contentsline {paragraph}{Setup}{51}{section*.100}
+\contentsline {subsubsection}{\numberline {6.8.3}ABN-Encoder}{52}{subsubsection.6.8.3}
+\contentsline {subsubsection}{\numberline {6.8.4}Software-Ramp}{53}{subsubsection.6.8.4}
+\contentsline {section}{\numberline {7}Software}{55}{section.7}
+\contentsline {subsection}{\numberline {7.1}Mikrocontroller}{55}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Strukturplan}{55}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}Programmflussdiagramm}{57}{subsubsection.7.1.2}
+\contentsline {paragraph}{Bootloader-Section}{57}{section*.104}
+\contentsline {paragraph}{Init-Section}{57}{section*.105}
+\contentsline {paragraph}{Main-Loop}{57}{section*.106}
+\contentsline {subsubsection}{\numberline {7.1.3}Speicherorganisation}{59}{subsubsection.7.1.3}
+\contentsline {subsection}{\numberline {7.2}WiFi-Modul}{59}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Programmflussdiagramm}{60}{subsubsection.7.2.1}
+\contentsline {subsection}{\numberline {7.3}Displaysoftware}{60}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Displaymenu}{61}{subsubsection.7.3.1}
+\contentsline {subsection}{\numberline {7.4}Android App}{70}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}PartyMixer App}{72}{subsubsection.7.4.1}
+\contentsline {section}{\numberline {8}Fazit}{75}{section.8}
+\contentsline {subsection}{\numberline {8.1}Rekapitulation}{75}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Speisungen}{75}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Mikrokontroller}{75}{subsubsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.3}Motor}{75}{subsubsection.8.1.3}
+\contentsline {subsubsection}{\numberline {8.1.4}Pumpen}{75}{subsubsection.8.1.4}
+\contentsline {subsubsection}{\numberline {8.1.5}Durchflussmessger\IeC {\"a}te}{75}{subsubsection.8.1.5}
+\contentsline {subsubsection}{\numberline {8.1.6}Display}{76}{subsubsection.8.1.6}
+\contentsline {subsection}{\numberline {8.2}Vergleich der gesetzten Ziele mit den erreichten Zielen}{76}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Pflichzielerf\IeC {\"u}llung}{77}{subsubsection.8.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2}Wunschzielerf\IeC {\"u}llung}{78}{subsubsection.8.2.2}
+\contentsline {subsection}{\numberline {8.3}Zielerreichung}{79}{subsection.8.3}
+\contentsline {section}{\numberline {9}Pers\IeC {\"o}nliches Schlusswort}{79}{section.9}
+\contentsline {section}{\numberline {10}Ehrlichkeitserkl\IeC {\"a}rung}{79}{section.10}
+\contentsline {section}{Literatur}{80}{section*.130}
+\contentsline {section}{\numberline {A}Programmierschnittstellen}{85}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Inbetriebnahme}{85}{subsection.A.1}
+\contentsline {subsubsection}{\numberline {A.1.1}AVRdude und stk500v2 (wiring)}{85}{subsubsection.A.1.1}
+\contentsline {subsubsection}{\numberline {A.1.2}Mikrocontroller}{86}{subsubsection.A.1.2}
+\contentsline {subsubsection}{\numberline {A.1.3}WiFi-Modul}{87}{subsubsection.A.1.3}
+\contentsline {section}{\numberline {B}Mikrocontroller}{89}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}Inbetriebnahme}{89}{subsection.B.1}
+\contentsline {subsubsection}{\numberline {B.1.1}Fuse- und Lock-Bits}{89}{subsubsection.B.1.1}
+\contentsline {subsubsection}{\numberline {B.1.2}Pinout}{92}{subsubsection.B.1.2}
+\contentsline {section}{\numberline {C}WiFi-Modul}{94}{appendix.C}
+\contentsline {subsection}{\numberline {C.1}Inbetriebnahme}{94}{subsection.C.1}
+\contentsline {subsubsection}{\numberline {C.1.1}Arduino IDE}{94}{subsubsection.C.1.1}
+\contentsline {section}{\numberline {D}LED}{96}{appendix.D}
+\contentsline {subsection}{\numberline {D.1}Inbetriebnahme}{96}{subsection.D.1}
+\contentsline {subsubsection}{\numberline {D.1.1}PWM-Signale}{96}{subsubsection.D.1.1}
+\contentsline {section}{\numberline {E}FOC-Treiber}{98}{appendix.E}
+\contentsline {subsection}{\numberline {E.1}Teilschemae Breakout-Board}{98}{subsection.E.1}
+\contentsline {subsection}{\numberline {E.2}Inbetriebnahme}{100}{subsection.E.2}
+\contentsline {subsubsection}{\numberline {E.2.1}Inbetriebnahme SPI-Kommunikation}{100}{subsubsection.E.2.1}
+\contentsline {subsubsection}{\numberline {E.2.2}Inbetriebnahme Gate-Ctrl}{101}{subsubsection.E.2.2}
+\contentsline {subsubsection}{\numberline {E.2.3}Register Openloop}{102}{subsubsection.E.2.3}
+\contentsline {section}{\numberline {F}Gate-Treiber}{103}{appendix.F}
+\contentsline {subsection}{\numberline {F.1}Standard-Schaltkreis}{103}{subsection.F.1}
+\contentsline {subsection}{\numberline {F.2}Blockdiagramm}{103}{subsection.F.2}
+\contentsline {subsection}{\numberline {F.3}Inbetriebnahme}{104}{subsection.F.3}
+\contentsline {subsubsection}{\numberline {F.3.1}Verst\IeC {\"a}rkungsfaktor, Strommessung, Strommesswiderstand}{104}{subsubsection.F.3.1}
+\contentsline {subsubsection}{\numberline {F.3.2}Gate-Vorwiderstand}{104}{subsubsection.F.3.2}
+\contentsline {subsubsection}{\numberline {F.3.3}Inbetriebnahme SPI-Kommunikation}{105}{subsubsection.F.3.3}
+\contentsline {subsubsection}{\numberline {F.3.4}Inbetriebnahme Gate-Ctrl}{106}{subsubsection.F.3.4}
+\contentsline {subsubsection}{\numberline {F.3.5}Register Gate-Treiber}{107}{subsubsection.F.3.5}
+\contentsline {section}{\numberline {G}H-Br\IeC {\"u}cke}{108}{appendix.G}
+\contentsline {subsection}{\numberline {G.1}Inbetriebnahme}{108}{subsection.G.1}
+\contentsline {subsubsection}{\numberline {G.1.1}Inbetriebnahme Schaltsignale}{108}{subsubsection.G.1.1}
+\contentsline {section}{\numberline {H}ABN-Encoder}{109}{appendix.H}
+\contentsline {subsection}{\numberline {H.1}Pinout and Interface}{109}{subsection.H.1}
+\contentsline {subsection}{\numberline {H.2}Inbetriebnahme}{110}{subsection.H.2}
+\contentsline {subsubsection}{\numberline {H.2.1}Encoder-Signale}{110}{subsubsection.H.2.1}
+\contentsline {subsubsection}{\numberline {H.2.2}Register Closed-Loop}{111}{subsubsection.H.2.2}
+\contentsline {subsection}{\numberline {H.3}PI-Regler}{112}{subsection.H.3}
+\contentsline {subsubsection}{\numberline {H.3.1}Drehmoment}{112}{subsubsection.H.3.1}
+\contentsline {subsubsection}{\numberline {H.3.2}Geschwindigkeit}{113}{subsubsection.H.3.2}
+\contentsline {subsubsection}{\numberline {H.3.3}Position}{114}{subsubsection.H.3.3}
+\contentsline {section}{\numberline {I}Software Ramp}{115}{appendix.I}
+\contentsline {subsection}{\numberline {I.1}Implementierung}{115}{subsection.I.1}
+\contentsline {subsection}{\numberline {I.2}Matlab-Script}{117}{subsection.I.2}
+\contentsline {section}{\numberline {J}Print}{121}{appendix.J}
+\contentsline {subsection}{\numberline {J.1}KiCad Schema}{121}{subsection.J.1}
