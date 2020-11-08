@@ -226,6 +226,7 @@ void check_startseite(uint8_t button)
         */
         nextion_change_page(ZUBABFRAGE);
         lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
+		
         break;
 
     case RECHTS:

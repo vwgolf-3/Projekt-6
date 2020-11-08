@@ -1248,9 +1248,9 @@ uint8_t check_stop(void)
         {
             schalte_pumpe_aus(k);
         }
-		return 0;
+        return 0;
     }
-	return 1;
+    return 1;
 }
 
 void wait_until_position_reached(linear_ramp_t *ramp)
@@ -1295,6 +1295,7 @@ uint32_t * set_prp(uint32_t * prp, uint8_t fuellmenge)
 
 void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
 {
+    disableLEDinterrupts();
     // Geschwindigkeit und Beschleunigung während Zubereitung
     uint32_t geschwindigkeit = 800;
     uint32_t beschleunigung = 600;
@@ -1324,6 +1325,8 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
     // Switche durch alle Zutaten während stop == 0
     do
     {
+        Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+        Uart_Transmit_IT_PC("\r");
         // Falls die Zutat vorkommt
         if (tmp_zut_Maschine_actual->menge > 0)
         {
@@ -1368,10 +1371,10 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
                     // Falls ein Flankenwechsel stattgefunden hat, zähle hoch
                     if( !oldval && newval)
                     {
-						char buff[5] = {'\0'};
-							itoa(count, (char *)buff, 10);
-							Uart_Transmit_IT_PC((char *)buff);
-							Uart_Transmit_IT_PC("\r");
+                        char buff[5] = {'\0'};
+                        itoa(count, (char *)buff, 10);
+                        Uart_Transmit_IT_PC((char *)buff);
+                        Uart_Transmit_IT_PC("\r");
                         // Falls erwünschte Menge erreicht wurde, breche aus Schleife aus und setze Zähler zurück
                         if(count++ > Menge)
                         {
@@ -1401,12 +1404,12 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
     } while(tmp_zut_Maschine_actual != head_zutat_maschine_ohne && stop == 0);
 
-    val = (float)tmc4671_getActualPosition(0)/1000;	
-	
-	// Abbruch:
+    val = (float)tmc4671_getActualPosition(0)/1000;
+
+    // Abbruch:
     if (stop == 1)
     {
-		Uart_Transmit_IT_PC("STOP\r");
+        Uart_Transmit_IT_PC("STOP\r");
         stop = 0;
         nextion_setText("zufallstxt","Abbruch");
         nextion_setText("abbruchzub","Motor stop");
@@ -1424,10 +1427,10 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         nextion_change_page(STARTANZEIGE);
         setze_startanzeige(aktuellesGetraenk);
     }
-	
-	
-	
-	// Normalbetrieb: stop = 0;
+
+
+
+    // Normalbetrieb: stop = 0;
     else
     {
         /*
@@ -1504,8 +1507,7 @@ void fuelle_getraenk(uint32_t fuellmenge, linear_ramp_t *ramp)
         }
 
     }
-
-
+    enableLEDinterrupts();
 }
 
 void schalte_pumpe_ein(uint8_t Pumpe)
@@ -1649,9 +1651,19 @@ uint8_t lese_sensor(uint8_t Sensor)
 void schreibe_Menge_in_Getraenk(uint8_t zutat)
 {
     zutat_maschine_node_t * tmp_zut_Maschine_actual_2 = actual_list_node_zutat_maschine->zutat_maschine;
+
+    while (strcmp(tmp_zut_Maschine_actual_2->name, "(keine)")==0)
+    {
+        tmp_zut_Maschine_actual_2 = tmp_zut_Maschine_actual_2->next;
+    }
+
     for (int count = 0 ; count < zutat; count++)
     {
         tmp_zut_Maschine_actual_2 = tmp_zut_Maschine_actual_2->next;
+        while (strcmp(tmp_zut_Maschine_actual_2->name, "(keine)")==0)
+        {
+            tmp_zut_Maschine_actual_2 = tmp_zut_Maschine_actual_2->next;
+        }
     }
 
     concentrace_zutat_maschine_list();
@@ -1757,6 +1769,12 @@ void speichere_neuen_cocktail(void)
     tmp_zut_Maschine_actual = tmp_zut_Maschine_head;
     do
     {
+        Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+        Uart_Transmit_IT_PC("\r");
+        char buff[5] = {'\0'};
+        itoa(tmp_zut_Maschine_actual->menge, (char *)buff, 10);
+        Uart_Transmit_IT_PC((char *)buff);
+        Uart_Transmit_IT_PC("\r");
         val += tmp_zut_Maschine_actual->menge;
         tmp_zut_Maschine_actual = tmp_zut_Maschine_actual->next;
     } while (tmp_zut_Maschine_actual != tmp_zut_Maschine_head);
@@ -1777,6 +1795,9 @@ void speichere_neuen_cocktail(void)
         {
             if (tmp_zut_Maschine_actual->menge > 0)
             {
+                Uart_Transmit_IT_PC(tmp_zut_Maschine_actual->name);
+                Uart_Transmit_IT_PC("\r");
+
                 if (tmp_zut_Maschine_actual->alkohol == 1)
                 {
                     alkohol = 1;
@@ -2098,33 +2119,7 @@ void lese_textfile_in_getraenk(uint8_t file)
 {
 // Aneinanderreihen zweier Listen
 
-// Pointer Beginn/Anfang/Aktuell/Return-(zutat_maschine_node_t)
-//     zutat_maschine_node_t * tmp_zut_Maschine_tail;
-    zutat_maschine_node_t * tmp_zut_Maschine_head;
-    zutat_maschine_node_t * tmp_zut_Maschine_actual;
-
-// Speichern der Momentanen Pointer.
-    zutat_maschine_node_t * tmp_ohne_KS_head = head_zutat_maschine_ohne->prev;
-    zutat_maschine_node_t * tmp_mit_KS_head = head_zutat_maschine_mit->prev;
-    zutat_maschine_node_t * tmp_ohne_KS_tail = tail_zutat_maschine_ohne->next;
-    zutat_maschine_node_t * tmp_mit_KS_tail = tail_zutat_maschine_mit->next;
-
-// Anfang und Ende der gesamten Liste
-//     tmp_zut_Maschine_tail = tail_zutat_maschine_ohne;
-    tmp_zut_Maschine_head = head_zutat_maschine_ohne;
-
-// Äussere Verbindungen
-    tail_zutat_maschine_ohne->next = head_zutat_maschine_mit;
-    head_zutat_maschine_mit->prev = tail_zutat_maschine_ohne;
-
-// Innere Verbindungen
-    tail_zutat_maschine_mit->next = head_zutat_maschine_ohne;
-    head_zutat_maschine_ohne->prev = tail_zutat_maschine_mit;
-
-//     head_zutat_maschine_ohne->prev = tmp_ohne_KS_head;
-//     tail_zutat_maschine_ohne->next = tmp_ohne_KS_tail;
-//     tail_zutat_maschine_mit->next = tmp_mit_KS_tail;
-//     head_zutat_maschine_mit->prev = tmp_mit_KS_head;
+    concentrace_zutat_maschine_list();
 
     // Erstellen eines Strings in Form von: "file.txt"
     char buff[50];
@@ -2222,10 +2217,7 @@ void lese_textfile_in_getraenk(uint8_t file)
         // Neuer Kopf suchen und ptr darauf zeigen lassen
         ptr = strtok(NULL, delimiter);
     }
-    head_zutat_maschine_ohne->prev = tmp_ohne_KS_head;
-    tail_zutat_maschine_ohne->next = tmp_ohne_KS_tail;
-    tail_zutat_maschine_mit->next = tmp_mit_KS_tail;
-    head_zutat_maschine_mit->prev = tmp_mit_KS_head;
+    deconcentrace_zutat_maschine_list();
 }
 
 void lese_textfile_in_zutat(uint8_t file)
@@ -2490,6 +2482,7 @@ void Getraenk_erstellt()
     strcat(ptr2, "\rMengen:\r");
 
     concentrace_zutat_maschine_list();
+
     uint8_t count = 1;
     do
     {
@@ -2498,7 +2491,7 @@ void Getraenk_erstellt()
 //         itoa((count), (char *)buff2, 10);
 //         Uart_Transmit_IT_PC(buff2);
 //         Uart_Transmit_IT_PC(": ");
-//         ptr = strtok(NULL, delimiter);
+        ptr = strtok(NULL, delimiter);
 //         Uart_Transmit_IT_PC(ptr);
         strcpy((char *)temp2, ptr);
 
@@ -2508,6 +2501,7 @@ void Getraenk_erstellt()
 //         Uart_Transmit_IT_PC(buff2);
 //         Uart_Transmit_IT_PC(": ");
         ptr = strtok(NULL, delimiter);
+
         if (atoi(ptr)>0)
         {
             tmp_zut_Maschine_actual = tmp_zut_Maschine_head;
@@ -2532,7 +2526,7 @@ void Getraenk_erstellt()
             strcat(ptr2, "\r");
         }
         count++;
-    } while (count < 12);
+    } while (count < 24);
     deconcentrace_zutat_maschine_list();
 
     strcat(ptr2, ";\r");
@@ -2566,6 +2560,7 @@ void Getraenk_erstellt()
             count = COUNT_UNTIL;
         }
     }
+
     actual_getraenk_file_alle = buffer2_getraenk_file_alle;
     lese_textfile_in_getraenk(actual_getraenk_file_alle->file);
     nextion_change_page(STARTANZEIGE);

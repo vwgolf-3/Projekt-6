@@ -17,7 +17,7 @@
 int main(void)
 {
     interfaces_init();			// IO, UART, SPI
-//     init_LED();					// PWM
+    init_LED();					// PWM
     devices_init();				// SD-Card, Motor
     speicher_init();			// Cocktails, Zutaten Tags
     ramp_init();				// Software-Ramp

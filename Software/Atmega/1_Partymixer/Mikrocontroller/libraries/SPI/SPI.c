@@ -97,7 +97,7 @@ void enable_Slave(uint8_t Slave)
     (0<<CPOL)|              // Clock Polarity when idle     (0 = low, 1 = SCK high)                     Datasheet S. 197 (Kapitel 21.2.1)
     (0<<CPHA));             // Clock Phase edge sampling    (0 = leading, 1 = trailing edge sampling)   Datasheet S. 197 (Kapitel 21.2.1)
 
-    SPSR = (1<<SPI2X);      // Double Clock Rate            (0 = Disable, 1 = Enable)                   Datasheet S. 198 (Kapitel 21.2.1)
+    SPSR &= ~(1<<SPI2X);      // Double Clock Rate            (0 = Disable, 1 = Enable)                   Datasheet S. 198 (Kapitel 21.2.1)
 
         SPI_CS_SD_CARD_PORT &= ~SPI_CS_SD_CARD_BIT;
         break;

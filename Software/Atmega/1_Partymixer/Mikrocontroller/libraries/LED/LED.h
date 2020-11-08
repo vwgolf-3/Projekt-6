@@ -39,6 +39,10 @@ void milliS_timer(uint8_t milliS);
 
 void PWM_BrightDim(uint16_t red, uint16_t green, uint16_t blue);
 
+void disableLEDinterrupts(void);
+
+void enableLEDinterrupts(void);
+
 enum LED_Bez {WEISS_LED, RAINBOW_LED, USER_LED};
 
 uint8_t light;
